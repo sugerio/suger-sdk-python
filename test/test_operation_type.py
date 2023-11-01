@@ -14,7 +14,7 @@
 
 
 import unittest
-import datetime
+
 
 from openapi_client.models.operation_type import OperationType  # noqa: E501
 

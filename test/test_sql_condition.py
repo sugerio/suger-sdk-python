@@ -14,7 +14,7 @@
 
 
 import unittest
-import datetime
+
 
 from openapi_client.models.sql_condition import SqlCondition  # noqa: E501
 

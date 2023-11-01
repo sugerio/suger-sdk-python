@@ -14,7 +14,7 @@
 
 
 import unittest
-import datetime
+
 
 from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_ok_response import (
     GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse,

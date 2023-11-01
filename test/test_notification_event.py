@@ -14,7 +14,7 @@
 
 
 import unittest
-import datetime
+
 
 from openapi_client.models.notification_event import NotificationEvent  # noqa: E501
 

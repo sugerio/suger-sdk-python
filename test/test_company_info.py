@@ -14,7 +14,7 @@
 
 
 import unittest
-import datetime
+
 
 from openapi_client.models.company_info import CompanyInfo  # noqa: E501
 

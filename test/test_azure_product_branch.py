@@ -14,7 +14,7 @@
 
 
 import unittest
-import datetime
+
 
 from openapi_client.models.azure_product_branch import AzureProductBranch  # noqa: E501
 

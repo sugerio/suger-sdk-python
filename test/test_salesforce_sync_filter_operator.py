@@ -14,7 +14,7 @@
 
 
 import unittest
-import datetime
+
 
 from openapi_client.models.salesforce_sync_filter_operator import (
     SalesforceSyncFilterOperator,

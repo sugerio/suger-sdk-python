@@ -14,7 +14,7 @@
 
 
 import unittest
-import datetime
+
 
 from openapi_client.models.offer_info import OfferInfo  # noqa: E501
 

@@ -14,7 +14,7 @@
 
 
 import unittest
-import datetime
+
 
 from openapi_client.models.update_buyer_params import UpdateBuyerParams  # noqa: E501
 

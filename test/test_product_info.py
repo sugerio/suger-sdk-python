@@ -14,7 +14,7 @@
 
 
 import unittest
-import datetime
+
 
 from openapi_client.models.product_info import ProductInfo  # noqa: E501
 

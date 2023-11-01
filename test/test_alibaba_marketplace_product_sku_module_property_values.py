@@ -36,7 +36,7 @@ class TestAlibabaMarketplaceProductSkuModulePropertyValues(unittest.TestCase):
         include_option is a boolean, when False only required
         params are included, when True both required and
         optional params are included"""
-        # uncomment below to create an instance of 
+        # uncomment below to create an instance of
         # `AlibabaMarketplaceProductSkuModulePropertyValues`
         """
         model = AlibabaMarketplaceProductSkuModulePropertyValues()  # noqa: E501

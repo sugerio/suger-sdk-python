@@ -14,7 +14,7 @@
 
 
 import unittest
-import datetime
+
 
 from openapi_client.models.azure_market_state import AzureMarketState  # noqa: E501
 

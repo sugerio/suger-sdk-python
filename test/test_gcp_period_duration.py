@@ -14,7 +14,7 @@
 
 
 import unittest
-import datetime
+
 
 from openapi_client.models.gcp_period_duration import GcpPeriodDuration  # noqa: E501
 

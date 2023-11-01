@@ -14,7 +14,7 @@
 
 
 import unittest
-import datetime
+
 
 from openapi_client.models.identity_contact import IdentityContact  # noqa: E501
 

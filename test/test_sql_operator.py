@@ -14,7 +14,7 @@
 
 
 import unittest
-import datetime
+
 
 from openapi_client.models.sql_operator import SqlOperator  # noqa: E501
 
