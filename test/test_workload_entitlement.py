@@ -18,6 +18,7 @@ import datetime
 
 from openapi_client.models.workload_entitlement import WorkloadEntitlement  # noqa: E501
 
+
 class TestWorkloadEntitlement(unittest.TestCase):
     """WorkloadEntitlement unit test stubs"""
 
@@ -29,9 +30,9 @@ class TestWorkloadEntitlement(unittest.TestCase):
 
     def make_instance(self, include_optional) -> WorkloadEntitlement:
         """Test WorkloadEntitlement
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `WorkloadEntitlement`
         """
         model = WorkloadEntitlement()  # noqa: E501
@@ -385,5 +386,6 @@ class TestWorkloadEntitlement(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

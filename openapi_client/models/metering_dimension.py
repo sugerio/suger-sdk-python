@@ -26,27 +26,69 @@ from openapi_client.models.gcp_price_tier import GcpPriceTier
 from openapi_client.models.usage_count import UsageCount
 from openapi_client.models.value_type import ValueType
 
+
 class MeteringDimension(BaseModel):
     """
     The dimension to meter usage in entitlement.  # noqa: E501
     """
+
     category: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
-    included_base_quantities: Optional[conlist(AzureIncludedBaseQuantity)] = Field(None, alias="includedBaseQuantities", description="how many quantities of this dimension are included in the commit.")
+    included_base_quantities: Optional[conlist(AzureIncludedBaseQuantity)] = Field(
+        None,
+        alias="includedBaseQuantities",
+        description="how many quantities of this dimension are included in the commit.",
+    )
     key: Optional[StrictStr] = None
-    name: Optional[StrictStr] = Field(None, description="Display name of the dimension. For GCP Marketplace, it is the metering metric ID without plan prefix.")
-    plan_id: Optional[StrictStr] = Field(None, alias="planId", description="The plan ID of the metering dimension. Applicable to GCP Marketplace only. No ISO duration suffix.")
-    plan_name: Optional[StrictStr] = Field(None, alias="planName", description="The name of the plan for the metering dimension. Applicable to GCP Marketplace only. It may contains the ISO duration suffix, such as P1Y.")
-    price_tiers: Optional[conlist(GcpPriceTier)] = Field(None, alias="priceTiers", description="The price tiers of the metering dimension. Applicable to GCP Marketplace only.")
-    rate: Optional[Union[StrictFloat, StrictInt]] = Field(None, description="The unit price of this usage metering dimension.")
-    sku_id: Optional[StrictStr] = Field(None, alias="skuId", description="The SKU ID of the metering dimension. Applicable to GCP Marketplace only.")
+    name: Optional[StrictStr] = Field(
+        None,
+        description="Display name of the dimension. For GCP Marketplace, it is the metering metric ID without plan prefix.",
+    )
+    plan_id: Optional[StrictStr] = Field(
+        None,
+        alias="planId",
+        description="The plan ID of the metering dimension. Applicable to GCP Marketplace only. No ISO duration suffix.",
+    )
+    plan_name: Optional[StrictStr] = Field(
+        None,
+        alias="planName",
+        description="The name of the plan for the metering dimension. Applicable to GCP Marketplace only. It may contains the ISO duration suffix, such as P1Y.",
+    )
+    price_tiers: Optional[conlist(GcpPriceTier)] = Field(
+        None,
+        alias="priceTiers",
+        description="The price tiers of the metering dimension. Applicable to GCP Marketplace only.",
+    )
+    rate: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, description="The unit price of this usage metering dimension."
+    )
+    sku_id: Optional[StrictStr] = Field(
+        None,
+        alias="skuId",
+        description="The SKU ID of the metering dimension. Applicable to GCP Marketplace only.",
+    )
     types: Optional[conlist(StrictStr)] = None
     usage_count: Optional[UsageCount] = Field(None, alias="usageCount")
     value_type: Optional[ValueType] = Field(None, alias="valueType")
-    __properties = ["category", "description", "includedBaseQuantities", "key", "name", "planId", "planName", "priceTiers", "rate", "skuId", "types", "usageCount", "valueType"]
+    __properties = [
+        "category",
+        "description",
+        "includedBaseQuantities",
+        "key",
+        "name",
+        "planId",
+        "planName",
+        "priceTiers",
+        "rate",
+        "skuId",
+        "types",
+        "usageCount",
+        "valueType",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -65,27 +107,24 @@ class MeteringDimension(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in included_base_quantities (list)
         _items = []
         if self.included_base_quantities:
             for _item in self.included_base_quantities:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['includedBaseQuantities'] = _items
+            _dict["includedBaseQuantities"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in price_tiers (list)
         _items = []
         if self.price_tiers:
             for _item in self.price_tiers:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['priceTiers'] = _items
+            _dict["priceTiers"] = _items
         # override the default output from pydantic by calling `to_dict()` of usage_count
         if self.usage_count:
-            _dict['usageCount'] = self.usage_count.to_dict()
+            _dict["usageCount"] = self.usage_count.to_dict()
         return _dict
 
     @classmethod
@@ -97,21 +136,32 @@ class MeteringDimension(BaseModel):
         if not isinstance(obj, dict):
             return MeteringDimension.parse_obj(obj)
 
-        _obj = MeteringDimension.parse_obj({
-            "category": obj.get("category"),
-            "description": obj.get("description"),
-            "included_base_quantities": [AzureIncludedBaseQuantity.from_dict(_item) for _item in obj.get("includedBaseQuantities")] if obj.get("includedBaseQuantities") is not None else None,
-            "key": obj.get("key"),
-            "name": obj.get("name"),
-            "plan_id": obj.get("planId"),
-            "plan_name": obj.get("planName"),
-            "price_tiers": [GcpPriceTier.from_dict(_item) for _item in obj.get("priceTiers")] if obj.get("priceTiers") is not None else None,
-            "rate": obj.get("rate"),
-            "sku_id": obj.get("skuId"),
-            "types": obj.get("types"),
-            "usage_count": UsageCount.from_dict(obj.get("usageCount")) if obj.get("usageCount") is not None else None,
-            "value_type": obj.get("valueType")
-        })
+        _obj = MeteringDimension.parse_obj(
+            {
+                "category": obj.get("category"),
+                "description": obj.get("description"),
+                "included_base_quantities": [
+                    AzureIncludedBaseQuantity.from_dict(_item)
+                    for _item in obj.get("includedBaseQuantities")
+                ]
+                if obj.get("includedBaseQuantities") is not None
+                else None,
+                "key": obj.get("key"),
+                "name": obj.get("name"),
+                "plan_id": obj.get("planId"),
+                "plan_name": obj.get("planName"),
+                "price_tiers": [
+                    GcpPriceTier.from_dict(_item) for _item in obj.get("priceTiers")
+                ]
+                if obj.get("priceTiers") is not None
+                else None,
+                "rate": obj.get("rate"),
+                "sku_id": obj.get("skuId"),
+                "types": obj.get("types"),
+                "usage_count": UsageCount.from_dict(obj.get("usageCount"))
+                if obj.get("usageCount") is not None
+                else None,
+                "value_type": obj.get("valueType"),
+            }
+        )
         return _obj
-
-

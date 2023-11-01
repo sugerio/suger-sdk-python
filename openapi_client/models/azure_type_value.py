@@ -22,16 +22,19 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
+
 class AzureTypeValue(BaseModel):
     """
     AzureTypeValue
     """
+
     type: Optional[StrictStr] = None
     value: Optional[StrictStr] = None
     __properties = ["type", "value"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,10 +53,7 @@ class AzureTypeValue(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +65,7 @@ class AzureTypeValue(BaseModel):
         if not isinstance(obj, dict):
             return AzureTypeValue.parse_obj(obj)
 
-        _obj = AzureTypeValue.parse_obj({
-            "type": obj.get("type"),
-            "value": obj.get("value")
-        })
+        _obj = AzureTypeValue.parse_obj(
+            {"type": obj.get("type"), "value": obj.get("value")}
+        )
         return _obj
-
-

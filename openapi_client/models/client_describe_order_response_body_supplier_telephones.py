@@ -22,15 +22,18 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 
+
 class ClientDescribeOrderResponseBodySupplierTelephones(BaseModel):
     """
     ClientDescribeOrderResponseBodySupplierTelephones
     """
+
     telephone: Optional[conlist(StrictStr)] = Field(None, alias="Telephone")
     __properties = ["Telephone"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -43,16 +46,15 @@ class ClientDescribeOrderResponseBodySupplierTelephones(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ClientDescribeOrderResponseBodySupplierTelephones:
+    def from_json(
+        cls, json_str: str
+    ) -> ClientDescribeOrderResponseBodySupplierTelephones:
         """Create an instance of ClientDescribeOrderResponseBodySupplierTelephones from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -64,9 +66,7 @@ class ClientDescribeOrderResponseBodySupplierTelephones(BaseModel):
         if not isinstance(obj, dict):
             return ClientDescribeOrderResponseBodySupplierTelephones.parse_obj(obj)
 
-        _obj = ClientDescribeOrderResponseBodySupplierTelephones.parse_obj({
-            "telephone": obj.get("Telephone")
-        })
+        _obj = ClientDescribeOrderResponseBodySupplierTelephones.parse_obj(
+            {"telephone": obj.get("Telephone")}
+        )
         return _obj
-
-

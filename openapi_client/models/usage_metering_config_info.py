@@ -21,17 +21,28 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, conlist
-from openapi_client.models.partner_usage_metering_config import PartnerUsageMeteringConfig
+from openapi_client.models.partner_usage_metering_config import (
+    PartnerUsageMeteringConfig,
+)
+
 
 class UsageMeteringConfigInfo(BaseModel):
     """
     UsageMeteringConfigInfo
     """
-    partner_usage_metering_configs: Optional[conlist(PartnerUsageMeteringConfig)] = Field(None, alias="partnerUsageMeteringConfigs", description="The usage metering configuration for each Partner, such as AWS, AZURE & GCP.")
+
+    partner_usage_metering_configs: Optional[
+        conlist(PartnerUsageMeteringConfig)
+    ] = Field(
+        None,
+        alias="partnerUsageMeteringConfigs",
+        description="The usage metering configuration for each Partner, such as AWS, AZURE & GCP.",
+    )
     __properties = ["partnerUsageMeteringConfigs"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,17 +61,14 @@ class UsageMeteringConfigInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in partner_usage_metering_configs (list)
         _items = []
         if self.partner_usage_metering_configs:
             for _item in self.partner_usage_metering_configs:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['partnerUsageMeteringConfigs'] = _items
+            _dict["partnerUsageMeteringConfigs"] = _items
         return _dict
 
     @classmethod
@@ -72,9 +80,14 @@ class UsageMeteringConfigInfo(BaseModel):
         if not isinstance(obj, dict):
             return UsageMeteringConfigInfo.parse_obj(obj)
 
-        _obj = UsageMeteringConfigInfo.parse_obj({
-            "partner_usage_metering_configs": [PartnerUsageMeteringConfig.from_dict(_item) for _item in obj.get("partnerUsageMeteringConfigs")] if obj.get("partnerUsageMeteringConfigs") is not None else None
-        })
+        _obj = UsageMeteringConfigInfo.parse_obj(
+            {
+                "partner_usage_metering_configs": [
+                    PartnerUsageMeteringConfig.from_dict(_item)
+                    for _item in obj.get("partnerUsageMeteringConfigs")
+                ]
+                if obj.get("partnerUsageMeteringConfigs") is not None
+                else None
+            }
+        )
         return _obj
-
-

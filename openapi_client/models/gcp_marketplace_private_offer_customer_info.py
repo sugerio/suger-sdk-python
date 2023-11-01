@@ -22,19 +22,40 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class GcpMarketplacePrivateOfferCustomerInfo(BaseModel):
     """
     GcpMarketplacePrivateOfferCustomerInfo
     """
-    address: Optional[StrictStr] = Field(None, description="The address of the customer")
-    contact: Optional[StrictStr] = Field(None, description="The contact name of the customer")
-    email: Optional[StrictStr] = Field(None, description="The email address of the customer")
-    organization: Optional[StrictStr] = Field(None, description="The company name of the customer")
-    unverified_billing_account: Optional[StrictStr] = Field(None, alias="unverifiedBillingAccount", description="The GCP billing account ID of the customer")
-    __properties = ["address", "contact", "email", "organization", "unverifiedBillingAccount"]
+
+    address: Optional[StrictStr] = Field(
+        None, description="The address of the customer"
+    )
+    contact: Optional[StrictStr] = Field(
+        None, description="The contact name of the customer"
+    )
+    email: Optional[StrictStr] = Field(
+        None, description="The email address of the customer"
+    )
+    organization: Optional[StrictStr] = Field(
+        None, description="The company name of the customer"
+    )
+    unverified_billing_account: Optional[StrictStr] = Field(
+        None,
+        alias="unverifiedBillingAccount",
+        description="The GCP billing account ID of the customer",
+    )
+    __properties = [
+        "address",
+        "contact",
+        "email",
+        "organization",
+        "unverifiedBillingAccount",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,10 +74,7 @@ class GcpMarketplacePrivateOfferCustomerInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -68,13 +86,13 @@ class GcpMarketplacePrivateOfferCustomerInfo(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplacePrivateOfferCustomerInfo.parse_obj(obj)
 
-        _obj = GcpMarketplacePrivateOfferCustomerInfo.parse_obj({
-            "address": obj.get("address"),
-            "contact": obj.get("contact"),
-            "email": obj.get("email"),
-            "organization": obj.get("organization"),
-            "unverified_billing_account": obj.get("unverifiedBillingAccount")
-        })
+        _obj = GcpMarketplacePrivateOfferCustomerInfo.parse_obj(
+            {
+                "address": obj.get("address"),
+                "contact": obj.get("contact"),
+                "email": obj.get("email"),
+                "organization": obj.get("organization"),
+                "unverified_billing_account": obj.get("unverifiedBillingAccount"),
+            }
+        )
         return _obj
-
-

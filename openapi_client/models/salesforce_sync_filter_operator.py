@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class SalesforceSyncFilterOperator(str, Enum):
     """
     SalesforceSyncFilterOperator
@@ -30,18 +27,16 @@ class SalesforceSyncFilterOperator(str, Enum):
     """
     allowed enum values
     """
-    EQ = 'EQ'
-    NE = 'NE'
-    GT = 'GT'
-    GTE = 'GTE'
-    LT = 'LT'
-    LTE = 'LTE'
-    IN = 'IN'
-    NOTIN = 'NOTIN'
+    EQ = "EQ"
+    NE = "NE"
+    GT = "GT"
+    GTE = "GTE"
+    LT = "LT"
+    LTE = "LTE"
+    IN = "IN"
+    NOTIN = "NOTIN"
 
     @classmethod
     def from_json(cls, json_str: str) -> SalesforceSyncFilterOperator:
         """Create an instance of SalesforceSyncFilterOperator from a JSON string"""
         return SalesforceSyncFilterOperator(json.loads(json_str))
-
-

@@ -21,19 +21,26 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, conlist
-from openapi_client.models.microsoft_partner_referral_iot import MicrosoftPartnerReferralIot
-from openapi_client.models.microsoft_partner_referral_requirement_attribute import MicrosoftPartnerReferralRequirementAttribute
+from openapi_client.models.microsoft_partner_referral_iot import (
+    MicrosoftPartnerReferralIot,
+)
+from openapi_client.models.microsoft_partner_referral_requirement_attribute import (
+    MicrosoftPartnerReferralRequirementAttribute,
+)
+
 
 class MicrosoftPartnerReferralAdditionalRequirements(BaseModel):
     """
     MicrosoftPartnerReferralAdditionalRequirements
     """
+
     attributes: Optional[conlist(MicrosoftPartnerReferralRequirementAttribute)] = None
     iot: Optional[MicrosoftPartnerReferralIot] = None
     __properties = ["attributes", "iot"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,20 +59,17 @@ class MicrosoftPartnerReferralAdditionalRequirements(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in attributes (list)
         _items = []
         if self.attributes:
             for _item in self.attributes:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['attributes'] = _items
+            _dict["attributes"] = _items
         # override the default output from pydantic by calling `to_dict()` of iot
         if self.iot:
-            _dict['iot'] = self.iot.to_dict()
+            _dict["iot"] = self.iot.to_dict()
         return _dict
 
     @classmethod
@@ -77,10 +81,17 @@ class MicrosoftPartnerReferralAdditionalRequirements(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralAdditionalRequirements.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralAdditionalRequirements.parse_obj({
-            "attributes": [MicrosoftPartnerReferralRequirementAttribute.from_dict(_item) for _item in obj.get("attributes")] if obj.get("attributes") is not None else None,
-            "iot": MicrosoftPartnerReferralIot.from_dict(obj.get("iot")) if obj.get("iot") is not None else None
-        })
+        _obj = MicrosoftPartnerReferralAdditionalRequirements.parse_obj(
+            {
+                "attributes": [
+                    MicrosoftPartnerReferralRequirementAttribute.from_dict(_item)
+                    for _item in obj.get("attributes")
+                ]
+                if obj.get("attributes") is not None
+                else None,
+                "iot": MicrosoftPartnerReferralIot.from_dict(obj.get("iot"))
+                if obj.get("iot") is not None
+                else None,
+            }
+        )
         return _obj
-
-

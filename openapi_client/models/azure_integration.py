@@ -21,21 +21,48 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
-from openapi_client.models.azure_integration_credential import AzureIntegrationCredential
+from openapi_client.models.azure_integration_credential import (
+    AzureIntegrationCredential,
+)
+
 
 class AzureIntegration(BaseModel):
     """
     AzureIntegration
     """
-    cma_full_sync_done: Optional[StrictBool] = Field(None, alias="cmaFullSyncDone", description="Is Azure Commercial Marketplace Analytics (CMA) full-sync done.")
+
+    cma_full_sync_done: Optional[StrictBool] = Field(
+        None,
+        alias="cmaFullSyncDone",
+        description="Is Azure Commercial Marketplace Analytics (CMA) full-sync done.",
+    )
     credential: Optional[AzureIntegrationCredential] = None
-    partner_center_referral_sync_paused: Optional[StrictBool] = Field(None, alias="partnerCenterReferralSyncPaused", description="Is Microsoft Partner Center referral sync paused.")
-    revenue_record_full_sync_done: Optional[StrictBool] = Field(None, alias="revenueRecordFullSyncDone", description="Is AZURE Marketplace Revenue Record full-sync done.")
-    secret_key: Optional[StrictStr] = Field(None, alias="secretKey", description="The secret key used to store the AzureIntegrationCredential in AWS Secret manager. for internal usage only.")
-    __properties = ["cmaFullSyncDone", "credential", "partnerCenterReferralSyncPaused", "revenueRecordFullSyncDone", "secretKey"]
+    partner_center_referral_sync_paused: Optional[StrictBool] = Field(
+        None,
+        alias="partnerCenterReferralSyncPaused",
+        description="Is Microsoft Partner Center referral sync paused.",
+    )
+    revenue_record_full_sync_done: Optional[StrictBool] = Field(
+        None,
+        alias="revenueRecordFullSyncDone",
+        description="Is AZURE Marketplace Revenue Record full-sync done.",
+    )
+    secret_key: Optional[StrictStr] = Field(
+        None,
+        alias="secretKey",
+        description="The secret key used to store the AzureIntegrationCredential in AWS Secret manager. for internal usage only.",
+    )
+    __properties = [
+        "cmaFullSyncDone",
+        "credential",
+        "partnerCenterReferralSyncPaused",
+        "revenueRecordFullSyncDone",
+        "secretKey",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,13 +81,10 @@ class AzureIntegration(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of credential
         if self.credential:
-            _dict['credential'] = self.credential.to_dict()
+            _dict["credential"] = self.credential.to_dict()
         return _dict
 
     @classmethod
@@ -72,13 +96,19 @@ class AzureIntegration(BaseModel):
         if not isinstance(obj, dict):
             return AzureIntegration.parse_obj(obj)
 
-        _obj = AzureIntegration.parse_obj({
-            "cma_full_sync_done": obj.get("cmaFullSyncDone"),
-            "credential": AzureIntegrationCredential.from_dict(obj.get("credential")) if obj.get("credential") is not None else None,
-            "partner_center_referral_sync_paused": obj.get("partnerCenterReferralSyncPaused"),
-            "revenue_record_full_sync_done": obj.get("revenueRecordFullSyncDone"),
-            "secret_key": obj.get("secretKey")
-        })
+        _obj = AzureIntegration.parse_obj(
+            {
+                "cma_full_sync_done": obj.get("cmaFullSyncDone"),
+                "credential": AzureIntegrationCredential.from_dict(
+                    obj.get("credential")
+                )
+                if obj.get("credential") is not None
+                else None,
+                "partner_center_referral_sync_paused": obj.get(
+                    "partnerCenterReferralSyncPaused"
+                ),
+                "revenue_record_full_sync_done": obj.get("revenueRecordFullSyncDone"),
+                "secret_key": obj.get("secretKey"),
+            }
+        )
         return _obj
-
-

@@ -23,51 +23,68 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist, validator
 from openapi_client.models.azure_type_value import AzureTypeValue
 
+
 class AzureProductSetup(BaseModel):
     """
     AzureProductSetup
     """
+
     call_to_action: Optional[StrictStr] = Field(None, alias="callToAction")
-    channel_states: Optional[conlist(AzureTypeValue)] = Field(None, alias="channelStates")
+    channel_states: Optional[conlist(AzureTypeValue)] = Field(
+        None, alias="channelStates"
+    )
     enable_test_drive: Optional[StrictBool] = Field(None, alias="enableTestDrive")
     resource_type: Optional[StrictStr] = Field(None, alias="resourceType")
     selling_option: Optional[StrictStr] = Field(None, alias="sellingOption")
     test_drive_type: Optional[StrictStr] = Field(None, alias="testDriveType")
     trial_uri: Optional[StrictStr] = Field(None, alias="trialUri")
-    __properties = ["callToAction", "channelStates", "enableTestDrive", "resourceType", "sellingOption", "testDriveType", "trialUri"]
+    __properties = [
+        "callToAction",
+        "channelStates",
+        "enableTestDrive",
+        "resourceType",
+        "sellingOption",
+        "testDriveType",
+        "trialUri",
+    ]
 
-    @validator('call_to_action')
+    @validator("call_to_action")
     def call_to_action_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('free', 'free-trial', 'contact-me'):
-            raise ValueError("must be one of enum values ('free', 'free-trial', 'contact-me')")
+        if value not in ("free", "free-trial", "contact-me"):
+            raise ValueError(
+                "must be one of enum values ('free', 'free-trial', 'contact-me')"
+            )
         return value
 
-    @validator('resource_type')
+    @validator("resource_type")
     def resource_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('AzureProductSetup'):
+        if value not in ("AzureProductSetup"):
             raise ValueError("must be one of enum values ('AzureProductSetup')")
         return value
 
-    @validator('selling_option')
+    @validator("selling_option")
     def selling_option_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('ListingOnly', 'ListAndSell'):
-            raise ValueError("must be one of enum values ('ListingOnly', 'ListAndSell')")
+        if value not in ("ListingOnly", "ListAndSell"):
+            raise ValueError(
+                "must be one of enum values ('ListingOnly', 'ListAndSell')"
+            )
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -86,17 +103,14 @@ class AzureProductSetup(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in channel_states (list)
         _items = []
         if self.channel_states:
             for _item in self.channel_states:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['channelStates'] = _items
+            _dict["channelStates"] = _items
         return _dict
 
     @classmethod
@@ -108,15 +122,20 @@ class AzureProductSetup(BaseModel):
         if not isinstance(obj, dict):
             return AzureProductSetup.parse_obj(obj)
 
-        _obj = AzureProductSetup.parse_obj({
-            "call_to_action": obj.get("callToAction"),
-            "channel_states": [AzureTypeValue.from_dict(_item) for _item in obj.get("channelStates")] if obj.get("channelStates") is not None else None,
-            "enable_test_drive": obj.get("enableTestDrive"),
-            "resource_type": obj.get("resourceType"),
-            "selling_option": obj.get("sellingOption"),
-            "test_drive_type": obj.get("testDriveType"),
-            "trial_uri": obj.get("trialUri")
-        })
+        _obj = AzureProductSetup.parse_obj(
+            {
+                "call_to_action": obj.get("callToAction"),
+                "channel_states": [
+                    AzureTypeValue.from_dict(_item)
+                    for _item in obj.get("channelStates")
+                ]
+                if obj.get("channelStates") is not None
+                else None,
+                "enable_test_drive": obj.get("enableTestDrive"),
+                "resource_type": obj.get("resourceType"),
+                "selling_option": obj.get("sellingOption"),
+                "test_drive_type": obj.get("testDriveType"),
+                "trial_uri": obj.get("trialUri"),
+            }
+        )
         return _obj
-
-

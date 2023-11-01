@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.orb_billable_metric_status import OrbBillableMetricStatus  # noqa: E501
+from openapi_client.models.orb_billable_metric_status import (
+    OrbBillableMetricStatus,
+)  # noqa: E501
+
 
 class TestOrbBillableMetricStatus(unittest.TestCase):
     """OrbBillableMetricStatus unit test stubs"""
@@ -31,5 +34,6 @@ class TestOrbBillableMetricStatus(unittest.TestCase):
         """Test OrbBillableMetricStatus"""
         # inst = OrbBillableMetricStatus()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

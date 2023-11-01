@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.azure_marketplace_subscription_status import AzureMarketplaceSubscriptionStatus  # noqa: E501
+from openapi_client.models.azure_marketplace_subscription_status import (
+    AzureMarketplaceSubscriptionStatus,
+)  # noqa: E501
+
 
 class TestAzureMarketplaceSubscriptionStatus(unittest.TestCase):
     """AzureMarketplaceSubscriptionStatus unit test stubs"""
@@ -31,5 +34,6 @@ class TestAzureMarketplaceSubscriptionStatus(unittest.TestCase):
         """Test AzureMarketplaceSubscriptionStatus"""
         # inst = AzureMarketplaceSubscriptionStatus()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

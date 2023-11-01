@@ -23,20 +23,34 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from openapi_client.models.azure_audience import AzureAudience
 
+
 class AzureProductAvailability(BaseModel):
     """
     AzureProductAvailability
     """
-    email_audiences: Optional[conlist(AzureAudience)] = Field(None, alias="emailAudiences")
+
+    email_audiences: Optional[conlist(AzureAudience)] = Field(
+        None, alias="emailAudiences"
+    )
     enterprise_licensing: Optional[StrictStr] = Field(None, alias="enterpriseLicensing")
     id: Optional[StrictStr] = None
     resource_type: Optional[StrictStr] = Field(None, alias="resourceType")
-    subscription_audiences: Optional[conlist(AzureAudience)] = Field(None, alias="subscriptionAudiences")
+    subscription_audiences: Optional[conlist(AzureAudience)] = Field(
+        None, alias="subscriptionAudiences"
+    )
     visibility: Optional[StrictStr] = None
-    __properties = ["emailAudiences", "enterpriseLicensing", "id", "resourceType", "subscriptionAudiences", "visibility"]
+    __properties = [
+        "emailAudiences",
+        "enterpriseLicensing",
+        "id",
+        "resourceType",
+        "subscriptionAudiences",
+        "visibility",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -55,24 +69,21 @@ class AzureProductAvailability(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in email_audiences (list)
         _items = []
         if self.email_audiences:
             for _item in self.email_audiences:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['emailAudiences'] = _items
+            _dict["emailAudiences"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in subscription_audiences (list)
         _items = []
         if self.subscription_audiences:
             for _item in self.subscription_audiences:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['subscriptionAudiences'] = _items
+            _dict["subscriptionAudiences"] = _items
         return _dict
 
     @classmethod
@@ -84,14 +95,24 @@ class AzureProductAvailability(BaseModel):
         if not isinstance(obj, dict):
             return AzureProductAvailability.parse_obj(obj)
 
-        _obj = AzureProductAvailability.parse_obj({
-            "email_audiences": [AzureAudience.from_dict(_item) for _item in obj.get("emailAudiences")] if obj.get("emailAudiences") is not None else None,
-            "enterprise_licensing": obj.get("enterpriseLicensing"),
-            "id": obj.get("id"),
-            "resource_type": obj.get("resourceType"),
-            "subscription_audiences": [AzureAudience.from_dict(_item) for _item in obj.get("subscriptionAudiences")] if obj.get("subscriptionAudiences") is not None else None,
-            "visibility": obj.get("visibility")
-        })
+        _obj = AzureProductAvailability.parse_obj(
+            {
+                "email_audiences": [
+                    AzureAudience.from_dict(_item)
+                    for _item in obj.get("emailAudiences")
+                ]
+                if obj.get("emailAudiences") is not None
+                else None,
+                "enterprise_licensing": obj.get("enterpriseLicensing"),
+                "id": obj.get("id"),
+                "resource_type": obj.get("resourceType"),
+                "subscription_audiences": [
+                    AzureAudience.from_dict(_item)
+                    for _item in obj.get("subscriptionAudiences")
+                ]
+                if obj.get("subscriptionAudiences") is not None
+                else None,
+                "visibility": obj.get("visibility"),
+            }
+        )
         return _obj
-
-

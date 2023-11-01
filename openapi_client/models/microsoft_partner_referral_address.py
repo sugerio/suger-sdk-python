@@ -22,10 +22,12 @@ import json
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class MicrosoftPartnerReferralAddress(BaseModel):
     """
     MicrosoftPartnerReferralAddress
     """
+
     address_line1: Optional[StrictStr] = Field(None, alias="addressLine1")
     address_line2: Optional[StrictStr] = Field(None, alias="addressLine2")
     city: Optional[StrictStr] = None
@@ -33,10 +35,19 @@ class MicrosoftPartnerReferralAddress(BaseModel):
     postal_code: Optional[Dict[str, Any]] = Field(None, alias="postalCode")
     region: Optional[StrictStr] = None
     state: Optional[StrictStr] = None
-    __properties = ["addressLine1", "addressLine2", "city", "country", "postalCode", "region", "state"]
+    __properties = [
+        "addressLine1",
+        "addressLine2",
+        "city",
+        "country",
+        "postalCode",
+        "region",
+        "state",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -55,10 +66,7 @@ class MicrosoftPartnerReferralAddress(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -70,15 +78,15 @@ class MicrosoftPartnerReferralAddress(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralAddress.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralAddress.parse_obj({
-            "address_line1": obj.get("addressLine1"),
-            "address_line2": obj.get("addressLine2"),
-            "city": obj.get("city"),
-            "country": obj.get("country"),
-            "postal_code": obj.get("postalCode"),
-            "region": obj.get("region"),
-            "state": obj.get("state")
-        })
+        _obj = MicrosoftPartnerReferralAddress.parse_obj(
+            {
+                "address_line1": obj.get("addressLine1"),
+                "address_line2": obj.get("addressLine2"),
+                "city": obj.get("city"),
+                "country": obj.get("country"),
+                "postal_code": obj.get("postalCode"),
+                "region": obj.get("region"),
+                "state": obj.get("state"),
+            }
+        )
         return _obj
-
-

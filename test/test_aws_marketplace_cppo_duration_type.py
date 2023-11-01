@@ -14,9 +14,11 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.aws_marketplace_cppo_duration_type import AwsMarketplaceCppoDurationType  # noqa: E501
+# from openapi_client.models.aws_marketplace_cppo_duration_type import (
+#     AwsMarketplaceCppoDurationType,
+# )  # noqa: E501
+
 
 class TestAwsMarketplaceCppoDurationType(unittest.TestCase):
     """AwsMarketplaceCppoDurationType unit test stubs"""
@@ -31,5 +33,6 @@ class TestAwsMarketplaceCppoDurationType(unittest.TestCase):
         """Test AwsMarketplaceCppoDurationType"""
         # inst = AwsMarketplaceCppoDurationType()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

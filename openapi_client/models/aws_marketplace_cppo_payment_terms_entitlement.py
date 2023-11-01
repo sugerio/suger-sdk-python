@@ -22,16 +22,21 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr
 
+
 class AwsMarketplaceCppoPaymentTermsEntitlement(BaseModel):
     """
     AwsMarketplaceCppoPaymentTermsEntitlement
     """
+
     name: Optional[StrictStr] = Field(None, description="The commit dimension Key")
-    quantity: Optional[StrictInt] = Field(None, description="The commit dimension quantity")
+    quantity: Optional[StrictInt] = Field(
+        None, description="The commit dimension quantity"
+    )
     __properties = ["name", "quantity"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,10 +55,7 @@ class AwsMarketplaceCppoPaymentTermsEntitlement(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +67,7 @@ class AwsMarketplaceCppoPaymentTermsEntitlement(BaseModel):
         if not isinstance(obj, dict):
             return AwsMarketplaceCppoPaymentTermsEntitlement.parse_obj(obj)
 
-        _obj = AwsMarketplaceCppoPaymentTermsEntitlement.parse_obj({
-            "name": obj.get("name"),
-            "quantity": obj.get("quantity")
-        })
+        _obj = AwsMarketplaceCppoPaymentTermsEntitlement.parse_obj(
+            {"name": obj.get("name"), "quantity": obj.get("quantity")}
+        )
         return _obj
-
-

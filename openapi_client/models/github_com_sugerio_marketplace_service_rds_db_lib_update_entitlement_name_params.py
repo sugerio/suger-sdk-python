@@ -22,10 +22,12 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams(BaseModel):
     """
     GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams
     """
+
     id: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     organization_id: Optional[StrictStr] = Field(None, alias="organizationID")
@@ -33,6 +35,7 @@ class GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams(Base
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -45,32 +48,35 @@ class GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams(Base
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams:
+    def from_json(
+        cls, json_str: str
+    ) -> GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams:
         """Create an instance of GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams:
+    def from_dict(
+        cls, obj: dict
+    ) -> GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams:
         """Create an instance of GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams.parse_obj(obj)
+            return GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams.parse_obj(
+                obj
+            )
 
-        _obj = GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams.parse_obj({
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "organization_id": obj.get("organizationID")
-        })
+        _obj = GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams.parse_obj(
+            {
+                "id": obj.get("id"),
+                "name": obj.get("name"),
+                "organization_id": obj.get("organizationID"),
+            }
+        )
         return _obj
-
-

@@ -23,17 +23,22 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from openapi_client.models.orb_matrix_price_value import OrbMatrixPriceValue
 
+
 class OrbPriceModelConfigMATRIX(BaseModel):
     """
     OrbPriceModelConfigMATRIX
     """
+
     default_unit_amount: Optional[StrictStr] = None
-    dimensions: Optional[conlist(StrictStr)] = Field(None, description="First and (optional) second dimension grouping keys")
+    dimensions: Optional[conlist(StrictStr)] = Field(
+        None, description="First and (optional) second dimension grouping keys"
+    )
     matrix_values: Optional[conlist(OrbMatrixPriceValue)] = None
     __properties = ["default_unit_amount", "dimensions", "matrix_values"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,17 +57,14 @@ class OrbPriceModelConfigMATRIX(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in matrix_values (list)
         _items = []
         if self.matrix_values:
             for _item in self.matrix_values:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['matrix_values'] = _items
+            _dict["matrix_values"] = _items
         return _dict
 
     @classmethod
@@ -74,11 +76,16 @@ class OrbPriceModelConfigMATRIX(BaseModel):
         if not isinstance(obj, dict):
             return OrbPriceModelConfigMATRIX.parse_obj(obj)
 
-        _obj = OrbPriceModelConfigMATRIX.parse_obj({
-            "default_unit_amount": obj.get("default_unit_amount"),
-            "dimensions": obj.get("dimensions"),
-            "matrix_values": [OrbMatrixPriceValue.from_dict(_item) for _item in obj.get("matrix_values")] if obj.get("matrix_values") is not None else None
-        })
+        _obj = OrbPriceModelConfigMATRIX.parse_obj(
+            {
+                "default_unit_amount": obj.get("default_unit_amount"),
+                "dimensions": obj.get("dimensions"),
+                "matrix_values": [
+                    OrbMatrixPriceValue.from_dict(_item)
+                    for _item in obj.get("matrix_values")
+                ]
+                if obj.get("matrix_values") is not None
+                else None,
+            }
+        )
         return _obj
-
-

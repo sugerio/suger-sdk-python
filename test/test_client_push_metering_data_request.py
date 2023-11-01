@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.client_push_metering_data_request import ClientPushMeteringDataRequest  # noqa: E501
+from openapi_client.models.client_push_metering_data_request import (
+    ClientPushMeteringDataRequest,
+)  # noqa: E501
+
 
 class TestClientPushMeteringDataRequest(unittest.TestCase):
     """ClientPushMeteringDataRequest unit test stubs"""
@@ -29,9 +32,9 @@ class TestClientPushMeteringDataRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ClientPushMeteringDataRequest:
         """Test ClientPushMeteringDataRequest
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `ClientPushMeteringDataRequest`
         """
         model = ClientPushMeteringDataRequest()  # noqa: E501
@@ -49,5 +52,6 @@ class TestClientPushMeteringDataRequest(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

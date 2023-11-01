@@ -23,17 +23,22 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from openapi_client.models.azure_validation_result import AzureValidationResult
 
+
 class AzureGovernmentCertification(BaseModel):
     """
     AzureGovernmentCertification
     """
+
     title: Optional[StrictStr] = None
     uri: Optional[StrictStr] = None
-    validation_results: Optional[conlist(AzureValidationResult)] = Field(None, alias="validationResults")
+    validation_results: Optional[conlist(AzureValidationResult)] = Field(
+        None, alias="validationResults"
+    )
     __properties = ["title", "uri", "validationResults"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,17 +57,14 @@ class AzureGovernmentCertification(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in validation_results (list)
         _items = []
         if self.validation_results:
             for _item in self.validation_results:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['validationResults'] = _items
+            _dict["validationResults"] = _items
         return _dict
 
     @classmethod
@@ -74,11 +76,16 @@ class AzureGovernmentCertification(BaseModel):
         if not isinstance(obj, dict):
             return AzureGovernmentCertification.parse_obj(obj)
 
-        _obj = AzureGovernmentCertification.parse_obj({
-            "title": obj.get("title"),
-            "uri": obj.get("uri"),
-            "validation_results": [AzureValidationResult.from_dict(_item) for _item in obj.get("validationResults")] if obj.get("validationResults") is not None else None
-        })
+        _obj = AzureGovernmentCertification.parse_obj(
+            {
+                "title": obj.get("title"),
+                "uri": obj.get("uri"),
+                "validation_results": [
+                    AzureValidationResult.from_dict(_item)
+                    for _item in obj.get("validationResults")
+                ]
+                if obj.get("validationResults") is not None
+                else None,
+            }
+        )
         return _obj
-
-

@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class TrackEventActionType(str, Enum):
     """
     TrackEventActionType
@@ -30,11 +27,9 @@ class TrackEventActionType(str, Enum):
     """
     allowed enum values
     """
-    OPEN_EMAIL = 'OPEN_EMAIL'
+    OPEN_EMAIL = "OPEN_EMAIL"
 
     @classmethod
     def from_json(cls, json_str: str) -> TrackEventActionType:
         """Create an instance of TrackEventActionType from a JSON string"""
         return TrackEventActionType(json.loads(json_str))
-
-

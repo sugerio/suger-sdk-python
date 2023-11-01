@@ -22,17 +22,28 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictBool
 
+
 class MicrosoftPartnerReferralConsent(BaseModel):
     """
     MicrosoftPartnerReferralConsent
     """
+
     consent_to_contact: Optional[StrictBool] = Field(None, alias="consentToContact")
-    consent_to_share_referral_with_microsoft_sellers: Optional[StrictBool] = Field(None, alias="consentToShareReferralWithMicrosoftSellers")
-    consent_to_to_share_info_with_others: Optional[StrictBool] = Field(None, alias="consentToToShareInfoWithOthers")
-    __properties = ["consentToContact", "consentToShareReferralWithMicrosoftSellers", "consentToToShareInfoWithOthers"]
+    consent_to_share_referral_with_microsoft_sellers: Optional[StrictBool] = Field(
+        None, alias="consentToShareReferralWithMicrosoftSellers"
+    )
+    consent_to_to_share_info_with_others: Optional[StrictBool] = Field(
+        None, alias="consentToToShareInfoWithOthers"
+    )
+    __properties = [
+        "consentToContact",
+        "consentToShareReferralWithMicrosoftSellers",
+        "consentToToShareInfoWithOthers",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,10 +62,7 @@ class MicrosoftPartnerReferralConsent(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,11 +74,15 @@ class MicrosoftPartnerReferralConsent(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralConsent.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralConsent.parse_obj({
-            "consent_to_contact": obj.get("consentToContact"),
-            "consent_to_share_referral_with_microsoft_sellers": obj.get("consentToShareReferralWithMicrosoftSellers"),
-            "consent_to_to_share_info_with_others": obj.get("consentToToShareInfoWithOthers")
-        })
+        _obj = MicrosoftPartnerReferralConsent.parse_obj(
+            {
+                "consent_to_contact": obj.get("consentToContact"),
+                "consent_to_share_referral_with_microsoft_sellers": obj.get(
+                    "consentToShareReferralWithMicrosoftSellers"
+                ),
+                "consent_to_to_share_info_with_others": obj.get(
+                    "consentToToShareInfoWithOthers"
+                ),
+            }
+        )
         return _obj
-
-

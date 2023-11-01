@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.azure_marketplace_resource_lifecycle_state import AzureMarketplaceResourceLifecycleState  # noqa: E501
+from openapi_client.models.azure_marketplace_resource_lifecycle_state import (
+    AzureMarketplaceResourceLifecycleState,
+)  # noqa: E501
+
 
 class TestAzureMarketplaceResourceLifecycleState(unittest.TestCase):
     """AzureMarketplaceResourceLifecycleState unit test stubs"""
@@ -31,5 +34,6 @@ class TestAzureMarketplaceResourceLifecycleState(unittest.TestCase):
         """Test AzureMarketplaceResourceLifecycleState"""
         # inst = AzureMarketplaceResourceLifecycleState()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

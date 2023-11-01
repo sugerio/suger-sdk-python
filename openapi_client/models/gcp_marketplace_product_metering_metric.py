@@ -24,26 +24,67 @@ from pydantic import BaseModel, Field, StrictStr, conlist
 from openapi_client.models.gcp_price_tier import GcpPriceTier
 from openapi_client.models.value_type import ValueType
 
+
 class GcpMarketplaceProductMeteringMetric(BaseModel):
     """
     GcpMarketplaceProductMeteringMetric
     """
-    description: Optional[StrictStr] = Field(None, description="Description: A detailed description of the metric, which can be used in documentation.")
+
+    description: Optional[StrictStr] = Field(
+        None,
+        description="Description: A detailed description of the metric, which can be used in documentation.",
+    )
     display_name: Optional[StrictStr] = Field(None, alias="displayName")
-    display_unit: Optional[StrictStr] = Field(None, alias="displayUnit", description="such as \"min\"")
-    display_unit_description: Optional[StrictStr] = Field(None, alias="displayUnitDescription", description="such as \"minute\"")
-    id: Optional[StrictStr] = Field(None, description="The usage metering metric/dimension key, all in lower case with underscore. It is in format of \"{plan_id}_{usage_dimension_key}\". For example, \"basic_plan_storage\".")
-    metric_kind: Optional[StrictStr] = Field(None, alias="metricKind", description="such as \"DELTA\"")
-    name: Optional[StrictStr] = Field(None, description="Name: The resource name of the metric descriptor, in format of \"{productServiceName}/{plan_id}_{usage_dimension_key}\"")
-    price_tiers: Optional[conlist(GcpPriceTier)] = Field(None, alias="priceTiers", description="Price info of this usage metering metric. Only applicable for the default offer (plan) and private offer.")
-    reporting_unit: Optional[StrictStr] = Field(None, alias="reportingUnit", description="such as \"min\"")
-    sku_id: Optional[StrictStr] = Field(None, alias="skuId", description="The SKU ID of this usage metering metric. Applicable only in Private Offer.")
-    unit: Optional[StrictStr] = Field(None, description="such as \"min\"")
+    display_unit: Optional[StrictStr] = Field(
+        None, alias="displayUnit", description='such as "min"'
+    )
+    display_unit_description: Optional[StrictStr] = Field(
+        None, alias="displayUnitDescription", description='such as "minute"'
+    )
+    id: Optional[StrictStr] = Field(
+        None,
+        description='The usage metering metric/dimension key, all in lower case with underscore. It is in format of "{plan_id}_{usage_dimension_key}". For example, "basic_plan_storage".',
+    )
+    metric_kind: Optional[StrictStr] = Field(
+        None, alias="metricKind", description='such as "DELTA"'
+    )
+    name: Optional[StrictStr] = Field(
+        None,
+        description='Name: The resource name of the metric descriptor, in format of "{productServiceName}/{plan_id}_{usage_dimension_key}"',
+    )
+    price_tiers: Optional[conlist(GcpPriceTier)] = Field(
+        None,
+        alias="priceTiers",
+        description="Price info of this usage metering metric. Only applicable for the default offer (plan) and private offer.",
+    )
+    reporting_unit: Optional[StrictStr] = Field(
+        None, alias="reportingUnit", description='such as "min"'
+    )
+    sku_id: Optional[StrictStr] = Field(
+        None,
+        alias="skuId",
+        description="The SKU ID of this usage metering metric. Applicable only in Private Offer.",
+    )
+    unit: Optional[StrictStr] = Field(None, description='such as "min"')
     value_type: Optional[ValueType] = Field(None, alias="valueType")
-    __properties = ["description", "displayName", "displayUnit", "displayUnitDescription", "id", "metricKind", "name", "priceTiers", "reportingUnit", "skuId", "unit", "valueType"]
+    __properties = [
+        "description",
+        "displayName",
+        "displayUnit",
+        "displayUnitDescription",
+        "id",
+        "metricKind",
+        "name",
+        "priceTiers",
+        "reportingUnit",
+        "skuId",
+        "unit",
+        "valueType",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -62,17 +103,14 @@ class GcpMarketplaceProductMeteringMetric(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in price_tiers (list)
         _items = []
         if self.price_tiers:
             for _item in self.price_tiers:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['priceTiers'] = _items
+            _dict["priceTiers"] = _items
         return _dict
 
     @classmethod
@@ -84,20 +122,24 @@ class GcpMarketplaceProductMeteringMetric(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceProductMeteringMetric.parse_obj(obj)
 
-        _obj = GcpMarketplaceProductMeteringMetric.parse_obj({
-            "description": obj.get("description"),
-            "display_name": obj.get("displayName"),
-            "display_unit": obj.get("displayUnit"),
-            "display_unit_description": obj.get("displayUnitDescription"),
-            "id": obj.get("id"),
-            "metric_kind": obj.get("metricKind"),
-            "name": obj.get("name"),
-            "price_tiers": [GcpPriceTier.from_dict(_item) for _item in obj.get("priceTiers")] if obj.get("priceTiers") is not None else None,
-            "reporting_unit": obj.get("reportingUnit"),
-            "sku_id": obj.get("skuId"),
-            "unit": obj.get("unit"),
-            "value_type": obj.get("valueType")
-        })
+        _obj = GcpMarketplaceProductMeteringMetric.parse_obj(
+            {
+                "description": obj.get("description"),
+                "display_name": obj.get("displayName"),
+                "display_unit": obj.get("displayUnit"),
+                "display_unit_description": obj.get("displayUnitDescription"),
+                "id": obj.get("id"),
+                "metric_kind": obj.get("metricKind"),
+                "name": obj.get("name"),
+                "price_tiers": [
+                    GcpPriceTier.from_dict(_item) for _item in obj.get("priceTiers")
+                ]
+                if obj.get("priceTiers") is not None
+                else None,
+                "reporting_unit": obj.get("reportingUnit"),
+                "sku_id": obj.get("skuId"),
+                "unit": obj.get("unit"),
+                "value_type": obj.get("valueType"),
+            }
+        )
         return _obj
-
-

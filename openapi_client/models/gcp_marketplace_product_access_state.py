@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class GcpMarketplaceProductAccessState(str, Enum):
     """
     GcpMarketplaceProductAccessState
@@ -30,13 +27,11 @@ class GcpMarketplaceProductAccessState(str, Enum):
     """
     allowed enum values
     """
-    ALLUSERS_ACCESSIBLE = 'ALLUSERS_ACCESSIBLE'
-    NOT_ALLUSERS_ACCESSIBLE = 'NOT_ALLUSERS_ACCESSIBLE'
-    NOT_PUBLISHED = 'NOT_PUBLISHED'
+    ALLUSERS_ACCESSIBLE = "ALLUSERS_ACCESSIBLE"
+    NOT_ALLUSERS_ACCESSIBLE = "NOT_ALLUSERS_ACCESSIBLE"
+    NOT_PUBLISHED = "NOT_PUBLISHED"
 
     @classmethod
     def from_json(cls, json_str: str) -> GcpMarketplaceProductAccessState:
         """Create an instance of GcpMarketplaceProductAccessState from a JSON string"""
         return GcpMarketplaceProductAccessState(json.loads(json_str))
-
-

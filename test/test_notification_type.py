@@ -18,6 +18,7 @@ import datetime
 
 from openapi_client.models.notification_type import NotificationType  # noqa: E501
 
+
 class TestNotificationType(unittest.TestCase):
     """NotificationType unit test stubs"""
 
@@ -31,5 +32,6 @@ class TestNotificationType(unittest.TestCase):
         """Test NotificationType"""
         # inst = NotificationType()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

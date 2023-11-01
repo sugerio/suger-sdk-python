@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class EntitlementTermType(str, Enum):
     """
     EntitlementTermType
@@ -30,17 +27,15 @@ class EntitlementTermType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    AUTORENEW = 'AutoRenew'
-    MANUALRENEW = 'ManualRenew'
-    PLANCHANGE = 'PlanChange'
-    QUANTITYCHANGE = 'QuantityChange'
-    SIGNUP = 'Signup'
-    DIVIDECOMMIT = 'DivideCommit'
+    EMPTY = ""
+    AUTORENEW = "AutoRenew"
+    MANUALRENEW = "ManualRenew"
+    PLANCHANGE = "PlanChange"
+    QUANTITYCHANGE = "QuantityChange"
+    SIGNUP = "Signup"
+    DIVIDECOMMIT = "DivideCommit"
 
     @classmethod
     def from_json(cls, json_str: str) -> EntitlementTermType:
         """Create an instance of EntitlementTermType from a JSON string"""
         return EntitlementTermType(json.loads(json_str))
-
-

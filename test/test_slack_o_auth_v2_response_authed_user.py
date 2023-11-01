@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.slack_o_auth_v2_response_authed_user import SlackOAuthV2ResponseAuthedUser  # noqa: E501
+from openapi_client.models.slack_o_auth_v2_response_authed_user import (
+    SlackOAuthV2ResponseAuthedUser,
+)  # noqa: E501
+
 
 class TestSlackOAuthV2ResponseAuthedUser(unittest.TestCase):
     """SlackOAuthV2ResponseAuthedUser unit test stubs"""
@@ -29,9 +32,9 @@ class TestSlackOAuthV2ResponseAuthedUser(unittest.TestCase):
 
     def make_instance(self, include_optional) -> SlackOAuthV2ResponseAuthedUser:
         """Test SlackOAuthV2ResponseAuthedUser
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `SlackOAuthV2ResponseAuthedUser`
         """
         model = SlackOAuthV2ResponseAuthedUser()  # noqa: E501
@@ -54,5 +57,6 @@ class TestSlackOAuthV2ResponseAuthedUser(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

@@ -21,19 +21,30 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
-from openapi_client.models.aws_saas_product_additional_resource import AwsSaasProductAdditionalResource
+from openapi_client.models.aws_saas_product_additional_resource import (
+    AwsSaasProductAdditionalResource,
+)
+
 
 class AwsSaasProductPromotionalResources(BaseModel):
     """
     AwsSaasProductPromotionalResources
     """
-    additional_resources: Optional[conlist(AwsSaasProductAdditionalResource)] = Field(None, alias="AdditionalResources")
+
+    additional_resources: Optional[conlist(AwsSaasProductAdditionalResource)] = Field(
+        None, alias="AdditionalResources"
+    )
     logo_url: Optional[StrictStr] = Field(None, alias="LogoUrl")
-    video_urls: Optional[conlist(StrictStr)] = Field(None, alias="VideoUrls", description="Currently, AWS only support 1 url in the array.")
+    video_urls: Optional[conlist(StrictStr)] = Field(
+        None,
+        alias="VideoUrls",
+        description="Currently, AWS only support 1 url in the array.",
+    )
     __properties = ["AdditionalResources", "LogoUrl", "VideoUrls"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,17 +63,14 @@ class AwsSaasProductPromotionalResources(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in additional_resources (list)
         _items = []
         if self.additional_resources:
             for _item in self.additional_resources:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['AdditionalResources'] = _items
+            _dict["AdditionalResources"] = _items
         return _dict
 
     @classmethod
@@ -74,11 +82,16 @@ class AwsSaasProductPromotionalResources(BaseModel):
         if not isinstance(obj, dict):
             return AwsSaasProductPromotionalResources.parse_obj(obj)
 
-        _obj = AwsSaasProductPromotionalResources.parse_obj({
-            "additional_resources": [AwsSaasProductAdditionalResource.from_dict(_item) for _item in obj.get("AdditionalResources")] if obj.get("AdditionalResources") is not None else None,
-            "logo_url": obj.get("LogoUrl"),
-            "video_urls": obj.get("VideoUrls")
-        })
+        _obj = AwsSaasProductPromotionalResources.parse_obj(
+            {
+                "additional_resources": [
+                    AwsSaasProductAdditionalResource.from_dict(_item)
+                    for _item in obj.get("AdditionalResources")
+                ]
+                if obj.get("AdditionalResources") is not None
+                else None,
+                "logo_url": obj.get("LogoUrl"),
+                "video_urls": obj.get("VideoUrls"),
+            }
+        )
         return _obj
-
-

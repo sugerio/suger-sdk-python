@@ -22,26 +22,29 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictInt, StrictStr, validator
 
+
 class OrbTrialConfig(BaseModel):
     """
     OrbTrialConfig
     """
+
     trial_period: Optional[StrictInt] = None
     trial_period_unit: Optional[StrictStr] = None
     __properties = ["trial_period", "trial_period_unit"]
 
-    @validator('trial_period_unit')
+    @validator("trial_period_unit")
     def trial_period_unit_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('days'):
+        if value not in ("days"):
             raise ValueError("must be one of enum values ('days')")
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -60,10 +63,7 @@ class OrbTrialConfig(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -75,10 +75,10 @@ class OrbTrialConfig(BaseModel):
         if not isinstance(obj, dict):
             return OrbTrialConfig.parse_obj(obj)
 
-        _obj = OrbTrialConfig.parse_obj({
-            "trial_period": obj.get("trial_period"),
-            "trial_period_unit": obj.get("trial_period_unit")
-        })
+        _obj = OrbTrialConfig.parse_obj(
+            {
+                "trial_period": obj.get("trial_period"),
+                "trial_period_unit": obj.get("trial_period_unit"),
+            }
+        )
         return _obj
-
-

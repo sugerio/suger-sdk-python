@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class GcpPeriodDurationUnit(str, Enum):
     """
     GcpPeriodDurationUnit
@@ -30,12 +27,10 @@ class GcpPeriodDurationUnit(str, Enum):
     """
     allowed enum values
     """
-    MONTHLY_PERIOD = 'MONTHLY_PERIOD'
-    YEARLY_PERIOD = 'YEARLY_PERIOD'
+    MONTHLY_PERIOD = "MONTHLY_PERIOD"
+    YEARLY_PERIOD = "YEARLY_PERIOD"
 
     @classmethod
     def from_json(cls, json_str: str) -> GcpPeriodDurationUnit:
         """Create an instance of GcpPeriodDurationUnit from a JSON string"""
         return GcpPeriodDurationUnit(json.loads(json_str))
-
-

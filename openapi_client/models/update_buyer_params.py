@@ -22,19 +22,46 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class UpdateBuyerParams(BaseModel):
     """
     UpdateBuyerParams
     """
-    customer_id: Optional[StrictStr] = Field(None, alias="customerId", description="The customer ID to recognize the cloud marketplace buyer in your internal system. This may be used for uploading CSV files for Batch Metering Usage")
-    description: Optional[StrictStr] = Field(None, description="The description of the buyer. If not provided, the description will not be updated.")
-    metronome_customer_id: Optional[StrictStr] = Field(None, alias="metronomeCustomerId", description="The Metronome Customer ID of the buyer. If not provided, the Metronome Customer ID will not be updated.")
-    name: Optional[StrictStr] = Field(None, description="The name of the buyer. If not provided, the name will not be updated.")
-    orb_customer_id: Optional[StrictStr] = Field(None, alias="orbCustomerId", description="The Orb Customer ID of the buyer. If not provided, the Orb Customer ID will not be updated.")
-    __properties = ["customerId", "description", "metronomeCustomerId", "name", "orbCustomerId"]
+
+    customer_id: Optional[StrictStr] = Field(
+        None,
+        alias="customerId",
+        description="The customer ID to recognize the cloud marketplace buyer in your internal system. This may be used for uploading CSV files for Batch Metering Usage",
+    )
+    description: Optional[StrictStr] = Field(
+        None,
+        description="The description of the buyer. If not provided, the description will not be updated.",
+    )
+    metronome_customer_id: Optional[StrictStr] = Field(
+        None,
+        alias="metronomeCustomerId",
+        description="The Metronome Customer ID of the buyer. If not provided, the Metronome Customer ID will not be updated.",
+    )
+    name: Optional[StrictStr] = Field(
+        None,
+        description="The name of the buyer. If not provided, the name will not be updated.",
+    )
+    orb_customer_id: Optional[StrictStr] = Field(
+        None,
+        alias="orbCustomerId",
+        description="The Orb Customer ID of the buyer. If not provided, the Orb Customer ID will not be updated.",
+    )
+    __properties = [
+        "customerId",
+        "description",
+        "metronomeCustomerId",
+        "name",
+        "orbCustomerId",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,10 +80,7 @@ class UpdateBuyerParams(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -68,13 +92,13 @@ class UpdateBuyerParams(BaseModel):
         if not isinstance(obj, dict):
             return UpdateBuyerParams.parse_obj(obj)
 
-        _obj = UpdateBuyerParams.parse_obj({
-            "customer_id": obj.get("customerId"),
-            "description": obj.get("description"),
-            "metronome_customer_id": obj.get("metronomeCustomerId"),
-            "name": obj.get("name"),
-            "orb_customer_id": obj.get("orbCustomerId")
-        })
+        _obj = UpdateBuyerParams.parse_obj(
+            {
+                "customer_id": obj.get("customerId"),
+                "description": obj.get("description"),
+                "metronome_customer_id": obj.get("metronomeCustomerId"),
+                "name": obj.get("name"),
+                "orb_customer_id": obj.get("orbCustomerId"),
+            }
+        )
         return _obj
-
-

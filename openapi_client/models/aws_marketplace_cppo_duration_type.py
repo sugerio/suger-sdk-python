@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class AwsMarketplaceCppoDurationType(str, Enum):
     """
     AwsMarketplaceCppoDurationType
@@ -30,12 +27,10 @@ class AwsMarketplaceCppoDurationType(str, Enum):
     """
     allowed enum values
     """
-    SPECIFIC_DATES = 'SPECIFIC_DATES'
-    ONE_TIME = 'ONE_TIME'
+    SPECIFIC_DATES = "SPECIFIC_DATES"
+    ONE_TIME = "ONE_TIME"
 
     @classmethod
     def from_json(cls, json_str: str) -> AwsMarketplaceCppoDurationType:
         """Create an instance of AwsMarketplaceCppoDurationType from a JSON string"""
         return AwsMarketplaceCppoDurationType(json.loads(json_str))
-
-

@@ -21,17 +21,24 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, conlist
-from openapi_client.models.alibaba_marketplace_product_shop_info_wang_wang import AlibabaMarketplaceProductShopInfoWangWang
+from openapi_client.models.alibaba_marketplace_product_shop_info_wang_wang import (
+    AlibabaMarketplaceProductShopInfoWangWang,
+)
+
 
 class AlibabaMarketplaceProductShopInfoWangWangs(BaseModel):
     """
     AlibabaMarketplaceProductShopInfoWangWangs
     """
-    wang_wang: Optional[conlist(AlibabaMarketplaceProductShopInfoWangWang)] = Field(None, alias="WangWang")
+
+    wang_wang: Optional[conlist(AlibabaMarketplaceProductShopInfoWangWang)] = Field(
+        None, alias="WangWang"
+    )
     __properties = ["WangWang"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,17 +57,14 @@ class AlibabaMarketplaceProductShopInfoWangWangs(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in wang_wang (list)
         _items = []
         if self.wang_wang:
             for _item in self.wang_wang:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['WangWang'] = _items
+            _dict["WangWang"] = _items
         return _dict
 
     @classmethod
@@ -72,9 +76,14 @@ class AlibabaMarketplaceProductShopInfoWangWangs(BaseModel):
         if not isinstance(obj, dict):
             return AlibabaMarketplaceProductShopInfoWangWangs.parse_obj(obj)
 
-        _obj = AlibabaMarketplaceProductShopInfoWangWangs.parse_obj({
-            "wang_wang": [AlibabaMarketplaceProductShopInfoWangWang.from_dict(_item) for _item in obj.get("WangWang")] if obj.get("WangWang") is not None else None
-        })
+        _obj = AlibabaMarketplaceProductShopInfoWangWangs.parse_obj(
+            {
+                "wang_wang": [
+                    AlibabaMarketplaceProductShopInfoWangWang.from_dict(_item)
+                    for _item in obj.get("WangWang")
+                ]
+                if obj.get("WangWang") is not None
+                else None
+            }
+        )
         return _obj
-
-

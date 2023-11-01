@@ -22,34 +22,136 @@ from datetime import datetime
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 
+
 class AwsMarketplaceIntegration(BaseModel):
     """
     The data struct to store integration info for Suger service to access the client's AWS services.  # noqa: E501
     """
-    basic_info_full_sync_done: Optional[StrictBool] = Field(None, alias="basicInfoFullSyncDone", description="Is AWS Marketplace Basic Info (Private Offers, Entitlements/Agreements) full-sync done.")
-    create_entitlement_before_notification_enabled: Optional[StrictBool] = Field(None, alias="createEntitlementBeforeNotificationEnabled", description="If enabled, Suger will create an active entitlement based on the default offer when the new client is redirected from AWS Marketplace, but the notification evnet from AWS Marketplace is not received yet by Suger. If disabled, Suger will not create the entitlement when the new client is redirected from AWS Marketplace. So the redirect URL won't contain the sugerEntitlementId parameter.")
-    enable_marketplace_beta_api: Optional[StrictBool] = Field(None, alias="enableMarketplaceBetaApi", description="Enable the use of AWS Marketplace beta APIs in the backend. If true, Suger will use the beta APIs.")
-    event_bridge_rule_name: Optional[StrictStr] = Field(None, alias="eventBridgeRuleName", description="AWS EventBridge rule name for AWS Marketplace events.")
-    external_id: Optional[StrictStr] = Field(None, alias="externalID", description="The external ID for assuming IAM role. If empty, means no external ID set or needed. Otherwise, it should be auth_id in table identity.organization.")
-    iam_role_arn: Optional[StrictStr] = Field(None, alias="iamRoleArn", description="The AWS IAM role for Suger service to assume to access the client's AWS services.")
-    marketplace_start_date: Optional[datetime] = Field(None, alias="marketplaceStartDate", description="AWS Marketplace start date which comes from MDFS Full-Sync.")
-    mcas_full_sync_done: Optional[StrictBool] = Field(None, alias="mcasFullSyncDone", description="Is AWS Marketplace Commerce Analytics Service (MCAS) full-sync done.")
-    mcas_iam_role_arn: Optional[StrictStr] = Field(None, alias="mcasIamRoleArn", description="IAM role ARN to allow AWS Marketplace to write to the S3 bucket and publish notifications to the SNS topic.")
-    mcas_s3_bucket: Optional[StrictStr] = Field(None, alias="mcasS3Bucket", description="S3 bucket for AWS Marketplace Commerce Analytics Service (MCAS)")
-    mcas_sns_topic: Optional[StrictStr] = Field(None, alias="mcasSnsTopic", description="SNS topic ARN for AWS Marketplace Commerce Analytics Service (MCAS)")
-    mcas_sync_disabled: Optional[StrictBool] = Field(None, alias="mcasSyncDisabled", description="Disable Sync with AWS MCAS. If true, Suger stop to sync with MCAS.")
-    mdfs_full_sync_done: Optional[StrictBool] = Field(None, alias="mdfsFullSyncDone", description="Is AWS Marketplace Data Feeds Service (MDFS) full-sync done.")
-    mdfs_kms_key_arn: Optional[StrictStr] = Field(None, alias="mdfsKmsKeyArn", description="KMS Key ARN for the S3 bucket of AWS Marketplace Data Feeds Service (MDFS)")
-    mdfs_s3_bucket_arn: Optional[StrictStr] = Field(None, alias="mdfsS3BucketArn", description="S3 bucket ARN for AWS Marketplace Data Feeds Service (MDFS)")
-    mdfs_sync_disabled: Optional[StrictBool] = Field(None, alias="mdfsSyncDisabled", description="Disable Sync with AWS MDFS. If true, Suger stop to sync with MDFS.")
-    policy_arns: Optional[conlist(StrictStr)] = Field(None, alias="policyArns", description="The policy ARNs in the IAM role.")
-    revenue_record_full_sync_done: Optional[StrictBool] = Field(None, alias="revenueRecordFullSyncDone", description="Is AWS Marketplace Revenue Record full-sync done.")
-    signup_redirect_without_entitlement_enabled: Optional[StrictBool] = Field(None, alias="signupRedirectWithoutEntitlementEnabled", description="If enabled, Suger will redirect the new client to the signup page even the entitlement is not found. If disabled, Suger will redirect the new client to the error page if the entitlement is not found.")
-    usage_metering_disabled: Optional[StrictBool] = Field(None, alias="usageMeteringDisabled", description="Disable Usage Metering to AWS Marketplace. If true, Suger stop to report usage records to AWS Marketplace.")
-    __properties = ["basicInfoFullSyncDone", "createEntitlementBeforeNotificationEnabled", "enableMarketplaceBetaApi", "eventBridgeRuleName", "externalID", "iamRoleArn", "marketplaceStartDate", "mcasFullSyncDone", "mcasIamRoleArn", "mcasS3Bucket", "mcasSnsTopic", "mcasSyncDisabled", "mdfsFullSyncDone", "mdfsKmsKeyArn", "mdfsS3BucketArn", "mdfsSyncDisabled", "policyArns", "revenueRecordFullSyncDone", "signupRedirectWithoutEntitlementEnabled", "usageMeteringDisabled"]
+
+    basic_info_full_sync_done: Optional[StrictBool] = Field(
+        None,
+        alias="basicInfoFullSyncDone",
+        description="Is AWS Marketplace Basic Info (Private Offers, Entitlements/Agreements) full-sync done.",
+    )
+    create_entitlement_before_notification_enabled: Optional[StrictBool] = Field(
+        None,
+        alias="createEntitlementBeforeNotificationEnabled",
+        description="If enabled, Suger will create an active entitlement based on the default offer when the new client is redirected from AWS Marketplace, but the notification evnet from AWS Marketplace is not received yet by Suger. If disabled, Suger will not create the entitlement when the new client is redirected from AWS Marketplace. So the redirect URL won't contain the sugerEntitlementId parameter.",
+    )
+    enable_marketplace_beta_api: Optional[StrictBool] = Field(
+        None,
+        alias="enableMarketplaceBetaApi",
+        description="Enable the use of AWS Marketplace beta APIs in the backend. If true, Suger will use the beta APIs.",
+    )
+    event_bridge_rule_name: Optional[StrictStr] = Field(
+        None,
+        alias="eventBridgeRuleName",
+        description="AWS EventBridge rule name for AWS Marketplace events.",
+    )
+    external_id: Optional[StrictStr] = Field(
+        None,
+        alias="externalID",
+        description="The external ID for assuming IAM role. If empty, means no external ID set or needed. Otherwise, it should be auth_id in table identity.organization.",
+    )
+    iam_role_arn: Optional[StrictStr] = Field(
+        None,
+        alias="iamRoleArn",
+        description="The AWS IAM role for Suger service to assume to access the client's AWS services.",
+    )
+    marketplace_start_date: Optional[datetime] = Field(
+        None,
+        alias="marketplaceStartDate",
+        description="AWS Marketplace start date which comes from MDFS Full-Sync.",
+    )
+    mcas_full_sync_done: Optional[StrictBool] = Field(
+        None,
+        alias="mcasFullSyncDone",
+        description="Is AWS Marketplace Commerce Analytics Service (MCAS) full-sync done.",
+    )
+    mcas_iam_role_arn: Optional[StrictStr] = Field(
+        None,
+        alias="mcasIamRoleArn",
+        description="IAM role ARN to allow AWS Marketplace to write to the S3 bucket and publish notifications to the SNS topic.",
+    )
+    mcas_s3_bucket: Optional[StrictStr] = Field(
+        None,
+        alias="mcasS3Bucket",
+        description="S3 bucket for AWS Marketplace Commerce Analytics Service (MCAS)",
+    )
+    mcas_sns_topic: Optional[StrictStr] = Field(
+        None,
+        alias="mcasSnsTopic",
+        description="SNS topic ARN for AWS Marketplace Commerce Analytics Service (MCAS)",
+    )
+    mcas_sync_disabled: Optional[StrictBool] = Field(
+        None,
+        alias="mcasSyncDisabled",
+        description="Disable Sync with AWS MCAS. If true, Suger stop to sync with MCAS.",
+    )
+    mdfs_full_sync_done: Optional[StrictBool] = Field(
+        None,
+        alias="mdfsFullSyncDone",
+        description="Is AWS Marketplace Data Feeds Service (MDFS) full-sync done.",
+    )
+    mdfs_kms_key_arn: Optional[StrictStr] = Field(
+        None,
+        alias="mdfsKmsKeyArn",
+        description="KMS Key ARN for the S3 bucket of AWS Marketplace Data Feeds Service (MDFS)",
+    )
+    mdfs_s3_bucket_arn: Optional[StrictStr] = Field(
+        None,
+        alias="mdfsS3BucketArn",
+        description="S3 bucket ARN for AWS Marketplace Data Feeds Service (MDFS)",
+    )
+    mdfs_sync_disabled: Optional[StrictBool] = Field(
+        None,
+        alias="mdfsSyncDisabled",
+        description="Disable Sync with AWS MDFS. If true, Suger stop to sync with MDFS.",
+    )
+    policy_arns: Optional[conlist(StrictStr)] = Field(
+        None, alias="policyArns", description="The policy ARNs in the IAM role."
+    )
+    revenue_record_full_sync_done: Optional[StrictBool] = Field(
+        None,
+        alias="revenueRecordFullSyncDone",
+        description="Is AWS Marketplace Revenue Record full-sync done.",
+    )
+    signup_redirect_without_entitlement_enabled: Optional[StrictBool] = Field(
+        None,
+        alias="signupRedirectWithoutEntitlementEnabled",
+        description="If enabled, Suger will redirect the new client to the signup page even the entitlement is not found. If disabled, Suger will redirect the new client to the error page if the entitlement is not found.",
+    )
+    usage_metering_disabled: Optional[StrictBool] = Field(
+        None,
+        alias="usageMeteringDisabled",
+        description="Disable Usage Metering to AWS Marketplace. If true, Suger stop to report usage records to AWS Marketplace.",
+    )
+    __properties = [
+        "basicInfoFullSyncDone",
+        "createEntitlementBeforeNotificationEnabled",
+        "enableMarketplaceBetaApi",
+        "eventBridgeRuleName",
+        "externalID",
+        "iamRoleArn",
+        "marketplaceStartDate",
+        "mcasFullSyncDone",
+        "mcasIamRoleArn",
+        "mcasS3Bucket",
+        "mcasSnsTopic",
+        "mcasSyncDisabled",
+        "mdfsFullSyncDone",
+        "mdfsKmsKeyArn",
+        "mdfsS3BucketArn",
+        "mdfsSyncDisabled",
+        "policyArns",
+        "revenueRecordFullSyncDone",
+        "signupRedirectWithoutEntitlementEnabled",
+        "usageMeteringDisabled",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -68,10 +170,7 @@ class AwsMarketplaceIntegration(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -83,28 +182,32 @@ class AwsMarketplaceIntegration(BaseModel):
         if not isinstance(obj, dict):
             return AwsMarketplaceIntegration.parse_obj(obj)
 
-        _obj = AwsMarketplaceIntegration.parse_obj({
-            "basic_info_full_sync_done": obj.get("basicInfoFullSyncDone"),
-            "create_entitlement_before_notification_enabled": obj.get("createEntitlementBeforeNotificationEnabled"),
-            "enable_marketplace_beta_api": obj.get("enableMarketplaceBetaApi"),
-            "event_bridge_rule_name": obj.get("eventBridgeRuleName"),
-            "external_id": obj.get("externalID"),
-            "iam_role_arn": obj.get("iamRoleArn"),
-            "marketplace_start_date": obj.get("marketplaceStartDate"),
-            "mcas_full_sync_done": obj.get("mcasFullSyncDone"),
-            "mcas_iam_role_arn": obj.get("mcasIamRoleArn"),
-            "mcas_s3_bucket": obj.get("mcasS3Bucket"),
-            "mcas_sns_topic": obj.get("mcasSnsTopic"),
-            "mcas_sync_disabled": obj.get("mcasSyncDisabled"),
-            "mdfs_full_sync_done": obj.get("mdfsFullSyncDone"),
-            "mdfs_kms_key_arn": obj.get("mdfsKmsKeyArn"),
-            "mdfs_s3_bucket_arn": obj.get("mdfsS3BucketArn"),
-            "mdfs_sync_disabled": obj.get("mdfsSyncDisabled"),
-            "policy_arns": obj.get("policyArns"),
-            "revenue_record_full_sync_done": obj.get("revenueRecordFullSyncDone"),
-            "signup_redirect_without_entitlement_enabled": obj.get("signupRedirectWithoutEntitlementEnabled"),
-            "usage_metering_disabled": obj.get("usageMeteringDisabled")
-        })
+        _obj = AwsMarketplaceIntegration.parse_obj(
+            {
+                "basic_info_full_sync_done": obj.get("basicInfoFullSyncDone"),
+                "create_entitlement_before_notification_enabled": obj.get(
+                    "createEntitlementBeforeNotificationEnabled"
+                ),
+                "enable_marketplace_beta_api": obj.get("enableMarketplaceBetaApi"),
+                "event_bridge_rule_name": obj.get("eventBridgeRuleName"),
+                "external_id": obj.get("externalID"),
+                "iam_role_arn": obj.get("iamRoleArn"),
+                "marketplace_start_date": obj.get("marketplaceStartDate"),
+                "mcas_full_sync_done": obj.get("mcasFullSyncDone"),
+                "mcas_iam_role_arn": obj.get("mcasIamRoleArn"),
+                "mcas_s3_bucket": obj.get("mcasS3Bucket"),
+                "mcas_sns_topic": obj.get("mcasSnsTopic"),
+                "mcas_sync_disabled": obj.get("mcasSyncDisabled"),
+                "mdfs_full_sync_done": obj.get("mdfsFullSyncDone"),
+                "mdfs_kms_key_arn": obj.get("mdfsKmsKeyArn"),
+                "mdfs_s3_bucket_arn": obj.get("mdfsS3BucketArn"),
+                "mdfs_sync_disabled": obj.get("mdfsSyncDisabled"),
+                "policy_arns": obj.get("policyArns"),
+                "revenue_record_full_sync_done": obj.get("revenueRecordFullSyncDone"),
+                "signup_redirect_without_entitlement_enabled": obj.get(
+                    "signupRedirectWithoutEntitlementEnabled"
+                ),
+                "usage_metering_disabled": obj.get("usageMeteringDisabled"),
+            }
+        )
         return _obj
-
-

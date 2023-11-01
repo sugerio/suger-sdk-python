@@ -22,15 +22,18 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
+
 class OrbPriceModelConfigUNIT(BaseModel):
     """
     OrbPriceModelConfigUNIT
     """
+
     unit_amount: Optional[StrictStr] = None
     __properties = ["unit_amount"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -49,10 +52,7 @@ class OrbPriceModelConfigUNIT(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -64,9 +64,7 @@ class OrbPriceModelConfigUNIT(BaseModel):
         if not isinstance(obj, dict):
             return OrbPriceModelConfigUNIT.parse_obj(obj)
 
-        _obj = OrbPriceModelConfigUNIT.parse_obj({
-            "unit_amount": obj.get("unit_amount")
-        })
+        _obj = OrbPriceModelConfigUNIT.parse_obj(
+            {"unit_amount": obj.get("unit_amount")}
+        )
         return _obj
-
-

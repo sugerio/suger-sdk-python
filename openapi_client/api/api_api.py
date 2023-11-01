@@ -25,15 +25,16 @@ from pydantic import Field, StrictStr
 from typing import List, Optional
 
 from openapi_client.models.api_client_access_token import ApiClientAccessToken
-from openapi_client.models.get_api_client_access_token_params import GetApiClientAccessTokenParams
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_identity_api_client import GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient
+from openapi_client.models.get_api_client_access_token_params import (
+    GetApiClientAccessTokenParams,
+)
+from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_identity_api_client import (
+    GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient,
+)
 
 from openapi_client.api_client import ApiClient
 from openapi_client.api_response import ApiResponse
-from openapi_client.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
-)
+from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
 
 
 class APIApi:
@@ -49,7 +50,17 @@ class APIApi:
         self.api_client = api_client
 
     @validate_arguments
-    def create_api_client(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], type : Annotated[Optional[StrictStr], Field(description="API client type, the default is BEARER_TOKEN if not provided")] = None, **kwargs) -> GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient:  # noqa: E501
+    def create_api_client(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        type: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="API client type, the default is BEARER_TOKEN if not provided"
+            ),
+        ] = None,
+        **kwargs
+    ) -> GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient:  # noqa: E501
         """create api client  # noqa: E501
 
         Create an API client to access Suger API. Please note that only one API client is permitted per organization at this moment.  # noqa: E501
@@ -74,14 +85,26 @@ class APIApi:
                  returns the request thread.
         :rtype: GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the create_api_client_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.create_api_client_with_http_info(org_id, type, **kwargs)  # noqa: E501
+        return self.create_api_client_with_http_info(
+            org_id, type, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def create_api_client_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], type : Annotated[Optional[StrictStr], Field(description="API client type, the default is BEARER_TOKEN if not provided")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def create_api_client_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        type: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="API client type, the default is BEARER_TOKEN if not provided"
+            ),
+        ] = None,
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """create api client  # noqa: E501
 
         Create an API client to access Suger API. Please note that only one API client is permitted per organization at this moment.  # noqa: E501
@@ -122,67 +145,65 @@ class APIApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'type'
-        ]
+        _all_params = ["org_id", "type"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method create_api_client" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
-
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
         # process the query parameters
         _query_params = []
-        if _params.get('type') is not None:  # noqa: E501
-            _query_params.append(('type', _params['type']))
+        if _params.get("type") is not None:  # noqa: E501
+            _query_params.append(("type", _params["type"]))
 
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient",
-            '400': "str",
-            '500': "str",
+            "200": "GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/apiClient', 'POST',
+            "/org/{orgId}/apiClient",
+            "POST",
             _path_params,
             _query_params,
             _header_params,
@@ -191,15 +212,21 @@ class APIApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def get_api_client(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], api_client_id : Annotated[StrictStr, Field(..., description="API client ID")], **kwargs) -> GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient:  # noqa: E501
+    def get_api_client(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        api_client_id: Annotated[StrictStr, Field(..., description="API client ID")],
+        **kwargs
+    ) -> GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient:  # noqa: E501
         """get api client  # noqa: E501
 
         Get the API client by ID.  # noqa: E501
@@ -224,14 +251,21 @@ class APIApi:
                  returns the request thread.
         :rtype: GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the get_api_client_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.get_api_client_with_http_info(org_id, api_client_id, **kwargs)  # noqa: E501
+        return self.get_api_client_with_http_info(
+            org_id, api_client_id, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def get_api_client_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], api_client_id : Annotated[StrictStr, Field(..., description="API client ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_api_client_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        api_client_id: Annotated[StrictStr, Field(..., description="API client ID")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """get api client  # noqa: E501
 
         Get the API client by ID.  # noqa: E501
@@ -272,67 +306,65 @@ class APIApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'api_client_id'
-        ]
+        _all_params = ["org_id", "api_client_id"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_api_client" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['api_client_id']:
-            _path_params['apiClientId'] = _params['api_client_id']
-
+        if _params["api_client_id"]:
+            _path_params["apiClientId"] = _params["api_client_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient",
-            '400': "str",
-            '500': "str",
+            "200": "GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/apiClient/{apiClientId}', 'GET',
+            "/org/{orgId}/apiClient/{apiClientId}",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -341,15 +373,22 @@ class APIApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def get_api_client_access_token(self, data : Annotated[GetApiClientAccessTokenParams, Field(..., description="Suger API Client")], **kwargs) -> ApiClientAccessToken:  # noqa: E501
+    def get_api_client_access_token(
+        self,
+        data: Annotated[
+            GetApiClientAccessTokenParams, Field(..., description="Suger API Client")
+        ],
+        **kwargs
+    ) -> ApiClientAccessToken:  # noqa: E501
         """get api access token  # noqa: E501
 
         Get the Bearer Access Token by giving the Suger API Client ID & Client Secret.  # noqa: E501
@@ -372,14 +411,22 @@ class APIApi:
                  returns the request thread.
         :rtype: ApiClientAccessToken
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the get_api_client_access_token_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.get_api_client_access_token_with_http_info(data, **kwargs)  # noqa: E501
+        return self.get_api_client_access_token_with_http_info(
+            data, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def get_api_client_access_token_with_http_info(self, data : Annotated[GetApiClientAccessTokenParams, Field(..., description="Suger API Client")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_api_client_access_token_with_http_info(
+        self,
+        data: Annotated[
+            GetApiClientAccessTokenParams, Field(..., description="Suger API Client")
+        ],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """get api access token  # noqa: E501
 
         Get the Bearer Access Token by giving the Suger API Client ID & Client Secret.  # noqa: E501
@@ -418,30 +465,28 @@ class APIApi:
 
         _params = locals()
 
-        _all_params = [
-            'data'
-        ]
+        _all_params = ["data"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_api_client_access_token" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
@@ -451,37 +496,40 @@ class APIApi:
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['data'] is not None:
-            _body_params = _params['data']
+        if _params["data"] is not None:
+            _body_params = _params["data"]
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
+        _content_types_list = _params.get(
+            "_content_type",
+            self.api_client.select_header_content_type(["application/json"]),
+        )
         if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+            _header_params["Content-Type"] = _content_types_list
 
         # authentication setting
         _auth_settings = []  # noqa: E501
 
         _response_types_map = {
-            '200': "ApiClientAccessToken",
-            '400': "str",
-            '500': "str",
+            "200": "ApiClientAccessToken",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/public/apiClient/accessToken', 'POST',
+            "/public/apiClient/accessToken",
+            "POST",
             _path_params,
             _query_params,
             _header_params,
@@ -490,15 +538,22 @@ class APIApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def list_api_clients(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> List[GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient]:  # noqa: E501
+    def list_api_clients(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        **kwargs
+    ) -> List[
+        GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient
+    ]:  # noqa: E501
         """list api clients  # noqa: E501
 
         List all API clients in the given organization.  # noqa: E501
@@ -521,14 +576,18 @@ class APIApi:
                  returns the request thread.
         :rtype: List[GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient]
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the list_api_clients_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
         return self.list_api_clients_with_http_info(org_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_api_clients_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def list_api_clients_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """list api clients  # noqa: E501
 
         List all API clients in the given organization.  # noqa: E501
@@ -567,63 +626,62 @@ class APIApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id'
-        ]
+        _all_params = ["org_id"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_api_clients" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
-
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "List[GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient]",
-            '400': "str",
-            '500': "str",
+            "200": "List[GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient]",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/apiClient', 'GET',
+            "/org/{orgId}/apiClient",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -632,9 +690,10 @@ class APIApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )

@@ -23,22 +23,58 @@ from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 from openapi_client.models.aws_integration_credential import AwsIntegrationCredential
 
+
 class AwsAceIntegration(BaseModel):
     """
     AwsAceIntegration
     """
+
     credential: Optional[AwsIntegrationCredential] = None
-    enable_assume_iam_role: Optional[StrictBool] = Field(None, alias="enableAssumeIamRole", description="Enable assume IAM role to access the client's AWS ACE S3 bucket. If false, Suger will use the AwsIntegrationCredential to access the client's AWS ACE S3 bucket.")
-    iam_role_arn: Optional[StrictStr] = Field(None, alias="iamRoleArn", description="The AWS IAM role for Suger service to assume to access the client's AWS ACE S3 bucket. Applicable only if EnableAssumeIamRole is true.")
-    partner_id: Optional[StrictStr] = Field(None, alias="partnerId", description="The partner ID of the ISV/Seller in AWS Partner Network.")
+    enable_assume_iam_role: Optional[StrictBool] = Field(
+        None,
+        alias="enableAssumeIamRole",
+        description="Enable assume IAM role to access the client's AWS ACE S3 bucket. If false, Suger will use the AwsIntegrationCredential to access the client's AWS ACE S3 bucket.",
+    )
+    iam_role_arn: Optional[StrictStr] = Field(
+        None,
+        alias="iamRoleArn",
+        description="The AWS IAM role for Suger service to assume to access the client's AWS ACE S3 bucket. Applicable only if EnableAssumeIamRole is true.",
+    )
+    partner_id: Optional[StrictStr] = Field(
+        None,
+        alias="partnerId",
+        description="The partner ID of the ISV/Seller in AWS Partner Network.",
+    )
     paused: Optional[StrictBool] = Field(None, description="Is the integration paused.")
-    s3_bucket_name: Optional[StrictStr] = Field(None, alias="s3BucketName", description="The Name of the S3 bucket for AWS APN Customer Engagement Program (ACE) to sync the leads & opportunities.")
-    s3_bucket_region: Optional[StrictStr] = Field(None, alias="s3BucketRegion", description="The region of the S3 bucket for AWS APN Customer Engagement Program (ACE) to sync the leads & opportunities.")
-    secret_key: Optional[StrictStr] = Field(None, alias="secretKey", description="The secret key used to store the AwsIntegrationCredential in AWS Secret manager. for internal usage only.")
-    __properties = ["credential", "enableAssumeIamRole", "iamRoleArn", "partnerId", "paused", "s3BucketName", "s3BucketRegion", "secretKey"]
+    s3_bucket_name: Optional[StrictStr] = Field(
+        None,
+        alias="s3BucketName",
+        description="The Name of the S3 bucket for AWS APN Customer Engagement Program (ACE) to sync the leads & opportunities.",
+    )
+    s3_bucket_region: Optional[StrictStr] = Field(
+        None,
+        alias="s3BucketRegion",
+        description="The region of the S3 bucket for AWS APN Customer Engagement Program (ACE) to sync the leads & opportunities.",
+    )
+    secret_key: Optional[StrictStr] = Field(
+        None,
+        alias="secretKey",
+        description="The secret key used to store the AwsIntegrationCredential in AWS Secret manager. for internal usage only.",
+    )
+    __properties = [
+        "credential",
+        "enableAssumeIamRole",
+        "iamRoleArn",
+        "partnerId",
+        "paused",
+        "s3BucketName",
+        "s3BucketRegion",
+        "secretKey",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -57,13 +93,10 @@ class AwsAceIntegration(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of credential
         if self.credential:
-            _dict['credential'] = self.credential.to_dict()
+            _dict["credential"] = self.credential.to_dict()
         return _dict
 
     @classmethod
@@ -75,16 +108,18 @@ class AwsAceIntegration(BaseModel):
         if not isinstance(obj, dict):
             return AwsAceIntegration.parse_obj(obj)
 
-        _obj = AwsAceIntegration.parse_obj({
-            "credential": AwsIntegrationCredential.from_dict(obj.get("credential")) if obj.get("credential") is not None else None,
-            "enable_assume_iam_role": obj.get("enableAssumeIamRole"),
-            "iam_role_arn": obj.get("iamRoleArn"),
-            "partner_id": obj.get("partnerId"),
-            "paused": obj.get("paused"),
-            "s3_bucket_name": obj.get("s3BucketName"),
-            "s3_bucket_region": obj.get("s3BucketRegion"),
-            "secret_key": obj.get("secretKey")
-        })
+        _obj = AwsAceIntegration.parse_obj(
+            {
+                "credential": AwsIntegrationCredential.from_dict(obj.get("credential"))
+                if obj.get("credential") is not None
+                else None,
+                "enable_assume_iam_role": obj.get("enableAssumeIamRole"),
+                "iam_role_arn": obj.get("iamRoleArn"),
+                "partner_id": obj.get("partnerId"),
+                "paused": obj.get("paused"),
+                "s3_bucket_name": obj.get("s3BucketName"),
+                "s3_bucket_region": obj.get("s3BucketRegion"),
+                "secret_key": obj.get("secretKey"),
+            }
+        )
         return _obj
-
-

@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.gcp_marketplace_entitlement_state import GcpMarketplaceEntitlementState  # noqa: E501
+from openapi_client.models.gcp_marketplace_entitlement_state import (
+    GcpMarketplaceEntitlementState,
+)  # noqa: E501
+
 
 class TestGcpMarketplaceEntitlementState(unittest.TestCase):
     """GcpMarketplaceEntitlementState unit test stubs"""
@@ -31,5 +34,6 @@ class TestGcpMarketplaceEntitlementState(unittest.TestCase):
         """Test GcpMarketplaceEntitlementState"""
         # inst = GcpMarketplaceEntitlementState()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

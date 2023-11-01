@@ -18,6 +18,7 @@ import datetime
 
 from openapi_client.models.operation import Operation  # noqa: E501
 
+
 class TestOperation(unittest.TestCase):
     """Operation unit test stubs"""
 
@@ -29,9 +30,9 @@ class TestOperation(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Operation:
         """Test Operation
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `Operation`
         """
         model = Operation()  # noqa: E501
@@ -55,5 +56,6 @@ class TestOperation(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

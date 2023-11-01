@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.gcp_marketplace_usage_plan_price_model import GcpMarketplaceUsagePlanPriceModel  # noqa: E501
+from openapi_client.models.gcp_marketplace_usage_plan_price_model import (
+    GcpMarketplaceUsagePlanPriceModel,
+)  # noqa: E501
+
 
 class TestGcpMarketplaceUsagePlanPriceModel(unittest.TestCase):
     """GcpMarketplaceUsagePlanPriceModel unit test stubs"""
@@ -31,5 +34,6 @@ class TestGcpMarketplaceUsagePlanPriceModel(unittest.TestCase):
         """Test GcpMarketplaceUsagePlanPriceModel"""
         # inst = GcpMarketplaceUsagePlanPriceModel()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

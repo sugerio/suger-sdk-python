@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class OrbBillableMetricStatus(str, Enum):
     """
     OrbBillableMetricStatus
@@ -30,13 +27,11 @@ class OrbBillableMetricStatus(str, Enum):
     """
     allowed enum values
     """
-    ACTIVE = 'active'
-    DRAFT = 'draft'
-    ARCHIVED = 'archived'
+    ACTIVE = "active"
+    DRAFT = "draft"
+    ARCHIVED = "archived"
 
     @classmethod
     def from_json(cls, json_str: str) -> OrbBillableMetricStatus:
         """Create an instance of OrbBillableMetricStatus from a JSON string"""
         return OrbBillableMetricStatus(json.loads(json_str))
-
-

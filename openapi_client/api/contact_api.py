@@ -28,10 +28,7 @@ from openapi_client.models.identity_contact import IdentityContact
 
 from openapi_client.api_client import ApiClient
 from openapi_client.api_response import ApiResponse
-from openapi_client.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
-)
+from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
 
 
 class ContactApi:
@@ -47,7 +44,13 @@ class ContactApi:
         self.api_client = api_client
 
     @validate_arguments
-    def add_contact_to_buyer(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], buyer_id : Annotated[StrictStr, Field(..., description="Buyer ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], **kwargs) -> str:  # noqa: E501
+    def add_contact_to_buyer(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        buyer_id: Annotated[StrictStr, Field(..., description="Buyer ID")],
+        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
+        **kwargs
+    ) -> str:  # noqa: E501
         """add contact to buyer  # noqa: E501
 
         add contact to buyer by the given organization, buyer id and contact id.  # noqa: E501
@@ -74,14 +77,22 @@ class ContactApi:
                  returns the request thread.
         :rtype: str
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the add_contact_to_buyer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.add_contact_to_buyer_with_http_info(org_id, buyer_id, contact_id, **kwargs)  # noqa: E501
+        return self.add_contact_to_buyer_with_http_info(
+            org_id, buyer_id, contact_id, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def add_contact_to_buyer_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], buyer_id : Annotated[StrictStr, Field(..., description="Buyer ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def add_contact_to_buyer_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        buyer_id: Annotated[StrictStr, Field(..., description="Buyer ID")],
+        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """add contact to buyer  # noqa: E501
 
         add contact to buyer by the given organization, buyer id and contact id.  # noqa: E501
@@ -124,71 +135,68 @@ class ContactApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'buyer_id',
-            'contact_id'
-        ]
+        _all_params = ["org_id", "buyer_id", "contact_id"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method add_contact_to_buyer" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['buyer_id']:
-            _path_params['buyerId'] = _params['buyer_id']
+        if _params["buyer_id"]:
+            _path_params["buyerId"] = _params["buyer_id"]
 
-        if _params['contact_id']:
-            _path_params['contactId'] = _params['contact_id']
-
+        if _params["contact_id"]:
+            _path_params["contactId"] = _params["contact_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "str",
-            '400': "str",
-            '500': "str",
+            "200": "str",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/contact/{contactId}/buyer/{buyerId}', 'POST',
+            "/org/{orgId}/contact/{contactId}/buyer/{buyerId}",
+            "POST",
             _path_params,
             _query_params,
             _header_params,
@@ -197,15 +205,22 @@ class ContactApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def add_contact_to_offer(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], **kwargs) -> str:  # noqa: E501
+    def add_contact_to_offer(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
+        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
+        **kwargs
+    ) -> str:  # noqa: E501
         """add contact to offer  # noqa: E501
 
         add contact to offer by the given organization, offer id and contact id.  # noqa: E501
@@ -232,14 +247,22 @@ class ContactApi:
                  returns the request thread.
         :rtype: str
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the add_contact_to_offer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.add_contact_to_offer_with_http_info(org_id, contact_id, offer_id, **kwargs)  # noqa: E501
+        return self.add_contact_to_offer_with_http_info(
+            org_id, contact_id, offer_id, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def add_contact_to_offer_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def add_contact_to_offer_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
+        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """add contact to offer  # noqa: E501
 
         add contact to offer by the given organization, offer id and contact id.  # noqa: E501
@@ -282,71 +305,68 @@ class ContactApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'contact_id',
-            'offer_id'
-        ]
+        _all_params = ["org_id", "contact_id", "offer_id"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method add_contact_to_offer" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['contact_id']:
-            _path_params['contactId'] = _params['contact_id']
+        if _params["contact_id"]:
+            _path_params["contactId"] = _params["contact_id"]
 
-        if _params['offer_id']:
-            _path_params['offerId'] = _params['offer_id']
-
+        if _params["offer_id"]:
+            _path_params["offerId"] = _params["offer_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "str",
-            '400': "str",
-            '500': "str",
+            "200": "str",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/contact/{contactId}/offer/{offerId}', 'POST',
+            "/org/{orgId}/contact/{contactId}/offer/{offerId}",
+            "POST",
             _path_params,
             _query_params,
             _header_params,
@@ -355,15 +375,21 @@ class ContactApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def create_contact(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[IdentityContact, Field(..., description="RequestBody")], **kwargs) -> IdentityContact:  # noqa: E501
+    def create_contact(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        data: Annotated[IdentityContact, Field(..., description="RequestBody")],
+        **kwargs
+    ) -> IdentityContact:  # noqa: E501
         """create contact  # noqa: E501
 
         Create a contact under the given organization. If the email address already exists, return the existing contact.  # noqa: E501
@@ -388,14 +414,19 @@ class ContactApi:
                  returns the request thread.
         :rtype: IdentityContact
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the create_contact_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
         return self.create_contact_with_http_info(org_id, data, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def create_contact_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[IdentityContact, Field(..., description="RequestBody")], **kwargs) -> ApiResponse:  # noqa: E501
+    def create_contact_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        data: Annotated[IdentityContact, Field(..., description="RequestBody")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """create contact  # noqa: E501
 
         Create a contact under the given organization. If the email address already exists, return the existing contact.  # noqa: E501
@@ -436,74 +467,73 @@ class ContactApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'data'
-        ]
+        _all_params = ["org_id", "data"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method create_contact" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
-
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['data'] is not None:
-            _body_params = _params['data']
+        if _params["data"] is not None:
+            _body_params = _params["data"]
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
+        _content_types_list = _params.get(
+            "_content_type",
+            self.api_client.select_header_content_type(["application/json"]),
+        )
         if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+            _header_params["Content-Type"] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "IdentityContact",
-            '400': "str",
-            '500': "str",
+            "200": "IdentityContact",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/contact', 'POST',
+            "/org/{orgId}/contact",
+            "POST",
             _path_params,
             _query_params,
             _header_params,
@@ -512,15 +542,21 @@ class ContactApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def get_contact(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], **kwargs) -> IdentityContact:  # noqa: E501
+    def get_contact(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
+        **kwargs
+    ) -> IdentityContact:  # noqa: E501
         """get contact  # noqa: E501
 
         Get the Contact by the given contact ID.  # noqa: E501
@@ -545,14 +581,21 @@ class ContactApi:
                  returns the request thread.
         :rtype: IdentityContact
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the get_contact_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.get_contact_with_http_info(org_id, contact_id, **kwargs)  # noqa: E501
+        return self.get_contact_with_http_info(
+            org_id, contact_id, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def get_contact_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_contact_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """get contact  # noqa: E501
 
         Get the Contact by the given contact ID.  # noqa: E501
@@ -593,67 +636,65 @@ class ContactApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'contact_id'
-        ]
+        _all_params = ["org_id", "contact_id"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_contact" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['contact_id']:
-            _path_params['contactId'] = _params['contact_id']
-
+        if _params["contact_id"]:
+            _path_params["contactId"] = _params["contact_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "IdentityContact",
-            '400': "str",
-            '500': "str",
+            "200": "IdentityContact",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/contact/{contactId}', 'GET',
+            "/org/{orgId}/contact/{contactId}",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -662,15 +703,20 @@ class ContactApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def list_contacts_by_organization(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> List[IdentityContact]:  # noqa: E501
+    def list_contacts_by_organization(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        **kwargs
+    ) -> List[IdentityContact]:  # noqa: E501
         """list contacts by organization  # noqa: E501
 
         List all contacts under the given organization.  # noqa: E501
@@ -693,14 +739,20 @@ class ContactApi:
                  returns the request thread.
         :rtype: List[IdentityContact]
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the list_contacts_by_organization_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_contacts_by_organization_with_http_info(org_id, **kwargs)  # noqa: E501
+        return self.list_contacts_by_organization_with_http_info(
+            org_id, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def list_contacts_by_organization_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def list_contacts_by_organization_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """list contacts by organization  # noqa: E501
 
         List all contacts under the given organization.  # noqa: E501
@@ -739,63 +791,62 @@ class ContactApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id'
-        ]
+        _all_params = ["org_id"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_contacts_by_organization" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
-
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "List[IdentityContact]",
-            '400': "str",
-            '500': "str",
+            "200": "List[IdentityContact]",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/contact', 'GET',
+            "/org/{orgId}/contact",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -804,15 +855,22 @@ class ContactApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def remove_contact_from_buyer(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], buyer_id : Annotated[StrictStr, Field(..., description="Buyer ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], **kwargs) -> str:  # noqa: E501
+    def remove_contact_from_buyer(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        buyer_id: Annotated[StrictStr, Field(..., description="Buyer ID")],
+        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
+        **kwargs
+    ) -> str:  # noqa: E501
         """remove contact from buyer  # noqa: E501
 
         remove contact from buyer by the given organization, buyer id and contact id.  # noqa: E501
@@ -839,14 +897,22 @@ class ContactApi:
                  returns the request thread.
         :rtype: str
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the remove_contact_from_buyer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.remove_contact_from_buyer_with_http_info(org_id, buyer_id, contact_id, **kwargs)  # noqa: E501
+        return self.remove_contact_from_buyer_with_http_info(
+            org_id, buyer_id, contact_id, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def remove_contact_from_buyer_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], buyer_id : Annotated[StrictStr, Field(..., description="Buyer ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def remove_contact_from_buyer_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        buyer_id: Annotated[StrictStr, Field(..., description="Buyer ID")],
+        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """remove contact from buyer  # noqa: E501
 
         remove contact from buyer by the given organization, buyer id and contact id.  # noqa: E501
@@ -889,71 +955,68 @@ class ContactApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'buyer_id',
-            'contact_id'
-        ]
+        _all_params = ["org_id", "buyer_id", "contact_id"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method remove_contact_from_buyer" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['buyer_id']:
-            _path_params['buyerId'] = _params['buyer_id']
+        if _params["buyer_id"]:
+            _path_params["buyerId"] = _params["buyer_id"]
 
-        if _params['contact_id']:
-            _path_params['contactId'] = _params['contact_id']
-
+        if _params["contact_id"]:
+            _path_params["contactId"] = _params["contact_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "str",
-            '400': "str",
-            '500': "str",
+            "200": "str",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/contact/{contactId}/buyer/{buyerId}', 'DELETE',
+            "/org/{orgId}/contact/{contactId}/buyer/{buyerId}",
+            "DELETE",
             _path_params,
             _query_params,
             _header_params,
@@ -962,15 +1025,22 @@ class ContactApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def remove_contact_from_offer(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], **kwargs) -> str:  # noqa: E501
+    def remove_contact_from_offer(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
+        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
+        **kwargs
+    ) -> str:  # noqa: E501
         """remove contact from offer  # noqa: E501
 
         remove contact from offer by the given organization, offer id and contact id.  # noqa: E501
@@ -997,14 +1067,22 @@ class ContactApi:
                  returns the request thread.
         :rtype: str
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the remove_contact_from_offer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.remove_contact_from_offer_with_http_info(org_id, contact_id, offer_id, **kwargs)  # noqa: E501
+        return self.remove_contact_from_offer_with_http_info(
+            org_id, contact_id, offer_id, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def remove_contact_from_offer_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def remove_contact_from_offer_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
+        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """remove contact from offer  # noqa: E501
 
         remove contact from offer by the given organization, offer id and contact id.  # noqa: E501
@@ -1047,71 +1125,68 @@ class ContactApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'contact_id',
-            'offer_id'
-        ]
+        _all_params = ["org_id", "contact_id", "offer_id"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method remove_contact_from_offer" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['contact_id']:
-            _path_params['contactId'] = _params['contact_id']
+        if _params["contact_id"]:
+            _path_params["contactId"] = _params["contact_id"]
 
-        if _params['offer_id']:
-            _path_params['offerId'] = _params['offer_id']
-
+        if _params["offer_id"]:
+            _path_params["offerId"] = _params["offer_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "str",
-            '400': "str",
-            '500': "str",
+            "200": "str",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/contact/{contactId}/offer/{offerId}', 'DELETE',
+            "/org/{orgId}/contact/{contactId}/offer/{offerId}",
+            "DELETE",
             _path_params,
             _query_params,
             _header_params,
@@ -1120,15 +1195,22 @@ class ContactApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def update_contact(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], data : Annotated[IdentityContact, Field(..., description="Request Body")], **kwargs) -> IdentityContact:  # noqa: E501
+    def update_contact(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
+        data: Annotated[IdentityContact, Field(..., description="Request Body")],
+        **kwargs
+    ) -> IdentityContact:  # noqa: E501
         """update contact  # noqa: E501
 
         update contact by the given organization and buyer id. The given name and information should be complete. Please note that this function does not support partial updates.  # noqa: E501
@@ -1155,14 +1237,22 @@ class ContactApi:
                  returns the request thread.
         :rtype: IdentityContact
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the update_contact_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.update_contact_with_http_info(org_id, contact_id, data, **kwargs)  # noqa: E501
+        return self.update_contact_with_http_info(
+            org_id, contact_id, data, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def update_contact_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], data : Annotated[IdentityContact, Field(..., description="Request Body")], **kwargs) -> ApiResponse:  # noqa: E501
+    def update_contact_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
+        data: Annotated[IdentityContact, Field(..., description="Request Body")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """update contact  # noqa: E501
 
         update contact by the given organization and buyer id. The given name and information should be complete. Please note that this function does not support partial updates.  # noqa: E501
@@ -1205,78 +1295,76 @@ class ContactApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'contact_id',
-            'data'
-        ]
+        _all_params = ["org_id", "contact_id", "data"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_contact" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['contact_id']:
-            _path_params['contactId'] = _params['contact_id']
-
+        if _params["contact_id"]:
+            _path_params["contactId"] = _params["contact_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['data'] is not None:
-            _body_params = _params['data']
+        if _params["data"] is not None:
+            _body_params = _params["data"]
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
+        _content_types_list = _params.get(
+            "_content_type",
+            self.api_client.select_header_content_type(["application/json"]),
+        )
         if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+            _header_params["Content-Type"] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "IdentityContact",
-            '400': "str",
-            '500': "str",
+            "200": "IdentityContact",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/contact/{contactId}', 'PATCH',
+            "/org/{orgId}/contact/{contactId}",
+            "PATCH",
             _path_params,
             _query_params,
             _header_params,
@@ -1285,9 +1373,10 @@ class ContactApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )

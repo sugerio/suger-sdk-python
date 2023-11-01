@@ -22,44 +22,70 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr, validator
 
+
 class AzureProductListingAsset(BaseModel):
     """
     AzureProductListingAsset
     """
+
     description: Optional[StrictStr] = None
     file_name: Optional[StrictStr] = Field(None, alias="fileName")
     file_sas_uri: Optional[StrictStr] = Field(None, alias="fileSasUri")
     friendly_name: Optional[StrictStr] = Field(None, alias="friendlyName")
     id: Optional[StrictStr] = None
     order: Optional[StrictInt] = None
-    publisher_defined_sas_uri: Optional[StrictStr] = Field(None, alias="publisherDefinedSasUri")
+    publisher_defined_sas_uri: Optional[StrictStr] = Field(
+        None, alias="publisherDefinedSasUri"
+    )
     resource_type: Optional[StrictStr] = Field(None, alias="resourceType")
     state: Optional[StrictStr] = None
     type: Optional[StrictStr] = None
-    __properties = ["description", "fileName", "fileSasUri", "friendlyName", "id", "order", "publisherDefinedSasUri", "resourceType", "state", "type"]
+    __properties = [
+        "description",
+        "fileName",
+        "fileSasUri",
+        "friendlyName",
+        "id",
+        "order",
+        "publisherDefinedSasUri",
+        "resourceType",
+        "state",
+        "type",
+    ]
 
-    @validator('resource_type')
+    @validator("resource_type")
     def resource_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('ListingAsset', 'ListingImage', 'ListingVideo'):
-            raise ValueError("must be one of enum values ('ListingAsset', 'ListingImage', 'ListingVideo')")
+        if value not in ("ListingAsset", "ListingImage", "ListingVideo"):
+            raise ValueError(
+                "must be one of enum values ('ListingAsset', 'ListingImage', 'ListingVideo')"
+            )
         return value
 
-    @validator('state')
+    @validator("state")
     def state_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('PendingUpload', 'Uploaded', 'InProcessing', 'Processed', 'ProcessFailed'):
-            raise ValueError("must be one of enum values ('PendingUpload', 'Uploaded', 'InProcessing', 'Processed', 'ProcessFailed')")
+        if value not in (
+            "PendingUpload",
+            "Uploaded",
+            "InProcessing",
+            "Processed",
+            "ProcessFailed",
+        ):
+            raise ValueError(
+                "must be one of enum values ('PendingUpload', 'Uploaded', 'InProcessing', 'Processed', 'ProcessFailed')"
+            )
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -78,10 +104,7 @@ class AzureProductListingAsset(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -93,18 +116,18 @@ class AzureProductListingAsset(BaseModel):
         if not isinstance(obj, dict):
             return AzureProductListingAsset.parse_obj(obj)
 
-        _obj = AzureProductListingAsset.parse_obj({
-            "description": obj.get("description"),
-            "file_name": obj.get("fileName"),
-            "file_sas_uri": obj.get("fileSasUri"),
-            "friendly_name": obj.get("friendlyName"),
-            "id": obj.get("id"),
-            "order": obj.get("order"),
-            "publisher_defined_sas_uri": obj.get("publisherDefinedSasUri"),
-            "resource_type": obj.get("resourceType"),
-            "state": obj.get("state"),
-            "type": obj.get("type")
-        })
+        _obj = AzureProductListingAsset.parse_obj(
+            {
+                "description": obj.get("description"),
+                "file_name": obj.get("fileName"),
+                "file_sas_uri": obj.get("fileSasUri"),
+                "friendly_name": obj.get("friendlyName"),
+                "id": obj.get("id"),
+                "order": obj.get("order"),
+                "publisher_defined_sas_uri": obj.get("publisherDefinedSasUri"),
+                "resource_type": obj.get("resourceType"),
+                "state": obj.get("state"),
+                "type": obj.get("type"),
+            }
+        )
         return _obj
-
-

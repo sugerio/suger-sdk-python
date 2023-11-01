@@ -18,6 +18,7 @@ import datetime
 
 from openapi_client.models.partner_service import PartnerService  # noqa: E501
 
+
 class TestPartnerService(unittest.TestCase):
     """PartnerService unit test stubs"""
 
@@ -31,5 +32,6 @@ class TestPartnerService(unittest.TestCase):
         """Test PartnerService"""
         # inst = PartnerService()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

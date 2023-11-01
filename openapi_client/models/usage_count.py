@@ -22,17 +22,32 @@ import json
 from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt
 
+
 class UsageCount(BaseModel):
     """
     UsageCount
     """
-    credit_count: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="creditCount", description="The count of this dimension usage records that are handled as credit.")
-    included_count: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="includedCount", description="The count of this dimension usage records that are handled as included in IncludedBaseQuantity")
-    reported_count: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="reportedCount", description="The count of this dimension usage records that are reported to cloud vendors.")
+
+    credit_count: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None,
+        alias="creditCount",
+        description="The count of this dimension usage records that are handled as credit.",
+    )
+    included_count: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None,
+        alias="includedCount",
+        description="The count of this dimension usage records that are handled as included in IncludedBaseQuantity",
+    )
+    reported_count: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None,
+        alias="reportedCount",
+        description="The count of this dimension usage records that are reported to cloud vendors.",
+    )
     __properties = ["creditCount", "includedCount", "reportedCount"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,10 +66,7 @@ class UsageCount(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,11 +78,11 @@ class UsageCount(BaseModel):
         if not isinstance(obj, dict):
             return UsageCount.parse_obj(obj)
 
-        _obj = UsageCount.parse_obj({
-            "credit_count": obj.get("creditCount"),
-            "included_count": obj.get("includedCount"),
-            "reported_count": obj.get("reportedCount")
-        })
+        _obj = UsageCount.parse_obj(
+            {
+                "credit_count": obj.get("creditCount"),
+                "included_count": obj.get("includedCount"),
+                "reported_count": obj.get("reportedCount"),
+            }
+        )
         return _obj
-
-

@@ -22,22 +22,40 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class AzureIntegrationCredential(BaseModel):
     """
     AzureIntegrationCredential
     """
+
     access_token: Optional[StrictStr] = Field(None, alias="accessToken")
     client_id: Optional[StrictStr] = Field(None, alias="clientID")
     client_secret: Optional[StrictStr] = Field(None, alias="clientSecret")
-    expires_on: Optional[StrictStr] = Field(None, alias="expiresOn", description="The time when the access token expires.")
-    refresh_token: Optional[StrictStr] = Field(None, alias="refreshToken", description="The refresh token used to refresh the access token.")
+    expires_on: Optional[StrictStr] = Field(
+        None, alias="expiresOn", description="The time when the access token expires."
+    )
+    refresh_token: Optional[StrictStr] = Field(
+        None,
+        alias="refreshToken",
+        description="The refresh token used to refresh the access token.",
+    )
     tenant_id: Optional[StrictStr] = Field(None, alias="tenantID")
     token_scope: Optional[StrictStr] = Field(None, alias="tokenScope")
     token_type: Optional[StrictStr] = Field(None, alias="tokenType")
-    __properties = ["accessToken", "clientID", "clientSecret", "expiresOn", "refreshToken", "tenantID", "tokenScope", "tokenType"]
+    __properties = [
+        "accessToken",
+        "clientID",
+        "clientSecret",
+        "expiresOn",
+        "refreshToken",
+        "tenantID",
+        "tokenScope",
+        "tokenType",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -56,10 +74,7 @@ class AzureIntegrationCredential(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -71,16 +86,16 @@ class AzureIntegrationCredential(BaseModel):
         if not isinstance(obj, dict):
             return AzureIntegrationCredential.parse_obj(obj)
 
-        _obj = AzureIntegrationCredential.parse_obj({
-            "access_token": obj.get("accessToken"),
-            "client_id": obj.get("clientID"),
-            "client_secret": obj.get("clientSecret"),
-            "expires_on": obj.get("expiresOn"),
-            "refresh_token": obj.get("refreshToken"),
-            "tenant_id": obj.get("tenantID"),
-            "token_scope": obj.get("tokenScope"),
-            "token_type": obj.get("tokenType")
-        })
+        _obj = AzureIntegrationCredential.parse_obj(
+            {
+                "access_token": obj.get("accessToken"),
+                "client_id": obj.get("clientID"),
+                "client_secret": obj.get("clientSecret"),
+                "expires_on": obj.get("expiresOn"),
+                "refresh_token": obj.get("refreshToken"),
+                "tenant_id": obj.get("tenantID"),
+                "token_scope": obj.get("tokenScope"),
+                "token_type": obj.get("tokenType"),
+            }
+        )
         return _obj
-
-

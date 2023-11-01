@@ -24,16 +24,21 @@ from pydantic import BaseModel, Field
 from openapi_client.models.gcp_discount_percentage import GcpDiscountPercentage
 from openapi_client.models.gcp_price_value import GcpPriceValue
 
+
 class GcpMarketplacePrivateOfferPriceModelDiscount(BaseModel):
     """
     GcpMarketplacePrivateOfferPriceModelDiscount
     """
-    discount_percentage: Optional[GcpDiscountPercentage] = Field(None, alias="discountPercentage")
+
+    discount_percentage: Optional[GcpDiscountPercentage] = Field(
+        None, alias="discountPercentage"
+    )
     discounted_price: Optional[GcpPriceValue] = Field(None, alias="discountedPrice")
     __properties = ["discountPercentage", "discountedPrice"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,16 +57,13 @@ class GcpMarketplacePrivateOfferPriceModelDiscount(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of discount_percentage
         if self.discount_percentage:
-            _dict['discountPercentage'] = self.discount_percentage.to_dict()
+            _dict["discountPercentage"] = self.discount_percentage.to_dict()
         # override the default output from pydantic by calling `to_dict()` of discounted_price
         if self.discounted_price:
-            _dict['discountedPrice'] = self.discounted_price.to_dict()
+            _dict["discountedPrice"] = self.discounted_price.to_dict()
         return _dict
 
     @classmethod
@@ -73,10 +75,16 @@ class GcpMarketplacePrivateOfferPriceModelDiscount(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplacePrivateOfferPriceModelDiscount.parse_obj(obj)
 
-        _obj = GcpMarketplacePrivateOfferPriceModelDiscount.parse_obj({
-            "discount_percentage": GcpDiscountPercentage.from_dict(obj.get("discountPercentage")) if obj.get("discountPercentage") is not None else None,
-            "discounted_price": GcpPriceValue.from_dict(obj.get("discountedPrice")) if obj.get("discountedPrice") is not None else None
-        })
+        _obj = GcpMarketplacePrivateOfferPriceModelDiscount.parse_obj(
+            {
+                "discount_percentage": GcpDiscountPercentage.from_dict(
+                    obj.get("discountPercentage")
+                )
+                if obj.get("discountPercentage") is not None
+                else None,
+                "discounted_price": GcpPriceValue.from_dict(obj.get("discountedPrice"))
+                if obj.get("discountedPrice") is not None
+                else None,
+            }
+        )
         return _obj
-
-

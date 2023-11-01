@@ -25,18 +25,23 @@ from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 
 from openapi_client.models.get_revenue_report_params import GetRevenueReportParams
-from openapi_client.models.list_revenue_record_details_response import ListRevenueRecordDetailsResponse
-from openapi_client.models.list_revenue_records_response import ListRevenueRecordsResponse
-from openapi_client.models.list_usage_metering_daily_records_response import ListUsageMeteringDailyRecordsResponse
-from openapi_client.models.list_usage_metering_daily_verifications_response import ListUsageMeteringDailyVerificationsResponse
+from openapi_client.models.list_revenue_record_details_response import (
+    ListRevenueRecordDetailsResponse,
+)
+from openapi_client.models.list_revenue_records_response import (
+    ListRevenueRecordsResponse,
+)
+from openapi_client.models.list_usage_metering_daily_records_response import (
+    ListUsageMeteringDailyRecordsResponse,
+)
+from openapi_client.models.list_usage_metering_daily_verifications_response import (
+    ListUsageMeteringDailyVerificationsResponse,
+)
 from openapi_client.models.revenue_report import RevenueReport
 
 from openapi_client.api_client import ApiClient
 from openapi_client.api_response import ApiResponse
-from openapi_client.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
-)
+from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
 
 
 class ReportApi:
@@ -52,7 +57,14 @@ class ReportApi:
         self.api_client = api_client
 
     @validate_arguments
-    def get_revenue_report(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[GetRevenueReportParams, Field(..., description="Get Revenue Report Params")], **kwargs) -> RevenueReport:  # noqa: E501
+    def get_revenue_report(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        data: Annotated[
+            GetRevenueReportParams, Field(..., description="Get Revenue Report Params")
+        ],
+        **kwargs
+    ) -> RevenueReport:  # noqa: E501
         """get revenue report  # noqa: E501
 
         Get the revenue report of the given organization, product, entitlement, or buyer.  # noqa: E501
@@ -77,14 +89,23 @@ class ReportApi:
                  returns the request thread.
         :rtype: RevenueReport
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the get_revenue_report_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.get_revenue_report_with_http_info(org_id, data, **kwargs)  # noqa: E501
+        return self.get_revenue_report_with_http_info(
+            org_id, data, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def get_revenue_report_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[GetRevenueReportParams, Field(..., description="Get Revenue Report Params")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_revenue_report_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        data: Annotated[
+            GetRevenueReportParams, Field(..., description="Get Revenue Report Params")
+        ],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """get revenue report  # noqa: E501
 
         Get the revenue report of the given organization, product, entitlement, or buyer.  # noqa: E501
@@ -125,74 +146,73 @@ class ReportApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'data'
-        ]
+        _all_params = ["org_id", "data"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_revenue_report" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
-
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['data'] is not None:
-            _body_params = _params['data']
+        if _params["data"] is not None:
+            _body_params = _params["data"]
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
+        _content_types_list = _params.get(
+            "_content_type",
+            self.api_client.select_header_content_type(["application/json"]),
+        )
         if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+            _header_params["Content-Type"] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "RevenueReport",
-            '400': "str",
-            '500': "str",
+            "200": "RevenueReport",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/revenueReport', 'POST',
+            "/org/{orgId}/revenueReport",
+            "POST",
             _path_params,
             _query_params,
             _header_params,
@@ -201,15 +221,52 @@ class ReportApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def list_revenue_record_details(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], product_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given product ID")] = None, entitlement_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given entitlement ID")] = None, buyer_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given buyer ID")] = None, start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ListRevenueRecordDetailsResponse:  # noqa: E501
+    def list_revenue_record_details(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        product_id: Annotated[
+            Optional[StrictStr],
+            Field(description="Filter revenue record details by the given product ID"),
+        ] = None,
+        entitlement_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Filter revenue record details by the given entitlement ID"
+            ),
+        ] = None,
+        buyer_id: Annotated[
+            Optional[StrictStr],
+            Field(description="Filter revenue record details by the given buyer ID"),
+        ] = None,
+        start_date: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
+            ),
+        ] = None,
+        end_date: Annotated[
+            Optional[StrictStr],
+            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
+        ] = None,
+        limit: Annotated[
+            Optional[StrictInt],
+            Field(description="List pagination size, default 20, max value is 1000"),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt], Field(description="List pagination offset, default 0")
+        ] = None,
+        **kwargs
+    ) -> ListRevenueRecordDetailsResponse:  # noqa: E501
         """list revenue record details  # noqa: E501
 
         list the raw revenue record details for the given organization, product, entitlement, or buyer.  # noqa: E501
@@ -248,14 +305,61 @@ class ReportApi:
                  returns the request thread.
         :rtype: ListRevenueRecordDetailsResponse
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the list_revenue_record_details_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_revenue_record_details_with_http_info(org_id, partner, product_id, entitlement_id, buyer_id, start_date, end_date, limit, offset, **kwargs)  # noqa: E501
+        return self.list_revenue_record_details_with_http_info(
+            org_id,
+            partner,
+            product_id,
+            entitlement_id,
+            buyer_id,
+            start_date,
+            end_date,
+            limit,
+            offset,
+            **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def list_revenue_record_details_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], product_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given product ID")] = None, entitlement_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given entitlement ID")] = None, buyer_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given buyer ID")] = None, start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def list_revenue_record_details_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        product_id: Annotated[
+            Optional[StrictStr],
+            Field(description="Filter revenue record details by the given product ID"),
+        ] = None,
+        entitlement_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Filter revenue record details by the given entitlement ID"
+            ),
+        ] = None,
+        buyer_id: Annotated[
+            Optional[StrictStr],
+            Field(description="Filter revenue record details by the given buyer ID"),
+        ] = None,
+        start_date: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
+            ),
+        ] = None,
+        end_date: Annotated[
+            Optional[StrictStr],
+            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
+        ] = None,
+        limit: Annotated[
+            Optional[StrictInt],
+            Field(description="List pagination size, default 20, max value is 1000"),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt], Field(description="List pagination offset, default 0")
+        ] = None,
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """list revenue record details  # noqa: E501
 
         list the raw revenue record details for the given organization, product, entitlement, or buyer.  # noqa: E501
@@ -311,94 +415,95 @@ class ReportApi:
         _params = locals()
 
         _all_params = [
-            'org_id',
-            'partner',
-            'product_id',
-            'entitlement_id',
-            'buyer_id',
-            'start_date',
-            'end_date',
-            'limit',
-            'offset'
+            "org_id",
+            "partner",
+            "product_id",
+            "entitlement_id",
+            "buyer_id",
+            "start_date",
+            "end_date",
+            "limit",
+            "offset",
         ]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_revenue_record_details" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['partner']:
-            _path_params['partner'] = _params['partner']
-
+        if _params["partner"]:
+            _path_params["partner"] = _params["partner"]
 
         # process the query parameters
         _query_params = []
-        if _params.get('product_id') is not None:  # noqa: E501
-            _query_params.append(('productId', _params['product_id']))
+        if _params.get("product_id") is not None:  # noqa: E501
+            _query_params.append(("productId", _params["product_id"]))
 
-        if _params.get('entitlement_id') is not None:  # noqa: E501
-            _query_params.append(('entitlementId', _params['entitlement_id']))
+        if _params.get("entitlement_id") is not None:  # noqa: E501
+            _query_params.append(("entitlementId", _params["entitlement_id"]))
 
-        if _params.get('buyer_id') is not None:  # noqa: E501
-            _query_params.append(('buyerId', _params['buyer_id']))
+        if _params.get("buyer_id") is not None:  # noqa: E501
+            _query_params.append(("buyerId", _params["buyer_id"]))
 
-        if _params.get('start_date') is not None:  # noqa: E501
-            _query_params.append(('startDate', _params['start_date']))
+        if _params.get("start_date") is not None:  # noqa: E501
+            _query_params.append(("startDate", _params["start_date"]))
 
-        if _params.get('end_date') is not None:  # noqa: E501
-            _query_params.append(('endDate', _params['end_date']))
+        if _params.get("end_date") is not None:  # noqa: E501
+            _query_params.append(("endDate", _params["end_date"]))
 
-        if _params.get('limit') is not None:  # noqa: E501
-            _query_params.append(('limit', _params['limit']))
+        if _params.get("limit") is not None:  # noqa: E501
+            _query_params.append(("limit", _params["limit"]))
 
-        if _params.get('offset') is not None:  # noqa: E501
-            _query_params.append(('offset', _params['offset']))
+        if _params.get("offset") is not None:  # noqa: E501
+            _query_params.append(("offset", _params["offset"]))
 
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "ListRevenueRecordDetailsResponse",
-            '400': "str",
-            '500': "str",
+            "200": "ListRevenueRecordDetailsResponse",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/partner/{partner}/revenueRecordDetail', 'GET',
+            "/org/{orgId}/partner/{partner}/revenueRecordDetail",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -407,15 +512,52 @@ class ReportApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def list_revenue_records(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], product_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given product ID")] = None, entitlement_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given entitlement ID")] = None, buyer_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given buyer ID")] = None, start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ListRevenueRecordsResponse:  # noqa: E501
+    def list_revenue_records(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        product_id: Annotated[
+            Optional[StrictStr],
+            Field(description="Filter revenue record details by the given product ID"),
+        ] = None,
+        entitlement_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Filter revenue record details by the given entitlement ID"
+            ),
+        ] = None,
+        buyer_id: Annotated[
+            Optional[StrictStr],
+            Field(description="Filter revenue record details by the given buyer ID"),
+        ] = None,
+        start_date: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
+            ),
+        ] = None,
+        end_date: Annotated[
+            Optional[StrictStr],
+            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
+        ] = None,
+        limit: Annotated[
+            Optional[StrictInt],
+            Field(description="List pagination size, default 20, max value is 1000"),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt], Field(description="List pagination offset, default 0")
+        ] = None,
+        **kwargs
+    ) -> ListRevenueRecordsResponse:  # noqa: E501
         """list revenue records  # noqa: E501
 
         list the revenue records for the given organization, product, entitlement, or buyer.  # noqa: E501
@@ -454,14 +596,61 @@ class ReportApi:
                  returns the request thread.
         :rtype: ListRevenueRecordsResponse
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the list_revenue_records_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_revenue_records_with_http_info(org_id, partner, product_id, entitlement_id, buyer_id, start_date, end_date, limit, offset, **kwargs)  # noqa: E501
+        return self.list_revenue_records_with_http_info(
+            org_id,
+            partner,
+            product_id,
+            entitlement_id,
+            buyer_id,
+            start_date,
+            end_date,
+            limit,
+            offset,
+            **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def list_revenue_records_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], product_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given product ID")] = None, entitlement_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given entitlement ID")] = None, buyer_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given buyer ID")] = None, start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def list_revenue_records_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        product_id: Annotated[
+            Optional[StrictStr],
+            Field(description="Filter revenue record details by the given product ID"),
+        ] = None,
+        entitlement_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Filter revenue record details by the given entitlement ID"
+            ),
+        ] = None,
+        buyer_id: Annotated[
+            Optional[StrictStr],
+            Field(description="Filter revenue record details by the given buyer ID"),
+        ] = None,
+        start_date: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
+            ),
+        ] = None,
+        end_date: Annotated[
+            Optional[StrictStr],
+            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
+        ] = None,
+        limit: Annotated[
+            Optional[StrictInt],
+            Field(description="List pagination size, default 20, max value is 1000"),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt], Field(description="List pagination offset, default 0")
+        ] = None,
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """list revenue records  # noqa: E501
 
         list the revenue records for the given organization, product, entitlement, or buyer.  # noqa: E501
@@ -517,94 +706,95 @@ class ReportApi:
         _params = locals()
 
         _all_params = [
-            'org_id',
-            'partner',
-            'product_id',
-            'entitlement_id',
-            'buyer_id',
-            'start_date',
-            'end_date',
-            'limit',
-            'offset'
+            "org_id",
+            "partner",
+            "product_id",
+            "entitlement_id",
+            "buyer_id",
+            "start_date",
+            "end_date",
+            "limit",
+            "offset",
         ]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_revenue_records" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['partner']:
-            _path_params['partner'] = _params['partner']
-
+        if _params["partner"]:
+            _path_params["partner"] = _params["partner"]
 
         # process the query parameters
         _query_params = []
-        if _params.get('product_id') is not None:  # noqa: E501
-            _query_params.append(('productId', _params['product_id']))
+        if _params.get("product_id") is not None:  # noqa: E501
+            _query_params.append(("productId", _params["product_id"]))
 
-        if _params.get('entitlement_id') is not None:  # noqa: E501
-            _query_params.append(('entitlementId', _params['entitlement_id']))
+        if _params.get("entitlement_id") is not None:  # noqa: E501
+            _query_params.append(("entitlementId", _params["entitlement_id"]))
 
-        if _params.get('buyer_id') is not None:  # noqa: E501
-            _query_params.append(('buyerId', _params['buyer_id']))
+        if _params.get("buyer_id") is not None:  # noqa: E501
+            _query_params.append(("buyerId", _params["buyer_id"]))
 
-        if _params.get('start_date') is not None:  # noqa: E501
-            _query_params.append(('startDate', _params['start_date']))
+        if _params.get("start_date") is not None:  # noqa: E501
+            _query_params.append(("startDate", _params["start_date"]))
 
-        if _params.get('end_date') is not None:  # noqa: E501
-            _query_params.append(('endDate', _params['end_date']))
+        if _params.get("end_date") is not None:  # noqa: E501
+            _query_params.append(("endDate", _params["end_date"]))
 
-        if _params.get('limit') is not None:  # noqa: E501
-            _query_params.append(('limit', _params['limit']))
+        if _params.get("limit") is not None:  # noqa: E501
+            _query_params.append(("limit", _params["limit"]))
 
-        if _params.get('offset') is not None:  # noqa: E501
-            _query_params.append(('offset', _params['offset']))
+        if _params.get("offset") is not None:  # noqa: E501
+            _query_params.append(("offset", _params["offset"]))
 
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "ListRevenueRecordsResponse",
-            '400': "str",
-            '500': "str",
+            "200": "ListRevenueRecordsResponse",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/partner/{partner}/revenueRecord', 'GET',
+            "/org/{orgId}/partner/{partner}/revenueRecord",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -613,15 +803,52 @@ class ReportApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def list_usage_metering_daily_records(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], product_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given product ID")] = None, entitlement_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given entitlement ID")] = None, buyer_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given buyer ID")] = None, start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ListUsageMeteringDailyRecordsResponse:  # noqa: E501
+    def list_usage_metering_daily_records(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        product_id: Annotated[
+            Optional[StrictStr],
+            Field(description="Filter revenue record details by the given product ID"),
+        ] = None,
+        entitlement_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Filter revenue record details by the given entitlement ID"
+            ),
+        ] = None,
+        buyer_id: Annotated[
+            Optional[StrictStr],
+            Field(description="Filter revenue record details by the given buyer ID"),
+        ] = None,
+        start_date: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
+            ),
+        ] = None,
+        end_date: Annotated[
+            Optional[StrictStr],
+            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
+        ] = None,
+        limit: Annotated[
+            Optional[StrictInt],
+            Field(description="List pagination size, default 20, max value is 1000"),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt], Field(description="List pagination offset, default 0")
+        ] = None,
+        **kwargs
+    ) -> ListUsageMeteringDailyRecordsResponse:  # noqa: E501
         """list usage metering daily records  # noqa: E501
 
         list the daily records of the usage metering from the cloud marketplace for the given organization, product, entitlement, or buyer.  # noqa: E501
@@ -660,14 +887,61 @@ class ReportApi:
                  returns the request thread.
         :rtype: ListUsageMeteringDailyRecordsResponse
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the list_usage_metering_daily_records_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_usage_metering_daily_records_with_http_info(org_id, partner, product_id, entitlement_id, buyer_id, start_date, end_date, limit, offset, **kwargs)  # noqa: E501
+        return self.list_usage_metering_daily_records_with_http_info(
+            org_id,
+            partner,
+            product_id,
+            entitlement_id,
+            buyer_id,
+            start_date,
+            end_date,
+            limit,
+            offset,
+            **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def list_usage_metering_daily_records_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], product_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given product ID")] = None, entitlement_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given entitlement ID")] = None, buyer_id : Annotated[Optional[StrictStr], Field(description="Filter revenue record details by the given buyer ID")] = None, start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def list_usage_metering_daily_records_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        product_id: Annotated[
+            Optional[StrictStr],
+            Field(description="Filter revenue record details by the given product ID"),
+        ] = None,
+        entitlement_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Filter revenue record details by the given entitlement ID"
+            ),
+        ] = None,
+        buyer_id: Annotated[
+            Optional[StrictStr],
+            Field(description="Filter revenue record details by the given buyer ID"),
+        ] = None,
+        start_date: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
+            ),
+        ] = None,
+        end_date: Annotated[
+            Optional[StrictStr],
+            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
+        ] = None,
+        limit: Annotated[
+            Optional[StrictInt],
+            Field(description="List pagination size, default 20, max value is 1000"),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt], Field(description="List pagination offset, default 0")
+        ] = None,
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """list usage metering daily records  # noqa: E501
 
         list the daily records of the usage metering from the cloud marketplace for the given organization, product, entitlement, or buyer.  # noqa: E501
@@ -723,94 +997,95 @@ class ReportApi:
         _params = locals()
 
         _all_params = [
-            'org_id',
-            'partner',
-            'product_id',
-            'entitlement_id',
-            'buyer_id',
-            'start_date',
-            'end_date',
-            'limit',
-            'offset'
+            "org_id",
+            "partner",
+            "product_id",
+            "entitlement_id",
+            "buyer_id",
+            "start_date",
+            "end_date",
+            "limit",
+            "offset",
         ]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_usage_metering_daily_records" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['partner']:
-            _path_params['partner'] = _params['partner']
-
+        if _params["partner"]:
+            _path_params["partner"] = _params["partner"]
 
         # process the query parameters
         _query_params = []
-        if _params.get('product_id') is not None:  # noqa: E501
-            _query_params.append(('productId', _params['product_id']))
+        if _params.get("product_id") is not None:  # noqa: E501
+            _query_params.append(("productId", _params["product_id"]))
 
-        if _params.get('entitlement_id') is not None:  # noqa: E501
-            _query_params.append(('entitlementId', _params['entitlement_id']))
+        if _params.get("entitlement_id") is not None:  # noqa: E501
+            _query_params.append(("entitlementId", _params["entitlement_id"]))
 
-        if _params.get('buyer_id') is not None:  # noqa: E501
-            _query_params.append(('buyerId', _params['buyer_id']))
+        if _params.get("buyer_id") is not None:  # noqa: E501
+            _query_params.append(("buyerId", _params["buyer_id"]))
 
-        if _params.get('start_date') is not None:  # noqa: E501
-            _query_params.append(('startDate', _params['start_date']))
+        if _params.get("start_date") is not None:  # noqa: E501
+            _query_params.append(("startDate", _params["start_date"]))
 
-        if _params.get('end_date') is not None:  # noqa: E501
-            _query_params.append(('endDate', _params['end_date']))
+        if _params.get("end_date") is not None:  # noqa: E501
+            _query_params.append(("endDate", _params["end_date"]))
 
-        if _params.get('limit') is not None:  # noqa: E501
-            _query_params.append(('limit', _params['limit']))
+        if _params.get("limit") is not None:  # noqa: E501
+            _query_params.append(("limit", _params["limit"]))
 
-        if _params.get('offset') is not None:  # noqa: E501
-            _query_params.append(('offset', _params['offset']))
+        if _params.get("offset") is not None:  # noqa: E501
+            _query_params.append(("offset", _params["offset"]))
 
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "ListUsageMeteringDailyRecordsResponse",
-            '400': "str",
-            '500': "str",
+            "200": "ListUsageMeteringDailyRecordsResponse",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/partner/{partner}/usageMeteringDailyRecord', 'GET',
+            "/org/{orgId}/partner/{partner}/usageMeteringDailyRecord",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -819,15 +1094,56 @@ class ReportApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def list_usage_metering_daily_verifications(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], product_id : Annotated[Optional[StrictStr], Field(description="Filter usage metering daily verifications by the given product ID")] = None, entitlement_id : Annotated[Optional[StrictStr], Field(description="Filter usage metering daily verifications by the given entitlement ID")] = None, buyer_id : Annotated[Optional[StrictStr], Field(description="Filter usage metering daily verifications by the given buyer ID")] = None, start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ListUsageMeteringDailyVerificationsResponse:  # noqa: E501
+    def list_usage_metering_daily_verifications(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        product_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Filter usage metering daily verifications by the given product ID"
+            ),
+        ] = None,
+        entitlement_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Filter usage metering daily verifications by the given entitlement ID"
+            ),
+        ] = None,
+        buyer_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Filter usage metering daily verifications by the given buyer ID"
+            ),
+        ] = None,
+        start_date: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
+            ),
+        ] = None,
+        end_date: Annotated[
+            Optional[StrictStr],
+            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
+        ] = None,
+        limit: Annotated[
+            Optional[StrictInt],
+            Field(description="List pagination size, default 20, max value is 1000"),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt], Field(description="List pagination offset, default 0")
+        ] = None,
+        **kwargs
+    ) -> ListUsageMeteringDailyVerificationsResponse:  # noqa: E501
         """list usage metering daily verifications  # noqa: E501
 
         list the daily verifications between the usage records reported to cloud marketplace & the usage metering from the cloud marketplace for the given organization, product, entitlement, or buyer.  # noqa: E501
@@ -866,14 +1182,65 @@ class ReportApi:
                  returns the request thread.
         :rtype: ListUsageMeteringDailyVerificationsResponse
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the list_usage_metering_daily_verifications_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_usage_metering_daily_verifications_with_http_info(org_id, partner, product_id, entitlement_id, buyer_id, start_date, end_date, limit, offset, **kwargs)  # noqa: E501
+        return self.list_usage_metering_daily_verifications_with_http_info(
+            org_id,
+            partner,
+            product_id,
+            entitlement_id,
+            buyer_id,
+            start_date,
+            end_date,
+            limit,
+            offset,
+            **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def list_usage_metering_daily_verifications_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], product_id : Annotated[Optional[StrictStr], Field(description="Filter usage metering daily verifications by the given product ID")] = None, entitlement_id : Annotated[Optional[StrictStr], Field(description="Filter usage metering daily verifications by the given entitlement ID")] = None, buyer_id : Annotated[Optional[StrictStr], Field(description="Filter usage metering daily verifications by the given buyer ID")] = None, start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def list_usage_metering_daily_verifications_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        product_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Filter usage metering daily verifications by the given product ID"
+            ),
+        ] = None,
+        entitlement_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Filter usage metering daily verifications by the given entitlement ID"
+            ),
+        ] = None,
+        buyer_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Filter usage metering daily verifications by the given buyer ID"
+            ),
+        ] = None,
+        start_date: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
+            ),
+        ] = None,
+        end_date: Annotated[
+            Optional[StrictStr],
+            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
+        ] = None,
+        limit: Annotated[
+            Optional[StrictInt],
+            Field(description="List pagination size, default 20, max value is 1000"),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt], Field(description="List pagination offset, default 0")
+        ] = None,
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """list usage metering daily verifications  # noqa: E501
 
         list the daily verifications between the usage records reported to cloud marketplace & the usage metering from the cloud marketplace for the given organization, product, entitlement, or buyer.  # noqa: E501
@@ -929,94 +1296,95 @@ class ReportApi:
         _params = locals()
 
         _all_params = [
-            'org_id',
-            'partner',
-            'product_id',
-            'entitlement_id',
-            'buyer_id',
-            'start_date',
-            'end_date',
-            'limit',
-            'offset'
+            "org_id",
+            "partner",
+            "product_id",
+            "entitlement_id",
+            "buyer_id",
+            "start_date",
+            "end_date",
+            "limit",
+            "offset",
         ]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_usage_metering_daily_verifications" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['partner']:
-            _path_params['partner'] = _params['partner']
-
+        if _params["partner"]:
+            _path_params["partner"] = _params["partner"]
 
         # process the query parameters
         _query_params = []
-        if _params.get('product_id') is not None:  # noqa: E501
-            _query_params.append(('productId', _params['product_id']))
+        if _params.get("product_id") is not None:  # noqa: E501
+            _query_params.append(("productId", _params["product_id"]))
 
-        if _params.get('entitlement_id') is not None:  # noqa: E501
-            _query_params.append(('entitlementId', _params['entitlement_id']))
+        if _params.get("entitlement_id") is not None:  # noqa: E501
+            _query_params.append(("entitlementId", _params["entitlement_id"]))
 
-        if _params.get('buyer_id') is not None:  # noqa: E501
-            _query_params.append(('buyerId', _params['buyer_id']))
+        if _params.get("buyer_id") is not None:  # noqa: E501
+            _query_params.append(("buyerId", _params["buyer_id"]))
 
-        if _params.get('start_date') is not None:  # noqa: E501
-            _query_params.append(('startDate', _params['start_date']))
+        if _params.get("start_date") is not None:  # noqa: E501
+            _query_params.append(("startDate", _params["start_date"]))
 
-        if _params.get('end_date') is not None:  # noqa: E501
-            _query_params.append(('endDate', _params['end_date']))
+        if _params.get("end_date") is not None:  # noqa: E501
+            _query_params.append(("endDate", _params["end_date"]))
 
-        if _params.get('limit') is not None:  # noqa: E501
-            _query_params.append(('limit', _params['limit']))
+        if _params.get("limit") is not None:  # noqa: E501
+            _query_params.append(("limit", _params["limit"]))
 
-        if _params.get('offset') is not None:  # noqa: E501
-            _query_params.append(('offset', _params['offset']))
+        if _params.get("offset") is not None:  # noqa: E501
+            _query_params.append(("offset", _params["offset"]))
 
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "ListUsageMeteringDailyVerificationsResponse",
-            '400': "str",
-            '500': "str",
+            "200": "ListUsageMeteringDailyVerificationsResponse",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/partner/{partner}/usageMeteringDailyVerification', 'GET',
+            "/org/{orgId}/partner/{partner}/usageMeteringDailyVerification",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -1025,9 +1393,10 @@ class ReportApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )

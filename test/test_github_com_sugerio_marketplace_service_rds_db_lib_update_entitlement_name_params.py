@@ -16,9 +16,14 @@
 import unittest
 import datetime
 
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_update_entitlement_name_params import GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams  # noqa: E501
+from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_update_entitlement_name_params import (
+    GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams,
+)  # noqa: E501
 
-class TestGithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams(unittest.TestCase):
+
+class TestGithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams(
+    unittest.TestCase
+):
     """GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams unit test stubs"""
 
     def setUp(self):
@@ -27,11 +32,13 @@ class TestGithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams(
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams:
+    def make_instance(
+        self, include_optional
+    ) -> GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams:
         """Test GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams`
         """
         model = GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams()  # noqa: E501
@@ -51,5 +58,6 @@ class TestGithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams(
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

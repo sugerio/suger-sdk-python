@@ -18,6 +18,7 @@ import datetime
 
 from openapi_client.models.entitlement_status import EntitlementStatus  # noqa: E501
 
+
 class TestEntitlementStatus(unittest.TestCase):
     """EntitlementStatus unit test stubs"""
 
@@ -31,5 +32,6 @@ class TestEntitlementStatus(unittest.TestCase):
         """Test EntitlementStatus"""
         # inst = EntitlementStatus()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

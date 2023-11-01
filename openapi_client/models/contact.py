@@ -22,10 +22,12 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
+
 class Contact(BaseModel):
     """
     Contact
     """
+
     company: Optional[StrictStr] = None
     email: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
@@ -33,6 +35,7 @@ class Contact(BaseModel):
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,10 +54,7 @@ class Contact(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,11 +66,11 @@ class Contact(BaseModel):
         if not isinstance(obj, dict):
             return Contact.parse_obj(obj)
 
-        _obj = Contact.parse_obj({
-            "company": obj.get("company"),
-            "email": obj.get("email"),
-            "name": obj.get("name")
-        })
+        _obj = Contact.parse_obj(
+            {
+                "company": obj.get("company"),
+                "email": obj.get("email"),
+                "name": obj.get("name"),
+            }
+        )
         return _obj
-
-

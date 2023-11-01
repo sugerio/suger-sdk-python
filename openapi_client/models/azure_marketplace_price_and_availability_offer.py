@@ -21,23 +21,39 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
-from openapi_client.models.azure_marketplace_price_and_availability_audience import AzureMarketplacePriceAndAvailabilityAudience
-from openapi_client.models.azure_marketplace_validation import AzureMarketplaceValidation
+from openapi_client.models.azure_marketplace_price_and_availability_audience import (
+    AzureMarketplacePriceAndAvailabilityAudience,
+)
+from openapi_client.models.azure_marketplace_validation import (
+    AzureMarketplaceValidation,
+)
+
 
 class AzureMarketplacePriceAndAvailabilityOffer(BaseModel):
     """
     AzureMarketplacePriceAndAvailabilityOffer
     """
+
     var_schema: Optional[StrictStr] = Field(None, alias="$schema")
     id: Optional[StrictStr] = None
-    preview_audiences: Optional[conlist(AzureMarketplacePriceAndAvailabilityAudience)] = Field(None, alias="previewAudiences")
+    preview_audiences: Optional[
+        conlist(AzureMarketplacePriceAndAvailabilityAudience)
+    ] = Field(None, alias="previewAudiences")
     product: Optional[StrictStr] = None
     resource_name: Optional[StrictStr] = Field(None, alias="resourceName")
     validations: Optional[conlist(AzureMarketplaceValidation)] = None
-    __properties = ["$schema", "id", "previewAudiences", "product", "resourceName", "validations"]
+    __properties = [
+        "$schema",
+        "id",
+        "previewAudiences",
+        "product",
+        "resourceName",
+        "validations",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -56,24 +72,21 @@ class AzureMarketplacePriceAndAvailabilityOffer(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in preview_audiences (list)
         _items = []
         if self.preview_audiences:
             for _item in self.preview_audiences:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['previewAudiences'] = _items
+            _dict["previewAudiences"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in validations (list)
         _items = []
         if self.validations:
             for _item in self.validations:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['validations'] = _items
+            _dict["validations"] = _items
         return _dict
 
     @classmethod
@@ -85,14 +98,24 @@ class AzureMarketplacePriceAndAvailabilityOffer(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePriceAndAvailabilityOffer.parse_obj(obj)
 
-        _obj = AzureMarketplacePriceAndAvailabilityOffer.parse_obj({
-            "var_schema": obj.get("$schema"),
-            "id": obj.get("id"),
-            "preview_audiences": [AzureMarketplacePriceAndAvailabilityAudience.from_dict(_item) for _item in obj.get("previewAudiences")] if obj.get("previewAudiences") is not None else None,
-            "product": obj.get("product"),
-            "resource_name": obj.get("resourceName"),
-            "validations": [AzureMarketplaceValidation.from_dict(_item) for _item in obj.get("validations")] if obj.get("validations") is not None else None
-        })
+        _obj = AzureMarketplacePriceAndAvailabilityOffer.parse_obj(
+            {
+                "var_schema": obj.get("$schema"),
+                "id": obj.get("id"),
+                "preview_audiences": [
+                    AzureMarketplacePriceAndAvailabilityAudience.from_dict(_item)
+                    for _item in obj.get("previewAudiences")
+                ]
+                if obj.get("previewAudiences") is not None
+                else None,
+                "product": obj.get("product"),
+                "resource_name": obj.get("resourceName"),
+                "validations": [
+                    AzureMarketplaceValidation.from_dict(_item)
+                    for _item in obj.get("validations")
+                ]
+                if obj.get("validations") is not None
+                else None,
+            }
+        )
         return _obj
-
-

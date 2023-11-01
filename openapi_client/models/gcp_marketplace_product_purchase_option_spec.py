@@ -21,32 +21,48 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist, validator
-from openapi_client.models.gcp_marketplace_product_feature_value import GcpMarketplaceProductFeatureValue
-from openapi_client.models.gcp_marketplace_product_price_info import GcpMarketplaceProductPriceInfo
+from openapi_client.models.gcp_marketplace_product_feature_value import (
+    GcpMarketplaceProductFeatureValue,
+)
+from openapi_client.models.gcp_marketplace_product_price_info import (
+    GcpMarketplaceProductPriceInfo,
+)
+
 
 class GcpMarketplaceProductPurchaseOptionSpec(BaseModel):
     """
     GcpMarketplaceProductPurchaseOptionSpec
     """
-    feature_values: Optional[conlist(GcpMarketplaceProductFeatureValue)] = Field(None, alias="featureValues")
-    name: Optional[StrictStr] = Field(None, description="The plan ID, such as \"starter\", without the duration suffix, such as \"P1Y\".")
-    price_info: Optional[GcpMarketplaceProductPriceInfo] = Field(None, alias="priceInfo")
+
+    feature_values: Optional[conlist(GcpMarketplaceProductFeatureValue)] = Field(
+        None, alias="featureValues"
+    )
+    name: Optional[StrictStr] = Field(
+        None,
+        description='The plan ID, such as "starter", without the duration suffix, such as "P1Y".',
+    )
+    price_info: Optional[GcpMarketplaceProductPriceInfo] = Field(
+        None, alias="priceInfo"
+    )
     purchase_mode: Optional[StrictStr] = Field(None, alias="purchaseMode")
-    title: Optional[StrictStr] = Field(None, description="such as \"Starter\"")
+    title: Optional[StrictStr] = Field(None, description='such as "Starter"')
     __properties = ["featureValues", "name", "priceInfo", "purchaseMode", "title"]
 
-    @validator('purchase_mode')
+    @validator("purchase_mode")
     def purchase_mode_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('PURCHASE_MODE_PRIVATE', 'PURCHASE_MODE_PUBLIC'):
-            raise ValueError("must be one of enum values ('PURCHASE_MODE_PRIVATE', 'PURCHASE_MODE_PUBLIC')")
+        if value not in ("PURCHASE_MODE_PRIVATE", "PURCHASE_MODE_PUBLIC"):
+            raise ValueError(
+                "must be one of enum values ('PURCHASE_MODE_PRIVATE', 'PURCHASE_MODE_PUBLIC')"
+            )
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -65,20 +81,17 @@ class GcpMarketplaceProductPurchaseOptionSpec(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in feature_values (list)
         _items = []
         if self.feature_values:
             for _item in self.feature_values:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['featureValues'] = _items
+            _dict["featureValues"] = _items
         # override the default output from pydantic by calling `to_dict()` of price_info
         if self.price_info:
-            _dict['priceInfo'] = self.price_info.to_dict()
+            _dict["priceInfo"] = self.price_info.to_dict()
         return _dict
 
     @classmethod
@@ -90,13 +103,22 @@ class GcpMarketplaceProductPurchaseOptionSpec(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceProductPurchaseOptionSpec.parse_obj(obj)
 
-        _obj = GcpMarketplaceProductPurchaseOptionSpec.parse_obj({
-            "feature_values": [GcpMarketplaceProductFeatureValue.from_dict(_item) for _item in obj.get("featureValues")] if obj.get("featureValues") is not None else None,
-            "name": obj.get("name"),
-            "price_info": GcpMarketplaceProductPriceInfo.from_dict(obj.get("priceInfo")) if obj.get("priceInfo") is not None else None,
-            "purchase_mode": obj.get("purchaseMode"),
-            "title": obj.get("title")
-        })
+        _obj = GcpMarketplaceProductPurchaseOptionSpec.parse_obj(
+            {
+                "feature_values": [
+                    GcpMarketplaceProductFeatureValue.from_dict(_item)
+                    for _item in obj.get("featureValues")
+                ]
+                if obj.get("featureValues") is not None
+                else None,
+                "name": obj.get("name"),
+                "price_info": GcpMarketplaceProductPriceInfo.from_dict(
+                    obj.get("priceInfo")
+                )
+                if obj.get("priceInfo") is not None
+                else None,
+                "purchase_mode": obj.get("purchaseMode"),
+                "title": obj.get("title"),
+            }
+        )
         return _obj
-
-

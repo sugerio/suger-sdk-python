@@ -22,16 +22,19 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictBool, StrictStr
 
+
 class CosellSyncRecord(BaseModel):
     """
     CosellSyncRecord
     """
+
     message: Optional[StrictStr] = None
     ok: Optional[StrictBool] = None
     __properties = ["message", "ok"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,10 +53,7 @@ class CosellSyncRecord(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +65,7 @@ class CosellSyncRecord(BaseModel):
         if not isinstance(obj, dict):
             return CosellSyncRecord.parse_obj(obj)
 
-        _obj = CosellSyncRecord.parse_obj({
-            "message": obj.get("message"),
-            "ok": obj.get("ok")
-        })
+        _obj = CosellSyncRecord.parse_obj(
+            {"message": obj.get("message"), "ok": obj.get("ok")}
+        )
         return _obj
-
-

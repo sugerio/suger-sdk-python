@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class TypesUsageRecordResultStatus(str, Enum):
     """
     TypesUsageRecordResultStatus
@@ -30,13 +27,11 @@ class TypesUsageRecordResultStatus(str, Enum):
     """
     allowed enum values
     """
-    SUCCESS = 'Success'
-    CUSTOMERNOTSUBSCRIBED = 'CustomerNotSubscribed'
-    DUPLICATERECORD = 'DuplicateRecord'
+    SUCCESS = "Success"
+    CUSTOMERNOTSUBSCRIBED = "CustomerNotSubscribed"
+    DUPLICATERECORD = "DuplicateRecord"
 
     @classmethod
     def from_json(cls, json_str: str) -> TypesUsageRecordResultStatus:
         """Create an instance of TypesUsageRecordResultStatus from a JSON string"""
         return TypesUsageRecordResultStatus(json.loads(json_str))
-
-

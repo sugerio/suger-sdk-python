@@ -18,6 +18,7 @@ import datetime
 
 from openapi_client.models.operation_type import OperationType  # noqa: E501
 
+
 class TestOperationType(unittest.TestCase):
     """OperationType unit test stubs"""
 
@@ -31,5 +32,6 @@ class TestOperationType(unittest.TestCase):
         """Test OperationType"""
         # inst = OperationType()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

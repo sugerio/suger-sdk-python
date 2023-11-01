@@ -23,17 +23,30 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, conlist
 from openapi_client.models.cosell_opp_referral import CosellOppReferral
 
+
 class ListCosellOppReferralsResponse(BaseModel):
     """
     ListCosellOppReferralsResponse
     """
-    cosell_opp_referrals: Optional[conlist(CosellOppReferral)] = Field(None, alias="cosellOppReferrals")
-    next_offset: Optional[StrictInt] = Field(None, alias="nextOffset", description="If it is nil, it means there is no more records.")
-    total_count: Optional[StrictInt] = Field(None, alias="totalCount", description="Only available when the request is made with offset=0.")
+
+    cosell_opp_referrals: Optional[conlist(CosellOppReferral)] = Field(
+        None, alias="cosellOppReferrals"
+    )
+    next_offset: Optional[StrictInt] = Field(
+        None,
+        alias="nextOffset",
+        description="If it is nil, it means there is no more records.",
+    )
+    total_count: Optional[StrictInt] = Field(
+        None,
+        alias="totalCount",
+        description="Only available when the request is made with offset=0.",
+    )
     __properties = ["cosellOppReferrals", "nextOffset", "totalCount"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,17 +65,14 @@ class ListCosellOppReferralsResponse(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in cosell_opp_referrals (list)
         _items = []
         if self.cosell_opp_referrals:
             for _item in self.cosell_opp_referrals:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['cosellOppReferrals'] = _items
+            _dict["cosellOppReferrals"] = _items
         return _dict
 
     @classmethod
@@ -74,11 +84,16 @@ class ListCosellOppReferralsResponse(BaseModel):
         if not isinstance(obj, dict):
             return ListCosellOppReferralsResponse.parse_obj(obj)
 
-        _obj = ListCosellOppReferralsResponse.parse_obj({
-            "cosell_opp_referrals": [CosellOppReferral.from_dict(_item) for _item in obj.get("cosellOppReferrals")] if obj.get("cosellOppReferrals") is not None else None,
-            "next_offset": obj.get("nextOffset"),
-            "total_count": obj.get("totalCount")
-        })
+        _obj = ListCosellOppReferralsResponse.parse_obj(
+            {
+                "cosell_opp_referrals": [
+                    CosellOppReferral.from_dict(_item)
+                    for _item in obj.get("cosellOppReferrals")
+                ]
+                if obj.get("cosellOppReferrals") is not None
+                else None,
+                "next_offset": obj.get("nextOffset"),
+                "total_count": obj.get("totalCount"),
+            }
+        )
         return _obj
-
-

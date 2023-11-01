@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class AwsMarketplaceCppoDiscountType(str, Enum):
     """
     AwsMarketplaceCppoDiscountType
@@ -30,13 +27,11 @@ class AwsMarketplaceCppoDiscountType(str, Enum):
     """
     allowed enum values
     """
-    DISCOUNT_PERCENT = 'DISCOUNT_PERCENT'
-    CUSTOM_PRICE = 'CUSTOM_PRICE'
-    CUSTOM_PRICE_WITH_FPS = 'CUSTOM_PRICE_WITH_FPS'
+    DISCOUNT_PERCENT = "DISCOUNT_PERCENT"
+    CUSTOM_PRICE = "CUSTOM_PRICE"
+    CUSTOM_PRICE_WITH_FPS = "CUSTOM_PRICE_WITH_FPS"
 
     @classmethod
     def from_json(cls, json_str: str) -> AwsMarketplaceCppoDiscountType:
         """Create an instance of AwsMarketplaceCppoDiscountType from a JSON string"""
         return AwsMarketplaceCppoDiscountType(json.loads(json_str))
-
-

@@ -22,10 +22,12 @@ import json
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class MicrosoftPartnerReferralSolution(BaseModel):
     """
     MicrosoftPartnerReferralSolution
     """
+
     closing_date_time: Optional[Dict[str, Any]] = Field(None, alias="closingDateTime")
     currency: Optional[Dict[str, Any]] = None
     id: Optional[StrictStr] = None
@@ -35,10 +37,21 @@ class MicrosoftPartnerReferralSolution(BaseModel):
     quantity: Optional[Dict[str, Any]] = None
     solution_type: Optional[StrictStr] = Field(None, alias="solutionType")
     type: Optional[StrictStr] = None
-    __properties = ["closingDateTime", "currency", "id", "name", "price", "publisherName", "quantity", "solutionType", "type"]
+    __properties = [
+        "closingDateTime",
+        "currency",
+        "id",
+        "name",
+        "price",
+        "publisherName",
+        "quantity",
+        "solutionType",
+        "type",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -57,10 +70,7 @@ class MicrosoftPartnerReferralSolution(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -72,17 +82,17 @@ class MicrosoftPartnerReferralSolution(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralSolution.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralSolution.parse_obj({
-            "closing_date_time": obj.get("closingDateTime"),
-            "currency": obj.get("currency"),
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "price": obj.get("price"),
-            "publisher_name": obj.get("publisherName"),
-            "quantity": obj.get("quantity"),
-            "solution_type": obj.get("solutionType"),
-            "type": obj.get("type")
-        })
+        _obj = MicrosoftPartnerReferralSolution.parse_obj(
+            {
+                "closing_date_time": obj.get("closingDateTime"),
+                "currency": obj.get("currency"),
+                "id": obj.get("id"),
+                "name": obj.get("name"),
+                "price": obj.get("price"),
+                "publisher_name": obj.get("publisherName"),
+                "quantity": obj.get("quantity"),
+                "solution_type": obj.get("solutionType"),
+                "type": obj.get("type"),
+            }
+        )
         return _obj
-
-

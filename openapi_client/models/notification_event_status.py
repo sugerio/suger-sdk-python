@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class NotificationEventStatus(str, Enum):
     """
     NotificationEventStatus
@@ -30,15 +27,13 @@ class NotificationEventStatus(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    SCHEDULED = 'SCHEDULED'
-    PENDING = 'PENDING'
-    DONE = 'DONE'
-    FAILED = 'FAILED'
+    EMPTY = ""
+    SCHEDULED = "SCHEDULED"
+    PENDING = "PENDING"
+    DONE = "DONE"
+    FAILED = "FAILED"
 
     @classmethod
     def from_json(cls, json_str: str) -> NotificationEventStatus:
         """Create an instance of NotificationEventStatus from a JSON string"""
         return NotificationEventStatus(json.loads(json_str))
-
-

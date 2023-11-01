@@ -22,16 +22,27 @@ from datetime import datetime
 from typing import List, Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, conlist
 
+
 class DivideEntitlementCommitParams(BaseModel):
     """
     DivideEntitlementCommitParams
     """
-    commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="commitAmount", description="The amount of the commit to be divided. If it is less or equal to 0.0, the total commit of the entitlement will be divided into multiple sub entitlement terms with credit.")
-    start_dates: Optional[conlist(datetime)] = Field(None, alias="startDates", description="The start dates of the sub entitlement terms. The end date of the last sub entitlement term is the end date of the parent entitlement term. The first start date must be the same as the start date of the parent entitlement term.")
+
+    commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None,
+        alias="commitAmount",
+        description="The amount of the commit to be divided. If it is less or equal to 0.0, the total commit of the entitlement will be divided into multiple sub entitlement terms with credit.",
+    )
+    start_dates: Optional[conlist(datetime)] = Field(
+        None,
+        alias="startDates",
+        description="The start dates of the sub entitlement terms. The end date of the last sub entitlement term is the end date of the parent entitlement term. The first start date must be the same as the start date of the parent entitlement term.",
+    )
     __properties = ["commitAmount", "startDates"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,10 +61,7 @@ class DivideEntitlementCommitParams(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +73,10 @@ class DivideEntitlementCommitParams(BaseModel):
         if not isinstance(obj, dict):
             return DivideEntitlementCommitParams.parse_obj(obj)
 
-        _obj = DivideEntitlementCommitParams.parse_obj({
-            "commit_amount": obj.get("commitAmount"),
-            "start_dates": obj.get("startDates")
-        })
+        _obj = DivideEntitlementCommitParams.parse_obj(
+            {
+                "commit_amount": obj.get("commitAmount"),
+                "start_dates": obj.get("startDates"),
+            }
+        )
         return _obj
-
-

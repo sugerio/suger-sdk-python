@@ -22,18 +22,23 @@ import json
 from typing import Any, Dict, List, Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr, conlist
 
+
 class AzureMarketplacePrice(BaseModel):
     """
     AzureMarketplacePrice
     """
+
     currency: Optional[StrictStr] = Field(None, description="ISO 4217 currency code")
     markets: Optional[conlist(StrictStr)] = None
-    price: Optional[Union[StrictFloat, StrictInt]] = Field(None, description="default 0")
+    price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, description="default 0"
+    )
     prices: Optional[Dict[str, Any]] = None
     __properties = ["currency", "markets", "price", "prices"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,10 +57,7 @@ class AzureMarketplacePrice(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -67,12 +69,12 @@ class AzureMarketplacePrice(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePrice.parse_obj(obj)
 
-        _obj = AzureMarketplacePrice.parse_obj({
-            "currency": obj.get("currency"),
-            "markets": obj.get("markets"),
-            "price": obj.get("price"),
-            "prices": obj.get("prices")
-        })
+        _obj = AzureMarketplacePrice.parse_obj(
+            {
+                "currency": obj.get("currency"),
+                "markets": obj.get("markets"),
+                "price": obj.get("price"),
+                "prices": obj.get("prices"),
+            }
+        )
         return _obj
-
-

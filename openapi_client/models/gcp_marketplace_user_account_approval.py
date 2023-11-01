@@ -21,20 +21,29 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
-from openapi_client.models.gcp_marketplace_user_account_approval_state import GcpMarketplaceUserAccountApprovalState
+from openapi_client.models.gcp_marketplace_user_account_approval_state import (
+    GcpMarketplaceUserAccountApprovalState,
+)
+
 
 class GcpMarketplaceUserAccountApproval(BaseModel):
     """
     GcpMarketplaceUserAccountApproval
     """
+
     name: Optional[StrictStr] = None
-    reason: Optional[StrictStr] = Field(None, description="An explanation for the state of the approval.")
+    reason: Optional[StrictStr] = Field(
+        None, description="An explanation for the state of the approval."
+    )
     state: Optional[GcpMarketplaceUserAccountApprovalState] = None
-    update_time: Optional[StrictStr] = Field(None, alias="updateTime", description="RFC3339 UTC timestamp")
+    update_time: Optional[StrictStr] = Field(
+        None, alias="updateTime", description="RFC3339 UTC timestamp"
+    )
     __properties = ["name", "reason", "state", "updateTime"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,10 +62,7 @@ class GcpMarketplaceUserAccountApproval(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -68,12 +74,12 @@ class GcpMarketplaceUserAccountApproval(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceUserAccountApproval.parse_obj(obj)
 
-        _obj = GcpMarketplaceUserAccountApproval.parse_obj({
-            "name": obj.get("name"),
-            "reason": obj.get("reason"),
-            "state": obj.get("state"),
-            "update_time": obj.get("updateTime")
-        })
+        _obj = GcpMarketplaceUserAccountApproval.parse_obj(
+            {
+                "name": obj.get("name"),
+                "reason": obj.get("reason"),
+                "state": obj.get("state"),
+                "update_time": obj.get("updateTime"),
+            }
+        )
         return _obj
-
-

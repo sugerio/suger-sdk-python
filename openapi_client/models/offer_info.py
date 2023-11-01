@@ -20,74 +20,206 @@ import json
 
 
 from typing import List, Optional, Union
-from pydantic import BaseModel, Field, StrictBool, StrictFloat, StrictInt, StrictStr, conlist, validator
-from openapi_client.models.aws_marketplace_cppo_opportunity import AwsMarketplaceCppoOpportunity
-from openapi_client.models.aws_marketplace_event_bridge_event_detail import AwsMarketplaceEventBridgeEventDetail
+from pydantic import (
+    BaseModel,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    conlist,
+    validator,
+)
+from openapi_client.models.aws_marketplace_cppo_opportunity import (
+    AwsMarketplaceCppoOpportunity,
+)
+from openapi_client.models.aws_marketplace_event_bridge_event_detail import (
+    AwsMarketplaceEventBridgeEventDetail,
+)
 from openapi_client.models.azure_audience import AzureAudience
-from openapi_client.models.azure_marketplace_price_and_availability_private_offer_plan import AzureMarketplacePriceAndAvailabilityPrivateOfferPlan
-from openapi_client.models.azure_marketplace_private_offer import AzureMarketplacePrivateOffer
+from openapi_client.models.azure_marketplace_price_and_availability_private_offer_plan import (
+    AzureMarketplacePriceAndAvailabilityPrivateOfferPlan,
+)
+from openapi_client.models.azure_marketplace_private_offer import (
+    AzureMarketplacePrivateOffer,
+)
 from openapi_client.models.azure_product_variant import AzureProductVariant
 from openapi_client.models.commit_dimension import CommitDimension
 from openapi_client.models.eula_type import EulaType
-from openapi_client.models.gcp_marketplace_payment_schedule_type import GcpMarketplacePaymentScheduleType
-from openapi_client.models.gcp_marketplace_private_offer import GcpMarketplacePrivateOffer
-from openapi_client.models.gcp_marketplace_private_offer_customer_info import GcpMarketplacePrivateOfferCustomerInfo
-from openapi_client.models.gcp_marketplace_private_offer_provider_info import GcpMarketplacePrivateOfferProviderInfo
-from openapi_client.models.gcp_marketplace_product_metering_metric import GcpMarketplaceProductMeteringMetric
-from openapi_client.models.gcp_marketplace_product_purchase_option_spec import GcpMarketplaceProductPurchaseOptionSpec
-from openapi_client.models.gcp_marketplace_usage_plan_price_model import GcpMarketplaceUsagePlanPriceModel
+from openapi_client.models.gcp_marketplace_payment_schedule_type import (
+    GcpMarketplacePaymentScheduleType,
+)
+from openapi_client.models.gcp_marketplace_private_offer import (
+    GcpMarketplacePrivateOffer,
+)
+from openapi_client.models.gcp_marketplace_private_offer_customer_info import (
+    GcpMarketplacePrivateOfferCustomerInfo,
+)
+from openapi_client.models.gcp_marketplace_private_offer_provider_info import (
+    GcpMarketplacePrivateOfferProviderInfo,
+)
+from openapi_client.models.gcp_marketplace_product_metering_metric import (
+    GcpMarketplaceProductMeteringMetric,
+)
+from openapi_client.models.gcp_marketplace_product_purchase_option_spec import (
+    GcpMarketplaceProductPurchaseOptionSpec,
+)
+from openapi_client.models.gcp_marketplace_usage_plan_price_model import (
+    GcpMarketplaceUsagePlanPriceModel,
+)
 from openapi_client.models.metering_dimension import MeteringDimension
 from openapi_client.models.payment_installment import PaymentInstallment
+
 
 class OfferInfo(BaseModel):
     """
     OfferInfo
     """
+
     attach_eula_type: Optional[EulaType] = Field(None, alias="attachEulaType")
-    auto_renew: Optional[StrictBool] = Field(None, alias="autoRenew", description="Is this offer Auto Renew enabled.")
-    aws_cppo_event_detail: Optional[AwsMarketplaceEventBridgeEventDetail] = Field(None, alias="awsCppoEventDetail")
-    aws_cppo_opportunity: Optional[AwsMarketplaceCppoOpportunity] = Field(None, alias="awsCppoOpportunity")
-    azure_original_plan: Optional[AzureMarketplacePriceAndAvailabilityPrivateOfferPlan] = Field(None, alias="azureOriginalPlan")
-    azure_private_offer: Optional[AzureMarketplacePrivateOffer] = Field(None, alias="azurePrivateOffer")
-    azure_product_variant: Optional[AzureProductVariant] = Field(None, alias="azureProductVariant")
-    buyer_aws_account_ids: Optional[conlist(StrictStr)] = Field(None, alias="buyerAwsAccountIds", description="The buyers' AWS Account IDs of this offer.")
-    buyer_azure_tenants: Optional[conlist(AzureAudience)] = Field(None, alias="buyerAzureTenants", description="The buyers' Azure tenants of this offer.")
-    commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="commitAmount", description="The amount that the buyer has committed to pay, before discount if applicable. It can be monthly commitment or total commitment.")
+    auto_renew: Optional[StrictBool] = Field(
+        None, alias="autoRenew", description="Is this offer Auto Renew enabled."
+    )
+    aws_cppo_event_detail: Optional[AwsMarketplaceEventBridgeEventDetail] = Field(
+        None, alias="awsCppoEventDetail"
+    )
+    aws_cppo_opportunity: Optional[AwsMarketplaceCppoOpportunity] = Field(
+        None, alias="awsCppoOpportunity"
+    )
+    azure_original_plan: Optional[
+        AzureMarketplacePriceAndAvailabilityPrivateOfferPlan
+    ] = Field(None, alias="azureOriginalPlan")
+    azure_private_offer: Optional[AzureMarketplacePrivateOffer] = Field(
+        None, alias="azurePrivateOffer"
+    )
+    azure_product_variant: Optional[AzureProductVariant] = Field(
+        None, alias="azureProductVariant"
+    )
+    buyer_aws_account_ids: Optional[conlist(StrictStr)] = Field(
+        None,
+        alias="buyerAwsAccountIds",
+        description="The buyers' AWS Account IDs of this offer.",
+    )
+    buyer_azure_tenants: Optional[conlist(AzureAudience)] = Field(
+        None,
+        alias="buyerAzureTenants",
+        description="The buyers' Azure tenants of this offer.",
+    )
+    commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None,
+        alias="commitAmount",
+        description="The amount that the buyer has committed to pay, before discount if applicable. It can be monthly commitment or total commitment.",
+    )
     commits: Optional[conlist(CommitDimension)] = None
     currency: Optional[StrictStr] = None
     dimensions: Optional[conlist(MeteringDimension)] = None
-    discount_percentage: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="discountPercentage", description="The discount percentage off the original price. For example, 20 means 20% off. 0 means no discount. It can be discount off the commitment amount or discount off the usage price.")
+    discount_percentage: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None,
+        alias="discountPercentage",
+        description="The discount percentage off the original price. For example, 20 means 20% off. 0 means no discount. It can be discount off the commitment amount or discount off the usage price.",
+    )
     eula_type: Optional[EulaType] = Field(None, alias="eulaType")
     eula_url: Optional[StrictStr] = Field(None, alias="eulaUrl")
-    gcp_customer_info: Optional[GcpMarketplacePrivateOfferCustomerInfo] = Field(None, alias="gcpCustomerInfo")
-    gcp_duration: Optional[StrictInt] = Field(None, alias="gcpDuration", description="The duration of the offer in months. Only required when creating GCP Marketplace private offer.")
-    gcp_metrics: Optional[conlist(GcpMarketplaceProductMeteringMetric)] = Field(None, alias="gcpMetrics", description="Only applicable for GCP Marketplace Offers (the default or private offer)")
-    gcp_payment_schedule: Optional[GcpMarketplacePaymentScheduleType] = Field(None, alias="gcpPaymentSchedule")
-    gcp_plans: Optional[conlist(GcpMarketplaceProductPurchaseOptionSpec)] = Field(None, alias="gcpPlans", description="Only applicable for GCP Marketplace")
-    gcp_private_offer: Optional[GcpMarketplacePrivateOffer] = Field(None, alias="gcpPrivateOffer")
-    gcp_provider_info: Optional[GcpMarketplacePrivateOfferProviderInfo] = Field(None, alias="gcpProviderInfo")
-    gcp_provider_internal_note: Optional[StrictStr] = Field(None, alias="gcpProviderInternalNote", description="Optional when creating GCP Marketplace private offer. The internal note for the seller/ISV. It is only visible to the seller/ISV.")
-    gcp_provider_public_note: Optional[StrictStr] = Field(None, alias="gcpProviderPublicNote", description="Optional when creating GCP Marketplace private offer. The public note for the buyer. It is visible to the buyer.")
-    gcp_usage_plan_price_model: Optional[GcpMarketplaceUsagePlanPriceModel] = Field(None, alias="gcpUsagePlanPriceModel")
-    payment_installments: Optional[conlist(PaymentInstallment)] = Field(None, alias="paymentInstallments", description="For flexible payment schedule.")
-    private_offer_url: Optional[StrictStr] = Field(None, alias="privateOfferUrl", description="The URL of the private offer sent to buyers to accept. Only applicable for private offer.")
-    refund_cancelation_policy: Optional[StrictStr] = Field(None, alias="refundCancelationPolicy")
+    gcp_customer_info: Optional[GcpMarketplacePrivateOfferCustomerInfo] = Field(
+        None, alias="gcpCustomerInfo"
+    )
+    gcp_duration: Optional[StrictInt] = Field(
+        None,
+        alias="gcpDuration",
+        description="The duration of the offer in months. Only required when creating GCP Marketplace private offer.",
+    )
+    gcp_metrics: Optional[conlist(GcpMarketplaceProductMeteringMetric)] = Field(
+        None,
+        alias="gcpMetrics",
+        description="Only applicable for GCP Marketplace Offers (the default or private offer)",
+    )
+    gcp_payment_schedule: Optional[GcpMarketplacePaymentScheduleType] = Field(
+        None, alias="gcpPaymentSchedule"
+    )
+    gcp_plans: Optional[conlist(GcpMarketplaceProductPurchaseOptionSpec)] = Field(
+        None, alias="gcpPlans", description="Only applicable for GCP Marketplace"
+    )
+    gcp_private_offer: Optional[GcpMarketplacePrivateOffer] = Field(
+        None, alias="gcpPrivateOffer"
+    )
+    gcp_provider_info: Optional[GcpMarketplacePrivateOfferProviderInfo] = Field(
+        None, alias="gcpProviderInfo"
+    )
+    gcp_provider_internal_note: Optional[StrictStr] = Field(
+        None,
+        alias="gcpProviderInternalNote",
+        description="Optional when creating GCP Marketplace private offer. The internal note for the seller/ISV. It is only visible to the seller/ISV.",
+    )
+    gcp_provider_public_note: Optional[StrictStr] = Field(
+        None,
+        alias="gcpProviderPublicNote",
+        description="Optional when creating GCP Marketplace private offer. The public note for the buyer. It is visible to the buyer.",
+    )
+    gcp_usage_plan_price_model: Optional[GcpMarketplaceUsagePlanPriceModel] = Field(
+        None, alias="gcpUsagePlanPriceModel"
+    )
+    payment_installments: Optional[conlist(PaymentInstallment)] = Field(
+        None, alias="paymentInstallments", description="For flexible payment schedule."
+    )
+    private_offer_url: Optional[StrictStr] = Field(
+        None,
+        alias="privateOfferUrl",
+        description="The URL of the private offer sent to buyers to accept. Only applicable for private offer.",
+    )
+    refund_cancelation_policy: Optional[StrictStr] = Field(
+        None, alias="refundCancelationPolicy"
+    )
     seller_notes: Optional[StrictStr] = Field(None, alias="sellerNotes")
-    visibility: Optional[StrictStr] = Field(None, description="The default visibility of offer is PRIVATE.")
-    __properties = ["attachEulaType", "autoRenew", "awsCppoEventDetail", "awsCppoOpportunity", "azureOriginalPlan", "azurePrivateOffer", "azureProductVariant", "buyerAwsAccountIds", "buyerAzureTenants", "commitAmount", "commits", "currency", "dimensions", "discountPercentage", "eulaType", "eulaUrl", "gcpCustomerInfo", "gcpDuration", "gcpMetrics", "gcpPaymentSchedule", "gcpPlans", "gcpPrivateOffer", "gcpProviderInfo", "gcpProviderInternalNote", "gcpProviderPublicNote", "gcpUsagePlanPriceModel", "paymentInstallments", "privateOfferUrl", "refundCancelationPolicy", "sellerNotes", "visibility"]
+    visibility: Optional[StrictStr] = Field(
+        None, description="The default visibility of offer is PRIVATE."
+    )
+    __properties = [
+        "attachEulaType",
+        "autoRenew",
+        "awsCppoEventDetail",
+        "awsCppoOpportunity",
+        "azureOriginalPlan",
+        "azurePrivateOffer",
+        "azureProductVariant",
+        "buyerAwsAccountIds",
+        "buyerAzureTenants",
+        "commitAmount",
+        "commits",
+        "currency",
+        "dimensions",
+        "discountPercentage",
+        "eulaType",
+        "eulaUrl",
+        "gcpCustomerInfo",
+        "gcpDuration",
+        "gcpMetrics",
+        "gcpPaymentSchedule",
+        "gcpPlans",
+        "gcpPrivateOffer",
+        "gcpProviderInfo",
+        "gcpProviderInternalNote",
+        "gcpProviderPublicNote",
+        "gcpUsagePlanPriceModel",
+        "paymentInstallments",
+        "privateOfferUrl",
+        "refundCancelationPolicy",
+        "sellerNotes",
+        "visibility",
+    ]
 
-    @validator('visibility')
+    @validator("visibility")
     def visibility_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('PRIVATE', 'PUBLIC'):
+        if value not in ("PRIVATE", "PUBLIC"):
             raise ValueError("must be one of enum values ('PRIVATE', 'PUBLIC')")
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -106,76 +238,73 @@ class OfferInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of aws_cppo_event_detail
         if self.aws_cppo_event_detail:
-            _dict['awsCppoEventDetail'] = self.aws_cppo_event_detail.to_dict()
+            _dict["awsCppoEventDetail"] = self.aws_cppo_event_detail.to_dict()
         # override the default output from pydantic by calling `to_dict()` of aws_cppo_opportunity
         if self.aws_cppo_opportunity:
-            _dict['awsCppoOpportunity'] = self.aws_cppo_opportunity.to_dict()
+            _dict["awsCppoOpportunity"] = self.aws_cppo_opportunity.to_dict()
         # override the default output from pydantic by calling `to_dict()` of azure_original_plan
         if self.azure_original_plan:
-            _dict['azureOriginalPlan'] = self.azure_original_plan.to_dict()
+            _dict["azureOriginalPlan"] = self.azure_original_plan.to_dict()
         # override the default output from pydantic by calling `to_dict()` of azure_private_offer
         if self.azure_private_offer:
-            _dict['azurePrivateOffer'] = self.azure_private_offer.to_dict()
+            _dict["azurePrivateOffer"] = self.azure_private_offer.to_dict()
         # override the default output from pydantic by calling `to_dict()` of azure_product_variant
         if self.azure_product_variant:
-            _dict['azureProductVariant'] = self.azure_product_variant.to_dict()
+            _dict["azureProductVariant"] = self.azure_product_variant.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in buyer_azure_tenants (list)
         _items = []
         if self.buyer_azure_tenants:
             for _item in self.buyer_azure_tenants:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['buyerAzureTenants'] = _items
+            _dict["buyerAzureTenants"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in commits (list)
         _items = []
         if self.commits:
             for _item in self.commits:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['commits'] = _items
+            _dict["commits"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in dimensions (list)
         _items = []
         if self.dimensions:
             for _item in self.dimensions:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['dimensions'] = _items
+            _dict["dimensions"] = _items
         # override the default output from pydantic by calling `to_dict()` of gcp_customer_info
         if self.gcp_customer_info:
-            _dict['gcpCustomerInfo'] = self.gcp_customer_info.to_dict()
+            _dict["gcpCustomerInfo"] = self.gcp_customer_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in gcp_metrics (list)
         _items = []
         if self.gcp_metrics:
             for _item in self.gcp_metrics:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['gcpMetrics'] = _items
+            _dict["gcpMetrics"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in gcp_plans (list)
         _items = []
         if self.gcp_plans:
             for _item in self.gcp_plans:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['gcpPlans'] = _items
+            _dict["gcpPlans"] = _items
         # override the default output from pydantic by calling `to_dict()` of gcp_private_offer
         if self.gcp_private_offer:
-            _dict['gcpPrivateOffer'] = self.gcp_private_offer.to_dict()
+            _dict["gcpPrivateOffer"] = self.gcp_private_offer.to_dict()
         # override the default output from pydantic by calling `to_dict()` of gcp_provider_info
         if self.gcp_provider_info:
-            _dict['gcpProviderInfo'] = self.gcp_provider_info.to_dict()
+            _dict["gcpProviderInfo"] = self.gcp_provider_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in payment_installments (list)
         _items = []
         if self.payment_installments:
             for _item in self.payment_installments:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['paymentInstallments'] = _items
+            _dict["paymentInstallments"] = _items
         return _dict
 
     @classmethod
@@ -187,39 +316,100 @@ class OfferInfo(BaseModel):
         if not isinstance(obj, dict):
             return OfferInfo.parse_obj(obj)
 
-        _obj = OfferInfo.parse_obj({
-            "attach_eula_type": obj.get("attachEulaType"),
-            "auto_renew": obj.get("autoRenew"),
-            "aws_cppo_event_detail": AwsMarketplaceEventBridgeEventDetail.from_dict(obj.get("awsCppoEventDetail")) if obj.get("awsCppoEventDetail") is not None else None,
-            "aws_cppo_opportunity": AwsMarketplaceCppoOpportunity.from_dict(obj.get("awsCppoOpportunity")) if obj.get("awsCppoOpportunity") is not None else None,
-            "azure_original_plan": AzureMarketplacePriceAndAvailabilityPrivateOfferPlan.from_dict(obj.get("azureOriginalPlan")) if obj.get("azureOriginalPlan") is not None else None,
-            "azure_private_offer": AzureMarketplacePrivateOffer.from_dict(obj.get("azurePrivateOffer")) if obj.get("azurePrivateOffer") is not None else None,
-            "azure_product_variant": AzureProductVariant.from_dict(obj.get("azureProductVariant")) if obj.get("azureProductVariant") is not None else None,
-            "buyer_aws_account_ids": obj.get("buyerAwsAccountIds"),
-            "buyer_azure_tenants": [AzureAudience.from_dict(_item) for _item in obj.get("buyerAzureTenants")] if obj.get("buyerAzureTenants") is not None else None,
-            "commit_amount": obj.get("commitAmount"),
-            "commits": [CommitDimension.from_dict(_item) for _item in obj.get("commits")] if obj.get("commits") is not None else None,
-            "currency": obj.get("currency"),
-            "dimensions": [MeteringDimension.from_dict(_item) for _item in obj.get("dimensions")] if obj.get("dimensions") is not None else None,
-            "discount_percentage": obj.get("discountPercentage"),
-            "eula_type": obj.get("eulaType"),
-            "eula_url": obj.get("eulaUrl"),
-            "gcp_customer_info": GcpMarketplacePrivateOfferCustomerInfo.from_dict(obj.get("gcpCustomerInfo")) if obj.get("gcpCustomerInfo") is not None else None,
-            "gcp_duration": obj.get("gcpDuration"),
-            "gcp_metrics": [GcpMarketplaceProductMeteringMetric.from_dict(_item) for _item in obj.get("gcpMetrics")] if obj.get("gcpMetrics") is not None else None,
-            "gcp_payment_schedule": obj.get("gcpPaymentSchedule"),
-            "gcp_plans": [GcpMarketplaceProductPurchaseOptionSpec.from_dict(_item) for _item in obj.get("gcpPlans")] if obj.get("gcpPlans") is not None else None,
-            "gcp_private_offer": GcpMarketplacePrivateOffer.from_dict(obj.get("gcpPrivateOffer")) if obj.get("gcpPrivateOffer") is not None else None,
-            "gcp_provider_info": GcpMarketplacePrivateOfferProviderInfo.from_dict(obj.get("gcpProviderInfo")) if obj.get("gcpProviderInfo") is not None else None,
-            "gcp_provider_internal_note": obj.get("gcpProviderInternalNote"),
-            "gcp_provider_public_note": obj.get("gcpProviderPublicNote"),
-            "gcp_usage_plan_price_model": obj.get("gcpUsagePlanPriceModel"),
-            "payment_installments": [PaymentInstallment.from_dict(_item) for _item in obj.get("paymentInstallments")] if obj.get("paymentInstallments") is not None else None,
-            "private_offer_url": obj.get("privateOfferUrl"),
-            "refund_cancelation_policy": obj.get("refundCancelationPolicy"),
-            "seller_notes": obj.get("sellerNotes"),
-            "visibility": obj.get("visibility")
-        })
+        _obj = OfferInfo.parse_obj(
+            {
+                "attach_eula_type": obj.get("attachEulaType"),
+                "auto_renew": obj.get("autoRenew"),
+                "aws_cppo_event_detail": AwsMarketplaceEventBridgeEventDetail.from_dict(
+                    obj.get("awsCppoEventDetail")
+                )
+                if obj.get("awsCppoEventDetail") is not None
+                else None,
+                "aws_cppo_opportunity": AwsMarketplaceCppoOpportunity.from_dict(
+                    obj.get("awsCppoOpportunity")
+                )
+                if obj.get("awsCppoOpportunity") is not None
+                else None,
+                "azure_original_plan": AzureMarketplacePriceAndAvailabilityPrivateOfferPlan.from_dict(
+                    obj.get("azureOriginalPlan")
+                )
+                if obj.get("azureOriginalPlan") is not None
+                else None,
+                "azure_private_offer": AzureMarketplacePrivateOffer.from_dict(
+                    obj.get("azurePrivateOffer")
+                )
+                if obj.get("azurePrivateOffer") is not None
+                else None,
+                "azure_product_variant": AzureProductVariant.from_dict(
+                    obj.get("azureProductVariant")
+                )
+                if obj.get("azureProductVariant") is not None
+                else None,
+                "buyer_aws_account_ids": obj.get("buyerAwsAccountIds"),
+                "buyer_azure_tenants": [
+                    AzureAudience.from_dict(_item)
+                    for _item in obj.get("buyerAzureTenants")
+                ]
+                if obj.get("buyerAzureTenants") is not None
+                else None,
+                "commit_amount": obj.get("commitAmount"),
+                "commits": [
+                    CommitDimension.from_dict(_item) for _item in obj.get("commits")
+                ]
+                if obj.get("commits") is not None
+                else None,
+                "currency": obj.get("currency"),
+                "dimensions": [
+                    MeteringDimension.from_dict(_item)
+                    for _item in obj.get("dimensions")
+                ]
+                if obj.get("dimensions") is not None
+                else None,
+                "discount_percentage": obj.get("discountPercentage"),
+                "eula_type": obj.get("eulaType"),
+                "eula_url": obj.get("eulaUrl"),
+                "gcp_customer_info": GcpMarketplacePrivateOfferCustomerInfo.from_dict(
+                    obj.get("gcpCustomerInfo")
+                )
+                if obj.get("gcpCustomerInfo") is not None
+                else None,
+                "gcp_duration": obj.get("gcpDuration"),
+                "gcp_metrics": [
+                    GcpMarketplaceProductMeteringMetric.from_dict(_item)
+                    for _item in obj.get("gcpMetrics")
+                ]
+                if obj.get("gcpMetrics") is not None
+                else None,
+                "gcp_payment_schedule": obj.get("gcpPaymentSchedule"),
+                "gcp_plans": [
+                    GcpMarketplaceProductPurchaseOptionSpec.from_dict(_item)
+                    for _item in obj.get("gcpPlans")
+                ]
+                if obj.get("gcpPlans") is not None
+                else None,
+                "gcp_private_offer": GcpMarketplacePrivateOffer.from_dict(
+                    obj.get("gcpPrivateOffer")
+                )
+                if obj.get("gcpPrivateOffer") is not None
+                else None,
+                "gcp_provider_info": GcpMarketplacePrivateOfferProviderInfo.from_dict(
+                    obj.get("gcpProviderInfo")
+                )
+                if obj.get("gcpProviderInfo") is not None
+                else None,
+                "gcp_provider_internal_note": obj.get("gcpProviderInternalNote"),
+                "gcp_provider_public_note": obj.get("gcpProviderPublicNote"),
+                "gcp_usage_plan_price_model": obj.get("gcpUsagePlanPriceModel"),
+                "payment_installments": [
+                    PaymentInstallment.from_dict(_item)
+                    for _item in obj.get("paymentInstallments")
+                ]
+                if obj.get("paymentInstallments") is not None
+                else None,
+                "private_offer_url": obj.get("privateOfferUrl"),
+                "refund_cancelation_policy": obj.get("refundCancelationPolicy"),
+                "seller_notes": obj.get("sellerNotes"),
+                "visibility": obj.get("visibility"),
+            }
+        )
         return _obj
-
-

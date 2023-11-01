@@ -23,24 +23,46 @@ from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from openapi_client.models.company_info import CompanyInfo
 
+
 class AzureADIdentifier(BaseModel):
     """
     AzureADIdentifier
     """
-    billing_account_id: Optional[StrictStr] = Field(None, alias="billingAccountId", description="Azure Billing Account ID")
+
+    billing_account_id: Optional[StrictStr] = Field(
+        None, alias="billingAccountId", description="Azure Billing Account ID"
+    )
     company_info: Optional[CompanyInfo] = Field(None, alias="companyInfo")
     customer_id: Optional[StrictStr] = Field(None, alias="customerId")
-    email_id: Optional[StrictStr] = Field(None, alias="emailId", description="Email address")
+    email_id: Optional[StrictStr] = Field(
+        None, alias="emailId", description="Email address"
+    )
     first_name: Optional[StrictStr] = Field(None, alias="firstName")
     last_name: Optional[StrictStr] = Field(None, alias="lastName")
-    license_type: Optional[StrictStr] = Field(None, alias="licenseType", description="Azure License Type")
+    license_type: Optional[StrictStr] = Field(
+        None, alias="licenseType", description="Azure License Type"
+    )
     object_id: Optional[StrictStr] = Field(None, alias="objectId")
-    puid: Optional[StrictStr] = Field(None, description="ID of the user, used as External ID of suger IdentityBuyer.")
+    puid: Optional[StrictStr] = Field(
+        None, description="ID of the user, used as External ID of suger IdentityBuyer."
+    )
     tenant_id: Optional[StrictStr] = Field(None, alias="tenantId")
-    __properties = ["billingAccountId", "companyInfo", "customerId", "emailId", "firstName", "lastName", "licenseType", "objectId", "puid", "tenantId"]
+    __properties = [
+        "billingAccountId",
+        "companyInfo",
+        "customerId",
+        "emailId",
+        "firstName",
+        "lastName",
+        "licenseType",
+        "objectId",
+        "puid",
+        "tenantId",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -59,13 +81,10 @@ class AzureADIdentifier(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of company_info
         if self.company_info:
-            _dict['companyInfo'] = self.company_info.to_dict()
+            _dict["companyInfo"] = self.company_info.to_dict()
         return _dict
 
     @classmethod
@@ -77,18 +96,20 @@ class AzureADIdentifier(BaseModel):
         if not isinstance(obj, dict):
             return AzureADIdentifier.parse_obj(obj)
 
-        _obj = AzureADIdentifier.parse_obj({
-            "billing_account_id": obj.get("billingAccountId"),
-            "company_info": CompanyInfo.from_dict(obj.get("companyInfo")) if obj.get("companyInfo") is not None else None,
-            "customer_id": obj.get("customerId"),
-            "email_id": obj.get("emailId"),
-            "first_name": obj.get("firstName"),
-            "last_name": obj.get("lastName"),
-            "license_type": obj.get("licenseType"),
-            "object_id": obj.get("objectId"),
-            "puid": obj.get("puid"),
-            "tenant_id": obj.get("tenantId")
-        })
+        _obj = AzureADIdentifier.parse_obj(
+            {
+                "billing_account_id": obj.get("billingAccountId"),
+                "company_info": CompanyInfo.from_dict(obj.get("companyInfo"))
+                if obj.get("companyInfo") is not None
+                else None,
+                "customer_id": obj.get("customerId"),
+                "email_id": obj.get("emailId"),
+                "first_name": obj.get("firstName"),
+                "last_name": obj.get("lastName"),
+                "license_type": obj.get("licenseType"),
+                "object_id": obj.get("objectId"),
+                "puid": obj.get("puid"),
+                "tenant_id": obj.get("tenantId"),
+            }
+        )
         return _obj
-
-

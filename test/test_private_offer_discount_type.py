@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.private_offer_discount_type import PrivateOfferDiscountType  # noqa: E501
+from openapi_client.models.private_offer_discount_type import (
+    PrivateOfferDiscountType,
+)  # noqa: E501
+
 
 class TestPrivateOfferDiscountType(unittest.TestCase):
     """PrivateOfferDiscountType unit test stubs"""
@@ -31,5 +34,6 @@ class TestPrivateOfferDiscountType(unittest.TestCase):
         """Test PrivateOfferDiscountType"""
         # inst = PrivateOfferDiscountType()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

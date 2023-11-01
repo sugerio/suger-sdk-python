@@ -22,26 +22,38 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr, validator
 
+
 class OrbExternalConnection(BaseModel):
     """
     OrbExternalConnection
     """
+
     external_connection_name: Optional[StrictStr] = None
     external_entity_id: Optional[StrictStr] = None
     __properties = ["external_connection_name", "external_entity_id"]
 
-    @validator('external_connection_name')
+    @validator("external_connection_name")
     def external_connection_name_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('stripe', 'quickbooks', 'bill.com', 'taxjar', 'avalara', 'anrok'):
-            raise ValueError("must be one of enum values ('stripe', 'quickbooks', 'bill.com', 'taxjar', 'avalara', 'anrok')")
+        if value not in (
+            "stripe",
+            "quickbooks",
+            "bill.com",
+            "taxjar",
+            "avalara",
+            "anrok",
+        ):
+            raise ValueError(
+                "must be one of enum values ('stripe', 'quickbooks', 'bill.com', 'taxjar', 'avalara', 'anrok')"
+            )
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -60,10 +72,7 @@ class OrbExternalConnection(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -75,10 +84,10 @@ class OrbExternalConnection(BaseModel):
         if not isinstance(obj, dict):
             return OrbExternalConnection.parse_obj(obj)
 
-        _obj = OrbExternalConnection.parse_obj({
-            "external_connection_name": obj.get("external_connection_name"),
-            "external_entity_id": obj.get("external_entity_id")
-        })
+        _obj = OrbExternalConnection.parse_obj(
+            {
+                "external_connection_name": obj.get("external_connection_name"),
+                "external_entity_id": obj.get("external_entity_id"),
+            }
+        )
         return _obj
-
-

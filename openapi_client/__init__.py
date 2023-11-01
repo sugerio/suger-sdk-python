@@ -45,64 +45,146 @@ from openapi_client.exceptions import ApiAttributeError
 from openapi_client.exceptions import ApiException
 
 # import models into sdk package
-from openapi_client.models.add_entitlement_credit_params import AddEntitlementCreditParams
-from openapi_client.models.add_entitlement_credit_response import AddEntitlementCreditResponse
-from openapi_client.models.alibaba_integration_credential import AlibabaIntegrationCredential
-from openapi_client.models.alibaba_marketplace_integration import AlibabaMarketplaceIntegration
+from openapi_client.models.add_entitlement_credit_params import (
+    AddEntitlementCreditParams,
+)
+from openapi_client.models.add_entitlement_credit_response import (
+    AddEntitlementCreditResponse,
+)
+from openapi_client.models.alibaba_integration_credential import (
+    AlibabaIntegrationCredential,
+)
+from openapi_client.models.alibaba_marketplace_integration import (
+    AlibabaMarketplaceIntegration,
+)
 from openapi_client.models.alibaba_marketplace_product import AlibabaMarketplaceProduct
-from openapi_client.models.alibaba_marketplace_product_extra import AlibabaMarketplaceProductExtra
-from openapi_client.models.alibaba_marketplace_product_extras import AlibabaMarketplaceProductExtras
-from openapi_client.models.alibaba_marketplace_product_shop_info import AlibabaMarketplaceProductShopInfo
-from openapi_client.models.alibaba_marketplace_product_shop_info_telephones import AlibabaMarketplaceProductShopInfoTelephones
-from openapi_client.models.alibaba_marketplace_product_shop_info_wang_wang import AlibabaMarketplaceProductShopInfoWangWang
-from openapi_client.models.alibaba_marketplace_product_shop_info_wang_wangs import AlibabaMarketplaceProductShopInfoWangWangs
-from openapi_client.models.alibaba_marketplace_product_sku import AlibabaMarketplaceProductSku
-from openapi_client.models.alibaba_marketplace_product_sku_module import AlibabaMarketplaceProductSkuModule
-from openapi_client.models.alibaba_marketplace_product_sku_module_properties import AlibabaMarketplaceProductSkuModuleProperties
-from openapi_client.models.alibaba_marketplace_product_sku_module_property import AlibabaMarketplaceProductSkuModuleProperty
-from openapi_client.models.alibaba_marketplace_product_sku_module_property_value import AlibabaMarketplaceProductSkuModulePropertyValue
-from openapi_client.models.alibaba_marketplace_product_sku_module_property_values import AlibabaMarketplaceProductSkuModulePropertyValues
-from openapi_client.models.alibaba_marketplace_product_sku_modules import AlibabaMarketplaceProductSkuModules
-from openapi_client.models.alibaba_marketplace_product_sku_order_period import AlibabaMarketplaceProductSkuOrderPeriod
-from openapi_client.models.alibaba_marketplace_product_sku_order_periods import AlibabaMarketplaceProductSkuOrderPeriods
-from openapi_client.models.alibaba_marketplace_product_skus import AlibabaMarketplaceProductSkus
+from openapi_client.models.alibaba_marketplace_product_extra import (
+    AlibabaMarketplaceProductExtra,
+)
+from openapi_client.models.alibaba_marketplace_product_extras import (
+    AlibabaMarketplaceProductExtras,
+)
+from openapi_client.models.alibaba_marketplace_product_shop_info import (
+    AlibabaMarketplaceProductShopInfo,
+)
+from openapi_client.models.alibaba_marketplace_product_shop_info_telephones import (
+    AlibabaMarketplaceProductShopInfoTelephones,
+)
+from openapi_client.models.alibaba_marketplace_product_shop_info_wang_wang import (
+    AlibabaMarketplaceProductShopInfoWangWang,
+)
+from openapi_client.models.alibaba_marketplace_product_shop_info_wang_wangs import (
+    AlibabaMarketplaceProductShopInfoWangWangs,
+)
+from openapi_client.models.alibaba_marketplace_product_sku import (
+    AlibabaMarketplaceProductSku,
+)
+from openapi_client.models.alibaba_marketplace_product_sku_module import (
+    AlibabaMarketplaceProductSkuModule,
+)
+from openapi_client.models.alibaba_marketplace_product_sku_module_properties import (
+    AlibabaMarketplaceProductSkuModuleProperties,
+)
+from openapi_client.models.alibaba_marketplace_product_sku_module_property import (
+    AlibabaMarketplaceProductSkuModuleProperty,
+)
+from openapi_client.models.alibaba_marketplace_product_sku_module_property_value import (
+    AlibabaMarketplaceProductSkuModulePropertyValue,
+)
+from openapi_client.models.alibaba_marketplace_product_sku_module_property_values import (
+    AlibabaMarketplaceProductSkuModulePropertyValues,
+)
+from openapi_client.models.alibaba_marketplace_product_sku_modules import (
+    AlibabaMarketplaceProductSkuModules,
+)
+from openapi_client.models.alibaba_marketplace_product_sku_order_period import (
+    AlibabaMarketplaceProductSkuOrderPeriod,
+)
+from openapi_client.models.alibaba_marketplace_product_sku_order_periods import (
+    AlibabaMarketplaceProductSkuOrderPeriods,
+)
+from openapi_client.models.alibaba_marketplace_product_skus import (
+    AlibabaMarketplaceProductSkus,
+)
 from openapi_client.models.api_client_access_token import ApiClientAccessToken
 from openapi_client.models.aws_account_identifier import AwsAccountIdentifier
 from openapi_client.models.aws_ace_integration import AwsAceIntegration
 from openapi_client.models.aws_integration_credential import AwsIntegrationCredential
-from openapi_client.models.aws_marketplace_cppo_discount_type import AwsMarketplaceCppoDiscountType
-from openapi_client.models.aws_marketplace_cppo_duration_type import AwsMarketplaceCppoDurationType
-from openapi_client.models.aws_marketplace_cppo_opportunity import AwsMarketplaceCppoOpportunity
-from openapi_client.models.aws_marketplace_cppo_opportunity_eula import AwsMarketplaceCppoOpportunityEula
-from openapi_client.models.aws_marketplace_cppo_payment_schedule import AwsMarketplaceCppoPaymentSchedule
-from openapi_client.models.aws_marketplace_cppo_payment_terms import AwsMarketplaceCppoPaymentTerms
-from openapi_client.models.aws_marketplace_cppo_payment_terms_entitlement import AwsMarketplaceCppoPaymentTermsEntitlement
-from openapi_client.models.aws_marketplace_cppo_price_term_detailed_view import AwsMarketplaceCppoPriceTermDetailedView
-from openapi_client.models.aws_marketplace_cppo_price_term_entry import AwsMarketplaceCppoPriceTermEntry
-from openapi_client.models.aws_marketplace_cppo_price_terms import AwsMarketplaceCppoPriceTerms
-from openapi_client.models.aws_marketplace_event_bridge_event_account import AwsMarketplaceEventBridgeEventAccount
-from openapi_client.models.aws_marketplace_event_bridge_event_detail import AwsMarketplaceEventBridgeEventDetail
-from openapi_client.models.aws_marketplace_event_bridge_event_offer import AwsMarketplaceEventBridgeEventOffer
-from openapi_client.models.aws_marketplace_event_bridge_event_product import AwsMarketplaceEventBridgeEventProduct
+from openapi_client.models.aws_marketplace_cppo_discount_type import (
+    AwsMarketplaceCppoDiscountType,
+)
+from openapi_client.models.aws_marketplace_cppo_duration_type import (
+    AwsMarketplaceCppoDurationType,
+)
+from openapi_client.models.aws_marketplace_cppo_opportunity import (
+    AwsMarketplaceCppoOpportunity,
+)
+from openapi_client.models.aws_marketplace_cppo_opportunity_eula import (
+    AwsMarketplaceCppoOpportunityEula,
+)
+from openapi_client.models.aws_marketplace_cppo_payment_schedule import (
+    AwsMarketplaceCppoPaymentSchedule,
+)
+from openapi_client.models.aws_marketplace_cppo_payment_terms import (
+    AwsMarketplaceCppoPaymentTerms,
+)
+from openapi_client.models.aws_marketplace_cppo_payment_terms_entitlement import (
+    AwsMarketplaceCppoPaymentTermsEntitlement,
+)
+from openapi_client.models.aws_marketplace_cppo_price_term_detailed_view import (
+    AwsMarketplaceCppoPriceTermDetailedView,
+)
+from openapi_client.models.aws_marketplace_cppo_price_term_entry import (
+    AwsMarketplaceCppoPriceTermEntry,
+)
+from openapi_client.models.aws_marketplace_cppo_price_terms import (
+    AwsMarketplaceCppoPriceTerms,
+)
+from openapi_client.models.aws_marketplace_event_bridge_event_account import (
+    AwsMarketplaceEventBridgeEventAccount,
+)
+from openapi_client.models.aws_marketplace_event_bridge_event_detail import (
+    AwsMarketplaceEventBridgeEventDetail,
+)
+from openapi_client.models.aws_marketplace_event_bridge_event_offer import (
+    AwsMarketplaceEventBridgeEventOffer,
+)
+from openapi_client.models.aws_marketplace_event_bridge_event_product import (
+    AwsMarketplaceEventBridgeEventProduct,
+)
 from openapi_client.models.aws_marketplace_integration import AwsMarketplaceIntegration
 from openapi_client.models.aws_renewal_offer_type import AwsRenewalOfferType
 from openapi_client.models.aws_saas_product import AwsSaasProduct
-from openapi_client.models.aws_saas_product_additional_resource import AwsSaasProductAdditionalResource
-from openapi_client.models.aws_saas_product_delivery_option import AwsSaasProductDeliveryOption
+from openapi_client.models.aws_saas_product_additional_resource import (
+    AwsSaasProductAdditionalResource,
+)
+from openapi_client.models.aws_saas_product_delivery_option import (
+    AwsSaasProductDeliveryOption,
+)
 from openapi_client.models.aws_saas_product_description import AwsSaasProductDescription
 from openapi_client.models.aws_saas_product_dimension import AwsSaasProductDimension
-from openapi_client.models.aws_saas_product_promotional_resources import AwsSaasProductPromotionalResources
-from openapi_client.models.aws_saas_product_support_information import AwsSaasProductSupportInformation
+from openapi_client.models.aws_saas_product_promotional_resources import (
+    AwsSaasProductPromotionalResources,
+)
+from openapi_client.models.aws_saas_product_support_information import (
+    AwsSaasProductSupportInformation,
+)
 from openapi_client.models.aws_saas_product_version import AwsSaasProductVersion
 from openapi_client.models.aws_sns_subscription import AwsSnsSubscription
 from openapi_client.models.aws_sns_subscription_status import AwsSnsSubscriptionStatus
 from openapi_client.models.azure_ad_identifier import AzureADIdentifier
 from openapi_client.models.azure_audience import AzureAudience
-from openapi_client.models.azure_commercial_marketplace_setup import AzureCommercialMarketplaceSetup
-from openapi_client.models.azure_government_certification import AzureGovernmentCertification
+from openapi_client.models.azure_commercial_marketplace_setup import (
+    AzureCommercialMarketplaceSetup,
+)
+from openapi_client.models.azure_government_certification import (
+    AzureGovernmentCertification,
+)
 from openapi_client.models.azure_included_base_quantity import AzureIncludedBaseQuantity
 from openapi_client.models.azure_integration import AzureIntegration
-from openapi_client.models.azure_integration_credential import AzureIntegrationCredential
+from openapi_client.models.azure_integration_credential import (
+    AzureIntegrationCredential,
+)
 from openapi_client.models.azure_listing_contact import AzureListingContact
 from openapi_client.models.azure_listing_uri import AzureListingUri
 from openapi_client.models.azure_localized_date_time import AzureLocalizedDateTime
@@ -110,59 +192,149 @@ from openapi_client.models.azure_localized_time_range import AzureLocalizedTimeR
 from openapi_client.models.azure_market import AzureMarket
 from openapi_client.models.azure_market_state import AzureMarketState
 from openapi_client.models.azure_marketplace_contact import AzureMarketplaceContact
-from openapi_client.models.azure_marketplace_custom_amendment import AzureMarketplaceCustomAmendment
-from openapi_client.models.azure_marketplace_custom_amendment_tenant import AzureMarketplaceCustomAmendmentTenant
-from openapi_client.models.azure_marketplace_custom_amendment_tenant_manual_entry import AzureMarketplaceCustomAmendmentTenantManualEntry
-from openapi_client.models.azure_marketplace_customer_leads import AzureMarketplaceCustomerLeads
-from openapi_client.models.azure_marketplace_deprecation_schedule import AzureMarketplaceDeprecationSchedule
-from openapi_client.models.azure_marketplace_deprecation_schedule_alternative import AzureMarketplaceDeprecationScheduleAlternative
-from openapi_client.models.azure_marketplace_general_link import AzureMarketplaceGeneralLink
-from openapi_client.models.azure_marketplace_government_certification import AzureMarketplaceGovernmentCertification
+from openapi_client.models.azure_marketplace_custom_amendment import (
+    AzureMarketplaceCustomAmendment,
+)
+from openapi_client.models.azure_marketplace_custom_amendment_tenant import (
+    AzureMarketplaceCustomAmendmentTenant,
+)
+from openapi_client.models.azure_marketplace_custom_amendment_tenant_manual_entry import (
+    AzureMarketplaceCustomAmendmentTenantManualEntry,
+)
+from openapi_client.models.azure_marketplace_customer_leads import (
+    AzureMarketplaceCustomerLeads,
+)
+from openapi_client.models.azure_marketplace_deprecation_schedule import (
+    AzureMarketplaceDeprecationSchedule,
+)
+from openapi_client.models.azure_marketplace_deprecation_schedule_alternative import (
+    AzureMarketplaceDeprecationScheduleAlternative,
+)
+from openapi_client.models.azure_marketplace_general_link import (
+    AzureMarketplaceGeneralLink,
+)
+from openapi_client.models.azure_marketplace_government_certification import (
+    AzureMarketplaceGovernmentCertification,
+)
 from openapi_client.models.azure_marketplace_identity import AzureMarketplaceIdentity
 from openapi_client.models.azure_marketplace_listing import AzureMarketplaceListing
-from openapi_client.models.azure_marketplace_listing_asset import AzureMarketplaceListingAsset
-from openapi_client.models.azure_marketplace_listing_asset_type import AzureMarketplaceListingAssetType
-from openapi_client.models.azure_marketplace_offer_pricing_type import AzureMarketplaceOfferPricingType
+from openapi_client.models.azure_marketplace_listing_asset import (
+    AzureMarketplaceListingAsset,
+)
+from openapi_client.models.azure_marketplace_listing_asset_type import (
+    AzureMarketplaceListingAssetType,
+)
+from openapi_client.models.azure_marketplace_offer_pricing_type import (
+    AzureMarketplaceOfferPricingType,
+)
 from openapi_client.models.azure_marketplace_plan import AzureMarketplacePlan
-from openapi_client.models.azure_marketplace_plan_listing import AzureMarketplacePlanListing
-from openapi_client.models.azure_marketplace_plan_resource import AzureMarketplacePlanResource
-from openapi_client.models.azure_marketplace_preview_audience import AzureMarketplacePreviewAudience
+from openapi_client.models.azure_marketplace_plan_listing import (
+    AzureMarketplacePlanListing,
+)
+from openapi_client.models.azure_marketplace_plan_resource import (
+    AzureMarketplacePlanResource,
+)
+from openapi_client.models.azure_marketplace_preview_audience import (
+    AzureMarketplacePreviewAudience,
+)
 from openapi_client.models.azure_marketplace_price import AzureMarketplacePrice
-from openapi_client.models.azure_marketplace_price_and_availability_audience import AzureMarketplacePriceAndAvailabilityAudience
-from openapi_client.models.azure_marketplace_price_and_availability_core_price import AzureMarketplacePriceAndAvailabilityCorePrice
-from openapi_client.models.azure_marketplace_price_and_availability_custom_meter import AzureMarketplacePriceAndAvailabilityCustomMeter
-from openapi_client.models.azure_marketplace_price_and_availability_custom_meter_item import AzureMarketplacePriceAndAvailabilityCustomMeterItem
-from openapi_client.models.azure_marketplace_price_and_availability_offer import AzureMarketplacePriceAndAvailabilityOffer
-from openapi_client.models.azure_marketplace_price_and_availability_plan import AzureMarketplacePriceAndAvailabilityPlan
-from openapi_client.models.azure_marketplace_price_and_availability_price import AzureMarketplacePriceAndAvailabilityPrice
-from openapi_client.models.azure_marketplace_price_and_availability_private_offer_custom_meters import AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters
-from openapi_client.models.azure_marketplace_price_and_availability_private_offer_plan import AzureMarketplacePriceAndAvailabilityPrivateOfferPlan
-from openapi_client.models.azure_marketplace_price_and_availability_private_offer_price import AzureMarketplacePriceAndAvailabilityPrivateOfferPrice
-from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price import AzureMarketplacePriceAndAvailabilityRecurrentPrice
-from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_item import AzureMarketplacePriceAndAvailabilityRecurrentPriceItem
-from openapi_client.models.azure_marketplace_price_and_availability_software_reservation import AzureMarketplacePriceAndAvailabilitySoftwareReservation
-from openapi_client.models.azure_marketplace_private_offer import AzureMarketplacePrivateOffer
-from openapi_client.models.azure_marketplace_private_offer_acceptance_link import AzureMarketplacePrivateOfferAcceptanceLink
-from openapi_client.models.azure_marketplace_private_offer_beneficiary import AzureMarketplacePrivateOfferBeneficiary
-from openapi_client.models.azure_marketplace_private_offer_beneficiary_recipient import AzureMarketplacePrivateOfferBeneficiaryRecipient
-from openapi_client.models.azure_marketplace_private_offer_partner import AzureMarketplacePrivateOfferPartner
-from openapi_client.models.azure_marketplace_private_offer_pricing import AzureMarketplacePrivateOfferPricing
-from openapi_client.models.azure_marketplace_private_offer_promotion_reference import AzureMarketplacePrivateOfferPromotionReference
-from openapi_client.models.azure_marketplace_private_offer_state import AzureMarketplacePrivateOfferState
-from openapi_client.models.azure_marketplace_private_offer_sub_state import AzureMarketplacePrivateOfferSubState
-from openapi_client.models.azure_marketplace_private_offer_terms_doc import AzureMarketplacePrivateOfferTermsDoc
-from openapi_client.models.azure_marketplace_private_offer_type import AzureMarketplacePrivateOfferType
+from openapi_client.models.azure_marketplace_price_and_availability_audience import (
+    AzureMarketplacePriceAndAvailabilityAudience,
+)
+from openapi_client.models.azure_marketplace_price_and_availability_core_price import (
+    AzureMarketplacePriceAndAvailabilityCorePrice,
+)
+from openapi_client.models.azure_marketplace_price_and_availability_custom_meter import (
+    AzureMarketplacePriceAndAvailabilityCustomMeter,
+)
+from openapi_client.models.azure_marketplace_price_and_availability_custom_meter_item import (
+    AzureMarketplacePriceAndAvailabilityCustomMeterItem,
+)
+from openapi_client.models.azure_marketplace_price_and_availability_offer import (
+    AzureMarketplacePriceAndAvailabilityOffer,
+)
+from openapi_client.models.azure_marketplace_price_and_availability_plan import (
+    AzureMarketplacePriceAndAvailabilityPlan,
+)
+from openapi_client.models.azure_marketplace_price_and_availability_price import (
+    AzureMarketplacePriceAndAvailabilityPrice,
+)
+from openapi_client.models.azure_marketplace_price_and_availability_private_offer_custom_meters import (
+    AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters,
+)
+from openapi_client.models.azure_marketplace_price_and_availability_private_offer_plan import (
+    AzureMarketplacePriceAndAvailabilityPrivateOfferPlan,
+)
+from openapi_client.models.azure_marketplace_price_and_availability_private_offer_price import (
+    AzureMarketplacePriceAndAvailabilityPrivateOfferPrice,
+)
+from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price import (
+    AzureMarketplacePriceAndAvailabilityRecurrentPrice,
+)
+from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_item import (
+    AzureMarketplacePriceAndAvailabilityRecurrentPriceItem,
+)
+from openapi_client.models.azure_marketplace_price_and_availability_software_reservation import (
+    AzureMarketplacePriceAndAvailabilitySoftwareReservation,
+)
+from openapi_client.models.azure_marketplace_private_offer import (
+    AzureMarketplacePrivateOffer,
+)
+from openapi_client.models.azure_marketplace_private_offer_acceptance_link import (
+    AzureMarketplacePrivateOfferAcceptanceLink,
+)
+from openapi_client.models.azure_marketplace_private_offer_beneficiary import (
+    AzureMarketplacePrivateOfferBeneficiary,
+)
+from openapi_client.models.azure_marketplace_private_offer_beneficiary_recipient import (
+    AzureMarketplacePrivateOfferBeneficiaryRecipient,
+)
+from openapi_client.models.azure_marketplace_private_offer_partner import (
+    AzureMarketplacePrivateOfferPartner,
+)
+from openapi_client.models.azure_marketplace_private_offer_pricing import (
+    AzureMarketplacePrivateOfferPricing,
+)
+from openapi_client.models.azure_marketplace_private_offer_promotion_reference import (
+    AzureMarketplacePrivateOfferPromotionReference,
+)
+from openapi_client.models.azure_marketplace_private_offer_state import (
+    AzureMarketplacePrivateOfferState,
+)
+from openapi_client.models.azure_marketplace_private_offer_sub_state import (
+    AzureMarketplacePrivateOfferSubState,
+)
+from openapi_client.models.azure_marketplace_private_offer_terms_doc import (
+    AzureMarketplacePrivateOfferTermsDoc,
+)
+from openapi_client.models.azure_marketplace_private_offer_type import (
+    AzureMarketplacePrivateOfferType,
+)
 from openapi_client.models.azure_marketplace_product import AzureMarketplaceProduct
-from openapi_client.models.azure_marketplace_product_resource import AzureMarketplaceProductResource
-from openapi_client.models.azure_marketplace_product_type import AzureMarketplaceProductType
+from openapi_client.models.azure_marketplace_product_resource import (
+    AzureMarketplaceProductResource,
+)
+from openapi_client.models.azure_marketplace_product_type import (
+    AzureMarketplaceProductType,
+)
 from openapi_client.models.azure_marketplace_property import AzureMarketplaceProperty
 from openapi_client.models.azure_marketplace_reseller import AzureMarketplaceReseller
-from openapi_client.models.azure_marketplace_resource_lifecycle_state import AzureMarketplaceResourceLifecycleState
-from openapi_client.models.azure_marketplace_saas_technical_configuration import AzureMarketplaceSaasTechnicalConfiguration
-from openapi_client.models.azure_marketplace_subscription import AzureMarketplaceSubscription
-from openapi_client.models.azure_marketplace_subscription_status import AzureMarketplaceSubscriptionStatus
+from openapi_client.models.azure_marketplace_resource_lifecycle_state import (
+    AzureMarketplaceResourceLifecycleState,
+)
+from openapi_client.models.azure_marketplace_saas_technical_configuration import (
+    AzureMarketplaceSaasTechnicalConfiguration,
+)
+from openapi_client.models.azure_marketplace_subscription import (
+    AzureMarketplaceSubscription,
+)
+from openapi_client.models.azure_marketplace_subscription_status import (
+    AzureMarketplaceSubscriptionStatus,
+)
 from openapi_client.models.azure_marketplace_term import AzureMarketplaceTerm
-from openapi_client.models.azure_marketplace_validation import AzureMarketplaceValidation
+from openapi_client.models.azure_marketplace_validation import (
+    AzureMarketplaceValidation,
+)
 from openapi_client.models.azure_pending_update_info import AzurePendingUpdateInfo
 from openapi_client.models.azure_price import AzurePrice
 from openapi_client.models.azure_price_cadence import AzurePriceCadence
@@ -171,36 +343,72 @@ from openapi_client.models.azure_pricing_unit import AzurePricingUnit
 from openapi_client.models.azure_product import AzureProduct
 from openapi_client.models.azure_product_availability import AzureProductAvailability
 from openapi_client.models.azure_product_branch import AzureProductBranch
-from openapi_client.models.azure_product_feature_availability import AzureProductFeatureAvailability
+from openapi_client.models.azure_product_feature_availability import (
+    AzureProductFeatureAvailability,
+)
 from openapi_client.models.azure_product_listing import AzureProductListing
 from openapi_client.models.azure_product_listing_asset import AzureProductListingAsset
-from openapi_client.models.azure_product_package_configuration import AzureProductPackageConfiguration
+from openapi_client.models.azure_product_package_configuration import (
+    AzureProductPackageConfiguration,
+)
 from openapi_client.models.azure_product_property import AzureProductProperty
 from openapi_client.models.azure_product_setup import AzureProductSetup
 from openapi_client.models.azure_product_submission import AzureProductSubmission
 from openapi_client.models.azure_product_variant import AzureProductVariant
-from openapi_client.models.azure_product_variant_custom_meter import AzureProductVariantCustomMeter
-from openapi_client.models.azure_product_variant_price_schedule import AzureProductVariantPriceSchedule
+from openapi_client.models.azure_product_variant_custom_meter import (
+    AzureProductVariantCustomMeter,
+)
+from openapi_client.models.azure_product_variant_price_schedule import (
+    AzureProductVariantPriceSchedule,
+)
 from openapi_client.models.azure_product_variant_trial import AzureProductVariantTrial
 from openapi_client.models.azure_term import AzureTerm
 from openapi_client.models.azure_type_value import AzureTypeValue
 from openapi_client.models.azure_validation_result import AzureValidationResult
 from openapi_client.models.azure_variant_resource import AzureVariantResource
 from openapi_client.models.buyer_info import BuyerInfo
-from openapi_client.models.client_describe_instance_response_body import ClientDescribeInstanceResponseBody
-from openapi_client.models.client_describe_instance_response_body_modules import ClientDescribeInstanceResponseBodyModules
-from openapi_client.models.client_describe_instance_response_body_modules_module import ClientDescribeInstanceResponseBodyModulesModule
-from openapi_client.models.client_describe_instance_response_body_modules_module_properties import ClientDescribeInstanceResponseBodyModulesModuleProperties
-from openapi_client.models.client_describe_instance_response_body_modules_module_properties_property import ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty
-from openapi_client.models.client_describe_instance_response_body_modules_module_properties_property_property_values import ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues
-from openapi_client.models.client_describe_instance_response_body_modules_module_properties_property_property_values_property_value import ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue
-from openapi_client.models.client_describe_instance_response_body_relational_data import ClientDescribeInstanceResponseBodyRelationalData
-from openapi_client.models.client_describe_order_response_body import ClientDescribeOrderResponseBody
-from openapi_client.models.client_describe_order_response_body_instance_ids import ClientDescribeOrderResponseBodyInstanceIds
-from openapi_client.models.client_describe_order_response_body_supplier_telephones import ClientDescribeOrderResponseBodySupplierTelephones
-from openapi_client.models.client_push_metering_data_request import ClientPushMeteringDataRequest
-from openapi_client.models.client_push_metering_data_response_body import ClientPushMeteringDataResponseBody
-from openapi_client.models.client_signup_page_config_info import ClientSignupPageConfigInfo
+from openapi_client.models.client_describe_instance_response_body import (
+    ClientDescribeInstanceResponseBody,
+)
+from openapi_client.models.client_describe_instance_response_body_modules import (
+    ClientDescribeInstanceResponseBodyModules,
+)
+from openapi_client.models.client_describe_instance_response_body_modules_module import (
+    ClientDescribeInstanceResponseBodyModulesModule,
+)
+from openapi_client.models.client_describe_instance_response_body_modules_module_properties import (
+    ClientDescribeInstanceResponseBodyModulesModuleProperties,
+)
+from openapi_client.models.client_describe_instance_response_body_modules_module_properties_property import (
+    ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty,
+)
+from openapi_client.models.client_describe_instance_response_body_modules_module_properties_property_property_values import (
+    ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues,
+)
+from openapi_client.models.client_describe_instance_response_body_modules_module_properties_property_property_values_property_value import (
+    ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue,
+)
+from openapi_client.models.client_describe_instance_response_body_relational_data import (
+    ClientDescribeInstanceResponseBodyRelationalData,
+)
+from openapi_client.models.client_describe_order_response_body import (
+    ClientDescribeOrderResponseBody,
+)
+from openapi_client.models.client_describe_order_response_body_instance_ids import (
+    ClientDescribeOrderResponseBodyInstanceIds,
+)
+from openapi_client.models.client_describe_order_response_body_supplier_telephones import (
+    ClientDescribeOrderResponseBodySupplierTelephones,
+)
+from openapi_client.models.client_push_metering_data_request import (
+    ClientPushMeteringDataRequest,
+)
+from openapi_client.models.client_push_metering_data_response_body import (
+    ClientPushMeteringDataResponseBody,
+)
+from openapi_client.models.client_signup_page_config_info import (
+    ClientSignupPageConfigInfo,
+)
 from openapi_client.models.commit_dimension import CommitDimension
 from openapi_client.models.commit_dimension_time_unit import CommitDimensionTimeUnit
 from openapi_client.models.commit_dimension_type import CommitDimensionType
@@ -212,8 +420,12 @@ from openapi_client.models.cosell_opp_meta import CosellOppMeta
 from openapi_client.models.cosell_opp_referral import CosellOppReferral
 from openapi_client.models.cosell_sync_record import CosellSyncRecord
 from openapi_client.models.create_integration_params import CreateIntegrationParams
-from openapi_client.models.create_usage_record_group_params import CreateUsageRecordGroupParams
-from openapi_client.models.divide_entitlement_commit_params import DivideEntitlementCommitParams
+from openapi_client.models.create_usage_record_group_params import (
+    CreateUsageRecordGroupParams,
+)
+from openapi_client.models.divide_entitlement_commit_params import (
+    DivideEntitlementCommitParams,
+)
 from openapi_client.models.entitlement_info import EntitlementInfo
 from openapi_client.models.entitlement_status import EntitlementStatus
 from openapi_client.models.entitlement_term_info import EntitlementTermInfo
@@ -225,76 +437,198 @@ from openapi_client.models.gcp_integration import GcpIntegration
 from openapi_client.models.gcp_marketplace_consumer import GcpMarketplaceConsumer
 from openapi_client.models.gcp_marketplace_document import GcpMarketplaceDocument
 from openapi_client.models.gcp_marketplace_entitlement import GcpMarketplaceEntitlement
-from openapi_client.models.gcp_marketplace_entitlement_state import GcpMarketplaceEntitlementState
-from openapi_client.models.gcp_marketplace_existing_offer_data import GcpMarketplaceExistingOfferData
-from openapi_client.models.gcp_marketplace_existing_private_offer import GcpMarketplaceExistingPrivateOffer
-from openapi_client.models.gcp_marketplace_external_google_link import GcpMarketplaceExternalGoogleLink
-from openapi_client.models.gcp_marketplace_payment_schedule_type import GcpMarketplacePaymentScheduleType
+from openapi_client.models.gcp_marketplace_entitlement_state import (
+    GcpMarketplaceEntitlementState,
+)
+from openapi_client.models.gcp_marketplace_existing_offer_data import (
+    GcpMarketplaceExistingOfferData,
+)
+from openapi_client.models.gcp_marketplace_existing_private_offer import (
+    GcpMarketplaceExistingPrivateOffer,
+)
+from openapi_client.models.gcp_marketplace_external_google_link import (
+    GcpMarketplaceExternalGoogleLink,
+)
+from openapi_client.models.gcp_marketplace_payment_schedule_type import (
+    GcpMarketplacePaymentScheduleType,
+)
 from openapi_client.models.gcp_marketplace_price_model import GcpMarketplacePriceModel
-from openapi_client.models.gcp_marketplace_private_offer import GcpMarketplacePrivateOffer
-from openapi_client.models.gcp_marketplace_private_offer_customer_info import GcpMarketplacePrivateOfferCustomerInfo
-from openapi_client.models.gcp_marketplace_private_offer_installment import GcpMarketplacePrivateOfferInstallment
-from openapi_client.models.gcp_marketplace_private_offer_installment_timeline import GcpMarketplacePrivateOfferInstallmentTimeline
-from openapi_client.models.gcp_marketplace_private_offer_metric_detail import GcpMarketplacePrivateOfferMetricDetail
-from openapi_client.models.gcp_marketplace_private_offer_metric_information import GcpMarketplacePrivateOfferMetricInformation
-from openapi_client.models.gcp_marketplace_private_offer_migration_metadata import GcpMarketplacePrivateOfferMigrationMetadata
-from openapi_client.models.gcp_marketplace_private_offer_price_model import GcpMarketplacePrivateOfferPriceModel
-from openapi_client.models.gcp_marketplace_private_offer_price_model_commitment import GcpMarketplacePrivateOfferPriceModelCommitment
-from openapi_client.models.gcp_marketplace_private_offer_price_model_discount import GcpMarketplacePrivateOfferPriceModelDiscount
-from openapi_client.models.gcp_marketplace_private_offer_price_model_fixed import GcpMarketplacePrivateOfferPriceModelFixed
-from openapi_client.models.gcp_marketplace_private_offer_price_model_overage import GcpMarketplacePrivateOfferPriceModelOverage
-from openapi_client.models.gcp_marketplace_private_offer_price_model_payg import GcpMarketplacePrivateOfferPriceModelPayg
-from openapi_client.models.gcp_marketplace_private_offer_price_model_type import GcpMarketplacePrivateOfferPriceModelType
-from openapi_client.models.gcp_marketplace_private_offer_provider_info import GcpMarketplacePrivateOfferProviderInfo
-from openapi_client.models.gcp_marketplace_private_offer_replacement_metadata import GcpMarketplacePrivateOfferReplacementMetadata
-from openapi_client.models.gcp_marketplace_private_offer_state import GcpMarketplacePrivateOfferState
-from openapi_client.models.gcp_marketplace_private_offer_term import GcpMarketplacePrivateOfferTerm
+from openapi_client.models.gcp_marketplace_private_offer import (
+    GcpMarketplacePrivateOffer,
+)
+from openapi_client.models.gcp_marketplace_private_offer_customer_info import (
+    GcpMarketplacePrivateOfferCustomerInfo,
+)
+from openapi_client.models.gcp_marketplace_private_offer_installment import (
+    GcpMarketplacePrivateOfferInstallment,
+)
+from openapi_client.models.gcp_marketplace_private_offer_installment_timeline import (
+    GcpMarketplacePrivateOfferInstallmentTimeline,
+)
+from openapi_client.models.gcp_marketplace_private_offer_metric_detail import (
+    GcpMarketplacePrivateOfferMetricDetail,
+)
+from openapi_client.models.gcp_marketplace_private_offer_metric_information import (
+    GcpMarketplacePrivateOfferMetricInformation,
+)
+from openapi_client.models.gcp_marketplace_private_offer_migration_metadata import (
+    GcpMarketplacePrivateOfferMigrationMetadata,
+)
+from openapi_client.models.gcp_marketplace_private_offer_price_model import (
+    GcpMarketplacePrivateOfferPriceModel,
+)
+from openapi_client.models.gcp_marketplace_private_offer_price_model_commitment import (
+    GcpMarketplacePrivateOfferPriceModelCommitment,
+)
+from openapi_client.models.gcp_marketplace_private_offer_price_model_discount import (
+    GcpMarketplacePrivateOfferPriceModelDiscount,
+)
+from openapi_client.models.gcp_marketplace_private_offer_price_model_fixed import (
+    GcpMarketplacePrivateOfferPriceModelFixed,
+)
+from openapi_client.models.gcp_marketplace_private_offer_price_model_overage import (
+    GcpMarketplacePrivateOfferPriceModelOverage,
+)
+from openapi_client.models.gcp_marketplace_private_offer_price_model_payg import (
+    GcpMarketplacePrivateOfferPriceModelPayg,
+)
+from openapi_client.models.gcp_marketplace_private_offer_price_model_type import (
+    GcpMarketplacePrivateOfferPriceModelType,
+)
+from openapi_client.models.gcp_marketplace_private_offer_provider_info import (
+    GcpMarketplacePrivateOfferProviderInfo,
+)
+from openapi_client.models.gcp_marketplace_private_offer_replacement_metadata import (
+    GcpMarketplacePrivateOfferReplacementMetadata,
+)
+from openapi_client.models.gcp_marketplace_private_offer_state import (
+    GcpMarketplacePrivateOfferState,
+)
+from openapi_client.models.gcp_marketplace_private_offer_term import (
+    GcpMarketplacePrivateOfferTerm,
+)
 from openapi_client.models.gcp_marketplace_product import GcpMarketplaceProduct
-from openapi_client.models.gcp_marketplace_product_access_state import GcpMarketplaceProductAccessState
-from openapi_client.models.gcp_marketplace_product_derived_discovery_state import GcpMarketplaceProductDerivedDiscoveryState
-from openapi_client.models.gcp_marketplace_product_documentation_spec import GcpMarketplaceProductDocumentationSpec
-from openapi_client.models.gcp_marketplace_product_external_account_spec import GcpMarketplaceProductExternalAccountSpec
-from openapi_client.models.gcp_marketplace_product_feature import GcpMarketplaceProductFeature
-from openapi_client.models.gcp_marketplace_product_feature_value import GcpMarketplaceProductFeatureValue
-from openapi_client.models.gcp_marketplace_product_license_spec import GcpMarketplaceProductLicenseSpec
-from openapi_client.models.gcp_marketplace_product_listing_spec import GcpMarketplaceProductListingSpec
-from openapi_client.models.gcp_marketplace_product_marketing_spec import GcpMarketplaceProductMarketingSpec
-from openapi_client.models.gcp_marketplace_product_metering_metric import GcpMarketplaceProductMeteringMetric
-from openapi_client.models.gcp_marketplace_product_price_info import GcpMarketplaceProductPriceInfo
-from openapi_client.models.gcp_marketplace_product_purchase_option_spec import GcpMarketplaceProductPurchaseOptionSpec
-from openapi_client.models.gcp_marketplace_product_purchase_spec import GcpMarketplaceProductPurchaseSpec
-from openapi_client.models.gcp_marketplace_product_service_config import GcpMarketplaceProductServiceConfig
-from openapi_client.models.gcp_marketplace_product_service_config_billing import GcpMarketplaceProductServiceConfigBilling
-from openapi_client.models.gcp_marketplace_product_subscription_plan import GcpMarketplaceProductSubscriptionPlan
-from openapi_client.models.gcp_marketplace_product_support_spec import GcpMarketplaceProductSupportSpec
-from openapi_client.models.gcp_marketplace_product_terms_spec import GcpMarketplaceProductTermsSpec
-from openapi_client.models.gcp_marketplace_product_usage_fee import GcpMarketplaceProductUsageFee
-from openapi_client.models.gcp_marketplace_purchase_channel import GcpMarketplacePurchaseChannel
-from openapi_client.models.gcp_marketplace_unstructured_document import GcpMarketplaceUnstructuredDocument
-from openapi_client.models.gcp_marketplace_usage_plan_price_model import GcpMarketplaceUsagePlanPriceModel
+from openapi_client.models.gcp_marketplace_product_access_state import (
+    GcpMarketplaceProductAccessState,
+)
+from openapi_client.models.gcp_marketplace_product_derived_discovery_state import (
+    GcpMarketplaceProductDerivedDiscoveryState,
+)
+from openapi_client.models.gcp_marketplace_product_documentation_spec import (
+    GcpMarketplaceProductDocumentationSpec,
+)
+from openapi_client.models.gcp_marketplace_product_external_account_spec import (
+    GcpMarketplaceProductExternalAccountSpec,
+)
+from openapi_client.models.gcp_marketplace_product_feature import (
+    GcpMarketplaceProductFeature,
+)
+from openapi_client.models.gcp_marketplace_product_feature_value import (
+    GcpMarketplaceProductFeatureValue,
+)
+from openapi_client.models.gcp_marketplace_product_license_spec import (
+    GcpMarketplaceProductLicenseSpec,
+)
+from openapi_client.models.gcp_marketplace_product_listing_spec import (
+    GcpMarketplaceProductListingSpec,
+)
+from openapi_client.models.gcp_marketplace_product_marketing_spec import (
+    GcpMarketplaceProductMarketingSpec,
+)
+from openapi_client.models.gcp_marketplace_product_metering_metric import (
+    GcpMarketplaceProductMeteringMetric,
+)
+from openapi_client.models.gcp_marketplace_product_price_info import (
+    GcpMarketplaceProductPriceInfo,
+)
+from openapi_client.models.gcp_marketplace_product_purchase_option_spec import (
+    GcpMarketplaceProductPurchaseOptionSpec,
+)
+from openapi_client.models.gcp_marketplace_product_purchase_spec import (
+    GcpMarketplaceProductPurchaseSpec,
+)
+from openapi_client.models.gcp_marketplace_product_service_config import (
+    GcpMarketplaceProductServiceConfig,
+)
+from openapi_client.models.gcp_marketplace_product_service_config_billing import (
+    GcpMarketplaceProductServiceConfigBilling,
+)
+from openapi_client.models.gcp_marketplace_product_subscription_plan import (
+    GcpMarketplaceProductSubscriptionPlan,
+)
+from openapi_client.models.gcp_marketplace_product_support_spec import (
+    GcpMarketplaceProductSupportSpec,
+)
+from openapi_client.models.gcp_marketplace_product_terms_spec import (
+    GcpMarketplaceProductTermsSpec,
+)
+from openapi_client.models.gcp_marketplace_product_usage_fee import (
+    GcpMarketplaceProductUsageFee,
+)
+from openapi_client.models.gcp_marketplace_purchase_channel import (
+    GcpMarketplacePurchaseChannel,
+)
+from openapi_client.models.gcp_marketplace_unstructured_document import (
+    GcpMarketplaceUnstructuredDocument,
+)
+from openapi_client.models.gcp_marketplace_usage_plan_price_model import (
+    GcpMarketplaceUsagePlanPriceModel,
+)
 from openapi_client.models.gcp_marketplace_user_account import GcpMarketplaceUserAccount
-from openapi_client.models.gcp_marketplace_user_account_approval import GcpMarketplaceUserAccountApproval
-from openapi_client.models.gcp_marketplace_user_account_approval_state import GcpMarketplaceUserAccountApprovalState
-from openapi_client.models.gcp_marketplace_user_account_state import GcpMarketplaceUserAccountState
+from openapi_client.models.gcp_marketplace_user_account_approval import (
+    GcpMarketplaceUserAccountApproval,
+)
+from openapi_client.models.gcp_marketplace_user_account_approval_state import (
+    GcpMarketplaceUserAccountApprovalState,
+)
+from openapi_client.models.gcp_marketplace_user_account_state import (
+    GcpMarketplaceUserAccountState,
+)
 from openapi_client.models.gcp_period_duration import GcpPeriodDuration
 from openapi_client.models.gcp_period_duration_unit import GcpPeriodDurationUnit
 from openapi_client.models.gcp_price_tier import GcpPriceTier
 from openapi_client.models.gcp_price_value import GcpPriceValue
 from openapi_client.models.gcp_user_info import GcpUserInfo
-from openapi_client.models.get_api_client_access_token_params import GetApiClientAccessTokenParams
+from openapi_client.models.get_api_client_access_token_params import (
+    GetApiClientAccessTokenParams,
+)
 from openapi_client.models.get_revenue_report_params import GetRevenueReportParams
-from openapi_client.models.github_com_aws_aws_sdk_go_v2_service_marketplacemetering_types_tag import GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag
-from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_batch_usage_event_ok_response import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse
-from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_batch_event_ok_message import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage
-from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_conflict_response import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponse
-from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_conflict_response_additional_info import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponseAdditionalInfo
-from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_ok_response import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse
-from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_status_enum import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_aws_billing_event import GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_azure_cma_revenue import GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage import GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_identity_api_client import GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_update_entitlement_name_params import GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams
+from openapi_client.models.github_com_aws_aws_sdk_go_v2_service_marketplacemetering_types_tag import (
+    GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag,
+)
+from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_batch_usage_event_ok_response import (
+    GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse,
+)
+from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_batch_event_ok_message import (
+    GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage,
+)
+from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_conflict_response import (
+    GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponse,
+)
+from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_conflict_response_additional_info import (
+    GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponseAdditionalInfo,
+)
+from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_ok_response import (
+    GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse,
+)
+from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_status_enum import (
+    GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum,
+)
+from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_aws_billing_event import (
+    GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent,
+)
+from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_azure_cma_revenue import (
+    GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue,
+)
+from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage import (
+    GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage,
+)
+from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_identity_api_client import (
+    GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient,
+)
+from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_update_entitlement_name_params import (
+    GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams,
+)
 from openapi_client.models.hubspot_crm_credential import HubspotCrmCredential
 from openapi_client.models.hubspot_crm_integration import HubspotCrmIntegration
 from openapi_client.models.hubspot_sync_filter import HubspotSyncFilter
@@ -303,47 +637,117 @@ from openapi_client.models.identity_conctact_info import IdentityConctactInfo
 from openapi_client.models.identity_contact import IdentityContact
 from openapi_client.models.identity_integration import IdentityIntegration
 from openapi_client.models.integration_info import IntegrationInfo
-from openapi_client.models.list_cosell_opp_referrals_response import ListCosellOppReferralsResponse
-from openapi_client.models.list_notification_messages_response import ListNotificationMessagesResponse
-from openapi_client.models.list_revenue_record_details_response import ListRevenueRecordDetailsResponse
-from openapi_client.models.list_revenue_records_response import ListRevenueRecordsResponse
-from openapi_client.models.list_usage_metering_daily_records_response import ListUsageMeteringDailyRecordsResponse
-from openapi_client.models.list_usage_metering_daily_verifications_response import ListUsageMeteringDailyVerificationsResponse
-from openapi_client.models.list_usage_record_groups_response import ListUsageRecordGroupsResponse
-from openapi_client.models.list_usage_record_reports_response import ListUsageRecordReportsResponse
-from openapi_client.models.marketplacemetering_batch_meter_usage_output import MarketplacemeteringBatchMeterUsageOutput
+from openapi_client.models.list_cosell_opp_referrals_response import (
+    ListCosellOppReferralsResponse,
+)
+from openapi_client.models.list_notification_messages_response import (
+    ListNotificationMessagesResponse,
+)
+from openapi_client.models.list_revenue_record_details_response import (
+    ListRevenueRecordDetailsResponse,
+)
+from openapi_client.models.list_revenue_records_response import (
+    ListRevenueRecordsResponse,
+)
+from openapi_client.models.list_usage_metering_daily_records_response import (
+    ListUsageMeteringDailyRecordsResponse,
+)
+from openapi_client.models.list_usage_metering_daily_verifications_response import (
+    ListUsageMeteringDailyVerificationsResponse,
+)
+from openapi_client.models.list_usage_record_groups_response import (
+    ListUsageRecordGroupsResponse,
+)
+from openapi_client.models.list_usage_record_reports_response import (
+    ListUsageRecordReportsResponse,
+)
+from openapi_client.models.marketplacemetering_batch_meter_usage_output import (
+    MarketplacemeteringBatchMeterUsageOutput,
+)
 from openapi_client.models.metering_dimension import MeteringDimension
 from openapi_client.models.metering_usage_record_group import MeteringUsageRecordGroup
-from openapi_client.models.metering_usage_record_group_meta_info import MeteringUsageRecordGroupMetaInfo
+from openapi_client.models.metering_usage_record_group_meta_info import (
+    MeteringUsageRecordGroupMetaInfo,
+)
 from openapi_client.models.metering_usage_record_report import MeteringUsageRecordReport
-from openapi_client.models.metering_usage_record_report_info import MeteringUsageRecordReportInfo
+from openapi_client.models.metering_usage_record_report_info import (
+    MeteringUsageRecordReportInfo,
+)
 from openapi_client.models.metronome_billable_metric import MetronomeBillableMetric
 from openapi_client.models.metronome_integration import MetronomeIntegration
 from openapi_client.models.microsoft_partner_referral import MicrosoftPartnerReferral
-from openapi_client.models.microsoft_partner_referral_additional_requirements import MicrosoftPartnerReferralAdditionalRequirements
-from openapi_client.models.microsoft_partner_referral_address import MicrosoftPartnerReferralAddress
-from openapi_client.models.microsoft_partner_referral_consent import MicrosoftPartnerReferralConsent
-from openapi_client.models.microsoft_partner_referral_contact_preference import MicrosoftPartnerReferralContactPreference
-from openapi_client.models.microsoft_partner_referral_detail import MicrosoftPartnerReferralDetail
-from openapi_client.models.microsoft_partner_referral_invite_context import MicrosoftPartnerReferralInviteContext
-from openapi_client.models.microsoft_partner_referral_invited_info import MicrosoftPartnerReferralInvitedInfo
-from openapi_client.models.microsoft_partner_referral_iot import MicrosoftPartnerReferralIot
-from openapi_client.models.microsoft_partner_referral_link import MicrosoftPartnerReferralLink
-from openapi_client.models.microsoft_partner_referral_link_info import MicrosoftPartnerReferralLinkInfo
-from openapi_client.models.microsoft_partner_referral_person import MicrosoftPartnerReferralPerson
-from openapi_client.models.microsoft_partner_referral_profile import MicrosoftPartnerReferralProfile
-from openapi_client.models.microsoft_partner_referral_profile_id import MicrosoftPartnerReferralProfileId
-from openapi_client.models.microsoft_partner_referral_qualification import MicrosoftPartnerReferralQualification
-from openapi_client.models.microsoft_partner_referral_requirement_attribute import MicrosoftPartnerReferralRequirementAttribute
-from openapi_client.models.microsoft_partner_referral_requirements import MicrosoftPartnerReferralRequirements
-from openapi_client.models.microsoft_partner_referral_solution import MicrosoftPartnerReferralSolution
-from openapi_client.models.microsoft_partner_referral_status import MicrosoftPartnerReferralStatus
-from openapi_client.models.microsoft_partner_referral_sub_status import MicrosoftPartnerReferralSubStatus
-from openapi_client.models.microsoft_partner_referral_tag import MicrosoftPartnerReferralTag
-from openapi_client.models.microsoft_partner_referral_target import MicrosoftPartnerReferralTarget
-from openapi_client.models.microsoft_partner_referral_target_type import MicrosoftPartnerReferralTargetType
-from openapi_client.models.microsoft_partner_referral_tracking_info import MicrosoftPartnerReferralTrackingInfo
-from openapi_client.models.microsoft_partner_referral_type import MicrosoftPartnerReferralType
+from openapi_client.models.microsoft_partner_referral_additional_requirements import (
+    MicrosoftPartnerReferralAdditionalRequirements,
+)
+from openapi_client.models.microsoft_partner_referral_address import (
+    MicrosoftPartnerReferralAddress,
+)
+from openapi_client.models.microsoft_partner_referral_consent import (
+    MicrosoftPartnerReferralConsent,
+)
+from openapi_client.models.microsoft_partner_referral_contact_preference import (
+    MicrosoftPartnerReferralContactPreference,
+)
+from openapi_client.models.microsoft_partner_referral_detail import (
+    MicrosoftPartnerReferralDetail,
+)
+from openapi_client.models.microsoft_partner_referral_invite_context import (
+    MicrosoftPartnerReferralInviteContext,
+)
+from openapi_client.models.microsoft_partner_referral_invited_info import (
+    MicrosoftPartnerReferralInvitedInfo,
+)
+from openapi_client.models.microsoft_partner_referral_iot import (
+    MicrosoftPartnerReferralIot,
+)
+from openapi_client.models.microsoft_partner_referral_link import (
+    MicrosoftPartnerReferralLink,
+)
+from openapi_client.models.microsoft_partner_referral_link_info import (
+    MicrosoftPartnerReferralLinkInfo,
+)
+from openapi_client.models.microsoft_partner_referral_person import (
+    MicrosoftPartnerReferralPerson,
+)
+from openapi_client.models.microsoft_partner_referral_profile import (
+    MicrosoftPartnerReferralProfile,
+)
+from openapi_client.models.microsoft_partner_referral_profile_id import (
+    MicrosoftPartnerReferralProfileId,
+)
+from openapi_client.models.microsoft_partner_referral_qualification import (
+    MicrosoftPartnerReferralQualification,
+)
+from openapi_client.models.microsoft_partner_referral_requirement_attribute import (
+    MicrosoftPartnerReferralRequirementAttribute,
+)
+from openapi_client.models.microsoft_partner_referral_requirements import (
+    MicrosoftPartnerReferralRequirements,
+)
+from openapi_client.models.microsoft_partner_referral_solution import (
+    MicrosoftPartnerReferralSolution,
+)
+from openapi_client.models.microsoft_partner_referral_status import (
+    MicrosoftPartnerReferralStatus,
+)
+from openapi_client.models.microsoft_partner_referral_sub_status import (
+    MicrosoftPartnerReferralSubStatus,
+)
+from openapi_client.models.microsoft_partner_referral_tag import (
+    MicrosoftPartnerReferralTag,
+)
+from openapi_client.models.microsoft_partner_referral_target import (
+    MicrosoftPartnerReferralTarget,
+)
+from openapi_client.models.microsoft_partner_referral_target_type import (
+    MicrosoftPartnerReferralTargetType,
+)
+from openapi_client.models.microsoft_partner_referral_tracking_info import (
+    MicrosoftPartnerReferralTrackingInfo,
+)
+from openapi_client.models.microsoft_partner_referral_type import (
+    MicrosoftPartnerReferralType,
+)
 from openapi_client.models.new_usage_record_group import NewUsageRecordGroup
 from openapi_client.models.notification_event import NotificationEvent
 from openapi_client.models.notification_event_action import NotificationEventAction
@@ -372,11 +776,21 @@ from openapi_client.models.orb_price_maximum import OrbPriceMaximum
 from openapi_client.models.orb_price_minimum import OrbPriceMinimum
 from openapi_client.models.orb_price_model_config_bps import OrbPriceModelConfigBPS
 from openapi_client.models.orb_price_model_config_bulk import OrbPriceModelConfigBULK
-from openapi_client.models.orb_price_model_config_bulkbps import OrbPriceModelConfigBULKBPS
-from openapi_client.models.orb_price_model_config_matrix import OrbPriceModelConfigMATRIX
-from openapi_client.models.orb_price_model_config_package import OrbPriceModelConfigPACKAGE
-from openapi_client.models.orb_price_model_config_tiered import OrbPriceModelConfigTIERED
-from openapi_client.models.orb_price_model_config_tieredbps import OrbPriceModelConfigTIEREDBPS
+from openapi_client.models.orb_price_model_config_bulkbps import (
+    OrbPriceModelConfigBULKBPS,
+)
+from openapi_client.models.orb_price_model_config_matrix import (
+    OrbPriceModelConfigMATRIX,
+)
+from openapi_client.models.orb_price_model_config_package import (
+    OrbPriceModelConfigPACKAGE,
+)
+from openapi_client.models.orb_price_model_config_tiered import (
+    OrbPriceModelConfigTIERED,
+)
+from openapi_client.models.orb_price_model_config_tieredbps import (
+    OrbPriceModelConfigTIEREDBPS,
+)
 from openapi_client.models.orb_price_model_config_unit import OrbPriceModelConfigUNIT
 from openapi_client.models.orb_price_model_type import OrbPriceModelType
 from openapi_client.models.orb_price_tier import OrbPriceTier
@@ -384,7 +798,9 @@ from openapi_client.models.orb_product import OrbProduct
 from openapi_client.models.orb_trial_config import OrbTrialConfig
 from openapi_client.models.partner import Partner
 from openapi_client.models.partner_service import PartnerService
-from openapi_client.models.partner_usage_metering_config import PartnerUsageMeteringConfig
+from openapi_client.models.partner_usage_metering_config import (
+    PartnerUsageMeteringConfig,
+)
 from openapi_client.models.payment_installment import PaymentInstallment
 from openapi_client.models.private_offer_discount_type import PrivateOfferDiscountType
 from openapi_client.models.product_info import ProductInfo
@@ -396,14 +812,24 @@ from openapi_client.models.revenue_report_type import RevenueReportType
 from openapi_client.models.salesforce_crm_credential import SalesforceCrmCredential
 from openapi_client.models.salesforce_crm_integration import SalesforceCrmIntegration
 from openapi_client.models.salesforce_sync_filter import SalesforceSyncFilter
-from openapi_client.models.salesforce_sync_filter_operator import SalesforceSyncFilterOperator
+from openapi_client.models.salesforce_sync_filter_operator import (
+    SalesforceSyncFilterOperator,
+)
 from openapi_client.models.servicecontrol_report_error import ServicecontrolReportError
-from openapi_client.models.servicecontrol_report_response import ServicecontrolReportResponse
+from openapi_client.models.servicecontrol_report_response import (
+    ServicecontrolReportResponse,
+)
 from openapi_client.models.servicecontrol_status import ServicecontrolStatus
 from openapi_client.models.slack_integration import SlackIntegration
-from openapi_client.models.slack_o_auth_response_incoming_webhook import SlackOAuthResponseIncomingWebhook
-from openapi_client.models.slack_o_auth_v2_response_authed_user import SlackOAuthV2ResponseAuthedUser
-from openapi_client.models.slack_o_auth_v2_response_enterprise import SlackOAuthV2ResponseEnterprise
+from openapi_client.models.slack_o_auth_response_incoming_webhook import (
+    SlackOAuthResponseIncomingWebhook,
+)
+from openapi_client.models.slack_o_auth_v2_response_authed_user import (
+    SlackOAuthV2ResponseAuthedUser,
+)
+from openapi_client.models.slack_o_auth_v2_response_enterprise import (
+    SlackOAuthV2ResponseEnterprise,
+)
 from openapi_client.models.slack_o_auth_v2_response_team import SlackOAuthV2ResponseTeam
 from openapi_client.models.sql_condition import SqlCondition
 from openapi_client.models.sql_null_time import SqlNullTime
@@ -415,15 +841,21 @@ from openapi_client.models.types_entitlement import TypesEntitlement
 from openapi_client.models.types_usage_allocation import TypesUsageAllocation
 from openapi_client.models.types_usage_record import TypesUsageRecord
 from openapi_client.models.types_usage_record_result import TypesUsageRecordResult
-from openapi_client.models.types_usage_record_result_status import TypesUsageRecordResultStatus
+from openapi_client.models.types_usage_record_result_status import (
+    TypesUsageRecordResultStatus,
+)
 from openapi_client.models.update_buyer_params import UpdateBuyerParams
 from openapi_client.models.update_integration_params import UpdateIntegrationParams
 from openapi_client.models.update_product_params import UpdateProductParams
 from openapi_client.models.usage_count import UsageCount
 from openapi_client.models.usage_metering_config_info import UsageMeteringConfigInfo
 from openapi_client.models.usage_metering_daily_record import UsageMeteringDailyRecord
-from openapi_client.models.usage_metering_daily_verification import UsageMeteringDailyVerification
-from openapi_client.models.usage_metering_dimension_mapping_value import UsageMeteringDimensionMappingValue
+from openapi_client.models.usage_metering_daily_verification import (
+    UsageMeteringDailyVerification,
+)
+from openapi_client.models.usage_metering_dimension_mapping_value import (
+    UsageMeteringDimensionMappingValue,
+)
 from openapi_client.models.usage_record_group_source import UsageRecordGroupSource
 from openapi_client.models.value_type import ValueType
 from openapi_client.models.workload_entitlement import WorkloadEntitlement

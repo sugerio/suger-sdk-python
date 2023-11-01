@@ -24,10 +24,12 @@ from pydantic import BaseModel, StrictStr
 from openapi_client.models.cosell_opp_info import CosellOppInfo
 from openapi_client.models.partner import Partner
 
+
 class CosellOpp(BaseModel):
     """
     CosellOpp
     """
+
     id: Optional[StrictStr] = None
     info: Optional[CosellOppInfo] = None
     partner: Optional[Partner] = None
@@ -35,6 +37,7 @@ class CosellOpp(BaseModel):
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,13 +56,10 @@ class CosellOpp(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of info
         if self.info:
-            _dict['info'] = self.info.to_dict()
+            _dict["info"] = self.info.to_dict()
         return _dict
 
     @classmethod
@@ -71,11 +71,13 @@ class CosellOpp(BaseModel):
         if not isinstance(obj, dict):
             return CosellOpp.parse_obj(obj)
 
-        _obj = CosellOpp.parse_obj({
-            "id": obj.get("id"),
-            "info": CosellOppInfo.from_dict(obj.get("info")) if obj.get("info") is not None else None,
-            "partner": obj.get("partner")
-        })
+        _obj = CosellOpp.parse_obj(
+            {
+                "id": obj.get("id"),
+                "info": CosellOppInfo.from_dict(obj.get("info"))
+                if obj.get("info") is not None
+                else None,
+                "partner": obj.get("partner"),
+            }
+        )
         return _obj
-
-

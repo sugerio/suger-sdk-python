@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.list_usage_metering_daily_verifications_response import ListUsageMeteringDailyVerificationsResponse  # noqa: E501
+from openapi_client.models.list_usage_metering_daily_verifications_response import (
+    ListUsageMeteringDailyVerificationsResponse,
+)  # noqa: E501
+
 
 class TestListUsageMeteringDailyVerificationsResponse(unittest.TestCase):
     """ListUsageMeteringDailyVerificationsResponse unit test stubs"""
@@ -27,11 +30,13 @@ class TestListUsageMeteringDailyVerificationsResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ListUsageMeteringDailyVerificationsResponse:
+    def make_instance(
+        self, include_optional
+    ) -> ListUsageMeteringDailyVerificationsResponse:
         """Test ListUsageMeteringDailyVerificationsResponse
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `ListUsageMeteringDailyVerificationsResponse`
         """
         model = ListUsageMeteringDailyVerificationsResponse()  # noqa: E501
@@ -62,5 +67,6 @@ class TestListUsageMeteringDailyVerificationsResponse(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

@@ -22,26 +22,34 @@ import json
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictStr, validator
 
+
 class AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters(BaseModel):
     """
     AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters
     """
-    meters: Optional[Dict[str, Any]] = Field(None, description="One of PriceAndAvailabilityCustomMeter_USD or PriceAndAvailabilityCustomMeter_PerMarket")
-    price_input_option: Optional[StrictStr] = Field(None, alias="priceInputOption", description="default \"usd\"")
+
+    meters: Optional[Dict[str, Any]] = Field(
+        None,
+        description="One of PriceAndAvailabilityCustomMeter_USD or PriceAndAvailabilityCustomMeter_PerMarket",
+    )
+    price_input_option: Optional[StrictStr] = Field(
+        None, alias="priceInputOption", description='default "usd"'
+    )
     __properties = ["meters", "priceInputOption"]
 
-    @validator('price_input_option')
+    @validator("price_input_option")
     def price_input_option_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('perMarket', 'usd'):
+        if value not in ("perMarket", "usd"):
             raise ValueError("must be one of enum values ('perMarket', 'usd')")
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,31 +62,36 @@ class AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters:
+    def from_json(
+        cls, json_str: str
+    ) -> AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters:
         """Create an instance of AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters:
+    def from_dict(
+        cls, obj: dict
+    ) -> AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters:
         """Create an instance of AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters.parse_obj(obj)
+            return (
+                AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters.parse_obj(
+                    obj
+                )
+            )
 
-        _obj = AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters.parse_obj({
-            "meters": obj.get("meters"),
-            "price_input_option": obj.get("priceInputOption")
-        })
+        _obj = AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters.parse_obj(
+            {
+                "meters": obj.get("meters"),
+                "price_input_option": obj.get("priceInputOption"),
+            }
+        )
         return _obj
-
-

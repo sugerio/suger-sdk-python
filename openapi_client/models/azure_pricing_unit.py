@@ -22,10 +22,12 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, validator
 
+
 class AzurePricingUnit(BaseModel):
     """
     AzurePricingUnit
     """
+
     is_unlimited_unit: Optional[StrictBool] = Field(None, alias="isUnlimitedUnit")
     lower_unit: Optional[StrictInt] = Field(None, alias="lowerUnit")
     name: Optional[StrictStr] = None
@@ -33,18 +35,21 @@ class AzurePricingUnit(BaseModel):
     upper_unit: Optional[StrictInt] = Field(None, alias="upperUnit")
     __properties = ["isUnlimitedUnit", "lowerUnit", "name", "unitType", "upperUnit"]
 
-    @validator('name')
+    @validator("name")
     def name_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('sharedcore', 'transactions'):
-            raise ValueError("must be one of enum values ('sharedcore', 'transactions')")
+        if value not in ("sharedcore", "transactions"):
+            raise ValueError(
+                "must be one of enum values ('sharedcore', 'transactions')"
+            )
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -63,10 +68,7 @@ class AzurePricingUnit(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -78,13 +80,13 @@ class AzurePricingUnit(BaseModel):
         if not isinstance(obj, dict):
             return AzurePricingUnit.parse_obj(obj)
 
-        _obj = AzurePricingUnit.parse_obj({
-            "is_unlimited_unit": obj.get("isUnlimitedUnit"),
-            "lower_unit": obj.get("lowerUnit"),
-            "name": obj.get("name"),
-            "unit_type": obj.get("unitType"),
-            "upper_unit": obj.get("upperUnit")
-        })
+        _obj = AzurePricingUnit.parse_obj(
+            {
+                "is_unlimited_unit": obj.get("isUnlimitedUnit"),
+                "lower_unit": obj.get("lowerUnit"),
+                "name": obj.get("name"),
+                "unit_type": obj.get("unitType"),
+                "upper_unit": obj.get("upperUnit"),
+            }
+        )
         return _obj
-
-

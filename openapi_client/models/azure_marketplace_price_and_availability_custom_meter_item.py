@@ -22,16 +22,19 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class AzureMarketplacePriceAndAvailabilityCustomMeterItem(BaseModel):
     """
     AzureMarketplacePriceAndAvailabilityCustomMeterItem
     """
+
     display_name: Optional[StrictStr] = Field(None, alias="displayName")
     unit_of_measure: Optional[StrictStr] = Field(None, alias="unitOfMeasure")
     __properties = ["displayName", "unitOfMeasure"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -44,20 +47,21 @@ class AzureMarketplacePriceAndAvailabilityCustomMeterItem(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> AzureMarketplacePriceAndAvailabilityCustomMeterItem:
+    def from_json(
+        cls, json_str: str
+    ) -> AzureMarketplacePriceAndAvailabilityCustomMeterItem:
         """Create an instance of AzureMarketplacePriceAndAvailabilityCustomMeterItem from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> AzureMarketplacePriceAndAvailabilityCustomMeterItem:
+    def from_dict(
+        cls, obj: dict
+    ) -> AzureMarketplacePriceAndAvailabilityCustomMeterItem:
         """Create an instance of AzureMarketplacePriceAndAvailabilityCustomMeterItem from a dict"""
         if obj is None:
             return None
@@ -65,10 +69,10 @@ class AzureMarketplacePriceAndAvailabilityCustomMeterItem(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePriceAndAvailabilityCustomMeterItem.parse_obj(obj)
 
-        _obj = AzureMarketplacePriceAndAvailabilityCustomMeterItem.parse_obj({
-            "display_name": obj.get("displayName"),
-            "unit_of_measure": obj.get("unitOfMeasure")
-        })
+        _obj = AzureMarketplacePriceAndAvailabilityCustomMeterItem.parse_obj(
+            {
+                "display_name": obj.get("displayName"),
+                "unit_of_measure": obj.get("unitOfMeasure"),
+            }
+        )
         return _obj
-
-

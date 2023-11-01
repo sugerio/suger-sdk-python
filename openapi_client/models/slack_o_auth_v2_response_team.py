@@ -22,16 +22,19 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
+
 class SlackOAuthV2ResponseTeam(BaseModel):
     """
     SlackOAuthV2ResponseTeam
     """
+
     id: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     __properties = ["id", "name"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,10 +53,7 @@ class SlackOAuthV2ResponseTeam(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +65,7 @@ class SlackOAuthV2ResponseTeam(BaseModel):
         if not isinstance(obj, dict):
             return SlackOAuthV2ResponseTeam.parse_obj(obj)
 
-        _obj = SlackOAuthV2ResponseTeam.parse_obj({
-            "id": obj.get("id"),
-            "name": obj.get("name")
-        })
+        _obj = SlackOAuthV2ResponseTeam.parse_obj(
+            {"id": obj.get("id"), "name": obj.get("name")}
+        )
         return _obj
-
-

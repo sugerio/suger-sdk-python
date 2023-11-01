@@ -22,10 +22,12 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class AwsSaasProductAdditionalResource(BaseModel):
     """
     AwsSaasProductAdditionalResource
     """
+
     text: Optional[StrictStr] = Field(None, alias="Text")
     type: Optional[StrictStr] = Field(None, alias="Type")
     url: Optional[StrictStr] = Field(None, alias="Url")
@@ -33,6 +35,7 @@ class AwsSaasProductAdditionalResource(BaseModel):
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,10 +54,7 @@ class AwsSaasProductAdditionalResource(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,11 +66,7 @@ class AwsSaasProductAdditionalResource(BaseModel):
         if not isinstance(obj, dict):
             return AwsSaasProductAdditionalResource.parse_obj(obj)
 
-        _obj = AwsSaasProductAdditionalResource.parse_obj({
-            "text": obj.get("Text"),
-            "type": obj.get("Type"),
-            "url": obj.get("Url")
-        })
+        _obj = AwsSaasProductAdditionalResource.parse_obj(
+            {"text": obj.get("Text"), "type": obj.get("Type"), "url": obj.get("Url")}
+        )
         return _obj
-
-

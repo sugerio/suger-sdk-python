@@ -21,19 +21,30 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field
-from openapi_client.models.azure_marketplace_price_and_availability_private_offer_custom_meters import AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters
-from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price import AzureMarketplacePriceAndAvailabilityRecurrentPrice
+from openapi_client.models.azure_marketplace_price_and_availability_private_offer_custom_meters import (
+    AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters,
+)
+from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price import (
+    AzureMarketplacePriceAndAvailabilityRecurrentPrice,
+)
+
 
 class AzureMarketplacePriceAndAvailabilityPrivateOfferPrice(BaseModel):
     """
     AzureMarketplacePriceAndAvailabilityPrivateOfferPrice
     """
-    custom_meters: Optional[AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters] = Field(None, alias="customMeters")
-    recurrent_price: Optional[AzureMarketplacePriceAndAvailabilityRecurrentPrice] = Field(None, alias="recurrentPrice")
+
+    custom_meters: Optional[
+        AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters
+    ] = Field(None, alias="customMeters")
+    recurrent_price: Optional[
+        AzureMarketplacePriceAndAvailabilityRecurrentPrice
+    ] = Field(None, alias="recurrentPrice")
     __properties = ["customMeters", "recurrentPrice"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -46,26 +57,27 @@ class AzureMarketplacePriceAndAvailabilityPrivateOfferPrice(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> AzureMarketplacePriceAndAvailabilityPrivateOfferPrice:
+    def from_json(
+        cls, json_str: str
+    ) -> AzureMarketplacePriceAndAvailabilityPrivateOfferPrice:
         """Create an instance of AzureMarketplacePriceAndAvailabilityPrivateOfferPrice from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of custom_meters
         if self.custom_meters:
-            _dict['customMeters'] = self.custom_meters.to_dict()
+            _dict["customMeters"] = self.custom_meters.to_dict()
         # override the default output from pydantic by calling `to_dict()` of recurrent_price
         if self.recurrent_price:
-            _dict['recurrentPrice'] = self.recurrent_price.to_dict()
+            _dict["recurrentPrice"] = self.recurrent_price.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> AzureMarketplacePriceAndAvailabilityPrivateOfferPrice:
+    def from_dict(
+        cls, obj: dict
+    ) -> AzureMarketplacePriceAndAvailabilityPrivateOfferPrice:
         """Create an instance of AzureMarketplacePriceAndAvailabilityPrivateOfferPrice from a dict"""
         if obj is None:
             return None
@@ -73,10 +85,18 @@ class AzureMarketplacePriceAndAvailabilityPrivateOfferPrice(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePriceAndAvailabilityPrivateOfferPrice.parse_obj(obj)
 
-        _obj = AzureMarketplacePriceAndAvailabilityPrivateOfferPrice.parse_obj({
-            "custom_meters": AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters.from_dict(obj.get("customMeters")) if obj.get("customMeters") is not None else None,
-            "recurrent_price": AzureMarketplacePriceAndAvailabilityRecurrentPrice.from_dict(obj.get("recurrentPrice")) if obj.get("recurrentPrice") is not None else None
-        })
+        _obj = AzureMarketplacePriceAndAvailabilityPrivateOfferPrice.parse_obj(
+            {
+                "custom_meters": AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters.from_dict(
+                    obj.get("customMeters")
+                )
+                if obj.get("customMeters") is not None
+                else None,
+                "recurrent_price": AzureMarketplacePriceAndAvailabilityRecurrentPrice.from_dict(
+                    obj.get("recurrentPrice")
+                )
+                if obj.get("recurrentPrice") is not None
+                else None,
+            }
+        )
         return _obj
-
-

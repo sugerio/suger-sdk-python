@@ -24,19 +24,34 @@ from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 from openapi_client.models.azure_localized_time_range import AzureLocalizedTimeRange
 from openapi_client.models.azure_price_schedule import AzurePriceSchedule
 
+
 class AzureProductVariantPriceSchedule(BaseModel):
     """
     AzureProductVariantPriceSchedule
     """
-    date_time_range: Optional[AzureLocalizedTimeRange] = Field(None, alias="dateTimeRange")
+
+    date_time_range: Optional[AzureLocalizedTimeRange] = Field(
+        None, alias="dateTimeRange"
+    )
     friendly_name: Optional[StrictStr] = Field(None, alias="friendlyName")
-    is_base_schedule: Optional[StrictBool] = Field(None, alias="isBaseSchedule", description="There is only one base schedule.")
-    market_codes: Optional[conlist(StrictStr)] = Field(None, alias="marketCodes", description="ISO country code")
+    is_base_schedule: Optional[StrictBool] = Field(
+        None, alias="isBaseSchedule", description="There is only one base schedule."
+    )
+    market_codes: Optional[conlist(StrictStr)] = Field(
+        None, alias="marketCodes", description="ISO country code"
+    )
     schedules: Optional[conlist(AzurePriceSchedule)] = None
-    __properties = ["dateTimeRange", "friendlyName", "isBaseSchedule", "marketCodes", "schedules"]
+    __properties = [
+        "dateTimeRange",
+        "friendlyName",
+        "isBaseSchedule",
+        "marketCodes",
+        "schedules",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -55,20 +70,17 @@ class AzureProductVariantPriceSchedule(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of date_time_range
         if self.date_time_range:
-            _dict['dateTimeRange'] = self.date_time_range.to_dict()
+            _dict["dateTimeRange"] = self.date_time_range.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in schedules (list)
         _items = []
         if self.schedules:
             for _item in self.schedules:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['schedules'] = _items
+            _dict["schedules"] = _items
         return _dict
 
     @classmethod
@@ -80,13 +92,22 @@ class AzureProductVariantPriceSchedule(BaseModel):
         if not isinstance(obj, dict):
             return AzureProductVariantPriceSchedule.parse_obj(obj)
 
-        _obj = AzureProductVariantPriceSchedule.parse_obj({
-            "date_time_range": AzureLocalizedTimeRange.from_dict(obj.get("dateTimeRange")) if obj.get("dateTimeRange") is not None else None,
-            "friendly_name": obj.get("friendlyName"),
-            "is_base_schedule": obj.get("isBaseSchedule"),
-            "market_codes": obj.get("marketCodes"),
-            "schedules": [AzurePriceSchedule.from_dict(_item) for _item in obj.get("schedules")] if obj.get("schedules") is not None else None
-        })
+        _obj = AzureProductVariantPriceSchedule.parse_obj(
+            {
+                "date_time_range": AzureLocalizedTimeRange.from_dict(
+                    obj.get("dateTimeRange")
+                )
+                if obj.get("dateTimeRange") is not None
+                else None,
+                "friendly_name": obj.get("friendlyName"),
+                "is_base_schedule": obj.get("isBaseSchedule"),
+                "market_codes": obj.get("marketCodes"),
+                "schedules": [
+                    AzurePriceSchedule.from_dict(_item)
+                    for _item in obj.get("schedules")
+                ]
+                if obj.get("schedules") is not None
+                else None,
+            }
+        )
         return _obj
-
-

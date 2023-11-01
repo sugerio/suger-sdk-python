@@ -21,18 +21,32 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, conlist
-from openapi_client.models.github_com_aws_aws_sdk_go_v2_service_marketplacemetering_types_tag import GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag
+from openapi_client.models.github_com_aws_aws_sdk_go_v2_service_marketplacemetering_types_tag import (
+    GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag,
+)
+
 
 class TypesUsageAllocation(BaseModel):
     """
     TypesUsageAllocation
     """
-    allocated_usage_quantity: Optional[StrictInt] = Field(None, alias="allocatedUsageQuantity", description="The total quantity allocated to this bucket of usage.  This member is required.")
-    tags: Optional[conlist(GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag)] = Field(None, description="The set of tags that define the bucket of usage. For the bucket of items with no tags, this parameter can be left out.")
+
+    allocated_usage_quantity: Optional[StrictInt] = Field(
+        None,
+        alias="allocatedUsageQuantity",
+        description="The total quantity allocated to this bucket of usage.  This member is required.",
+    )
+    tags: Optional[
+        conlist(GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag)
+    ] = Field(
+        None,
+        description="The set of tags that define the bucket of usage. For the bucket of items with no tags, this parameter can be left out.",
+    )
     __properties = ["allocatedUsageQuantity", "tags"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,17 +65,14 @@ class TypesUsageAllocation(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in tags (list)
         _items = []
         if self.tags:
             for _item in self.tags:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['tags'] = _items
+            _dict["tags"] = _items
         return _dict
 
     @classmethod
@@ -73,10 +84,17 @@ class TypesUsageAllocation(BaseModel):
         if not isinstance(obj, dict):
             return TypesUsageAllocation.parse_obj(obj)
 
-        _obj = TypesUsageAllocation.parse_obj({
-            "allocated_usage_quantity": obj.get("allocatedUsageQuantity"),
-            "tags": [GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag.from_dict(_item) for _item in obj.get("tags")] if obj.get("tags") is not None else None
-        })
+        _obj = TypesUsageAllocation.parse_obj(
+            {
+                "allocated_usage_quantity": obj.get("allocatedUsageQuantity"),
+                "tags": [
+                    GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag.from_dict(
+                        _item
+                    )
+                    for _item in obj.get("tags")
+                ]
+                if obj.get("tags") is not None
+                else None,
+            }
+        )
         return _obj
-
-

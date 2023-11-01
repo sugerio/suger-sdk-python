@@ -14,9 +14,11 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.aws_marketplace_cppo_price_term_entry import AwsMarketplaceCppoPriceTermEntry  # noqa: E501
+from openapi_client.models.aws_marketplace_cppo_price_term_entry import (
+    AwsMarketplaceCppoPriceTermEntry,
+)  # noqa: E501
+
 
 class TestAwsMarketplaceCppoPriceTermEntry(unittest.TestCase):
     """AwsMarketplaceCppoPriceTermEntry unit test stubs"""
@@ -29,9 +31,9 @@ class TestAwsMarketplaceCppoPriceTermEntry(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AwsMarketplaceCppoPriceTermEntry:
         """Test AwsMarketplaceCppoPriceTermEntry
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `AwsMarketplaceCppoPriceTermEntry`
         """
         model = AwsMarketplaceCppoPriceTermEntry()  # noqa: E501
@@ -60,5 +62,6 @@ class TestAwsMarketplaceCppoPriceTermEntry(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

@@ -18,6 +18,7 @@ import datetime
 
 from openapi_client.models.orb_trial_config import OrbTrialConfig  # noqa: E501
 
+
 class TestOrbTrialConfig(unittest.TestCase):
     """OrbTrialConfig unit test stubs"""
 
@@ -29,9 +30,9 @@ class TestOrbTrialConfig(unittest.TestCase):
 
     def make_instance(self, include_optional) -> OrbTrialConfig:
         """Test OrbTrialConfig
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `OrbTrialConfig`
         """
         model = OrbTrialConfig()  # noqa: E501
@@ -50,5 +51,6 @@ class TestOrbTrialConfig(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

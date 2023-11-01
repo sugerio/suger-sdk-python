@@ -21,18 +21,25 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field
-from openapi_client.models.microsoft_partner_referral_link_info import MicrosoftPartnerReferralLinkInfo
+from openapi_client.models.microsoft_partner_referral_link_info import (
+    MicrosoftPartnerReferralLinkInfo,
+)
+
 
 class MicrosoftPartnerReferralLink(BaseModel):
     """
     MicrosoftPartnerReferralLink
     """
-    related_referrals: Optional[MicrosoftPartnerReferralLinkInfo] = Field(None, alias="relatedReferrals")
+
+    related_referrals: Optional[MicrosoftPartnerReferralLinkInfo] = Field(
+        None, alias="relatedReferrals"
+    )
     var_self: Optional[MicrosoftPartnerReferralLinkInfo] = Field(None, alias="self")
     __properties = ["relatedReferrals", "self"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,16 +58,13 @@ class MicrosoftPartnerReferralLink(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of related_referrals
         if self.related_referrals:
-            _dict['relatedReferrals'] = self.related_referrals.to_dict()
+            _dict["relatedReferrals"] = self.related_referrals.to_dict()
         # override the default output from pydantic by calling `to_dict()` of var_self
         if self.var_self:
-            _dict['self'] = self.var_self.to_dict()
+            _dict["self"] = self.var_self.to_dict()
         return _dict
 
     @classmethod
@@ -72,10 +76,16 @@ class MicrosoftPartnerReferralLink(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralLink.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralLink.parse_obj({
-            "related_referrals": MicrosoftPartnerReferralLinkInfo.from_dict(obj.get("relatedReferrals")) if obj.get("relatedReferrals") is not None else None,
-            "var_self": MicrosoftPartnerReferralLinkInfo.from_dict(obj.get("self")) if obj.get("self") is not None else None
-        })
+        _obj = MicrosoftPartnerReferralLink.parse_obj(
+            {
+                "related_referrals": MicrosoftPartnerReferralLinkInfo.from_dict(
+                    obj.get("relatedReferrals")
+                )
+                if obj.get("relatedReferrals") is not None
+                else None,
+                "var_self": MicrosoftPartnerReferralLinkInfo.from_dict(obj.get("self"))
+                if obj.get("self") is not None
+                else None,
+            }
+        )
         return _obj
-
-

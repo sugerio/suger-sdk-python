@@ -19,10 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
-class GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum(str, Enum):
+class GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum(
+    str, Enum
+):
     """
     GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum
     """
@@ -30,19 +29,21 @@ class GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventS
     """
     allowed enum values
     """
-    ACCEPTED = 'Accepted'
-    EXPIRED = 'Expired'
-    DUPLICATE = 'Duplicate'
-    ERROR = 'Error'
-    RESOURCENOTFOUND = 'ResourceNotFound'
-    RESOURCENOTAUTHORIZED = 'ResourceNotAuthorized'
-    INVALIDDIMENSION = 'InvalidDimension'
-    INVALIDQUANTITY = 'InvalidQuantity'
-    BADARGUMENT = 'BadArgument'
+    ACCEPTED = "Accepted"
+    EXPIRED = "Expired"
+    DUPLICATE = "Duplicate"
+    ERROR = "Error"
+    RESOURCENOTFOUND = "ResourceNotFound"
+    RESOURCENOTAUTHORIZED = "ResourceNotAuthorized"
+    INVALIDDIMENSION = "InvalidDimension"
+    INVALIDQUANTITY = "InvalidQuantity"
+    BADARGUMENT = "BadArgument"
 
     @classmethod
-    def from_json(cls, json_str: str) -> GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum:
+    def from_json(
+        cls, json_str: str
+    ) -> GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum:
         """Create an instance of GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum from a JSON string"""
-        return GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum(json.loads(json_str))
-
-
+        return GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum(
+            json.loads(json_str)
+        )

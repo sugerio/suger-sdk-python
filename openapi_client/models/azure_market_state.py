@@ -22,26 +22,33 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr, validator
 
+
 class AzureMarketState(BaseModel):
     """
     AzureMarketState
     """
-    market_code: Optional[StrictStr] = Field(None, alias="marketCode", description="ISO Country Code")
+
+    market_code: Optional[StrictStr] = Field(
+        None, alias="marketCode", description="ISO Country Code"
+    )
     state: Optional[StrictStr] = None
     __properties = ["marketCode", "state"]
 
-    @validator('state')
+    @validator("state")
     def state_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('Disabled', 'Enabled', 'StopSelling', 'Terminated'):
-            raise ValueError("must be one of enum values ('Disabled', 'Enabled', 'StopSelling', 'Terminated')")
+        if value not in ("Disabled", "Enabled", "StopSelling", "Terminated"):
+            raise ValueError(
+                "must be one of enum values ('Disabled', 'Enabled', 'StopSelling', 'Terminated')"
+            )
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -60,10 +67,7 @@ class AzureMarketState(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -75,10 +79,7 @@ class AzureMarketState(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketState.parse_obj(obj)
 
-        _obj = AzureMarketState.parse_obj({
-            "market_code": obj.get("marketCode"),
-            "state": obj.get("state")
-        })
+        _obj = AzureMarketState.parse_obj(
+            {"market_code": obj.get("marketCode"), "state": obj.get("state")}
+        )
         return _obj
-
-

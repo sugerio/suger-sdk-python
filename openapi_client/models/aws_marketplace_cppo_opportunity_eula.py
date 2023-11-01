@@ -22,17 +22,22 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class AwsMarketplaceCppoOpportunityEula(BaseModel):
     """
     AwsMarketplaceCppoOpportunityEula
     """
-    access_url: Optional[StrictStr] = Field(None, alias="accessUrl", description="The S3 signed URL of the EULA file.")
+
+    access_url: Optional[StrictStr] = Field(
+        None, alias="accessUrl", description="The S3 signed URL of the EULA file."
+    )
     key: Optional[StrictStr] = None
     object_url: Optional[StrictStr] = Field(None, alias="objectUrl")
     __properties = ["accessUrl", "key", "objectUrl"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,10 +56,7 @@ class AwsMarketplaceCppoOpportunityEula(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,11 +68,11 @@ class AwsMarketplaceCppoOpportunityEula(BaseModel):
         if not isinstance(obj, dict):
             return AwsMarketplaceCppoOpportunityEula.parse_obj(obj)
 
-        _obj = AwsMarketplaceCppoOpportunityEula.parse_obj({
-            "access_url": obj.get("accessUrl"),
-            "key": obj.get("key"),
-            "object_url": obj.get("objectUrl")
-        })
+        _obj = AwsMarketplaceCppoOpportunityEula.parse_obj(
+            {
+                "access_url": obj.get("accessUrl"),
+                "key": obj.get("key"),
+                "object_url": obj.get("objectUrl"),
+            }
+        )
         return _obj
-
-

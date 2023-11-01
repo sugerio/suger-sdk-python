@@ -23,17 +23,24 @@ from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 from openapi_client.models.gcp_price_value import GcpPriceValue
 
+
 class GcpPriceTier(BaseModel):
     """
     GcpPriceTier
     """
-    from_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="fromAmount", description="such as 0")
+
+    from_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, alias="fromAmount", description="such as 0"
+    )
     price: Optional[GcpPriceValue] = None
-    starting_usage_amount: Optional[StrictStr] = Field(None, alias="startingUsageAmount", description="such as \"0\"")
+    starting_usage_amount: Optional[StrictStr] = Field(
+        None, alias="startingUsageAmount", description='such as "0"'
+    )
     __properties = ["fromAmount", "price", "startingUsageAmount"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,13 +59,10 @@ class GcpPriceTier(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of price
         if self.price:
-            _dict['price'] = self.price.to_dict()
+            _dict["price"] = self.price.to_dict()
         return _dict
 
     @classmethod
@@ -70,11 +74,13 @@ class GcpPriceTier(BaseModel):
         if not isinstance(obj, dict):
             return GcpPriceTier.parse_obj(obj)
 
-        _obj = GcpPriceTier.parse_obj({
-            "from_amount": obj.get("fromAmount"),
-            "price": GcpPriceValue.from_dict(obj.get("price")) if obj.get("price") is not None else None,
-            "starting_usage_amount": obj.get("startingUsageAmount")
-        })
+        _obj = GcpPriceTier.parse_obj(
+            {
+                "from_amount": obj.get("fromAmount"),
+                "price": GcpPriceValue.from_dict(obj.get("price"))
+                if obj.get("price") is not None
+                else None,
+                "starting_usage_amount": obj.get("startingUsageAmount"),
+            }
+        )
         return _obj
-
-

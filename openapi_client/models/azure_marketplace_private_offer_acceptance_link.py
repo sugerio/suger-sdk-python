@@ -22,16 +22,21 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class AzureMarketplacePrivateOfferAcceptanceLink(BaseModel):
     """
     AzureMarketplacePrivateOfferAcceptanceLink
     """
-    beneficiary_id: Optional[StrictStr] = Field(None, alias="beneficiaryId", description="The Customer Billing Account ID.")
+
+    beneficiary_id: Optional[StrictStr] = Field(
+        None, alias="beneficiaryId", description="The Customer Billing Account ID."
+    )
     link: Optional[StrictStr] = None
     __properties = ["beneficiaryId", "link"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,10 +55,7 @@ class AzureMarketplacePrivateOfferAcceptanceLink(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +67,7 @@ class AzureMarketplacePrivateOfferAcceptanceLink(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePrivateOfferAcceptanceLink.parse_obj(obj)
 
-        _obj = AzureMarketplacePrivateOfferAcceptanceLink.parse_obj({
-            "beneficiary_id": obj.get("beneficiaryId"),
-            "link": obj.get("link")
-        })
+        _obj = AzureMarketplacePrivateOfferAcceptanceLink.parse_obj(
+            {"beneficiary_id": obj.get("beneficiaryId"), "link": obj.get("link")}
+        )
         return _obj
-
-

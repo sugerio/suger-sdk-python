@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class NotificationType(str, Enum):
     """
     NotificationType
@@ -30,12 +27,10 @@ class NotificationType(str, Enum):
     """
     allowed enum values
     """
-    EMAIL = 'Email'
-    SMS = 'SMS'
+    EMAIL = "Email"
+    SMS = "SMS"
 
     @classmethod
     def from_json(cls, json_str: str) -> NotificationType:
         """Create an instance of NotificationType from a JSON string"""
         return NotificationType(json.loads(json_str))
-
-

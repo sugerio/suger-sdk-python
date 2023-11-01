@@ -14,9 +14,11 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.aws_renewal_offer_type import AwsRenewalOfferType  # noqa: E501
+# from openapi_client.models.aws_renewal_offer_type import (
+#     AwsRenewalOfferType,
+# )  # noqa: E501
+
 
 class TestAwsRenewalOfferType(unittest.TestCase):
     """AwsRenewalOfferType unit test stubs"""
@@ -31,5 +33,6 @@ class TestAwsRenewalOfferType(unittest.TestCase):
         """Test AwsRenewalOfferType"""
         # inst = AwsRenewalOfferType()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

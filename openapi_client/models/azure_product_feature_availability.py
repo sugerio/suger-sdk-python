@@ -24,41 +24,73 @@ from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist, validator
 from openapi_client.models.azure_audience import AzureAudience
 from openapi_client.models.azure_market import AzureMarket
 from openapi_client.models.azure_market_state import AzureMarketState
-from openapi_client.models.azure_product_variant_custom_meter import AzureProductVariantCustomMeter
-from openapi_client.models.azure_product_variant_price_schedule import AzureProductVariantPriceSchedule
+from openapi_client.models.azure_product_variant_custom_meter import (
+    AzureProductVariantCustomMeter,
+)
+from openapi_client.models.azure_product_variant_price_schedule import (
+    AzureProductVariantPriceSchedule,
+)
 from openapi_client.models.azure_product_variant_trial import AzureProductVariantTrial
 from openapi_client.models.azure_type_value import AzureTypeValue
+
 
 class AzureProductFeatureAvailability(BaseModel):
     """
     AzureProductFeatureAvailability
     """
-    custom_meters: Optional[conlist(AzureProductVariantCustomMeter)] = Field(None, alias="customMeters")
+
+    custom_meters: Optional[conlist(AzureProductVariantCustomMeter)] = Field(
+        None, alias="customMeters"
+    )
     id: Optional[StrictStr] = None
     is_hidden: Optional[StrictBool] = Field(None, alias="isHidden")
-    market_states: Optional[conlist(AzureMarketState)] = Field(None, alias="marketStates")
+    market_states: Optional[conlist(AzureMarketState)] = Field(
+        None, alias="marketStates"
+    )
     markets: Optional[conlist(AzureMarket)] = None
-    price_schedules: Optional[conlist(AzureProductVariantPriceSchedule)] = Field(None, alias="priceSchedules")
+    price_schedules: Optional[conlist(AzureProductVariantPriceSchedule)] = Field(
+        None, alias="priceSchedules"
+    )
     properties: Optional[conlist(AzureTypeValue)] = None
-    resource_type: Optional[StrictStr] = Field(None, alias="resourceType", description="ResourceType = FeatureAvailability")
-    subscription_audiences: Optional[conlist(AzureAudience)] = Field(None, alias="subscriptionAudiences")
-    tenant_audiences: Optional[conlist(AzureAudience)] = Field(None, alias="tenantAudiences")
+    resource_type: Optional[StrictStr] = Field(
+        None, alias="resourceType", description="ResourceType = FeatureAvailability"
+    )
+    subscription_audiences: Optional[conlist(AzureAudience)] = Field(
+        None, alias="subscriptionAudiences"
+    )
+    tenant_audiences: Optional[conlist(AzureAudience)] = Field(
+        None, alias="tenantAudiences"
+    )
     trial: Optional[AzureProductVariantTrial] = None
     visibility: Optional[StrictStr] = None
-    __properties = ["customMeters", "id", "isHidden", "marketStates", "markets", "priceSchedules", "properties", "resourceType", "subscriptionAudiences", "tenantAudiences", "trial", "visibility"]
+    __properties = [
+        "customMeters",
+        "id",
+        "isHidden",
+        "marketStates",
+        "markets",
+        "priceSchedules",
+        "properties",
+        "resourceType",
+        "subscriptionAudiences",
+        "tenantAudiences",
+        "trial",
+        "visibility",
+    ]
 
-    @validator('visibility')
+    @validator("visibility")
     def visibility_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('Public', 'Private'):
+        if value not in ("Public", "Private"):
             raise ValueError("must be one of enum values ('Public', 'Private')")
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -77,62 +109,59 @@ class AzureProductFeatureAvailability(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in custom_meters (list)
         _items = []
         if self.custom_meters:
             for _item in self.custom_meters:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['customMeters'] = _items
+            _dict["customMeters"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in market_states (list)
         _items = []
         if self.market_states:
             for _item in self.market_states:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['marketStates'] = _items
+            _dict["marketStates"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in markets (list)
         _items = []
         if self.markets:
             for _item in self.markets:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['markets'] = _items
+            _dict["markets"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in price_schedules (list)
         _items = []
         if self.price_schedules:
             for _item in self.price_schedules:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['priceSchedules'] = _items
+            _dict["priceSchedules"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in properties (list)
         _items = []
         if self.properties:
             for _item in self.properties:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['properties'] = _items
+            _dict["properties"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in subscription_audiences (list)
         _items = []
         if self.subscription_audiences:
             for _item in self.subscription_audiences:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['subscriptionAudiences'] = _items
+            _dict["subscriptionAudiences"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in tenant_audiences (list)
         _items = []
         if self.tenant_audiences:
             for _item in self.tenant_audiences:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['tenantAudiences'] = _items
+            _dict["tenantAudiences"] = _items
         # override the default output from pydantic by calling `to_dict()` of trial
         if self.trial:
-            _dict['trial'] = self.trial.to_dict()
+            _dict["trial"] = self.trial.to_dict()
         return _dict
 
     @classmethod
@@ -144,20 +173,55 @@ class AzureProductFeatureAvailability(BaseModel):
         if not isinstance(obj, dict):
             return AzureProductFeatureAvailability.parse_obj(obj)
 
-        _obj = AzureProductFeatureAvailability.parse_obj({
-            "custom_meters": [AzureProductVariantCustomMeter.from_dict(_item) for _item in obj.get("customMeters")] if obj.get("customMeters") is not None else None,
-            "id": obj.get("id"),
-            "is_hidden": obj.get("isHidden"),
-            "market_states": [AzureMarketState.from_dict(_item) for _item in obj.get("marketStates")] if obj.get("marketStates") is not None else None,
-            "markets": [AzureMarket.from_dict(_item) for _item in obj.get("markets")] if obj.get("markets") is not None else None,
-            "price_schedules": [AzureProductVariantPriceSchedule.from_dict(_item) for _item in obj.get("priceSchedules")] if obj.get("priceSchedules") is not None else None,
-            "properties": [AzureTypeValue.from_dict(_item) for _item in obj.get("properties")] if obj.get("properties") is not None else None,
-            "resource_type": obj.get("resourceType"),
-            "subscription_audiences": [AzureAudience.from_dict(_item) for _item in obj.get("subscriptionAudiences")] if obj.get("subscriptionAudiences") is not None else None,
-            "tenant_audiences": [AzureAudience.from_dict(_item) for _item in obj.get("tenantAudiences")] if obj.get("tenantAudiences") is not None else None,
-            "trial": AzureProductVariantTrial.from_dict(obj.get("trial")) if obj.get("trial") is not None else None,
-            "visibility": obj.get("visibility")
-        })
+        _obj = AzureProductFeatureAvailability.parse_obj(
+            {
+                "custom_meters": [
+                    AzureProductVariantCustomMeter.from_dict(_item)
+                    for _item in obj.get("customMeters")
+                ]
+                if obj.get("customMeters") is not None
+                else None,
+                "id": obj.get("id"),
+                "is_hidden": obj.get("isHidden"),
+                "market_states": [
+                    AzureMarketState.from_dict(_item)
+                    for _item in obj.get("marketStates")
+                ]
+                if obj.get("marketStates") is not None
+                else None,
+                "markets": [
+                    AzureMarket.from_dict(_item) for _item in obj.get("markets")
+                ]
+                if obj.get("markets") is not None
+                else None,
+                "price_schedules": [
+                    AzureProductVariantPriceSchedule.from_dict(_item)
+                    for _item in obj.get("priceSchedules")
+                ]
+                if obj.get("priceSchedules") is not None
+                else None,
+                "properties": [
+                    AzureTypeValue.from_dict(_item) for _item in obj.get("properties")
+                ]
+                if obj.get("properties") is not None
+                else None,
+                "resource_type": obj.get("resourceType"),
+                "subscription_audiences": [
+                    AzureAudience.from_dict(_item)
+                    for _item in obj.get("subscriptionAudiences")
+                ]
+                if obj.get("subscriptionAudiences") is not None
+                else None,
+                "tenant_audiences": [
+                    AzureAudience.from_dict(_item)
+                    for _item in obj.get("tenantAudiences")
+                ]
+                if obj.get("tenantAudiences") is not None
+                else None,
+                "trial": AzureProductVariantTrial.from_dict(obj.get("trial"))
+                if obj.get("trial") is not None
+                else None,
+                "visibility": obj.get("visibility"),
+            }
+        )
         return _obj
-
-

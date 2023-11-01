@@ -22,15 +22,18 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
+
 class GcpMarketplaceUnstructuredDocument(BaseModel):
     """
     GcpMarketplaceUnstructuredDocument
     """
+
     content: Optional[StrictStr] = None
     __properties = ["content"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -49,10 +52,7 @@ class GcpMarketplaceUnstructuredDocument(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -64,9 +64,7 @@ class GcpMarketplaceUnstructuredDocument(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceUnstructuredDocument.parse_obj(obj)
 
-        _obj = GcpMarketplaceUnstructuredDocument.parse_obj({
-            "content": obj.get("content")
-        })
+        _obj = GcpMarketplaceUnstructuredDocument.parse_obj(
+            {"content": obj.get("content")}
+        )
         return _obj
-
-

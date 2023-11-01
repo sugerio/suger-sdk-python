@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class GcpMarketplaceUserAccountApprovalState(str, Enum):
     """
     GcpMarketplaceUserAccountApprovalState
@@ -30,14 +27,12 @@ class GcpMarketplaceUserAccountApprovalState(str, Enum):
     """
     allowed enum values
     """
-    STATE_UNSPECIFIED = 'STATE_UNSPECIFIED'
-    PENDING = 'PENDING'
-    APPROVED = 'APPROVED'
-    REJECTED = 'REJECTED'
+    STATE_UNSPECIFIED = "STATE_UNSPECIFIED"
+    PENDING = "PENDING"
+    APPROVED = "APPROVED"
+    REJECTED = "REJECTED"
 
     @classmethod
     def from_json(cls, json_str: str) -> GcpMarketplaceUserAccountApprovalState:
         """Create an instance of GcpMarketplaceUserAccountApprovalState from a JSON string"""
         return GcpMarketplaceUserAccountApprovalState(json.loads(json_str))
-
-

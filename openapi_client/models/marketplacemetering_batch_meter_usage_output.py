@@ -24,17 +24,27 @@ from pydantic import BaseModel, Field, conlist
 from openapi_client.models.types_usage_record import TypesUsageRecord
 from openapi_client.models.types_usage_record_result import TypesUsageRecordResult
 
+
 class MarketplacemeteringBatchMeterUsageOutput(BaseModel):
     """
     MarketplacemeteringBatchMeterUsageOutput
     """
+
     result_metadata: Optional[Dict[str, Any]] = Field(None, alias="resultMetadata")
-    results: Optional[conlist(TypesUsageRecordResult)] = Field(None, description="Contains all UsageRecords processed by BatchMeterUsage. These records were either honored by AWS Marketplace Metering Service or were invalid. Invalid records should be fixed before being resubmitted.")
-    unprocessed_records: Optional[conlist(TypesUsageRecord)] = Field(None, alias="unprocessedRecords", description="Contains all UsageRecords that were not processed by BatchMeterUsage. This is a list of UsageRecords. You can retry the failed request by making another BatchMeterUsage call with this list as input in the BatchMeterUsageRequest.")
+    results: Optional[conlist(TypesUsageRecordResult)] = Field(
+        None,
+        description="Contains all UsageRecords processed by BatchMeterUsage. These records were either honored by AWS Marketplace Metering Service or were invalid. Invalid records should be fixed before being resubmitted.",
+    )
+    unprocessed_records: Optional[conlist(TypesUsageRecord)] = Field(
+        None,
+        alias="unprocessedRecords",
+        description="Contains all UsageRecords that were not processed by BatchMeterUsage. This is a list of UsageRecords. You can retry the failed request by making another BatchMeterUsage call with this list as input in the BatchMeterUsageRequest.",
+    )
     __properties = ["resultMetadata", "results", "unprocessedRecords"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,24 +63,21 @@ class MarketplacemeteringBatchMeterUsageOutput(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in results (list)
         _items = []
         if self.results:
             for _item in self.results:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['results'] = _items
+            _dict["results"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in unprocessed_records (list)
         _items = []
         if self.unprocessed_records:
             for _item in self.unprocessed_records:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['unprocessedRecords'] = _items
+            _dict["unprocessedRecords"] = _items
         return _dict
 
     @classmethod
@@ -82,11 +89,21 @@ class MarketplacemeteringBatchMeterUsageOutput(BaseModel):
         if not isinstance(obj, dict):
             return MarketplacemeteringBatchMeterUsageOutput.parse_obj(obj)
 
-        _obj = MarketplacemeteringBatchMeterUsageOutput.parse_obj({
-            "result_metadata": obj.get("resultMetadata"),
-            "results": [TypesUsageRecordResult.from_dict(_item) for _item in obj.get("results")] if obj.get("results") is not None else None,
-            "unprocessed_records": [TypesUsageRecord.from_dict(_item) for _item in obj.get("unprocessedRecords")] if obj.get("unprocessedRecords") is not None else None
-        })
+        _obj = MarketplacemeteringBatchMeterUsageOutput.parse_obj(
+            {
+                "result_metadata": obj.get("resultMetadata"),
+                "results": [
+                    TypesUsageRecordResult.from_dict(_item)
+                    for _item in obj.get("results")
+                ]
+                if obj.get("results") is not None
+                else None,
+                "unprocessed_records": [
+                    TypesUsageRecord.from_dict(_item)
+                    for _item in obj.get("unprocessedRecords")
+                ]
+                if obj.get("unprocessedRecords") is not None
+                else None,
+            }
+        )
         return _obj
-
-

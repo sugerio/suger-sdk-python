@@ -14,9 +14,9 @@
 
 
 import unittest
-import datetime
 
 from openapi_client.models.azure_integration import AzureIntegration  # noqa: E501
+
 
 class TestAzureIntegration(unittest.TestCase):
     """AzureIntegration unit test stubs"""
@@ -29,9 +29,9 @@ class TestAzureIntegration(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureIntegration:
         """Test AzureIntegration
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `AzureIntegration`
         """
         model = AzureIntegration()  # noqa: E501
@@ -61,5 +61,6 @@ class TestAzureIntegration(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

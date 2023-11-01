@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class AwsRenewalOfferType(str, Enum):
     """
     AwsRenewalOfferType
@@ -30,13 +27,11 @@ class AwsRenewalOfferType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    EXTERNAL = 'External'
-    AWSMARKETPLACE = 'AwsMarketplace'
+    EMPTY = ""
+    EXTERNAL = "External"
+    AWSMARKETPLACE = "AwsMarketplace"
 
     @classmethod
     def from_json(cls, json_str: str) -> AwsRenewalOfferType:
         """Create an instance of AwsRenewalOfferType from a JSON string"""
         return AwsRenewalOfferType(json.loads(json_str))
-
-

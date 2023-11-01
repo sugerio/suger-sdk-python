@@ -22,15 +22,18 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
+
 class MicrosoftPartnerReferralTag(BaseModel):
     """
     MicrosoftPartnerReferralTag
     """
+
     id: Optional[StrictStr] = None
     __properties = ["id"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -49,10 +52,7 @@ class MicrosoftPartnerReferralTag(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -64,9 +64,5 @@ class MicrosoftPartnerReferralTag(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralTag.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralTag.parse_obj({
-            "id": obj.get("id")
-        })
+        _obj = MicrosoftPartnerReferralTag.parse_obj({"id": obj.get("id")})
         return _obj
-
-

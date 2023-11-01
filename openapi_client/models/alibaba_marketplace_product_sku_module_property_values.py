@@ -21,17 +21,24 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, conlist
-from openapi_client.models.alibaba_marketplace_product_sku_module_property_value import AlibabaMarketplaceProductSkuModulePropertyValue
+from openapi_client.models.alibaba_marketplace_product_sku_module_property_value import (
+    AlibabaMarketplaceProductSkuModulePropertyValue,
+)
+
 
 class AlibabaMarketplaceProductSkuModulePropertyValues(BaseModel):
     """
     AlibabaMarketplaceProductSkuModulePropertyValues
     """
-    property_value: Optional[conlist(AlibabaMarketplaceProductSkuModulePropertyValue)] = Field(None, alias="PropertyValue")
+
+    property_value: Optional[
+        conlist(AlibabaMarketplaceProductSkuModulePropertyValue)
+    ] = Field(None, alias="PropertyValue")
     __properties = ["PropertyValue"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -44,23 +51,22 @@ class AlibabaMarketplaceProductSkuModulePropertyValues(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> AlibabaMarketplaceProductSkuModulePropertyValues:
+    def from_json(
+        cls, json_str: str
+    ) -> AlibabaMarketplaceProductSkuModulePropertyValues:
         """Create an instance of AlibabaMarketplaceProductSkuModulePropertyValues from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in property_value (list)
         _items = []
         if self.property_value:
             for _item in self.property_value:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['PropertyValue'] = _items
+            _dict["PropertyValue"] = _items
         return _dict
 
     @classmethod
@@ -72,9 +78,14 @@ class AlibabaMarketplaceProductSkuModulePropertyValues(BaseModel):
         if not isinstance(obj, dict):
             return AlibabaMarketplaceProductSkuModulePropertyValues.parse_obj(obj)
 
-        _obj = AlibabaMarketplaceProductSkuModulePropertyValues.parse_obj({
-            "property_value": [AlibabaMarketplaceProductSkuModulePropertyValue.from_dict(_item) for _item in obj.get("PropertyValue")] if obj.get("PropertyValue") is not None else None
-        })
+        _obj = AlibabaMarketplaceProductSkuModulePropertyValues.parse_obj(
+            {
+                "property_value": [
+                    AlibabaMarketplaceProductSkuModulePropertyValue.from_dict(_item)
+                    for _item in obj.get("PropertyValue")
+                ]
+                if obj.get("PropertyValue") is not None
+                else None
+            }
+        )
         return _obj
-
-

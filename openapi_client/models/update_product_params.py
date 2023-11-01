@@ -19,13 +19,14 @@ import re  # noqa: F401
 import json
 
 
-
 from pydantic import BaseModel, Field, StrictStr
+
 
 class UpdateProductParams(BaseModel):
     """
     UpdateProductParams
     """
+
     fulfillment_url: StrictStr = Field(..., alias="fulfillmentUrl")
     id: StrictStr = Field(...)
     organization_id: StrictStr = Field(..., alias="organizationID")
@@ -33,6 +34,7 @@ class UpdateProductParams(BaseModel):
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,10 +53,7 @@ class UpdateProductParams(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,11 +65,11 @@ class UpdateProductParams(BaseModel):
         if not isinstance(obj, dict):
             return UpdateProductParams.parse_obj(obj)
 
-        _obj = UpdateProductParams.parse_obj({
-            "fulfillment_url": obj.get("fulfillmentUrl"),
-            "id": obj.get("id"),
-            "organization_id": obj.get("organizationID")
-        })
+        _obj = UpdateProductParams.parse_obj(
+            {
+                "fulfillment_url": obj.get("fulfillmentUrl"),
+                "id": obj.get("id"),
+                "organization_id": obj.get("organizationID"),
+            }
+        )
         return _obj
-
-

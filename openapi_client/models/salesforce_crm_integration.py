@@ -24,22 +24,36 @@ from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 from openapi_client.models.salesforce_crm_credential import SalesforceCrmCredential
 from openapi_client.models.salesforce_sync_filter import SalesforceSyncFilter
 
+
 class SalesforceCrmIntegration(BaseModel):
     """
     SalesforceCrmIntegration
     """
+
     credential: Optional[SalesforceCrmCredential] = None
     filters: Optional[conlist(SalesforceSyncFilter)] = None
     instance_url: Optional[StrictStr] = Field(None, alias="instanceUrl")
     is_sandbox: Optional[StrictBool] = Field(None, alias="isSandbox")
     paused: Optional[StrictBool] = None
     secret_key: Optional[StrictStr] = Field(None, alias="secretKey")
-    subdomain: Optional[StrictStr] = Field(None, description="User defined when setting up the integration")
+    subdomain: Optional[StrictStr] = Field(
+        None, description="User defined when setting up the integration"
+    )
     suger_app_installed: Optional[StrictBool] = Field(None, alias="sugerAppInstalled")
-    __properties = ["credential", "filters", "instanceUrl", "isSandbox", "paused", "secretKey", "subdomain", "sugerAppInstalled"]
+    __properties = [
+        "credential",
+        "filters",
+        "instanceUrl",
+        "isSandbox",
+        "paused",
+        "secretKey",
+        "subdomain",
+        "sugerAppInstalled",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -58,20 +72,17 @@ class SalesforceCrmIntegration(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of credential
         if self.credential:
-            _dict['credential'] = self.credential.to_dict()
+            _dict["credential"] = self.credential.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in filters (list)
         _items = []
         if self.filters:
             for _item in self.filters:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['filters'] = _items
+            _dict["filters"] = _items
         return _dict
 
     @classmethod
@@ -83,16 +94,23 @@ class SalesforceCrmIntegration(BaseModel):
         if not isinstance(obj, dict):
             return SalesforceCrmIntegration.parse_obj(obj)
 
-        _obj = SalesforceCrmIntegration.parse_obj({
-            "credential": SalesforceCrmCredential.from_dict(obj.get("credential")) if obj.get("credential") is not None else None,
-            "filters": [SalesforceSyncFilter.from_dict(_item) for _item in obj.get("filters")] if obj.get("filters") is not None else None,
-            "instance_url": obj.get("instanceUrl"),
-            "is_sandbox": obj.get("isSandbox"),
-            "paused": obj.get("paused"),
-            "secret_key": obj.get("secretKey"),
-            "subdomain": obj.get("subdomain"),
-            "suger_app_installed": obj.get("sugerAppInstalled")
-        })
+        _obj = SalesforceCrmIntegration.parse_obj(
+            {
+                "credential": SalesforceCrmCredential.from_dict(obj.get("credential"))
+                if obj.get("credential") is not None
+                else None,
+                "filters": [
+                    SalesforceSyncFilter.from_dict(_item)
+                    for _item in obj.get("filters")
+                ]
+                if obj.get("filters") is not None
+                else None,
+                "instance_url": obj.get("instanceUrl"),
+                "is_sandbox": obj.get("isSandbox"),
+                "paused": obj.get("paused"),
+                "secret_key": obj.get("secretKey"),
+                "subdomain": obj.get("subdomain"),
+                "suger_app_installed": obj.get("sugerAppInstalled"),
+            }
+        )
         return _obj
-
-

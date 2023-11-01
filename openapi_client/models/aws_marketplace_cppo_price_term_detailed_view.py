@@ -21,20 +21,44 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
-from openapi_client.models.aws_marketplace_cppo_price_term_entry import AwsMarketplaceCppoPriceTermEntry
+from openapi_client.models.aws_marketplace_cppo_price_term_entry import (
+    AwsMarketplaceCppoPriceTermEntry,
+)
+
 
 class AwsMarketplaceCppoPriceTermDetailedView(BaseModel):
     """
     AwsMarketplaceCppoPriceTermDetailedView
     """
-    additional_consumption_unit_column_names: Optional[conlist(StrictStr)] = Field(None, alias="additionalConsumptionUnitColumnNames", description="For Usage metering dimensions")
-    additional_consumption_unit_entries: Optional[conlist(AwsMarketplaceCppoPriceTermEntry)] = Field(None, alias="additionalConsumptionUnitEntries", description="For Usage metering dimensions")
-    consumption_unit_column_names: Optional[conlist(StrictStr)] = Field(None, alias="consumptionUnitColumnNames", description="For Commit dimensions")
-    consumption_unit_entries: Optional[conlist(AwsMarketplaceCppoPriceTermEntry)] = Field(None, alias="consumptionUnitEntries", description="For Commit dimensions")
-    __properties = ["additionalConsumptionUnitColumnNames", "additionalConsumptionUnitEntries", "consumptionUnitColumnNames", "consumptionUnitEntries"]
+
+    additional_consumption_unit_column_names: Optional[conlist(StrictStr)] = Field(
+        None,
+        alias="additionalConsumptionUnitColumnNames",
+        description="For Usage metering dimensions",
+    )
+    additional_consumption_unit_entries: Optional[
+        conlist(AwsMarketplaceCppoPriceTermEntry)
+    ] = Field(
+        None,
+        alias="additionalConsumptionUnitEntries",
+        description="For Usage metering dimensions",
+    )
+    consumption_unit_column_names: Optional[conlist(StrictStr)] = Field(
+        None, alias="consumptionUnitColumnNames", description="For Commit dimensions"
+    )
+    consumption_unit_entries: Optional[
+        conlist(AwsMarketplaceCppoPriceTermEntry)
+    ] = Field(None, alias="consumptionUnitEntries", description="For Commit dimensions")
+    __properties = [
+        "additionalConsumptionUnitColumnNames",
+        "additionalConsumptionUnitEntries",
+        "consumptionUnitColumnNames",
+        "consumptionUnitEntries",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,24 +77,21 @@ class AwsMarketplaceCppoPriceTermDetailedView(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in additional_consumption_unit_entries (list)
         _items = []
         if self.additional_consumption_unit_entries:
             for _item in self.additional_consumption_unit_entries:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['additionalConsumptionUnitEntries'] = _items
+            _dict["additionalConsumptionUnitEntries"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in consumption_unit_entries (list)
         _items = []
         if self.consumption_unit_entries:
             for _item in self.consumption_unit_entries:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['consumptionUnitEntries'] = _items
+            _dict["consumptionUnitEntries"] = _items
         return _dict
 
     @classmethod
@@ -82,12 +103,24 @@ class AwsMarketplaceCppoPriceTermDetailedView(BaseModel):
         if not isinstance(obj, dict):
             return AwsMarketplaceCppoPriceTermDetailedView.parse_obj(obj)
 
-        _obj = AwsMarketplaceCppoPriceTermDetailedView.parse_obj({
-            "additional_consumption_unit_column_names": obj.get("additionalConsumptionUnitColumnNames"),
-            "additional_consumption_unit_entries": [AwsMarketplaceCppoPriceTermEntry.from_dict(_item) for _item in obj.get("additionalConsumptionUnitEntries")] if obj.get("additionalConsumptionUnitEntries") is not None else None,
-            "consumption_unit_column_names": obj.get("consumptionUnitColumnNames"),
-            "consumption_unit_entries": [AwsMarketplaceCppoPriceTermEntry.from_dict(_item) for _item in obj.get("consumptionUnitEntries")] if obj.get("consumptionUnitEntries") is not None else None
-        })
+        _obj = AwsMarketplaceCppoPriceTermDetailedView.parse_obj(
+            {
+                "additional_consumption_unit_column_names": obj.get(
+                    "additionalConsumptionUnitColumnNames"
+                ),
+                "additional_consumption_unit_entries": [
+                    AwsMarketplaceCppoPriceTermEntry.from_dict(_item)
+                    for _item in obj.get("additionalConsumptionUnitEntries")
+                ]
+                if obj.get("additionalConsumptionUnitEntries") is not None
+                else None,
+                "consumption_unit_column_names": obj.get("consumptionUnitColumnNames"),
+                "consumption_unit_entries": [
+                    AwsMarketplaceCppoPriceTermEntry.from_dict(_item)
+                    for _item in obj.get("consumptionUnitEntries")
+                ]
+                if obj.get("consumptionUnitEntries") is not None
+                else None,
+            }
+        )
         return _obj
-
-

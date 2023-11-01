@@ -21,39 +21,67 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
-from openapi_client.models.azure_marketplace_price_and_availability_private_offer_plan import AzureMarketplacePriceAndAvailabilityPrivateOfferPlan
+from openapi_client.models.azure_marketplace_price_and_availability_private_offer_plan import (
+    AzureMarketplacePriceAndAvailabilityPrivateOfferPlan,
+)
 from openapi_client.models.azure_product_availability import AzureProductAvailability
 from openapi_client.models.azure_product_branch import AzureProductBranch
 from openapi_client.models.azure_product_listing import AzureProductListing
-from openapi_client.models.azure_product_package_configuration import AzureProductPackageConfiguration
+from openapi_client.models.azure_product_package_configuration import (
+    AzureProductPackageConfiguration,
+)
 from openapi_client.models.azure_product_property import AzureProductProperty
 from openapi_client.models.azure_product_setup import AzureProductSetup
 from openapi_client.models.azure_product_submission import AzureProductSubmission
 from openapi_client.models.azure_product_variant import AzureProductVariant
 from openapi_client.models.azure_type_value import AzureTypeValue
 
+
 class AzureProduct(BaseModel):
     """
     AzureProduct
     """
+
     availabilities: Optional[conlist(AzureProductAvailability)] = None
     branches: Optional[conlist(AzureProductBranch)] = None
     external_ids: Optional[conlist(AzureTypeValue)] = Field(None, alias="externalIDs")
     id: Optional[StrictStr] = None
-    is_modular_publishing: Optional[StrictBool] = Field(None, alias="isModularPublishing")
+    is_modular_publishing: Optional[StrictBool] = Field(
+        None, alias="isModularPublishing"
+    )
     listings: Optional[conlist(AzureProductListing)] = None
     name: Optional[StrictStr] = None
-    package_configurations: Optional[conlist(AzureProductPackageConfiguration)] = Field(None, alias="packageConfigurations")
-    plans: Optional[conlist(AzureMarketplacePriceAndAvailabilityPrivateOfferPlan)] = Field(None, description="All plans under this product")
+    package_configurations: Optional[conlist(AzureProductPackageConfiguration)] = Field(
+        None, alias="packageConfigurations"
+    )
+    plans: Optional[
+        conlist(AzureMarketplacePriceAndAvailabilityPrivateOfferPlan)
+    ] = Field(None, description="All plans under this product")
     properties: Optional[conlist(AzureProductProperty)] = None
     resource_type: Optional[StrictStr] = Field(None, alias="resourceType")
     setup: Optional[AzureProductSetup] = None
     submissions: Optional[conlist(AzureProductSubmission)] = None
     variants: Optional[conlist(AzureProductVariant)] = None
-    __properties = ["availabilities", "branches", "externalIDs", "id", "isModularPublishing", "listings", "name", "packageConfigurations", "plans", "properties", "resourceType", "setup", "submissions", "variants"]
+    __properties = [
+        "availabilities",
+        "branches",
+        "externalIDs",
+        "id",
+        "isModularPublishing",
+        "listings",
+        "name",
+        "packageConfigurations",
+        "plans",
+        "properties",
+        "resourceType",
+        "setup",
+        "submissions",
+        "variants",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -72,76 +100,73 @@ class AzureProduct(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in availabilities (list)
         _items = []
         if self.availabilities:
             for _item in self.availabilities:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['availabilities'] = _items
+            _dict["availabilities"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in branches (list)
         _items = []
         if self.branches:
             for _item in self.branches:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['branches'] = _items
+            _dict["branches"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in external_ids (list)
         _items = []
         if self.external_ids:
             for _item in self.external_ids:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['externalIDs'] = _items
+            _dict["externalIDs"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in listings (list)
         _items = []
         if self.listings:
             for _item in self.listings:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['listings'] = _items
+            _dict["listings"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in package_configurations (list)
         _items = []
         if self.package_configurations:
             for _item in self.package_configurations:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['packageConfigurations'] = _items
+            _dict["packageConfigurations"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in plans (list)
         _items = []
         if self.plans:
             for _item in self.plans:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['plans'] = _items
+            _dict["plans"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in properties (list)
         _items = []
         if self.properties:
             for _item in self.properties:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['properties'] = _items
+            _dict["properties"] = _items
         # override the default output from pydantic by calling `to_dict()` of setup
         if self.setup:
-            _dict['setup'] = self.setup.to_dict()
+            _dict["setup"] = self.setup.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in submissions (list)
         _items = []
         if self.submissions:
             for _item in self.submissions:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['submissions'] = _items
+            _dict["submissions"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in variants (list)
         _items = []
         if self.variants:
             for _item in self.variants:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['variants'] = _items
+            _dict["variants"] = _items
         return _dict
 
     @classmethod
@@ -153,22 +178,69 @@ class AzureProduct(BaseModel):
         if not isinstance(obj, dict):
             return AzureProduct.parse_obj(obj)
 
-        _obj = AzureProduct.parse_obj({
-            "availabilities": [AzureProductAvailability.from_dict(_item) for _item in obj.get("availabilities")] if obj.get("availabilities") is not None else None,
-            "branches": [AzureProductBranch.from_dict(_item) for _item in obj.get("branches")] if obj.get("branches") is not None else None,
-            "external_ids": [AzureTypeValue.from_dict(_item) for _item in obj.get("externalIDs")] if obj.get("externalIDs") is not None else None,
-            "id": obj.get("id"),
-            "is_modular_publishing": obj.get("isModularPublishing"),
-            "listings": [AzureProductListing.from_dict(_item) for _item in obj.get("listings")] if obj.get("listings") is not None else None,
-            "name": obj.get("name"),
-            "package_configurations": [AzureProductPackageConfiguration.from_dict(_item) for _item in obj.get("packageConfigurations")] if obj.get("packageConfigurations") is not None else None,
-            "plans": [AzureMarketplacePriceAndAvailabilityPrivateOfferPlan.from_dict(_item) for _item in obj.get("plans")] if obj.get("plans") is not None else None,
-            "properties": [AzureProductProperty.from_dict(_item) for _item in obj.get("properties")] if obj.get("properties") is not None else None,
-            "resource_type": obj.get("resourceType"),
-            "setup": AzureProductSetup.from_dict(obj.get("setup")) if obj.get("setup") is not None else None,
-            "submissions": [AzureProductSubmission.from_dict(_item) for _item in obj.get("submissions")] if obj.get("submissions") is not None else None,
-            "variants": [AzureProductVariant.from_dict(_item) for _item in obj.get("variants")] if obj.get("variants") is not None else None
-        })
+        _obj = AzureProduct.parse_obj(
+            {
+                "availabilities": [
+                    AzureProductAvailability.from_dict(_item)
+                    for _item in obj.get("availabilities")
+                ]
+                if obj.get("availabilities") is not None
+                else None,
+                "branches": [
+                    AzureProductBranch.from_dict(_item) for _item in obj.get("branches")
+                ]
+                if obj.get("branches") is not None
+                else None,
+                "external_ids": [
+                    AzureTypeValue.from_dict(_item) for _item in obj.get("externalIDs")
+                ]
+                if obj.get("externalIDs") is not None
+                else None,
+                "id": obj.get("id"),
+                "is_modular_publishing": obj.get("isModularPublishing"),
+                "listings": [
+                    AzureProductListing.from_dict(_item)
+                    for _item in obj.get("listings")
+                ]
+                if obj.get("listings") is not None
+                else None,
+                "name": obj.get("name"),
+                "package_configurations": [
+                    AzureProductPackageConfiguration.from_dict(_item)
+                    for _item in obj.get("packageConfigurations")
+                ]
+                if obj.get("packageConfigurations") is not None
+                else None,
+                "plans": [
+                    AzureMarketplacePriceAndAvailabilityPrivateOfferPlan.from_dict(
+                        _item
+                    )
+                    for _item in obj.get("plans")
+                ]
+                if obj.get("plans") is not None
+                else None,
+                "properties": [
+                    AzureProductProperty.from_dict(_item)
+                    for _item in obj.get("properties")
+                ]
+                if obj.get("properties") is not None
+                else None,
+                "resource_type": obj.get("resourceType"),
+                "setup": AzureProductSetup.from_dict(obj.get("setup"))
+                if obj.get("setup") is not None
+                else None,
+                "submissions": [
+                    AzureProductSubmission.from_dict(_item)
+                    for _item in obj.get("submissions")
+                ]
+                if obj.get("submissions") is not None
+                else None,
+                "variants": [
+                    AzureProductVariant.from_dict(_item)
+                    for _item in obj.get("variants")
+                ]
+                if obj.get("variants") is not None
+                else None,
+            }
+        )
         return _obj
-
-

@@ -16,9 +16,14 @@
 import unittest
 import datetime
 
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_identity_api_client import GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient  # noqa: E501
+from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_identity_api_client import (
+    GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient,
+)  # noqa: E501
 
-class TestGithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient(unittest.TestCase):
+
+class TestGithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient(
+    unittest.TestCase
+):
     """GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient unit test stubs"""
 
     def setUp(self):
@@ -27,11 +32,13 @@ class TestGithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient(unittest.T
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient:
+    def make_instance(
+        self, include_optional
+    ) -> GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient:
         """Test GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient`
         """
         model = GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient()  # noqa: E501
@@ -58,5 +65,6 @@ class TestGithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient(unittest.T
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

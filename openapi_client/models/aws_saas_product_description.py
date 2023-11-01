@@ -22,10 +22,12 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 
+
 class AwsSaasProductDescription(BaseModel):
     """
     AwsSaasProductDescription
     """
+
     associated_products: Optional[StrictStr] = Field(None, alias="AssociatedProducts")
     categories: Optional[conlist(StrictStr)] = Field(None, alias="Categories")
     eu_w8_submitted: Optional[StrictBool] = Field(None, alias="EuW8Submitted")
@@ -40,10 +42,26 @@ class AwsSaasProductDescription(BaseModel):
     sku: Optional[StrictStr] = Field(None, alias="Sku")
     us_w9_submitted: Optional[StrictBool] = Field(None, alias="UsW9Submitted")
     visibility: Optional[StrictStr] = Field(None, alias="Visibility")
-    __properties = ["AssociatedProducts", "Categories", "EuW8Submitted", "Highlights", "LongDescription", "Manufacturer", "ProductCode", "ProductTitle", "Registered", "SearchKeywords", "ShortDescription", "Sku", "UsW9Submitted", "Visibility"]
+    __properties = [
+        "AssociatedProducts",
+        "Categories",
+        "EuW8Submitted",
+        "Highlights",
+        "LongDescription",
+        "Manufacturer",
+        "ProductCode",
+        "ProductTitle",
+        "Registered",
+        "SearchKeywords",
+        "ShortDescription",
+        "Sku",
+        "UsW9Submitted",
+        "Visibility",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -62,10 +80,7 @@ class AwsSaasProductDescription(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -77,22 +92,22 @@ class AwsSaasProductDescription(BaseModel):
         if not isinstance(obj, dict):
             return AwsSaasProductDescription.parse_obj(obj)
 
-        _obj = AwsSaasProductDescription.parse_obj({
-            "associated_products": obj.get("AssociatedProducts"),
-            "categories": obj.get("Categories"),
-            "eu_w8_submitted": obj.get("EuW8Submitted"),
-            "highlights": obj.get("Highlights"),
-            "long_description": obj.get("LongDescription"),
-            "manufacturer": obj.get("Manufacturer"),
-            "product_code": obj.get("ProductCode"),
-            "product_title": obj.get("ProductTitle"),
-            "registered": obj.get("Registered"),
-            "search_keywords": obj.get("SearchKeywords"),
-            "short_description": obj.get("ShortDescription"),
-            "sku": obj.get("Sku"),
-            "us_w9_submitted": obj.get("UsW9Submitted"),
-            "visibility": obj.get("Visibility")
-        })
+        _obj = AwsSaasProductDescription.parse_obj(
+            {
+                "associated_products": obj.get("AssociatedProducts"),
+                "categories": obj.get("Categories"),
+                "eu_w8_submitted": obj.get("EuW8Submitted"),
+                "highlights": obj.get("Highlights"),
+                "long_description": obj.get("LongDescription"),
+                "manufacturer": obj.get("Manufacturer"),
+                "product_code": obj.get("ProductCode"),
+                "product_title": obj.get("ProductTitle"),
+                "registered": obj.get("Registered"),
+                "search_keywords": obj.get("SearchKeywords"),
+                "short_description": obj.get("ShortDescription"),
+                "sku": obj.get("Sku"),
+                "us_w9_submitted": obj.get("UsW9Submitted"),
+                "visibility": obj.get("Visibility"),
+            }
+        )
         return _obj
-
-

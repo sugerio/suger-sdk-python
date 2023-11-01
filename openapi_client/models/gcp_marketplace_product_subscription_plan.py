@@ -23,16 +23,21 @@ from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from openapi_client.models.gcp_price_value import GcpPriceValue
 
+
 class GcpMarketplaceProductSubscriptionPlan(BaseModel):
     """
     GcpMarketplaceProductSubscriptionPlan
     """
-    period: Optional[StrictStr] = Field(None, description="such as \"ONE_YEAR\", \"TWO_YEAR\", \"THREE_YEAR\"")
+
+    period: Optional[StrictStr] = Field(
+        None, description='such as "ONE_YEAR", "TWO_YEAR", "THREE_YEAR"'
+    )
     price: Optional[GcpPriceValue] = None
     __properties = ["period", "price"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,13 +56,10 @@ class GcpMarketplaceProductSubscriptionPlan(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of price
         if self.price:
-            _dict['price'] = self.price.to_dict()
+            _dict["price"] = self.price.to_dict()
         return _dict
 
     @classmethod
@@ -69,10 +71,12 @@ class GcpMarketplaceProductSubscriptionPlan(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceProductSubscriptionPlan.parse_obj(obj)
 
-        _obj = GcpMarketplaceProductSubscriptionPlan.parse_obj({
-            "period": obj.get("period"),
-            "price": GcpPriceValue.from_dict(obj.get("price")) if obj.get("price") is not None else None
-        })
+        _obj = GcpMarketplaceProductSubscriptionPlan.parse_obj(
+            {
+                "period": obj.get("period"),
+                "price": GcpPriceValue.from_dict(obj.get("price"))
+                if obj.get("price") is not None
+                else None,
+            }
+        )
         return _obj
-
-

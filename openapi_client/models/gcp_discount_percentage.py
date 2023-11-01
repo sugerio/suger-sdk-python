@@ -22,16 +22,19 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictInt, StrictStr
 
+
 class GcpDiscountPercentage(BaseModel):
     """
     GcpDiscountPercentage
     """
+
     nanos: Optional[StrictInt] = None
     units: Optional[StrictStr] = None
     __properties = ["nanos", "units"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,10 +53,7 @@ class GcpDiscountPercentage(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +65,7 @@ class GcpDiscountPercentage(BaseModel):
         if not isinstance(obj, dict):
             return GcpDiscountPercentage.parse_obj(obj)
 
-        _obj = GcpDiscountPercentage.parse_obj({
-            "nanos": obj.get("nanos"),
-            "units": obj.get("units")
-        })
+        _obj = GcpDiscountPercentage.parse_obj(
+            {"nanos": obj.get("nanos"), "units": obj.get("units")}
+        )
         return _obj
-
-

@@ -22,19 +22,36 @@ import json
 from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 
+
 class AddEntitlementCreditResponse(BaseModel):
     """
     AddEntitlementCreditResponse
     """
-    credit_amount_increment: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="creditAmountIncrement", description="The amount to be added to the credit amount.")
+
+    credit_amount_increment: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None,
+        alias="creditAmountIncrement",
+        description="The amount to be added to the credit amount.",
+    )
     entitlement_id: Optional[StrictStr] = Field(None, alias="entitlementID")
     entitlement_term_id: Optional[StrictStr] = Field(None, alias="entitlementTermID")
-    new_credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="newCreditAmount", description="The new credit amount after the increment.")
+    new_credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None,
+        alias="newCreditAmount",
+        description="The new credit amount after the increment.",
+    )
     organization_id: Optional[StrictStr] = Field(None, alias="organizationID")
-    __properties = ["creditAmountIncrement", "entitlementID", "entitlementTermID", "newCreditAmount", "organizationID"]
+    __properties = [
+        "creditAmountIncrement",
+        "entitlementID",
+        "entitlementTermID",
+        "newCreditAmount",
+        "organizationID",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,10 +70,7 @@ class AddEntitlementCreditResponse(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -68,13 +82,13 @@ class AddEntitlementCreditResponse(BaseModel):
         if not isinstance(obj, dict):
             return AddEntitlementCreditResponse.parse_obj(obj)
 
-        _obj = AddEntitlementCreditResponse.parse_obj({
-            "credit_amount_increment": obj.get("creditAmountIncrement"),
-            "entitlement_id": obj.get("entitlementID"),
-            "entitlement_term_id": obj.get("entitlementTermID"),
-            "new_credit_amount": obj.get("newCreditAmount"),
-            "organization_id": obj.get("organizationID")
-        })
+        _obj = AddEntitlementCreditResponse.parse_obj(
+            {
+                "credit_amount_increment": obj.get("creditAmountIncrement"),
+                "entitlement_id": obj.get("entitlementID"),
+                "entitlement_term_id": obj.get("entitlementTermID"),
+                "new_credit_amount": obj.get("newCreditAmount"),
+                "organization_id": obj.get("organizationID"),
+            }
+        )
         return _obj
-
-

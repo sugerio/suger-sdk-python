@@ -22,10 +22,12 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class IdentityConctactInfo(BaseModel):
     """
     IdentityConctactInfo
     """
+
     company_location: Optional[StrictStr] = Field(None, alias="companyLocation")
     company_name: Optional[StrictStr] = Field(None, alias="companyName")
     phone_number: Optional[StrictStr] = Field(None, alias="phoneNumber")
@@ -34,6 +36,7 @@ class IdentityConctactInfo(BaseModel):
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,10 +55,7 @@ class IdentityConctactInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -67,12 +67,12 @@ class IdentityConctactInfo(BaseModel):
         if not isinstance(obj, dict):
             return IdentityConctactInfo.parse_obj(obj)
 
-        _obj = IdentityConctactInfo.parse_obj({
-            "company_location": obj.get("companyLocation"),
-            "company_name": obj.get("companyName"),
-            "phone_number": obj.get("phoneNumber"),
-            "role": obj.get("role")
-        })
+        _obj = IdentityConctactInfo.parse_obj(
+            {
+                "company_location": obj.get("companyLocation"),
+                "company_name": obj.get("companyName"),
+                "phone_number": obj.get("phoneNumber"),
+                "role": obj.get("role"),
+            }
+        )
         return _obj
-
-

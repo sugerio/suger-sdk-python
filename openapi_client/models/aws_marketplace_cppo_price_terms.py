@@ -21,20 +21,31 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
-from openapi_client.models.aws_marketplace_cppo_price_term_detailed_view import AwsMarketplaceCppoPriceTermDetailedView
-from openapi_client.models.aws_marketplace_cppo_price_term_entry import AwsMarketplaceCppoPriceTermEntry
+from openapi_client.models.aws_marketplace_cppo_price_term_detailed_view import (
+    AwsMarketplaceCppoPriceTermDetailedView,
+)
+from openapi_client.models.aws_marketplace_cppo_price_term_entry import (
+    AwsMarketplaceCppoPriceTermEntry,
+)
+
 
 class AwsMarketplaceCppoPriceTerms(BaseModel):
     """
     AwsMarketplaceCppoPriceTerms
     """
-    all_consumption_unit_column_names: Optional[conlist(StrictStr)] = Field(None, alias="allConsumptionUnitColumnNames")
-    detailed_view: Optional[AwsMarketplaceCppoPriceTermDetailedView] = Field(None, alias="detailedView")
+
+    all_consumption_unit_column_names: Optional[conlist(StrictStr)] = Field(
+        None, alias="allConsumptionUnitColumnNames"
+    )
+    detailed_view: Optional[AwsMarketplaceCppoPriceTermDetailedView] = Field(
+        None, alias="detailedView"
+    )
     entries: Optional[conlist(AwsMarketplaceCppoPriceTermEntry)] = None
     __properties = ["allConsumptionUnitColumnNames", "detailedView", "entries"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,20 +64,17 @@ class AwsMarketplaceCppoPriceTerms(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of detailed_view
         if self.detailed_view:
-            _dict['detailedView'] = self.detailed_view.to_dict()
+            _dict["detailedView"] = self.detailed_view.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in entries (list)
         _items = []
         if self.entries:
             for _item in self.entries:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['entries'] = _items
+            _dict["entries"] = _items
         return _dict
 
     @classmethod
@@ -78,11 +86,22 @@ class AwsMarketplaceCppoPriceTerms(BaseModel):
         if not isinstance(obj, dict):
             return AwsMarketplaceCppoPriceTerms.parse_obj(obj)
 
-        _obj = AwsMarketplaceCppoPriceTerms.parse_obj({
-            "all_consumption_unit_column_names": obj.get("allConsumptionUnitColumnNames"),
-            "detailed_view": AwsMarketplaceCppoPriceTermDetailedView.from_dict(obj.get("detailedView")) if obj.get("detailedView") is not None else None,
-            "entries": [AwsMarketplaceCppoPriceTermEntry.from_dict(_item) for _item in obj.get("entries")] if obj.get("entries") is not None else None
-        })
+        _obj = AwsMarketplaceCppoPriceTerms.parse_obj(
+            {
+                "all_consumption_unit_column_names": obj.get(
+                    "allConsumptionUnitColumnNames"
+                ),
+                "detailed_view": AwsMarketplaceCppoPriceTermDetailedView.from_dict(
+                    obj.get("detailedView")
+                )
+                if obj.get("detailedView") is not None
+                else None,
+                "entries": [
+                    AwsMarketplaceCppoPriceTermEntry.from_dict(_item)
+                    for _item in obj.get("entries")
+                ]
+                if obj.get("entries") is not None
+                else None,
+            }
+        )
         return _obj
-
-

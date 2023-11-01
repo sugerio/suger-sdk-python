@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.azure_marketplace_offer_pricing_type import AzureMarketplaceOfferPricingType  # noqa: E501
+from openapi_client.models.azure_marketplace_offer_pricing_type import (
+    AzureMarketplaceOfferPricingType,
+)  # noqa: E501
+
 
 class TestAzureMarketplaceOfferPricingType(unittest.TestCase):
     """AzureMarketplaceOfferPricingType unit test stubs"""
@@ -31,5 +34,6 @@ class TestAzureMarketplaceOfferPricingType(unittest.TestCase):
         """Test AzureMarketplaceOfferPricingType"""
         # inst = AzureMarketplaceOfferPricingType()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

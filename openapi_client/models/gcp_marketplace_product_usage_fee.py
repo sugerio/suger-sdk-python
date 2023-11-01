@@ -23,17 +23,24 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist
 from openapi_client.models.gcp_price_tier import GcpPriceTier
 
+
 class GcpMarketplaceProductUsageFee(BaseModel):
     """
     GcpMarketplaceProductUsageFee
     """
-    display_quantity: Optional[StrictInt] = Field(None, alias="displayQuantity", description="such as 1")
-    metric_id: Optional[StrictStr] = Field(None, alias="metricId", description="such as \"Starter_storage\"")
+
+    display_quantity: Optional[StrictInt] = Field(
+        None, alias="displayQuantity", description="such as 1"
+    )
+    metric_id: Optional[StrictStr] = Field(
+        None, alias="metricId", description='such as "Starter_storage"'
+    )
     price_tiers: Optional[conlist(GcpPriceTier)] = Field(None, alias="priceTiers")
     __properties = ["displayQuantity", "metricId", "priceTiers"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,17 +59,14 @@ class GcpMarketplaceProductUsageFee(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in price_tiers (list)
         _items = []
         if self.price_tiers:
             for _item in self.price_tiers:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['priceTiers'] = _items
+            _dict["priceTiers"] = _items
         return _dict
 
     @classmethod
@@ -74,11 +78,15 @@ class GcpMarketplaceProductUsageFee(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceProductUsageFee.parse_obj(obj)
 
-        _obj = GcpMarketplaceProductUsageFee.parse_obj({
-            "display_quantity": obj.get("displayQuantity"),
-            "metric_id": obj.get("metricId"),
-            "price_tiers": [GcpPriceTier.from_dict(_item) for _item in obj.get("priceTiers")] if obj.get("priceTiers") is not None else None
-        })
+        _obj = GcpMarketplaceProductUsageFee.parse_obj(
+            {
+                "display_quantity": obj.get("displayQuantity"),
+                "metric_id": obj.get("metricId"),
+                "price_tiers": [
+                    GcpPriceTier.from_dict(_item) for _item in obj.get("priceTiers")
+                ]
+                if obj.get("priceTiers") is not None
+                else None,
+            }
+        )
         return _obj
-
-

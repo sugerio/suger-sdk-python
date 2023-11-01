@@ -21,18 +21,25 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
-from openapi_client.models.azure_marketplace_price_and_availability_core_price import AzureMarketplacePriceAndAvailabilityCorePrice
+from openapi_client.models.azure_marketplace_price_and_availability_core_price import (
+    AzureMarketplacePriceAndAvailabilityCorePrice,
+)
+
 
 class AzureMarketplacePriceAndAvailabilityPrice(BaseModel):
     """
     AzureMarketplacePriceAndAvailabilityPrice
     """
-    core_pricing: Optional[AzureMarketplacePriceAndAvailabilityCorePrice] = Field(None, alias="corePricing")
+
+    core_pricing: Optional[AzureMarketplacePriceAndAvailabilityCorePrice] = Field(
+        None, alias="corePricing"
+    )
     license_model: Optional[StrictStr] = Field(None, alias="licenseModel")
     __properties = ["corePricing", "licenseModel"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,13 +58,10 @@ class AzureMarketplacePriceAndAvailabilityPrice(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of core_pricing
         if self.core_pricing:
-            _dict['corePricing'] = self.core_pricing.to_dict()
+            _dict["corePricing"] = self.core_pricing.to_dict()
         return _dict
 
     @classmethod
@@ -69,10 +73,14 @@ class AzureMarketplacePriceAndAvailabilityPrice(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePriceAndAvailabilityPrice.parse_obj(obj)
 
-        _obj = AzureMarketplacePriceAndAvailabilityPrice.parse_obj({
-            "core_pricing": AzureMarketplacePriceAndAvailabilityCorePrice.from_dict(obj.get("corePricing")) if obj.get("corePricing") is not None else None,
-            "license_model": obj.get("licenseModel")
-        })
+        _obj = AzureMarketplacePriceAndAvailabilityPrice.parse_obj(
+            {
+                "core_pricing": AzureMarketplacePriceAndAvailabilityCorePrice.from_dict(
+                    obj.get("corePricing")
+                )
+                if obj.get("corePricing") is not None
+                else None,
+                "license_model": obj.get("licenseModel"),
+            }
+        )
         return _obj
-
-

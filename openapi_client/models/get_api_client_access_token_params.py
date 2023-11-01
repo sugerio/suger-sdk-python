@@ -19,13 +19,14 @@ import re  # noqa: F401
 import json
 
 
-
 from pydantic import BaseModel, Field, StrictStr
+
 
 class GetApiClientAccessTokenParams(BaseModel):
     """
     GetApiClientAccessTokenParams
     """
+
     id: StrictStr = Field(..., description="The ID of the API Client.")
     organization_id: StrictStr = Field(..., alias="organizationID")
     secret: StrictStr = Field(..., description="The secret of the API Client.")
@@ -33,6 +34,7 @@ class GetApiClientAccessTokenParams(BaseModel):
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,10 +53,7 @@ class GetApiClientAccessTokenParams(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,11 +65,11 @@ class GetApiClientAccessTokenParams(BaseModel):
         if not isinstance(obj, dict):
             return GetApiClientAccessTokenParams.parse_obj(obj)
 
-        _obj = GetApiClientAccessTokenParams.parse_obj({
-            "id": obj.get("id"),
-            "organization_id": obj.get("organizationID"),
-            "secret": obj.get("secret")
-        })
+        _obj = GetApiClientAccessTokenParams.parse_obj(
+            {
+                "id": obj.get("id"),
+                "organization_id": obj.get("organizationID"),
+                "secret": obj.get("secret"),
+            }
+        )
         return _obj
-
-

@@ -20,45 +20,136 @@ import json
 
 
 from typing import List, Optional, Union
-from pydantic import BaseModel, Field, StrictBool, StrictFloat, StrictInt, StrictStr, conlist
-from openapi_client.models.azure_marketplace_subscription import AzureMarketplaceSubscription
-from openapi_client.models.client_describe_instance_response_body import ClientDescribeInstanceResponseBody
-from openapi_client.models.client_describe_order_response_body import ClientDescribeOrderResponseBody
+from pydantic import (
+    BaseModel,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    conlist,
+)
+from openapi_client.models.azure_marketplace_subscription import (
+    AzureMarketplaceSubscription,
+)
+from openapi_client.models.client_describe_instance_response_body import (
+    ClientDescribeInstanceResponseBody,
+)
+from openapi_client.models.client_describe_order_response_body import (
+    ClientDescribeOrderResponseBody,
+)
 from openapi_client.models.commit_dimension import CommitDimension
 from openapi_client.models.eula_type import EulaType
 from openapi_client.models.gcp_marketplace_entitlement import GcpMarketplaceEntitlement
-from openapi_client.models.gcp_marketplace_product_purchase_option_spec import GcpMarketplaceProductPurchaseOptionSpec
+from openapi_client.models.gcp_marketplace_product_purchase_option_spec import (
+    GcpMarketplaceProductPurchaseOptionSpec,
+)
 from openapi_client.models.metering_dimension import MeteringDimension
 from openapi_client.models.payment_installment import PaymentInstallment
 from openapi_client.models.types_entitlement import TypesEntitlement
+
 
 class EntitlementInfo(BaseModel):
     """
     EntitlementInfo
     """
-    alibaba_entitlements: Optional[conlist(ClientDescribeInstanceResponseBody)] = Field(None, alias="alibabaEntitlements", description="Nullable. Alibaba Entitlements from Alibaba Marketplace.")
-    alibaba_orders: Optional[conlist(ClientDescribeOrderResponseBody)] = Field(None, alias="alibabaOrders", description="Nullable. Alibaba Orders from Alibaba Marketplace.")
-    auto_renew: Optional[StrictBool] = Field(None, alias="autoRenew", description="Is this Entitlement Auto Renew enabled.")
-    aws_entitlements: Optional[conlist(TypesEntitlement)] = Field(None, alias="awsEntitlements", description="Nullable. AWS Entitlements from AWS Marketplace.")
-    azure_subscriptions: Optional[conlist(AzureMarketplaceSubscription)] = Field(None, alias="azureSubscriptions", description="Nullable. Azure Subscriptions from Azure Marketplace.")
-    collectable_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="collectableAmount", description="The amount that the seller can collect. It excludes the marketplace commision fee.")
-    commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="commitAmount", description="The amount that the buyer has committed to pay. It can be the sum of payment installments if applicable.")
-    commits: Optional[conlist(CommitDimension)] = Field(None, description="The dimensions for commit.")
-    currency: Optional[StrictStr] = Field(None, description="The default Currency is USD.")
-    dimensions: Optional[conlist(MeteringDimension)] = Field(None, description="The dimensions for usage-based metering.")
-    disbursed_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="disbursedAmount", description="The amount that has been disbursed to the seller account.")
+
+    alibaba_entitlements: Optional[conlist(ClientDescribeInstanceResponseBody)] = Field(
+        None,
+        alias="alibabaEntitlements",
+        description="Nullable. Alibaba Entitlements from Alibaba Marketplace.",
+    )
+    alibaba_orders: Optional[conlist(ClientDescribeOrderResponseBody)] = Field(
+        None,
+        alias="alibabaOrders",
+        description="Nullable. Alibaba Orders from Alibaba Marketplace.",
+    )
+    auto_renew: Optional[StrictBool] = Field(
+        None, alias="autoRenew", description="Is this Entitlement Auto Renew enabled."
+    )
+    aws_entitlements: Optional[conlist(TypesEntitlement)] = Field(
+        None,
+        alias="awsEntitlements",
+        description="Nullable. AWS Entitlements from AWS Marketplace.",
+    )
+    azure_subscriptions: Optional[conlist(AzureMarketplaceSubscription)] = Field(
+        None,
+        alias="azureSubscriptions",
+        description="Nullable. Azure Subscriptions from Azure Marketplace.",
+    )
+    collectable_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None,
+        alias="collectableAmount",
+        description="The amount that the seller can collect. It excludes the marketplace commision fee.",
+    )
+    commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None,
+        alias="commitAmount",
+        description="The amount that the buyer has committed to pay. It can be the sum of payment installments if applicable.",
+    )
+    commits: Optional[conlist(CommitDimension)] = Field(
+        None, description="The dimensions for commit."
+    )
+    currency: Optional[StrictStr] = Field(
+        None, description="The default Currency is USD."
+    )
+    dimensions: Optional[conlist(MeteringDimension)] = Field(
+        None, description="The dimensions for usage-based metering."
+    )
+    disbursed_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None,
+        alias="disbursedAmount",
+        description="The amount that has been disbursed to the seller account.",
+    )
     eula_type: Optional[EulaType] = Field(None, alias="eulaType")
     eula_url: Optional[StrictStr] = Field(None, alias="eulaUrl")
-    gcp_entitlements: Optional[conlist(GcpMarketplaceEntitlement)] = Field(None, alias="gcpEntitlements", description="Nullable. GCP Entitlements from GCP Marketplace.")
-    gcp_plans: Optional[conlist(GcpMarketplaceProductPurchaseOptionSpec)] = Field(None, alias="gcpPlans", description="Only applicable for GCP Marketplace Entitlements.")
-    invoiced_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="invoicedAmount", description="The amount that the buyer has got invoiced.")
-    payment_installments: Optional[conlist(PaymentInstallment)] = Field(None, alias="paymentInstallments", description="For flexible payment schedules")
-    refund_cancelation_policy: Optional[StrictStr] = Field(None, alias="refundCancelationPolicy")
+    gcp_entitlements: Optional[conlist(GcpMarketplaceEntitlement)] = Field(
+        None,
+        alias="gcpEntitlements",
+        description="Nullable. GCP Entitlements from GCP Marketplace.",
+    )
+    gcp_plans: Optional[conlist(GcpMarketplaceProductPurchaseOptionSpec)] = Field(
+        None,
+        alias="gcpPlans",
+        description="Only applicable for GCP Marketplace Entitlements.",
+    )
+    invoiced_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None,
+        alias="invoicedAmount",
+        description="The amount that the buyer has got invoiced.",
+    )
+    payment_installments: Optional[conlist(PaymentInstallment)] = Field(
+        None, alias="paymentInstallments", description="For flexible payment schedules"
+    )
+    refund_cancelation_policy: Optional[StrictStr] = Field(
+        None, alias="refundCancelationPolicy"
+    )
     seller_notes: Optional[StrictStr] = Field(None, alias="sellerNotes")
-    __properties = ["alibabaEntitlements", "alibabaOrders", "autoRenew", "awsEntitlements", "azureSubscriptions", "collectableAmount", "commitAmount", "commits", "currency", "dimensions", "disbursedAmount", "eulaType", "eulaUrl", "gcpEntitlements", "gcpPlans", "invoicedAmount", "paymentInstallments", "refundCancelationPolicy", "sellerNotes"]
+    __properties = [
+        "alibabaEntitlements",
+        "alibabaOrders",
+        "autoRenew",
+        "awsEntitlements",
+        "azureSubscriptions",
+        "collectableAmount",
+        "commitAmount",
+        "commits",
+        "currency",
+        "dimensions",
+        "disbursedAmount",
+        "eulaType",
+        "eulaUrl",
+        "gcpEntitlements",
+        "gcpPlans",
+        "invoicedAmount",
+        "paymentInstallments",
+        "refundCancelationPolicy",
+        "sellerNotes",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -77,73 +168,70 @@ class EntitlementInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in alibaba_entitlements (list)
         _items = []
         if self.alibaba_entitlements:
             for _item in self.alibaba_entitlements:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['alibabaEntitlements'] = _items
+            _dict["alibabaEntitlements"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in alibaba_orders (list)
         _items = []
         if self.alibaba_orders:
             for _item in self.alibaba_orders:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['alibabaOrders'] = _items
+            _dict["alibabaOrders"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in aws_entitlements (list)
         _items = []
         if self.aws_entitlements:
             for _item in self.aws_entitlements:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['awsEntitlements'] = _items
+            _dict["awsEntitlements"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in azure_subscriptions (list)
         _items = []
         if self.azure_subscriptions:
             for _item in self.azure_subscriptions:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['azureSubscriptions'] = _items
+            _dict["azureSubscriptions"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in commits (list)
         _items = []
         if self.commits:
             for _item in self.commits:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['commits'] = _items
+            _dict["commits"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in dimensions (list)
         _items = []
         if self.dimensions:
             for _item in self.dimensions:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['dimensions'] = _items
+            _dict["dimensions"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in gcp_entitlements (list)
         _items = []
         if self.gcp_entitlements:
             for _item in self.gcp_entitlements:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['gcpEntitlements'] = _items
+            _dict["gcpEntitlements"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in gcp_plans (list)
         _items = []
         if self.gcp_plans:
             for _item in self.gcp_plans:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['gcpPlans'] = _items
+            _dict["gcpPlans"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in payment_installments (list)
         _items = []
         if self.payment_installments:
             for _item in self.payment_installments:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['paymentInstallments'] = _items
+            _dict["paymentInstallments"] = _items
         return _dict
 
     @classmethod
@@ -155,27 +243,71 @@ class EntitlementInfo(BaseModel):
         if not isinstance(obj, dict):
             return EntitlementInfo.parse_obj(obj)
 
-        _obj = EntitlementInfo.parse_obj({
-            "alibaba_entitlements": [ClientDescribeInstanceResponseBody.from_dict(_item) for _item in obj.get("alibabaEntitlements")] if obj.get("alibabaEntitlements") is not None else None,
-            "alibaba_orders": [ClientDescribeOrderResponseBody.from_dict(_item) for _item in obj.get("alibabaOrders")] if obj.get("alibabaOrders") is not None else None,
-            "auto_renew": obj.get("autoRenew"),
-            "aws_entitlements": [TypesEntitlement.from_dict(_item) for _item in obj.get("awsEntitlements")] if obj.get("awsEntitlements") is not None else None,
-            "azure_subscriptions": [AzureMarketplaceSubscription.from_dict(_item) for _item in obj.get("azureSubscriptions")] if obj.get("azureSubscriptions") is not None else None,
-            "collectable_amount": obj.get("collectableAmount"),
-            "commit_amount": obj.get("commitAmount"),
-            "commits": [CommitDimension.from_dict(_item) for _item in obj.get("commits")] if obj.get("commits") is not None else None,
-            "currency": obj.get("currency"),
-            "dimensions": [MeteringDimension.from_dict(_item) for _item in obj.get("dimensions")] if obj.get("dimensions") is not None else None,
-            "disbursed_amount": obj.get("disbursedAmount"),
-            "eula_type": obj.get("eulaType"),
-            "eula_url": obj.get("eulaUrl"),
-            "gcp_entitlements": [GcpMarketplaceEntitlement.from_dict(_item) for _item in obj.get("gcpEntitlements")] if obj.get("gcpEntitlements") is not None else None,
-            "gcp_plans": [GcpMarketplaceProductPurchaseOptionSpec.from_dict(_item) for _item in obj.get("gcpPlans")] if obj.get("gcpPlans") is not None else None,
-            "invoiced_amount": obj.get("invoicedAmount"),
-            "payment_installments": [PaymentInstallment.from_dict(_item) for _item in obj.get("paymentInstallments")] if obj.get("paymentInstallments") is not None else None,
-            "refund_cancelation_policy": obj.get("refundCancelationPolicy"),
-            "seller_notes": obj.get("sellerNotes")
-        })
+        _obj = EntitlementInfo.parse_obj(
+            {
+                "alibaba_entitlements": [
+                    ClientDescribeInstanceResponseBody.from_dict(_item)
+                    for _item in obj.get("alibabaEntitlements")
+                ]
+                if obj.get("alibabaEntitlements") is not None
+                else None,
+                "alibaba_orders": [
+                    ClientDescribeOrderResponseBody.from_dict(_item)
+                    for _item in obj.get("alibabaOrders")
+                ]
+                if obj.get("alibabaOrders") is not None
+                else None,
+                "auto_renew": obj.get("autoRenew"),
+                "aws_entitlements": [
+                    TypesEntitlement.from_dict(_item)
+                    for _item in obj.get("awsEntitlements")
+                ]
+                if obj.get("awsEntitlements") is not None
+                else None,
+                "azure_subscriptions": [
+                    AzureMarketplaceSubscription.from_dict(_item)
+                    for _item in obj.get("azureSubscriptions")
+                ]
+                if obj.get("azureSubscriptions") is not None
+                else None,
+                "collectable_amount": obj.get("collectableAmount"),
+                "commit_amount": obj.get("commitAmount"),
+                "commits": [
+                    CommitDimension.from_dict(_item) for _item in obj.get("commits")
+                ]
+                if obj.get("commits") is not None
+                else None,
+                "currency": obj.get("currency"),
+                "dimensions": [
+                    MeteringDimension.from_dict(_item)
+                    for _item in obj.get("dimensions")
+                ]
+                if obj.get("dimensions") is not None
+                else None,
+                "disbursed_amount": obj.get("disbursedAmount"),
+                "eula_type": obj.get("eulaType"),
+                "eula_url": obj.get("eulaUrl"),
+                "gcp_entitlements": [
+                    GcpMarketplaceEntitlement.from_dict(_item)
+                    for _item in obj.get("gcpEntitlements")
+                ]
+                if obj.get("gcpEntitlements") is not None
+                else None,
+                "gcp_plans": [
+                    GcpMarketplaceProductPurchaseOptionSpec.from_dict(_item)
+                    for _item in obj.get("gcpPlans")
+                ]
+                if obj.get("gcpPlans") is not None
+                else None,
+                "invoiced_amount": obj.get("invoicedAmount"),
+                "payment_installments": [
+                    PaymentInstallment.from_dict(_item)
+                    for _item in obj.get("paymentInstallments")
+                ]
+                if obj.get("paymentInstallments") is not None
+                else None,
+                "refund_cancelation_policy": obj.get("refundCancelationPolicy"),
+                "seller_notes": obj.get("sellerNotes"),
+            }
+        )
         return _obj
-
-

@@ -21,17 +21,22 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, conlist
-from openapi_client.models.gcp_marketplace_private_offer_installment import GcpMarketplacePrivateOfferInstallment
+from openapi_client.models.gcp_marketplace_private_offer_installment import (
+    GcpMarketplacePrivateOfferInstallment,
+)
+
 
 class GcpMarketplacePrivateOfferInstallmentTimeline(BaseModel):
     """
     GcpMarketplacePrivateOfferInstallmentTimeline
     """
+
     installments: Optional[conlist(GcpMarketplacePrivateOfferInstallment)] = None
     __properties = ["installments"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,17 +55,14 @@ class GcpMarketplacePrivateOfferInstallmentTimeline(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in installments (list)
         _items = []
         if self.installments:
             for _item in self.installments:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['installments'] = _items
+            _dict["installments"] = _items
         return _dict
 
     @classmethod
@@ -72,9 +74,14 @@ class GcpMarketplacePrivateOfferInstallmentTimeline(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplacePrivateOfferInstallmentTimeline.parse_obj(obj)
 
-        _obj = GcpMarketplacePrivateOfferInstallmentTimeline.parse_obj({
-            "installments": [GcpMarketplacePrivateOfferInstallment.from_dict(_item) for _item in obj.get("installments")] if obj.get("installments") is not None else None
-        })
+        _obj = GcpMarketplacePrivateOfferInstallmentTimeline.parse_obj(
+            {
+                "installments": [
+                    GcpMarketplacePrivateOfferInstallment.from_dict(_item)
+                    for _item in obj.get("installments")
+                ]
+                if obj.get("installments") is not None
+                else None
+            }
+        )
         return _obj
-
-

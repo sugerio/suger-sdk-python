@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class RevenueReportType(str, Enum):
     """
     RevenueReportType
@@ -30,13 +27,11 @@ class RevenueReportType(str, Enum):
     """
     allowed enum values
     """
-    INVOICEDAMOUNT = 'InvoicedAmount'
-    COLLECTABLEAMOUNT = 'CollectableAmount'
-    DISBURSEDAMOUNT = 'DisbursedAmount'
+    INVOICEDAMOUNT = "InvoicedAmount"
+    COLLECTABLEAMOUNT = "CollectableAmount"
+    DISBURSEDAMOUNT = "DisbursedAmount"
 
     @classmethod
     def from_json(cls, json_str: str) -> RevenueReportType:
         """Create an instance of RevenueReportType from a JSON string"""
         return RevenueReportType(json.loads(json_str))
-
-

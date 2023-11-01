@@ -21,18 +21,25 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
-from openapi_client.models.aws_saas_product_delivery_option import AwsSaasProductDeliveryOption
+from openapi_client.models.aws_saas_product_delivery_option import (
+    AwsSaasProductDeliveryOption,
+)
+
 
 class AwsSaasProductVersion(BaseModel):
     """
     AwsSaasProductVersion
     """
-    delivery_options: Optional[conlist(AwsSaasProductDeliveryOption)] = Field(None, alias="DeliveryOptions")
+
+    delivery_options: Optional[conlist(AwsSaasProductDeliveryOption)] = Field(
+        None, alias="DeliveryOptions"
+    )
     id: Optional[StrictStr] = Field(None, alias="Id")
     __properties = ["DeliveryOptions", "Id"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,17 +58,14 @@ class AwsSaasProductVersion(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in delivery_options (list)
         _items = []
         if self.delivery_options:
             for _item in self.delivery_options:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['DeliveryOptions'] = _items
+            _dict["DeliveryOptions"] = _items
         return _dict
 
     @classmethod
@@ -73,10 +77,15 @@ class AwsSaasProductVersion(BaseModel):
         if not isinstance(obj, dict):
             return AwsSaasProductVersion.parse_obj(obj)
 
-        _obj = AwsSaasProductVersion.parse_obj({
-            "delivery_options": [AwsSaasProductDeliveryOption.from_dict(_item) for _item in obj.get("DeliveryOptions")] if obj.get("DeliveryOptions") is not None else None,
-            "id": obj.get("Id")
-        })
+        _obj = AwsSaasProductVersion.parse_obj(
+            {
+                "delivery_options": [
+                    AwsSaasProductDeliveryOption.from_dict(_item)
+                    for _item in obj.get("DeliveryOptions")
+                ]
+                if obj.get("DeliveryOptions") is not None
+                else None,
+                "id": obj.get("Id"),
+            }
+        )
         return _obj
-
-

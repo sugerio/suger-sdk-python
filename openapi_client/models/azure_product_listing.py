@@ -25,19 +25,29 @@ from openapi_client.models.azure_listing_contact import AzureListingContact
 from openapi_client.models.azure_listing_uri import AzureListingUri
 from openapi_client.models.azure_product_listing_asset import AzureProductListingAsset
 
+
 class AzureProductListing(BaseModel):
     """
     AzureProductListing
     """
+
     access_information: Optional[StrictStr] = Field(None, alias="accessInformation")
-    assets: Optional[conlist(AzureProductListingAsset)] = Field(None, description="Not original fields. They are populated by other API calls")
-    compatible_products: Optional[conlist(StrictStr)] = Field(None, alias="compatibleProducts")
+    assets: Optional[conlist(AzureProductListingAsset)] = Field(
+        None, description="Not original fields. They are populated by other API calls"
+    )
+    compatible_products: Optional[conlist(StrictStr)] = Field(
+        None, alias="compatibleProducts"
+    )
     description: Optional[StrictStr] = None
-    getting_started_instructions: Optional[StrictStr] = Field(None, alias="gettingStartedInstructions")
+    getting_started_instructions: Optional[StrictStr] = Field(
+        None, alias="gettingStartedInstructions"
+    )
     id: Optional[StrictStr] = None
     keywords: Optional[conlist(StrictStr)] = None
     language_code: Optional[StrictStr] = Field(None, alias="languageCode")
-    listing_contacts: Optional[conlist(AzureListingContact)] = Field(None, alias="listingContacts")
+    listing_contacts: Optional[conlist(AzureListingContact)] = Field(
+        None, alias="listingContacts"
+    )
     listing_uris: Optional[conlist(AzureListingUri)] = Field(None, alias="listingUris")
     product_display_name: Optional[StrictStr] = Field(None, alias="productDisplayName")
     publisher_name: Optional[StrictStr] = Field(None, alias="publisherName")
@@ -45,20 +55,38 @@ class AzureProductListing(BaseModel):
     short_description: Optional[StrictStr] = Field(None, alias="shortDescription")
     summary: Optional[StrictStr] = None
     title: Optional[StrictStr] = None
-    __properties = ["accessInformation", "assets", "compatibleProducts", "description", "gettingStartedInstructions", "id", "keywords", "languageCode", "listingContacts", "listingUris", "productDisplayName", "publisherName", "resourceType", "shortDescription", "summary", "title"]
+    __properties = [
+        "accessInformation",
+        "assets",
+        "compatibleProducts",
+        "description",
+        "gettingStartedInstructions",
+        "id",
+        "keywords",
+        "languageCode",
+        "listingContacts",
+        "listingUris",
+        "productDisplayName",
+        "publisherName",
+        "resourceType",
+        "shortDescription",
+        "summary",
+        "title",
+    ]
 
-    @validator('resource_type')
+    @validator("resource_type")
     def resource_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('AzureListing'):
+        if value not in ("AzureListing"):
             raise ValueError("must be one of enum values ('AzureListing')")
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -77,31 +105,28 @@ class AzureProductListing(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in assets (list)
         _items = []
         if self.assets:
             for _item in self.assets:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['assets'] = _items
+            _dict["assets"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in listing_contacts (list)
         _items = []
         if self.listing_contacts:
             for _item in self.listing_contacts:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['listingContacts'] = _items
+            _dict["listingContacts"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in listing_uris (list)
         _items = []
         if self.listing_uris:
             for _item in self.listing_uris:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['listingUris'] = _items
+            _dict["listingUris"] = _items
         return _dict
 
     @classmethod
@@ -113,24 +138,38 @@ class AzureProductListing(BaseModel):
         if not isinstance(obj, dict):
             return AzureProductListing.parse_obj(obj)
 
-        _obj = AzureProductListing.parse_obj({
-            "access_information": obj.get("accessInformation"),
-            "assets": [AzureProductListingAsset.from_dict(_item) for _item in obj.get("assets")] if obj.get("assets") is not None else None,
-            "compatible_products": obj.get("compatibleProducts"),
-            "description": obj.get("description"),
-            "getting_started_instructions": obj.get("gettingStartedInstructions"),
-            "id": obj.get("id"),
-            "keywords": obj.get("keywords"),
-            "language_code": obj.get("languageCode"),
-            "listing_contacts": [AzureListingContact.from_dict(_item) for _item in obj.get("listingContacts")] if obj.get("listingContacts") is not None else None,
-            "listing_uris": [AzureListingUri.from_dict(_item) for _item in obj.get("listingUris")] if obj.get("listingUris") is not None else None,
-            "product_display_name": obj.get("productDisplayName"),
-            "publisher_name": obj.get("publisherName"),
-            "resource_type": obj.get("resourceType"),
-            "short_description": obj.get("shortDescription"),
-            "summary": obj.get("summary"),
-            "title": obj.get("title")
-        })
+        _obj = AzureProductListing.parse_obj(
+            {
+                "access_information": obj.get("accessInformation"),
+                "assets": [
+                    AzureProductListingAsset.from_dict(_item)
+                    for _item in obj.get("assets")
+                ]
+                if obj.get("assets") is not None
+                else None,
+                "compatible_products": obj.get("compatibleProducts"),
+                "description": obj.get("description"),
+                "getting_started_instructions": obj.get("gettingStartedInstructions"),
+                "id": obj.get("id"),
+                "keywords": obj.get("keywords"),
+                "language_code": obj.get("languageCode"),
+                "listing_contacts": [
+                    AzureListingContact.from_dict(_item)
+                    for _item in obj.get("listingContacts")
+                ]
+                if obj.get("listingContacts") is not None
+                else None,
+                "listing_uris": [
+                    AzureListingUri.from_dict(_item) for _item in obj.get("listingUris")
+                ]
+                if obj.get("listingUris") is not None
+                else None,
+                "product_display_name": obj.get("productDisplayName"),
+                "publisher_name": obj.get("publisherName"),
+                "resource_type": obj.get("resourceType"),
+                "short_description": obj.get("shortDescription"),
+                "summary": obj.get("summary"),
+                "title": obj.get("title"),
+            }
+        )
         return _obj
-
-

@@ -23,16 +23,21 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, conlist
 from openapi_client.models.metering_usage_record_group import MeteringUsageRecordGroup
 
+
 class ListUsageRecordGroupsResponse(BaseModel):
     """
     ListUsageRecordGroupsResponse
     """
+
     next_offset: Optional[StrictInt] = Field(None, alias="nextOffset")
-    usage_record_groups: Optional[conlist(MeteringUsageRecordGroup)] = Field(None, alias="usageRecordGroups")
+    usage_record_groups: Optional[conlist(MeteringUsageRecordGroup)] = Field(
+        None, alias="usageRecordGroups"
+    )
     __properties = ["nextOffset", "usageRecordGroups"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,17 +56,14 @@ class ListUsageRecordGroupsResponse(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in usage_record_groups (list)
         _items = []
         if self.usage_record_groups:
             for _item in self.usage_record_groups:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['usageRecordGroups'] = _items
+            _dict["usageRecordGroups"] = _items
         return _dict
 
     @classmethod
@@ -73,10 +75,15 @@ class ListUsageRecordGroupsResponse(BaseModel):
         if not isinstance(obj, dict):
             return ListUsageRecordGroupsResponse.parse_obj(obj)
 
-        _obj = ListUsageRecordGroupsResponse.parse_obj({
-            "next_offset": obj.get("nextOffset"),
-            "usage_record_groups": [MeteringUsageRecordGroup.from_dict(_item) for _item in obj.get("usageRecordGroups")] if obj.get("usageRecordGroups") is not None else None
-        })
+        _obj = ListUsageRecordGroupsResponse.parse_obj(
+            {
+                "next_offset": obj.get("nextOffset"),
+                "usage_record_groups": [
+                    MeteringUsageRecordGroup.from_dict(_item)
+                    for _item in obj.get("usageRecordGroups")
+                ]
+                if obj.get("usageRecordGroups") is not None
+                else None,
+            }
+        )
         return _obj
-
-

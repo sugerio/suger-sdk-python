@@ -22,22 +22,41 @@ import json
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictBool
 from openapi_client.models.gcp_marketplace_entitlement import GcpMarketplaceEntitlement
-from openapi_client.models.gcp_marketplace_existing_private_offer import GcpMarketplaceExistingPrivateOffer
-from openapi_client.models.gcp_marketplace_private_offer_price_model_type import GcpMarketplacePrivateOfferPriceModelType
+from openapi_client.models.gcp_marketplace_existing_private_offer import (
+    GcpMarketplaceExistingPrivateOffer,
+)
+from openapi_client.models.gcp_marketplace_private_offer_price_model_type import (
+    GcpMarketplacePrivateOfferPriceModelType,
+)
+
 
 class GcpMarketplaceExistingOfferData(BaseModel):
     """
     GcpMarketplaceExistingOfferData
     """
+
     entitlement: Optional[GcpMarketplaceEntitlement] = None
-    existing_price_model_type: Optional[GcpMarketplacePrivateOfferPriceModelType] = Field(None, alias="existingPriceModelType")
-    has_entitlement_changed: Optional[StrictBool] = Field(None, alias="hasEntitlementChanged")
-    private_offer: Optional[GcpMarketplaceExistingPrivateOffer] = Field(None, alias="privateOffer")
+    existing_price_model_type: Optional[
+        GcpMarketplacePrivateOfferPriceModelType
+    ] = Field(None, alias="existingPriceModelType")
+    has_entitlement_changed: Optional[StrictBool] = Field(
+        None, alias="hasEntitlementChanged"
+    )
+    private_offer: Optional[GcpMarketplaceExistingPrivateOffer] = Field(
+        None, alias="privateOffer"
+    )
     standard_offer: Optional[Dict[str, Any]] = Field(None, alias="standardOffer")
-    __properties = ["entitlement", "existingPriceModelType", "hasEntitlementChanged", "privateOffer", "standardOffer"]
+    __properties = [
+        "entitlement",
+        "existingPriceModelType",
+        "hasEntitlementChanged",
+        "privateOffer",
+        "standardOffer",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -56,16 +75,13 @@ class GcpMarketplaceExistingOfferData(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of entitlement
         if self.entitlement:
-            _dict['entitlement'] = self.entitlement.to_dict()
+            _dict["entitlement"] = self.entitlement.to_dict()
         # override the default output from pydantic by calling `to_dict()` of private_offer
         if self.private_offer:
-            _dict['privateOffer'] = self.private_offer.to_dict()
+            _dict["privateOffer"] = self.private_offer.to_dict()
         return _dict
 
     @classmethod
@@ -77,13 +93,21 @@ class GcpMarketplaceExistingOfferData(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceExistingOfferData.parse_obj(obj)
 
-        _obj = GcpMarketplaceExistingOfferData.parse_obj({
-            "entitlement": GcpMarketplaceEntitlement.from_dict(obj.get("entitlement")) if obj.get("entitlement") is not None else None,
-            "existing_price_model_type": obj.get("existingPriceModelType"),
-            "has_entitlement_changed": obj.get("hasEntitlementChanged"),
-            "private_offer": GcpMarketplaceExistingPrivateOffer.from_dict(obj.get("privateOffer")) if obj.get("privateOffer") is not None else None,
-            "standard_offer": obj.get("standardOffer")
-        })
+        _obj = GcpMarketplaceExistingOfferData.parse_obj(
+            {
+                "entitlement": GcpMarketplaceEntitlement.from_dict(
+                    obj.get("entitlement")
+                )
+                if obj.get("entitlement") is not None
+                else None,
+                "existing_price_model_type": obj.get("existingPriceModelType"),
+                "has_entitlement_changed": obj.get("hasEntitlementChanged"),
+                "private_offer": GcpMarketplaceExistingPrivateOffer.from_dict(
+                    obj.get("privateOffer")
+                )
+                if obj.get("privateOffer") is not None
+                else None,
+                "standard_offer": obj.get("standardOffer"),
+            }
+        )
         return _obj
-
-

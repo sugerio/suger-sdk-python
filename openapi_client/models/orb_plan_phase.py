@@ -26,10 +26,12 @@ from openapi_client.models.orb_price_discount import OrbPriceDiscount
 from openapi_client.models.orb_price_maximum import OrbPriceMaximum
 from openapi_client.models.orb_price_minimum import OrbPriceMinimum
 
+
 class OrbPlanPhase(BaseModel):
     """
     OrbPlanPhase
     """
+
     description: Optional[StrictStr] = None
     discount: Optional[OrbPriceDiscount] = None
     duration: Optional[StrictInt] = None
@@ -38,10 +40,20 @@ class OrbPlanPhase(BaseModel):
     minimum: Optional[OrbPriceMinimum] = None
     name: Optional[StrictStr] = None
     order: Optional[StrictInt] = None
-    __properties = ["description", "discount", "duration", "duration_unit", "maximum", "minimum", "name", "order"]
+    __properties = [
+        "description",
+        "discount",
+        "duration",
+        "duration_unit",
+        "maximum",
+        "minimum",
+        "name",
+        "order",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -60,19 +72,16 @@ class OrbPlanPhase(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of discount
         if self.discount:
-            _dict['discount'] = self.discount.to_dict()
+            _dict["discount"] = self.discount.to_dict()
         # override the default output from pydantic by calling `to_dict()` of maximum
         if self.maximum:
-            _dict['maximum'] = self.maximum.to_dict()
+            _dict["maximum"] = self.maximum.to_dict()
         # override the default output from pydantic by calling `to_dict()` of minimum
         if self.minimum:
-            _dict['minimum'] = self.minimum.to_dict()
+            _dict["minimum"] = self.minimum.to_dict()
         return _dict
 
     @classmethod
@@ -84,16 +93,22 @@ class OrbPlanPhase(BaseModel):
         if not isinstance(obj, dict):
             return OrbPlanPhase.parse_obj(obj)
 
-        _obj = OrbPlanPhase.parse_obj({
-            "description": obj.get("description"),
-            "discount": OrbPriceDiscount.from_dict(obj.get("discount")) if obj.get("discount") is not None else None,
-            "duration": obj.get("duration"),
-            "duration_unit": obj.get("duration_unit"),
-            "maximum": OrbPriceMaximum.from_dict(obj.get("maximum")) if obj.get("maximum") is not None else None,
-            "minimum": OrbPriceMinimum.from_dict(obj.get("minimum")) if obj.get("minimum") is not None else None,
-            "name": obj.get("name"),
-            "order": obj.get("order")
-        })
+        _obj = OrbPlanPhase.parse_obj(
+            {
+                "description": obj.get("description"),
+                "discount": OrbPriceDiscount.from_dict(obj.get("discount"))
+                if obj.get("discount") is not None
+                else None,
+                "duration": obj.get("duration"),
+                "duration_unit": obj.get("duration_unit"),
+                "maximum": OrbPriceMaximum.from_dict(obj.get("maximum"))
+                if obj.get("maximum") is not None
+                else None,
+                "minimum": OrbPriceMinimum.from_dict(obj.get("minimum"))
+                if obj.get("minimum") is not None
+                else None,
+                "name": obj.get("name"),
+                "order": obj.get("order"),
+            }
+        )
         return _obj
-
-

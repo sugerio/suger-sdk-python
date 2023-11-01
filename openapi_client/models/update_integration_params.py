@@ -19,16 +19,17 @@ import re  # noqa: F401
 import json
 
 
-
 from pydantic import BaseModel, Field, StrictStr
 from openapi_client.models.integration_info import IntegrationInfo
 from openapi_client.models.partner import Partner
 from openapi_client.models.partner_service import PartnerService
 
+
 class UpdateIntegrationParams(BaseModel):
     """
     UpdateIntegrationParams
     """
+
     info: IntegrationInfo = Field(...)
     organization_id: StrictStr = Field(..., alias="organizationID")
     partner: Partner = Field(...)
@@ -37,6 +38,7 @@ class UpdateIntegrationParams(BaseModel):
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -55,13 +57,10 @@ class UpdateIntegrationParams(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of info
         if self.info:
-            _dict['info'] = self.info.to_dict()
+            _dict["info"] = self.info.to_dict()
         return _dict
 
     @classmethod
@@ -73,12 +72,14 @@ class UpdateIntegrationParams(BaseModel):
         if not isinstance(obj, dict):
             return UpdateIntegrationParams.parse_obj(obj)
 
-        _obj = UpdateIntegrationParams.parse_obj({
-            "info": IntegrationInfo.from_dict(obj.get("info")) if obj.get("info") is not None else None,
-            "organization_id": obj.get("organizationID"),
-            "partner": obj.get("partner"),
-            "service": obj.get("service")
-        })
+        _obj = UpdateIntegrationParams.parse_obj(
+            {
+                "info": IntegrationInfo.from_dict(obj.get("info"))
+                if obj.get("info") is not None
+                else None,
+                "organization_id": obj.get("organizationID"),
+                "partner": obj.get("partner"),
+                "service": obj.get("service"),
+            }
+        )
         return _obj
-
-

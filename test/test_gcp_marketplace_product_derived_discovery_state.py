@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.gcp_marketplace_product_derived_discovery_state import GcpMarketplaceProductDerivedDiscoveryState  # noqa: E501
+from openapi_client.models.gcp_marketplace_product_derived_discovery_state import (
+    GcpMarketplaceProductDerivedDiscoveryState,
+)  # noqa: E501
+
 
 class TestGcpMarketplaceProductDerivedDiscoveryState(unittest.TestCase):
     """GcpMarketplaceProductDerivedDiscoveryState unit test stubs"""
@@ -27,11 +30,13 @@ class TestGcpMarketplaceProductDerivedDiscoveryState(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> GcpMarketplaceProductDerivedDiscoveryState:
+    def make_instance(
+        self, include_optional
+    ) -> GcpMarketplaceProductDerivedDiscoveryState:
         """Test GcpMarketplaceProductDerivedDiscoveryState
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `GcpMarketplaceProductDerivedDiscoveryState`
         """
         model = GcpMarketplaceProductDerivedDiscoveryState()  # noqa: E501
@@ -50,5 +55,6 @@ class TestGcpMarketplaceProductDerivedDiscoveryState(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

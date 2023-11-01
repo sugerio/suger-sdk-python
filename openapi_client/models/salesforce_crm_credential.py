@@ -22,20 +22,32 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr
 
+
 class SalesforceCrmCredential(BaseModel):
     """
     SalesforceCrmCredential
     """
+
     access_token: Optional[StrictStr] = None
-    client_id: Optional[StrictStr] = Field(None, description="NOTE(shiman) Debugging purpose only")
+    client_id: Optional[StrictStr] = Field(
+        None, description="NOTE(shiman) Debugging purpose only"
+    )
     client_secret: Optional[StrictStr] = None
     exp: Optional[StrictInt] = None
     instance_url: Optional[StrictStr] = None
     refresh_token: Optional[StrictStr] = None
-    __properties = ["access_token", "client_id", "client_secret", "exp", "instance_url", "refresh_token"]
+    __properties = [
+        "access_token",
+        "client_id",
+        "client_secret",
+        "exp",
+        "instance_url",
+        "refresh_token",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,10 +66,7 @@ class SalesforceCrmCredential(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -69,14 +78,14 @@ class SalesforceCrmCredential(BaseModel):
         if not isinstance(obj, dict):
             return SalesforceCrmCredential.parse_obj(obj)
 
-        _obj = SalesforceCrmCredential.parse_obj({
-            "access_token": obj.get("access_token"),
-            "client_id": obj.get("client_id"),
-            "client_secret": obj.get("client_secret"),
-            "exp": obj.get("exp"),
-            "instance_url": obj.get("instance_url"),
-            "refresh_token": obj.get("refresh_token")
-        })
+        _obj = SalesforceCrmCredential.parse_obj(
+            {
+                "access_token": obj.get("access_token"),
+                "client_id": obj.get("client_id"),
+                "client_secret": obj.get("client_secret"),
+                "exp": obj.get("exp"),
+                "instance_url": obj.get("instance_url"),
+                "refresh_token": obj.get("refresh_token"),
+            }
+        )
         return _obj
-
-

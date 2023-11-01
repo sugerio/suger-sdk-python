@@ -23,10 +23,12 @@ from typing import List, Optional
 from pydantic import BaseModel, StrictStr, conlist
 from openapi_client.models.orb_external_connection import OrbExternalConnection
 
+
 class OrbItem(BaseModel):
     """
     OrbItem
     """
+
     created_at: Optional[StrictStr] = None
     external_connections: Optional[conlist(OrbExternalConnection)] = None
     id: Optional[StrictStr] = None
@@ -35,6 +37,7 @@ class OrbItem(BaseModel):
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,17 +56,14 @@ class OrbItem(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in external_connections (list)
         _items = []
         if self.external_connections:
             for _item in self.external_connections:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['external_connections'] = _items
+            _dict["external_connections"] = _items
         return _dict
 
     @classmethod
@@ -75,12 +75,17 @@ class OrbItem(BaseModel):
         if not isinstance(obj, dict):
             return OrbItem.parse_obj(obj)
 
-        _obj = OrbItem.parse_obj({
-            "created_at": obj.get("created_at"),
-            "external_connections": [OrbExternalConnection.from_dict(_item) for _item in obj.get("external_connections")] if obj.get("external_connections") is not None else None,
-            "id": obj.get("id"),
-            "name": obj.get("name")
-        })
+        _obj = OrbItem.parse_obj(
+            {
+                "created_at": obj.get("created_at"),
+                "external_connections": [
+                    OrbExternalConnection.from_dict(_item)
+                    for _item in obj.get("external_connections")
+                ]
+                if obj.get("external_connections") is not None
+                else None,
+                "id": obj.get("id"),
+                "name": obj.get("name"),
+            }
+        )
         return _obj
-
-

@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class OrbPriceDiscountType(str, Enum):
     """
     OrbPriceDiscountType
@@ -30,14 +27,12 @@ class OrbPriceDiscountType(str, Enum):
     """
     allowed enum values
     """
-    PERCENTAGE = 'percentage'
-    TRIAL = 'trial'
-    USAGE = 'usage'
-    AMOUNT = 'amount'
+    PERCENTAGE = "percentage"
+    TRIAL = "trial"
+    USAGE = "usage"
+    AMOUNT = "amount"
 
     @classmethod
     def from_json(cls, json_str: str) -> OrbPriceDiscountType:
         """Create an instance of OrbPriceDiscountType from a JSON string"""
         return OrbPriceDiscountType(json.loads(json_str))
-
-

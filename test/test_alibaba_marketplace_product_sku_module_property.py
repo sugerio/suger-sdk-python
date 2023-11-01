@@ -14,9 +14,11 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.alibaba_marketplace_product_sku_module_property import AlibabaMarketplaceProductSkuModuleProperty  # noqa: E501
+from openapi_client.models.alibaba_marketplace_product_sku_module_property import (
+    AlibabaMarketplaceProductSkuModuleProperty,
+)  # noqa: E501
+
 
 class TestAlibabaMarketplaceProductSkuModuleProperty(unittest.TestCase):
     """AlibabaMarketplaceProductSkuModuleProperty unit test stubs"""
@@ -27,11 +29,13 @@ class TestAlibabaMarketplaceProductSkuModuleProperty(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AlibabaMarketplaceProductSkuModuleProperty:
+    def make_instance(
+        self, include_optional
+    ) -> AlibabaMarketplaceProductSkuModuleProperty:
         """Test AlibabaMarketplaceProductSkuModuleProperty
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `AlibabaMarketplaceProductSkuModuleProperty`
         """
         model = AlibabaMarketplaceProductSkuModuleProperty()  # noqa: E501
@@ -63,5 +67,6 @@ class TestAlibabaMarketplaceProductSkuModuleProperty(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

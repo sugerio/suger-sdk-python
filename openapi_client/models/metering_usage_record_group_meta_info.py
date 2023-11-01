@@ -23,17 +23,27 @@ from typing import Dict, Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt
 from openapi_client.models.usage_record_group_source import UsageRecordGroupSource
 
+
 class MeteringUsageRecordGroupMetaInfo(BaseModel):
     """
     MeteringUsageRecordGroupMetaInfo
     """
-    origin_records: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(None, alias="originRecords", description="The original records reported by the customer before convertion. If no dimension mapping is applied, this field is the same as the records field.")
+
+    origin_records: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(
+        None,
+        alias="originRecords",
+        description="The original records reported by the customer before convertion. If no dimension mapping is applied, this field is the same as the records field.",
+    )
     source: Optional[UsageRecordGroupSource] = None
-    timestamp: Optional[datetime] = Field(None, description="The timestamp (UTC)) of when the usage records were generated. Optional, if not provided, the current report timestamp will be used.")
+    timestamp: Optional[datetime] = Field(
+        None,
+        description="The timestamp (UTC)) of when the usage records were generated. Optional, if not provided, the current report timestamp will be used.",
+    )
     __properties = ["originRecords", "source", "timestamp"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,10 +62,7 @@ class MeteringUsageRecordGroupMetaInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -67,11 +74,11 @@ class MeteringUsageRecordGroupMetaInfo(BaseModel):
         if not isinstance(obj, dict):
             return MeteringUsageRecordGroupMetaInfo.parse_obj(obj)
 
-        _obj = MeteringUsageRecordGroupMetaInfo.parse_obj({
-            "origin_records": obj.get("originRecords"),
-            "source": obj.get("source"),
-            "timestamp": obj.get("timestamp")
-        })
+        _obj = MeteringUsageRecordGroupMetaInfo.parse_obj(
+            {
+                "origin_records": obj.get("originRecords"),
+                "source": obj.get("source"),
+                "timestamp": obj.get("timestamp"),
+            }
+        )
         return _obj
-
-

@@ -21,25 +21,45 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
-from openapi_client.models.azure_marketplace_price_and_availability_private_offer_price import AzureMarketplacePriceAndAvailabilityPrivateOfferPrice
-from openapi_client.models.azure_marketplace_validation import AzureMarketplaceValidation
+from openapi_client.models.azure_marketplace_price_and_availability_private_offer_price import (
+    AzureMarketplacePriceAndAvailabilityPrivateOfferPrice,
+)
+from openapi_client.models.azure_marketplace_validation import (
+    AzureMarketplaceValidation,
+)
+
 
 class AzureMarketplacePriceAndAvailabilityPrivateOfferPlan(BaseModel):
     """
     AzureMarketplacePriceAndAvailabilityPrivateOfferPlan
     """
+
     var_schema: Optional[StrictStr] = Field(None, alias="$schema")
     id: Optional[StrictStr] = None
     plan: Optional[StrictStr] = None
-    plan_name: Optional[StrictStr] = Field(None, alias="planName", description="The azure plan friendly name, from the Azure Marketplace.")
+    plan_name: Optional[StrictStr] = Field(
+        None,
+        alias="planName",
+        description="The azure plan friendly name, from the Azure Marketplace.",
+    )
     pricing: Optional[AzureMarketplacePriceAndAvailabilityPrivateOfferPrice] = None
     product: Optional[StrictStr] = None
     resource_name: Optional[StrictStr] = Field(None, alias="resourceName")
     validations: Optional[conlist(AzureMarketplaceValidation)] = None
-    __properties = ["$schema", "id", "plan", "planName", "pricing", "product", "resourceName", "validations"]
+    __properties = [
+        "$schema",
+        "id",
+        "plan",
+        "planName",
+        "pricing",
+        "product",
+        "resourceName",
+        "validations",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,30 +72,31 @@ class AzureMarketplacePriceAndAvailabilityPrivateOfferPlan(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> AzureMarketplacePriceAndAvailabilityPrivateOfferPlan:
+    def from_json(
+        cls, json_str: str
+    ) -> AzureMarketplacePriceAndAvailabilityPrivateOfferPlan:
         """Create an instance of AzureMarketplacePriceAndAvailabilityPrivateOfferPlan from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of pricing
         if self.pricing:
-            _dict['pricing'] = self.pricing.to_dict()
+            _dict["pricing"] = self.pricing.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in validations (list)
         _items = []
         if self.validations:
             for _item in self.validations:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['validations'] = _items
+            _dict["validations"] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> AzureMarketplacePriceAndAvailabilityPrivateOfferPlan:
+    def from_dict(
+        cls, obj: dict
+    ) -> AzureMarketplacePriceAndAvailabilityPrivateOfferPlan:
         """Create an instance of AzureMarketplacePriceAndAvailabilityPrivateOfferPlan from a dict"""
         if obj is None:
             return None
@@ -83,16 +104,25 @@ class AzureMarketplacePriceAndAvailabilityPrivateOfferPlan(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePriceAndAvailabilityPrivateOfferPlan.parse_obj(obj)
 
-        _obj = AzureMarketplacePriceAndAvailabilityPrivateOfferPlan.parse_obj({
-            "var_schema": obj.get("$schema"),
-            "id": obj.get("id"),
-            "plan": obj.get("plan"),
-            "plan_name": obj.get("planName"),
-            "pricing": AzureMarketplacePriceAndAvailabilityPrivateOfferPrice.from_dict(obj.get("pricing")) if obj.get("pricing") is not None else None,
-            "product": obj.get("product"),
-            "resource_name": obj.get("resourceName"),
-            "validations": [AzureMarketplaceValidation.from_dict(_item) for _item in obj.get("validations")] if obj.get("validations") is not None else None
-        })
+        _obj = AzureMarketplacePriceAndAvailabilityPrivateOfferPlan.parse_obj(
+            {
+                "var_schema": obj.get("$schema"),
+                "id": obj.get("id"),
+                "plan": obj.get("plan"),
+                "plan_name": obj.get("planName"),
+                "pricing": AzureMarketplacePriceAndAvailabilityPrivateOfferPrice.from_dict(
+                    obj.get("pricing")
+                )
+                if obj.get("pricing") is not None
+                else None,
+                "product": obj.get("product"),
+                "resource_name": obj.get("resourceName"),
+                "validations": [
+                    AzureMarketplaceValidation.from_dict(_item)
+                    for _item in obj.get("validations")
+                ]
+                if obj.get("validations") is not None
+                else None,
+            }
+        )
         return _obj
-
-

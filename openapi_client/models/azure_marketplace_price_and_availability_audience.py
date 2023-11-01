@@ -22,27 +22,32 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr, validator
 
+
 class AzureMarketplacePriceAndAvailabilityAudience(BaseModel):
     """
     AzureMarketplacePriceAndAvailabilityAudience
     """
+
     id: Optional[StrictStr] = None
     label: Optional[StrictStr] = None
     type: Optional[StrictStr] = None
     __properties = ["id", "label", "type"]
 
-    @validator('type')
+    @validator("type")
     def type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('none', 'subscription', 'tenant', 'ea', 'msdn'):
-            raise ValueError("must be one of enum values ('none', 'subscription', 'tenant', 'ea', 'msdn')")
+        if value not in ("none", "subscription", "tenant", "ea", "msdn"):
+            raise ValueError(
+                "must be one of enum values ('none', 'subscription', 'tenant', 'ea', 'msdn')"
+            )
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -61,10 +66,7 @@ class AzureMarketplacePriceAndAvailabilityAudience(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -76,11 +78,7 @@ class AzureMarketplacePriceAndAvailabilityAudience(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePriceAndAvailabilityAudience.parse_obj(obj)
 
-        _obj = AzureMarketplacePriceAndAvailabilityAudience.parse_obj({
-            "id": obj.get("id"),
-            "label": obj.get("label"),
-            "type": obj.get("type")
-        })
+        _obj = AzureMarketplacePriceAndAvailabilityAudience.parse_obj(
+            {"id": obj.get("id"), "label": obj.get("label"), "type": obj.get("type")}
+        )
         return _obj
-
-

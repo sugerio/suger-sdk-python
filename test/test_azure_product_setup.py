@@ -18,6 +18,7 @@ import datetime
 
 from openapi_client.models.azure_product_setup import AzureProductSetup  # noqa: E501
 
+
 class TestAzureProductSetup(unittest.TestCase):
     """AzureProductSetup unit test stubs"""
 
@@ -29,9 +30,9 @@ class TestAzureProductSetup(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureProductSetup:
         """Test AzureProductSetup
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `AzureProductSetup`
         """
         model = AzureProductSetup()  # noqa: E501
@@ -59,5 +60,6 @@ class TestAzureProductSetup(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

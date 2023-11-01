@@ -22,16 +22,21 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class AzureMarket(BaseModel):
     """
     AzureMarket
     """
+
     friendly_name: Optional[StrictStr] = Field(None, alias="friendlyName")
-    market_code: Optional[StrictStr] = Field(None, alias="marketCode", description="ISO Country Code")
+    market_code: Optional[StrictStr] = Field(
+        None, alias="marketCode", description="ISO Country Code"
+    )
     __properties = ["friendlyName", "marketCode"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,10 +55,7 @@ class AzureMarket(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +67,10 @@ class AzureMarket(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarket.parse_obj(obj)
 
-        _obj = AzureMarket.parse_obj({
-            "friendly_name": obj.get("friendlyName"),
-            "market_code": obj.get("marketCode")
-        })
+        _obj = AzureMarket.parse_obj(
+            {
+                "friendly_name": obj.get("friendlyName"),
+                "market_code": obj.get("marketCode"),
+            }
+        )
         return _obj
-
-

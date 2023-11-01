@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class MicrosoftPartnerReferralSubStatus(str, Enum):
     """
     MicrosoftPartnerReferralSubStatus
@@ -30,18 +27,16 @@ class MicrosoftPartnerReferralSubStatus(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    NONE = 'None'
-    PENDING = 'Pending'
-    RECEIVED = 'Received'
-    WON = 'Won'
-    LOST = 'Lost'
-    DECLINED = 'Declined'
-    EXPIRED = 'Expired'
+    EMPTY = ""
+    NONE = "None"
+    PENDING = "Pending"
+    RECEIVED = "Received"
+    WON = "Won"
+    LOST = "Lost"
+    DECLINED = "Declined"
+    EXPIRED = "Expired"
 
     @classmethod
     def from_json(cls, json_str: str) -> MicrosoftPartnerReferralSubStatus:
         """Create an instance of MicrosoftPartnerReferralSubStatus from a JSON string"""
         return MicrosoftPartnerReferralSubStatus(json.loads(json_str))
-
-

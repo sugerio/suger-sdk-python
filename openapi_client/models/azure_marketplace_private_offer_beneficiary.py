@@ -21,19 +21,28 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
-from openapi_client.models.azure_marketplace_private_offer_beneficiary_recipient import AzureMarketplacePrivateOfferBeneficiaryRecipient
+from openapi_client.models.azure_marketplace_private_offer_beneficiary_recipient import (
+    AzureMarketplacePrivateOfferBeneficiaryRecipient,
+)
+
 
 class AzureMarketplacePrivateOfferBeneficiary(BaseModel):
     """
     AzureMarketplacePrivateOfferBeneficiary
     """
-    beneficiary_recipients: Optional[conlist(AzureMarketplacePrivateOfferBeneficiaryRecipient)] = Field(None, alias="beneficiaryRecipients")
+
+    beneficiary_recipients: Optional[
+        conlist(AzureMarketplacePrivateOfferBeneficiaryRecipient)
+    ] = Field(None, alias="beneficiaryRecipients")
     description: Optional[StrictStr] = None
-    id: Optional[StrictStr] = Field(None, description="the customer billing account id.")
+    id: Optional[StrictStr] = Field(
+        None, description="the customer billing account id."
+    )
     __properties = ["beneficiaryRecipients", "description", "id"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,17 +61,14 @@ class AzureMarketplacePrivateOfferBeneficiary(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in beneficiary_recipients (list)
         _items = []
         if self.beneficiary_recipients:
             for _item in self.beneficiary_recipients:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['beneficiaryRecipients'] = _items
+            _dict["beneficiaryRecipients"] = _items
         return _dict
 
     @classmethod
@@ -74,11 +80,16 @@ class AzureMarketplacePrivateOfferBeneficiary(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePrivateOfferBeneficiary.parse_obj(obj)
 
-        _obj = AzureMarketplacePrivateOfferBeneficiary.parse_obj({
-            "beneficiary_recipients": [AzureMarketplacePrivateOfferBeneficiaryRecipient.from_dict(_item) for _item in obj.get("beneficiaryRecipients")] if obj.get("beneficiaryRecipients") is not None else None,
-            "description": obj.get("description"),
-            "id": obj.get("id")
-        })
+        _obj = AzureMarketplacePrivateOfferBeneficiary.parse_obj(
+            {
+                "beneficiary_recipients": [
+                    AzureMarketplacePrivateOfferBeneficiaryRecipient.from_dict(_item)
+                    for _item in obj.get("beneficiaryRecipients")
+                ]
+                if obj.get("beneficiaryRecipients") is not None
+                else None,
+                "description": obj.get("description"),
+                "id": obj.get("id"),
+            }
+        )
         return _obj
-
-

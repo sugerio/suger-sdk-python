@@ -24,10 +24,12 @@ from pydantic import BaseModel, Field, StrictStr
 from openapi_client.models.sql_operator import SqlOperator
 from openapi_client.models.sql_value_type import SqlValueType
 
+
 class SqlCondition(BaseModel):
     """
     SqlCondition
     """
+
     column: Optional[StrictStr] = Field(None, description="The column name.")
     operator: Optional[SqlOperator] = None
     value: Optional[Dict[str, Any]] = Field(None, description="The value.")
@@ -36,6 +38,7 @@ class SqlCondition(BaseModel):
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,10 +57,7 @@ class SqlCondition(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -69,12 +69,12 @@ class SqlCondition(BaseModel):
         if not isinstance(obj, dict):
             return SqlCondition.parse_obj(obj)
 
-        _obj = SqlCondition.parse_obj({
-            "column": obj.get("column"),
-            "operator": obj.get("operator"),
-            "value": obj.get("value"),
-            "value_type": obj.get("valueType")
-        })
+        _obj = SqlCondition.parse_obj(
+            {
+                "column": obj.get("column"),
+                "operator": obj.get("operator"),
+                "value": obj.get("value"),
+                "value_type": obj.get("valueType"),
+            }
+        )
         return _obj
-
-

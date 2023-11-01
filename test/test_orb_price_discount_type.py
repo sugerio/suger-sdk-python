@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.orb_price_discount_type import OrbPriceDiscountType  # noqa: E501
+from openapi_client.models.orb_price_discount_type import (
+    OrbPriceDiscountType,
+)  # noqa: E501
+
 
 class TestOrbPriceDiscountType(unittest.TestCase):
     """OrbPriceDiscountType unit test stubs"""
@@ -31,5 +34,6 @@ class TestOrbPriceDiscountType(unittest.TestCase):
         """Test OrbPriceDiscountType"""
         # inst = OrbPriceDiscountType()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

@@ -21,39 +21,83 @@ import json
 
 from typing import Any, Dict, Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
-from openapi_client.models.client_describe_order_response_body_instance_ids import ClientDescribeOrderResponseBodyInstanceIds
-from openapi_client.models.client_describe_order_response_body_supplier_telephones import ClientDescribeOrderResponseBodySupplierTelephones
+from openapi_client.models.client_describe_order_response_body_instance_ids import (
+    ClientDescribeOrderResponseBodyInstanceIds,
+)
+from openapi_client.models.client_describe_order_response_body_supplier_telephones import (
+    ClientDescribeOrderResponseBodySupplierTelephones,
+)
+
 
 class ClientDescribeOrderResponseBody(BaseModel):
     """
     ClientDescribeOrderResponseBody
     """
+
     account_quantity: Optional[StrictInt] = Field(None, alias="AccountQuantity")
     ali_uid: Optional[StrictInt] = Field(None, alias="AliUid")
     components: Optional[Dict[str, Any]] = Field(None, alias="Components")
-    coupon_price: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="CouponPrice")
+    coupon_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, alias="CouponPrice"
+    )
     created_on: Optional[StrictInt] = Field(None, alias="CreatedOn")
-    instance_ids: Optional[ClientDescribeOrderResponseBodyInstanceIds] = Field(None, alias="InstanceIds")
+    instance_ids: Optional[ClientDescribeOrderResponseBodyInstanceIds] = Field(
+        None, alias="InstanceIds"
+    )
     order_id: Optional[StrictInt] = Field(None, alias="OrderId")
     order_status: Optional[StrictStr] = Field(None, alias="OrderStatus")
     order_type: Optional[StrictStr] = Field(None, alias="OrderType")
-    original_price: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="OriginalPrice")
+    original_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, alias="OriginalPrice"
+    )
     paid_on: Optional[StrictInt] = Field(None, alias="PaidOn")
     pay_status: Optional[StrictStr] = Field(None, alias="PayStatus")
-    payment_price: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="PaymentPrice")
+    payment_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, alias="PaymentPrice"
+    )
     period_type: Optional[StrictStr] = Field(None, alias="PeriodType")
     product_code: Optional[StrictStr] = Field(None, alias="ProductCode")
     product_name: Optional[StrictStr] = Field(None, alias="ProductName")
     product_sku_code: Optional[StrictStr] = Field(None, alias="ProductSkuCode")
     quantity: Optional[StrictInt] = Field(None, alias="Quantity")
     request_id: Optional[StrictStr] = Field(None, alias="RequestId")
-    supplier_company_name: Optional[StrictStr] = Field(None, alias="SupplierCompanyName")
-    supplier_telephones: Optional[ClientDescribeOrderResponseBodySupplierTelephones] = Field(None, alias="SupplierTelephones")
-    total_price: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="TotalPrice")
-    __properties = ["AccountQuantity", "AliUid", "Components", "CouponPrice", "CreatedOn", "InstanceIds", "OrderId", "OrderStatus", "OrderType", "OriginalPrice", "PaidOn", "PayStatus", "PaymentPrice", "PeriodType", "ProductCode", "ProductName", "ProductSkuCode", "Quantity", "RequestId", "SupplierCompanyName", "SupplierTelephones", "TotalPrice"]
+    supplier_company_name: Optional[StrictStr] = Field(
+        None, alias="SupplierCompanyName"
+    )
+    supplier_telephones: Optional[
+        ClientDescribeOrderResponseBodySupplierTelephones
+    ] = Field(None, alias="SupplierTelephones")
+    total_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, alias="TotalPrice"
+    )
+    __properties = [
+        "AccountQuantity",
+        "AliUid",
+        "Components",
+        "CouponPrice",
+        "CreatedOn",
+        "InstanceIds",
+        "OrderId",
+        "OrderStatus",
+        "OrderType",
+        "OriginalPrice",
+        "PaidOn",
+        "PayStatus",
+        "PaymentPrice",
+        "PeriodType",
+        "ProductCode",
+        "ProductName",
+        "ProductSkuCode",
+        "Quantity",
+        "RequestId",
+        "SupplierCompanyName",
+        "SupplierTelephones",
+        "TotalPrice",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -72,16 +116,13 @@ class ClientDescribeOrderResponseBody(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of instance_ids
         if self.instance_ids:
-            _dict['InstanceIds'] = self.instance_ids.to_dict()
+            _dict["InstanceIds"] = self.instance_ids.to_dict()
         # override the default output from pydantic by calling `to_dict()` of supplier_telephones
         if self.supplier_telephones:
-            _dict['SupplierTelephones'] = self.supplier_telephones.to_dict()
+            _dict["SupplierTelephones"] = self.supplier_telephones.to_dict()
         return _dict
 
     @classmethod
@@ -93,30 +134,38 @@ class ClientDescribeOrderResponseBody(BaseModel):
         if not isinstance(obj, dict):
             return ClientDescribeOrderResponseBody.parse_obj(obj)
 
-        _obj = ClientDescribeOrderResponseBody.parse_obj({
-            "account_quantity": obj.get("AccountQuantity"),
-            "ali_uid": obj.get("AliUid"),
-            "components": obj.get("Components"),
-            "coupon_price": obj.get("CouponPrice"),
-            "created_on": obj.get("CreatedOn"),
-            "instance_ids": ClientDescribeOrderResponseBodyInstanceIds.from_dict(obj.get("InstanceIds")) if obj.get("InstanceIds") is not None else None,
-            "order_id": obj.get("OrderId"),
-            "order_status": obj.get("OrderStatus"),
-            "order_type": obj.get("OrderType"),
-            "original_price": obj.get("OriginalPrice"),
-            "paid_on": obj.get("PaidOn"),
-            "pay_status": obj.get("PayStatus"),
-            "payment_price": obj.get("PaymentPrice"),
-            "period_type": obj.get("PeriodType"),
-            "product_code": obj.get("ProductCode"),
-            "product_name": obj.get("ProductName"),
-            "product_sku_code": obj.get("ProductSkuCode"),
-            "quantity": obj.get("Quantity"),
-            "request_id": obj.get("RequestId"),
-            "supplier_company_name": obj.get("SupplierCompanyName"),
-            "supplier_telephones": ClientDescribeOrderResponseBodySupplierTelephones.from_dict(obj.get("SupplierTelephones")) if obj.get("SupplierTelephones") is not None else None,
-            "total_price": obj.get("TotalPrice")
-        })
+        _obj = ClientDescribeOrderResponseBody.parse_obj(
+            {
+                "account_quantity": obj.get("AccountQuantity"),
+                "ali_uid": obj.get("AliUid"),
+                "components": obj.get("Components"),
+                "coupon_price": obj.get("CouponPrice"),
+                "created_on": obj.get("CreatedOn"),
+                "instance_ids": ClientDescribeOrderResponseBodyInstanceIds.from_dict(
+                    obj.get("InstanceIds")
+                )
+                if obj.get("InstanceIds") is not None
+                else None,
+                "order_id": obj.get("OrderId"),
+                "order_status": obj.get("OrderStatus"),
+                "order_type": obj.get("OrderType"),
+                "original_price": obj.get("OriginalPrice"),
+                "paid_on": obj.get("PaidOn"),
+                "pay_status": obj.get("PayStatus"),
+                "payment_price": obj.get("PaymentPrice"),
+                "period_type": obj.get("PeriodType"),
+                "product_code": obj.get("ProductCode"),
+                "product_name": obj.get("ProductName"),
+                "product_sku_code": obj.get("ProductSkuCode"),
+                "quantity": obj.get("Quantity"),
+                "request_id": obj.get("RequestId"),
+                "supplier_company_name": obj.get("SupplierCompanyName"),
+                "supplier_telephones": ClientDescribeOrderResponseBodySupplierTelephones.from_dict(
+                    obj.get("SupplierTelephones")
+                )
+                if obj.get("SupplierTelephones") is not None
+                else None,
+                "total_price": obj.get("TotalPrice"),
+            }
+        )
         return _obj
-
-

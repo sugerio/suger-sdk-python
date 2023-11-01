@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.gcp_marketplace_payment_schedule_type import GcpMarketplacePaymentScheduleType  # noqa: E501
+from openapi_client.models.gcp_marketplace_payment_schedule_type import (
+    GcpMarketplacePaymentScheduleType,
+)  # noqa: E501
+
 
 class TestGcpMarketplacePaymentScheduleType(unittest.TestCase):
     """GcpMarketplacePaymentScheduleType unit test stubs"""
@@ -31,5 +34,6 @@ class TestGcpMarketplacePaymentScheduleType(unittest.TestCase):
         """Test GcpMarketplacePaymentScheduleType"""
         # inst = GcpMarketplacePaymentScheduleType()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

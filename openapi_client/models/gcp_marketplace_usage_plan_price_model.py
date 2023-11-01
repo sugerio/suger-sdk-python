@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class GcpMarketplaceUsagePlanPriceModel(str, Enum):
     """
     GcpMarketplaceUsagePlanPriceModel
@@ -30,14 +27,12 @@ class GcpMarketplaceUsagePlanPriceModel(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    CUD_LIST_PRICE = 'CUD_LIST_PRICE'
-    CUD_ALL_USAGE_DISCOUNTED = 'CUD_ALL_USAGE_DISCOUNTED'
-    USAGE_DISCOUNT_ONLY = 'USAGE_DISCOUNT_ONLY'
+    EMPTY = ""
+    CUD_LIST_PRICE = "CUD_LIST_PRICE"
+    CUD_ALL_USAGE_DISCOUNTED = "CUD_ALL_USAGE_DISCOUNTED"
+    USAGE_DISCOUNT_ONLY = "USAGE_DISCOUNT_ONLY"
 
     @classmethod
     def from_json(cls, json_str: str) -> GcpMarketplaceUsagePlanPriceModel:
         """Create an instance of GcpMarketplaceUsagePlanPriceModel from a JSON string"""
         return GcpMarketplaceUsagePlanPriceModel(json.loads(json_str))
-
-

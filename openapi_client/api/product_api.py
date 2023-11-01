@@ -31,10 +31,7 @@ from openapi_client.models.workload_product import WorkloadProduct
 
 from openapi_client.api_client import ApiClient
 from openapi_client.api_response import ApiResponse
-from openapi_client.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
-)
+from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
 
 
 class ProductApi:
@@ -50,7 +47,14 @@ class ProductApi:
         self.api_client = api_client
 
     @validate_arguments
-    def create_or_update_draft_product(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[WorkloadProduct, Field(..., description="the draft product to create")], **kwargs) -> WorkloadProduct:  # noqa: E501
+    def create_or_update_draft_product(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        data: Annotated[
+            WorkloadProduct, Field(..., description="the draft product to create")
+        ],
+        **kwargs
+    ) -> WorkloadProduct:  # noqa: E501
         """create or update draft product  # noqa: E501
 
         Create a new draft product or update the existing draft product. When updating draft product, the product.ID is required.  # noqa: E501
@@ -75,14 +79,23 @@ class ProductApi:
                  returns the request thread.
         :rtype: WorkloadProduct
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the create_or_update_draft_product_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.create_or_update_draft_product_with_http_info(org_id, data, **kwargs)  # noqa: E501
+        return self.create_or_update_draft_product_with_http_info(
+            org_id, data, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def create_or_update_draft_product_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[WorkloadProduct, Field(..., description="the draft product to create")], **kwargs) -> ApiResponse:  # noqa: E501
+    def create_or_update_draft_product_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        data: Annotated[
+            WorkloadProduct, Field(..., description="the draft product to create")
+        ],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """create or update draft product  # noqa: E501
 
         Create a new draft product or update the existing draft product. When updating draft product, the product.ID is required.  # noqa: E501
@@ -123,74 +136,73 @@ class ProductApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'data'
-        ]
+        _all_params = ["org_id", "data"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method create_or_update_draft_product" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
-
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['data'] is not None:
-            _body_params = _params['data']
+        if _params["data"] is not None:
+            _body_params = _params["data"]
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
+        _content_types_list = _params.get(
+            "_content_type",
+            self.api_client.select_header_content_type(["application/json"]),
+        )
         if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+            _header_params["Content-Type"] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "WorkloadProduct",
-            '400': "str",
-            '500': "str",
+            "200": "WorkloadProduct",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/draftProduct', 'POST',
+            "/org/{orgId}/draftProduct",
+            "POST",
             _path_params,
             _query_params,
             _header_params,
@@ -199,15 +211,23 @@ class ProductApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def create_product(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[WorkloadProduct, Field(..., description="the product to create")], **kwargs) -> WorkloadProduct:  # noqa: E501
+    def create_product(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        data: Annotated[
+            WorkloadProduct, Field(..., description="the product to create")
+        ],
+        **kwargs
+    ) -> WorkloadProduct:  # noqa: E501
         """create product  # noqa: E501
 
         create a new product in the marketplace  # noqa: E501
@@ -232,14 +252,21 @@ class ProductApi:
                  returns the request thread.
         :rtype: WorkloadProduct
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the create_product_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
         return self.create_product_with_http_info(org_id, data, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def create_product_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[WorkloadProduct, Field(..., description="the product to create")], **kwargs) -> ApiResponse:  # noqa: E501
+    def create_product_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        data: Annotated[
+            WorkloadProduct, Field(..., description="the product to create")
+        ],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """create product  # noqa: E501
 
         create a new product in the marketplace  # noqa: E501
@@ -280,74 +307,73 @@ class ProductApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'data'
-        ]
+        _all_params = ["org_id", "data"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method create_product" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
-
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['data'] is not None:
-            _body_params = _params['data']
+        if _params["data"] is not None:
+            _body_params = _params["data"]
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
+        _content_types_list = _params.get(
+            "_content_type",
+            self.api_client.select_header_content_type(["application/json"]),
+        )
         if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+            _header_params["Content-Type"] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "WorkloadProduct",
-            '400': "str",
-            '500': "str",
+            "200": "WorkloadProduct",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/product', 'POST',
+            "/org/{orgId}/product",
+            "POST",
             _path_params,
             _query_params,
             _header_params,
@@ -356,15 +382,21 @@ class ProductApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def delete_product(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="Product ID")], **kwargs) -> str:  # noqa: E501
+    def delete_product(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        product_id: Annotated[StrictStr, Field(..., description="Product ID")],
+        **kwargs
+    ) -> str:  # noqa: E501
         """delete product  # noqa: E501
 
         only the product with status \"CREATE_FAILED\" or \"DRAFT\" is allowed to be deleted.  # noqa: E501
@@ -389,14 +421,21 @@ class ProductApi:
                  returns the request thread.
         :rtype: str
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the delete_product_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.delete_product_with_http_info(org_id, product_id, **kwargs)  # noqa: E501
+        return self.delete_product_with_http_info(
+            org_id, product_id, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def delete_product_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="Product ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_product_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        product_id: Annotated[StrictStr, Field(..., description="Product ID")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """delete product  # noqa: E501
 
         only the product with status \"CREATE_FAILED\" or \"DRAFT\" is allowed to be deleted.  # noqa: E501
@@ -437,68 +476,66 @@ class ProductApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'product_id'
-        ]
+        _all_params = ["org_id", "product_id"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method delete_product" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['product_id']:
-            _path_params['productId'] = _params['product_id']
-
+        if _params["product_id"]:
+            _path_params["productId"] = _params["product_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "str",
-            '400': "str",
-            '404': "str",
-            '500': "str",
+            "200": "str",
+            "400": "str",
+            "404": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/product/{productId}', 'DELETE',
+            "/org/{orgId}/product/{productId}",
+            "DELETE",
             _path_params,
             _query_params,
             _header_params,
@@ -507,15 +544,21 @@ class ProductApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def get_product(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="Product ID")], **kwargs) -> WorkloadProduct:  # noqa: E501
+    def get_product(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        product_id: Annotated[StrictStr, Field(..., description="Product ID")],
+        **kwargs
+    ) -> WorkloadProduct:  # noqa: E501
         """get product  # noqa: E501
 
         get product by product id  # noqa: E501
@@ -540,14 +583,21 @@ class ProductApi:
                  returns the request thread.
         :rtype: WorkloadProduct
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the get_product_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.get_product_with_http_info(org_id, product_id, **kwargs)  # noqa: E501
+        return self.get_product_with_http_info(
+            org_id, product_id, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def get_product_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="Product ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_product_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        product_id: Annotated[StrictStr, Field(..., description="Product ID")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """get product  # noqa: E501
 
         get product by product id  # noqa: E501
@@ -588,68 +638,66 @@ class ProductApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'product_id'
-        ]
+        _all_params = ["org_id", "product_id"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_product" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['product_id']:
-            _path_params['productId'] = _params['product_id']
-
+        if _params["product_id"]:
+            _path_params["productId"] = _params["product_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "WorkloadProduct",
-            '400': "str",
-            '404': "str",
-            '500': "str",
+            "200": "WorkloadProduct",
+            "400": "str",
+            "404": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/product/{productId}', 'GET',
+            "/org/{orgId}/product/{productId}",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -658,15 +706,21 @@ class ProductApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def list_product_metering_dimensions(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="Product ID")], **kwargs) -> List[MeteringDimension]:  # noqa: E501
+    def list_product_metering_dimensions(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        product_id: Annotated[StrictStr, Field(..., description="Product ID")],
+        **kwargs
+    ) -> List[MeteringDimension]:  # noqa: E501
         """list metering dimensions of product  # noqa: E501
 
         list all metering dimensions of the given product  # noqa: E501
@@ -691,14 +745,21 @@ class ProductApi:
                  returns the request thread.
         :rtype: List[MeteringDimension]
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the list_product_metering_dimensions_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_product_metering_dimensions_with_http_info(org_id, product_id, **kwargs)  # noqa: E501
+        return self.list_product_metering_dimensions_with_http_info(
+            org_id, product_id, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def list_product_metering_dimensions_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="Product ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def list_product_metering_dimensions_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        product_id: Annotated[StrictStr, Field(..., description="Product ID")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """list metering dimensions of product  # noqa: E501
 
         list all metering dimensions of the given product  # noqa: E501
@@ -739,68 +800,66 @@ class ProductApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'product_id'
-        ]
+        _all_params = ["org_id", "product_id"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_product_metering_dimensions" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['product_id']:
-            _path_params['productId'] = _params['product_id']
-
+        if _params["product_id"]:
+            _path_params["productId"] = _params["product_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "List[MeteringDimension]",
-            '400': "str",
-            '404': "str",
-            '500': "str",
+            "200": "List[MeteringDimension]",
+            "400": "str",
+            "404": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/product/{productId}/dimension', 'GET',
+            "/org/{orgId}/product/{productId}/dimension",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -809,15 +868,20 @@ class ProductApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def list_products_by_organization(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> List[WorkloadProduct]:  # noqa: E501
+    def list_products_by_organization(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        **kwargs
+    ) -> List[WorkloadProduct]:  # noqa: E501
         """list products by organization  # noqa: E501
 
         list all products under the given organization  # noqa: E501
@@ -840,14 +904,20 @@ class ProductApi:
                  returns the request thread.
         :rtype: List[WorkloadProduct]
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the list_products_by_organization_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_products_by_organization_with_http_info(org_id, **kwargs)  # noqa: E501
+        return self.list_products_by_organization_with_http_info(
+            org_id, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def list_products_by_organization_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def list_products_by_organization_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """list products by organization  # noqa: E501
 
         list all products under the given organization  # noqa: E501
@@ -886,63 +956,62 @@ class ProductApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id'
-        ]
+        _all_params = ["org_id"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_products_by_organization" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
-
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "List[WorkloadProduct]",
-            '400': "str",
-            '500': "str",
+            "200": "List[WorkloadProduct]",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/product', 'GET',
+            "/org/{orgId}/product",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -951,15 +1020,21 @@ class ProductApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def list_products_by_partner(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], **kwargs) -> List[WorkloadProduct]:  # noqa: E501
+    def list_products_by_partner(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        **kwargs
+    ) -> List[WorkloadProduct]:  # noqa: E501
         """list products by partner  # noqa: E501
 
         list all products under the given organization and cloud partner  # noqa: E501
@@ -984,14 +1059,21 @@ class ProductApi:
                  returns the request thread.
         :rtype: List[WorkloadProduct]
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the list_products_by_partner_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_products_by_partner_with_http_info(org_id, partner, **kwargs)  # noqa: E501
+        return self.list_products_by_partner_with_http_info(
+            org_id, partner, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def list_products_by_partner_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], **kwargs) -> ApiResponse:  # noqa: E501
+    def list_products_by_partner_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """list products by partner  # noqa: E501
 
         list all products under the given organization and cloud partner  # noqa: E501
@@ -1032,67 +1114,65 @@ class ProductApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'partner'
-        ]
+        _all_params = ["org_id", "partner"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_products_by_partner" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['partner']:
-            _path_params['partner'] = _params['partner']
-
+        if _params["partner"]:
+            _path_params["partner"] = _params["partner"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "List[WorkloadProduct]",
-            '400': "str",
-            '500': "str",
+            "200": "List[WorkloadProduct]",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/partner/{partner}/product', 'GET',
+            "/org/{orgId}/partner/{partner}/product",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -1101,15 +1181,24 @@ class ProductApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def update_product(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="Product ID")], data : Annotated[UpdateProductParams, Field(..., description="Update Product Params")], **kwargs) -> WorkloadProduct:  # noqa: E501
+    def update_product(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        product_id: Annotated[StrictStr, Field(..., description="Product ID")],
+        data: Annotated[
+            UpdateProductParams, Field(..., description="Update Product Params")
+        ],
+        **kwargs
+    ) -> WorkloadProduct:  # noqa: E501
         """update product  # noqa: E501
 
         currently only the Fulfillment URL is allowed to update via this API.  # noqa: E501
@@ -1136,14 +1225,24 @@ class ProductApi:
                  returns the request thread.
         :rtype: WorkloadProduct
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the update_product_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.update_product_with_http_info(org_id, product_id, data, **kwargs)  # noqa: E501
+        return self.update_product_with_http_info(
+            org_id, product_id, data, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def update_product_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="Product ID")], data : Annotated[UpdateProductParams, Field(..., description="Update Product Params")], **kwargs) -> ApiResponse:  # noqa: E501
+    def update_product_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        product_id: Annotated[StrictStr, Field(..., description="Product ID")],
+        data: Annotated[
+            UpdateProductParams, Field(..., description="Update Product Params")
+        ],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """update product  # noqa: E501
 
         currently only the Fulfillment URL is allowed to update via this API.  # noqa: E501
@@ -1186,77 +1285,75 @@ class ProductApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'product_id',
-            'data'
-        ]
+        _all_params = ["org_id", "product_id", "data"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_product" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['product_id']:
-            _path_params['productId'] = _params['product_id']
-
+        if _params["product_id"]:
+            _path_params["productId"] = _params["product_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['data'] is not None:
-            _body_params = _params['data']
+        if _params["data"] is not None:
+            _body_params = _params["data"]
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
+        _content_types_list = _params.get(
+            "_content_type",
+            self.api_client.select_header_content_type(["application/json"]),
+        )
         if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+            _header_params["Content-Type"] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "WorkloadProduct",
-            '500': None,
+            "200": "WorkloadProduct",
+            "500": None,
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/product/{productId}', 'PATCH',
+            "/org/{orgId}/product/{productId}",
+            "PATCH",
             _path_params,
             _query_params,
             _header_params,
@@ -1265,15 +1362,24 @@ class ProductApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def update_product_meta_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="Product ID")], data : Annotated[WorkloadMetaInfo, Field(..., description="Product meta info to update")], **kwargs) -> WorkloadMetaInfo:  # noqa: E501
+    def update_product_meta_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        product_id: Annotated[StrictStr, Field(..., description="Product ID")],
+        data: Annotated[
+            WorkloadMetaInfo, Field(..., description="Product meta info to update")
+        ],
+        **kwargs
+    ) -> WorkloadMetaInfo:  # noqa: E501
         """update product meta info  # noqa: E501
 
         Update the meta info of the given product.  # noqa: E501
@@ -1300,14 +1406,24 @@ class ProductApi:
                  returns the request thread.
         :rtype: WorkloadMetaInfo
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the update_product_meta_info_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.update_product_meta_info_with_http_info(org_id, product_id, data, **kwargs)  # noqa: E501
+        return self.update_product_meta_info_with_http_info(
+            org_id, product_id, data, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def update_product_meta_info_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="Product ID")], data : Annotated[WorkloadMetaInfo, Field(..., description="Product meta info to update")], **kwargs) -> ApiResponse:  # noqa: E501
+    def update_product_meta_info_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        product_id: Annotated[StrictStr, Field(..., description="Product ID")],
+        data: Annotated[
+            WorkloadMetaInfo, Field(..., description="Product meta info to update")
+        ],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """update product meta info  # noqa: E501
 
         Update the meta info of the given product.  # noqa: E501
@@ -1350,78 +1466,76 @@ class ProductApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'product_id',
-            'data'
-        ]
+        _all_params = ["org_id", "product_id", "data"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_product_meta_info" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['product_id']:
-            _path_params['productId'] = _params['product_id']
-
+        if _params["product_id"]:
+            _path_params["productId"] = _params["product_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['data'] is not None:
-            _body_params = _params['data']
+        if _params["data"] is not None:
+            _body_params = _params["data"]
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
+        _content_types_list = _params.get(
+            "_content_type",
+            self.api_client.select_header_content_type(["application/json"]),
+        )
         if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+            _header_params["Content-Type"] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "WorkloadMetaInfo",
-            '400': "str",
-            '500': "str",
+            "200": "WorkloadMetaInfo",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/product/{productId}/metaInfo', 'PATCH',
+            "/org/{orgId}/product/{productId}/metaInfo",
+            "PATCH",
             _path_params,
             _query_params,
             _header_params,
@@ -1430,9 +1544,10 @@ class ProductApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )

@@ -22,16 +22,19 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class AlibabaMarketplaceProductSkuOrderPeriod(BaseModel):
     """
     AlibabaMarketplaceProductSkuOrderPeriod
     """
+
     name: Optional[StrictStr] = Field(None, alias="Name")
     period_type: Optional[StrictStr] = Field(None, alias="PeriodType")
     __properties = ["Name", "PeriodType"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,10 +53,7 @@ class AlibabaMarketplaceProductSkuOrderPeriod(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +65,7 @@ class AlibabaMarketplaceProductSkuOrderPeriod(BaseModel):
         if not isinstance(obj, dict):
             return AlibabaMarketplaceProductSkuOrderPeriod.parse_obj(obj)
 
-        _obj = AlibabaMarketplaceProductSkuOrderPeriod.parse_obj({
-            "name": obj.get("Name"),
-            "period_type": obj.get("PeriodType")
-        })
+        _obj = AlibabaMarketplaceProductSkuOrderPeriod.parse_obj(
+            {"name": obj.get("Name"), "period_type": obj.get("PeriodType")}
+        )
         return _obj
-
-

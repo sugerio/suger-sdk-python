@@ -23,15 +23,18 @@ from typing import List, Optional
 from pydantic import BaseModel, conlist
 from openapi_client.models.orb_price_tier import OrbPriceTier
 
+
 class OrbPriceModelConfigTIEREDBPS(BaseModel):
     """
     OrbPriceModelConfigTIEREDBPS
     """
+
     tiers: Optional[conlist(OrbPriceTier)] = None
     __properties = ["tiers"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,17 +53,14 @@ class OrbPriceModelConfigTIEREDBPS(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in tiers (list)
         _items = []
         if self.tiers:
             for _item in self.tiers:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['tiers'] = _items
+            _dict["tiers"] = _items
         return _dict
 
     @classmethod
@@ -72,9 +72,11 @@ class OrbPriceModelConfigTIEREDBPS(BaseModel):
         if not isinstance(obj, dict):
             return OrbPriceModelConfigTIEREDBPS.parse_obj(obj)
 
-        _obj = OrbPriceModelConfigTIEREDBPS.parse_obj({
-            "tiers": [OrbPriceTier.from_dict(_item) for _item in obj.get("tiers")] if obj.get("tiers") is not None else None
-        })
+        _obj = OrbPriceModelConfigTIEREDBPS.parse_obj(
+            {
+                "tiers": [OrbPriceTier.from_dict(_item) for _item in obj.get("tiers")]
+                if obj.get("tiers") is not None
+                else None
+            }
+        )
         return _obj
-
-

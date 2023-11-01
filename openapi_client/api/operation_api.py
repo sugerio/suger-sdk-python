@@ -28,10 +28,7 @@ from openapi_client.models.operation import Operation
 
 from openapi_client.api_client import ApiClient
 from openapi_client.api_response import ApiResponse
-from openapi_client.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
-)
+from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
 
 
 class OperationApi:
@@ -47,7 +44,23 @@ class OperationApi:
         self.api_client = api_client
 
     @validate_arguments
-    def list_operations(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[Optional[StrictStr], Field(description="filter by offerId")] = None, entitlement_id : Annotated[Optional[StrictStr], Field(description="filter by entitlementId")] = None, crm_opportunity_id : Annotated[Optional[StrictStr], Field(description="filter by crmOpportunityId")] = None, partner_opportunity_id : Annotated[Optional[StrictStr], Field(description="filter by partnerOpportunityId")] = None, **kwargs) -> List[Operation]:  # noqa: E501
+    def list_operations(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        offer_id: Annotated[
+            Optional[StrictStr], Field(description="filter by offerId")
+        ] = None,
+        entitlement_id: Annotated[
+            Optional[StrictStr], Field(description="filter by entitlementId")
+        ] = None,
+        crm_opportunity_id: Annotated[
+            Optional[StrictStr], Field(description="filter by crmOpportunityId")
+        ] = None,
+        partner_opportunity_id: Annotated[
+            Optional[StrictStr], Field(description="filter by partnerOpportunityId")
+        ] = None,
+        **kwargs
+    ) -> List[Operation]:  # noqa: E501
         """list operations  # noqa: E501
 
         List all long running operations under the given organization, offer, entitlement, crmOpportunity or partnerOpportunity. Only provide one filter on a request.  # noqa: E501
@@ -78,14 +91,37 @@ class OperationApi:
                  returns the request thread.
         :rtype: List[Operation]
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the list_operations_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_operations_with_http_info(org_id, offer_id, entitlement_id, crm_opportunity_id, partner_opportunity_id, **kwargs)  # noqa: E501
+        return self.list_operations_with_http_info(
+            org_id,
+            offer_id,
+            entitlement_id,
+            crm_opportunity_id,
+            partner_opportunity_id,
+            **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def list_operations_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[Optional[StrictStr], Field(description="filter by offerId")] = None, entitlement_id : Annotated[Optional[StrictStr], Field(description="filter by entitlementId")] = None, crm_opportunity_id : Annotated[Optional[StrictStr], Field(description="filter by crmOpportunityId")] = None, partner_opportunity_id : Annotated[Optional[StrictStr], Field(description="filter by partnerOpportunityId")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def list_operations_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        offer_id: Annotated[
+            Optional[StrictStr], Field(description="filter by offerId")
+        ] = None,
+        entitlement_id: Annotated[
+            Optional[StrictStr], Field(description="filter by entitlementId")
+        ] = None,
+        crm_opportunity_id: Annotated[
+            Optional[StrictStr], Field(description="filter by crmOpportunityId")
+        ] = None,
+        partner_opportunity_id: Annotated[
+            Optional[StrictStr], Field(description="filter by partnerOpportunityId")
+        ] = None,
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """list operations  # noqa: E501
 
         List all long running operations under the given organization, offer, entitlement, crmOpportunity or partnerOpportunity. Only provide one filter on a request.  # noqa: E501
@@ -133,77 +169,80 @@ class OperationApi:
         _params = locals()
 
         _all_params = [
-            'org_id',
-            'offer_id',
-            'entitlement_id',
-            'crm_opportunity_id',
-            'partner_opportunity_id'
+            "org_id",
+            "offer_id",
+            "entitlement_id",
+            "crm_opportunity_id",
+            "partner_opportunity_id",
         ]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_operations" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
-
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
         # process the query parameters
         _query_params = []
-        if _params.get('offer_id') is not None:  # noqa: E501
-            _query_params.append(('offerId', _params['offer_id']))
+        if _params.get("offer_id") is not None:  # noqa: E501
+            _query_params.append(("offerId", _params["offer_id"]))
 
-        if _params.get('entitlement_id') is not None:  # noqa: E501
-            _query_params.append(('entitlementId', _params['entitlement_id']))
+        if _params.get("entitlement_id") is not None:  # noqa: E501
+            _query_params.append(("entitlementId", _params["entitlement_id"]))
 
-        if _params.get('crm_opportunity_id') is not None:  # noqa: E501
-            _query_params.append(('crmOpportunityId', _params['crm_opportunity_id']))
+        if _params.get("crm_opportunity_id") is not None:  # noqa: E501
+            _query_params.append(("crmOpportunityId", _params["crm_opportunity_id"]))
 
-        if _params.get('partner_opportunity_id') is not None:  # noqa: E501
-            _query_params.append(('partnerOpportunityId', _params['partner_opportunity_id']))
+        if _params.get("partner_opportunity_id") is not None:  # noqa: E501
+            _query_params.append(
+                ("partnerOpportunityId", _params["partner_opportunity_id"])
+            )
 
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "List[Operation]",
-            '500': None,
+            "200": "List[Operation]",
+            "500": None,
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/operation', 'GET',
+            "/org/{orgId}/operation",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -212,9 +251,10 @@ class OperationApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )

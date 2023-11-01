@@ -20,16 +20,30 @@ import json
 
 from datetime import datetime
 from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist, validator
+from pydantic import (
+    BaseModel,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    conlist,
+    validator,
+)
 from openapi_client.models.azure_ad_identifier import AzureADIdentifier
-from openapi_client.models.azure_marketplace_subscription_status import AzureMarketplaceSubscriptionStatus
+from openapi_client.models.azure_marketplace_subscription_status import (
+    AzureMarketplaceSubscriptionStatus,
+)
 from openapi_client.models.azure_term import AzureTerm
+
 
 class AzureMarketplaceSubscription(BaseModel):
     """
     AzureMarketplaceSubscription
     """
-    allowed_customer_operations: Optional[conlist(StrictStr)] = Field(None, alias="allowedCustomerOperations")
+
+    allowed_customer_operations: Optional[conlist(StrictStr)] = Field(
+        None, alias="allowedCustomerOperations"
+    )
     auto_renew: Optional[StrictBool] = Field(None, alias="autoRenew")
     beneficiary: Optional[AzureADIdentifier] = None
     created: Optional[datetime] = None
@@ -44,47 +58,74 @@ class AzureMarketplaceSubscription(BaseModel):
     publisher_id: Optional[StrictStr] = Field(None, alias="publisherId")
     purchaser: Optional[AzureADIdentifier] = None
     quantity: Optional[StrictInt] = None
-    saas_subscription_status: Optional[AzureMarketplaceSubscriptionStatus] = Field(None, alias="saasSubscriptionStatus")
+    saas_subscription_status: Optional[AzureMarketplaceSubscriptionStatus] = Field(
+        None, alias="saasSubscriptionStatus"
+    )
     sandbox_type: Optional[StrictStr] = Field(None, alias="sandboxType")
     session_id: Optional[StrictStr] = Field(None, alias="sessionId")
     session_mode: Optional[StrictStr] = Field(None, alias="sessionMode")
     store_front: Optional[StrictStr] = Field(None, alias="storeFront")
     term: Optional[AzureTerm] = None
-    __properties = ["allowedCustomerOperations", "autoRenew", "beneficiary", "created", "fulfillmentId", "id", "isFreeTrial", "isTest", "lastModified", "name", "offerId", "planId", "publisherId", "purchaser", "quantity", "saasSubscriptionStatus", "sandboxType", "sessionId", "sessionMode", "storeFront", "term"]
+    __properties = [
+        "allowedCustomerOperations",
+        "autoRenew",
+        "beneficiary",
+        "created",
+        "fulfillmentId",
+        "id",
+        "isFreeTrial",
+        "isTest",
+        "lastModified",
+        "name",
+        "offerId",
+        "planId",
+        "publisherId",
+        "purchaser",
+        "quantity",
+        "saasSubscriptionStatus",
+        "sandboxType",
+        "sessionId",
+        "sessionMode",
+        "storeFront",
+        "term",
+    ]
 
-    @validator('allowed_customer_operations')
+    @validator("allowed_customer_operations")
     def allowed_customer_operations_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
         for i in value:
-            if i not in ('Read', 'Update', 'Delete'):
-                raise ValueError("each list item must be one of ('Read', 'Update', 'Delete')")
+            if i not in ("Read", "Update", "Delete"):
+                raise ValueError(
+                    "each list item must be one of ('Read', 'Update', 'Delete')"
+                )
         return value
 
-    @validator('sandbox_type')
+    @validator("sandbox_type")
     def sandbox_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('None', 'Csp'):
+        if value not in ("None", "Csp"):
             raise ValueError("must be one of enum values ('None', 'Csp')")
         return value
 
-    @validator('session_mode')
+    @validator("session_mode")
     def session_mode_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('None', 'DryRun'):
+        if value not in ("None", "DryRun"):
             raise ValueError("must be one of enum values ('None', 'DryRun')")
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -103,19 +144,16 @@ class AzureMarketplaceSubscription(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of beneficiary
         if self.beneficiary:
-            _dict['beneficiary'] = self.beneficiary.to_dict()
+            _dict["beneficiary"] = self.beneficiary.to_dict()
         # override the default output from pydantic by calling `to_dict()` of purchaser
         if self.purchaser:
-            _dict['purchaser'] = self.purchaser.to_dict()
+            _dict["purchaser"] = self.purchaser.to_dict()
         # override the default output from pydantic by calling `to_dict()` of term
         if self.term:
-            _dict['term'] = self.term.to_dict()
+            _dict["term"] = self.term.to_dict()
         return _dict
 
     @classmethod
@@ -127,29 +165,35 @@ class AzureMarketplaceSubscription(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceSubscription.parse_obj(obj)
 
-        _obj = AzureMarketplaceSubscription.parse_obj({
-            "allowed_customer_operations": obj.get("allowedCustomerOperations"),
-            "auto_renew": obj.get("autoRenew"),
-            "beneficiary": AzureADIdentifier.from_dict(obj.get("beneficiary")) if obj.get("beneficiary") is not None else None,
-            "created": obj.get("created"),
-            "fulfillment_id": obj.get("fulfillmentId"),
-            "id": obj.get("id"),
-            "is_free_trial": obj.get("isFreeTrial"),
-            "is_test": obj.get("isTest"),
-            "last_modified": obj.get("lastModified"),
-            "name": obj.get("name"),
-            "offer_id": obj.get("offerId"),
-            "plan_id": obj.get("planId"),
-            "publisher_id": obj.get("publisherId"),
-            "purchaser": AzureADIdentifier.from_dict(obj.get("purchaser")) if obj.get("purchaser") is not None else None,
-            "quantity": obj.get("quantity"),
-            "saas_subscription_status": obj.get("saasSubscriptionStatus"),
-            "sandbox_type": obj.get("sandboxType"),
-            "session_id": obj.get("sessionId"),
-            "session_mode": obj.get("sessionMode"),
-            "store_front": obj.get("storeFront"),
-            "term": AzureTerm.from_dict(obj.get("term")) if obj.get("term") is not None else None
-        })
+        _obj = AzureMarketplaceSubscription.parse_obj(
+            {
+                "allowed_customer_operations": obj.get("allowedCustomerOperations"),
+                "auto_renew": obj.get("autoRenew"),
+                "beneficiary": AzureADIdentifier.from_dict(obj.get("beneficiary"))
+                if obj.get("beneficiary") is not None
+                else None,
+                "created": obj.get("created"),
+                "fulfillment_id": obj.get("fulfillmentId"),
+                "id": obj.get("id"),
+                "is_free_trial": obj.get("isFreeTrial"),
+                "is_test": obj.get("isTest"),
+                "last_modified": obj.get("lastModified"),
+                "name": obj.get("name"),
+                "offer_id": obj.get("offerId"),
+                "plan_id": obj.get("planId"),
+                "publisher_id": obj.get("publisherId"),
+                "purchaser": AzureADIdentifier.from_dict(obj.get("purchaser"))
+                if obj.get("purchaser") is not None
+                else None,
+                "quantity": obj.get("quantity"),
+                "saas_subscription_status": obj.get("saasSubscriptionStatus"),
+                "sandbox_type": obj.get("sandboxType"),
+                "session_id": obj.get("sessionId"),
+                "session_mode": obj.get("sessionMode"),
+                "store_front": obj.get("storeFront"),
+                "term": AzureTerm.from_dict(obj.get("term"))
+                if obj.get("term") is not None
+                else None,
+            }
+        )
         return _obj
-
-

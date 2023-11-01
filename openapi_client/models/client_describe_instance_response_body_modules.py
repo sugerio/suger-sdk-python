@@ -21,17 +21,24 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, conlist
-from openapi_client.models.client_describe_instance_response_body_modules_module import ClientDescribeInstanceResponseBodyModulesModule
+from openapi_client.models.client_describe_instance_response_body_modules_module import (
+    ClientDescribeInstanceResponseBodyModulesModule,
+)
+
 
 class ClientDescribeInstanceResponseBodyModules(BaseModel):
     """
     ClientDescribeInstanceResponseBodyModules
     """
-    module: Optional[conlist(ClientDescribeInstanceResponseBodyModulesModule)] = Field(None, alias="Module")
+
+    module: Optional[conlist(ClientDescribeInstanceResponseBodyModulesModule)] = Field(
+        None, alias="Module"
+    )
     __properties = ["Module"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,17 +57,14 @@ class ClientDescribeInstanceResponseBodyModules(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in module (list)
         _items = []
         if self.module:
             for _item in self.module:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['Module'] = _items
+            _dict["Module"] = _items
         return _dict
 
     @classmethod
@@ -72,9 +76,14 @@ class ClientDescribeInstanceResponseBodyModules(BaseModel):
         if not isinstance(obj, dict):
             return ClientDescribeInstanceResponseBodyModules.parse_obj(obj)
 
-        _obj = ClientDescribeInstanceResponseBodyModules.parse_obj({
-            "module": [ClientDescribeInstanceResponseBodyModulesModule.from_dict(_item) for _item in obj.get("Module")] if obj.get("Module") is not None else None
-        })
+        _obj = ClientDescribeInstanceResponseBodyModules.parse_obj(
+            {
+                "module": [
+                    ClientDescribeInstanceResponseBodyModulesModule.from_dict(_item)
+                    for _item in obj.get("Module")
+                ]
+                if obj.get("Module") is not None
+                else None
+            }
+        )
         return _obj
-
-

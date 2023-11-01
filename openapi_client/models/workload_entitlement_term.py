@@ -26,17 +26,25 @@ from openapi_client.models.entitlement_term_info import EntitlementTermInfo
 from openapi_client.models.partner import Partner
 from openapi_client.models.partner_service import PartnerService
 
+
 class WorkloadEntitlementTerm(BaseModel):
     """
     WorkloadEntitlementTerm
     """
+
     buyer_id: Optional[StrictStr] = Field(None, alias="buyerID")
-    commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="commitAmount")
-    credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="creditAmount")
+    commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, alias="commitAmount"
+    )
+    credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, alias="creditAmount"
+    )
     end_time: Optional[datetime] = Field(None, alias="endTime", description="nullable")
     entitlement_id: Optional[StrictStr] = Field(None, alias="entitlementID")
     entitlement_info: Optional[EntitlementInfo] = Field(None, alias="entitlementInfo")
-    external_entitlement_id: Optional[StrictStr] = Field(None, alias="externalEntitlementID")
+    external_entitlement_id: Optional[StrictStr] = Field(
+        None, alias="externalEntitlementID"
+    )
     id: Optional[StrictStr] = None
     info: Optional[EntitlementTermInfo] = None
     offer_id: Optional[StrictStr] = Field(None, alias="offerID")
@@ -45,12 +53,35 @@ class WorkloadEntitlementTerm(BaseModel):
     product_id: Optional[StrictStr] = Field(None, alias="productID")
     service: Optional[PartnerService] = None
     start_time: Optional[datetime] = Field(None, alias="startTime")
-    used_commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="usedCommitAmount")
-    used_credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="usedCreditAmount")
-    __properties = ["buyerID", "commitAmount", "creditAmount", "endTime", "entitlementID", "entitlementInfo", "externalEntitlementID", "id", "info", "offerID", "organizationID", "partner", "productID", "service", "startTime", "usedCommitAmount", "usedCreditAmount"]
+    used_commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, alias="usedCommitAmount"
+    )
+    used_credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, alias="usedCreditAmount"
+    )
+    __properties = [
+        "buyerID",
+        "commitAmount",
+        "creditAmount",
+        "endTime",
+        "entitlementID",
+        "entitlementInfo",
+        "externalEntitlementID",
+        "id",
+        "info",
+        "offerID",
+        "organizationID",
+        "partner",
+        "productID",
+        "service",
+        "startTime",
+        "usedCommitAmount",
+        "usedCreditAmount",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -69,16 +100,13 @@ class WorkloadEntitlementTerm(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of entitlement_info
         if self.entitlement_info:
-            _dict['entitlementInfo'] = self.entitlement_info.to_dict()
+            _dict["entitlementInfo"] = self.entitlement_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of info
         if self.info:
-            _dict['info'] = self.info.to_dict()
+            _dict["info"] = self.info.to_dict()
         return _dict
 
     @classmethod
@@ -90,25 +118,31 @@ class WorkloadEntitlementTerm(BaseModel):
         if not isinstance(obj, dict):
             return WorkloadEntitlementTerm.parse_obj(obj)
 
-        _obj = WorkloadEntitlementTerm.parse_obj({
-            "buyer_id": obj.get("buyerID"),
-            "commit_amount": obj.get("commitAmount"),
-            "credit_amount": obj.get("creditAmount"),
-            "end_time": obj.get("endTime"),
-            "entitlement_id": obj.get("entitlementID"),
-            "entitlement_info": EntitlementInfo.from_dict(obj.get("entitlementInfo")) if obj.get("entitlementInfo") is not None else None,
-            "external_entitlement_id": obj.get("externalEntitlementID"),
-            "id": obj.get("id"),
-            "info": EntitlementTermInfo.from_dict(obj.get("info")) if obj.get("info") is not None else None,
-            "offer_id": obj.get("offerID"),
-            "organization_id": obj.get("organizationID"),
-            "partner": obj.get("partner"),
-            "product_id": obj.get("productID"),
-            "service": obj.get("service"),
-            "start_time": obj.get("startTime"),
-            "used_commit_amount": obj.get("usedCommitAmount"),
-            "used_credit_amount": obj.get("usedCreditAmount")
-        })
+        _obj = WorkloadEntitlementTerm.parse_obj(
+            {
+                "buyer_id": obj.get("buyerID"),
+                "commit_amount": obj.get("commitAmount"),
+                "credit_amount": obj.get("creditAmount"),
+                "end_time": obj.get("endTime"),
+                "entitlement_id": obj.get("entitlementID"),
+                "entitlement_info": EntitlementInfo.from_dict(
+                    obj.get("entitlementInfo")
+                )
+                if obj.get("entitlementInfo") is not None
+                else None,
+                "external_entitlement_id": obj.get("externalEntitlementID"),
+                "id": obj.get("id"),
+                "info": EntitlementTermInfo.from_dict(obj.get("info"))
+                if obj.get("info") is not None
+                else None,
+                "offer_id": obj.get("offerID"),
+                "organization_id": obj.get("organizationID"),
+                "partner": obj.get("partner"),
+                "product_id": obj.get("productID"),
+                "service": obj.get("service"),
+                "start_time": obj.get("startTime"),
+                "used_commit_amount": obj.get("usedCommitAmount"),
+                "used_credit_amount": obj.get("usedCreditAmount"),
+            }
+        )
         return _obj
-
-

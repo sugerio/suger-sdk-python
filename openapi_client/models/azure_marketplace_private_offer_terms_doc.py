@@ -22,17 +22,22 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class AzureMarketplacePrivateOfferTermsDoc(BaseModel):
     """
     AzureMarketplacePrivateOfferTermsDoc
     """
-    customer_facing_document_name: Optional[StrictStr] = Field(None, alias="customerFacingDocumentName")
+
+    customer_facing_document_name: Optional[StrictStr] = Field(
+        None, alias="customerFacingDocumentName"
+    )
     file_name: Optional[StrictStr] = Field(None, alias="fileName")
     sas_url: Optional[StrictStr] = Field(None, alias="sasUrl")
     __properties = ["customerFacingDocumentName", "fileName", "sasUrl"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,10 +56,7 @@ class AzureMarketplacePrivateOfferTermsDoc(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,11 +68,11 @@ class AzureMarketplacePrivateOfferTermsDoc(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePrivateOfferTermsDoc.parse_obj(obj)
 
-        _obj = AzureMarketplacePrivateOfferTermsDoc.parse_obj({
-            "customer_facing_document_name": obj.get("customerFacingDocumentName"),
-            "file_name": obj.get("fileName"),
-            "sas_url": obj.get("sasUrl")
-        })
+        _obj = AzureMarketplacePrivateOfferTermsDoc.parse_obj(
+            {
+                "customer_facing_document_name": obj.get("customerFacingDocumentName"),
+                "file_name": obj.get("fileName"),
+                "sas_url": obj.get("sasUrl"),
+            }
+        )
         return _obj
-
-

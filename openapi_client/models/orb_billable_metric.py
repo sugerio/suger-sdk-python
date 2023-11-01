@@ -23,10 +23,12 @@ from typing import Dict, Optional
 from pydantic import BaseModel, StrictStr
 from openapi_client.models.orb_billable_metric_status import OrbBillableMetricStatus
 
+
 class OrbBillableMetric(BaseModel):
     """
     OrbBillableMetric
     """
+
     description: Optional[StrictStr] = None
     id: Optional[StrictStr] = None
     metadata: Optional[Dict[str, StrictStr]] = None
@@ -36,6 +38,7 @@ class OrbBillableMetric(BaseModel):
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,10 +57,7 @@ class OrbBillableMetric(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -69,13 +69,13 @@ class OrbBillableMetric(BaseModel):
         if not isinstance(obj, dict):
             return OrbBillableMetric.parse_obj(obj)
 
-        _obj = OrbBillableMetric.parse_obj({
-            "description": obj.get("description"),
-            "id": obj.get("id"),
-            "metadata": obj.get("metadata"),
-            "name": obj.get("name"),
-            "status": obj.get("status")
-        })
+        _obj = OrbBillableMetric.parse_obj(
+            {
+                "description": obj.get("description"),
+                "id": obj.get("id"),
+                "metadata": obj.get("metadata"),
+                "name": obj.get("name"),
+                "status": obj.get("status"),
+            }
+        )
         return _obj
-
-

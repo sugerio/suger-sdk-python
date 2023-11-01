@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class OrbCadence(str, Enum):
     """
     OrbCadence
@@ -30,13 +27,11 @@ class OrbCadence(str, Enum):
     """
     allowed enum values
     """
-    MONTHLY = 'monthly'
-    ANNUAL = 'annual'
-    QUARTERLY = 'quarterly'
+    MONTHLY = "monthly"
+    ANNUAL = "annual"
+    QUARTERLY = "quarterly"
 
     @classmethod
     def from_json(cls, json_str: str) -> OrbCadence:
         """Create an instance of OrbCadence from a JSON string"""
         return OrbCadence(json.loads(json_str))
-
-

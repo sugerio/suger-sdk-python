@@ -21,34 +21,61 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr, validator
-from openapi_client.models.gcp_marketplace_product_external_account_spec import GcpMarketplaceProductExternalAccountSpec
-from openapi_client.models.gcp_marketplace_product_marketing_spec import GcpMarketplaceProductMarketingSpec
-from openapi_client.models.gcp_marketplace_product_purchase_spec import GcpMarketplaceProductPurchaseSpec
-from openapi_client.models.gcp_marketplace_product_terms_spec import GcpMarketplaceProductTermsSpec
+from openapi_client.models.gcp_marketplace_product_external_account_spec import (
+    GcpMarketplaceProductExternalAccountSpec,
+)
+from openapi_client.models.gcp_marketplace_product_marketing_spec import (
+    GcpMarketplaceProductMarketingSpec,
+)
+from openapi_client.models.gcp_marketplace_product_purchase_spec import (
+    GcpMarketplaceProductPurchaseSpec,
+)
+from openapi_client.models.gcp_marketplace_product_terms_spec import (
+    GcpMarketplaceProductTermsSpec,
+)
+
 
 class GcpMarketplaceProductListingSpec(BaseModel):
     """
     GcpMarketplaceProductListingSpec
     """
-    external_account_spec: Optional[GcpMarketplaceProductExternalAccountSpec] = Field(None, alias="externalAccountSpec")
-    listing_type: Optional[StrictStr] = Field(None, alias="listingType")
-    marketing_spec: Optional[GcpMarketplaceProductMarketingSpec] = Field(None, alias="marketingSpec")
-    purchase_spec: Optional[GcpMarketplaceProductPurchaseSpec] = Field(None, alias="purchaseSpec")
-    terms_spec: Optional[GcpMarketplaceProductTermsSpec] = Field(None, alias="termsSpec")
-    __properties = ["externalAccountSpec", "listingType", "marketingSpec", "purchaseSpec", "termsSpec"]
 
-    @validator('listing_type')
+    external_account_spec: Optional[GcpMarketplaceProductExternalAccountSpec] = Field(
+        None, alias="externalAccountSpec"
+    )
+    listing_type: Optional[StrictStr] = Field(None, alias="listingType")
+    marketing_spec: Optional[GcpMarketplaceProductMarketingSpec] = Field(
+        None, alias="marketingSpec"
+    )
+    purchase_spec: Optional[GcpMarketplaceProductPurchaseSpec] = Field(
+        None, alias="purchaseSpec"
+    )
+    terms_spec: Optional[GcpMarketplaceProductTermsSpec] = Field(
+        None, alias="termsSpec"
+    )
+    __properties = [
+        "externalAccountSpec",
+        "listingType",
+        "marketingSpec",
+        "purchaseSpec",
+        "termsSpec",
+    ]
+
+    @validator("listing_type")
     def listing_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('BillingIntegratedManagedService'):
-            raise ValueError("must be one of enum values ('BillingIntegratedManagedService')")
+        if value not in ("BillingIntegratedManagedService"):
+            raise ValueError(
+                "must be one of enum values ('BillingIntegratedManagedService')"
+            )
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -67,22 +94,19 @@ class GcpMarketplaceProductListingSpec(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of external_account_spec
         if self.external_account_spec:
-            _dict['externalAccountSpec'] = self.external_account_spec.to_dict()
+            _dict["externalAccountSpec"] = self.external_account_spec.to_dict()
         # override the default output from pydantic by calling `to_dict()` of marketing_spec
         if self.marketing_spec:
-            _dict['marketingSpec'] = self.marketing_spec.to_dict()
+            _dict["marketingSpec"] = self.marketing_spec.to_dict()
         # override the default output from pydantic by calling `to_dict()` of purchase_spec
         if self.purchase_spec:
-            _dict['purchaseSpec'] = self.purchase_spec.to_dict()
+            _dict["purchaseSpec"] = self.purchase_spec.to_dict()
         # override the default output from pydantic by calling `to_dict()` of terms_spec
         if self.terms_spec:
-            _dict['termsSpec'] = self.terms_spec.to_dict()
+            _dict["termsSpec"] = self.terms_spec.to_dict()
         return _dict
 
     @classmethod
@@ -94,13 +118,29 @@ class GcpMarketplaceProductListingSpec(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceProductListingSpec.parse_obj(obj)
 
-        _obj = GcpMarketplaceProductListingSpec.parse_obj({
-            "external_account_spec": GcpMarketplaceProductExternalAccountSpec.from_dict(obj.get("externalAccountSpec")) if obj.get("externalAccountSpec") is not None else None,
-            "listing_type": obj.get("listingType"),
-            "marketing_spec": GcpMarketplaceProductMarketingSpec.from_dict(obj.get("marketingSpec")) if obj.get("marketingSpec") is not None else None,
-            "purchase_spec": GcpMarketplaceProductPurchaseSpec.from_dict(obj.get("purchaseSpec")) if obj.get("purchaseSpec") is not None else None,
-            "terms_spec": GcpMarketplaceProductTermsSpec.from_dict(obj.get("termsSpec")) if obj.get("termsSpec") is not None else None
-        })
+        _obj = GcpMarketplaceProductListingSpec.parse_obj(
+            {
+                "external_account_spec": GcpMarketplaceProductExternalAccountSpec.from_dict(
+                    obj.get("externalAccountSpec")
+                )
+                if obj.get("externalAccountSpec") is not None
+                else None,
+                "listing_type": obj.get("listingType"),
+                "marketing_spec": GcpMarketplaceProductMarketingSpec.from_dict(
+                    obj.get("marketingSpec")
+                )
+                if obj.get("marketingSpec") is not None
+                else None,
+                "purchase_spec": GcpMarketplaceProductPurchaseSpec.from_dict(
+                    obj.get("purchaseSpec")
+                )
+                if obj.get("purchaseSpec") is not None
+                else None,
+                "terms_spec": GcpMarketplaceProductTermsSpec.from_dict(
+                    obj.get("termsSpec")
+                )
+                if obj.get("termsSpec") is not None
+                else None,
+            }
+        )
         return _obj
-
-

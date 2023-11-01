@@ -22,20 +22,40 @@ import json
 from typing import Dict, List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 
+
 class NotificationMessageInfo(BaseModel):
     """
     NotificationMessageInfo
     """
+
     cc_recipients: Optional[conlist(StrictStr)] = Field(None, alias="ccRecipients")
-    custom_fields: Optional[Dict[str, StrictStr]] = Field(None, alias="customFields", description="The custom fields to render the email content.")
-    html_content: Optional[StrictStr] = Field(None, alias="htmlContent", description="The HTML content of the email.")
+    custom_fields: Optional[Dict[str, StrictStr]] = Field(
+        None,
+        alias="customFields",
+        description="The custom fields to render the email content.",
+    )
+    html_content: Optional[StrictStr] = Field(
+        None, alias="htmlContent", description="The HTML content of the email."
+    )
     rcc_recipients: Optional[conlist(StrictStr)] = Field(None, alias="rccRecipients")
     subject: Optional[StrictStr] = None
-    text_content: Optional[StrictStr] = Field(None, alias="textContent", description="The text content of the email in case the recipient's email client does not support HTML.")
-    __properties = ["ccRecipients", "customFields", "htmlContent", "rccRecipients", "subject", "textContent"]
+    text_content: Optional[StrictStr] = Field(
+        None,
+        alias="textContent",
+        description="The text content of the email in case the recipient's email client does not support HTML.",
+    )
+    __properties = [
+        "ccRecipients",
+        "customFields",
+        "htmlContent",
+        "rccRecipients",
+        "subject",
+        "textContent",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,10 +74,7 @@ class NotificationMessageInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -69,14 +86,14 @@ class NotificationMessageInfo(BaseModel):
         if not isinstance(obj, dict):
             return NotificationMessageInfo.parse_obj(obj)
 
-        _obj = NotificationMessageInfo.parse_obj({
-            "cc_recipients": obj.get("ccRecipients"),
-            "custom_fields": obj.get("customFields"),
-            "html_content": obj.get("htmlContent"),
-            "rcc_recipients": obj.get("rccRecipients"),
-            "subject": obj.get("subject"),
-            "text_content": obj.get("textContent")
-        })
+        _obj = NotificationMessageInfo.parse_obj(
+            {
+                "cc_recipients": obj.get("ccRecipients"),
+                "custom_fields": obj.get("customFields"),
+                "html_content": obj.get("htmlContent"),
+                "rcc_recipients": obj.get("rccRecipients"),
+                "subject": obj.get("subject"),
+                "text_content": obj.get("textContent"),
+            }
+        )
         return _obj
-
-

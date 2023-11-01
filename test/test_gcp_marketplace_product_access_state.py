@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.gcp_marketplace_product_access_state import GcpMarketplaceProductAccessState  # noqa: E501
+from openapi_client.models.gcp_marketplace_product_access_state import (
+    GcpMarketplaceProductAccessState,
+)  # noqa: E501
+
 
 class TestGcpMarketplaceProductAccessState(unittest.TestCase):
     """GcpMarketplaceProductAccessState unit test stubs"""
@@ -31,5 +34,6 @@ class TestGcpMarketplaceProductAccessState(unittest.TestCase):
         """Test GcpMarketplaceProductAccessState"""
         # inst = GcpMarketplaceProductAccessState()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

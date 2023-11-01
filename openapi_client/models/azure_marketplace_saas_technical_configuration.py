@@ -21,25 +21,46 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
-from openapi_client.models.azure_marketplace_validation import AzureMarketplaceValidation
+from openapi_client.models.azure_marketplace_validation import (
+    AzureMarketplaceValidation,
+)
+
 
 class AzureMarketplaceSaasTechnicalConfiguration(BaseModel):
     """
     AzureMarketplaceSaasTechnicalConfiguration
     """
+
     var_schema: Optional[StrictStr] = Field(None, alias="$schema")
-    azure_ad_app_id: Optional[StrictStr] = Field(None, alias="azureAdAppId", description="Azure AD Application Id")
-    azure_ad_tenant_id: Optional[StrictStr] = Field(None, alias="azureAdTenantId", description="Azure AD Tenant Id")
+    azure_ad_app_id: Optional[StrictStr] = Field(
+        None, alias="azureAdAppId", description="Azure AD Application Id"
+    )
+    azure_ad_tenant_id: Optional[StrictStr] = Field(
+        None, alias="azureAdTenantId", description="Azure AD Tenant Id"
+    )
     connection_webhook: Optional[StrictStr] = Field(None, alias="connectionWebhook")
     id: Optional[StrictStr] = None
     landing_page_url: Optional[StrictStr] = Field(None, alias="landingPageUrl")
-    product: Optional[StrictStr] = Field(None, description="in format of \"product/product-durable-id\"")
+    product: Optional[StrictStr] = Field(
+        None, description='in format of "product/product-durable-id"'
+    )
     resource_name: Optional[StrictStr] = Field(None, alias="resourceName")
     validations: Optional[conlist(AzureMarketplaceValidation)] = None
-    __properties = ["$schema", "azureAdAppId", "azureAdTenantId", "connectionWebhook", "id", "landingPageUrl", "product", "resourceName", "validations"]
+    __properties = [
+        "$schema",
+        "azureAdAppId",
+        "azureAdTenantId",
+        "connectionWebhook",
+        "id",
+        "landingPageUrl",
+        "product",
+        "resourceName",
+        "validations",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -58,17 +79,14 @@ class AzureMarketplaceSaasTechnicalConfiguration(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in validations (list)
         _items = []
         if self.validations:
             for _item in self.validations:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['validations'] = _items
+            _dict["validations"] = _items
         return _dict
 
     @classmethod
@@ -80,17 +98,22 @@ class AzureMarketplaceSaasTechnicalConfiguration(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceSaasTechnicalConfiguration.parse_obj(obj)
 
-        _obj = AzureMarketplaceSaasTechnicalConfiguration.parse_obj({
-            "var_schema": obj.get("$schema"),
-            "azure_ad_app_id": obj.get("azureAdAppId"),
-            "azure_ad_tenant_id": obj.get("azureAdTenantId"),
-            "connection_webhook": obj.get("connectionWebhook"),
-            "id": obj.get("id"),
-            "landing_page_url": obj.get("landingPageUrl"),
-            "product": obj.get("product"),
-            "resource_name": obj.get("resourceName"),
-            "validations": [AzureMarketplaceValidation.from_dict(_item) for _item in obj.get("validations")] if obj.get("validations") is not None else None
-        })
+        _obj = AzureMarketplaceSaasTechnicalConfiguration.parse_obj(
+            {
+                "var_schema": obj.get("$schema"),
+                "azure_ad_app_id": obj.get("azureAdAppId"),
+                "azure_ad_tenant_id": obj.get("azureAdTenantId"),
+                "connection_webhook": obj.get("connectionWebhook"),
+                "id": obj.get("id"),
+                "landing_page_url": obj.get("landingPageUrl"),
+                "product": obj.get("product"),
+                "resource_name": obj.get("resourceName"),
+                "validations": [
+                    AzureMarketplaceValidation.from_dict(_item)
+                    for _item in obj.get("validations")
+                ]
+                if obj.get("validations") is not None
+                else None,
+            }
+        )
         return _obj
-
-

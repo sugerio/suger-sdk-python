@@ -16,9 +16,14 @@
 import unittest
 import datetime
 
-from openapi_client.models.client_describe_instance_response_body_modules_module_properties_property_property_values_property_value import ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue  # noqa: E501
+from openapi_client.models.client_describe_instance_response_body_modules_module_properties_property_property_values_property_value import (
+    ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue,
+)  # noqa: E501
 
-class TestClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue(unittest.TestCase):
+
+class TestClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue(
+    unittest.TestCase
+):
     """ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue unit test stubs"""
 
     def setUp(self):
@@ -27,11 +32,13 @@ class TestClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPrope
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue:
+    def make_instance(
+        self, include_optional
+    ) -> ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue:
         """Test ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue`
         """
         model = ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue()  # noqa: E501
@@ -50,10 +57,13 @@ class TestClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPrope
         )
         """
 
-    def testClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue(self):
+    def testClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue(
+        self,
+    ):
         """Test ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

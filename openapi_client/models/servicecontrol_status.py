@@ -22,17 +22,29 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist
 
+
 class ServicecontrolStatus(BaseModel):
     """
     ServicecontrolStatus
     """
-    code: Optional[StrictInt] = Field(None, description="Code: The status code, which should be an enum value of google.rpc.Code.")
-    details: Optional[conlist(conlist(StrictInt))] = Field(None, description="Details: A list of messages that carry the error details. There is a common set of message types for APIs to use.")
-    message: Optional[StrictStr] = Field(None, description="Message: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client.")
+
+    code: Optional[StrictInt] = Field(
+        None,
+        description="Code: The status code, which should be an enum value of google.rpc.Code.",
+    )
+    details: Optional[conlist(conlist(StrictInt))] = Field(
+        None,
+        description="Details: A list of messages that carry the error details. There is a common set of message types for APIs to use.",
+    )
+    message: Optional[StrictStr] = Field(
+        None,
+        description="Message: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client.",
+    )
     __properties = ["code", "details", "message"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,10 +63,7 @@ class ServicecontrolStatus(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,11 +75,11 @@ class ServicecontrolStatus(BaseModel):
         if not isinstance(obj, dict):
             return ServicecontrolStatus.parse_obj(obj)
 
-        _obj = ServicecontrolStatus.parse_obj({
-            "code": obj.get("code"),
-            "details": obj.get("details"),
-            "message": obj.get("message")
-        })
+        _obj = ServicecontrolStatus.parse_obj(
+            {
+                "code": obj.get("code"),
+                "details": obj.get("details"),
+                "message": obj.get("message"),
+            }
+        )
         return _obj
-
-

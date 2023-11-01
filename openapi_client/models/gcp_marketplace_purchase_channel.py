@@ -22,16 +22,19 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictBool
 
+
 class GcpMarketplacePurchaseChannel(BaseModel):
     """
     GcpMarketplacePurchaseChannel
     """
+
     marketplace: Optional[StrictBool] = None
     reseller: Optional[StrictBool] = None
     __properties = ["marketplace", "reseller"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,10 +53,7 @@ class GcpMarketplacePurchaseChannel(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +65,7 @@ class GcpMarketplacePurchaseChannel(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplacePurchaseChannel.parse_obj(obj)
 
-        _obj = GcpMarketplacePurchaseChannel.parse_obj({
-            "marketplace": obj.get("marketplace"),
-            "reseller": obj.get("reseller")
-        })
+        _obj = GcpMarketplacePurchaseChannel.parse_obj(
+            {"marketplace": obj.get("marketplace"), "reseller": obj.get("reseller")}
+        )
         return _obj
-
-

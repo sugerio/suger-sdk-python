@@ -22,18 +22,32 @@ from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class GcpMarketplacePrivateOfferReplacementMetadata(BaseModel):
     """
     GcpMarketplacePrivateOfferReplacementMetadata
     """
+
     coterm_alignment: Optional[StrictStr] = Field(None, alias="cotermAlignment")
-    replaced_offer: Optional[StrictStr] = Field(None, alias="replacedOffer", description="The resource name of the private offer being replaced. in format of \"projects/{projectNumber}/services/{productServiceName}/privateOffers/{privateOfferId}\"")
-    replaced_offer_end_time: Optional[datetime] = Field(None, alias="replacedOfferEndTime")
+    replaced_offer: Optional[StrictStr] = Field(
+        None,
+        alias="replacedOffer",
+        description='The resource name of the private offer being replaced. in format of "projects/{projectNumber}/services/{productServiceName}/privateOffers/{privateOfferId}"',
+    )
+    replaced_offer_end_time: Optional[datetime] = Field(
+        None, alias="replacedOfferEndTime"
+    )
     replacement_policy: Optional[StrictStr] = Field(None, alias="replacementPolicy")
-    __properties = ["cotermAlignment", "replacedOffer", "replacedOfferEndTime", "replacementPolicy"]
+    __properties = [
+        "cotermAlignment",
+        "replacedOffer",
+        "replacedOfferEndTime",
+        "replacementPolicy",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,10 +66,7 @@ class GcpMarketplacePrivateOfferReplacementMetadata(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -67,12 +78,12 @@ class GcpMarketplacePrivateOfferReplacementMetadata(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplacePrivateOfferReplacementMetadata.parse_obj(obj)
 
-        _obj = GcpMarketplacePrivateOfferReplacementMetadata.parse_obj({
-            "coterm_alignment": obj.get("cotermAlignment"),
-            "replaced_offer": obj.get("replacedOffer"),
-            "replaced_offer_end_time": obj.get("replacedOfferEndTime"),
-            "replacement_policy": obj.get("replacementPolicy")
-        })
+        _obj = GcpMarketplacePrivateOfferReplacementMetadata.parse_obj(
+            {
+                "coterm_alignment": obj.get("cotermAlignment"),
+                "replaced_offer": obj.get("replacedOffer"),
+                "replaced_offer_end_time": obj.get("replacedOfferEndTime"),
+                "replacement_policy": obj.get("replacementPolicy"),
+            }
+        )
         return _obj
-
-

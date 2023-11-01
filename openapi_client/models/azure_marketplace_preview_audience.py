@@ -22,27 +22,30 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr, validator
 
+
 class AzureMarketplacePreviewAudience(BaseModel):
     """
     AzureMarketplacePreviewAudience
     """
+
     description: Optional[StrictStr] = None
     resource_id: Optional[StrictStr] = Field(None, alias="resourceId")
     type: Optional[StrictStr] = None
     __properties = ["description", "resourceId", "type"]
 
-    @validator('type')
+    @validator("type")
     def type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('subscription'):
+        if value not in ("subscription"):
             raise ValueError("must be one of enum values ('subscription')")
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -61,10 +64,7 @@ class AzureMarketplacePreviewAudience(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -76,11 +76,11 @@ class AzureMarketplacePreviewAudience(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePreviewAudience.parse_obj(obj)
 
-        _obj = AzureMarketplacePreviewAudience.parse_obj({
-            "description": obj.get("description"),
-            "resource_id": obj.get("resourceId"),
-            "type": obj.get("type")
-        })
+        _obj = AzureMarketplacePreviewAudience.parse_obj(
+            {
+                "description": obj.get("description"),
+                "resource_id": obj.get("resourceId"),
+                "type": obj.get("type"),
+            }
+        )
         return _obj
-
-

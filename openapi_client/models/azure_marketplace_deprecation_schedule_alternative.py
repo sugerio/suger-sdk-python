@@ -22,16 +22,19 @@ import json
 from typing import Any, Dict, Optional
 from pydantic import BaseModel
 
+
 class AzureMarketplaceDeprecationScheduleAlternative(BaseModel):
     """
     AzureMarketplaceDeprecationScheduleAlternative
     """
+
     plan: Optional[Dict[str, Any]] = None
     product: Optional[Dict[str, Any]] = None
     __properties = ["plan", "product"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,10 +53,7 @@ class AzureMarketplaceDeprecationScheduleAlternative(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +65,7 @@ class AzureMarketplaceDeprecationScheduleAlternative(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceDeprecationScheduleAlternative.parse_obj(obj)
 
-        _obj = AzureMarketplaceDeprecationScheduleAlternative.parse_obj({
-            "plan": obj.get("plan"),
-            "product": obj.get("product")
-        })
+        _obj = AzureMarketplaceDeprecationScheduleAlternative.parse_obj(
+            {"plan": obj.get("plan"), "product": obj.get("product")}
+        )
         return _obj
-
-

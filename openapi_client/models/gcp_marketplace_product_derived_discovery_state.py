@@ -21,28 +21,37 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr, validator
-from openapi_client.models.gcp_marketplace_product_access_state import GcpMarketplaceProductAccessState
+from openapi_client.models.gcp_marketplace_product_access_state import (
+    GcpMarketplaceProductAccessState,
+)
+
 
 class GcpMarketplaceProductDerivedDiscoveryState(BaseModel):
     """
     GcpMarketplaceProductDerivedDiscoveryState
     """
-    access_state: Optional[GcpMarketplaceProductAccessState] = Field(None, alias="accessState")
+
+    access_state: Optional[GcpMarketplaceProductAccessState] = Field(
+        None, alias="accessState"
+    )
     search_state: Optional[StrictStr] = Field(None, alias="searchState")
     __properties = ["accessState", "searchState"]
 
-    @validator('search_state')
+    @validator("search_state")
     def search_state_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('ADMIN_OVERRIDE_UNSEARCHABLE', 'SEARCHABLE'):
-            raise ValueError("must be one of enum values ('ADMIN_OVERRIDE_UNSEARCHABLE', 'SEARCHABLE')")
+        if value not in ("ADMIN_OVERRIDE_UNSEARCHABLE", "SEARCHABLE"):
+            raise ValueError(
+                "must be one of enum values ('ADMIN_OVERRIDE_UNSEARCHABLE', 'SEARCHABLE')"
+            )
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -61,10 +70,7 @@ class GcpMarketplaceProductDerivedDiscoveryState(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -76,10 +82,10 @@ class GcpMarketplaceProductDerivedDiscoveryState(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceProductDerivedDiscoveryState.parse_obj(obj)
 
-        _obj = GcpMarketplaceProductDerivedDiscoveryState.parse_obj({
-            "access_state": obj.get("accessState"),
-            "search_state": obj.get("searchState")
-        })
+        _obj = GcpMarketplaceProductDerivedDiscoveryState.parse_obj(
+            {
+                "access_state": obj.get("accessState"),
+                "search_state": obj.get("searchState"),
+            }
+        )
         return _obj
-
-

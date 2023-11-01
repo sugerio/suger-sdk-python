@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class AzureMarketplaceResourceLifecycleState(str, Enum):
     """
     AzureMarketplaceResourceLifecycleState
@@ -30,18 +27,16 @@ class AzureMarketplaceResourceLifecycleState(str, Enum):
     """
     allowed enum values
     """
-    NOTAVAILABLE = 'notAvailable'
-    NEVERUSED = 'neverUsed'
-    TEST = 'test'
-    PREVIEW = 'preview'
-    GENERALLYAVAILABLE = 'generallyAvailable'
-    DEPRECATED = 'deprecated'
-    DECOMMISSIONED = 'decommissioned'
-    DELETED = 'deleted'
+    NOTAVAILABLE = "notAvailable"
+    NEVERUSED = "neverUsed"
+    TEST = "test"
+    PREVIEW = "preview"
+    GENERALLYAVAILABLE = "generallyAvailable"
+    DEPRECATED = "deprecated"
+    DECOMMISSIONED = "decommissioned"
+    DELETED = "deleted"
 
     @classmethod
     def from_json(cls, json_str: str) -> AzureMarketplaceResourceLifecycleState:
         """Create an instance of AzureMarketplaceResourceLifecycleState from a JSON string"""
         return AzureMarketplaceResourceLifecycleState(json.loads(json_str))
-
-

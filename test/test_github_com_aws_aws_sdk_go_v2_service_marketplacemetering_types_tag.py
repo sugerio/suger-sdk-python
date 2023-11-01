@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.github_com_aws_aws_sdk_go_v2_service_marketplacemetering_types_tag import GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag  # noqa: E501
+from openapi_client.models.github_com_aws_aws_sdk_go_v2_service_marketplacemetering_types_tag import (
+    GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag,
+)  # noqa: E501
+
 
 class TestGithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag(unittest.TestCase):
     """GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag unit test stubs"""
@@ -27,11 +30,13 @@ class TestGithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag(unittest.Test
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag:
+    def make_instance(
+        self, include_optional
+    ) -> GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag:
         """Test GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag`
         """
         model = GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag()  # noqa: E501
@@ -50,5 +55,6 @@ class TestGithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag(unittest.Test
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

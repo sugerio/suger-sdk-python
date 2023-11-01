@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class CommitDimensionTimeUnit(str, Enum):
     """
     CommitDimensionTimeUnit
@@ -30,13 +27,11 @@ class CommitDimensionTimeUnit(str, Enum):
     """
     allowed enum values
     """
-    DAY = 'DAY'
-    MONTH = 'MONTH'
-    YEAR = 'YEAR'
+    DAY = "DAY"
+    MONTH = "MONTH"
+    YEAR = "YEAR"
 
     @classmethod
     def from_json(cls, json_str: str) -> CommitDimensionTimeUnit:
         """Create an instance of CommitDimensionTimeUnit from a JSON string"""
         return CommitDimensionTimeUnit(json.loads(json_str))
-
-

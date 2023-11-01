@@ -22,15 +22,18 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class ClientPushMeteringDataRequest(BaseModel):
     """
     ClientPushMeteringDataRequest
     """
+
     metering: Optional[StrictStr] = Field(None, alias="Metering")
     __properties = ["Metering"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -49,10 +52,7 @@ class ClientPushMeteringDataRequest(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -64,9 +64,7 @@ class ClientPushMeteringDataRequest(BaseModel):
         if not isinstance(obj, dict):
             return ClientPushMeteringDataRequest.parse_obj(obj)
 
-        _obj = ClientPushMeteringDataRequest.parse_obj({
-            "metering": obj.get("Metering")
-        })
+        _obj = ClientPushMeteringDataRequest.parse_obj(
+            {"metering": obj.get("Metering")}
+        )
         return _obj
-
-

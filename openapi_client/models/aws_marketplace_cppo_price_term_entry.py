@@ -22,22 +22,42 @@ import json
 from typing import Dict, List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 
+
 class AwsMarketplaceCppoPriceTermEntry(BaseModel):
     """
     AwsMarketplaceCppoPriceTermEntry
     """
-    consumption_unit_column_names: Optional[conlist(StrictStr)] = Field(None, alias="consumptionUnitColumnNames")
+
+    consumption_unit_column_names: Optional[conlist(StrictStr)] = Field(
+        None, alias="consumptionUnitColumnNames"
+    )
     description: Optional[StrictStr] = None
-    display_name: Optional[StrictStr] = Field(None, alias="displayName", description="the dimension display name")
+    display_name: Optional[StrictStr] = Field(
+        None, alias="displayName", description="the dimension display name"
+    )
     is_custom_dimension: Optional[StrictBool] = Field(None, alias="isCustomDimension")
     is_deleted: Optional[StrictBool] = Field(None, alias="isDeleted")
     name: Optional[StrictStr] = Field(None, description="The dimension Key")
-    price_per_consumption_unit: Optional[Dict[str, StrictStr]] = Field(None, alias="pricePerConsumptionUnit", description="Key: the unit in ConsumptionUnitColumnName, Value: the unit price")
+    price_per_consumption_unit: Optional[Dict[str, StrictStr]] = Field(
+        None,
+        alias="pricePerConsumptionUnit",
+        description="Key: the unit in ConsumptionUnitColumnName, Value: the unit price",
+    )
     pricing_dimension: Optional[StrictStr] = Field(None, alias="pricingDimension")
-    __properties = ["consumptionUnitColumnNames", "description", "displayName", "isCustomDimension", "isDeleted", "name", "pricePerConsumptionUnit", "pricingDimension"]
+    __properties = [
+        "consumptionUnitColumnNames",
+        "description",
+        "displayName",
+        "isCustomDimension",
+        "isDeleted",
+        "name",
+        "pricePerConsumptionUnit",
+        "pricingDimension",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -56,10 +76,7 @@ class AwsMarketplaceCppoPriceTermEntry(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -71,16 +88,16 @@ class AwsMarketplaceCppoPriceTermEntry(BaseModel):
         if not isinstance(obj, dict):
             return AwsMarketplaceCppoPriceTermEntry.parse_obj(obj)
 
-        _obj = AwsMarketplaceCppoPriceTermEntry.parse_obj({
-            "consumption_unit_column_names": obj.get("consumptionUnitColumnNames"),
-            "description": obj.get("description"),
-            "display_name": obj.get("displayName"),
-            "is_custom_dimension": obj.get("isCustomDimension"),
-            "is_deleted": obj.get("isDeleted"),
-            "name": obj.get("name"),
-            "price_per_consumption_unit": obj.get("pricePerConsumptionUnit"),
-            "pricing_dimension": obj.get("pricingDimension")
-        })
+        _obj = AwsMarketplaceCppoPriceTermEntry.parse_obj(
+            {
+                "consumption_unit_column_names": obj.get("consumptionUnitColumnNames"),
+                "description": obj.get("description"),
+                "display_name": obj.get("displayName"),
+                "is_custom_dimension": obj.get("isCustomDimension"),
+                "is_deleted": obj.get("isDeleted"),
+                "name": obj.get("name"),
+                "price_per_consumption_unit": obj.get("pricePerConsumptionUnit"),
+                "pricing_dimension": obj.get("pricingDimension"),
+            }
+        )
         return _obj
-
-

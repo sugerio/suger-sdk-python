@@ -22,27 +22,59 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from openapi_client.models.gcp_marketplace_document import GcpMarketplaceDocument
-from openapi_client.models.gcp_marketplace_payment_schedule_type import GcpMarketplacePaymentScheduleType
-from openapi_client.models.gcp_marketplace_private_offer_installment_timeline import GcpMarketplacePrivateOfferInstallmentTimeline
-from openapi_client.models.gcp_marketplace_private_offer_price_model import GcpMarketplacePrivateOfferPriceModel
-from openapi_client.models.gcp_marketplace_private_offer_term import GcpMarketplacePrivateOfferTerm
+from openapi_client.models.gcp_marketplace_payment_schedule_type import (
+    GcpMarketplacePaymentScheduleType,
+)
+from openapi_client.models.gcp_marketplace_private_offer_installment_timeline import (
+    GcpMarketplacePrivateOfferInstallmentTimeline,
+)
+from openapi_client.models.gcp_marketplace_private_offer_price_model import (
+    GcpMarketplacePrivateOfferPriceModel,
+)
+from openapi_client.models.gcp_marketplace_private_offer_term import (
+    GcpMarketplacePrivateOfferTerm,
+)
+
 
 class GcpMarketplaceExistingPrivateOffer(BaseModel):
     """
     GcpMarketplaceExistingPrivateOffer
     """
+
     agreement: Optional[StrictStr] = None
     custom_eula: Optional[GcpMarketplaceDocument] = Field(None, alias="customEula")
-    installment_timeline: Optional[GcpMarketplacePrivateOfferInstallmentTimeline] = Field(None, alias="installmentTimeline")
-    name: Optional[StrictStr] = Field(None, description="GCP private offer resource name.")
-    offer_term: Optional[GcpMarketplacePrivateOfferTerm] = Field(None, alias="offerTerm")
-    payment_schedule: Optional[GcpMarketplacePaymentScheduleType] = Field(None, alias="paymentSchedule")
-    price_model: Optional[GcpMarketplacePrivateOfferPriceModel] = Field(None, alias="priceModel")
-    service_level: Optional[StrictStr] = Field(None, alias="serviceLevel", description="The Plan of the offer.")
-    __properties = ["agreement", "customEula", "installmentTimeline", "name", "offerTerm", "paymentSchedule", "priceModel", "serviceLevel"]
+    installment_timeline: Optional[
+        GcpMarketplacePrivateOfferInstallmentTimeline
+    ] = Field(None, alias="installmentTimeline")
+    name: Optional[StrictStr] = Field(
+        None, description="GCP private offer resource name."
+    )
+    offer_term: Optional[GcpMarketplacePrivateOfferTerm] = Field(
+        None, alias="offerTerm"
+    )
+    payment_schedule: Optional[GcpMarketplacePaymentScheduleType] = Field(
+        None, alias="paymentSchedule"
+    )
+    price_model: Optional[GcpMarketplacePrivateOfferPriceModel] = Field(
+        None, alias="priceModel"
+    )
+    service_level: Optional[StrictStr] = Field(
+        None, alias="serviceLevel", description="The Plan of the offer."
+    )
+    __properties = [
+        "agreement",
+        "customEula",
+        "installmentTimeline",
+        "name",
+        "offerTerm",
+        "paymentSchedule",
+        "priceModel",
+        "serviceLevel",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -61,22 +93,19 @@ class GcpMarketplaceExistingPrivateOffer(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of custom_eula
         if self.custom_eula:
-            _dict['customEula'] = self.custom_eula.to_dict()
+            _dict["customEula"] = self.custom_eula.to_dict()
         # override the default output from pydantic by calling `to_dict()` of installment_timeline
         if self.installment_timeline:
-            _dict['installmentTimeline'] = self.installment_timeline.to_dict()
+            _dict["installmentTimeline"] = self.installment_timeline.to_dict()
         # override the default output from pydantic by calling `to_dict()` of offer_term
         if self.offer_term:
-            _dict['offerTerm'] = self.offer_term.to_dict()
+            _dict["offerTerm"] = self.offer_term.to_dict()
         # override the default output from pydantic by calling `to_dict()` of price_model
         if self.price_model:
-            _dict['priceModel'] = self.price_model.to_dict()
+            _dict["priceModel"] = self.price_model.to_dict()
         return _dict
 
     @classmethod
@@ -88,16 +117,30 @@ class GcpMarketplaceExistingPrivateOffer(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceExistingPrivateOffer.parse_obj(obj)
 
-        _obj = GcpMarketplaceExistingPrivateOffer.parse_obj({
-            "agreement": obj.get("agreement"),
-            "custom_eula": GcpMarketplaceDocument.from_dict(obj.get("customEula")) if obj.get("customEula") is not None else None,
-            "installment_timeline": GcpMarketplacePrivateOfferInstallmentTimeline.from_dict(obj.get("installmentTimeline")) if obj.get("installmentTimeline") is not None else None,
-            "name": obj.get("name"),
-            "offer_term": GcpMarketplacePrivateOfferTerm.from_dict(obj.get("offerTerm")) if obj.get("offerTerm") is not None else None,
-            "payment_schedule": obj.get("paymentSchedule"),
-            "price_model": GcpMarketplacePrivateOfferPriceModel.from_dict(obj.get("priceModel")) if obj.get("priceModel") is not None else None,
-            "service_level": obj.get("serviceLevel")
-        })
+        _obj = GcpMarketplaceExistingPrivateOffer.parse_obj(
+            {
+                "agreement": obj.get("agreement"),
+                "custom_eula": GcpMarketplaceDocument.from_dict(obj.get("customEula"))
+                if obj.get("customEula") is not None
+                else None,
+                "installment_timeline": GcpMarketplacePrivateOfferInstallmentTimeline.from_dict(
+                    obj.get("installmentTimeline")
+                )
+                if obj.get("installmentTimeline") is not None
+                else None,
+                "name": obj.get("name"),
+                "offer_term": GcpMarketplacePrivateOfferTerm.from_dict(
+                    obj.get("offerTerm")
+                )
+                if obj.get("offerTerm") is not None
+                else None,
+                "payment_schedule": obj.get("paymentSchedule"),
+                "price_model": GcpMarketplacePrivateOfferPriceModel.from_dict(
+                    obj.get("priceModel")
+                )
+                if obj.get("priceModel") is not None
+                else None,
+                "service_level": obj.get("serviceLevel"),
+            }
+        )
         return _obj
-
-

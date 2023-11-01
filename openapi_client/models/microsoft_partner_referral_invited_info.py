@@ -22,16 +22,19 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class MicrosoftPartnerReferralInvitedInfo(BaseModel):
     """
     MicrosoftPartnerReferralInvitedInfo
     """
+
     organization_id: Optional[StrictStr] = Field(None, alias="organizationId")
     organization_name: Optional[StrictStr] = Field(None, alias="organizationName")
     __properties = ["organizationId", "organizationName"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,10 +53,7 @@ class MicrosoftPartnerReferralInvitedInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +65,10 @@ class MicrosoftPartnerReferralInvitedInfo(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralInvitedInfo.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralInvitedInfo.parse_obj({
-            "organization_id": obj.get("organizationId"),
-            "organization_name": obj.get("organizationName")
-        })
+        _obj = MicrosoftPartnerReferralInvitedInfo.parse_obj(
+            {
+                "organization_id": obj.get("organizationId"),
+                "organization_name": obj.get("organizationName"),
+            }
+        )
         return _obj
-
-

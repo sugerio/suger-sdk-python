@@ -24,18 +24,23 @@ from pydantic import BaseModel, Field, StrictFloat, StrictInt, conlist
 from openapi_client.models.azure_marketplace_price import AzureMarketplacePrice
 from openapi_client.models.azure_marketplace_term import AzureMarketplaceTerm
 
+
 class AzureMarketplacePriceAndAvailabilityRecurrentPriceItem(BaseModel):
     """
     AzureMarketplacePriceAndAvailabilityRecurrentPriceItem
     """
+
     billing_term: Optional[AzureMarketplaceTerm] = Field(None, alias="billingTerm")
     payment_option: Optional[AzureMarketplaceTerm] = Field(None, alias="paymentOption")
-    price_per_payment_in_usd: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="pricePerPaymentInUsd")
+    price_per_payment_in_usd: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, alias="pricePerPaymentInUsd"
+    )
     prices: Optional[conlist(AzureMarketplacePrice)] = None
     __properties = ["billingTerm", "paymentOption", "pricePerPaymentInUsd", "prices"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -48,33 +53,34 @@ class AzureMarketplacePriceAndAvailabilityRecurrentPriceItem(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> AzureMarketplacePriceAndAvailabilityRecurrentPriceItem:
+    def from_json(
+        cls, json_str: str
+    ) -> AzureMarketplacePriceAndAvailabilityRecurrentPriceItem:
         """Create an instance of AzureMarketplacePriceAndAvailabilityRecurrentPriceItem from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of billing_term
         if self.billing_term:
-            _dict['billingTerm'] = self.billing_term.to_dict()
+            _dict["billingTerm"] = self.billing_term.to_dict()
         # override the default output from pydantic by calling `to_dict()` of payment_option
         if self.payment_option:
-            _dict['paymentOption'] = self.payment_option.to_dict()
+            _dict["paymentOption"] = self.payment_option.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in prices (list)
         _items = []
         if self.prices:
             for _item in self.prices:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['prices'] = _items
+            _dict["prices"] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> AzureMarketplacePriceAndAvailabilityRecurrentPriceItem:
+    def from_dict(
+        cls, obj: dict
+    ) -> AzureMarketplacePriceAndAvailabilityRecurrentPriceItem:
         """Create an instance of AzureMarketplacePriceAndAvailabilityRecurrentPriceItem from a dict"""
         if obj is None:
             return None
@@ -82,12 +88,23 @@ class AzureMarketplacePriceAndAvailabilityRecurrentPriceItem(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePriceAndAvailabilityRecurrentPriceItem.parse_obj(obj)
 
-        _obj = AzureMarketplacePriceAndAvailabilityRecurrentPriceItem.parse_obj({
-            "billing_term": AzureMarketplaceTerm.from_dict(obj.get("billingTerm")) if obj.get("billingTerm") is not None else None,
-            "payment_option": AzureMarketplaceTerm.from_dict(obj.get("paymentOption")) if obj.get("paymentOption") is not None else None,
-            "price_per_payment_in_usd": obj.get("pricePerPaymentInUsd"),
-            "prices": [AzureMarketplacePrice.from_dict(_item) for _item in obj.get("prices")] if obj.get("prices") is not None else None
-        })
+        _obj = AzureMarketplacePriceAndAvailabilityRecurrentPriceItem.parse_obj(
+            {
+                "billing_term": AzureMarketplaceTerm.from_dict(obj.get("billingTerm"))
+                if obj.get("billingTerm") is not None
+                else None,
+                "payment_option": AzureMarketplaceTerm.from_dict(
+                    obj.get("paymentOption")
+                )
+                if obj.get("paymentOption") is not None
+                else None,
+                "price_per_payment_in_usd": obj.get("pricePerPaymentInUsd"),
+                "prices": [
+                    AzureMarketplacePrice.from_dict(_item)
+                    for _item in obj.get("prices")
+                ]
+                if obj.get("prices") is not None
+                else None,
+            }
+        )
         return _obj
-
-

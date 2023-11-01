@@ -24,10 +24,12 @@ from pydantic import BaseModel, Field, StrictStr
 from openapi_client.models.cosell_opp import CosellOpp
 from openapi_client.models.cosell_opp_meta import CosellOppMeta
 
+
 class CosellOppReferral(BaseModel):
     """
     CosellOppReferral
     """
+
     creation_time: Optional[StrictStr] = Field(None, alias="creationTime")
     destination: Optional[CosellOpp] = None
     destination_id: Optional[StrictStr] = Field(None, alias="destinationID")
@@ -39,10 +41,23 @@ class CosellOppReferral(BaseModel):
     source: Optional[CosellOpp] = None
     source_id: Optional[StrictStr] = Field(None, alias="sourceID")
     source_partner: Optional[StrictStr] = Field(None, alias="sourcePartner")
-    __properties = ["creationTime", "destination", "destinationID", "destinationPartner", "id", "lastUpdateTime", "meta_info", "organization_id", "source", "sourceID", "sourcePartner"]
+    __properties = [
+        "creationTime",
+        "destination",
+        "destinationID",
+        "destinationPartner",
+        "id",
+        "lastUpdateTime",
+        "meta_info",
+        "organization_id",
+        "source",
+        "sourceID",
+        "sourcePartner",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -61,19 +76,16 @@ class CosellOppReferral(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of destination
         if self.destination:
-            _dict['destination'] = self.destination.to_dict()
+            _dict["destination"] = self.destination.to_dict()
         # override the default output from pydantic by calling `to_dict()` of meta_info
         if self.meta_info:
-            _dict['meta_info'] = self.meta_info.to_dict()
+            _dict["meta_info"] = self.meta_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of source
         if self.source:
-            _dict['source'] = self.source.to_dict()
+            _dict["source"] = self.source.to_dict()
         return _dict
 
     @classmethod
@@ -85,19 +97,25 @@ class CosellOppReferral(BaseModel):
         if not isinstance(obj, dict):
             return CosellOppReferral.parse_obj(obj)
 
-        _obj = CosellOppReferral.parse_obj({
-            "creation_time": obj.get("creationTime"),
-            "destination": CosellOpp.from_dict(obj.get("destination")) if obj.get("destination") is not None else None,
-            "destination_id": obj.get("destinationID"),
-            "destination_partner": obj.get("destinationPartner"),
-            "id": obj.get("id"),
-            "last_update_time": obj.get("lastUpdateTime"),
-            "meta_info": CosellOppMeta.from_dict(obj.get("meta_info")) if obj.get("meta_info") is not None else None,
-            "organization_id": obj.get("organization_id"),
-            "source": CosellOpp.from_dict(obj.get("source")) if obj.get("source") is not None else None,
-            "source_id": obj.get("sourceID"),
-            "source_partner": obj.get("sourcePartner")
-        })
+        _obj = CosellOppReferral.parse_obj(
+            {
+                "creation_time": obj.get("creationTime"),
+                "destination": CosellOpp.from_dict(obj.get("destination"))
+                if obj.get("destination") is not None
+                else None,
+                "destination_id": obj.get("destinationID"),
+                "destination_partner": obj.get("destinationPartner"),
+                "id": obj.get("id"),
+                "last_update_time": obj.get("lastUpdateTime"),
+                "meta_info": CosellOppMeta.from_dict(obj.get("meta_info"))
+                if obj.get("meta_info") is not None
+                else None,
+                "organization_id": obj.get("organization_id"),
+                "source": CosellOpp.from_dict(obj.get("source"))
+                if obj.get("source") is not None
+                else None,
+                "source_id": obj.get("sourceID"),
+                "source_partner": obj.get("sourcePartner"),
+            }
+        )
         return _obj
-
-

@@ -23,19 +23,28 @@ from typing import Optional
 from pydantic import BaseModel, StrictBool, StrictStr
 from openapi_client.models.cosell_sync_record import CosellSyncRecord
 
+
 class CosellOppMeta(BaseModel):
     """
     CosellOppMeta
     """
+
     is_archived: Optional[StrictBool] = None
     is_draft: Optional[StrictBool] = None
     salesforce_referral_id: Optional[StrictStr] = None
     status: Optional[StrictStr] = None
     sync_record: Optional[CosellSyncRecord] = None
-    __properties = ["is_archived", "is_draft", "salesforce_referral_id", "status", "sync_record"]
+    __properties = [
+        "is_archived",
+        "is_draft",
+        "salesforce_referral_id",
+        "status",
+        "sync_record",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,13 +63,10 @@ class CosellOppMeta(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of sync_record
         if self.sync_record:
-            _dict['sync_record'] = self.sync_record.to_dict()
+            _dict["sync_record"] = self.sync_record.to_dict()
         return _dict
 
     @classmethod
@@ -72,13 +78,15 @@ class CosellOppMeta(BaseModel):
         if not isinstance(obj, dict):
             return CosellOppMeta.parse_obj(obj)
 
-        _obj = CosellOppMeta.parse_obj({
-            "is_archived": obj.get("is_archived"),
-            "is_draft": obj.get("is_draft"),
-            "salesforce_referral_id": obj.get("salesforce_referral_id"),
-            "status": obj.get("status"),
-            "sync_record": CosellSyncRecord.from_dict(obj.get("sync_record")) if obj.get("sync_record") is not None else None
-        })
+        _obj = CosellOppMeta.parse_obj(
+            {
+                "is_archived": obj.get("is_archived"),
+                "is_draft": obj.get("is_draft"),
+                "salesforce_referral_id": obj.get("salesforce_referral_id"),
+                "status": obj.get("status"),
+                "sync_record": CosellSyncRecord.from_dict(obj.get("sync_record"))
+                if obj.get("sync_record") is not None
+                else None,
+            }
+        )
         return _obj
-
-

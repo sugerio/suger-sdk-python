@@ -18,6 +18,7 @@ import datetime
 
 from openapi_client.models.revenue_report_type import RevenueReportType  # noqa: E501
 
+
 class TestRevenueReportType(unittest.TestCase):
     """RevenueReportType unit test stubs"""
 
@@ -31,5 +32,6 @@ class TestRevenueReportType(unittest.TestCase):
         """Test RevenueReportType"""
         # inst = RevenueReportType()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

@@ -21,17 +21,28 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, conlist
-from openapi_client.models.client_describe_instance_response_body_modules_module_properties_property_property_values_property_value import ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue
+from openapi_client.models.client_describe_instance_response_body_modules_module_properties_property_property_values_property_value import (
+    ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue,
+)
 
-class ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues(BaseModel):
+
+class ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues(
+    BaseModel
+):
     """
     ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues
     """
-    property_value: Optional[conlist(ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue)] = Field(None, alias="PropertyValue")
+
+    property_value: Optional[
+        conlist(
+            ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue
+        )
+    ] = Field(None, alias="PropertyValue")
     __properties = ["PropertyValue"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -44,37 +55,51 @@ class ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyV
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues:
+    def from_json(
+        cls, json_str: str
+    ) -> (
+        ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues
+    ):
         """Create an instance of ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in property_value (list)
         _items = []
         if self.property_value:
             for _item in self.property_value:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['PropertyValue'] = _items
+            _dict["PropertyValue"] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues:
+    def from_dict(
+        cls, obj: dict
+    ) -> (
+        ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues
+    ):
         """Create an instance of ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues.parse_obj(obj)
+            return ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues.parse_obj(
+                obj
+            )
 
-        _obj = ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues.parse_obj({
-            "property_value": [ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue.from_dict(_item) for _item in obj.get("PropertyValue")] if obj.get("PropertyValue") is not None else None
-        })
+        _obj = ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues.parse_obj(
+            {
+                "property_value": [
+                    ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue.from_dict(
+                        _item
+                    )
+                    for _item in obj.get("PropertyValue")
+                ]
+                if obj.get("PropertyValue") is not None
+                else None
+            }
+        )
         return _obj
-
-

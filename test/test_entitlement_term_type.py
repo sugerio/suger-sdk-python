@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.entitlement_term_type import EntitlementTermType  # noqa: E501
+from openapi_client.models.entitlement_term_type import (
+    EntitlementTermType,
+)  # noqa: E501
+
 
 class TestEntitlementTermType(unittest.TestCase):
     """EntitlementTermType unit test stubs"""
@@ -31,5 +34,6 @@ class TestEntitlementTermType(unittest.TestCase):
         """Test EntitlementTermType"""
         # inst = EntitlementTermType()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

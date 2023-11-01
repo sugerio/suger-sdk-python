@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.list_cosell_opp_referrals_response import ListCosellOppReferralsResponse  # noqa: E501
+from openapi_client.models.list_cosell_opp_referrals_response import (
+    ListCosellOppReferralsResponse,
+)  # noqa: E501
+
 
 class TestListCosellOppReferralsResponse(unittest.TestCase):
     """ListCosellOppReferralsResponse unit test stubs"""
@@ -29,9 +32,9 @@ class TestListCosellOppReferralsResponse(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ListCosellOppReferralsResponse:
         """Test ListCosellOppReferralsResponse
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `ListCosellOppReferralsResponse`
         """
         model = ListCosellOppReferralsResponse()  # noqa: E501
@@ -241,5 +244,6 @@ class TestListCosellOppReferralsResponse(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

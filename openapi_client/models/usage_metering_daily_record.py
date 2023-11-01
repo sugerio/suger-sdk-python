@@ -23,19 +23,24 @@ from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 from openapi_client.models.partner import Partner
 
+
 class UsageMeteringDailyRecord(BaseModel):
     """
     UsageMeteringDailyRecord
     """
+
     amount: Optional[Union[StrictFloat, StrictInt]] = None
     var_date: Optional[datetime] = Field(None, alias="date")
-    key: Optional[StrictStr] = Field(None, description="The dimension key of the usage metering.")
+    key: Optional[StrictStr] = Field(
+        None, description="The dimension key of the usage metering."
+    )
     partner: Optional[Partner] = None
     quantity: Optional[Union[StrictFloat, StrictInt]] = None
     __properties = ["amount", "date", "key", "partner", "quantity"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,10 +59,7 @@ class UsageMeteringDailyRecord(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -69,13 +71,13 @@ class UsageMeteringDailyRecord(BaseModel):
         if not isinstance(obj, dict):
             return UsageMeteringDailyRecord.parse_obj(obj)
 
-        _obj = UsageMeteringDailyRecord.parse_obj({
-            "amount": obj.get("amount"),
-            "var_date": obj.get("date"),
-            "key": obj.get("key"),
-            "partner": obj.get("partner"),
-            "quantity": obj.get("quantity")
-        })
+        _obj = UsageMeteringDailyRecord.parse_obj(
+            {
+                "amount": obj.get("amount"),
+                "var_date": obj.get("date"),
+                "key": obj.get("key"),
+                "partner": obj.get("partner"),
+                "quantity": obj.get("quantity"),
+            }
+        )
         return _obj
-
-

@@ -23,19 +23,40 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from openapi_client.models.gcp_price_tier import GcpPriceTier
 
+
 class GcpMarketplacePrivateOfferMetricDetail(BaseModel):
     """
     GcpMarketplacePrivateOfferMetricDetail
     """
-    display_name: Optional[StrictStr] = Field(None, alias="displayName", description="such as \"CPU\"")
-    parent_commerce_service: Optional[StrictStr] = Field(None, alias="parentCommerceService", description="in format of \"projects/{projectNumber}/services/service-name.endpoints.gcp-project-id.cloud.goog\"")
-    sku_id: Optional[StrictStr] = Field(None, alias="skuId", description="such as \"BC1B-6259-BF57\"")
-    tiers: Optional[conlist(GcpPriceTier)] = Field(None, description="Price tiers for this metric.")
-    unit_description: Optional[StrictStr] = Field(None, alias="unitDescription", description="such as \"minute\"")
-    __properties = ["displayName", "parentCommerceService", "skuId", "tiers", "unitDescription"]
+
+    display_name: Optional[StrictStr] = Field(
+        None, alias="displayName", description='such as "CPU"'
+    )
+    parent_commerce_service: Optional[StrictStr] = Field(
+        None,
+        alias="parentCommerceService",
+        description='in format of "projects/{projectNumber}/services/service-name.endpoints.gcp-project-id.cloud.goog"',
+    )
+    sku_id: Optional[StrictStr] = Field(
+        None, alias="skuId", description='such as "BC1B-6259-BF57"'
+    )
+    tiers: Optional[conlist(GcpPriceTier)] = Field(
+        None, description="Price tiers for this metric."
+    )
+    unit_description: Optional[StrictStr] = Field(
+        None, alias="unitDescription", description='such as "minute"'
+    )
+    __properties = [
+        "displayName",
+        "parentCommerceService",
+        "skuId",
+        "tiers",
+        "unitDescription",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,17 +75,14 @@ class GcpMarketplacePrivateOfferMetricDetail(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in tiers (list)
         _items = []
         if self.tiers:
             for _item in self.tiers:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['tiers'] = _items
+            _dict["tiers"] = _items
         return _dict
 
     @classmethod
@@ -76,13 +94,15 @@ class GcpMarketplacePrivateOfferMetricDetail(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplacePrivateOfferMetricDetail.parse_obj(obj)
 
-        _obj = GcpMarketplacePrivateOfferMetricDetail.parse_obj({
-            "display_name": obj.get("displayName"),
-            "parent_commerce_service": obj.get("parentCommerceService"),
-            "sku_id": obj.get("skuId"),
-            "tiers": [GcpPriceTier.from_dict(_item) for _item in obj.get("tiers")] if obj.get("tiers") is not None else None,
-            "unit_description": obj.get("unitDescription")
-        })
+        _obj = GcpMarketplacePrivateOfferMetricDetail.parse_obj(
+            {
+                "display_name": obj.get("displayName"),
+                "parent_commerce_service": obj.get("parentCommerceService"),
+                "sku_id": obj.get("skuId"),
+                "tiers": [GcpPriceTier.from_dict(_item) for _item in obj.get("tiers")]
+                if obj.get("tiers") is not None
+                else None,
+                "unit_description": obj.get("unitDescription"),
+            }
+        )
         return _obj
-
-

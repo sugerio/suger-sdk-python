@@ -22,10 +22,12 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
+
 class HubspotSyncFilter(BaseModel):
     """
     HubspotSyncFilter
     """
+
     operator: Optional[StrictStr] = None
     property_name: Optional[StrictStr] = Field(None, alias="propertyName")
     value: Optional[StrictStr] = None
@@ -33,6 +35,7 @@ class HubspotSyncFilter(BaseModel):
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,10 +54,7 @@ class HubspotSyncFilter(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,11 +66,11 @@ class HubspotSyncFilter(BaseModel):
         if not isinstance(obj, dict):
             return HubspotSyncFilter.parse_obj(obj)
 
-        _obj = HubspotSyncFilter.parse_obj({
-            "operator": obj.get("operator"),
-            "property_name": obj.get("propertyName"),
-            "value": obj.get("value")
-        })
+        _obj = HubspotSyncFilter.parse_obj(
+            {
+                "operator": obj.get("operator"),
+                "property_name": obj.get("propertyName"),
+                "value": obj.get("value"),
+            }
+        )
         return _obj
-
-

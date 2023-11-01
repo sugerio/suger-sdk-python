@@ -22,10 +22,12 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr, validator
 
+
 class AzureMarketplaceValidation(BaseModel):
     """
     AzureMarketplaceValidation
     """
+
     var_schema: Optional[StrictStr] = Field(None, alias="$schema")
     code: Optional[StrictStr] = None
     level: Optional[StrictStr] = None
@@ -33,28 +35,45 @@ class AzureMarketplaceValidation(BaseModel):
     resource_id: Optional[StrictStr] = Field(None, alias="resourceId")
     __properties = ["$schema", "code", "level", "message", "resourceId"]
 
-    @validator('code')
+    @validator("code")
     def code_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('businessValidationError', 'collectionLimitExceeded', 'invalidId', 'invalidEntityStatus', 'invalidRequest', 'invalidResource', 'invalidState', 'notDeployed', 'notSupported', 'operationCanceled', 'productLocked', 'resourceNotFound', 'schemaValidationError'):
-            raise ValueError("must be one of enum values ('businessValidationError', 'collectionLimitExceeded', 'invalidId', 'invalidEntityStatus', 'invalidRequest', 'invalidResource', 'invalidState', 'notDeployed', 'notSupported', 'operationCanceled', 'productLocked', 'resourceNotFound', 'schemaValidationError')")
+        if value not in (
+            "businessValidationError",
+            "collectionLimitExceeded",
+            "invalidId",
+            "invalidEntityStatus",
+            "invalidRequest",
+            "invalidResource",
+            "invalidState",
+            "notDeployed",
+            "notSupported",
+            "operationCanceled",
+            "productLocked",
+            "resourceNotFound",
+            "schemaValidationError",
+        ):
+            raise ValueError(
+                "must be one of enum values ('businessValidationError', 'collectionLimitExceeded', 'invalidId', 'invalidEntityStatus', 'invalidRequest', 'invalidResource', 'invalidState', 'notDeployed', 'notSupported', 'operationCanceled', 'productLocked', 'resourceNotFound', 'schemaValidationError')"
+            )
         return value
 
-    @validator('level')
+    @validator("level")
     def level_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('informational', 'warning'):
+        if value not in ("informational", "warning"):
             raise ValueError("must be one of enum values ('informational', 'warning')")
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -73,10 +92,7 @@ class AzureMarketplaceValidation(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -88,13 +104,13 @@ class AzureMarketplaceValidation(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceValidation.parse_obj(obj)
 
-        _obj = AzureMarketplaceValidation.parse_obj({
-            "var_schema": obj.get("$schema"),
-            "code": obj.get("code"),
-            "level": obj.get("level"),
-            "message": obj.get("message"),
-            "resource_id": obj.get("resourceId")
-        })
+        _obj = AzureMarketplaceValidation.parse_obj(
+            {
+                "var_schema": obj.get("$schema"),
+                "code": obj.get("code"),
+                "level": obj.get("level"),
+                "message": obj.get("message"),
+                "resource_id": obj.get("resourceId"),
+            }
+        )
         return _obj
-
-

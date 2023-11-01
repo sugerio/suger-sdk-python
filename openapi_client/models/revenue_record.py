@@ -23,35 +23,79 @@ from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 from openapi_client.models.revenue_record_info import RevenueRecordInfo
 
+
 class RevenueRecord(BaseModel):
     """
     RevenueRecord
     """
-    amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, description="The revenue amount for the revenue report")
+
+    amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, description="The revenue amount for the revenue report"
+    )
     buyer_id: Optional[StrictStr] = Field(None, alias="buyerID")
-    collectable_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="collectableAmount", description="The revenue amount that the seller/ISV can collect.")
-    currency: Optional[StrictStr] = Field(None, description="The currency of the revenue in ISO 4217 format, such as \"USD\".")
-    var_date: Optional[datetime] = Field(None, alias="date", description="The date for the revenue report")
-    disburse_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="disburseAmount")
+    collectable_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None,
+        alias="collectableAmount",
+        description="The revenue amount that the seller/ISV can collect.",
+    )
+    currency: Optional[StrictStr] = Field(
+        None,
+        description='The currency of the revenue in ISO 4217 format, such as "USD".',
+    )
+    var_date: Optional[datetime] = Field(
+        None, alias="date", description="The date for the revenue report"
+    )
+    disburse_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, alias="disburseAmount"
+    )
     disburse_date: Optional[datetime] = Field(None, alias="disburseDate")
     entitlement_id: Optional[StrictStr] = Field(None, alias="entitlementID")
     id: Optional[StrictStr] = None
     info: Optional[RevenueRecordInfo] = None
-    invoice_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="invoiceAmount")
+    invoice_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, alias="invoiceAmount"
+    )
     invoice_date: Optional[datetime] = Field(None, alias="invoiceDate")
     organization_id: Optional[StrictStr] = Field(None, alias="organizationID")
     partner: Optional[StrictStr] = None
     payment_due_date: Optional[datetime] = Field(None, alias="paymentDueDate")
     product_id: Optional[StrictStr] = Field(None, alias="productID")
-    refund_disburse_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="refundDisburseAmount")
+    refund_disburse_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, alias="refundDisburseAmount"
+    )
     refund_disburse_date: Optional[datetime] = Field(None, alias="refundDisburseDate")
-    refund_invoice_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="refundInvoiceAmount")
+    refund_invoice_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        None, alias="refundInvoiceAmount"
+    )
     refund_invoice_date: Optional[datetime] = Field(None, alias="refundInvoiceDate")
     tax_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="taxAmount")
-    __properties = ["amount", "buyerID", "collectableAmount", "currency", "date", "disburseAmount", "disburseDate", "entitlementID", "id", "info", "invoiceAmount", "invoiceDate", "organizationID", "partner", "paymentDueDate", "productID", "refundDisburseAmount", "refundDisburseDate", "refundInvoiceAmount", "refundInvoiceDate", "taxAmount"]
+    __properties = [
+        "amount",
+        "buyerID",
+        "collectableAmount",
+        "currency",
+        "date",
+        "disburseAmount",
+        "disburseDate",
+        "entitlementID",
+        "id",
+        "info",
+        "invoiceAmount",
+        "invoiceDate",
+        "organizationID",
+        "partner",
+        "paymentDueDate",
+        "productID",
+        "refundDisburseAmount",
+        "refundDisburseDate",
+        "refundInvoiceAmount",
+        "refundInvoiceDate",
+        "taxAmount",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -70,13 +114,10 @@ class RevenueRecord(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of info
         if self.info:
-            _dict['info'] = self.info.to_dict()
+            _dict["info"] = self.info.to_dict()
         return _dict
 
     @classmethod
@@ -88,29 +129,31 @@ class RevenueRecord(BaseModel):
         if not isinstance(obj, dict):
             return RevenueRecord.parse_obj(obj)
 
-        _obj = RevenueRecord.parse_obj({
-            "amount": obj.get("amount"),
-            "buyer_id": obj.get("buyerID"),
-            "collectable_amount": obj.get("collectableAmount"),
-            "currency": obj.get("currency"),
-            "var_date": obj.get("date"),
-            "disburse_amount": obj.get("disburseAmount"),
-            "disburse_date": obj.get("disburseDate"),
-            "entitlement_id": obj.get("entitlementID"),
-            "id": obj.get("id"),
-            "info": RevenueRecordInfo.from_dict(obj.get("info")) if obj.get("info") is not None else None,
-            "invoice_amount": obj.get("invoiceAmount"),
-            "invoice_date": obj.get("invoiceDate"),
-            "organization_id": obj.get("organizationID"),
-            "partner": obj.get("partner"),
-            "payment_due_date": obj.get("paymentDueDate"),
-            "product_id": obj.get("productID"),
-            "refund_disburse_amount": obj.get("refundDisburseAmount"),
-            "refund_disburse_date": obj.get("refundDisburseDate"),
-            "refund_invoice_amount": obj.get("refundInvoiceAmount"),
-            "refund_invoice_date": obj.get("refundInvoiceDate"),
-            "tax_amount": obj.get("taxAmount")
-        })
+        _obj = RevenueRecord.parse_obj(
+            {
+                "amount": obj.get("amount"),
+                "buyer_id": obj.get("buyerID"),
+                "collectable_amount": obj.get("collectableAmount"),
+                "currency": obj.get("currency"),
+                "var_date": obj.get("date"),
+                "disburse_amount": obj.get("disburseAmount"),
+                "disburse_date": obj.get("disburseDate"),
+                "entitlement_id": obj.get("entitlementID"),
+                "id": obj.get("id"),
+                "info": RevenueRecordInfo.from_dict(obj.get("info"))
+                if obj.get("info") is not None
+                else None,
+                "invoice_amount": obj.get("invoiceAmount"),
+                "invoice_date": obj.get("invoiceDate"),
+                "organization_id": obj.get("organizationID"),
+                "partner": obj.get("partner"),
+                "payment_due_date": obj.get("paymentDueDate"),
+                "product_id": obj.get("productID"),
+                "refund_disburse_amount": obj.get("refundDisburseAmount"),
+                "refund_disburse_date": obj.get("refundDisburseDate"),
+                "refund_invoice_amount": obj.get("refundInvoiceAmount"),
+                "refund_invoice_date": obj.get("refundInvoiceDate"),
+                "tax_amount": obj.get("taxAmount"),
+            }
+        )
         return _obj
-
-

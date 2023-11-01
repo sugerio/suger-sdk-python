@@ -21,20 +21,30 @@ import json
 from datetime import datetime
 from typing import Dict, Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
-from openapi_client.models.metering_usage_record_group_meta_info import MeteringUsageRecordGroupMetaInfo
+from openapi_client.models.metering_usage_record_group_meta_info import (
+    MeteringUsageRecordGroupMetaInfo,
+)
+
 
 class NewUsageRecordGroup(BaseModel):
     """
     NewUsageRecordGroup
     """
+
     entitlement_id: StrictStr = Field(..., alias="entitlementID")
-    meta_info: Optional[MeteringUsageRecordGroupMetaInfo] = Field(None, alias="metaInfo")
+    meta_info: Optional[MeteringUsageRecordGroupMetaInfo] = Field(
+        None, alias="metaInfo"
+    )
     records: Dict[str, Union[StrictFloat, StrictInt]] = Field(...)
-    timestamp: Optional[datetime] = Field(None, description="The timestamp of when the usage records were generated. Optional, if not provided, the current report timestamp will be used. This is not the timestamp of when the usage records were reported to Suger.")
+    timestamp: Optional[datetime] = Field(
+        None,
+        description="The timestamp of when the usage records were generated. Optional, if not provided, the current report timestamp will be used. This is not the timestamp of when the usage records were reported to Suger.",
+    )
     __properties = ["entitlementID", "metaInfo", "records", "timestamp"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,13 +63,10 @@ class NewUsageRecordGroup(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of meta_info
         if self.meta_info:
-            _dict['metaInfo'] = self.meta_info.to_dict()
+            _dict["metaInfo"] = self.meta_info.to_dict()
         return _dict
 
     @classmethod
@@ -71,12 +78,16 @@ class NewUsageRecordGroup(BaseModel):
         if not isinstance(obj, dict):
             return NewUsageRecordGroup.parse_obj(obj)
 
-        _obj = NewUsageRecordGroup.parse_obj({
-            "entitlement_id": obj.get("entitlementID"),
-            "meta_info": MeteringUsageRecordGroupMetaInfo.from_dict(obj.get("metaInfo")) if obj.get("metaInfo") is not None else None,
-            "records": obj.get("records"),
-            "timestamp": obj.get("timestamp")
-        })
+        _obj = NewUsageRecordGroup.parse_obj(
+            {
+                "entitlement_id": obj.get("entitlementID"),
+                "meta_info": MeteringUsageRecordGroupMetaInfo.from_dict(
+                    obj.get("metaInfo")
+                )
+                if obj.get("metaInfo") is not None
+                else None,
+                "records": obj.get("records"),
+                "timestamp": obj.get("timestamp"),
+            }
+        )
         return _obj
-
-

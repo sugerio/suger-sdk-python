@@ -22,10 +22,12 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
+
 class GcpMarketplaceProductSupportSpec(BaseModel):
     """
     GcpMarketplaceProductSupportSpec
     """
+
     description: Optional[StrictStr] = None
     email: Optional[StrictStr] = None
     uri: Optional[StrictStr] = None
@@ -33,6 +35,7 @@ class GcpMarketplaceProductSupportSpec(BaseModel):
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -51,10 +54,7 @@ class GcpMarketplaceProductSupportSpec(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,11 +66,11 @@ class GcpMarketplaceProductSupportSpec(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceProductSupportSpec.parse_obj(obj)
 
-        _obj = GcpMarketplaceProductSupportSpec.parse_obj({
-            "description": obj.get("description"),
-            "email": obj.get("email"),
-            "uri": obj.get("uri")
-        })
+        _obj = GcpMarketplaceProductSupportSpec.parse_obj(
+            {
+                "description": obj.get("description"),
+                "email": obj.get("email"),
+                "uri": obj.get("uri"),
+            }
+        )
         return _obj
-
-

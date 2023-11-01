@@ -30,10 +30,7 @@ from openapi_client.models.update_integration_params import UpdateIntegrationPar
 
 from openapi_client.api_client import ApiClient
 from openapi_client.api_response import ApiResponse
-from openapi_client.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
-)
+from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
 
 
 class IntegrationApi:
@@ -49,7 +46,14 @@ class IntegrationApi:
         self.api_client = api_client
 
     @validate_arguments
-    def create_integration(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[CreateIntegrationParams, Field(..., description="Create Integration Params")], **kwargs) -> IdentityIntegration:  # noqa: E501
+    def create_integration(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        data: Annotated[
+            CreateIntegrationParams, Field(..., description="Create Integration Params")
+        ],
+        **kwargs
+    ) -> IdentityIntegration:  # noqa: E501
         """create integration  # noqa: E501
 
         For each organization, partner & service, there should be at most one integration.  # noqa: E501
@@ -74,14 +78,23 @@ class IntegrationApi:
                  returns the request thread.
         :rtype: IdentityIntegration
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the create_integration_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.create_integration_with_http_info(org_id, data, **kwargs)  # noqa: E501
+        return self.create_integration_with_http_info(
+            org_id, data, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def create_integration_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[CreateIntegrationParams, Field(..., description="Create Integration Params")], **kwargs) -> ApiResponse:  # noqa: E501
+    def create_integration_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        data: Annotated[
+            CreateIntegrationParams, Field(..., description="Create Integration Params")
+        ],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """create integration  # noqa: E501
 
         For each organization, partner & service, there should be at most one integration.  # noqa: E501
@@ -122,74 +135,73 @@ class IntegrationApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'data'
-        ]
+        _all_params = ["org_id", "data"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method create_integration" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
-
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['data'] is not None:
-            _body_params = _params['data']
+        if _params["data"] is not None:
+            _body_params = _params["data"]
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
+        _content_types_list = _params.get(
+            "_content_type",
+            self.api_client.select_header_content_type(["application/json"]),
+        )
         if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+            _header_params["Content-Type"] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "IdentityIntegration",
-            '400': "str",
-            '500': "str",
+            "200": "IdentityIntegration",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/integration', 'POST',
+            "/org/{orgId}/integration",
+            "POST",
             _path_params,
             _query_params,
             _header_params,
@@ -198,15 +210,22 @@ class IntegrationApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def delete_integration(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], service : Annotated[StrictStr, Field(..., description="Partner Service")], **kwargs) -> str:  # noqa: E501
+    def delete_integration(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        service: Annotated[StrictStr, Field(..., description="Partner Service")],
+        **kwargs
+    ) -> str:  # noqa: E501
         """delete integration  # noqa: E501
 
         delete the integration for the given orgId, partner and service.  # noqa: E501
@@ -233,14 +252,22 @@ class IntegrationApi:
                  returns the request thread.
         :rtype: str
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the delete_integration_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.delete_integration_with_http_info(org_id, partner, service, **kwargs)  # noqa: E501
+        return self.delete_integration_with_http_info(
+            org_id, partner, service, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def delete_integration_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], service : Annotated[StrictStr, Field(..., description="Partner Service")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_integration_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        service: Annotated[StrictStr, Field(..., description="Partner Service")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """delete integration  # noqa: E501
 
         delete the integration for the given orgId, partner and service.  # noqa: E501
@@ -283,70 +310,67 @@ class IntegrationApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'partner',
-            'service'
-        ]
+        _all_params = ["org_id", "partner", "service"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method delete_integration" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['partner']:
-            _path_params['partner'] = _params['partner']
+        if _params["partner"]:
+            _path_params["partner"] = _params["partner"]
 
-        if _params['service']:
-            _path_params['service'] = _params['service']
-
+        if _params["service"]:
+            _path_params["service"] = _params["service"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "str",
-            '500': None,
+            "200": "str",
+            "500": None,
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/integration/{partner}/{service}', 'DELETE',
+            "/org/{orgId}/integration/{partner}/{service}",
+            "DELETE",
             _path_params,
             _query_params,
             _header_params,
@@ -355,15 +379,22 @@ class IntegrationApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def get_integration(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], service : Annotated[StrictStr, Field(..., description="Partner Service")], **kwargs) -> IdentityIntegration:  # noqa: E501
+    def get_integration(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        service: Annotated[StrictStr, Field(..., description="Partner Service")],
+        **kwargs
+    ) -> IdentityIntegration:  # noqa: E501
         """get integration  # noqa: E501
 
         Get the integration for the given organization, partner & service.  # noqa: E501
@@ -390,14 +421,22 @@ class IntegrationApi:
                  returns the request thread.
         :rtype: IdentityIntegration
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the get_integration_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.get_integration_with_http_info(org_id, partner, service, **kwargs)  # noqa: E501
+        return self.get_integration_with_http_info(
+            org_id, partner, service, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def get_integration_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], service : Annotated[StrictStr, Field(..., description="Partner Service")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_integration_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        service: Annotated[StrictStr, Field(..., description="Partner Service")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """get integration  # noqa: E501
 
         Get the integration for the given organization, partner & service.  # noqa: E501
@@ -440,71 +479,68 @@ class IntegrationApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'partner',
-            'service'
-        ]
+        _all_params = ["org_id", "partner", "service"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_integration" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['partner']:
-            _path_params['partner'] = _params['partner']
+        if _params["partner"]:
+            _path_params["partner"] = _params["partner"]
 
-        if _params['service']:
-            _path_params['service'] = _params['service']
-
+        if _params["service"]:
+            _path_params["service"] = _params["service"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "IdentityIntegration",
-            '404': "str",
-            '500': None,
+            "200": "IdentityIntegration",
+            "404": "str",
+            "500": None,
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/integration/{partner}/{service}', 'GET',
+            "/org/{orgId}/integration/{partner}/{service}",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -513,15 +549,20 @@ class IntegrationApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def list_integrations_by_organization(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> List[IdentityIntegration]:  # noqa: E501
+    def list_integrations_by_organization(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        **kwargs
+    ) -> List[IdentityIntegration]:  # noqa: E501
         """list integrations by organization  # noqa: E501
 
         List all integrations for the given organization.  # noqa: E501
@@ -544,14 +585,20 @@ class IntegrationApi:
                  returns the request thread.
         :rtype: List[IdentityIntegration]
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the list_integrations_by_organization_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_integrations_by_organization_with_http_info(org_id, **kwargs)  # noqa: E501
+        return self.list_integrations_by_organization_with_http_info(
+            org_id, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def list_integrations_by_organization_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def list_integrations_by_organization_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """list integrations by organization  # noqa: E501
 
         List all integrations for the given organization.  # noqa: E501
@@ -590,62 +637,61 @@ class IntegrationApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id'
-        ]
+        _all_params = ["org_id"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_integrations_by_organization" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
-
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "List[IdentityIntegration]",
-            '500': None,
+            "200": "List[IdentityIntegration]",
+            "500": None,
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/integration', 'GET',
+            "/org/{orgId}/integration",
+            "GET",
             _path_params,
             _query_params,
             _header_params,
@@ -654,15 +700,25 @@ class IntegrationApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def update_integration(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], service : Annotated[StrictStr, Field(..., description="Partner Service")], data : Annotated[UpdateIntegrationParams, Field(..., description="Update Integration Params")], **kwargs) -> IdentityIntegration:  # noqa: E501
+    def update_integration(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        service: Annotated[StrictStr, Field(..., description="Partner Service")],
+        data: Annotated[
+            UpdateIntegrationParams, Field(..., description="Update Integration Params")
+        ],
+        **kwargs
+    ) -> IdentityIntegration:  # noqa: E501
         """update integration  # noqa: E501
 
         Update the given integration.  # noqa: E501
@@ -691,14 +747,25 @@ class IntegrationApi:
                  returns the request thread.
         :rtype: IdentityIntegration
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the update_integration_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.update_integration_with_http_info(org_id, partner, service, data, **kwargs)  # noqa: E501
+        return self.update_integration_with_http_info(
+            org_id, partner, service, data, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def update_integration_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], service : Annotated[StrictStr, Field(..., description="Partner Service")], data : Annotated[UpdateIntegrationParams, Field(..., description="Update Integration Params")], **kwargs) -> ApiResponse:  # noqa: E501
+    def update_integration_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        service: Annotated[StrictStr, Field(..., description="Partner Service")],
+        data: Annotated[
+            UpdateIntegrationParams, Field(..., description="Update Integration Params")
+        ],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """update integration  # noqa: E501
 
         Update the given integration.  # noqa: E501
@@ -743,82 +810,79 @@ class IntegrationApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'partner',
-            'service',
-            'data'
-        ]
+        _all_params = ["org_id", "partner", "service", "data"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_integration" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['partner']:
-            _path_params['partner'] = _params['partner']
+        if _params["partner"]:
+            _path_params["partner"] = _params["partner"]
 
-        if _params['service']:
-            _path_params['service'] = _params['service']
-
+        if _params["service"]:
+            _path_params["service"] = _params["service"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['data'] is not None:
-            _body_params = _params['data']
+        if _params["data"] is not None:
+            _body_params = _params["data"]
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
+        _content_types_list = _params.get(
+            "_content_type",
+            self.api_client.select_header_content_type(["application/json"]),
+        )
         if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+            _header_params["Content-Type"] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "IdentityIntegration",
-            '400': "str",
-            '500': "str",
+            "200": "IdentityIntegration",
+            "400": "str",
+            "500": "str",
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/integration/{partner}/{service}', 'PATCH',
+            "/org/{orgId}/integration/{partner}/{service}",
+            "PATCH",
             _path_params,
             _query_params,
             _header_params,
@@ -827,15 +891,22 @@ class IntegrationApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )
 
     @validate_arguments
-    def verify_integration(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], service : Annotated[StrictStr, Field(..., description="Partner Service")], **kwargs) -> bool:  # noqa: E501
+    def verify_integration(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        service: Annotated[StrictStr, Field(..., description="Partner Service")],
+        **kwargs
+    ) -> bool:  # noqa: E501
         """verify integration  # noqa: E501
 
         Verify the given integration, check whether it works correctly.  # noqa: E501
@@ -862,14 +933,22 @@ class IntegrationApi:
                  returns the request thread.
         :rtype: bool
         """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
+        kwargs["_return_http_data_only"] = True
+        if "_preload_content" in kwargs:
             message = "Error! Please call the verify_integration_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.verify_integration_with_http_info(org_id, partner, service, **kwargs)  # noqa: E501
+        return self.verify_integration_with_http_info(
+            org_id, partner, service, **kwargs
+        )  # noqa: E501
 
     @validate_arguments
-    def verify_integration_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], service : Annotated[StrictStr, Field(..., description="Partner Service")], **kwargs) -> ApiResponse:  # noqa: E501
+    def verify_integration_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
+        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
+        service: Annotated[StrictStr, Field(..., description="Partner Service")],
+        **kwargs
+    ) -> ApiResponse:  # noqa: E501
         """verify integration  # noqa: E501
 
         Verify the given integration, check whether it works correctly.  # noqa: E501
@@ -912,70 +991,67 @@ class IntegrationApi:
 
         _params = locals()
 
-        _all_params = [
-            'org_id',
-            'partner',
-            'service'
-        ]
+        _all_params = ["org_id", "partner", "service"]
         _all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+                "_request_auth",
+                "_content_type",
+                "_headers",
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params['kwargs'].items():
+        for _key, _val in _params["kwargs"].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method verify_integration" % _key
                 )
             _params[_key] = _val
-        del _params['kwargs']
+        del _params["kwargs"]
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params['org_id']:
-            _path_params['orgId'] = _params['org_id']
+        if _params["org_id"]:
+            _path_params["orgId"] = _params["org_id"]
 
-        if _params['partner']:
-            _path_params['partner'] = _params['partner']
+        if _params["partner"]:
+            _path_params["partner"] = _params["partner"]
 
-        if _params['service']:
-            _path_params['service'] = _params['service']
-
+        if _params["service"]:
+            _path_params["service"] = _params["service"]
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
+        _header_params = dict(_params.get("_headers", {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['BearerTokenAuth']  # noqa: E501
+        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
 
         _response_types_map = {
-            '200': "bool",
-            '500': None,
+            "200": "bool",
+            "500": None,
         }
 
         return self.api_client.call_api(
-            '/org/{orgId}/integration/{partner}/{service}/verify', 'POST',
+            "/org/{orgId}/integration/{partner}/{service}/verify",
+            "POST",
             _path_params,
             _query_params,
             _header_params,
@@ -984,9 +1060,10 @@ class IntegrationApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
+            async_req=_params.get("async_req"),
+            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
+            _preload_content=_params.get("_preload_content", True),
+            _request_timeout=_params.get("_request_timeout"),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _request_auth=_params.get("_request_auth"),
+        )

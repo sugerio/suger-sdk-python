@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class PrivateOfferDiscountType(str, Enum):
     """
     PrivateOfferDiscountType
@@ -30,12 +27,10 @@ class PrivateOfferDiscountType(str, Enum):
     """
     allowed enum values
     """
-    ABSOLUTE = 'absolute'
-    PERCENTAGE = 'percentage'
+    ABSOLUTE = "absolute"
+    PERCENTAGE = "percentage"
 
     @classmethod
     def from_json(cls, json_str: str) -> PrivateOfferDiscountType:
         """Create an instance of PrivateOfferDiscountType from a JSON string"""
         return PrivateOfferDiscountType(json.loads(json_str))
-
-

@@ -31,11 +31,16 @@ from openapi_client.models.orb_price_minimum import OrbPriceMinimum
 from openapi_client.models.orb_product import OrbProduct
 from openapi_client.models.orb_trial_config import OrbTrialConfig
 
+
 class OrbPlan(BaseModel):
     """
     OrbPlan
     """
-    base_plan_id: Optional[StrictStr] = Field(None, description="The parent plan id if the given plan was created by overriding one or more of the parent's prices.")
+
+    base_plan_id: Optional[StrictStr] = Field(
+        None,
+        description="The parent plan id if the given plan was created by overriding one or more of the parent's prices.",
+    )
     created_at: Optional[StrictStr] = None
     currency: Optional[StrictStr] = None
     default_invoice_memo: Optional[StrictStr] = None
@@ -45,19 +50,46 @@ class OrbPlan(BaseModel):
     id: Optional[StrictStr] = None
     invoicing_currency: Optional[StrictStr] = None
     maximum: Optional[OrbPriceMaximum] = None
-    metering_dimensions: Optional[conlist(MeteringDimension)] = Field(None, description="The following fields are populated by Suger. The suger metering dimensions that are mapped to the orb billable metrics.")
+    metering_dimensions: Optional[conlist(MeteringDimension)] = Field(
+        None,
+        description="The following fields are populated by Suger. The suger metering dimensions that are mapped to the orb billable metrics.",
+    )
     minimum: Optional[OrbPriceMinimum] = None
     name: Optional[StrictStr] = None
-    net_terms: Optional[StrictInt] = Field(None, description="Determines the difference between the invoice issue date and the due date. A value of \"0\" here signifies that invoices are due on issue, whereas a value of \"30\" means that the customer has a month to pay the invoice before its overdue. Note that individual subscriptions or invoices may set a different net terms configuration.")
+    net_terms: Optional[StrictInt] = Field(
+        None,
+        description='Determines the difference between the invoice issue date and the due date. A value of "0" here signifies that invoices are due on issue, whereas a value of "30" means that the customer has a month to pay the invoice before its overdue. Note that individual subscriptions or invoices may set a different net terms configuration.',
+    )
     plan_phases: Optional[conlist(OrbPlanPhase)] = None
     prices: Optional[conlist(OrbPrice)] = None
     product: Optional[OrbProduct] = None
     status: Optional[OrbPlanStatus] = None
     trial_config: Optional[OrbTrialConfig] = None
-    __properties = ["base_plan_id", "created_at", "currency", "default_invoice_memo", "description", "discount", "external_plan_id", "id", "invoicing_currency", "maximum", "metering_dimensions", "minimum", "name", "net_terms", "plan_phases", "prices", "product", "status", "trial_config"]
+    __properties = [
+        "base_plan_id",
+        "created_at",
+        "currency",
+        "default_invoice_memo",
+        "description",
+        "discount",
+        "external_plan_id",
+        "id",
+        "invoicing_currency",
+        "maximum",
+        "metering_dimensions",
+        "minimum",
+        "name",
+        "net_terms",
+        "plan_phases",
+        "prices",
+        "product",
+        "status",
+        "trial_config",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -76,46 +108,43 @@ class OrbPlan(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of discount
         if self.discount:
-            _dict['discount'] = self.discount.to_dict()
+            _dict["discount"] = self.discount.to_dict()
         # override the default output from pydantic by calling `to_dict()` of maximum
         if self.maximum:
-            _dict['maximum'] = self.maximum.to_dict()
+            _dict["maximum"] = self.maximum.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in metering_dimensions (list)
         _items = []
         if self.metering_dimensions:
             for _item in self.metering_dimensions:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['metering_dimensions'] = _items
+            _dict["metering_dimensions"] = _items
         # override the default output from pydantic by calling `to_dict()` of minimum
         if self.minimum:
-            _dict['minimum'] = self.minimum.to_dict()
+            _dict["minimum"] = self.minimum.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in plan_phases (list)
         _items = []
         if self.plan_phases:
             for _item in self.plan_phases:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['plan_phases'] = _items
+            _dict["plan_phases"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in prices (list)
         _items = []
         if self.prices:
             for _item in self.prices:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['prices'] = _items
+            _dict["prices"] = _items
         # override the default output from pydantic by calling `to_dict()` of product
         if self.product:
-            _dict['product'] = self.product.to_dict()
+            _dict["product"] = self.product.to_dict()
         # override the default output from pydantic by calling `to_dict()` of trial_config
         if self.trial_config:
-            _dict['trial_config'] = self.trial_config.to_dict()
+            _dict["trial_config"] = self.trial_config.to_dict()
         return _dict
 
     @classmethod
@@ -127,27 +156,48 @@ class OrbPlan(BaseModel):
         if not isinstance(obj, dict):
             return OrbPlan.parse_obj(obj)
 
-        _obj = OrbPlan.parse_obj({
-            "base_plan_id": obj.get("base_plan_id"),
-            "created_at": obj.get("created_at"),
-            "currency": obj.get("currency"),
-            "default_invoice_memo": obj.get("default_invoice_memo"),
-            "description": obj.get("description"),
-            "discount": OrbPriceDiscount.from_dict(obj.get("discount")) if obj.get("discount") is not None else None,
-            "external_plan_id": obj.get("external_plan_id"),
-            "id": obj.get("id"),
-            "invoicing_currency": obj.get("invoicing_currency"),
-            "maximum": OrbPriceMaximum.from_dict(obj.get("maximum")) if obj.get("maximum") is not None else None,
-            "metering_dimensions": [MeteringDimension.from_dict(_item) for _item in obj.get("metering_dimensions")] if obj.get("metering_dimensions") is not None else None,
-            "minimum": OrbPriceMinimum.from_dict(obj.get("minimum")) if obj.get("minimum") is not None else None,
-            "name": obj.get("name"),
-            "net_terms": obj.get("net_terms"),
-            "plan_phases": [OrbPlanPhase.from_dict(_item) for _item in obj.get("plan_phases")] if obj.get("plan_phases") is not None else None,
-            "prices": [OrbPrice.from_dict(_item) for _item in obj.get("prices")] if obj.get("prices") is not None else None,
-            "product": OrbProduct.from_dict(obj.get("product")) if obj.get("product") is not None else None,
-            "status": obj.get("status"),
-            "trial_config": OrbTrialConfig.from_dict(obj.get("trial_config")) if obj.get("trial_config") is not None else None
-        })
+        _obj = OrbPlan.parse_obj(
+            {
+                "base_plan_id": obj.get("base_plan_id"),
+                "created_at": obj.get("created_at"),
+                "currency": obj.get("currency"),
+                "default_invoice_memo": obj.get("default_invoice_memo"),
+                "description": obj.get("description"),
+                "discount": OrbPriceDiscount.from_dict(obj.get("discount"))
+                if obj.get("discount") is not None
+                else None,
+                "external_plan_id": obj.get("external_plan_id"),
+                "id": obj.get("id"),
+                "invoicing_currency": obj.get("invoicing_currency"),
+                "maximum": OrbPriceMaximum.from_dict(obj.get("maximum"))
+                if obj.get("maximum") is not None
+                else None,
+                "metering_dimensions": [
+                    MeteringDimension.from_dict(_item)
+                    for _item in obj.get("metering_dimensions")
+                ]
+                if obj.get("metering_dimensions") is not None
+                else None,
+                "minimum": OrbPriceMinimum.from_dict(obj.get("minimum"))
+                if obj.get("minimum") is not None
+                else None,
+                "name": obj.get("name"),
+                "net_terms": obj.get("net_terms"),
+                "plan_phases": [
+                    OrbPlanPhase.from_dict(_item) for _item in obj.get("plan_phases")
+                ]
+                if obj.get("plan_phases") is not None
+                else None,
+                "prices": [OrbPrice.from_dict(_item) for _item in obj.get("prices")]
+                if obj.get("prices") is not None
+                else None,
+                "product": OrbProduct.from_dict(obj.get("product"))
+                if obj.get("product") is not None
+                else None,
+                "status": obj.get("status"),
+                "trial_config": OrbTrialConfig.from_dict(obj.get("trial_config"))
+                if obj.get("trial_config") is not None
+                else None,
+            }
+        )
         return _obj
-
-

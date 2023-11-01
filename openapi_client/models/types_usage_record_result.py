@@ -22,19 +22,28 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from openapi_client.models.types_usage_record import TypesUsageRecord
-from openapi_client.models.types_usage_record_result_status import TypesUsageRecordResultStatus
+from openapi_client.models.types_usage_record_result_status import (
+    TypesUsageRecordResultStatus,
+)
+
 
 class TypesUsageRecordResult(BaseModel):
     """
     TypesUsageRecordResult
     """
-    metering_record_id: Optional[StrictStr] = Field(None, alias="meteringRecordId", description="The MeteringRecordId is a unique identifier for this metering event.")
+
+    metering_record_id: Optional[StrictStr] = Field(
+        None,
+        alias="meteringRecordId",
+        description="The MeteringRecordId is a unique identifier for this metering event.",
+    )
     status: Optional[TypesUsageRecordResultStatus] = None
     usage_record: Optional[TypesUsageRecord] = Field(None, alias="usageRecord")
     __properties = ["meteringRecordId", "status", "usageRecord"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,13 +62,10 @@ class TypesUsageRecordResult(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of usage_record
         if self.usage_record:
-            _dict['usageRecord'] = self.usage_record.to_dict()
+            _dict["usageRecord"] = self.usage_record.to_dict()
         return _dict
 
     @classmethod
@@ -71,11 +77,13 @@ class TypesUsageRecordResult(BaseModel):
         if not isinstance(obj, dict):
             return TypesUsageRecordResult.parse_obj(obj)
 
-        _obj = TypesUsageRecordResult.parse_obj({
-            "metering_record_id": obj.get("meteringRecordId"),
-            "status": obj.get("status"),
-            "usage_record": TypesUsageRecord.from_dict(obj.get("usageRecord")) if obj.get("usageRecord") is not None else None
-        })
+        _obj = TypesUsageRecordResult.parse_obj(
+            {
+                "metering_record_id": obj.get("meteringRecordId"),
+                "status": obj.get("status"),
+                "usage_record": TypesUsageRecord.from_dict(obj.get("usageRecord"))
+                if obj.get("usageRecord") is not None
+                else None,
+            }
+        )
         return _obj
-
-

@@ -18,6 +18,7 @@ import datetime
 
 from openapi_client.models.buyer_info import BuyerInfo  # noqa: E501
 
+
 class TestBuyerInfo(unittest.TestCase):
     """BuyerInfo unit test stubs"""
 
@@ -29,9 +30,9 @@ class TestBuyerInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> BuyerInfo:
         """Test BuyerInfo
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `BuyerInfo`
         """
         model = BuyerInfo()  # noqa: E501
@@ -117,5 +118,6 @@ class TestBuyerInfo(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

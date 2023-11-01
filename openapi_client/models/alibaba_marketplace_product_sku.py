@@ -21,24 +21,45 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
-from openapi_client.models.alibaba_marketplace_product_sku_modules import AlibabaMarketplaceProductSkuModules
-from openapi_client.models.alibaba_marketplace_product_sku_order_periods import AlibabaMarketplaceProductSkuOrderPeriods
+from openapi_client.models.alibaba_marketplace_product_sku_modules import (
+    AlibabaMarketplaceProductSkuModules,
+)
+from openapi_client.models.alibaba_marketplace_product_sku_order_periods import (
+    AlibabaMarketplaceProductSkuOrderPeriods,
+)
+
 
 class AlibabaMarketplaceProductSku(BaseModel):
     """
     AlibabaMarketplaceProductSku
     """
-    charge_type: Optional[StrictStr] = Field(None, alias="ChargeType", description="POSTPAY or PREPAY")
+
+    charge_type: Optional[StrictStr] = Field(
+        None, alias="ChargeType", description="POSTPAY or PREPAY"
+    )
     code: Optional[StrictStr] = Field(None, alias="Code")
     constraints: Optional[StrictStr] = Field(None, alias="Constraints")
     hidden: Optional[StrictBool] = Field(None, alias="Hidden")
-    modules: Optional[AlibabaMarketplaceProductSkuModules] = Field(None, alias="Modules")
+    modules: Optional[AlibabaMarketplaceProductSkuModules] = Field(
+        None, alias="Modules"
+    )
     name: Optional[StrictStr] = Field(None, alias="Name")
-    order_periods: Optional[AlibabaMarketplaceProductSkuOrderPeriods] = Field(None, alias="OrderPeriods")
-    __properties = ["ChargeType", "Code", "Constraints", "Hidden", "Modules", "Name", "OrderPeriods"]
+    order_periods: Optional[AlibabaMarketplaceProductSkuOrderPeriods] = Field(
+        None, alias="OrderPeriods"
+    )
+    __properties = [
+        "ChargeType",
+        "Code",
+        "Constraints",
+        "Hidden",
+        "Modules",
+        "Name",
+        "OrderPeriods",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -57,16 +78,13 @@ class AlibabaMarketplaceProductSku(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of modules
         if self.modules:
-            _dict['Modules'] = self.modules.to_dict()
+            _dict["Modules"] = self.modules.to_dict()
         # override the default output from pydantic by calling `to_dict()` of order_periods
         if self.order_periods:
-            _dict['OrderPeriods'] = self.order_periods.to_dict()
+            _dict["OrderPeriods"] = self.order_periods.to_dict()
         return _dict
 
     @classmethod
@@ -78,15 +96,23 @@ class AlibabaMarketplaceProductSku(BaseModel):
         if not isinstance(obj, dict):
             return AlibabaMarketplaceProductSku.parse_obj(obj)
 
-        _obj = AlibabaMarketplaceProductSku.parse_obj({
-            "charge_type": obj.get("ChargeType"),
-            "code": obj.get("Code"),
-            "constraints": obj.get("Constraints"),
-            "hidden": obj.get("Hidden"),
-            "modules": AlibabaMarketplaceProductSkuModules.from_dict(obj.get("Modules")) if obj.get("Modules") is not None else None,
-            "name": obj.get("Name"),
-            "order_periods": AlibabaMarketplaceProductSkuOrderPeriods.from_dict(obj.get("OrderPeriods")) if obj.get("OrderPeriods") is not None else None
-        })
+        _obj = AlibabaMarketplaceProductSku.parse_obj(
+            {
+                "charge_type": obj.get("ChargeType"),
+                "code": obj.get("Code"),
+                "constraints": obj.get("Constraints"),
+                "hidden": obj.get("Hidden"),
+                "modules": AlibabaMarketplaceProductSkuModules.from_dict(
+                    obj.get("Modules")
+                )
+                if obj.get("Modules") is not None
+                else None,
+                "name": obj.get("Name"),
+                "order_periods": AlibabaMarketplaceProductSkuOrderPeriods.from_dict(
+                    obj.get("OrderPeriods")
+                )
+                if obj.get("OrderPeriods") is not None
+                else None,
+            }
+        )
         return _obj
-
-

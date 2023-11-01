@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class MicrosoftPartnerReferralTargetType(str, Enum):
     """
     MicrosoftPartnerReferralTargetType
@@ -30,14 +27,12 @@ class MicrosoftPartnerReferralTargetType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    NONE = 'None'
-    BUSINESSPROFILELOCATION = 'BusinessProfileLocation'
-    SOLUTIONPROFILE = 'SolutionProfile'
+    EMPTY = ""
+    NONE = "None"
+    BUSINESSPROFILELOCATION = "BusinessProfileLocation"
+    SOLUTIONPROFILE = "SolutionProfile"
 
     @classmethod
     def from_json(cls, json_str: str) -> MicrosoftPartnerReferralTargetType:
         """Create an instance of MicrosoftPartnerReferralTargetType from a JSON string"""
         return MicrosoftPartnerReferralTargetType(json.loads(json_str))
-
-

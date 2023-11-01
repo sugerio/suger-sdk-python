@@ -22,16 +22,19 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 
+
 class ClientPushMeteringDataResponseBody(BaseModel):
     """
     ClientPushMeteringDataResponseBody
     """
+
     request_id: Optional[StrictStr] = Field(None, alias="RequestId")
     success: Optional[StrictBool] = Field(None, alias="Success")
     __properties = ["RequestId", "Success"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -50,10 +53,7 @@ class ClientPushMeteringDataResponseBody(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +65,7 @@ class ClientPushMeteringDataResponseBody(BaseModel):
         if not isinstance(obj, dict):
             return ClientPushMeteringDataResponseBody.parse_obj(obj)
 
-        _obj = ClientPushMeteringDataResponseBody.parse_obj({
-            "request_id": obj.get("RequestId"),
-            "success": obj.get("Success")
-        })
+        _obj = ClientPushMeteringDataResponseBody.parse_obj(
+            {"request_id": obj.get("RequestId"), "success": obj.get("Success")}
+        )
         return _obj
-
-

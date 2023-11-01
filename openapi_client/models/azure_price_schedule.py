@@ -25,28 +25,35 @@ from openapi_client.models.azure_price import AzurePrice
 from openapi_client.models.azure_price_cadence import AzurePriceCadence
 from openapi_client.models.azure_pricing_unit import AzurePricingUnit
 
+
 class AzurePriceSchedule(BaseModel):
     """
     AzurePriceSchedule
     """
+
     price_cadence: Optional[AzurePriceCadence] = Field(None, alias="priceCadence")
     pricing_model: Optional[StrictStr] = Field(None, alias="pricingModel")
-    pricing_units: Optional[conlist(AzurePricingUnit)] = Field(None, alias="pricingUnits")
+    pricing_units: Optional[conlist(AzurePricingUnit)] = Field(
+        None, alias="pricingUnits"
+    )
     retail_price: Optional[AzurePrice] = Field(None, alias="retailPrice")
     __properties = ["priceCadence", "pricingModel", "pricingUnits", "retailPrice"]
 
-    @validator('pricing_model')
+    @validator("pricing_model")
     def pricing_model_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('Flat', 'Recurring', 'Usage'):
-            raise ValueError("must be one of enum values ('Flat', 'Recurring', 'Usage')")
+        if value not in ("Flat", "Recurring", "Usage"):
+            raise ValueError(
+                "must be one of enum values ('Flat', 'Recurring', 'Usage')"
+            )
         return value
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -65,23 +72,20 @@ class AzurePriceSchedule(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of price_cadence
         if self.price_cadence:
-            _dict['priceCadence'] = self.price_cadence.to_dict()
+            _dict["priceCadence"] = self.price_cadence.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in pricing_units (list)
         _items = []
         if self.pricing_units:
             for _item in self.pricing_units:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['pricingUnits'] = _items
+            _dict["pricingUnits"] = _items
         # override the default output from pydantic by calling `to_dict()` of retail_price
         if self.retail_price:
-            _dict['retailPrice'] = self.retail_price.to_dict()
+            _dict["retailPrice"] = self.retail_price.to_dict()
         return _dict
 
     @classmethod
@@ -93,12 +97,21 @@ class AzurePriceSchedule(BaseModel):
         if not isinstance(obj, dict):
             return AzurePriceSchedule.parse_obj(obj)
 
-        _obj = AzurePriceSchedule.parse_obj({
-            "price_cadence": AzurePriceCadence.from_dict(obj.get("priceCadence")) if obj.get("priceCadence") is not None else None,
-            "pricing_model": obj.get("pricingModel"),
-            "pricing_units": [AzurePricingUnit.from_dict(_item) for _item in obj.get("pricingUnits")] if obj.get("pricingUnits") is not None else None,
-            "retail_price": AzurePrice.from_dict(obj.get("retailPrice")) if obj.get("retailPrice") is not None else None
-        })
+        _obj = AzurePriceSchedule.parse_obj(
+            {
+                "price_cadence": AzurePriceCadence.from_dict(obj.get("priceCadence"))
+                if obj.get("priceCadence") is not None
+                else None,
+                "pricing_model": obj.get("pricingModel"),
+                "pricing_units": [
+                    AzurePricingUnit.from_dict(_item)
+                    for _item in obj.get("pricingUnits")
+                ]
+                if obj.get("pricingUnits") is not None
+                else None,
+                "retail_price": AzurePrice.from_dict(obj.get("retailPrice"))
+                if obj.get("retailPrice") is not None
+                else None,
+            }
+        )
         return _obj
-
-

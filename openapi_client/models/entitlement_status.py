@@ -19,9 +19,6 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
-
-
-
 class EntitlementStatus(str, Enum):
     """
     EntitlementStatus
@@ -30,16 +27,14 @@ class EntitlementStatus(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    ACTIVE = 'ACTIVE'
-    PENDING_CANCEL = 'PENDING_CANCEL'
-    CANCELLED = 'CANCELLED'
-    SUSPENDED = 'SUSPENDED'
-    PENDING_START = 'PENDING_START'
+    EMPTY = ""
+    ACTIVE = "ACTIVE"
+    PENDING_CANCEL = "PENDING_CANCEL"
+    CANCELLED = "CANCELLED"
+    SUSPENDED = "SUSPENDED"
+    PENDING_START = "PENDING_START"
 
     @classmethod
     def from_json(cls, json_str: str) -> EntitlementStatus:
         """Create an instance of EntitlementStatus from a JSON string"""
         return EntitlementStatus(json.loads(json_str))
-
-

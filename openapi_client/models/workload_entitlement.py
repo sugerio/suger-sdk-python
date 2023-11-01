@@ -27,10 +27,12 @@ from openapi_client.models.partner import Partner
 from openapi_client.models.partner_service import PartnerService
 from openapi_client.models.workload_meta_info import WorkloadMetaInfo
 
+
 class WorkloadEntitlement(BaseModel):
     """
     WorkloadEntitlement
     """
+
     buyer_id: Optional[StrictStr] = Field(None, alias="buyerID")
     creation_time: Optional[datetime] = Field(None, alias="creationTime")
     end_time: Optional[datetime] = Field(None, alias="endTime", description="nullable")
@@ -51,10 +53,32 @@ class WorkloadEntitlement(BaseModel):
     start_time: Optional[datetime] = Field(None, alias="startTime")
     status: Optional[EntitlementStatus] = None
     type: Optional[StrictStr] = None
-    __properties = ["buyerID", "creationTime", "endTime", "entitlementTermID", "externalBuyerID", "externalID", "externalProductID", "id", "info", "lastUpdateTime", "metaInfo", "name", "offerID", "organizationID", "partner", "productID", "service", "startTime", "status", "type"]
+    __properties = [
+        "buyerID",
+        "creationTime",
+        "endTime",
+        "entitlementTermID",
+        "externalBuyerID",
+        "externalID",
+        "externalProductID",
+        "id",
+        "info",
+        "lastUpdateTime",
+        "metaInfo",
+        "name",
+        "offerID",
+        "organizationID",
+        "partner",
+        "productID",
+        "service",
+        "startTime",
+        "status",
+        "type",
+    ]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -73,16 +97,13 @@ class WorkloadEntitlement(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of info
         if self.info:
-            _dict['info'] = self.info.to_dict()
+            _dict["info"] = self.info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of meta_info
         if self.meta_info:
-            _dict['metaInfo'] = self.meta_info.to_dict()
+            _dict["metaInfo"] = self.meta_info.to_dict()
         return _dict
 
     @classmethod
@@ -94,28 +115,32 @@ class WorkloadEntitlement(BaseModel):
         if not isinstance(obj, dict):
             return WorkloadEntitlement.parse_obj(obj)
 
-        _obj = WorkloadEntitlement.parse_obj({
-            "buyer_id": obj.get("buyerID"),
-            "creation_time": obj.get("creationTime"),
-            "end_time": obj.get("endTime"),
-            "entitlement_term_id": obj.get("entitlementTermID"),
-            "external_buyer_id": obj.get("externalBuyerID"),
-            "external_id": obj.get("externalID"),
-            "external_product_id": obj.get("externalProductID"),
-            "id": obj.get("id"),
-            "info": EntitlementInfo.from_dict(obj.get("info")) if obj.get("info") is not None else None,
-            "last_update_time": obj.get("lastUpdateTime"),
-            "meta_info": WorkloadMetaInfo.from_dict(obj.get("metaInfo")) if obj.get("metaInfo") is not None else None,
-            "name": obj.get("name"),
-            "offer_id": obj.get("offerID"),
-            "organization_id": obj.get("organizationID"),
-            "partner": obj.get("partner"),
-            "product_id": obj.get("productID"),
-            "service": obj.get("service"),
-            "start_time": obj.get("startTime"),
-            "status": obj.get("status"),
-            "type": obj.get("type")
-        })
+        _obj = WorkloadEntitlement.parse_obj(
+            {
+                "buyer_id": obj.get("buyerID"),
+                "creation_time": obj.get("creationTime"),
+                "end_time": obj.get("endTime"),
+                "entitlement_term_id": obj.get("entitlementTermID"),
+                "external_buyer_id": obj.get("externalBuyerID"),
+                "external_id": obj.get("externalID"),
+                "external_product_id": obj.get("externalProductID"),
+                "id": obj.get("id"),
+                "info": EntitlementInfo.from_dict(obj.get("info"))
+                if obj.get("info") is not None
+                else None,
+                "last_update_time": obj.get("lastUpdateTime"),
+                "meta_info": WorkloadMetaInfo.from_dict(obj.get("metaInfo"))
+                if obj.get("metaInfo") is not None
+                else None,
+                "name": obj.get("name"),
+                "offer_id": obj.get("offerID"),
+                "organization_id": obj.get("organizationID"),
+                "partner": obj.get("partner"),
+                "product_id": obj.get("productID"),
+                "service": obj.get("service"),
+                "start_time": obj.get("startTime"),
+                "status": obj.get("status"),
+                "type": obj.get("type"),
+            }
+        )
         return _obj
-
-

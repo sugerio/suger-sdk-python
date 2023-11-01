@@ -16,7 +16,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.usage_metering_daily_record import UsageMeteringDailyRecord  # noqa: E501
+from openapi_client.models.usage_metering_daily_record import (
+    UsageMeteringDailyRecord,
+)  # noqa: E501
+
 
 class TestUsageMeteringDailyRecord(unittest.TestCase):
     """UsageMeteringDailyRecord unit test stubs"""
@@ -29,9 +32,9 @@ class TestUsageMeteringDailyRecord(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UsageMeteringDailyRecord:
         """Test UsageMeteringDailyRecord
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `UsageMeteringDailyRecord`
         """
         model = UsageMeteringDailyRecord()  # noqa: E501
@@ -53,5 +56,6 @@ class TestUsageMeteringDailyRecord(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

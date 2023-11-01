@@ -22,15 +22,21 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 
+
 class GcpMarketplaceProductServiceConfigBilling(BaseModel):
     """
     GcpMarketplaceProductServiceConfigBilling
     """
-    metrics: Optional[conlist(StrictStr)] = Field(None, description="The list of metrics that are available for billing for the product. In format of \"product-name.endpoints.gcp-project-id.cloud.goog/plan_name_metric_name\"")
+
+    metrics: Optional[conlist(StrictStr)] = Field(
+        None,
+        description='The list of metrics that are available for billing for the product. In format of "product-name.endpoints.gcp-project-id.cloud.goog/plan_name_metric_name"',
+    )
     __properties = ["metrics"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -49,10 +55,7 @@ class GcpMarketplaceProductServiceConfigBilling(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -64,9 +67,7 @@ class GcpMarketplaceProductServiceConfigBilling(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceProductServiceConfigBilling.parse_obj(obj)
 
-        _obj = GcpMarketplaceProductServiceConfigBilling.parse_obj({
-            "metrics": obj.get("metrics")
-        })
+        _obj = GcpMarketplaceProductServiceConfigBilling.parse_obj(
+            {"metrics": obj.get("metrics")}
+        )
         return _obj
-
-

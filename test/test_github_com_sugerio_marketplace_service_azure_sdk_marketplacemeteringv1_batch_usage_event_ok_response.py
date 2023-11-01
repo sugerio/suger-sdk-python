@@ -16,9 +16,14 @@
 import unittest
 import datetime
 
-from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_batch_usage_event_ok_response import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse  # noqa: E501
+from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_batch_usage_event_ok_response import (
+    GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse,
+)  # noqa: E501
 
-class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse(unittest.TestCase):
+
+class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse(
+    unittest.TestCase
+):
     """GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse unit test stubs"""
 
     def setUp(self):
@@ -27,11 +32,13 @@ class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUs
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse:
+    def make_instance(
+        self, include_optional
+    ) -> GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse:
         """Test GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse`
         """
         model = GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse()  # noqa: E501
@@ -70,10 +77,13 @@ class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUs
         )
         """
 
-    def testGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse(self):
+    def testGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse(
+        self,
+    ):
         """Test GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

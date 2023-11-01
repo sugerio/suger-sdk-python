@@ -22,16 +22,19 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
+
 class AzureMarketplaceCustomAmendmentTenantManualEntry(BaseModel):
     """
     AzureMarketplaceCustomAmendmentTenantManualEntry
     """
+
     description: Optional[StrictStr] = None
     id: Optional[StrictStr] = None
     __properties = ["description", "id"]
 
     class Config:
         """Pydantic configuration"""
+
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -44,16 +47,15 @@ class AzureMarketplaceCustomAmendmentTenantManualEntry(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> AzureMarketplaceCustomAmendmentTenantManualEntry:
+    def from_json(
+        cls, json_str: str
+    ) -> AzureMarketplaceCustomAmendmentTenantManualEntry:
         """Create an instance of AzureMarketplaceCustomAmendmentTenantManualEntry from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +67,7 @@ class AzureMarketplaceCustomAmendmentTenantManualEntry(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceCustomAmendmentTenantManualEntry.parse_obj(obj)
 
-        _obj = AzureMarketplaceCustomAmendmentTenantManualEntry.parse_obj({
-            "description": obj.get("description"),
-            "id": obj.get("id")
-        })
+        _obj = AzureMarketplaceCustomAmendmentTenantManualEntry.parse_obj(
+            {"description": obj.get("description"), "id": obj.get("id")}
+        )
         return _obj
-
-
