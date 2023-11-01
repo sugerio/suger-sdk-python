@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_pending_update_info import (
-    AzurePendingUpdateInfo,
-)  # noqa: E501
+from openapi_client.models.azure_pending_update_info import \
+    AzurePendingUpdateInfo  # noqa: E501
 
 
 class TestAzurePendingUpdateInfo(unittest.TestCase):

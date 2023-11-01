@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.add_entitlement_credit_params import (
-    AddEntitlementCreditParams,
-)  # noqa: E501
+from openapi_client.models.add_entitlement_credit_params import \
+    AddEntitlementCreditParams  # noqa: E501
 
 
 class TestAddEntitlementCreditParams(unittest.TestCase):

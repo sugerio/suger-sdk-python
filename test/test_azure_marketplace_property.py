@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_property import (
-    AzureMarketplaceProperty,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_property import \
+    AzureMarketplaceProperty  # noqa: E501
 
 
 class TestAzureMarketplaceProperty(unittest.TestCase):

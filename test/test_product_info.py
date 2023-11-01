@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.product_info import ProductInfo  # noqa: E501
 
 

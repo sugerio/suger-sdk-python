@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_marketplace_purchase_channel import (
-    GcpMarketplacePurchaseChannel,
-)  # noqa: E501
+from openapi_client.models.gcp_marketplace_purchase_channel import \
+    GcpMarketplacePurchaseChannel  # noqa: E501
 
 
 class TestGcpMarketplacePurchaseChannel(unittest.TestCase):

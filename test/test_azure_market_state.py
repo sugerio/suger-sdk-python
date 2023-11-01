@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_market_state import AzureMarketState  # noqa: E501
+from openapi_client.models.azure_market_state import \
+    AzureMarketState  # noqa: E501
 
 
 class TestAzureMarketState(unittest.TestCase):

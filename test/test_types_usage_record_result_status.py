@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.types_usage_record_result_status import (
-    TypesUsageRecordResultStatus,
-)  # noqa: E501
+from openapi_client.models.types_usage_record_result_status import \
+    TypesUsageRecordResultStatus  # noqa: E501
 
 
 class TestTypesUsageRecordResultStatus(unittest.TestCase):

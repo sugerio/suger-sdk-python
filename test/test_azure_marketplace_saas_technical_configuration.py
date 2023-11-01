@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_saas_technical_configuration import (
-    AzureMarketplaceSaasTechnicalConfiguration,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_saas_technical_configuration import \
+    AzureMarketplaceSaasTechnicalConfiguration  # noqa: E501
 
 
 class TestAzureMarketplaceSaasTechnicalConfiguration(unittest.TestCase):

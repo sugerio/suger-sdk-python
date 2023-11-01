@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.types_usage_record import TypesUsageRecord  # noqa: E501
+from openapi_client.models.types_usage_record import \
+    TypesUsageRecord  # noqa: E501
 
 
 class TestTypesUsageRecord(unittest.TestCase):

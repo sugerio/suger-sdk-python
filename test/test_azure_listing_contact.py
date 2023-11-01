@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.azure_listing_contact import (
-    AzureListingContact,
-)  # noqa: E501
+from openapi_client.models.azure_listing_contact import \
+    AzureListingContact  # noqa: E501
 
 
 class TestAzureListingContact(unittest.TestCase):

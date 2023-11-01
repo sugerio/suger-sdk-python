@@ -15,7 +15,8 @@
 
 import unittest
 
-from openapi_client.api.entitlement_term_api import EntitlementTermApi  # noqa: E501
+from openapi_client.api.entitlement_term_api import \
+    EntitlementTermApi  # noqa: E501
 
 
 class TestEntitlementTermApi(unittest.TestCase):

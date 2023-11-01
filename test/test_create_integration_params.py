@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.create_integration_params import (
-    CreateIntegrationParams,
-)  # noqa: E501
+from openapi_client.models.create_integration_params import \
+    CreateIntegrationParams  # noqa: E501
 
 
 class TestCreateIntegrationParams(unittest.TestCase):

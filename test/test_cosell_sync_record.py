@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.cosell_sync_record import CosellSyncRecord  # noqa: E501
+from openapi_client.models.cosell_sync_record import \
+    CosellSyncRecord  # noqa: E501
 
 
 class TestCosellSyncRecord(unittest.TestCase):

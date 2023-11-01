@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.track_event import TrackEvent  # noqa: E501
 
 

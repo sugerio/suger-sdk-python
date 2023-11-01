@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.gcp_integration import GcpIntegration  # noqa: E501
 
 

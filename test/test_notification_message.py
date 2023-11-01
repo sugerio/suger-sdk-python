@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.notification_message import NotificationMessage  # noqa: E501
+from openapi_client.models.notification_message import \
+    NotificationMessage  # noqa: E501
 
 
 class TestNotificationMessage(unittest.TestCase):

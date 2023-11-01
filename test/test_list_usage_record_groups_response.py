@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.list_usage_record_groups_response import (
-    ListUsageRecordGroupsResponse,
-)  # noqa: E501
+from openapi_client.models.list_usage_record_groups_response import \
+    ListUsageRecordGroupsResponse  # noqa: E501
 
 
 class TestListUsageRecordGroupsResponse(unittest.TestCase):

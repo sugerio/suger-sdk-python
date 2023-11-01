@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.create_usage_record_group_params import (
-    CreateUsageRecordGroupParams,
-)  # noqa: E501
+from openapi_client.models.create_usage_record_group_params import \
+    CreateUsageRecordGroupParams  # noqa: E501
 
 
 class TestCreateUsageRecordGroupParams(unittest.TestCase):

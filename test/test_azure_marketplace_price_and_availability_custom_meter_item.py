@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_price_and_availability_custom_meter_item import (
-    AzureMarketplacePriceAndAvailabilityCustomMeterItem,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_price_and_availability_custom_meter_item import \
+    AzureMarketplacePriceAndAvailabilityCustomMeterItem  # noqa: E501
 
 
 class TestAzureMarketplacePriceAndAvailabilityCustomMeterItem(unittest.TestCase):

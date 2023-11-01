@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.aws_saas_product_version import (
-    AwsSaasProductVersion,
-)  # noqa: E501
+from openapi_client.models.aws_saas_product_version import \
+    AwsSaasProductVersion  # noqa: E501
 
 
 class TestAwsSaasProductVersion(unittest.TestCase):

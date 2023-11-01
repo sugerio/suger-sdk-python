@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.client_describe_instance_response_body_modules_module_properties import (
-    ClientDescribeInstanceResponseBodyModulesModuleProperties,
-)  # noqa: E501
+from openapi_client.models.client_describe_instance_response_body_modules_module_properties import \
+    ClientDescribeInstanceResponseBodyModulesModuleProperties  # noqa: E501
 
 
 class TestClientDescribeInstanceResponseBodyModulesModuleProperties(unittest.TestCase):

@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.buyer_info import BuyerInfo  # noqa: E501
 
 

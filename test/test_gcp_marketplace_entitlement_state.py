@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_marketplace_entitlement_state import (
-    GcpMarketplaceEntitlementState,
-)  # noqa: E501
+from openapi_client.models.gcp_marketplace_entitlement_state import \
+    GcpMarketplaceEntitlementState  # noqa: E501
 
 
 class TestGcpMarketplaceEntitlementState(unittest.TestCase):

@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.salesforce_crm_integration import (
-    SalesforceCrmIntegration,
-)  # noqa: E501
+from openapi_client.models.salesforce_crm_integration import \
+    SalesforceCrmIntegration  # noqa: E501
 
 
 class TestSalesforceCrmIntegration(unittest.TestCase):

@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.contact import Contact  # noqa: E501
 
 

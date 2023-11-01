@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.aws_saas_product_dimension import (
-    AwsSaasProductDimension,
-)  # noqa: E501
+from openapi_client.models.aws_saas_product_dimension import \
+    AwsSaasProductDimension  # noqa: E501
 
 
 class TestAwsSaasProductDimension(unittest.TestCase):

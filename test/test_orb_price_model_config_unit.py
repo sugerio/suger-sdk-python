@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.orb_price_model_config_unit import (
-    OrbPriceModelConfigUNIT,
-)  # noqa: E501
+from openapi_client.models.orb_price_model_config_unit import \
+    OrbPriceModelConfigUNIT  # noqa: E501
 
 
 class TestOrbPriceModelConfigUNIT(unittest.TestCase):

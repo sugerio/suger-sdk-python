@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_marketplace_external_google_link import (
-    GcpMarketplaceExternalGoogleLink,
-)  # noqa: E501
+from openapi_client.models.gcp_marketplace_external_google_link import \
+    GcpMarketplaceExternalGoogleLink  # noqa: E501
 
 
 class TestGcpMarketplaceExternalGoogleLink(unittest.TestCase):

@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.github_com_aws_aws_sdk_go_v2_service_marketplacemetering_types_tag import (
-    GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag,
-)  # noqa: E501
+from openapi_client.models.github_com_aws_aws_sdk_go_v2_service_marketplacemetering_types_tag import \
+    GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag  # noqa: E501
 
 
 class TestGithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag(unittest.TestCase):

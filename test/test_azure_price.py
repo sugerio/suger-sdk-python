@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.azure_price import AzurePrice  # noqa: E501
 
 

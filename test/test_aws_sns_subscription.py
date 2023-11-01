@@ -15,7 +15,8 @@
 
 import unittest
 
-from openapi_client.models.aws_sns_subscription import AwsSnsSubscription  # noqa: E501
+from openapi_client.models.aws_sns_subscription import \
+    AwsSnsSubscription  # noqa: E501
 
 
 class TestAwsSnsSubscription(unittest.TestCase):

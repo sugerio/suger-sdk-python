@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.get_revenue_report_params import (
-    GetRevenueReportParams,
-)  # noqa: E501
+from openapi_client.models.get_revenue_report_params import \
+    GetRevenueReportParams  # noqa: E501
 
 
 class TestGetRevenueReportParams(unittest.TestCase):

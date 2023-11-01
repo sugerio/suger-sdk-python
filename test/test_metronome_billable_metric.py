@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.metronome_billable_metric import (
-    MetronomeBillableMetric,
-)  # noqa: E501
+from openapi_client.models.metronome_billable_metric import \
+    MetronomeBillableMetric  # noqa: E501
 
 
 class TestMetronomeBillableMetric(unittest.TestCase):

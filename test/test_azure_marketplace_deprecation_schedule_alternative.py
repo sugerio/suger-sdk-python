@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_deprecation_schedule_alternative import (
-    AzureMarketplaceDeprecationScheduleAlternative,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_deprecation_schedule_alternative import \
+    AzureMarketplaceDeprecationScheduleAlternative  # noqa: E501
 
 
 class TestAzureMarketplaceDeprecationScheduleAlternative(unittest.TestCase):

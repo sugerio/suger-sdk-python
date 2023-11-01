@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_validation_result import (
-    AzureValidationResult,
-)  # noqa: E501
+from openapi_client.models.azure_validation_result import \
+    AzureValidationResult  # noqa: E501
 
 
 class TestAzureValidationResult(unittest.TestCase):

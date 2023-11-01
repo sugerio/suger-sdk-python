@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.slack_o_auth_response_incoming_webhook import (
-    SlackOAuthResponseIncomingWebhook,
-)  # noqa: E501
+from openapi_client.models.slack_o_auth_response_incoming_webhook import \
+    SlackOAuthResponseIncomingWebhook  # noqa: E501
 
 
 class TestSlackOAuthResponseIncomingWebhook(unittest.TestCase):

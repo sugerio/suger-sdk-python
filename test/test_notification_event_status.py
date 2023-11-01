@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.notification_event_status import (
-    NotificationEventStatus,
-)  # noqa: E501
+from openapi_client.models.notification_event_status import \
+    NotificationEventStatus  # noqa: E501
 
 
 class TestNotificationEventStatus(unittest.TestCase):

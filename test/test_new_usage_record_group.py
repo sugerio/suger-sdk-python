@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.new_usage_record_group import (
-    NewUsageRecordGroup,
-)  # noqa: E501
+from openapi_client.models.new_usage_record_group import \
+    NewUsageRecordGroup  # noqa: E501
 
 
 class TestNewUsageRecordGroup(unittest.TestCase):

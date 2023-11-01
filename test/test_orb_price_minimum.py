@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.orb_price_minimum import OrbPriceMinimum  # noqa: E501
+from openapi_client.models.orb_price_minimum import \
+    OrbPriceMinimum  # noqa: E501
 
 
 class TestOrbPriceMinimum(unittest.TestCase):

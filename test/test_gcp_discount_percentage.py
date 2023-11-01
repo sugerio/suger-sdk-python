@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_discount_percentage import (
-    GcpDiscountPercentage,
-)  # noqa: E501
+from openapi_client.models.gcp_discount_percentage import \
+    GcpDiscountPercentage  # noqa: E501
 
 
 class TestGcpDiscountPercentage(unittest.TestCase):

@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.usage_metering_daily_verification import (
-    UsageMeteringDailyVerification,
-)  # noqa: E501
+from openapi_client.models.usage_metering_daily_verification import \
+    UsageMeteringDailyVerification  # noqa: E501
 
 
 class TestUsageMeteringDailyVerification(unittest.TestCase):

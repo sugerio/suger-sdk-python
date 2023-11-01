@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.orb_billing_mode import OrbBillingMode  # noqa: E501
 
 

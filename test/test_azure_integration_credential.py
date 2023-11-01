@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.azure_integration_credential import (
-    AzureIntegrationCredential,
-)  # noqa: E501
+from openapi_client.models.azure_integration_credential import \
+    AzureIntegrationCredential  # noqa: E501
 
 
 class TestAzureIntegrationCredential(unittest.TestCase):

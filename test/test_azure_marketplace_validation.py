@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_validation import (
-    AzureMarketplaceValidation,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_validation import \
+    AzureMarketplaceValidation  # noqa: E501
 
 
 class TestAzureMarketplaceValidation(unittest.TestCase):

@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.aws_marketplace_event_bridge_event_product import (
-    AwsMarketplaceEventBridgeEventProduct,
-)  # noqa: E501
+from openapi_client.models.aws_marketplace_event_bridge_event_product import \
+    AwsMarketplaceEventBridgeEventProduct  # noqa: E501
 
 
 class TestAwsMarketplaceEventBridgeEventProduct(unittest.TestCase):

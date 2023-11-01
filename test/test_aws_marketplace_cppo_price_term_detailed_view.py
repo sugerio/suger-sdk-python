@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.aws_marketplace_cppo_price_term_detailed_view import (
-    AwsMarketplaceCppoPriceTermDetailedView,
-)  # noqa: E501
+from openapi_client.models.aws_marketplace_cppo_price_term_detailed_view import \
+    AwsMarketplaceCppoPriceTermDetailedView  # noqa: E501
 
 
 class TestAwsMarketplaceCppoPriceTermDetailedView(unittest.TestCase):

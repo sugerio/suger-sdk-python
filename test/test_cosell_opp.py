@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.cosell_opp import CosellOpp  # noqa: E501
 
 

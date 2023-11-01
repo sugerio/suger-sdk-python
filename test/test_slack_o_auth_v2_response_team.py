@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.slack_o_auth_v2_response_team import (
-    SlackOAuthV2ResponseTeam,
-)  # noqa: E501
+from openapi_client.models.slack_o_auth_v2_response_team import \
+    SlackOAuthV2ResponseTeam  # noqa: E501
 
 
 class TestSlackOAuthV2ResponseTeam(unittest.TestCase):

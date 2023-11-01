@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_product_feature_availability import (
-    AzureProductFeatureAvailability,
-)  # noqa: E501
+from openapi_client.models.azure_product_feature_availability import \
+    AzureProductFeatureAvailability  # noqa: E501
 
 
 class TestAzureProductFeatureAvailability(unittest.TestCase):

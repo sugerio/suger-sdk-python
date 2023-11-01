@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_marketplace_private_offer_installment_timeline import (
-    GcpMarketplacePrivateOfferInstallmentTimeline,
-)  # noqa: E501
+from openapi_client.models.gcp_marketplace_private_offer_installment_timeline import \
+    GcpMarketplacePrivateOfferInstallmentTimeline  # noqa: E501
 
 
 class TestGcpMarketplacePrivateOfferInstallmentTimeline(unittest.TestCase):

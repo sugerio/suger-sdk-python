@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.aws_integration_credential import (
-    AwsIntegrationCredential,
-)  # noqa: E501
+from openapi_client.models.aws_integration_credential import \
+    AwsIntegrationCredential  # noqa: E501
 
 
 class TestAwsIntegrationCredential(unittest.TestCase):

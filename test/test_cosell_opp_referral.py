@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.cosell_opp_referral import CosellOppReferral  # noqa: E501
+from openapi_client.models.cosell_opp_referral import \
+    CosellOppReferral  # noqa: E501
 
 
 class TestCosellOppReferral(unittest.TestCase):

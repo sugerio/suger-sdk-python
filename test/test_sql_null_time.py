@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.sql_null_time import SqlNullTime  # noqa: E501
 
 

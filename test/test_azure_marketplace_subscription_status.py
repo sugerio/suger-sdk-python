@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_subscription_status import (
-    AzureMarketplaceSubscriptionStatus,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_subscription_status import \
+    AzureMarketplaceSubscriptionStatus  # noqa: E501
 
 
 class TestAzureMarketplaceSubscriptionStatus(unittest.TestCase):

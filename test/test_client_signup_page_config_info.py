@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.client_signup_page_config_info import (
-    ClientSignupPageConfigInfo,
-)  # noqa: E501
+from openapi_client.models.client_signup_page_config_info import \
+    ClientSignupPageConfigInfo  # noqa: E501
 
 
 class TestClientSignupPageConfigInfo(unittest.TestCase):

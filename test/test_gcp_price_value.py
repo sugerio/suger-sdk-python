@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.gcp_price_value import GcpPriceValue  # noqa: E501
 
 

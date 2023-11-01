@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.servicecontrol_report_error import (
-    ServicecontrolReportError,
-)  # noqa: E501
+from openapi_client.models.servicecontrol_report_error import \
+    ServicecontrolReportError  # noqa: E501
 
 
 class TestServicecontrolReportError(unittest.TestCase):

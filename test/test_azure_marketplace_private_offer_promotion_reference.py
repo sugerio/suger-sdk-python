@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_private_offer_promotion_reference import (
-    AzureMarketplacePrivateOfferPromotionReference,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_private_offer_promotion_reference import \
+    AzureMarketplacePrivateOfferPromotionReference  # noqa: E501
 
 
 class TestAzureMarketplacePrivateOfferPromotionReference(unittest.TestCase):

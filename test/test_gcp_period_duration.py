@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_period_duration import GcpPeriodDuration  # noqa: E501
+from openapi_client.models.gcp_period_duration import \
+    GcpPeriodDuration  # noqa: E501
 
 
 class TestGcpPeriodDuration(unittest.TestCase):

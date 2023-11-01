@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.aws_marketplace_cppo_payment_terms_entitlement import (
-    AwsMarketplaceCppoPaymentTermsEntitlement,
-)  # noqa: E501
+from openapi_client.models.aws_marketplace_cppo_payment_terms_entitlement import \
+    AwsMarketplaceCppoPaymentTermsEntitlement  # noqa: E501
 
 
 class TestAwsMarketplaceCppoPaymentTermsEntitlement(unittest.TestCase):

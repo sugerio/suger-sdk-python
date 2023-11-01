@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.list_usage_metering_daily_records_response import (
-    ListUsageMeteringDailyRecordsResponse,
-)  # noqa: E501
+from openapi_client.models.list_usage_metering_daily_records_response import \
+    ListUsageMeteringDailyRecordsResponse  # noqa: E501
 
 
 class TestListUsageMeteringDailyRecordsResponse(unittest.TestCase):

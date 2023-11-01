@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.list_revenue_record_details_response import (
-    ListRevenueRecordDetailsResponse,
-)  # noqa: E501
+from openapi_client.models.list_revenue_record_details_response import \
+    ListRevenueRecordDetailsResponse  # noqa: E501
 
 
 class TestListRevenueRecordDetailsResponse(unittest.TestCase):

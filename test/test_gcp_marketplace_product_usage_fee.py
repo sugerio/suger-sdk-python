@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_marketplace_product_usage_fee import (
-    GcpMarketplaceProductUsageFee,
-)  # noqa: E501
+from openapi_client.models.gcp_marketplace_product_usage_fee import \
+    GcpMarketplaceProductUsageFee  # noqa: E501
 
 
 class TestGcpMarketplaceProductUsageFee(unittest.TestCase):

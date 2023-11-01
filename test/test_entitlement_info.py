@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.entitlement_info import EntitlementInfo  # noqa: E501
+from openapi_client.models.entitlement_info import \
+    EntitlementInfo  # noqa: E501
 
 
 class TestEntitlementInfo(unittest.TestCase):

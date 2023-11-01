@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.types_usage_allocation import (
-    TypesUsageAllocation,
-)  # noqa: E501
+from openapi_client.models.types_usage_allocation import \
+    TypesUsageAllocation  # noqa: E501
 
 
 class TestTypesUsageAllocation(unittest.TestCase):

@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.alibaba_marketplace_product_sku_order_period import (
-    AlibabaMarketplaceProductSkuOrderPeriod,
-)  # noqa: E501
+from openapi_client.models.alibaba_marketplace_product_sku_order_period import \
+    AlibabaMarketplaceProductSkuOrderPeriod  # noqa: E501
 
 
 class TestAlibabaMarketplaceProductSkuOrderPeriod(unittest.TestCase):

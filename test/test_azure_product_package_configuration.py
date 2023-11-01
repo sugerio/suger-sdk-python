@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_product_package_configuration import (
-    AzureProductPackageConfiguration,
-)  # noqa: E501
+from openapi_client.models.azure_product_package_configuration import \
+    AzureProductPackageConfiguration  # noqa: E501
 
 
 class TestAzureProductPackageConfiguration(unittest.TestCase):

@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.metronome_integration import (
-    MetronomeIntegration,
-)  # noqa: E501
+from openapi_client.models.metronome_integration import \
+    MetronomeIntegration  # noqa: E501
 
 
 class TestMetronomeIntegration(unittest.TestCase):

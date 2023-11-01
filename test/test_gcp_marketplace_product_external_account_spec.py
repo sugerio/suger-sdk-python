@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_marketplace_product_external_account_spec import (
-    GcpMarketplaceProductExternalAccountSpec,
-)  # noqa: E501
+from openapi_client.models.gcp_marketplace_product_external_account_spec import \
+    GcpMarketplaceProductExternalAccountSpec  # noqa: E501
 
 
 class TestGcpMarketplaceProductExternalAccountSpec(unittest.TestCase):

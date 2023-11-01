@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.value_type import ValueType  # noqa: E501
 
 

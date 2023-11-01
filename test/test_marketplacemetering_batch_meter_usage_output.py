@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.marketplacemetering_batch_meter_usage_output import (
-    MarketplacemeteringBatchMeterUsageOutput,
-)  # noqa: E501
+from openapi_client.models.marketplacemetering_batch_meter_usage_output import \
+    MarketplacemeteringBatchMeterUsageOutput  # noqa: E501
 
 
 class TestMarketplacemeteringBatchMeterUsageOutput(unittest.TestCase):

@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.orb_matrix_price_value import (
-    OrbMatrixPriceValue,
-)  # noqa: E501
+from openapi_client.models.orb_matrix_price_value import \
+    OrbMatrixPriceValue  # noqa: E501
 
 
 class TestOrbMatrixPriceValue(unittest.TestCase):

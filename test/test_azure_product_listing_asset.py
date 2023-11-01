@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_product_listing_asset import (
-    AzureProductListingAsset,
-)  # noqa: E501
+from openapi_client.models.azure_product_listing_asset import \
+    AzureProductListingAsset  # noqa: E501
 
 
 class TestAzureProductListingAsset(unittest.TestCase):

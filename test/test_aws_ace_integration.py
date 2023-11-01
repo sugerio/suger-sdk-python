@@ -15,7 +15,8 @@
 
 import unittest
 
-from openapi_client.models.aws_ace_integration import AwsAceIntegration  # noqa: E501
+from openapi_client.models.aws_ace_integration import \
+    AwsAceIntegration  # noqa: E501
 
 
 class TestAwsAceIntegration(unittest.TestCase):

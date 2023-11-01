@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.orb_price_discount_type import (
-    OrbPriceDiscountType,
-)  # noqa: E501
+from openapi_client.models.orb_price_discount_type import \
+    OrbPriceDiscountType  # noqa: E501
 
 
 class TestOrbPriceDiscountType(unittest.TestCase):

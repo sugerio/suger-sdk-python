@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.usage_metering_dimension_mapping_value import (
-    UsageMeteringDimensionMappingValue,
-)  # noqa: E501
+from openapi_client.models.usage_metering_dimension_mapping_value import \
+    UsageMeteringDimensionMappingValue  # noqa: E501
 
 
 class TestUsageMeteringDimensionMappingValue(unittest.TestCase):

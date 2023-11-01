@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.salesforce_sync_filter import (
-    SalesforceSyncFilter,
-)  # noqa: E501
+from openapi_client.models.salesforce_sync_filter import \
+    SalesforceSyncFilter  # noqa: E501
 
 
 class TestSalesforceSyncFilter(unittest.TestCase):

@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_private_offer_beneficiary import (
-    AzureMarketplacePrivateOfferBeneficiary,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_private_offer_beneficiary import \
+    AzureMarketplacePrivateOfferBeneficiary  # noqa: E501
 
 
 class TestAzureMarketplacePrivateOfferBeneficiary(unittest.TestCase):

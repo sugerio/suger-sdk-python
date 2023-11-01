@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.aws_account_identifier import (
-    AwsAccountIdentifier,
-)  # noqa: E501
+from openapi_client.models.aws_account_identifier import \
+    AwsAccountIdentifier  # noqa: E501
 
 
 class TestAwsAccountIdentifier(unittest.TestCase):

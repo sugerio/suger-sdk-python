@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.aws_saas_product_support_information import (
-    AwsSaasProductSupportInformation,
-)  # noqa: E501
+from openapi_client.models.aws_saas_product_support_information import \
+    AwsSaasProductSupportInformation  # noqa: E501
 
 
 class TestAwsSaasProductSupportInformation(unittest.TestCase):

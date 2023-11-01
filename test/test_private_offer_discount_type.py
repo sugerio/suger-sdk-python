@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.private_offer_discount_type import (
-    PrivateOfferDiscountType,
-)  # noqa: E501
+from openapi_client.models.private_offer_discount_type import \
+    PrivateOfferDiscountType  # noqa: E501
 
 
 class TestPrivateOfferDiscountType(unittest.TestCase):

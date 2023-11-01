@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.aws_saas_product_delivery_option import (
-    AwsSaasProductDeliveryOption,
-)  # noqa: E501
+from openapi_client.models.aws_saas_product_delivery_option import \
+    AwsSaasProductDeliveryOption  # noqa: E501
 
 
 class TestAwsSaasProductDeliveryOption(unittest.TestCase):

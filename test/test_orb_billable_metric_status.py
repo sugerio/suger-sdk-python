@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.orb_billable_metric_status import (
-    OrbBillableMetricStatus,
-)  # noqa: E501
+from openapi_client.models.orb_billable_metric_status import \
+    OrbBillableMetricStatus  # noqa: E501
 
 
 class TestOrbBillableMetricStatus(unittest.TestCase):

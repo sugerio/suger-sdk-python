@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.azure_market import AzureMarket  # noqa: E501
 
 

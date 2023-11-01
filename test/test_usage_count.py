@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.usage_count import UsageCount  # noqa: E501
 
 

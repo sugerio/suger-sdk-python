@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.list_cosell_opp_referrals_response import (
-    ListCosellOppReferralsResponse,
-)  # noqa: E501
+from openapi_client.models.list_cosell_opp_referrals_response import \
+    ListCosellOppReferralsResponse  # noqa: E501
 
 
 class TestListCosellOppReferralsResponse(unittest.TestCase):

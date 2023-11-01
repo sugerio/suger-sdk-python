@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.orb_plan_phase import OrbPlanPhase  # noqa: E501
 
 

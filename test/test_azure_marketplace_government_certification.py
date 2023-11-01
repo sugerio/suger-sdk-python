@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_government_certification import (
-    AzureMarketplaceGovernmentCertification,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_government_certification import \
+    AzureMarketplaceGovernmentCertification  # noqa: E501
 
 
 class TestAzureMarketplaceGovernmentCertification(unittest.TestCase):

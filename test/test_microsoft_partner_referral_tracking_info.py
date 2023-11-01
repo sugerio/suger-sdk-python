@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.microsoft_partner_referral_tracking_info import (
-    MicrosoftPartnerReferralTrackingInfo,
-)  # noqa: E501
+from openapi_client.models.microsoft_partner_referral_tracking_info import \
+    MicrosoftPartnerReferralTrackingInfo  # noqa: E501
 
 
 class TestMicrosoftPartnerReferralTrackingInfo(unittest.TestCase):

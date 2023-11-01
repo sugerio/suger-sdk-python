@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.hubspot_crm_integration import (
-    HubspotCrmIntegration,
-)  # noqa: E501
+from openapi_client.models.hubspot_crm_integration import \
+    HubspotCrmIntegration  # noqa: E501
 
 
 class TestHubspotCrmIntegration(unittest.TestCase):

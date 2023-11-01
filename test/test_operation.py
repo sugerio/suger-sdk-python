@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.operation import Operation  # noqa: E501
 
 

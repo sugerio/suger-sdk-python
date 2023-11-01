@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_product_submission import (
-    AzureProductSubmission,
-)  # noqa: E501
+from openapi_client.models.azure_product_submission import \
+    AzureProductSubmission  # noqa: E501
 
 
 class TestAzureProductSubmission(unittest.TestCase):

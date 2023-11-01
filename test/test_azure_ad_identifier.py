@@ -15,7 +15,8 @@
 
 import unittest
 
-from openapi_client.models.azure_ad_identifier import AzureADIdentifier  # noqa: E501
+from openapi_client.models.azure_ad_identifier import \
+    AzureADIdentifier  # noqa: E501
 
 
 class TestAzureADIdentifier(unittest.TestCase):

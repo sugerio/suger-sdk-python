@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.client_describe_order_response_body_supplier_telephones import (
-    ClientDescribeOrderResponseBodySupplierTelephones,
-)  # noqa: E501
+from openapi_client.models.client_describe_order_response_body_supplier_telephones import \
+    ClientDescribeOrderResponseBodySupplierTelephones  # noqa: E501
 
 
 class TestClientDescribeOrderResponseBodySupplierTelephones(unittest.TestCase):

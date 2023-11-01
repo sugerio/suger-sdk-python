@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.update_buyer_params import UpdateBuyerParams  # noqa: E501
+from openapi_client.models.update_buyer_params import \
+    UpdateBuyerParams  # noqa: E501
 
 
 class TestUpdateBuyerParams(unittest.TestCase):

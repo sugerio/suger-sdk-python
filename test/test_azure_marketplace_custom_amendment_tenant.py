@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_custom_amendment_tenant import (
-    AzureMarketplaceCustomAmendmentTenant,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_custom_amendment_tenant import \
+    AzureMarketplaceCustomAmendmentTenant  # noqa: E501
 
 
 class TestAzureMarketplaceCustomAmendmentTenant(unittest.TestCase):

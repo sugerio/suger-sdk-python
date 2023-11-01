@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.revenue_record_detail import (
-    RevenueRecordDetail,
-)  # noqa: E501
+from openapi_client.models.revenue_record_detail import \
+    RevenueRecordDetail  # noqa: E501
 
 
 class TestRevenueRecordDetail(unittest.TestCase):

@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_update_entitlement_name_params import (
-    GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams,
-)  # noqa: E501
+from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_update_entitlement_name_params import \
+    GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams  # noqa: E501
 
 
 class TestGithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams(

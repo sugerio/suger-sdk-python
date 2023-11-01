@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.orb_integration import OrbIntegration  # noqa: E501
 
 

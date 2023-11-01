@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.identity_buyer import IdentityBuyer  # noqa: E501
 
 

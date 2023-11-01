@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_general_link import (
-    AzureMarketplaceGeneralLink,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_general_link import \
+    AzureMarketplaceGeneralLink  # noqa: E501
 
 
 class TestAzureMarketplaceGeneralLink(unittest.TestCase):

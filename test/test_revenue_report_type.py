@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.revenue_report_type import RevenueReportType  # noqa: E501
+from openapi_client.models.revenue_report_type import \
+    RevenueReportType  # noqa: E501
 
 
 class TestRevenueReportType(unittest.TestCase):

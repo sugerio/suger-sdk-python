@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_localized_date_time import (
-    AzureLocalizedDateTime,
-)  # noqa: E501
+from openapi_client.models.azure_localized_date_time import \
+    AzureLocalizedDateTime  # noqa: E501
 
 
 class TestAzureLocalizedDateTime(unittest.TestCase):

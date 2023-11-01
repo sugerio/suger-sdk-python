@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.client_push_metering_data_request import (
-    ClientPushMeteringDataRequest,
-)  # noqa: E501
+from openapi_client.models.client_push_metering_data_request import \
+    ClientPushMeteringDataRequest  # noqa: E501
 
 
 class TestClientPushMeteringDataRequest(unittest.TestCase):

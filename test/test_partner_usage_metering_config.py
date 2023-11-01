@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.partner_usage_metering_config import (
-    PartnerUsageMeteringConfig,
-)  # noqa: E501
+from openapi_client.models.partner_usage_metering_config import \
+    PartnerUsageMeteringConfig  # noqa: E501
 
 
 class TestPartnerUsageMeteringConfig(unittest.TestCase):

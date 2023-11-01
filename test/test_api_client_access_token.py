@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.api_client_access_token import (
-    ApiClientAccessToken,
-)  # noqa: E501
+from openapi_client.models.api_client_access_token import \
+    ApiClientAccessToken  # noqa: E501
 
 
 class TestApiClientAccessToken(unittest.TestCase):

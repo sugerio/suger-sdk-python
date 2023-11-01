@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_batch_usage_event_ok_response import (
-    GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse,
-)  # noqa: E501
+from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_batch_usage_event_ok_response import \
+    GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse  # noqa: E501
 
 
 class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse(

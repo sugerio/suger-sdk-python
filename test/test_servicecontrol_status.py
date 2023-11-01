@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.servicecontrol_status import (
-    ServicecontrolStatus,
-)  # noqa: E501
+from openapi_client.models.servicecontrol_status import \
+    ServicecontrolStatus  # noqa: E501
 
 
 class TestServicecontrolStatus(unittest.TestCase):

@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_marketplace_product_metering_metric import (
-    GcpMarketplaceProductMeteringMetric,
-)  # noqa: E501
+from openapi_client.models.gcp_marketplace_product_metering_metric import \
+    GcpMarketplaceProductMeteringMetric  # noqa: E501
 
 
 class TestGcpMarketplaceProductMeteringMetric(unittest.TestCase):

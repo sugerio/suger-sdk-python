@@ -15,7 +15,8 @@
 
 import unittest
 
-from openapi_client.models.azure_integration import AzureIntegration  # noqa: E501
+from openapi_client.models.azure_integration import \
+    AzureIntegration  # noqa: E501
 
 
 class TestAzureIntegration(unittest.TestCase):

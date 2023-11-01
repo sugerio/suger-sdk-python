@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_marketplace_payment_schedule_type import (
-    GcpMarketplacePaymentScheduleType,
-)  # noqa: E501
+from openapi_client.models.gcp_marketplace_payment_schedule_type import \
+    GcpMarketplacePaymentScheduleType  # noqa: E501
 
 
 class TestGcpMarketplacePaymentScheduleType(unittest.TestCase):

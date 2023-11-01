@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_price_and_availability_offer import (
-    AzureMarketplacePriceAndAvailabilityOffer,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_price_and_availability_offer import \
+    AzureMarketplacePriceAndAvailabilityOffer  # noqa: E501
 
 
 class TestAzureMarketplacePriceAndAvailabilityOffer(unittest.TestCase):

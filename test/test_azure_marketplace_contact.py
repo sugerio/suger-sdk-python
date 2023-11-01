@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_contact import (
-    AzureMarketplaceContact,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_contact import \
+    AzureMarketplaceContact  # noqa: E501
 
 
 class TestAzureMarketplaceContact(unittest.TestCase):

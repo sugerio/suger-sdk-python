@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.entity_type import EntityType  # noqa: E501
 
 

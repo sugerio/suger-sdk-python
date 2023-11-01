@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.gcp_user_info import GcpUserInfo  # noqa: E501
 
 

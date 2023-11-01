@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.orb_price_model_config_bulkbps import (
-    OrbPriceModelConfigBULKBPS,
-)  # noqa: E501
+from openapi_client.models.orb_price_model_config_bulkbps import \
+    OrbPriceModelConfigBULKBPS  # noqa: E501
 
 
 class TestOrbPriceModelConfigBULKBPS(unittest.TestCase):

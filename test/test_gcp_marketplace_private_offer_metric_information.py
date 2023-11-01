@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_marketplace_private_offer_metric_information import (
-    GcpMarketplacePrivateOfferMetricInformation,
-)  # noqa: E501
+from openapi_client.models.gcp_marketplace_private_offer_metric_information import \
+    GcpMarketplacePrivateOfferMetricInformation  # noqa: E501
 
 
 class TestGcpMarketplacePrivateOfferMetricInformation(unittest.TestCase):

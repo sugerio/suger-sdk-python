@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.alibaba_integration_credential import (
-    AlibabaIntegrationCredential,
-)  # noqa: E501
+from openapi_client.models.alibaba_integration_credential import \
+    AlibabaIntegrationCredential  # noqa: E501
 
 
 class TestAlibabaIntegrationCredential(unittest.TestCase):

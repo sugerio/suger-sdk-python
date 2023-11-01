@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.azure_commercial_marketplace_setup import (
-    AzureCommercialMarketplaceSetup,
-)  # noqa: E501
+from openapi_client.models.azure_commercial_marketplace_setup import \
+    AzureCommercialMarketplaceSetup  # noqa: E501
 
 
 class TestAzureCommercialMarketplaceSetup(unittest.TestCase):

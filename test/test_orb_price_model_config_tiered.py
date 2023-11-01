@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.orb_price_model_config_tiered import (
-    OrbPriceModelConfigTIERED,
-)  # noqa: E501
+from openapi_client.models.orb_price_model_config_tiered import \
+    OrbPriceModelConfigTIERED  # noqa: E501
 
 
 class TestOrbPriceModelConfigTIERED(unittest.TestCase):

@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.alibaba_marketplace_product_shop_info import (
-    AlibabaMarketplaceProductShopInfo,
-)  # noqa: E501
+from openapi_client.models.alibaba_marketplace_product_shop_info import \
+    AlibabaMarketplaceProductShopInfo  # noqa: E501
 
 
 class TestAlibabaMarketplaceProductShopInfo(unittest.TestCase):

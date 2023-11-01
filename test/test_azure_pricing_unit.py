@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_pricing_unit import AzurePricingUnit  # noqa: E501
+from openapi_client.models.azure_pricing_unit import \
+    AzurePricingUnit  # noqa: E501
 
 
 class TestAzurePricingUnit(unittest.TestCase):

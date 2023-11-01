@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.metering_usage_record_group import (
-    MeteringUsageRecordGroup,
-)  # noqa: E501
+from openapi_client.models.metering_usage_record_group import \
+    MeteringUsageRecordGroup  # noqa: E501
 
 
 class TestMeteringUsageRecordGroup(unittest.TestCase):

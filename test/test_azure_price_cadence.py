@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_price_cadence import AzurePriceCadence  # noqa: E501
+from openapi_client.models.azure_price_cadence import \
+    AzurePriceCadence  # noqa: E501
 
 
 class TestAzurePriceCadence(unittest.TestCase):

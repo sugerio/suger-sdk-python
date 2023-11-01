@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_resource_lifecycle_state import (
-    AzureMarketplaceResourceLifecycleState,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_resource_lifecycle_state import \
+    AzureMarketplaceResourceLifecycleState  # noqa: E501
 
 
 class TestAzureMarketplaceResourceLifecycleState(unittest.TestCase):

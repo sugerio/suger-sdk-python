@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.identity_integration import IdentityIntegration  # noqa: E501
+from openapi_client.models.identity_integration import \
+    IdentityIntegration  # noqa: E501
 
 
 class TestIdentityIntegration(unittest.TestCase):

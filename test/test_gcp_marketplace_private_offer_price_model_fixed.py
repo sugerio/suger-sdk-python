@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_marketplace_private_offer_price_model_fixed import (
-    GcpMarketplacePrivateOfferPriceModelFixed,
-)  # noqa: E501
+from openapi_client.models.gcp_marketplace_private_offer_price_model_fixed import \
+    GcpMarketplacePrivateOfferPriceModelFixed  # noqa: E501
 
 
 class TestGcpMarketplacePrivateOfferPriceModelFixed(unittest.TestCase):

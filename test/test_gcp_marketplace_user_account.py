@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_marketplace_user_account import (
-    GcpMarketplaceUserAccount,
-)  # noqa: E501
+from openapi_client.models.gcp_marketplace_user_account import \
+    GcpMarketplaceUserAccount  # noqa: E501
 
 
 class TestGcpMarketplaceUserAccount(unittest.TestCase):

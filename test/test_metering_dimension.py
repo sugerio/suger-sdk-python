@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.metering_dimension import MeteringDimension  # noqa: E501
+from openapi_client.models.metering_dimension import \
+    MeteringDimension  # noqa: E501
 
 
 class TestMeteringDimension(unittest.TestCase):

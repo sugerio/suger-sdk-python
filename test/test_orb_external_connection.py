@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.orb_external_connection import (
-    OrbExternalConnection,
-)  # noqa: E501
+from openapi_client.models.orb_external_connection import \
+    OrbExternalConnection  # noqa: E501
 
 
 class TestOrbExternalConnection(unittest.TestCase):

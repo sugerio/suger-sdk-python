@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.orb_plan_status import OrbPlanStatus  # noqa: E501
 
 

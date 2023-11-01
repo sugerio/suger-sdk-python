@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.identity_conctact_info import (
-    IdentityConctactInfo,
-)  # noqa: E501
+from openapi_client.models.identity_conctact_info import \
+    IdentityConctactInfo  # noqa: E501
 
 
 class TestIdentityConctactInfo(unittest.TestCase):

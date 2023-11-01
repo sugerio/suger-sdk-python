@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.alibaba_marketplace_integration import (
-    AlibabaMarketplaceIntegration,
-)  # noqa: E501
+from openapi_client.models.alibaba_marketplace_integration import \
+    AlibabaMarketplaceIntegration  # noqa: E501
 
 
 class TestAlibabaMarketplaceIntegration(unittest.TestCase):

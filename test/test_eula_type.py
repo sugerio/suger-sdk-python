@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.eula_type import EulaType  # noqa: E501
 
 

@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.track_event_action_type import (
-    TrackEventActionType,
-)  # noqa: E501
+from openapi_client.models.track_event_action_type import \
+    TrackEventActionType  # noqa: E501
 
 
 class TestTrackEventActionType(unittest.TestCase):

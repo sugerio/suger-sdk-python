@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.sql_value_type import SqlValueType  # noqa: E501
 
 

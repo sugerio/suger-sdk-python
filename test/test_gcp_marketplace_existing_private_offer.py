@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_marketplace_existing_private_offer import (
-    GcpMarketplaceExistingPrivateOffer,
-)  # noqa: E501
+from openapi_client.models.gcp_marketplace_existing_private_offer import \
+    GcpMarketplaceExistingPrivateOffer  # noqa: E501
 
 
 class TestGcpMarketplaceExistingPrivateOffer(unittest.TestCase):

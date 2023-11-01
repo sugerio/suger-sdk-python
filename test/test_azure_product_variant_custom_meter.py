@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_product_variant_custom_meter import (
-    AzureProductVariantCustomMeter,
-)  # noqa: E501
+from openapi_client.models.azure_product_variant_custom_meter import \
+    AzureProductVariantCustomMeter  # noqa: E501
 
 
 class TestAzureProductVariantCustomMeter(unittest.TestCase):

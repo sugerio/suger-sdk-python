@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.azure_term import AzureTerm  # noqa: E501
 
 

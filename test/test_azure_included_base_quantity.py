@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.azure_included_base_quantity import (
-    AzureIncludedBaseQuantity,
-)  # noqa: E501
+from openapi_client.models.azure_included_base_quantity import \
+    AzureIncludedBaseQuantity  # noqa: E501
 
 
 class TestAzureIncludedBaseQuantity(unittest.TestCase):

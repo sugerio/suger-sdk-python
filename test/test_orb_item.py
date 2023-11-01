@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.orb_item import OrbItem  # noqa: E501
 
 

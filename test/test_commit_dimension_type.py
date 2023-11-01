@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.commit_dimension_type import (
-    CommitDimensionType,
-)  # noqa: E501
+from openapi_client.models.commit_dimension_type import \
+    CommitDimensionType  # noqa: E501
 
 
 class TestCommitDimensionType(unittest.TestCase):

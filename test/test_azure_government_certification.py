@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.azure_government_certification import (
-    AzureGovernmentCertification,
-)  # noqa: E501
+from openapi_client.models.azure_government_certification import \
+    AzureGovernmentCertification  # noqa: E501
 
 
 class TestAzureGovernmentCertification(unittest.TestCase):

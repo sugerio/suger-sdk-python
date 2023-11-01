@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_localized_time_range import (
-    AzureLocalizedTimeRange,
-)  # noqa: E501
+from openapi_client.models.azure_localized_time_range import \
+    AzureLocalizedTimeRange  # noqa: E501
 
 
 class TestAzureLocalizedTimeRange(unittest.TestCase):

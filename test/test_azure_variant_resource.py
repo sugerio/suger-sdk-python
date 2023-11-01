@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_variant_resource import (
-    AzureVariantResource,
-)  # noqa: E501
+from openapi_client.models.azure_variant_resource import \
+    AzureVariantResource  # noqa: E501
 
 
 class TestAzureVariantResource(unittest.TestCase):

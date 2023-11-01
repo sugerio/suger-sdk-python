@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_marketplace_product_feature_value import (
-    GcpMarketplaceProductFeatureValue,
-)  # noqa: E501
+from openapi_client.models.gcp_marketplace_product_feature_value import \
+    GcpMarketplaceProductFeatureValue  # noqa: E501
 
 
 class TestGcpMarketplaceProductFeatureValue(unittest.TestCase):

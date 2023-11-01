@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.aws_saas_product_additional_resource import (
-    AwsSaasProductAdditionalResource,
-)  # noqa: E501
+from openapi_client.models.aws_saas_product_additional_resource import \
+    AwsSaasProductAdditionalResource  # noqa: E501
 
 
 class TestAwsSaasProductAdditionalResource(unittest.TestCase):

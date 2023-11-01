@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.list_notification_messages_response import (
-    ListNotificationMessagesResponse,
-)  # noqa: E501
+from openapi_client.models.list_notification_messages_response import \
+    ListNotificationMessagesResponse  # noqa: E501
 
 
 class TestListNotificationMessagesResponse(unittest.TestCase):

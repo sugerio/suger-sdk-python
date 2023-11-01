@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.add_entitlement_credit_response import (
-    AddEntitlementCreditResponse,
-)  # noqa: E501
+from openapi_client.models.add_entitlement_credit_response import \
+    AddEntitlementCreditResponse  # noqa: E501
 
 
 class TestAddEntitlementCreditResponse(unittest.TestCase):

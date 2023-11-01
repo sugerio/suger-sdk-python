@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.salesforce_crm_credential import (
-    SalesforceCrmCredential,
-)  # noqa: E501
+from openapi_client.models.salesforce_crm_credential import \
+    SalesforceCrmCredential  # noqa: E501
 
 
 class TestSalesforceCrmCredential(unittest.TestCase):

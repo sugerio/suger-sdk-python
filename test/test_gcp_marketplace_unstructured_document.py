@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.gcp_marketplace_unstructured_document import (
-    GcpMarketplaceUnstructuredDocument,
-)  # noqa: E501
+from openapi_client.models.gcp_marketplace_unstructured_document import \
+    GcpMarketplaceUnstructuredDocument  # noqa: E501
 
 
 class TestGcpMarketplaceUnstructuredDocument(unittest.TestCase):

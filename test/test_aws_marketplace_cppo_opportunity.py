@@ -15,9 +15,8 @@
 
 import unittest
 
-from openapi_client.models.aws_marketplace_cppo_opportunity import (
-    AwsMarketplaceCppoOpportunity,
-)  # noqa: E501
+from openapi_client.models.aws_marketplace_cppo_opportunity import \
+    AwsMarketplaceCppoOpportunity  # noqa: E501
 
 
 class TestAwsMarketplaceCppoOpportunity(unittest.TestCase):

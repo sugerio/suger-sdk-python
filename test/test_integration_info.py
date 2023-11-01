@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.integration_info import IntegrationInfo  # noqa: E501
+from openapi_client.models.integration_info import \
+    IntegrationInfo  # noqa: E501
 
 
 class TestIntegrationInfo(unittest.TestCase):

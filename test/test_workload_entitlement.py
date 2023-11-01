@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.workload_entitlement import WorkloadEntitlement  # noqa: E501
+from openapi_client.models.workload_entitlement import \
+    WorkloadEntitlement  # noqa: E501
 
 
 class TestWorkloadEntitlement(unittest.TestCase):

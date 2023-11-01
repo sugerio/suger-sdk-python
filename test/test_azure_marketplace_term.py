@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_term import (
-    AzureMarketplaceTerm,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_term import \
+    AzureMarketplaceTerm  # noqa: E501
 
 
 class TestAzureMarketplaceTerm(unittest.TestCase):

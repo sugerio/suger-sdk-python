@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.commit_dimension_time_unit import (
-    CommitDimensionTimeUnit,
-)  # noqa: E501
+from openapi_client.models.commit_dimension_time_unit import \
+    CommitDimensionTimeUnit  # noqa: E501
 
 
 class TestCommitDimensionTimeUnit(unittest.TestCase):

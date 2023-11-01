@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_customer_leads import (
-    AzureMarketplaceCustomerLeads,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_customer_leads import \
+    AzureMarketplaceCustomerLeads  # noqa: E501
 
 
 class TestAzureMarketplaceCustomerLeads(unittest.TestCase):

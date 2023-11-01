@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_marketplace_identity import (
-    AzureMarketplaceIdentity,
-)  # noqa: E501
+from openapi_client.models.azure_marketplace_identity import \
+    AzureMarketplaceIdentity  # noqa: E501
 
 
 class TestAzureMarketplaceIdentity(unittest.TestCase):

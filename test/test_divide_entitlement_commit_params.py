@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.divide_entitlement_commit_params import (
-    DivideEntitlementCommitParams,
-)  # noqa: E501
+from openapi_client.models.divide_entitlement_commit_params import \
+    DivideEntitlementCommitParams  # noqa: E501
 
 
 class TestDivideEntitlementCommitParams(unittest.TestCase):

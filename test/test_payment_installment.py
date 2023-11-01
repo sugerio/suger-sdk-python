@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.payment_installment import PaymentInstallment  # noqa: E501
+from openapi_client.models.payment_installment import \
+    PaymentInstallment  # noqa: E501
 
 
 class TestPaymentInstallment(unittest.TestCase):

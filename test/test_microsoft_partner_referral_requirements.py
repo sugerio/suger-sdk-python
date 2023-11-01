@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.microsoft_partner_referral_requirements import (
-    MicrosoftPartnerReferralRequirements,
-)  # noqa: E501
+from openapi_client.models.microsoft_partner_referral_requirements import \
+    MicrosoftPartnerReferralRequirements  # noqa: E501
 
 
 class TestMicrosoftPartnerReferralRequirements(unittest.TestCase):

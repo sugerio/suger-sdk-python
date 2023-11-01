@@ -15,10 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.update_product_params import (
-    UpdateProductParams,
-)  # noqa: E501
+from openapi_client.models.update_product_params import \
+    UpdateProductParams  # noqa: E501
 
 
 class TestUpdateProductParams(unittest.TestCase):

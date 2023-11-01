@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.azure_product_branch import AzureProductBranch  # noqa: E501
+from openapi_client.models.azure_product_branch import \
+    AzureProductBranch  # noqa: E501
 
 
 class TestAzureProductBranch(unittest.TestCase):

@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.slack_integration import SlackIntegration  # noqa: E501
+from openapi_client.models.slack_integration import \
+    SlackIntegration  # noqa: E501
 
 
 class TestSlackIntegration(unittest.TestCase):

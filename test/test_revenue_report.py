@@ -15,7 +15,6 @@
 
 import unittest
 
-
 from openapi_client.models.revenue_report import RevenueReport  # noqa: E501
 
 

@@ -15,8 +15,8 @@
 
 import unittest
 
-
-from openapi_client.models.orb_price_maximum import OrbPriceMaximum  # noqa: E501
+from openapi_client.models.orb_price_maximum import \
+    OrbPriceMaximum  # noqa: E501
 
 
 class TestOrbPriceMaximum(unittest.TestCase):
