@@ -24,42 +24,23 @@ from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist
 from openapi_client.models.hubspot_crm_credential import HubspotCrmCredential
 from openapi_client.models.hubspot_sync_filter import HubspotSyncFilter
 
-
 class HubspotCrmIntegration(BaseModel):
     """
     HubspotCrmIntegration
     """
-
     company_fields: Optional[conlist(StrictStr)] = Field(None, alias="companyFields")
     contact_fields: Optional[conlist(StrictStr)] = Field(None, alias="contactFields")
     credential: Optional[HubspotCrmCredential] = None
     deal_fields: Optional[conlist(StrictStr)] = Field(None, alias="dealFields")
-    paused: Optional[StrictBool] = Field(
-        None, description="Paused means the integration is not syncing."
-    )
-    portal_id: Optional[StrictInt] = Field(
-        None, alias="portalId", description="Hubspot Account Id"
-    )
+    last_sync_time: Optional[StrictStr] = Field(None, alias="lastSyncTime")
+    paused: Optional[StrictBool] = Field(None, description="Paused means the integration is not syncing.")
+    portal_id: Optional[StrictInt] = Field(None, alias="portalId", description="Hubspot Account Id")
     secret_key: Optional[StrictStr] = Field(None, alias="secretKey")
-    sync_filters: Optional[conlist(HubspotSyncFilter)] = Field(
-        None,
-        alias="syncFilters",
-        description="Can have at most 3 filters which will all be AND-ed.",
-    )
-    __properties = [
-        "companyFields",
-        "contactFields",
-        "credential",
-        "dealFields",
-        "paused",
-        "portalId",
-        "secretKey",
-        "syncFilters",
-    ]
+    sync_filters: Optional[conlist(HubspotSyncFilter)] = Field(None, alias="syncFilters", description="Can have at most 3 filters which will all be AND-ed.")
+    __properties = ["companyFields", "contactFields", "credential", "dealFields", "lastSyncTime", "paused", "portalId", "secretKey", "syncFilters"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -78,17 +59,20 @@ class HubspotCrmIntegration(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of credential
         if self.credential:
-            _dict["credential"] = self.credential.to_dict()
+            _dict['credential'] = self.credential.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in sync_filters (list)
         _items = []
         if self.sync_filters:
             for _item in self.sync_filters:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["syncFilters"] = _items
+            _dict['syncFilters'] = _items
         return _dict
 
     @classmethod
@@ -100,23 +84,17 @@ class HubspotCrmIntegration(BaseModel):
         if not isinstance(obj, dict):
             return HubspotCrmIntegration.parse_obj(obj)
 
-        _obj = HubspotCrmIntegration.parse_obj(
-            {
-                "company_fields": obj.get("companyFields"),
-                "contact_fields": obj.get("contactFields"),
-                "credential": HubspotCrmCredential.from_dict(obj.get("credential"))
-                if obj.get("credential") is not None
-                else None,
-                "deal_fields": obj.get("dealFields"),
-                "paused": obj.get("paused"),
-                "portal_id": obj.get("portalId"),
-                "secret_key": obj.get("secretKey"),
-                "sync_filters": [
-                    HubspotSyncFilter.from_dict(_item)
-                    for _item in obj.get("syncFilters")
-                ]
-                if obj.get("syncFilters") is not None
-                else None,
-            }
-        )
+        _obj = HubspotCrmIntegration.parse_obj({
+            "company_fields": obj.get("companyFields"),
+            "contact_fields": obj.get("contactFields"),
+            "credential": HubspotCrmCredential.from_dict(obj.get("credential")) if obj.get("credential") is not None else None,
+            "deal_fields": obj.get("dealFields"),
+            "last_sync_time": obj.get("lastSyncTime"),
+            "paused": obj.get("paused"),
+            "portal_id": obj.get("portalId"),
+            "secret_key": obj.get("secretKey"),
+            "sync_filters": [HubspotSyncFilter.from_dict(_item) for _item in obj.get("syncFilters")] if obj.get("syncFilters") is not None else None
+        })
         return _obj
+
+

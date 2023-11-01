@@ -22,19 +22,16 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
-
 class AzureAudience(BaseModel):
     """
     AzureAudience
     """
-
     description: Optional[StrictStr] = None
     id: Optional[StrictStr] = None
     __properties = ["description", "id"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,7 +50,10 @@ class AzureAudience(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,7 +65,10 @@ class AzureAudience(BaseModel):
         if not isinstance(obj, dict):
             return AzureAudience.parse_obj(obj)
 
-        _obj = AzureAudience.parse_obj(
-            {"description": obj.get("description"), "id": obj.get("id")}
-        )
+        _obj = AzureAudience.parse_obj({
+            "description": obj.get("description"),
+            "id": obj.get("id")
+        })
         return _obj
+
+

@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_custom_meter_item import (
-    AzureMarketplacePriceAndAvailabilityCustomMeterItem,
-)  # noqa: E501
-
+from openapi_client.models.azure_marketplace_price_and_availability_custom_meter_item import AzureMarketplacePriceAndAvailabilityCustomMeterItem  # noqa: E501
 
 class TestAzureMarketplacePriceAndAvailabilityCustomMeterItem(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilityCustomMeterItem unit test stubs"""
@@ -30,13 +27,11 @@ class TestAzureMarketplacePriceAndAvailabilityCustomMeterItem(unittest.TestCase)
     def tearDown(self):
         pass
 
-    def make_instance(
-        self, include_optional
-    ) -> AzureMarketplacePriceAndAvailabilityCustomMeterItem:
+    def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilityCustomMeterItem:
         """Test AzureMarketplacePriceAndAvailabilityCustomMeterItem
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilityCustomMeterItem`
         """
         model = AzureMarketplacePriceAndAvailabilityCustomMeterItem()  # noqa: E501
@@ -55,6 +50,5 @@ class TestAzureMarketplacePriceAndAvailabilityCustomMeterItem(unittest.TestCase)
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

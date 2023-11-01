@@ -23,12 +23,10 @@ from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from openapi_client.models.aws_sns_subscription_status import AwsSnsSubscriptionStatus
 
-
 class AwsSnsSubscription(BaseModel):
     """
     AwsSnsSubscription
     """
-
     endpoint: Optional[StrictStr] = Field(None, alias="Endpoint")
     protocol: Optional[StrictStr] = Field(None, alias="Protocol")
     status: Optional[AwsSnsSubscriptionStatus] = Field(None, alias="Status")
@@ -38,7 +36,6 @@ class AwsSnsSubscription(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -57,7 +54,10 @@ class AwsSnsSubscription(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -69,13 +69,13 @@ class AwsSnsSubscription(BaseModel):
         if not isinstance(obj, dict):
             return AwsSnsSubscription.parse_obj(obj)
 
-        _obj = AwsSnsSubscription.parse_obj(
-            {
-                "endpoint": obj.get("Endpoint"),
-                "protocol": obj.get("Protocol"),
-                "status": obj.get("Status"),
-                "subscription_arn": obj.get("SubscriptionArn"),
-                "topic_arn": obj.get("TopicArn"),
-            }
-        )
+        _obj = AwsSnsSubscription.parse_obj({
+            "endpoint": obj.get("Endpoint"),
+            "protocol": obj.get("Protocol"),
+            "status": obj.get("Status"),
+            "subscription_arn": obj.get("SubscriptionArn"),
+            "topic_arn": obj.get("TopicArn")
+        })
         return _obj
+
+

@@ -23,33 +23,18 @@ from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from openapi_client.models.company_info import CompanyInfo
 
-
 class AwsAccountIdentifier(BaseModel):
     """
     AwsAccountIdentifier
     """
-
-    aws_account_id: Optional[StrictStr] = Field(
-        None,
-        alias="awsAccountID",
-        description="The AWS Account ID of the buyer in AWS Marketplace",
-    )
-    aws_customer_id: Optional[StrictStr] = Field(
-        None,
-        alias="awsCustomerID",
-        description="The AWS Customer ID of the buyer in AWS Marketplace",
-    )
+    aws_account_id: Optional[StrictStr] = Field(None, alias="awsAccountID", description="The AWS Account ID of the buyer in AWS Marketplace")
+    aws_customer_id: Optional[StrictStr] = Field(None, alias="awsCustomerID", description="The AWS Customer ID of the buyer in AWS Marketplace")
     company_info: Optional[CompanyInfo] = Field(None, alias="companyInfo")
-    data_feed_account_id: Optional[StrictStr] = Field(
-        None,
-        alias="dataFeedAccountID",
-        description="The Account ID in AWS Marketplace Data Feed service",
-    )
+    data_feed_account_id: Optional[StrictStr] = Field(None, alias="dataFeedAccountID", description="The Account ID in AWS Marketplace Data Feed service")
     __properties = ["awsAccountID", "awsCustomerID", "companyInfo", "dataFeedAccountID"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -68,10 +53,13 @@ class AwsAccountIdentifier(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of company_info
         if self.company_info:
-            _dict["companyInfo"] = self.company_info.to_dict()
+            _dict['companyInfo'] = self.company_info.to_dict()
         return _dict
 
     @classmethod
@@ -83,14 +71,12 @@ class AwsAccountIdentifier(BaseModel):
         if not isinstance(obj, dict):
             return AwsAccountIdentifier.parse_obj(obj)
 
-        _obj = AwsAccountIdentifier.parse_obj(
-            {
-                "aws_account_id": obj.get("awsAccountID"),
-                "aws_customer_id": obj.get("awsCustomerID"),
-                "company_info": CompanyInfo.from_dict(obj.get("companyInfo"))
-                if obj.get("companyInfo") is not None
-                else None,
-                "data_feed_account_id": obj.get("dataFeedAccountID"),
-            }
-        )
+        _obj = AwsAccountIdentifier.parse_obj({
+            "aws_account_id": obj.get("awsAccountID"),
+            "aws_customer_id": obj.get("awsCustomerID"),
+            "company_info": CompanyInfo.from_dict(obj.get("companyInfo")) if obj.get("companyInfo") is not None else None,
+            "data_feed_account_id": obj.get("dataFeedAccountID")
+        })
         return _obj
+
+

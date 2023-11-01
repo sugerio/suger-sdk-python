@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class MicrosoftPartnerReferralQualification(str, Enum):
     """
     MicrosoftPartnerReferralQualification
@@ -27,13 +30,15 @@ class MicrosoftPartnerReferralQualification(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ""
-    NONE = "None"
-    DIRECT = "Direct"
-    MARKETINGQUALIFIED = "MarketingQualified"
-    SALESQUALIFIED = "SalesQualified"
+    EMPTY = ''
+    NONE = 'None'
+    DIRECT = 'Direct'
+    MARKETINGQUALIFIED = 'MarketingQualified'
+    SALESQUALIFIED = 'SalesQualified'
 
     @classmethod
     def from_json(cls, json_str: str) -> MicrosoftPartnerReferralQualification:
         """Create an instance of MicrosoftPartnerReferralQualification from a JSON string"""
         return MicrosoftPartnerReferralQualification(json.loads(json_str))
+
+

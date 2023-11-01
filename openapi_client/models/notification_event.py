@@ -27,72 +27,29 @@ from openapi_client.models.notification_event_status import NotificationEventSta
 from openapi_client.models.partner import Partner
 from openapi_client.models.track_event import TrackEvent
 
-
 class NotificationEvent(BaseModel):
     """
     NotificationEvent
     """
-
     action: Optional[NotificationEventAction] = None
-    cc_contact_ids: Optional[conlist(StrictStr)] = Field(
-        None,
-        alias="ccContactIds",
-        description="Cc contactIds that will receive this notification",
-    )
-    contact_ids: Optional[conlist(StrictStr)] = Field(
-        None,
-        alias="contactIds",
-        description="ContactIds that will receive this notification",
-    )
+    cc_contact_ids: Optional[conlist(StrictStr)] = Field(None, alias="ccContactIds", description="Cc contactIds that will receive this notification")
+    contact_ids: Optional[conlist(StrictStr)] = Field(None, alias="contactIds", description="ContactIds that will receive this notification")
     entity_id: Optional[StrictStr] = Field(None, alias="entityID")
     entity_status: Optional[StrictStr] = Field(None, alias="entityStatus")
     entity_type: Optional[EntityType] = Field(None, alias="entityType")
-    event_id: Optional[StrictStr] = Field(
-        None, alias="eventID", description="notification event id."
-    )
+    event_id: Optional[StrictStr] = Field(None, alias="eventID", description="notification event id.")
     event_status: Optional[NotificationEventStatus] = Field(None, alias="eventStatus")
-    last_update_time: Optional[datetime] = Field(
-        None,
-        alias="lastUpdateTime",
-        description="timestamp of the event when it is updated.",
-    )
+    last_update_time: Optional[datetime] = Field(None, alias="lastUpdateTime", description="timestamp of the event when it is updated.")
     message: Optional[StrictStr] = None
-    organization_id: Optional[StrictStr] = Field(
-        None, alias="organizationID", description="suger organization id."
-    )
+    organization_id: Optional[StrictStr] = Field(None, alias="organizationID", description="suger organization id.")
     partner: Optional[Partner] = None
-    timestamp: Optional[datetime] = Field(
-        None, description="timestamp of the event when it is scheduled or created."
-    )
-    title: Optional[StrictStr] = Field(
-        None, description="The title of the notification event such as email subject."
-    )
-    track_events: Optional[conlist(TrackEvent)] = Field(
-        None,
-        alias="trackEvents",
-        description="The track events of the notification event.",
-    )
-    __properties = [
-        "action",
-        "ccContactIds",
-        "contactIds",
-        "entityID",
-        "entityStatus",
-        "entityType",
-        "eventID",
-        "eventStatus",
-        "lastUpdateTime",
-        "message",
-        "organizationID",
-        "partner",
-        "timestamp",
-        "title",
-        "trackEvents",
-    ]
+    timestamp: Optional[datetime] = Field(None, description="timestamp of the event when it is scheduled or created.")
+    title: Optional[StrictStr] = Field(None, description="The title of the notification event such as email subject.")
+    track_events: Optional[conlist(TrackEvent)] = Field(None, alias="trackEvents", description="The track events of the notification event.")
+    __properties = ["action", "ccContactIds", "contactIds", "entityID", "entityStatus", "entityType", "eventID", "eventStatus", "lastUpdateTime", "message", "organizationID", "partner", "timestamp", "title", "trackEvents"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -111,14 +68,17 @@ class NotificationEvent(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in track_events (list)
         _items = []
         if self.track_events:
             for _item in self.track_events:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["trackEvents"] = _items
+            _dict['trackEvents'] = _items
         return _dict
 
     @classmethod
@@ -130,27 +90,23 @@ class NotificationEvent(BaseModel):
         if not isinstance(obj, dict):
             return NotificationEvent.parse_obj(obj)
 
-        _obj = NotificationEvent.parse_obj(
-            {
-                "action": obj.get("action"),
-                "cc_contact_ids": obj.get("ccContactIds"),
-                "contact_ids": obj.get("contactIds"),
-                "entity_id": obj.get("entityID"),
-                "entity_status": obj.get("entityStatus"),
-                "entity_type": obj.get("entityType"),
-                "event_id": obj.get("eventID"),
-                "event_status": obj.get("eventStatus"),
-                "last_update_time": obj.get("lastUpdateTime"),
-                "message": obj.get("message"),
-                "organization_id": obj.get("organizationID"),
-                "partner": obj.get("partner"),
-                "timestamp": obj.get("timestamp"),
-                "title": obj.get("title"),
-                "track_events": [
-                    TrackEvent.from_dict(_item) for _item in obj.get("trackEvents")
-                ]
-                if obj.get("trackEvents") is not None
-                else None,
-            }
-        )
+        _obj = NotificationEvent.parse_obj({
+            "action": obj.get("action"),
+            "cc_contact_ids": obj.get("ccContactIds"),
+            "contact_ids": obj.get("contactIds"),
+            "entity_id": obj.get("entityID"),
+            "entity_status": obj.get("entityStatus"),
+            "entity_type": obj.get("entityType"),
+            "event_id": obj.get("eventID"),
+            "event_status": obj.get("eventStatus"),
+            "last_update_time": obj.get("lastUpdateTime"),
+            "message": obj.get("message"),
+            "organization_id": obj.get("organizationID"),
+            "partner": obj.get("partner"),
+            "timestamp": obj.get("timestamp"),
+            "title": obj.get("title"),
+            "track_events": [TrackEvent.from_dict(_item) for _item in obj.get("trackEvents")] if obj.get("trackEvents") is not None else None
+        })
         return _obj
+
+

@@ -22,19 +22,16 @@ from datetime import datetime
 from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt
 
-
 class AwsMarketplaceCppoPaymentSchedule(BaseModel):
     """
     AwsMarketplaceCppoPaymentSchedule
     """
-
     amount: Optional[Union[StrictFloat, StrictInt]] = None
     charge_on: Optional[datetime] = Field(None, alias="chargeOn")
     __properties = ["amount", "chargeOn"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,7 +50,10 @@ class AwsMarketplaceCppoPaymentSchedule(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,7 +65,10 @@ class AwsMarketplaceCppoPaymentSchedule(BaseModel):
         if not isinstance(obj, dict):
             return AwsMarketplaceCppoPaymentSchedule.parse_obj(obj)
 
-        _obj = AwsMarketplaceCppoPaymentSchedule.parse_obj(
-            {"amount": obj.get("amount"), "charge_on": obj.get("chargeOn")}
-        )
+        _obj = AwsMarketplaceCppoPaymentSchedule.parse_obj({
+            "amount": obj.get("amount"),
+            "charge_on": obj.get("chargeOn")
+        })
         return _obj
+
+

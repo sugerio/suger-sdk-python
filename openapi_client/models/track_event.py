@@ -23,26 +23,17 @@ from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from openapi_client.models.track_event_action_type import TrackEventActionType
 
-
 class TrackEvent(BaseModel):
     """
     TrackEvent
     """
-
     action: Optional[TrackEventActionType] = None
-    contact_id: Optional[StrictStr] = Field(
-        None,
-        alias="contactId",
-        description="The ID of the contact who triggered the track event if applicable.",
-    )
-    timestamp: Optional[datetime] = Field(
-        None, description="timestamp of the track event happened."
-    )
+    contact_id: Optional[StrictStr] = Field(None, alias="contactId", description="The ID of the contact who triggered the track event if applicable.")
+    timestamp: Optional[datetime] = Field(None, description="timestamp of the track event happened.")
     __properties = ["action", "contactId", "timestamp"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -61,7 +52,10 @@ class TrackEvent(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -73,11 +67,11 @@ class TrackEvent(BaseModel):
         if not isinstance(obj, dict):
             return TrackEvent.parse_obj(obj)
 
-        _obj = TrackEvent.parse_obj(
-            {
-                "action": obj.get("action"),
-                "contact_id": obj.get("contactId"),
-                "timestamp": obj.get("timestamp"),
-            }
-        )
+        _obj = TrackEvent.parse_obj({
+            "action": obj.get("action"),
+            "contact_id": obj.get("contactId"),
+            "timestamp": obj.get("timestamp")
+        })
         return _obj
+
+

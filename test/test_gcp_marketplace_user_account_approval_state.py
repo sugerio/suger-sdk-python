@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.gcp_marketplace_user_account_approval_state import (
-    GcpMarketplaceUserAccountApprovalState,
-)  # noqa: E501
-
+from openapi_client.models.gcp_marketplace_user_account_approval_state import GcpMarketplaceUserAccountApprovalState  # noqa: E501
 
 class TestGcpMarketplaceUserAccountApprovalState(unittest.TestCase):
     """GcpMarketplaceUserAccountApprovalState unit test stubs"""
@@ -34,6 +31,5 @@ class TestGcpMarketplaceUserAccountApprovalState(unittest.TestCase):
         """Test GcpMarketplaceUserAccountApprovalState"""
         # inst = GcpMarketplaceUserAccountApprovalState()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

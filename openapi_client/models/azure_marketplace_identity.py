@@ -22,18 +22,15 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class AzureMarketplaceIdentity(BaseModel):
     """
     AzureMarketplaceIdentity
     """
-
     external_id: Optional[StrictStr] = Field(None, alias="externalId")
     __properties = ["externalId"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,7 +49,10 @@ class AzureMarketplaceIdentity(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -64,7 +64,9 @@ class AzureMarketplaceIdentity(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceIdentity.parse_obj(obj)
 
-        _obj = AzureMarketplaceIdentity.parse_obj(
-            {"external_id": obj.get("externalId")}
-        )
+        _obj = AzureMarketplaceIdentity.parse_obj({
+            "external_id": obj.get("externalId")
+        })
         return _obj
+
+

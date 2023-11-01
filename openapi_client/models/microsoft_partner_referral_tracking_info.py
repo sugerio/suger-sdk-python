@@ -22,36 +22,19 @@ import json
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field
 
-
 class MicrosoftPartnerReferralTrackingInfo(BaseModel):
     """
     MicrosoftPartnerReferralTrackingInfo
     """
-
     microsoft_msx_id: Optional[Dict[str, Any]] = Field(None, alias="microsoftMsxId")
-    microsoft_us_fed_lead_id: Optional[Dict[str, Any]] = Field(
-        None, alias="microsoftUSFedLeadId"
-    )
-    microsoft_us_fedopportunity_id: Optional[Dict[str, Any]] = Field(
-        None, alias="microsoftUSFedopportunityId"
-    )
-    migrated_psc_deal_id: Optional[Dict[str, Any]] = Field(
-        None, alias="migratedPSCDealId"
-    )
-    migrated_psc_partner_deal_id: Optional[Dict[str, Any]] = Field(
-        None, alias="migratedPSCPartnerDealId"
-    )
-    __properties = [
-        "microsoftMsxId",
-        "microsoftUSFedLeadId",
-        "microsoftUSFedopportunityId",
-        "migratedPSCDealId",
-        "migratedPSCPartnerDealId",
-    ]
+    microsoft_us_fed_lead_id: Optional[Dict[str, Any]] = Field(None, alias="microsoftUSFedLeadId")
+    microsoft_us_fedopportunity_id: Optional[Dict[str, Any]] = Field(None, alias="microsoftUSFedopportunityId")
+    migrated_psc_deal_id: Optional[Dict[str, Any]] = Field(None, alias="migratedPSCDealId")
+    migrated_psc_partner_deal_id: Optional[Dict[str, Any]] = Field(None, alias="migratedPSCPartnerDealId")
+    __properties = ["microsoftMsxId", "microsoftUSFedLeadId", "microsoftUSFedopportunityId", "migratedPSCDealId", "migratedPSCPartnerDealId"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -70,7 +53,10 @@ class MicrosoftPartnerReferralTrackingInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -82,15 +68,13 @@ class MicrosoftPartnerReferralTrackingInfo(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralTrackingInfo.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralTrackingInfo.parse_obj(
-            {
-                "microsoft_msx_id": obj.get("microsoftMsxId"),
-                "microsoft_us_fed_lead_id": obj.get("microsoftUSFedLeadId"),
-                "microsoft_us_fedopportunity_id": obj.get(
-                    "microsoftUSFedopportunityId"
-                ),
-                "migrated_psc_deal_id": obj.get("migratedPSCDealId"),
-                "migrated_psc_partner_deal_id": obj.get("migratedPSCPartnerDealId"),
-            }
-        )
+        _obj = MicrosoftPartnerReferralTrackingInfo.parse_obj({
+            "microsoft_msx_id": obj.get("microsoftMsxId"),
+            "microsoft_us_fed_lead_id": obj.get("microsoftUSFedLeadId"),
+            "microsoft_us_fedopportunity_id": obj.get("microsoftUSFedopportunityId"),
+            "migrated_psc_deal_id": obj.get("migratedPSCDealId"),
+            "migrated_psc_partner_deal_id": obj.get("migratedPSCPartnerDealId")
+        })
         return _obj
+
+

@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.cosell_opp_referral import CosellOppReferral  # noqa: E501
 
-
 class TestCosellOppReferral(unittest.TestCase):
     """CosellOppReferral unit test stubs"""
 
@@ -30,9 +29,9 @@ class TestCosellOppReferral(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CosellOppReferral:
         """Test CosellOppReferral
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `CosellOppReferral`
         """
         model = CosellOppReferral()  # noqa: E501
@@ -64,7 +63,7 @@ class TestCosellOppReferral(unittest.TestCase):
                                     address_line2 = '', 
                                     city = '', 
                                     country = '', 
-                                    postal_code = openapi_client.models.postal_code.postalCode(), 
+                                    postal_code = '', 
                                     region = '', 
                                     state = '', ), 
                                 ids = [
@@ -146,6 +145,7 @@ class TestCosellOppReferral(unittest.TestCase):
                             engagement_id = '', 
                             exception = openapi_client.models.exception.exception(), 
                             expiration_date_time = '', 
+                            external_reference_id = '', 
                             favorite = True, 
                             id = '', 
                             invite_context = openapi_client.models.microsoft_partner_referral_invite_context.MicrosoftPartnerReferralInviteContext(
@@ -179,6 +179,7 @@ class TestCosellOppReferral(unittest.TestCase):
                                 ], 
                             sales_stage = openapi_client.models.sales_stage.salesStage(), 
                             status = '', 
+                            status_reason = '', 
                             substatus = '', 
                             tags = [
                                 None
@@ -218,7 +219,7 @@ class TestCosellOppReferral(unittest.TestCase):
                     is_archived = True, 
                     is_draft = True, 
                     salesforce_referral_id = '', 
-                    status = '', 
+                    status = 'Pending', 
                     sync_record = openapi_client.models.cosell_sync_record.CosellSyncRecord(
                         message = '', 
                         ok = True, ), ),
@@ -248,7 +249,7 @@ class TestCosellOppReferral(unittest.TestCase):
                                     address_line2 = '', 
                                     city = '', 
                                     country = '', 
-                                    postal_code = openapi_client.models.postal_code.postalCode(), 
+                                    postal_code = '', 
                                     region = '', 
                                     state = '', ), 
                                 ids = [
@@ -330,6 +331,7 @@ class TestCosellOppReferral(unittest.TestCase):
                             engagement_id = '', 
                             exception = openapi_client.models.exception.exception(), 
                             expiration_date_time = '', 
+                            external_reference_id = '', 
                             favorite = True, 
                             id = '', 
                             invite_context = openapi_client.models.microsoft_partner_referral_invite_context.MicrosoftPartnerReferralInviteContext(
@@ -363,6 +365,7 @@ class TestCosellOppReferral(unittest.TestCase):
                                 ], 
                             sales_stage = openapi_client.models.sales_stage.salesStage(), 
                             status = '', 
+                            status_reason = '', 
                             substatus = '', 
                             tags = [
                                 None
@@ -407,6 +410,5 @@ class TestCosellOppReferral(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

@@ -22,12 +22,10 @@ from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class AzureTerm(BaseModel):
     """
     AzureTerm
     """
-
     charge_duration: Optional[StrictStr] = Field(None, alias="chargeDuration")
     end_date: Optional[datetime] = Field(None, alias="endDate")
     start_date: Optional[datetime] = Field(None, alias="startDate")
@@ -36,7 +34,6 @@ class AzureTerm(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -55,7 +52,10 @@ class AzureTerm(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -67,12 +67,12 @@ class AzureTerm(BaseModel):
         if not isinstance(obj, dict):
             return AzureTerm.parse_obj(obj)
 
-        _obj = AzureTerm.parse_obj(
-            {
-                "charge_duration": obj.get("chargeDuration"),
-                "end_date": obj.get("endDate"),
-                "start_date": obj.get("startDate"),
-                "term_unit": obj.get("termUnit"),
-            }
-        )
+        _obj = AzureTerm.parse_obj({
+            "charge_duration": obj.get("chargeDuration"),
+            "end_date": obj.get("endDate"),
+            "start_date": obj.get("startDate"),
+            "term_unit": obj.get("termUnit")
+        })
         return _obj
+
+

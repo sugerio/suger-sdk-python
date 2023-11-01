@@ -22,50 +22,27 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from openapi_client.models.azure_marketplace_identity import AzureMarketplaceIdentity
-from openapi_client.models.azure_marketplace_product_type import (
-    AzureMarketplaceProductType,
-)
-from openapi_client.models.azure_marketplace_resource_lifecycle_state import (
-    AzureMarketplaceResourceLifecycleState,
-)
-from openapi_client.models.azure_marketplace_validation import (
-    AzureMarketplaceValidation,
-)
-
+from openapi_client.models.azure_marketplace_product_type import AzureMarketplaceProductType
+from openapi_client.models.azure_marketplace_resource_lifecycle_state import AzureMarketplaceResourceLifecycleState
+from openapi_client.models.azure_marketplace_validation import AzureMarketplaceValidation
 
 class AzureMarketplaceProduct(BaseModel):
     """
     AzureMarketplaceProduct
     """
-
     var_schema: Optional[StrictStr] = Field(None, alias="$schema")
     alias: Optional[StrictStr] = Field(None, description="The Product Display Name")
-    id: Optional[StrictStr] = Field(
-        None, description='in format of "product/product-durable-id"'
-    )
+    id: Optional[StrictStr] = Field(None, description="in format of \"product/product-durable-id\"")
     identity: Optional[AzureMarketplaceIdentity] = None
-    lifecycle_state: Optional[AzureMarketplaceResourceLifecycleState] = Field(
-        None, alias="lifecycleState"
-    )
+    lifecycle_state: Optional[AzureMarketplaceResourceLifecycleState] = Field(None, alias="lifecycleState")
     product_group: Optional[StrictStr] = Field(None, alias="productGroup")
     resource_name: Optional[StrictStr] = Field(None, alias="resourceName")
     type: Optional[AzureMarketplaceProductType] = None
     validations: Optional[conlist(AzureMarketplaceValidation)] = None
-    __properties = [
-        "$schema",
-        "alias",
-        "id",
-        "identity",
-        "lifecycleState",
-        "productGroup",
-        "resourceName",
-        "type",
-        "validations",
-    ]
+    __properties = ["$schema", "alias", "id", "identity", "lifecycleState", "productGroup", "resourceName", "type", "validations"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -84,17 +61,20 @@ class AzureMarketplaceProduct(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of identity
         if self.identity:
-            _dict["identity"] = self.identity.to_dict()
+            _dict['identity'] = self.identity.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in validations (list)
         _items = []
         if self.validations:
             for _item in self.validations:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["validations"] = _items
+            _dict['validations'] = _items
         return _dict
 
     @classmethod
@@ -106,24 +86,17 @@ class AzureMarketplaceProduct(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceProduct.parse_obj(obj)
 
-        _obj = AzureMarketplaceProduct.parse_obj(
-            {
-                "var_schema": obj.get("$schema"),
-                "alias": obj.get("alias"),
-                "id": obj.get("id"),
-                "identity": AzureMarketplaceIdentity.from_dict(obj.get("identity"))
-                if obj.get("identity") is not None
-                else None,
-                "lifecycle_state": obj.get("lifecycleState"),
-                "product_group": obj.get("productGroup"),
-                "resource_name": obj.get("resourceName"),
-                "type": obj.get("type"),
-                "validations": [
-                    AzureMarketplaceValidation.from_dict(_item)
-                    for _item in obj.get("validations")
-                ]
-                if obj.get("validations") is not None
-                else None,
-            }
-        )
+        _obj = AzureMarketplaceProduct.parse_obj({
+            "var_schema": obj.get("$schema"),
+            "alias": obj.get("alias"),
+            "id": obj.get("id"),
+            "identity": AzureMarketplaceIdentity.from_dict(obj.get("identity")) if obj.get("identity") is not None else None,
+            "lifecycle_state": obj.get("lifecycleState"),
+            "product_group": obj.get("productGroup"),
+            "resource_name": obj.get("resourceName"),
+            "type": obj.get("type"),
+            "validations": [AzureMarketplaceValidation.from_dict(_item) for _item in obj.get("validations")] if obj.get("validations") is not None else None
+        })
         return _obj
+
+

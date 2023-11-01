@@ -22,31 +22,20 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field
 from openapi_client.models.azure_marketplace_plan import AzureMarketplacePlan
-from openapi_client.models.azure_marketplace_plan_listing import (
-    AzureMarketplacePlanListing,
-)
-from openapi_client.models.azure_marketplace_price_and_availability_plan import (
-    AzureMarketplacePriceAndAvailabilityPlan,
-)
-
+from openapi_client.models.azure_marketplace_plan_listing import AzureMarketplacePlanListing
+from openapi_client.models.azure_marketplace_price_and_availability_plan import AzureMarketplacePriceAndAvailabilityPlan
 
 class AzureMarketplacePlanResource(BaseModel):
     """
     AzureMarketplacePlanResource
     """
-
     plan: Optional[AzureMarketplacePlan] = None
-    plan_listing: Optional[AzureMarketplacePlanListing] = Field(
-        None, alias="planListing"
-    )
-    price_and_availability_plan: Optional[
-        AzureMarketplacePriceAndAvailabilityPlan
-    ] = Field(None, alias="priceAndAvailabilityPlan")
+    plan_listing: Optional[AzureMarketplacePlanListing] = Field(None, alias="planListing")
+    price_and_availability_plan: Optional[AzureMarketplacePriceAndAvailabilityPlan] = Field(None, alias="priceAndAvailabilityPlan")
     __properties = ["plan", "planListing", "priceAndAvailabilityPlan"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -65,18 +54,19 @@ class AzureMarketplacePlanResource(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of plan
         if self.plan:
-            _dict["plan"] = self.plan.to_dict()
+            _dict['plan'] = self.plan.to_dict()
         # override the default output from pydantic by calling `to_dict()` of plan_listing
         if self.plan_listing:
-            _dict["planListing"] = self.plan_listing.to_dict()
+            _dict['planListing'] = self.plan_listing.to_dict()
         # override the default output from pydantic by calling `to_dict()` of price_and_availability_plan
         if self.price_and_availability_plan:
-            _dict[
-                "priceAndAvailabilityPlan"
-            ] = self.price_and_availability_plan.to_dict()
+            _dict['priceAndAvailabilityPlan'] = self.price_and_availability_plan.to_dict()
         return _dict
 
     @classmethod
@@ -88,21 +78,11 @@ class AzureMarketplacePlanResource(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePlanResource.parse_obj(obj)
 
-        _obj = AzureMarketplacePlanResource.parse_obj(
-            {
-                "plan": AzureMarketplacePlan.from_dict(obj.get("plan"))
-                if obj.get("plan") is not None
-                else None,
-                "plan_listing": AzureMarketplacePlanListing.from_dict(
-                    obj.get("planListing")
-                )
-                if obj.get("planListing") is not None
-                else None,
-                "price_and_availability_plan": AzureMarketplacePriceAndAvailabilityPlan.from_dict(
-                    obj.get("priceAndAvailabilityPlan")
-                )
-                if obj.get("priceAndAvailabilityPlan") is not None
-                else None,
-            }
-        )
+        _obj = AzureMarketplacePlanResource.parse_obj({
+            "plan": AzureMarketplacePlan.from_dict(obj.get("plan")) if obj.get("plan") is not None else None,
+            "plan_listing": AzureMarketplacePlanListing.from_dict(obj.get("planListing")) if obj.get("planListing") is not None else None,
+            "price_and_availability_plan": AzureMarketplacePriceAndAvailabilityPlan.from_dict(obj.get("priceAndAvailabilityPlan")) if obj.get("priceAndAvailabilityPlan") is not None else None
+        })
         return _obj
+
+

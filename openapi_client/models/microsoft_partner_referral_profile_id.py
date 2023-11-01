@@ -22,19 +22,16 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class MicrosoftPartnerReferralProfileId(BaseModel):
     """
     MicrosoftPartnerReferralProfileId
     """
-
     id: Optional[StrictStr] = None
     profile_type: Optional[StrictStr] = Field(None, alias="profileType")
     __properties = ["id", "profileType"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,7 +50,10 @@ class MicrosoftPartnerReferralProfileId(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,7 +65,10 @@ class MicrosoftPartnerReferralProfileId(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralProfileId.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralProfileId.parse_obj(
-            {"id": obj.get("id"), "profile_type": obj.get("profileType")}
-        )
+        _obj = MicrosoftPartnerReferralProfileId.parse_obj({
+            "id": obj.get("id"),
+            "profile_type": obj.get("profileType")
+        })
         return _obj
+
+

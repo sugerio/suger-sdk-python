@@ -21,25 +21,18 @@ import json
 from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field
-from openapi_client.models.gcp_marketplace_private_offer_price_model import (
-    GcpMarketplacePrivateOfferPriceModel,
-)
-
+from openapi_client.models.gcp_marketplace_private_offer_price_model import GcpMarketplacePrivateOfferPriceModel
 
 class GcpMarketplacePrivateOfferInstallment(BaseModel):
     """
     GcpMarketplacePrivateOfferInstallment
     """
-
-    price_model: Optional[GcpMarketplacePrivateOfferPriceModel] = Field(
-        None, alias="priceModel"
-    )
+    price_model: Optional[GcpMarketplacePrivateOfferPriceModel] = Field(None, alias="priceModel")
     start_time: Optional[datetime] = Field(None, alias="startTime")
     __properties = ["priceModel", "startTime"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -58,10 +51,13 @@ class GcpMarketplacePrivateOfferInstallment(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of price_model
         if self.price_model:
-            _dict["priceModel"] = self.price_model.to_dict()
+            _dict['priceModel'] = self.price_model.to_dict()
         return _dict
 
     @classmethod
@@ -73,14 +69,10 @@ class GcpMarketplacePrivateOfferInstallment(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplacePrivateOfferInstallment.parse_obj(obj)
 
-        _obj = GcpMarketplacePrivateOfferInstallment.parse_obj(
-            {
-                "price_model": GcpMarketplacePrivateOfferPriceModel.from_dict(
-                    obj.get("priceModel")
-                )
-                if obj.get("priceModel") is not None
-                else None,
-                "start_time": obj.get("startTime"),
-            }
-        )
+        _obj = GcpMarketplacePrivateOfferInstallment.parse_obj({
+            "price_model": GcpMarketplacePrivateOfferPriceModel.from_dict(obj.get("priceModel")) if obj.get("priceModel") is not None else None,
+            "start_time": obj.get("startTime")
+        })
         return _obj
+
+

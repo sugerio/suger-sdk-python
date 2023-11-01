@@ -22,18 +22,15 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 
-
 class AlibabaMarketplaceProductShopInfoTelephones(BaseModel):
     """
     AlibabaMarketplaceProductShopInfoTelephones
     """
-
     telephone: Optional[conlist(StrictStr)] = Field(None, alias="Telephone")
     __properties = ["Telephone"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,7 +49,10 @@ class AlibabaMarketplaceProductShopInfoTelephones(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -64,7 +64,9 @@ class AlibabaMarketplaceProductShopInfoTelephones(BaseModel):
         if not isinstance(obj, dict):
             return AlibabaMarketplaceProductShopInfoTelephones.parse_obj(obj)
 
-        _obj = AlibabaMarketplaceProductShopInfoTelephones.parse_obj(
-            {"telephone": obj.get("Telephone")}
-        )
+        _obj = AlibabaMarketplaceProductShopInfoTelephones.parse_obj({
+            "telephone": obj.get("Telephone")
+        })
         return _obj
+
+

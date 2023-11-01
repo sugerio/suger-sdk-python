@@ -21,24 +21,17 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, conlist
-from openapi_client.models.azure_marketplace_custom_amendment_tenant_manual_entry import (
-    AzureMarketplaceCustomAmendmentTenantManualEntry,
-)
-
+from openapi_client.models.azure_marketplace_custom_amendment_tenant_manual_entry import AzureMarketplaceCustomAmendmentTenantManualEntry
 
 class AzureMarketplaceCustomAmendmentTenant(BaseModel):
     """
     AzureMarketplaceCustomAmendmentTenant
     """
-
-    manual_entries: Optional[
-        conlist(AzureMarketplaceCustomAmendmentTenantManualEntry)
-    ] = Field(None, alias="manualEntries")
+    manual_entries: Optional[conlist(AzureMarketplaceCustomAmendmentTenantManualEntry)] = Field(None, alias="manualEntries")
     __properties = ["manualEntries"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -57,14 +50,17 @@ class AzureMarketplaceCustomAmendmentTenant(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in manual_entries (list)
         _items = []
         if self.manual_entries:
             for _item in self.manual_entries:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["manualEntries"] = _items
+            _dict['manualEntries'] = _items
         return _dict
 
     @classmethod
@@ -76,14 +72,9 @@ class AzureMarketplaceCustomAmendmentTenant(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceCustomAmendmentTenant.parse_obj(obj)
 
-        _obj = AzureMarketplaceCustomAmendmentTenant.parse_obj(
-            {
-                "manual_entries": [
-                    AzureMarketplaceCustomAmendmentTenantManualEntry.from_dict(_item)
-                    for _item in obj.get("manualEntries")
-                ]
-                if obj.get("manualEntries") is not None
-                else None
-            }
-        )
+        _obj = AzureMarketplaceCustomAmendmentTenant.parse_obj({
+            "manual_entries": [AzureMarketplaceCustomAmendmentTenantManualEntry.from_dict(_item) for _item in obj.get("manualEntries")] if obj.get("manualEntries") is not None else None
+        })
         return _obj
+
+

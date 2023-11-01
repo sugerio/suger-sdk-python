@@ -24,24 +24,19 @@ from pydantic import Field, StrictStr
 
 from typing import List
 
-from openapi_client.models.add_entitlement_credit_params import (
-    AddEntitlementCreditParams,
-)
-from openapi_client.models.add_entitlement_credit_response import (
-    AddEntitlementCreditResponse,
-)
-from openapi_client.models.divide_entitlement_commit_params import (
-    DivideEntitlementCommitParams,
-)
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_update_entitlement_name_params import (
-    GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams,
-)
+from openapi_client.models.add_entitlement_credit_params import AddEntitlementCreditParams
+from openapi_client.models.add_entitlement_credit_response import AddEntitlementCreditResponse
+from openapi_client.models.divide_entitlement_commit_params import DivideEntitlementCommitParams
+from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_update_entitlement_name_params import GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams
 from openapi_client.models.workload_entitlement import WorkloadEntitlement
 from openapi_client.models.workload_meta_info import WorkloadMetaInfo
 
 from openapi_client.api_client import ApiClient
 from openapi_client.api_response import ApiResponse
-from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
+from openapi_client.exceptions import (  # noqa: F401
+    ApiTypeError,
+    ApiValueError
+)
 
 
 class EntitlementApi:
@@ -57,15 +52,7 @@ class EntitlementApi:
         self.api_client = api_client
 
     @validate_arguments
-    def add_entitlement_credit(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="Entitlement ID")],
-        data: Annotated[
-            AddEntitlementCreditParams, Field(..., description="RequestBody")
-        ],
-        **kwargs
-    ) -> AddEntitlementCreditResponse:  # noqa: E501
+    def add_entitlement_credit(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="Entitlement ID")], data : Annotated[AddEntitlementCreditParams, Field(..., description="RequestBody")], **kwargs) -> AddEntitlementCreditResponse:  # noqa: E501
         """add entitlement credit  # noqa: E501
 
         Add the credit amount to the given Entitlement. The credit amount is accumulated & saved in the current Entitlement Term of the gvien Entitlement.  # noqa: E501
@@ -92,24 +79,14 @@ class EntitlementApi:
                  returns the request thread.
         :rtype: AddEntitlementCreditResponse
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the add_entitlement_credit_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.add_entitlement_credit_with_http_info(
-            org_id, entitlement_id, data, **kwargs
-        )  # noqa: E501
+        return self.add_entitlement_credit_with_http_info(org_id, entitlement_id, data, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def add_entitlement_credit_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="Entitlement ID")],
-        data: Annotated[
-            AddEntitlementCreditParams, Field(..., description="RequestBody")
-        ],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def add_entitlement_credit_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="Entitlement ID")], data : Annotated[AddEntitlementCreditParams, Field(..., description="RequestBody")], **kwargs) -> ApiResponse:  # noqa: E501
         """add entitlement credit  # noqa: E501
 
         Add the credit amount to the given Entitlement. The credit amount is accumulated & saved in the current Entitlement Term of the gvien Entitlement.  # noqa: E501
@@ -152,76 +129,78 @@ class EntitlementApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "entitlement_id", "data"]
+        _all_params = [
+            'org_id',
+            'entitlement_id',
+            'data'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method add_entitlement_credit" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["entitlement_id"]:
-            _path_params["entitlementId"] = _params["entitlement_id"]
+        if _params['entitlement_id']:
+            _path_params['entitlementId'] = _params['entitlement_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params["data"] is not None:
-            _body_params = _params["data"]
+        if _params['data'] is not None:
+            _body_params = _params['data']
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get(
-            "_content_type",
-            self.api_client.select_header_content_type(["application/json"]),
-        )
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
         if _content_types_list:
-            _header_params["Content-Type"] = _content_types_list
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "AddEntitlementCreditResponse",
-            "400": "str",
-            "500": "str",
+            '200': "AddEntitlementCreditResponse",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/entitlement/{entitlementId}/addCredit",
-            "POST",
+            '/org/{orgId}/entitlement/{entitlementId}/addCredit', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -230,21 +209,15 @@ class EntitlementApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def approve_entitlement(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="Entitlement ID")],
-        **kwargs
-    ) -> WorkloadEntitlement:  # noqa: E501
+    def approve_entitlement(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="Entitlement ID")], **kwargs) -> WorkloadEntitlement:  # noqa: E501
         """approve entitlement  # noqa: E501
 
         Approve the given Entitlement. Only applicable to the GCP Entitlements with the status of \"PENDING_START\". Return 200 if the entitlement is already active.  # noqa: E501
@@ -269,21 +242,14 @@ class EntitlementApi:
                  returns the request thread.
         :rtype: WorkloadEntitlement
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the approve_entitlement_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.approve_entitlement_with_http_info(
-            org_id, entitlement_id, **kwargs
-        )  # noqa: E501
+        return self.approve_entitlement_with_http_info(org_id, entitlement_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def approve_entitlement_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="Entitlement ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def approve_entitlement_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="Entitlement ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """approve entitlement  # noqa: E501
 
         Approve the given Entitlement. Only applicable to the GCP Entitlements with the status of \"PENDING_START\". Return 200 if the entitlement is already active.  # noqa: E501
@@ -324,66 +290,68 @@ class EntitlementApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "entitlement_id"]
+        _all_params = [
+            'org_id',
+            'entitlement_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method approve_entitlement" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["entitlement_id"]:
-            _path_params["entitlementId"] = _params["entitlement_id"]
+        if _params['entitlement_id']:
+            _path_params['entitlementId'] = _params['entitlement_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "WorkloadEntitlement",
-            "400": "str",
-            "404": "str",
-            "500": "str",
+            '200': "WorkloadEntitlement",
+            '400': "str",
+            '404': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/entitlement/{entitlementId}/approve",
-            "POST",
+            '/org/{orgId}/entitlement/{entitlementId}/approve', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -392,24 +360,15 @@ class EntitlementApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def divide_entitlement_commit(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="Entitlement ID")],
-        data: Annotated[
-            DivideEntitlementCommitParams, Field(..., description="RequestBody")
-        ],
-        **kwargs
-    ) -> str:  # noqa: E501
+    def divide_entitlement_commit(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="Entitlement ID")], data : Annotated[DivideEntitlementCommitParams, Field(..., description="RequestBody")], **kwargs) -> str:  # noqa: E501
         """divide entitlement commit  # noqa: E501
 
         Divide the commit equally from the given entitlement into sub entitlement terms based on the given time periods.  # noqa: E501
@@ -436,24 +395,14 @@ class EntitlementApi:
                  returns the request thread.
         :rtype: str
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the divide_entitlement_commit_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.divide_entitlement_commit_with_http_info(
-            org_id, entitlement_id, data, **kwargs
-        )  # noqa: E501
+        return self.divide_entitlement_commit_with_http_info(org_id, entitlement_id, data, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def divide_entitlement_commit_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="Entitlement ID")],
-        data: Annotated[
-            DivideEntitlementCommitParams, Field(..., description="RequestBody")
-        ],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def divide_entitlement_commit_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="Entitlement ID")], data : Annotated[DivideEntitlementCommitParams, Field(..., description="RequestBody")], **kwargs) -> ApiResponse:  # noqa: E501
         """divide entitlement commit  # noqa: E501
 
         Divide the commit equally from the given entitlement into sub entitlement terms based on the given time periods.  # noqa: E501
@@ -496,76 +445,78 @@ class EntitlementApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "entitlement_id", "data"]
+        _all_params = [
+            'org_id',
+            'entitlement_id',
+            'data'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method divide_entitlement_commit" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["entitlement_id"]:
-            _path_params["entitlementId"] = _params["entitlement_id"]
+        if _params['entitlement_id']:
+            _path_params['entitlementId'] = _params['entitlement_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params["data"] is not None:
-            _body_params = _params["data"]
+        if _params['data'] is not None:
+            _body_params = _params['data']
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get(
-            "_content_type",
-            self.api_client.select_header_content_type(["application/json"]),
-        )
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
         if _content_types_list:
-            _header_params["Content-Type"] = _content_types_list
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "str",
-            "400": "str",
-            "500": "str",
+            '200': "str",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/entitlement/{entitlementId}/divideCommit",
-            "POST",
+            '/org/{orgId}/entitlement/{entitlementId}/divideCommit', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -574,21 +525,15 @@ class EntitlementApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_entitlement(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="Entitlement ID")],
-        **kwargs
-    ) -> WorkloadEntitlement:  # noqa: E501
+    def get_entitlement(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="Entitlement ID")], **kwargs) -> WorkloadEntitlement:  # noqa: E501
         """get entitlement  # noqa: E501
 
         Get the entitlement by ID  # noqa: E501
@@ -613,21 +558,14 @@ class EntitlementApi:
                  returns the request thread.
         :rtype: WorkloadEntitlement
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the get_entitlement_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.get_entitlement_with_http_info(
-            org_id, entitlement_id, **kwargs
-        )  # noqa: E501
+        return self.get_entitlement_with_http_info(org_id, entitlement_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_entitlement_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="Entitlement ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def get_entitlement_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="Entitlement ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """get entitlement  # noqa: E501
 
         Get the entitlement by ID  # noqa: E501
@@ -668,66 +606,68 @@ class EntitlementApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "entitlement_id"]
+        _all_params = [
+            'org_id',
+            'entitlement_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_entitlement" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["entitlement_id"]:
-            _path_params["entitlementId"] = _params["entitlement_id"]
+        if _params['entitlement_id']:
+            _path_params['entitlementId'] = _params['entitlement_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "WorkloadEntitlement",
-            "400": "str",
-            "404": "str",
-            "500": "str",
+            '200': "WorkloadEntitlement",
+            '400': "str",
+            '404': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/entitlement/{entitlementId}",
-            "GET",
+            '/org/{orgId}/entitlement/{entitlementId}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -736,20 +676,15 @@ class EntitlementApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_entitlements(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        **kwargs
-    ) -> List[WorkloadEntitlement]:  # noqa: E501
+    def list_entitlements(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> List[WorkloadEntitlement]:  # noqa: E501
         """list entitlements  # noqa: E501
 
         List all entitlements under the organization  # noqa: E501
@@ -772,18 +707,14 @@ class EntitlementApi:
                  returns the request thread.
         :rtype: List[WorkloadEntitlement]
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_entitlements_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
         return self.list_entitlements_with_http_info(org_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_entitlements_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_entitlements_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """list entitlements  # noqa: E501
 
         List all entitlements under the organization  # noqa: E501
@@ -822,62 +753,63 @@ class EntitlementApi:
 
         _params = locals()
 
-        _all_params = ["org_id"]
+        _all_params = [
+            'org_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_entitlements" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "List[WorkloadEntitlement]",
-            "400": "str",
-            "500": "str",
+            '200': "List[WorkloadEntitlement]",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/entitlement",
-            "GET",
+            '/org/{orgId}/entitlement', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -886,21 +818,15 @@ class EntitlementApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_entitlements_by_buyer(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        buyer_id: Annotated[StrictStr, Field(..., description="Buyer ID")],
-        **kwargs
-    ) -> List[WorkloadEntitlement]:  # noqa: E501
+    def list_entitlements_by_buyer(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], buyer_id : Annotated[StrictStr, Field(..., description="Buyer ID")], **kwargs) -> List[WorkloadEntitlement]:  # noqa: E501
         """list entitlements by buyer  # noqa: E501
 
         List all entitlements of the given buyer  # noqa: E501
@@ -925,21 +851,14 @@ class EntitlementApi:
                  returns the request thread.
         :rtype: List[WorkloadEntitlement]
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_entitlements_by_buyer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_entitlements_by_buyer_with_http_info(
-            org_id, buyer_id, **kwargs
-        )  # noqa: E501
+        return self.list_entitlements_by_buyer_with_http_info(org_id, buyer_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_entitlements_by_buyer_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        buyer_id: Annotated[StrictStr, Field(..., description="Buyer ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_entitlements_by_buyer_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], buyer_id : Annotated[StrictStr, Field(..., description="Buyer ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """list entitlements by buyer  # noqa: E501
 
         List all entitlements of the given buyer  # noqa: E501
@@ -980,65 +899,67 @@ class EntitlementApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "buyer_id"]
+        _all_params = [
+            'org_id',
+            'buyer_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_entitlements_by_buyer" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["buyer_id"]:
-            _path_params["buyerId"] = _params["buyer_id"]
+        if _params['buyer_id']:
+            _path_params['buyerId'] = _params['buyer_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "List[WorkloadEntitlement]",
-            "400": "str",
-            "500": "str",
+            '200': "List[WorkloadEntitlement]",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/buyer/{buyerId}/entitlement",
-            "GET",
+            '/org/{orgId}/buyer/{buyerId}/entitlement', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1047,21 +968,15 @@ class EntitlementApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_entitlements_by_offer(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        **kwargs
-    ) -> List[WorkloadEntitlement]:  # noqa: E501
+    def list_entitlements_by_offer(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], **kwargs) -> List[WorkloadEntitlement]:  # noqa: E501
         """list entitlements by offer  # noqa: E501
 
         List all entitlements under the given offer  # noqa: E501
@@ -1086,21 +1001,14 @@ class EntitlementApi:
                  returns the request thread.
         :rtype: List[WorkloadEntitlement]
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_entitlements_by_offer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_entitlements_by_offer_with_http_info(
-            org_id, offer_id, **kwargs
-        )  # noqa: E501
+        return self.list_entitlements_by_offer_with_http_info(org_id, offer_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_entitlements_by_offer_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_entitlements_by_offer_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """list entitlements by offer  # noqa: E501
 
         List all entitlements under the given offer  # noqa: E501
@@ -1141,65 +1049,67 @@ class EntitlementApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "offer_id"]
+        _all_params = [
+            'org_id',
+            'offer_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_entitlements_by_offer" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["offer_id"]:
-            _path_params["offerId"] = _params["offer_id"]
+        if _params['offer_id']:
+            _path_params['offerId'] = _params['offer_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "List[WorkloadEntitlement]",
-            "400": "str",
-            "500": "str",
+            '200': "List[WorkloadEntitlement]",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/offer/{offerId}/entitlement",
-            "GET",
+            '/org/{orgId}/offer/{offerId}/entitlement', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1208,21 +1118,15 @@ class EntitlementApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_entitlements_by_partner(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
-        **kwargs
-    ) -> List[WorkloadEntitlement]:  # noqa: E501
+    def list_entitlements_by_partner(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], **kwargs) -> List[WorkloadEntitlement]:  # noqa: E501
         """list entitlements by partner  # noqa: E501
 
         List all entitlements under the given partner  # noqa: E501
@@ -1247,21 +1151,14 @@ class EntitlementApi:
                  returns the request thread.
         :rtype: List[WorkloadEntitlement]
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_entitlements_by_partner_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_entitlements_by_partner_with_http_info(
-            org_id, partner, **kwargs
-        )  # noqa: E501
+        return self.list_entitlements_by_partner_with_http_info(org_id, partner, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_entitlements_by_partner_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_entitlements_by_partner_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], **kwargs) -> ApiResponse:  # noqa: E501
         """list entitlements by partner  # noqa: E501
 
         List all entitlements under the given partner  # noqa: E501
@@ -1302,65 +1199,67 @@ class EntitlementApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "partner"]
+        _all_params = [
+            'org_id',
+            'partner'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_entitlements_by_partner" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["partner"]:
-            _path_params["partner"] = _params["partner"]
+        if _params['partner']:
+            _path_params['partner'] = _params['partner']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "List[WorkloadEntitlement]",
-            "400": "str",
-            "500": "str",
+            '200': "List[WorkloadEntitlement]",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/partner/{partner}/entitlement",
-            "GET",
+            '/org/{orgId}/partner/{partner}/entitlement', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1369,21 +1268,15 @@ class EntitlementApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_entitlements_by_product(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        product_id: Annotated[StrictStr, Field(..., description="Product ID")],
-        **kwargs
-    ) -> List[WorkloadEntitlement]:  # noqa: E501
+    def list_entitlements_by_product(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="Product ID")], **kwargs) -> List[WorkloadEntitlement]:  # noqa: E501
         """list entitlements by product  # noqa: E501
 
         List all entitlements under the given product  # noqa: E501
@@ -1408,21 +1301,14 @@ class EntitlementApi:
                  returns the request thread.
         :rtype: List[WorkloadEntitlement]
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_entitlements_by_product_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_entitlements_by_product_with_http_info(
-            org_id, product_id, **kwargs
-        )  # noqa: E501
+        return self.list_entitlements_by_product_with_http_info(org_id, product_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_entitlements_by_product_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        product_id: Annotated[StrictStr, Field(..., description="Product ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_entitlements_by_product_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="Product ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """list entitlements by product  # noqa: E501
 
         List all entitlements under the given product  # noqa: E501
@@ -1463,65 +1349,67 @@ class EntitlementApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "product_id"]
+        _all_params = [
+            'org_id',
+            'product_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_entitlements_by_product" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["product_id"]:
-            _path_params["productId"] = _params["product_id"]
+        if _params['product_id']:
+            _path_params['productId'] = _params['product_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "List[WorkloadEntitlement]",
-            "400": "str",
-            "500": "str",
+            '200': "List[WorkloadEntitlement]",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/product/{productId}/entitlement",
-            "GET",
+            '/org/{orgId}/product/{productId}/entitlement', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1530,24 +1418,15 @@ class EntitlementApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_entitlement_meta_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="Entitlement ID")],
-        data: Annotated[
-            WorkloadMetaInfo, Field(..., description="Entitlement meta info to update")
-        ],
-        **kwargs
-    ) -> WorkloadMetaInfo:  # noqa: E501
+    def update_entitlement_meta_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="Entitlement ID")], data : Annotated[WorkloadMetaInfo, Field(..., description="Entitlement meta info to update")], **kwargs) -> WorkloadMetaInfo:  # noqa: E501
         """update entitlement meta info  # noqa: E501
 
         Update the meta info of the given entitlement.  # noqa: E501
@@ -1574,24 +1453,14 @@ class EntitlementApi:
                  returns the request thread.
         :rtype: WorkloadMetaInfo
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the update_entitlement_meta_info_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.update_entitlement_meta_info_with_http_info(
-            org_id, entitlement_id, data, **kwargs
-        )  # noqa: E501
+        return self.update_entitlement_meta_info_with_http_info(org_id, entitlement_id, data, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_entitlement_meta_info_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="Entitlement ID")],
-        data: Annotated[
-            WorkloadMetaInfo, Field(..., description="Entitlement meta info to update")
-        ],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def update_entitlement_meta_info_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="Entitlement ID")], data : Annotated[WorkloadMetaInfo, Field(..., description="Entitlement meta info to update")], **kwargs) -> ApiResponse:  # noqa: E501
         """update entitlement meta info  # noqa: E501
 
         Update the meta info of the given entitlement.  # noqa: E501
@@ -1634,76 +1503,78 @@ class EntitlementApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "entitlement_id", "data"]
+        _all_params = [
+            'org_id',
+            'entitlement_id',
+            'data'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_entitlement_meta_info" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["entitlement_id"]:
-            _path_params["entitlementId"] = _params["entitlement_id"]
+        if _params['entitlement_id']:
+            _path_params['entitlementId'] = _params['entitlement_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params["data"] is not None:
-            _body_params = _params["data"]
+        if _params['data'] is not None:
+            _body_params = _params['data']
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get(
-            "_content_type",
-            self.api_client.select_header_content_type(["application/json"]),
-        )
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
         if _content_types_list:
-            _header_params["Content-Type"] = _content_types_list
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "WorkloadMetaInfo",
-            "400": "str",
-            "500": "str",
+            '200': "WorkloadMetaInfo",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/entitlement/{entitlementId}/metaInfo",
-            "PATCH",
+            '/org/{orgId}/entitlement/{entitlementId}/metaInfo', 'PATCH',
             _path_params,
             _query_params,
             _header_params,
@@ -1712,25 +1583,15 @@ class EntitlementApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_entitlement_name(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="Entitlement ID")],
-        data: Annotated[
-            GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams,
-            Field(..., description="UpdateEntitlementNameParams"),
-        ],
-        **kwargs
-    ) -> WorkloadEntitlement:  # noqa: E501
+    def update_entitlement_name(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="Entitlement ID")], data : Annotated[GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams, Field(..., description="UpdateEntitlementNameParams")], **kwargs) -> WorkloadEntitlement:  # noqa: E501
         """update entitlement name  # noqa: E501
 
         Update the name of the given Entitlement  # noqa: E501
@@ -1757,25 +1618,14 @@ class EntitlementApi:
                  returns the request thread.
         :rtype: WorkloadEntitlement
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the update_entitlement_name_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.update_entitlement_name_with_http_info(
-            org_id, entitlement_id, data, **kwargs
-        )  # noqa: E501
+        return self.update_entitlement_name_with_http_info(org_id, entitlement_id, data, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_entitlement_name_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="Entitlement ID")],
-        data: Annotated[
-            GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams,
-            Field(..., description="UpdateEntitlementNameParams"),
-        ],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def update_entitlement_name_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="Entitlement ID")], data : Annotated[GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams, Field(..., description="UpdateEntitlementNameParams")], **kwargs) -> ApiResponse:  # noqa: E501
         """update entitlement name  # noqa: E501
 
         Update the name of the given Entitlement  # noqa: E501
@@ -1818,76 +1668,78 @@ class EntitlementApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "entitlement_id", "data"]
+        _all_params = [
+            'org_id',
+            'entitlement_id',
+            'data'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_entitlement_name" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["entitlement_id"]:
-            _path_params["entitlementId"] = _params["entitlement_id"]
+        if _params['entitlement_id']:
+            _path_params['entitlementId'] = _params['entitlement_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params["data"] is not None:
-            _body_params = _params["data"]
+        if _params['data'] is not None:
+            _body_params = _params['data']
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get(
-            "_content_type",
-            self.api_client.select_header_content_type(["application/json"]),
-        )
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
         if _content_types_list:
-            _header_params["Content-Type"] = _content_types_list
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "WorkloadEntitlement",
-            "400": "str",
-            "500": "str",
+            '200': "WorkloadEntitlement",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/entitlement/{entitlementId}/entitlementName",
-            "PATCH",
+            '/org/{orgId}/entitlement/{entitlementId}/entitlementName', 'PATCH',
             _path_params,
             _query_params,
             _header_params,
@@ -1896,10 +1748,9 @@ class EntitlementApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))

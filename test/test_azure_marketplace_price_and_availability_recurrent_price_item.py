@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_item import (
-    AzureMarketplacePriceAndAvailabilityRecurrentPriceItem,
-)  # noqa: E501
-
+from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_item import AzureMarketplacePriceAndAvailabilityRecurrentPriceItem  # noqa: E501
 
 class TestAzureMarketplacePriceAndAvailabilityRecurrentPriceItem(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilityRecurrentPriceItem unit test stubs"""
@@ -30,13 +27,11 @@ class TestAzureMarketplacePriceAndAvailabilityRecurrentPriceItem(unittest.TestCa
     def tearDown(self):
         pass
 
-    def make_instance(
-        self, include_optional
-    ) -> AzureMarketplacePriceAndAvailabilityRecurrentPriceItem:
+    def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilityRecurrentPriceItem:
         """Test AzureMarketplacePriceAndAvailabilityRecurrentPriceItem
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilityRecurrentPriceItem`
         """
         model = AzureMarketplacePriceAndAvailabilityRecurrentPriceItem()  # noqa: E501
@@ -68,6 +63,5 @@ class TestAzureMarketplacePriceAndAvailabilityRecurrentPriceItem(unittest.TestCa
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

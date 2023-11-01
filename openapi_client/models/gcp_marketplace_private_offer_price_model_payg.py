@@ -21,25 +21,18 @@ import json
 
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, conlist
-from openapi_client.models.gcp_marketplace_private_offer_price_model_discount import (
-    GcpMarketplacePrivateOfferPriceModelDiscount,
-)
-
+from openapi_client.models.gcp_marketplace_private_offer_price_model_discount import GcpMarketplacePrivateOfferPriceModelDiscount
 
 class GcpMarketplacePrivateOfferPriceModelPayg(BaseModel):
     """
     GcpMarketplacePrivateOfferPriceModelPayg
     """
-
     discount: Optional[GcpMarketplacePrivateOfferPriceModelDiscount] = None
-    sku_discounts: Optional[conlist(Dict[str, Any])] = Field(
-        None, alias="skuDiscounts", description="TODO: need to define the type"
-    )
+    sku_discounts: Optional[conlist(Dict[str, Any])] = Field(None, alias="skuDiscounts", description="TODO: need to define the type")
     __properties = ["discount", "skuDiscounts"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -58,10 +51,13 @@ class GcpMarketplacePrivateOfferPriceModelPayg(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of discount
         if self.discount:
-            _dict["discount"] = self.discount.to_dict()
+            _dict['discount'] = self.discount.to_dict()
         return _dict
 
     @classmethod
@@ -73,14 +69,10 @@ class GcpMarketplacePrivateOfferPriceModelPayg(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplacePrivateOfferPriceModelPayg.parse_obj(obj)
 
-        _obj = GcpMarketplacePrivateOfferPriceModelPayg.parse_obj(
-            {
-                "discount": GcpMarketplacePrivateOfferPriceModelDiscount.from_dict(
-                    obj.get("discount")
-                )
-                if obj.get("discount") is not None
-                else None,
-                "sku_discounts": obj.get("skuDiscounts"),
-            }
-        )
+        _obj = GcpMarketplacePrivateOfferPriceModelPayg.parse_obj({
+            "discount": GcpMarketplacePrivateOfferPriceModelDiscount.from_dict(obj.get("discount")) if obj.get("discount") is not None else None,
+            "sku_discounts": obj.get("skuDiscounts")
+        })
         return _obj
+
+

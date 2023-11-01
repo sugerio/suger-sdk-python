@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class AzureMarketplaceListingAssetType(str, Enum):
     """
     AzureMarketplaceListingAssetType
@@ -27,15 +30,17 @@ class AzureMarketplaceListingAssetType(str, Enum):
     """
     allowed enum values
     """
-    AZURELOGOSMALL = "azureLogoSmall"
-    AZURELOGOMEDIUM = "azureLogoMedium"
-    AZURELOGOLARGE = "azureLogoLarge"
-    AZURELOGOWIDE = "azureLogoWide"
-    AZURELOGOSCREENSHOT = "azureLogoScreenshot"
-    AZURELOGOHERO = "azureLogoHero"
-    PDFDOCUMENT = "pdfDocument"
+    AZURELOGOSMALL = 'azureLogoSmall'
+    AZURELOGOMEDIUM = 'azureLogoMedium'
+    AZURELOGOLARGE = 'azureLogoLarge'
+    AZURELOGOWIDE = 'azureLogoWide'
+    AZURELOGOSCREENSHOT = 'azureLogoScreenshot'
+    AZURELOGOHERO = 'azureLogoHero'
+    PDFDOCUMENT = 'pdfDocument'
 
     @classmethod
     def from_json(cls, json_str: str) -> AzureMarketplaceListingAssetType:
         """Create an instance of AzureMarketplaceListingAssetType from a JSON string"""
         return AzureMarketplaceListingAssetType(json.loads(json_str))
+
+

@@ -22,21 +22,16 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class AzureMarketplaceGeneralLink(BaseModel):
     """
     AzureMarketplaceGeneralLink
     """
-
     display_text: Optional[StrictStr] = Field(None, alias="displayText")
-    link: Optional[StrictStr] = Field(
-        None, description='in patern of "^(http|https)://"'
-    )
+    link: Optional[StrictStr] = Field(None, description="in patern of \"^(http|https)://\"")
     __properties = ["displayText", "link"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -55,7 +50,10 @@ class AzureMarketplaceGeneralLink(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -67,7 +65,10 @@ class AzureMarketplaceGeneralLink(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceGeneralLink.parse_obj(obj)
 
-        _obj = AzureMarketplaceGeneralLink.parse_obj(
-            {"display_text": obj.get("displayText"), "link": obj.get("link")}
-        )
+        _obj = AzureMarketplaceGeneralLink.parse_obj({
+            "display_text": obj.get("displayText"),
+            "link": obj.get("link")
+        })
         return _obj
+
+

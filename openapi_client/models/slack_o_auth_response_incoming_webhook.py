@@ -22,12 +22,10 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
-
 class SlackOAuthResponseIncomingWebhook(BaseModel):
     """
     SlackOAuthResponseIncomingWebhook
     """
-
     channel: Optional[StrictStr] = None
     channel_id: Optional[StrictStr] = None
     configuration_url: Optional[StrictStr] = None
@@ -36,7 +34,6 @@ class SlackOAuthResponseIncomingWebhook(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -55,7 +52,10 @@ class SlackOAuthResponseIncomingWebhook(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -67,12 +67,12 @@ class SlackOAuthResponseIncomingWebhook(BaseModel):
         if not isinstance(obj, dict):
             return SlackOAuthResponseIncomingWebhook.parse_obj(obj)
 
-        _obj = SlackOAuthResponseIncomingWebhook.parse_obj(
-            {
-                "channel": obj.get("channel"),
-                "channel_id": obj.get("channel_id"),
-                "configuration_url": obj.get("configuration_url"),
-                "url": obj.get("url"),
-            }
-        )
+        _obj = SlackOAuthResponseIncomingWebhook.parse_obj({
+            "channel": obj.get("channel"),
+            "channel_id": obj.get("channel_id"),
+            "configuration_url": obj.get("configuration_url"),
+            "url": obj.get("url")
+        })
         return _obj
+
+

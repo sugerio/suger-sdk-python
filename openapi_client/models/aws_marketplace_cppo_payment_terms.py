@@ -21,35 +21,22 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
-from openapi_client.models.aws_marketplace_cppo_payment_schedule import (
-    AwsMarketplaceCppoPaymentSchedule,
-)
-from openapi_client.models.aws_marketplace_cppo_payment_terms_entitlement import (
-    AwsMarketplaceCppoPaymentTermsEntitlement,
-)
-
+from openapi_client.models.aws_marketplace_cppo_payment_schedule import AwsMarketplaceCppoPaymentSchedule
+from openapi_client.models.aws_marketplace_cppo_payment_terms_entitlement import AwsMarketplaceCppoPaymentTermsEntitlement
 
 class AwsMarketplaceCppoPaymentTerms(BaseModel):
     """
     AwsMarketplaceCppoPaymentTerms
     """
-
     currency_code: Optional[StrictStr] = Field(None, alias="currencyCode")
     entitlement: Optional[conlist(AwsMarketplaceCppoPaymentTermsEntitlement)] = None
     schedule: Optional[conlist(AwsMarketplaceCppoPaymentSchedule)] = None
     schedule_type: Optional[StrictStr] = Field(None, alias="scheduleType")
     selected_duration: Optional[StrictStr] = Field(None, alias="selectedDuration")
-    __properties = [
-        "currencyCode",
-        "entitlement",
-        "schedule",
-        "scheduleType",
-        "selectedDuration",
-    ]
+    __properties = ["currencyCode", "entitlement", "schedule", "scheduleType", "selectedDuration"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -68,21 +55,24 @@ class AwsMarketplaceCppoPaymentTerms(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in entitlement (list)
         _items = []
         if self.entitlement:
             for _item in self.entitlement:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["entitlement"] = _items
+            _dict['entitlement'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in schedule (list)
         _items = []
         if self.schedule:
             for _item in self.schedule:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["schedule"] = _items
+            _dict['schedule'] = _items
         return _dict
 
     @classmethod
@@ -94,23 +84,13 @@ class AwsMarketplaceCppoPaymentTerms(BaseModel):
         if not isinstance(obj, dict):
             return AwsMarketplaceCppoPaymentTerms.parse_obj(obj)
 
-        _obj = AwsMarketplaceCppoPaymentTerms.parse_obj(
-            {
-                "currency_code": obj.get("currencyCode"),
-                "entitlement": [
-                    AwsMarketplaceCppoPaymentTermsEntitlement.from_dict(_item)
-                    for _item in obj.get("entitlement")
-                ]
-                if obj.get("entitlement") is not None
-                else None,
-                "schedule": [
-                    AwsMarketplaceCppoPaymentSchedule.from_dict(_item)
-                    for _item in obj.get("schedule")
-                ]
-                if obj.get("schedule") is not None
-                else None,
-                "schedule_type": obj.get("scheduleType"),
-                "selected_duration": obj.get("selectedDuration"),
-            }
-        )
+        _obj = AwsMarketplaceCppoPaymentTerms.parse_obj({
+            "currency_code": obj.get("currencyCode"),
+            "entitlement": [AwsMarketplaceCppoPaymentTermsEntitlement.from_dict(_item) for _item in obj.get("entitlement")] if obj.get("entitlement") is not None else None,
+            "schedule": [AwsMarketplaceCppoPaymentSchedule.from_dict(_item) for _item in obj.get("schedule")] if obj.get("schedule") is not None else None,
+            "schedule_type": obj.get("scheduleType"),
+            "selected_duration": obj.get("selectedDuration")
+        })
         return _obj
+
+

@@ -21,28 +21,21 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field
-from openapi_client.models.gcp_marketplace_private_offer_price_model_discount import (
-    GcpMarketplacePrivateOfferPriceModelDiscount,
-)
+from openapi_client.models.gcp_marketplace_private_offer_price_model_discount import GcpMarketplacePrivateOfferPriceModelDiscount
 from openapi_client.models.gcp_period_duration import GcpPeriodDuration
 from openapi_client.models.gcp_price_value import GcpPriceValue
-
 
 class GcpMarketplacePrivateOfferPriceModelCommitment(BaseModel):
     """
     GcpMarketplacePrivateOfferPriceModelCommitment
     """
-
-    commitment_amount_per_period: Optional[GcpPriceValue] = Field(
-        None, alias="commitmentAmountPerPeriod"
-    )
+    commitment_amount_per_period: Optional[GcpPriceValue] = Field(None, alias="commitmentAmountPerPeriod")
     discount: Optional[GcpMarketplacePrivateOfferPriceModelDiscount] = None
     period: Optional[GcpPeriodDuration] = None
     __properties = ["commitmentAmountPerPeriod", "discount", "period"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -61,18 +54,19 @@ class GcpMarketplacePrivateOfferPriceModelCommitment(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of commitment_amount_per_period
         if self.commitment_amount_per_period:
-            _dict[
-                "commitmentAmountPerPeriod"
-            ] = self.commitment_amount_per_period.to_dict()
+            _dict['commitmentAmountPerPeriod'] = self.commitment_amount_per_period.to_dict()
         # override the default output from pydantic by calling `to_dict()` of discount
         if self.discount:
-            _dict["discount"] = self.discount.to_dict()
+            _dict['discount'] = self.discount.to_dict()
         # override the default output from pydantic by calling `to_dict()` of period
         if self.period:
-            _dict["period"] = self.period.to_dict()
+            _dict['period'] = self.period.to_dict()
         return _dict
 
     @classmethod
@@ -84,21 +78,11 @@ class GcpMarketplacePrivateOfferPriceModelCommitment(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplacePrivateOfferPriceModelCommitment.parse_obj(obj)
 
-        _obj = GcpMarketplacePrivateOfferPriceModelCommitment.parse_obj(
-            {
-                "commitment_amount_per_period": GcpPriceValue.from_dict(
-                    obj.get("commitmentAmountPerPeriod")
-                )
-                if obj.get("commitmentAmountPerPeriod") is not None
-                else None,
-                "discount": GcpMarketplacePrivateOfferPriceModelDiscount.from_dict(
-                    obj.get("discount")
-                )
-                if obj.get("discount") is not None
-                else None,
-                "period": GcpPeriodDuration.from_dict(obj.get("period"))
-                if obj.get("period") is not None
-                else None,
-            }
-        )
+        _obj = GcpMarketplacePrivateOfferPriceModelCommitment.parse_obj({
+            "commitment_amount_per_period": GcpPriceValue.from_dict(obj.get("commitmentAmountPerPeriod")) if obj.get("commitmentAmountPerPeriod") is not None else None,
+            "discount": GcpMarketplacePrivateOfferPriceModelDiscount.from_dict(obj.get("discount")) if obj.get("discount") is not None else None,
+            "period": GcpPeriodDuration.from_dict(obj.get("period")) if obj.get("period") is not None else None
+        })
         return _obj
+
+

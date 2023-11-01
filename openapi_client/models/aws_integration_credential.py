@@ -22,32 +22,17 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class AwsIntegrationCredential(BaseModel):
     """
     AwsIntegrationCredential
     """
-
-    access_key_id: Optional[StrictStr] = Field(
-        None,
-        alias="accessKeyId",
-        description="The access key ID of the IAM user for Suger service to access the client's AWS services.",
-    )
-    iam_user_arn: Optional[StrictStr] = Field(
-        None,
-        alias="iamUserArn",
-        description="The ARN of the IAM user for Suger service to access the client's AWS services.",
-    )
-    secret_access_key: Optional[StrictStr] = Field(
-        None,
-        alias="secretAccessKey",
-        description="The secret access key of the IAM user for Suger service to access the client's AWS services.",
-    )
+    access_key_id: Optional[StrictStr] = Field(None, alias="accessKeyId", description="The access key ID of the IAM user for Suger service to access the client's AWS services.")
+    iam_user_arn: Optional[StrictStr] = Field(None, alias="iamUserArn", description="The ARN of the IAM user for Suger service to access the client's AWS services.")
+    secret_access_key: Optional[StrictStr] = Field(None, alias="secretAccessKey", description="The secret access key of the IAM user for Suger service to access the client's AWS services.")
     __properties = ["accessKeyId", "iamUserArn", "secretAccessKey"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -66,7 +51,10 @@ class AwsIntegrationCredential(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -78,11 +66,11 @@ class AwsIntegrationCredential(BaseModel):
         if not isinstance(obj, dict):
             return AwsIntegrationCredential.parse_obj(obj)
 
-        _obj = AwsIntegrationCredential.parse_obj(
-            {
-                "access_key_id": obj.get("accessKeyId"),
-                "iam_user_arn": obj.get("iamUserArn"),
-                "secret_access_key": obj.get("secretAccessKey"),
-            }
-        )
+        _obj = AwsIntegrationCredential.parse_obj({
+            "access_key_id": obj.get("accessKeyId"),
+            "iam_user_arn": obj.get("iamUserArn"),
+            "secret_access_key": obj.get("secretAccessKey")
+        })
         return _obj
+
+

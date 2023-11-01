@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class Partner(str, Enum):
     """
     Partner
@@ -27,24 +30,26 @@ class Partner(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ""
-    ALIBABA = "ALIBABA"
-    AWS = "AWS"
-    AZURE = "AZURE"
-    GCP = "GCP"
-    MICROSOFT = "MICROSOFT"
-    DYNAMICS365 = "DYNAMICS365"
-    HUBSPOT = "HUBSPOT"
-    MARKETO = "MARKETO"
-    ORACLE = "ORACLE"
-    REDHAT = "REDHAT"
-    SALESFORCE = "SALESFORCE"
-    SLACK = "SLACK"
-    ZOHO = "ZOHO"
-    METRONOME = "METRONOME"
-    ORB = "ORB"
+    EMPTY = ''
+    ALIBABA = 'ALIBABA'
+    AWS = 'AWS'
+    AZURE = 'AZURE'
+    GCP = 'GCP'
+    MICROSOFT = 'MICROSOFT'
+    DYNAMICS365 = 'DYNAMICS365'
+    HUBSPOT = 'HUBSPOT'
+    MARKETO = 'MARKETO'
+    ORACLE = 'ORACLE'
+    REDHAT = 'REDHAT'
+    SALESFORCE = 'SALESFORCE'
+    SLACK = 'SLACK'
+    ZOHO = 'ZOHO'
+    METRONOME = 'METRONOME'
+    ORB = 'ORB'
 
     @classmethod
     def from_json(cls, json_str: str) -> Partner:
         """Create an instance of Partner from a JSON string"""
         return Partner(json.loads(json_str))
+
+

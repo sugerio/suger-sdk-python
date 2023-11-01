@@ -22,19 +22,16 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
-
 class AzureMarketplacePrivateOfferPromotionReference(BaseModel):
     """
     AzureMarketplacePrivateOfferPromotionReference
     """
-
     id: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     __properties = ["id", "name"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,7 +50,10 @@ class AzureMarketplacePrivateOfferPromotionReference(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,7 +65,10 @@ class AzureMarketplacePrivateOfferPromotionReference(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePrivateOfferPromotionReference.parse_obj(obj)
 
-        _obj = AzureMarketplacePrivateOfferPromotionReference.parse_obj(
-            {"id": obj.get("id"), "name": obj.get("name")}
-        )
+        _obj = AzureMarketplacePrivateOfferPromotionReference.parse_obj({
+            "id": obj.get("id"),
+            "name": obj.get("name")
+        })
         return _obj
+
+

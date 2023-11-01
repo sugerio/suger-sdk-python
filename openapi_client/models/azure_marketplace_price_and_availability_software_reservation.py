@@ -22,32 +22,27 @@ import json
 from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr, validator
 
-
 class AzureMarketplacePriceAndAvailabilitySoftwareReservation(BaseModel):
     """
     AzureMarketplacePriceAndAvailabilitySoftwareReservation
     """
-
-    percentage_save: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None, alias="percentageSave", description="default 0"
-    )
+    percentage_save: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="percentageSave", description="default 0")
     term: Optional[Union[StrictFloat, StrictInt]] = Field(None, description="default 0")
     type: Optional[StrictStr] = None
     __properties = ["percentageSave", "term", "type"]
 
-    @validator("type")
+    @validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("month", "year"):
+        if value not in ('month', 'year'):
             raise ValueError("must be one of enum values ('month', 'year')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -60,35 +55,32 @@ class AzureMarketplacePriceAndAvailabilitySoftwareReservation(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(
-        cls, json_str: str
-    ) -> AzureMarketplacePriceAndAvailabilitySoftwareReservation:
+    def from_json(cls, json_str: str) -> AzureMarketplacePriceAndAvailabilitySoftwareReservation:
         """Create an instance of AzureMarketplacePriceAndAvailabilitySoftwareReservation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(
-        cls, obj: dict
-    ) -> AzureMarketplacePriceAndAvailabilitySoftwareReservation:
+    def from_dict(cls, obj: dict) -> AzureMarketplacePriceAndAvailabilitySoftwareReservation:
         """Create an instance of AzureMarketplacePriceAndAvailabilitySoftwareReservation from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return AzureMarketplacePriceAndAvailabilitySoftwareReservation.parse_obj(
-                obj
-            )
+            return AzureMarketplacePriceAndAvailabilitySoftwareReservation.parse_obj(obj)
 
-        _obj = AzureMarketplacePriceAndAvailabilitySoftwareReservation.parse_obj(
-            {
-                "percentage_save": obj.get("percentageSave"),
-                "term": obj.get("term"),
-                "type": obj.get("type"),
-            }
-        )
+        _obj = AzureMarketplacePriceAndAvailabilitySoftwareReservation.parse_obj({
+            "percentage_save": obj.get("percentageSave"),
+            "term": obj.get("term"),
+            "type": obj.get("type")
+        })
         return _obj
+
+

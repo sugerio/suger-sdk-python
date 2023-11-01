@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class NotificationEventAction(str, Enum):
     """
     NotificationEventAction
@@ -27,23 +30,25 @@ class NotificationEventAction(str, Enum):
     """
     allowed enum values
     """
-    ACCEPT = "ACCEPT"
-    CREATE = "CREATE"
-    DELETE = "DELETE"
-    CANCEL = "CANCEL"
-    PENDING_CANCEL = "PENDING_CANCEL"
-    EXPIRE = "EXPIRE"
-    REINSTATE = "REINSTATE"
-    SUSPEND = "SUSPEND"
-    UPDATE = "UPDATE"
-    PENDING_ACCEPTANCE = "PENDING_ACCEPTANCE"
-    NOTIFY_CONTACTS = "NOTIFY_CONTACTS"
-    NEW_CLIENT_SIGNUP = "NEW_CLIENT_SIGNUP"
-    REVENUE_DISBURSEMENT = "REVENUE_DISBURSEMENT"
-    OPEN_EMAIL = "OPEN_EMAIL"
-    TEST = "TEST"
+    ACCEPT = 'ACCEPT'
+    CREATE = 'CREATE'
+    DELETE = 'DELETE'
+    CANCEL = 'CANCEL'
+    PENDING_CANCEL = 'PENDING_CANCEL'
+    EXPIRE = 'EXPIRE'
+    REINSTATE = 'REINSTATE'
+    SUSPEND = 'SUSPEND'
+    UPDATE = 'UPDATE'
+    PENDING_ACCEPTANCE = 'PENDING_ACCEPTANCE'
+    NOTIFY_CONTACTS = 'NOTIFY_CONTACTS'
+    NEW_CLIENT_SIGNUP = 'NEW_CLIENT_SIGNUP'
+    REVENUE_DISBURSEMENT = 'REVENUE_DISBURSEMENT'
+    OPEN_EMAIL = 'OPEN_EMAIL'
+    TEST = 'TEST'
 
     @classmethod
     def from_json(cls, json_str: str) -> NotificationEventAction:
         """Create an instance of NotificationEventAction from a JSON string"""
         return NotificationEventAction(json.loads(json_str))
+
+

@@ -21,22 +21,14 @@ import json
 
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
-from openapi_client.models.microsoft_partner_referral_address import (
-    MicrosoftPartnerReferralAddress,
-)
-from openapi_client.models.microsoft_partner_referral_person import (
-    MicrosoftPartnerReferralPerson,
-)
-from openapi_client.models.microsoft_partner_referral_profile_id import (
-    MicrosoftPartnerReferralProfileId,
-)
-
+from openapi_client.models.microsoft_partner_referral_address import MicrosoftPartnerReferralAddress
+from openapi_client.models.microsoft_partner_referral_person import MicrosoftPartnerReferralPerson
+from openapi_client.models.microsoft_partner_referral_profile_id import MicrosoftPartnerReferralProfileId
 
 class MicrosoftPartnerReferralProfile(BaseModel):
     """
     MicrosoftPartnerReferralProfile
     """
-
     activities: Optional[Dict[str, Any]] = None
     address: Optional[MicrosoftPartnerReferralAddress] = None
     ids: Optional[conlist(MicrosoftPartnerReferralProfileId)] = None
@@ -45,20 +37,10 @@ class MicrosoftPartnerReferralProfile(BaseModel):
     name: Optional[StrictStr] = None
     size: Optional[StrictStr] = None
     team: Optional[conlist(MicrosoftPartnerReferralPerson)] = None
-    __properties = [
-        "activities",
-        "address",
-        "ids",
-        "isMaccEligible",
-        "isMatchingComplete",
-        "name",
-        "size",
-        "team",
-    ]
+    __properties = ["activities", "address", "ids", "isMaccEligible", "isMatchingComplete", "name", "size", "team"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -77,24 +59,27 @@ class MicrosoftPartnerReferralProfile(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of address
         if self.address:
-            _dict["address"] = self.address.to_dict()
+            _dict['address'] = self.address.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in ids (list)
         _items = []
         if self.ids:
             for _item in self.ids:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["ids"] = _items
+            _dict['ids'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in team (list)
         _items = []
         if self.team:
             for _item in self.team:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["team"] = _items
+            _dict['team'] = _items
         return _dict
 
     @classmethod
@@ -106,28 +91,16 @@ class MicrosoftPartnerReferralProfile(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralProfile.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralProfile.parse_obj(
-            {
-                "activities": obj.get("activities"),
-                "address": MicrosoftPartnerReferralAddress.from_dict(obj.get("address"))
-                if obj.get("address") is not None
-                else None,
-                "ids": [
-                    MicrosoftPartnerReferralProfileId.from_dict(_item)
-                    for _item in obj.get("ids")
-                ]
-                if obj.get("ids") is not None
-                else None,
-                "is_macc_eligible": obj.get("isMaccEligible"),
-                "is_matching_complete": obj.get("isMatchingComplete"),
-                "name": obj.get("name"),
-                "size": obj.get("size"),
-                "team": [
-                    MicrosoftPartnerReferralPerson.from_dict(_item)
-                    for _item in obj.get("team")
-                ]
-                if obj.get("team") is not None
-                else None,
-            }
-        )
+        _obj = MicrosoftPartnerReferralProfile.parse_obj({
+            "activities": obj.get("activities"),
+            "address": MicrosoftPartnerReferralAddress.from_dict(obj.get("address")) if obj.get("address") is not None else None,
+            "ids": [MicrosoftPartnerReferralProfileId.from_dict(_item) for _item in obj.get("ids")] if obj.get("ids") is not None else None,
+            "is_macc_eligible": obj.get("isMaccEligible"),
+            "is_matching_complete": obj.get("isMatchingComplete"),
+            "name": obj.get("name"),
+            "size": obj.get("size"),
+            "team": [MicrosoftPartnerReferralPerson.from_dict(_item) for _item in obj.get("team")] if obj.get("team") is not None else None
+        })
         return _obj
+
+

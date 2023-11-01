@@ -22,25 +22,16 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag(BaseModel):
     """
     GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag
     """
-
-    key: Optional[StrictStr] = Field(
-        None,
-        description="One part of a key-value pair that makes up a tag. A key is a label that acts like a category for the specific tag values.  This member is required.",
-    )
-    value: Optional[StrictStr] = Field(
-        None,
-        description="One part of a key-value pair that makes up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.  This member is required.",
-    )
+    key: Optional[StrictStr] = Field(None, description="One part of a key-value pair that makes up a tag. A key is a label that acts like a category for the specific tag values.  This member is required.")
+    value: Optional[StrictStr] = Field(None, description="One part of a key-value pair that makes up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.  This member is required.")
     __properties = ["key", "value"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,31 +44,31 @@ class GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(
-        cls, json_str: str
-    ) -> GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag:
+    def from_json(cls, json_str: str) -> GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag:
         """Create an instance of GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(
-        cls, obj: dict
-    ) -> GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag:
+    def from_dict(cls, obj: dict) -> GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag:
         """Create an instance of GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag.parse_obj(
-                obj
-            )
+            return GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag.parse_obj(obj)
 
-        _obj = GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag.parse_obj(
-            {"key": obj.get("key"), "value": obj.get("value")}
-        )
+        _obj = GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag.parse_obj({
+            "key": obj.get("key"),
+            "value": obj.get("value")
+        })
         return _obj
+
+

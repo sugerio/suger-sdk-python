@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.commit_dimension_type import (
-    CommitDimensionType,
-)  # noqa: E501
-
+from openapi_client.models.commit_dimension_type import CommitDimensionType  # noqa: E501
 
 class TestCommitDimensionType(unittest.TestCase):
     """CommitDimensionType unit test stubs"""
@@ -34,6 +31,5 @@ class TestCommitDimensionType(unittest.TestCase):
         """Test CommitDimensionType"""
         # inst = CommitDimensionType()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

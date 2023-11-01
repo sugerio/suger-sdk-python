@@ -20,56 +20,25 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, Field, StrictStr, conlist, validator
-from openapi_client.models.azure_marketplace_preview_audience import (
-    AzureMarketplacePreviewAudience,
-)
-from openapi_client.models.azure_marketplace_validation import (
-    AzureMarketplaceValidation,
-)
-
+from pydantic import BaseModel, Field, StrictStr, conlist
+from openapi_client.models.azure_marketplace_preview_audience import AzureMarketplacePreviewAudience
+from openapi_client.models.azure_marketplace_validation import AzureMarketplaceValidation
 
 class AzureMarketplaceReseller(BaseModel):
     """
     AzureMarketplaceReseller
     """
-
     var_schema: Optional[StrictStr] = Field(None, alias="$schema")
+    audiences: Optional[conlist(AzureMarketplacePreviewAudience)] = None
     id: Optional[StrictStr] = None
-    preview_audiences: Optional[conlist(AzureMarketplacePreviewAudience)] = Field(
-        None, alias="previewAudiences"
-    )
     product: Optional[StrictStr] = None
-    reseller_channel_state: Optional[StrictStr] = Field(
-        None, alias="resellerChannelState"
-    )
+    reseller_channel_state: Optional[StrictStr] = Field(None, alias="resellerChannelState")
     resource_name: Optional[StrictStr] = Field(None, alias="resourceName")
     validations: Optional[conlist(AzureMarketplaceValidation)] = None
-    __properties = [
-        "$schema",
-        "id",
-        "previewAudiences",
-        "product",
-        "resellerChannelState",
-        "resourceName",
-        "validations",
-    ]
-
-    @validator("reseller_channel_state")
-    def reseller_channel_state_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in ("noSet", "none", "some", "all", "terminated"):
-            raise ValueError(
-                "must be one of enum values ('noSet', 'none', 'some', 'all', 'terminated')"
-            )
-        return value
+    __properties = ["$schema", "audiences", "id", "product", "resellerChannelState", "resourceName", "validations"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -88,21 +57,24 @@ class AzureMarketplaceReseller(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of each item in preview_audiences (list)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
+        # override the default output from pydantic by calling `to_dict()` of each item in audiences (list)
         _items = []
-        if self.preview_audiences:
-            for _item in self.preview_audiences:
+        if self.audiences:
+            for _item in self.audiences:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["previewAudiences"] = _items
+            _dict['audiences'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in validations (list)
         _items = []
         if self.validations:
             for _item in self.validations:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["validations"] = _items
+            _dict['validations'] = _items
         return _dict
 
     @classmethod
@@ -114,25 +86,15 @@ class AzureMarketplaceReseller(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceReseller.parse_obj(obj)
 
-        _obj = AzureMarketplaceReseller.parse_obj(
-            {
-                "var_schema": obj.get("$schema"),
-                "id": obj.get("id"),
-                "preview_audiences": [
-                    AzureMarketplacePreviewAudience.from_dict(_item)
-                    for _item in obj.get("previewAudiences")
-                ]
-                if obj.get("previewAudiences") is not None
-                else None,
-                "product": obj.get("product"),
-                "reseller_channel_state": obj.get("resellerChannelState"),
-                "resource_name": obj.get("resourceName"),
-                "validations": [
-                    AzureMarketplaceValidation.from_dict(_item)
-                    for _item in obj.get("validations")
-                ]
-                if obj.get("validations") is not None
-                else None,
-            }
-        )
+        _obj = AzureMarketplaceReseller.parse_obj({
+            "var_schema": obj.get("$schema"),
+            "audiences": [AzureMarketplacePreviewAudience.from_dict(_item) for _item in obj.get("audiences")] if obj.get("audiences") is not None else None,
+            "id": obj.get("id"),
+            "product": obj.get("product"),
+            "reseller_channel_state": obj.get("resellerChannelState"),
+            "resource_name": obj.get("resourceName"),
+            "validations": [AzureMarketplaceValidation.from_dict(_item) for _item in obj.get("validations")] if obj.get("validations") is not None else None
+        })
         return _obj
+
+

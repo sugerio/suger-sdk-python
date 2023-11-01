@@ -22,19 +22,16 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, StrictStr, conlist
 
-
 class OrbMatrixPriceValue(BaseModel):
     """
     OrbMatrixPriceValue
     """
-
     dimension_values: Optional[conlist(StrictStr)] = None
     unit_amount: Optional[StrictStr] = None
     __properties = ["dimension_values", "unit_amount"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,7 +50,10 @@ class OrbMatrixPriceValue(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +65,10 @@ class OrbMatrixPriceValue(BaseModel):
         if not isinstance(obj, dict):
             return OrbMatrixPriceValue.parse_obj(obj)
 
-        _obj = OrbMatrixPriceValue.parse_obj(
-            {
-                "dimension_values": obj.get("dimension_values"),
-                "unit_amount": obj.get("unit_amount"),
-            }
-        )
+        _obj = OrbMatrixPriceValue.parse_obj({
+            "dimension_values": obj.get("dimension_values"),
+            "unit_amount": obj.get("unit_amount")
+        })
         return _obj
+
+

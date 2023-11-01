@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **var_schema** | **str** |  | [optional] 
+**audiences** | [**List[AzureMarketplacePreviewAudience]**](AzureMarketplacePreviewAudience.md) |  | [optional] 
 **id** | **str** |  | [optional] 
-**preview_audiences** | [**List[AzureMarketplacePreviewAudience]**](AzureMarketplacePreviewAudience.md) |  | [optional] 
 **product** | **str** |  | [optional] 
 **reseller_channel_state** | **str** |  | [optional] 
 **resource_name** | **str** |  | [optional] 

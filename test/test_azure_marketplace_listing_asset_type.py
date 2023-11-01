@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.azure_marketplace_listing_asset_type import (
-    AzureMarketplaceListingAssetType,
-)  # noqa: E501
-
+from openapi_client.models.azure_marketplace_listing_asset_type import AzureMarketplaceListingAssetType  # noqa: E501
 
 class TestAzureMarketplaceListingAssetType(unittest.TestCase):
     """AzureMarketplaceListingAssetType unit test stubs"""
@@ -34,6 +31,5 @@ class TestAzureMarketplaceListingAssetType(unittest.TestCase):
         """Test AzureMarketplaceListingAssetType"""
         # inst = AzureMarketplaceListingAssetType()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

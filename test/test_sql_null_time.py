@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.sql_null_time import SqlNullTime  # noqa: E501
 
-
 class TestSqlNullTime(unittest.TestCase):
     """SqlNullTime unit test stubs"""
 
@@ -30,9 +29,9 @@ class TestSqlNullTime(unittest.TestCase):
 
     def make_instance(self, include_optional) -> SqlNullTime:
         """Test SqlNullTime
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `SqlNullTime`
         """
         model = SqlNullTime()  # noqa: E501
@@ -51,6 +50,5 @@ class TestSqlNullTime(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

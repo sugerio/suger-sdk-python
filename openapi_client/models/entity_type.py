@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class EntityType(str, Enum):
     """
     EntityType
@@ -27,16 +30,18 @@ class EntityType(str, Enum):
     """
     allowed enum values
     """
-    ORGANIZATION = "ORGANIZATION"
-    PRODUCT = "PRODUCT"
-    OFFER = "OFFER"
-    ENTITLEMENT = "ENTITLEMENT"
-    ENTITLEMENT_TERM = "ENTITLEMENT_TERM"
-    INTEGRATION = "INTEGRATION"
-    NOTIFICATION_MESSAGE = "NOTIFICATION_MESSAGE"
-    REVENUE_RECORD = "REVENUE_RECORD"
+    ORGANIZATION = 'ORGANIZATION'
+    PRODUCT = 'PRODUCT'
+    OFFER = 'OFFER'
+    ENTITLEMENT = 'ENTITLEMENT'
+    ENTITLEMENT_TERM = 'ENTITLEMENT_TERM'
+    INTEGRATION = 'INTEGRATION'
+    NOTIFICATION_MESSAGE = 'NOTIFICATION_MESSAGE'
+    REVENUE_RECORD = 'REVENUE_RECORD'
 
     @classmethod
     def from_json(cls, json_str: str) -> EntityType:
         """Create an instance of EntityType from a JSON string"""
         return EntityType(json.loads(json_str))
+
+

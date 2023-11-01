@@ -23,40 +23,20 @@ from typing import List, Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr, conlist
 from openapi_client.models.orb_price_discount_type import OrbPriceDiscountType
 
-
 class OrbPriceDiscount(BaseModel):
     """
     OrbPriceDiscount
     """
-
-    amount_discount: Optional[StrictStr] = Field(
-        None, description="Only available if discount_type is amount."
-    )
+    amount_discount: Optional[StrictStr] = Field(None, description="Only available if discount_type is amount.")
     applies_to_price_ids: Optional[conlist(StrictStr)] = None
     discount_type: Optional[OrbPriceDiscountType] = None
-    percentage_discount: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None,
-        description="Only available if discount_type is percentage.This is a number between 0 and 1.",
-    )
-    trial_amount_discount: Optional[StrictStr] = Field(
-        None, description="Only available if discount_type is trial"
-    )
-    usage_discount: Optional[StrictStr] = Field(
-        None,
-        description="Only available if discount_type is usage. Number of usage units that this discount is for",
-    )
-    __properties = [
-        "amount_discount",
-        "applies_to_price_ids",
-        "discount_type",
-        "percentage_discount",
-        "trial_amount_discount",
-        "usage_discount",
-    ]
+    percentage_discount: Optional[Union[StrictFloat, StrictInt]] = Field(None, description="Only available if discount_type is percentage.This is a number between 0 and 1.")
+    trial_amount_discount: Optional[StrictStr] = Field(None, description="Only available if discount_type is trial")
+    usage_discount: Optional[StrictStr] = Field(None, description="Only available if discount_type is usage. Number of usage units that this discount is for")
+    __properties = ["amount_discount", "applies_to_price_ids", "discount_type", "percentage_discount", "trial_amount_discount", "usage_discount"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -75,7 +55,10 @@ class OrbPriceDiscount(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -87,14 +70,14 @@ class OrbPriceDiscount(BaseModel):
         if not isinstance(obj, dict):
             return OrbPriceDiscount.parse_obj(obj)
 
-        _obj = OrbPriceDiscount.parse_obj(
-            {
-                "amount_discount": obj.get("amount_discount"),
-                "applies_to_price_ids": obj.get("applies_to_price_ids"),
-                "discount_type": obj.get("discount_type"),
-                "percentage_discount": obj.get("percentage_discount"),
-                "trial_amount_discount": obj.get("trial_amount_discount"),
-                "usage_discount": obj.get("usage_discount"),
-            }
-        )
+        _obj = OrbPriceDiscount.parse_obj({
+            "amount_discount": obj.get("amount_discount"),
+            "applies_to_price_ids": obj.get("applies_to_price_ids"),
+            "discount_type": obj.get("discount_type"),
+            "percentage_discount": obj.get("percentage_discount"),
+            "trial_amount_discount": obj.get("trial_amount_discount"),
+            "usage_discount": obj.get("usage_discount")
+        })
         return _obj
+
+

@@ -22,25 +22,18 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr
 
-
 class HubspotCrmCredential(BaseModel):
     """
     HubspotCrmCredential
     """
-
     access_token: Optional[StrictStr] = Field(None, alias="accessToken")
-    acquired_on: Optional[StrictInt] = Field(
-        None,
-        alias="acquiredOn",
-        description="UTC timestamp on receiving the auth response",
-    )
+    acquired_on: Optional[StrictInt] = Field(None, alias="acquiredOn", description="UTC timestamp on receiving the auth response")
     expires_in: Optional[StrictInt] = Field(None, alias="expiresIn")
     refresh_token: Optional[StrictStr] = Field(None, alias="refreshToken")
     __properties = ["accessToken", "acquiredOn", "expiresIn", "refreshToken"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -59,7 +52,10 @@ class HubspotCrmCredential(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -71,12 +67,12 @@ class HubspotCrmCredential(BaseModel):
         if not isinstance(obj, dict):
             return HubspotCrmCredential.parse_obj(obj)
 
-        _obj = HubspotCrmCredential.parse_obj(
-            {
-                "access_token": obj.get("accessToken"),
-                "acquired_on": obj.get("acquiredOn"),
-                "expires_in": obj.get("expiresIn"),
-                "refresh_token": obj.get("refreshToken"),
-            }
-        )
+        _obj = HubspotCrmCredential.parse_obj({
+            "access_token": obj.get("accessToken"),
+            "acquired_on": obj.get("acquiredOn"),
+            "expires_in": obj.get("expiresIn"),
+            "refresh_token": obj.get("refreshToken")
+        })
         return _obj
+
+

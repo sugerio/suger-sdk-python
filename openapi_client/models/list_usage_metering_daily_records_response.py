@@ -23,21 +23,16 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, conlist
 from openapi_client.models.usage_metering_daily_record import UsageMeteringDailyRecord
 
-
 class ListUsageMeteringDailyRecordsResponse(BaseModel):
     """
     ListUsageMeteringDailyRecordsResponse
     """
-
     next_offset: Optional[StrictInt] = Field(None, alias="nextOffset")
-    usage_metering_daily_records: Optional[conlist(UsageMeteringDailyRecord)] = Field(
-        None, alias="usageMeteringDailyRecords"
-    )
+    usage_metering_daily_records: Optional[conlist(UsageMeteringDailyRecord)] = Field(None, alias="usageMeteringDailyRecords")
     __properties = ["nextOffset", "usageMeteringDailyRecords"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -56,14 +51,17 @@ class ListUsageMeteringDailyRecordsResponse(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in usage_metering_daily_records (list)
         _items = []
         if self.usage_metering_daily_records:
             for _item in self.usage_metering_daily_records:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["usageMeteringDailyRecords"] = _items
+            _dict['usageMeteringDailyRecords'] = _items
         return _dict
 
     @classmethod
@@ -75,15 +73,10 @@ class ListUsageMeteringDailyRecordsResponse(BaseModel):
         if not isinstance(obj, dict):
             return ListUsageMeteringDailyRecordsResponse.parse_obj(obj)
 
-        _obj = ListUsageMeteringDailyRecordsResponse.parse_obj(
-            {
-                "next_offset": obj.get("nextOffset"),
-                "usage_metering_daily_records": [
-                    UsageMeteringDailyRecord.from_dict(_item)
-                    for _item in obj.get("usageMeteringDailyRecords")
-                ]
-                if obj.get("usageMeteringDailyRecords") is not None
-                else None,
-            }
-        )
+        _obj = ListUsageMeteringDailyRecordsResponse.parse_obj({
+            "next_offset": obj.get("nextOffset"),
+            "usage_metering_daily_records": [UsageMeteringDailyRecord.from_dict(_item) for _item in obj.get("usageMeteringDailyRecords")] if obj.get("usageMeteringDailyRecords") is not None else None
+        })
         return _obj
+
+

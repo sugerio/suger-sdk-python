@@ -22,18 +22,15 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 
-
 class ClientDescribeOrderResponseBodyInstanceIds(BaseModel):
     """
     ClientDescribeOrderResponseBodyInstanceIds
     """
-
     instance_id: Optional[conlist(StrictStr)] = Field(None, alias="InstanceId")
     __properties = ["InstanceId"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,7 +49,10 @@ class ClientDescribeOrderResponseBodyInstanceIds(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -64,7 +64,9 @@ class ClientDescribeOrderResponseBodyInstanceIds(BaseModel):
         if not isinstance(obj, dict):
             return ClientDescribeOrderResponseBodyInstanceIds.parse_obj(obj)
 
-        _obj = ClientDescribeOrderResponseBodyInstanceIds.parse_obj(
-            {"instance_id": obj.get("InstanceId")}
-        )
+        _obj = ClientDescribeOrderResponseBodyInstanceIds.parse_obj({
+            "instance_id": obj.get("InstanceId")
+        })
         return _obj
+
+

@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class SqlOperator(str, Enum):
     """
     SqlOperator
@@ -27,21 +30,23 @@ class SqlOperator(str, Enum):
     """
     allowed enum values
     """
-    EQ = "EQ"
-    NOT_EQ = "NOT_EQ"
-    GT = "GT"
-    GTE = "GTE"
-    LT = "LT"
-    LTE = "LTE"
-    IS = "IS"
-    IS_NOT = "IS_NOT"
-    IN = "IN"
-    NOT_IN = "NOT_IN"
-    LIKE = "LIKE"
-    ILIKE = "ILIKE"
-    NOT_LIKE = "NOT_LIKE"
+    EQ = 'EQ'
+    NOT_EQ = 'NOT_EQ'
+    GT = 'GT'
+    GTE = 'GTE'
+    LT = 'LT'
+    LTE = 'LTE'
+    IS = 'IS'
+    IS_NOT = 'IS_NOT'
+    IN = 'IN'
+    NOT_IN = 'NOT_IN'
+    LIKE = 'LIKE'
+    ILIKE = 'ILIKE'
+    NOT_LIKE = 'NOT_LIKE'
 
     @classmethod
     def from_json(cls, json_str: str) -> SqlOperator:
         """Create an instance of SqlOperator from a JSON string"""
         return SqlOperator(json.loads(json_str))
+
+

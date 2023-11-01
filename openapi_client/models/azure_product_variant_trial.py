@@ -23,45 +23,38 @@ from typing import Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr, validator
 from openapi_client.models.azure_localized_time_range import AzureLocalizedTimeRange
 
-
 class AzureProductVariantTrial(BaseModel):
     """
     AzureProductVariantTrial
     """
-
-    date_time_range: Optional[AzureLocalizedTimeRange] = Field(
-        None, alias="dateTimeRange"
-    )
+    date_time_range: Optional[AzureLocalizedTimeRange] = Field(None, alias="dateTimeRange")
     duration: Optional[StrictInt] = None
     duration_type: Optional[StrictStr] = Field(None, alias="durationType")
     type: Optional[StrictStr] = None
     __properties = ["dateTimeRange", "duration", "durationType", "type"]
 
-    @validator("duration_type")
+    @validator('duration_type')
     def duration_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("Minute", "Days", "Months"):
+        if value not in ('Minute', 'Days', 'Months'):
             raise ValueError("must be one of enum values ('Minute', 'Days', 'Months')")
         return value
 
-    @validator("type")
+    @validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("NoTrial", "TimedAccess", "TimedUsage", "Unlimited"):
-            raise ValueError(
-                "must be one of enum values ('NoTrial', 'TimedAccess', 'TimedUsage', 'Unlimited')"
-            )
+        if value not in ('NoTrial', 'TimedAccess', 'TimedUsage', 'Unlimited'):
+            raise ValueError("must be one of enum values ('NoTrial', 'TimedAccess', 'TimedUsage', 'Unlimited')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -80,10 +73,13 @@ class AzureProductVariantTrial(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of date_time_range
         if self.date_time_range:
-            _dict["dateTimeRange"] = self.date_time_range.to_dict()
+            _dict['dateTimeRange'] = self.date_time_range.to_dict()
         return _dict
 
     @classmethod
@@ -95,16 +91,12 @@ class AzureProductVariantTrial(BaseModel):
         if not isinstance(obj, dict):
             return AzureProductVariantTrial.parse_obj(obj)
 
-        _obj = AzureProductVariantTrial.parse_obj(
-            {
-                "date_time_range": AzureLocalizedTimeRange.from_dict(
-                    obj.get("dateTimeRange")
-                )
-                if obj.get("dateTimeRange") is not None
-                else None,
-                "duration": obj.get("duration"),
-                "duration_type": obj.get("durationType"),
-                "type": obj.get("type"),
-            }
-        )
+        _obj = AzureProductVariantTrial.parse_obj({
+            "date_time_range": AzureLocalizedTimeRange.from_dict(obj.get("dateTimeRange")) if obj.get("dateTimeRange") is not None else None,
+            "duration": obj.get("duration"),
+            "duration_type": obj.get("durationType"),
+            "type": obj.get("type")
+        })
         return _obj
+
+

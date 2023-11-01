@@ -22,12 +22,10 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class AzureListingUri(BaseModel):
     """
     AzureListingUri
     """
-
     display_text: Optional[StrictStr] = Field(None, alias="displayText")
     subtype: Optional[StrictStr] = None
     type: Optional[StrictStr] = None
@@ -36,7 +34,6 @@ class AzureListingUri(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -55,7 +52,10 @@ class AzureListingUri(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -67,12 +67,12 @@ class AzureListingUri(BaseModel):
         if not isinstance(obj, dict):
             return AzureListingUri.parse_obj(obj)
 
-        _obj = AzureListingUri.parse_obj(
-            {
-                "display_text": obj.get("displayText"),
-                "subtype": obj.get("subtype"),
-                "type": obj.get("type"),
-                "uri": obj.get("uri"),
-            }
-        )
+        _obj = AzureListingUri.parse_obj({
+            "display_text": obj.get("displayText"),
+            "subtype": obj.get("subtype"),
+            "type": obj.get("type"),
+            "uri": obj.get("uri")
+        })
         return _obj
+
+

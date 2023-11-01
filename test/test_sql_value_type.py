@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.sql_value_type import SqlValueType  # noqa: E501
 
-
 class TestSqlValueType(unittest.TestCase):
     """SqlValueType unit test stubs"""
 
@@ -32,6 +31,5 @@ class TestSqlValueType(unittest.TestCase):
         """Test SqlValueType"""
         # inst = SqlValueType()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

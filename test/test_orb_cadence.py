@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.orb_cadence import OrbCadence  # noqa: E501
 
-
 class TestOrbCadence(unittest.TestCase):
     """OrbCadence unit test stubs"""
 
@@ -32,6 +31,5 @@ class TestOrbCadence(unittest.TestCase):
         """Test OrbCadence"""
         # inst = OrbCadence()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

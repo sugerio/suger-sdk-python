@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class EulaType(str, Enum):
     """
     EulaType
@@ -27,14 +30,16 @@ class EulaType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ""
-    SCMP = "SCMP"
-    ECMP = "ECMP"
-    CUSTOM = "CUSTOM"
-    ISV = "ISV"
-    CURRENT = "CURRENT"
+    EMPTY = ''
+    SCMP = 'SCMP'
+    ECMP = 'ECMP'
+    CUSTOM = 'CUSTOM'
+    ISV = 'ISV'
+    CURRENT = 'CURRENT'
 
     @classmethod
     def from_json(cls, json_str: str) -> EulaType:
         """Create an instance of EulaType from a JSON string"""
         return EulaType(json.loads(json_str))
+
+

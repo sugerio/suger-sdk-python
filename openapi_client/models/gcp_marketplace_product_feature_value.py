@@ -22,29 +22,18 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class GcpMarketplaceProductFeatureValue(BaseModel):
     """
     GcpMarketplaceProductFeatureValue
     """
-
-    feature_description: Optional[StrictStr] = Field(
-        None, alias="featureDescription", description='such as "CPU per VM"'
-    )
-    feature_name: Optional[StrictStr] = Field(
-        None, alias="featureName", description='such as "cpu"'
-    )
-    feature_title: Optional[StrictStr] = Field(
-        None, alias="featureTitle", description='such as "CPU"'
-    )
-    feature_value: Optional[StrictStr] = Field(
-        None, alias="featureValue", description='such as "2 CPU per VM"'
-    )
+    feature_description: Optional[StrictStr] = Field(None, alias="featureDescription", description="such as \"CPU per VM\"")
+    feature_name: Optional[StrictStr] = Field(None, alias="featureName", description="such as \"cpu\"")
+    feature_title: Optional[StrictStr] = Field(None, alias="featureTitle", description="such as \"CPU\"")
+    feature_value: Optional[StrictStr] = Field(None, alias="featureValue", description="such as \"2 CPU per VM\"")
     __properties = ["featureDescription", "featureName", "featureTitle", "featureValue"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -63,7 +52,10 @@ class GcpMarketplaceProductFeatureValue(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -75,12 +67,12 @@ class GcpMarketplaceProductFeatureValue(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceProductFeatureValue.parse_obj(obj)
 
-        _obj = GcpMarketplaceProductFeatureValue.parse_obj(
-            {
-                "feature_description": obj.get("featureDescription"),
-                "feature_name": obj.get("featureName"),
-                "feature_title": obj.get("featureTitle"),
-                "feature_value": obj.get("featureValue"),
-            }
-        )
+        _obj = GcpMarketplaceProductFeatureValue.parse_obj({
+            "feature_description": obj.get("featureDescription"),
+            "feature_name": obj.get("featureName"),
+            "feature_title": obj.get("featureTitle"),
+            "feature_value": obj.get("featureValue")
+        })
         return _obj
+
+

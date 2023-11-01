@@ -22,12 +22,10 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class GcpMarketplaceProductExternalAccountSpec(BaseModel):
     """
     GcpMarketplaceProductExternalAccountSpec
     """
-
     login_uri: Optional[StrictStr] = Field(None, alias="loginUri")
     signup_uri: Optional[StrictStr] = Field(None, alias="signupUri")
     single_sign_on_uri: Optional[StrictStr] = Field(None, alias="singleSignOnUri")
@@ -35,7 +33,6 @@ class GcpMarketplaceProductExternalAccountSpec(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,7 +51,10 @@ class GcpMarketplaceProductExternalAccountSpec(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,11 +66,11 @@ class GcpMarketplaceProductExternalAccountSpec(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceProductExternalAccountSpec.parse_obj(obj)
 
-        _obj = GcpMarketplaceProductExternalAccountSpec.parse_obj(
-            {
-                "login_uri": obj.get("loginUri"),
-                "signup_uri": obj.get("signupUri"),
-                "single_sign_on_uri": obj.get("singleSignOnUri"),
-            }
-        )
+        _obj = GcpMarketplaceProductExternalAccountSpec.parse_obj({
+            "login_uri": obj.get("loginUri"),
+            "signup_uri": obj.get("signupUri"),
+            "single_sign_on_uri": obj.get("singleSignOnUri")
+        })
         return _obj
+
+

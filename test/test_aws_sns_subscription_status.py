@@ -14,11 +14,9 @@
 
 
 import unittest
+import datetime
 
-# from openapi_client.models.aws_sns_subscription_status import (
-#     AwsSnsSubscriptionStatus,
-# )  # noqa: E501
-
+from openapi_client.models.aws_sns_subscription_status import AwsSnsSubscriptionStatus  # noqa: E501
 
 class TestAwsSnsSubscriptionStatus(unittest.TestCase):
     """AwsSnsSubscriptionStatus unit test stubs"""
@@ -33,6 +31,5 @@ class TestAwsSnsSubscriptionStatus(unittest.TestCase):
         """Test AwsSnsSubscriptionStatus"""
         # inst = AwsSnsSubscriptionStatus()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

@@ -18,9 +18,9 @@ Python 3.7+
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
+pip install git+https://github.com/sugerio/suger-sdk-python.git
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git`)
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/sugerio/suger-sdk-python.git`)
 
 Then import the package:
 ```python
@@ -177,7 +177,10 @@ Class | Method | HTTP request | Description
 *ReportApi* | [**list_usage_metering_daily_verifications**](docs/ReportApi.md#list_usage_metering_daily_verifications) | **GET** /org/{orgId}/partner/{partner}/usageMeteringDailyVerification | list usage metering daily verifications
 *SignupApi* | [**get_client_signup_page_config_info**](docs/SignupApi.md#get_client_signup_page_config_info) | **GET** /org/{orgId}/clientSignupPageConfigInfo | get client signup page config info
 *SignupApi* | [**update_client_signup_page_config_info**](docs/SignupApi.md#update_client_signup_page_config_info) | **PATCH** /org/{orgId}/clientSignupPageConfigInfo | update client signup page config info
+*CosellApi* | [**get_crm_record**](docs/CosellApi.md#get_crm_record) | **GET** /org/{orgId}/cosell/partner/{partner}/object/{objectType}/{id} | get a record from a CRM partner.
 *CosellApi* | [**list_cosell_opp_referrals**](docs/CosellApi.md#list_cosell_opp_referrals) | **POST** /org/{orgId}/cosell/oppReferral/query | list cosell opp referrals
+*CosellApi* | [**list_crm_records**](docs/CosellApi.md#list_crm_records) | **GET** /org/{orgId}/cosell/partner/{partner}/object/{objectType} | list records from a CRM partner by object type and other conditions.
+*CosellApi* | [**update_opp_referral_meta**](docs/CosellApi.md#update_opp_referral_meta) | **PATCH** /org/{orgId}/cosell/oppReferralMeta/{oppReferralId} | update the metadata for cosell opp referral
 
 
 ## Documentation For Models
@@ -269,6 +272,10 @@ Class | Method | HTTP request | Description
  - [AzureMarketplacePriceAndAvailabilityCorePrice](docs/AzureMarketplacePriceAndAvailabilityCorePrice.md)
  - [AzureMarketplacePriceAndAvailabilityCustomMeter](docs/AzureMarketplacePriceAndAvailabilityCustomMeter.md)
  - [AzureMarketplacePriceAndAvailabilityCustomMeterItem](docs/AzureMarketplacePriceAndAvailabilityCustomMeterItem.md)
+ - [AzureMarketplacePriceAndAvailabilityCustomMeterPrice](docs/AzureMarketplacePriceAndAvailabilityCustomMeterPrice.md)
+ - [AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem](docs/AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem.md)
+ - [AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItem](docs/AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItem.md)
+ - [AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem](docs/AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem.md)
  - [AzureMarketplacePriceAndAvailabilityOffer](docs/AzureMarketplacePriceAndAvailabilityOffer.md)
  - [AzureMarketplacePriceAndAvailabilityPlan](docs/AzureMarketplacePriceAndAvailabilityPlan.md)
  - [AzureMarketplacePriceAndAvailabilityPrice](docs/AzureMarketplacePriceAndAvailabilityPrice.md)
@@ -277,7 +284,9 @@ Class | Method | HTTP request | Description
  - [AzureMarketplacePriceAndAvailabilityPrivateOfferPrice](docs/AzureMarketplacePriceAndAvailabilityPrivateOfferPrice.md)
  - [AzureMarketplacePriceAndAvailabilityRecurrentPrice](docs/AzureMarketplacePriceAndAvailabilityRecurrentPrice.md)
  - [AzureMarketplacePriceAndAvailabilityRecurrentPriceItem](docs/AzureMarketplacePriceAndAvailabilityRecurrentPriceItem.md)
+ - [AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit](docs/AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit.md)
  - [AzureMarketplacePriceAndAvailabilitySoftwareReservation](docs/AzureMarketplacePriceAndAvailabilitySoftwareReservation.md)
+ - [AzureMarketplacePriceAndAvailabilitySystemMeterPrice](docs/AzureMarketplacePriceAndAvailabilitySystemMeterPrice.md)
  - [AzureMarketplacePrivateOffer](docs/AzureMarketplacePrivateOffer.md)
  - [AzureMarketplacePrivateOfferAcceptanceLink](docs/AzureMarketplacePrivateOfferAcceptanceLink.md)
  - [AzureMarketplacePrivateOfferBeneficiary](docs/AzureMarketplacePrivateOfferBeneficiary.md)
@@ -347,6 +356,8 @@ Class | Method | HTTP request | Description
  - [CosellOppInfo](docs/CosellOppInfo.md)
  - [CosellOppMeta](docs/CosellOppMeta.md)
  - [CosellOppReferral](docs/CosellOppReferral.md)
+ - [CosellRecord](docs/CosellRecord.md)
+ - [CosellReferralStatus](docs/CosellReferralStatus.md)
  - [CosellSyncRecord](docs/CosellSyncRecord.md)
  - [CreateIntegrationParams](docs/CreateIntegrationParams.md)
  - [CreateUsageRecordGroupParams](docs/CreateUsageRecordGroupParams.md)
@@ -455,6 +466,7 @@ Class | Method | HTTP request | Description
  - [MeteringUsageRecordReport](docs/MeteringUsageRecordReport.md)
  - [MeteringUsageRecordReportInfo](docs/MeteringUsageRecordReportInfo.md)
  - [MetronomeBillableMetric](docs/MetronomeBillableMetric.md)
+ - [MetronomeBillingMode](docs/MetronomeBillingMode.md)
  - [MetronomeIntegration](docs/MetronomeIntegration.md)
  - [MicrosoftPartnerReferral](docs/MicrosoftPartnerReferral.md)
  - [MicrosoftPartnerReferralAdditionalRequirements](docs/MicrosoftPartnerReferralAdditionalRequirements.md)

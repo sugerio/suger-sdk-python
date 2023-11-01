@@ -22,12 +22,10 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class AlibabaIntegrationCredential(BaseModel):
     """
     AlibabaIntegrationCredential
     """
-
     access_key_id: Optional[StrictStr] = Field(None, alias="accessKeyId")
     access_key_secret: Optional[StrictStr] = Field(None, alias="accessKeySecret")
     region_id: Optional[StrictStr] = Field(None, alias="regionId")
@@ -36,7 +34,6 @@ class AlibabaIntegrationCredential(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -55,7 +52,10 @@ class AlibabaIntegrationCredential(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -67,12 +67,12 @@ class AlibabaIntegrationCredential(BaseModel):
         if not isinstance(obj, dict):
             return AlibabaIntegrationCredential.parse_obj(obj)
 
-        _obj = AlibabaIntegrationCredential.parse_obj(
-            {
-                "access_key_id": obj.get("accessKeyId"),
-                "access_key_secret": obj.get("accessKeySecret"),
-                "region_id": obj.get("regionId"),
-                "spi_key": obj.get("spiKey"),
-            }
-        )
+        _obj = AlibabaIntegrationCredential.parse_obj({
+            "access_key_id": obj.get("accessKeyId"),
+            "access_key_secret": obj.get("accessKeySecret"),
+            "region_id": obj.get("regionId"),
+            "spi_key": obj.get("spiKey")
+        })
         return _obj
+
+

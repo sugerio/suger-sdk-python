@@ -22,26 +22,17 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 
-
 class MetronomeBillableMetric(BaseModel):
     """
     MetronomeBillableMetric
     """
-
-    group_by: Optional[conlist(StrictStr)] = Field(
-        None, description="the fields to group by when aggregating usage events."
-    )
-    id: Optional[StrictStr] = Field(
-        None, description="the uuid of the billable metric."
-    )
-    name: Optional[StrictStr] = Field(
-        None, description="the name of the billable metric."
-    )
+    group_by: Optional[conlist(StrictStr)] = Field(None, description="the fields to group by when aggregating usage events.")
+    id: Optional[StrictStr] = Field(None, description="the uuid of the billable metric.")
+    name: Optional[StrictStr] = Field(None, description="the name of the billable metric.")
     __properties = ["group_by", "id", "name"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -60,7 +51,10 @@ class MetronomeBillableMetric(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -72,11 +66,11 @@ class MetronomeBillableMetric(BaseModel):
         if not isinstance(obj, dict):
             return MetronomeBillableMetric.parse_obj(obj)
 
-        _obj = MetronomeBillableMetric.parse_obj(
-            {
-                "group_by": obj.get("group_by"),
-                "id": obj.get("id"),
-                "name": obj.get("name"),
-            }
-        )
+        _obj = MetronomeBillableMetric.parse_obj({
+            "group_by": obj.get("group_by"),
+            "id": obj.get("id"),
+            "name": obj.get("name")
+        })
         return _obj
+
+

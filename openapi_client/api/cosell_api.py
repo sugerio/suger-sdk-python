@@ -24,14 +24,17 @@ from pydantic import Field, StrictStr, conlist
 
 from typing import Optional
 
-from openapi_client.models.list_cosell_opp_referrals_response import (
-    ListCosellOppReferralsResponse,
-)
+from openapi_client.models.cosell_opp_meta import CosellOppMeta
+from openapi_client.models.cosell_record import CosellRecord
+from openapi_client.models.list_cosell_opp_referrals_response import ListCosellOppReferralsResponse
 from openapi_client.models.sql_condition import SqlCondition
 
 from openapi_client.api_client import ApiClient
 from openapi_client.api_response import ApiResponse
-from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
+from openapi_client.exceptions import (  # noqa: F401
+    ApiTypeError,
+    ApiValueError
+)
 
 
 class CosellApi:
@@ -47,18 +50,173 @@ class CosellApi:
         self.api_client = api_client
 
     @validate_arguments
-    def list_cosell_opp_referrals(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        type: Annotated[
-            Optional[StrictStr],
-            Field(description="Referral type: inbox, outbox, insync, archived"),
-        ] = None,
-        data: Annotated[
-            Optional[conlist(SqlCondition)], Field(description="Query conditions")
-        ] = None,
-        **kwargs
-    ) -> ListCosellOppReferralsResponse:  # noqa: E501
+    def get_crm_record(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="CRM Partner")], object_type : Annotated[StrictStr, Field(..., description="Type of the CRM object, e,g, account, contact")], id : Annotated[StrictStr, Field(..., description="ID of the CRM object")], **kwargs) -> CosellRecord:  # noqa: E501
+        """get a record from a CRM partner.  # noqa: E501
+
+        get a record from a CRM partner by object type and ID.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_crm_record(org_id, partner, object_type, id, async_req=True)
+        >>> result = thread.get()
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param partner: CRM Partner (required)
+        :type partner: str
+        :param object_type: Type of the CRM object, e,g, account, contact (required)
+        :type object_type: str
+        :param id: ID of the CRM object (required)
+        :type id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CosellRecord
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_crm_record_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_crm_record_with_http_info(org_id, partner, object_type, id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_crm_record_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="CRM Partner")], object_type : Annotated[StrictStr, Field(..., description="Type of the CRM object, e,g, account, contact")], id : Annotated[StrictStr, Field(..., description="ID of the CRM object")], **kwargs) -> ApiResponse:  # noqa: E501
+        """get a record from a CRM partner.  # noqa: E501
+
+        get a record from a CRM partner by object type and ID.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_crm_record_with_http_info(org_id, partner, object_type, id, async_req=True)
+        >>> result = thread.get()
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param partner: CRM Partner (required)
+        :type partner: str
+        :param object_type: Type of the CRM object, e,g, account, contact (required)
+        :type object_type: str
+        :param id: ID of the CRM object (required)
+        :type id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CosellRecord, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'org_id',
+            'partner',
+            'object_type',
+            'id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_crm_record" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
+        if _params['partner']:
+            _path_params['partner'] = _params['partner']
+
+        if _params['object_type']:
+            _path_params['objectType'] = _params['object_type']
+
+        if _params['id']:
+            _path_params['id'] = _params['id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = []  # noqa: E501
+
+        _response_types_map = {
+            '200': "CosellRecord",
+            '400': "str",
+            '500': "str",
+        }
+
+        return self.api_client.call_api(
+            '/org/{orgId}/cosell/partner/{partner}/object/{objectType}/{id}', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def list_cosell_opp_referrals(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], type : Annotated[Optional[StrictStr], Field(description="Referral type: inbox, outbox, insync, archived")] = None, data : Annotated[Optional[conlist(SqlCondition)], Field(description="Query conditions")] = None, **kwargs) -> ListCosellOppReferralsResponse:  # noqa: E501
         """list cosell opp referrals  # noqa: E501
 
         list cosell opportunity referrals by orgId, referral type, and query conditions.  # noqa: E501
@@ -85,27 +243,14 @@ class CosellApi:
                  returns the request thread.
         :rtype: ListCosellOppReferralsResponse
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_cosell_opp_referrals_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_cosell_opp_referrals_with_http_info(
-            org_id, type, data, **kwargs
-        )  # noqa: E501
+        return self.list_cosell_opp_referrals_with_http_info(org_id, type, data, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_cosell_opp_referrals_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        type: Annotated[
-            Optional[StrictStr],
-            Field(description="Referral type: inbox, outbox, insync, archived"),
-        ] = None,
-        data: Annotated[
-            Optional[conlist(SqlCondition)], Field(description="Query conditions")
-        ] = None,
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_cosell_opp_referrals_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], type : Annotated[Optional[StrictStr], Field(description="Referral type: inbox, outbox, insync, archived")] = None, data : Annotated[Optional[conlist(SqlCondition)], Field(description="Query conditions")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """list cosell opp referrals  # noqa: E501
 
         list cosell opportunity referrals by orgId, referral type, and query conditions.  # noqa: E501
@@ -148,76 +293,78 @@ class CosellApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "type", "data"]
+        _all_params = [
+            'org_id',
+            'type',
+            'data'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_cosell_opp_referrals" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
 
         # process the query parameters
         _query_params = []
-        if _params.get("type") is not None:  # noqa: E501
-            _query_params.append(("type", _params["type"]))
+        if _params.get('type') is not None:  # noqa: E501
+            _query_params.append(('type', _params['type']))
 
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params["data"] is not None:
-            _body_params = _params["data"]
+        if _params['data'] is not None:
+            _body_params = _params['data']
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get(
-            "_content_type",
-            self.api_client.select_header_content_type(["application/json"]),
-        )
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
         if _content_types_list:
-            _header_params["Content-Type"] = _content_types_list
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
         _auth_settings = []  # noqa: E501
 
         _response_types_map = {
-            "200": "ListCosellOppReferralsResponse",
-            "400": "str",
-            "500": "str",
+            '200': "ListCosellOppReferralsResponse",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/cosell/oppReferral/query",
-            "POST",
+            '/org/{orgId}/cosell/oppReferral/query', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -226,10 +373,380 @@ class CosellApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def list_crm_records(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="CRM Partner")], object_type : Annotated[StrictStr, Field(..., description="Type of the CRM object, e,g, account, contact")], limit : Annotated[Optional[StrictStr], Field(description="Maximum number of records returned")] = None, offset : Annotated[Optional[StrictStr], Field(description="Skip the given number of records (for pagination)")] = None, name : Annotated[Optional[StrictStr], Field(description="Name of the SFDC Account to search with")] = None, website : Annotated[Optional[StrictStr], Field(description="Website of the SFDC Account to search with")] = None, email : Annotated[Optional[StrictStr], Field(description="Email of the SFDC contact to search with")] = None, account_id : Annotated[Optional[StrictStr], Field(description="Only search for contacts within the given SFDC Account ID")] = None, **kwargs) -> CosellRecord:  # noqa: E501
+        """list records from a CRM partner by object type and other conditions.  # noqa: E501
+
+        list records from a CRM partner by object type, or search for SFDC accounts/contacts with given hints. To search for SFDC Accounts, add name and website in query params. To search for SFDC Contacts, add accountId and email in query params.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_crm_records(org_id, partner, object_type, limit, offset, name, website, email, account_id, async_req=True)
+        >>> result = thread.get()
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param partner: CRM Partner (required)
+        :type partner: str
+        :param object_type: Type of the CRM object, e,g, account, contact (required)
+        :type object_type: str
+        :param limit: Maximum number of records returned
+        :type limit: str
+        :param offset: Skip the given number of records (for pagination)
+        :type offset: str
+        :param name: Name of the SFDC Account to search with
+        :type name: str
+        :param website: Website of the SFDC Account to search with
+        :type website: str
+        :param email: Email of the SFDC contact to search with
+        :type email: str
+        :param account_id: Only search for contacts within the given SFDC Account ID
+        :type account_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CosellRecord
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the list_crm_records_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.list_crm_records_with_http_info(org_id, partner, object_type, limit, offset, name, website, email, account_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def list_crm_records_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="CRM Partner")], object_type : Annotated[StrictStr, Field(..., description="Type of the CRM object, e,g, account, contact")], limit : Annotated[Optional[StrictStr], Field(description="Maximum number of records returned")] = None, offset : Annotated[Optional[StrictStr], Field(description="Skip the given number of records (for pagination)")] = None, name : Annotated[Optional[StrictStr], Field(description="Name of the SFDC Account to search with")] = None, website : Annotated[Optional[StrictStr], Field(description="Website of the SFDC Account to search with")] = None, email : Annotated[Optional[StrictStr], Field(description="Email of the SFDC contact to search with")] = None, account_id : Annotated[Optional[StrictStr], Field(description="Only search for contacts within the given SFDC Account ID")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """list records from a CRM partner by object type and other conditions.  # noqa: E501
+
+        list records from a CRM partner by object type, or search for SFDC accounts/contacts with given hints. To search for SFDC Accounts, add name and website in query params. To search for SFDC Contacts, add accountId and email in query params.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_crm_records_with_http_info(org_id, partner, object_type, limit, offset, name, website, email, account_id, async_req=True)
+        >>> result = thread.get()
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param partner: CRM Partner (required)
+        :type partner: str
+        :param object_type: Type of the CRM object, e,g, account, contact (required)
+        :type object_type: str
+        :param limit: Maximum number of records returned
+        :type limit: str
+        :param offset: Skip the given number of records (for pagination)
+        :type offset: str
+        :param name: Name of the SFDC Account to search with
+        :type name: str
+        :param website: Website of the SFDC Account to search with
+        :type website: str
+        :param email: Email of the SFDC contact to search with
+        :type email: str
+        :param account_id: Only search for contacts within the given SFDC Account ID
+        :type account_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CosellRecord, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'org_id',
+            'partner',
+            'object_type',
+            'limit',
+            'offset',
+            'name',
+            'website',
+            'email',
+            'account_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
         )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_crm_records" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
+        if _params['partner']:
+            _path_params['partner'] = _params['partner']
+
+        if _params['object_type']:
+            _path_params['objectType'] = _params['object_type']
+
+
+        # process the query parameters
+        _query_params = []
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+
+        if _params.get('name') is not None:  # noqa: E501
+            _query_params.append(('name', _params['name']))
+
+        if _params.get('website') is not None:  # noqa: E501
+            _query_params.append(('website', _params['website']))
+
+        if _params.get('email') is not None:  # noqa: E501
+            _query_params.append(('email', _params['email']))
+
+        if _params.get('account_id') is not None:  # noqa: E501
+            _query_params.append(('accountId', _params['account_id']))
+
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = []  # noqa: E501
+
+        _response_types_map = {
+            '200': "CosellRecord",
+            '400': "str",
+            '500': "str",
+        }
+
+        return self.api_client.call_api(
+            '/org/{orgId}/cosell/partner/{partner}/object/{objectType}', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def update_opp_referral_meta(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], opp_referral_id : Annotated[StrictStr, Field(..., description="ID of the OppReferral instance")], data : Annotated[CosellOppMeta, Field(..., description="metainfo to update")], **kwargs) -> str:  # noqa: E501
+        """update the metadata for cosell opp referral  # noqa: E501
+
+        update the metadata for a coselll opp referral to change the referral status, archive, etc.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_opp_referral_meta(org_id, opp_referral_id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param opp_referral_id: ID of the OppReferral instance (required)
+        :type opp_referral_id: str
+        :param data: metainfo to update (required)
+        :type data: CosellOppMeta
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: str
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the update_opp_referral_meta_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.update_opp_referral_meta_with_http_info(org_id, opp_referral_id, data, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def update_opp_referral_meta_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], opp_referral_id : Annotated[StrictStr, Field(..., description="ID of the OppReferral instance")], data : Annotated[CosellOppMeta, Field(..., description="metainfo to update")], **kwargs) -> ApiResponse:  # noqa: E501
+        """update the metadata for cosell opp referral  # noqa: E501
+
+        update the metadata for a coselll opp referral to change the referral status, archive, etc.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_opp_referral_meta_with_http_info(org_id, opp_referral_id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param opp_referral_id: ID of the OppReferral instance (required)
+        :type opp_referral_id: str
+        :param data: metainfo to update (required)
+        :type data: CosellOppMeta
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'org_id',
+            'opp_referral_id',
+            'data'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_opp_referral_meta" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
+        if _params['opp_referral_id']:
+            _path_params['oppReferralId'] = _params['opp_referral_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        if _params['data'] is not None:
+            _body_params = _params['data']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
+
+        # authentication setting
+        _auth_settings = []  # noqa: E501
+
+        _response_types_map = {
+            '204': "str",
+            '400': "str",
+            '500': "str",
+        }
+
+        return self.api_client.call_api(
+            '/org/{orgId}/cosell/oppReferralMeta/{oppReferralId}', 'PATCH',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))

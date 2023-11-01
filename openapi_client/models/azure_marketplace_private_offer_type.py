@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class AzureMarketplacePrivateOfferType(str, Enum):
     """
     AzureMarketplacePrivateOfferType
@@ -27,13 +30,15 @@ class AzureMarketplacePrivateOfferType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ""
-    CUSTOMERPROMOTION = "customerPromotion"
-    CSPPROMOTION = "cspPromotion"
-    MULTIPARTYPROMOTIONCHANNELPARTNER = "multipartyPromotionChannelPartner"
-    MULTIPARTYPROMOTIONORIGINATOR = "multipartyPromotionOriginator"
+    EMPTY = ''
+    CUSTOMERPROMOTION = 'customerPromotion'
+    CSPPROMOTION = 'cspPromotion'
+    MULTIPARTYPROMOTIONCHANNELPARTNER = 'multipartyPromotionChannelPartner'
+    MULTIPARTYPROMOTIONORIGINATOR = 'multipartyPromotionOriginator'
 
     @classmethod
     def from_json(cls, json_str: str) -> AzureMarketplacePrivateOfferType:
         """Create an instance of AzureMarketplacePrivateOfferType from a JSON string"""
         return AzureMarketplacePrivateOfferType(json.loads(json_str))
+
+

@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.azure_marketplace_private_offer_pricing import (
-    AzureMarketplacePrivateOfferPricing,
-)  # noqa: E501
-
+from openapi_client.models.azure_marketplace_private_offer_pricing import AzureMarketplacePrivateOfferPricing  # noqa: E501
 
 class TestAzureMarketplacePrivateOfferPricing(unittest.TestCase):
     """AzureMarketplacePrivateOfferPricing unit test stubs"""
@@ -32,9 +29,9 @@ class TestAzureMarketplacePrivateOfferPricing(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePrivateOfferPricing:
         """Test AzureMarketplacePrivateOfferPricing
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePrivateOfferPricing`
         """
         model = AzureMarketplacePrivateOfferPricing()  # noqa: E501
@@ -63,7 +60,11 @@ class TestAzureMarketplacePrivateOfferPricing(unittest.TestCase):
                                         type = 'day', 
                                         value = 1.337, ), 
                                     price_per_payment_in_usd = 1.337, )
-                                ], ), ), 
+                                ], 
+                            recurrent_price_mode = 'flatRate', 
+                            user_limits = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_user_limit.AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit(
+                                max = 1.337, 
+                                min = 1.337, ), ), ), 
                     product = '', 
                     resource_name = '', 
                     validations = [
@@ -99,7 +100,11 @@ class TestAzureMarketplacePrivateOfferPricing(unittest.TestCase):
                                         type = 'day', 
                                         value = 1.337, ), 
                                     price_per_payment_in_usd = 1.337, )
-                                ], ), ), 
+                                ], 
+                            recurrent_price_mode = 'flatRate', 
+                            user_limits = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_user_limit.AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit(
+                                max = 1.337, 
+                                min = 1.337, ), ), ), 
                     product = '', 
                     resource_name = '', 
                     validations = [
@@ -124,6 +129,5 @@ class TestAzureMarketplacePrivateOfferPricing(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

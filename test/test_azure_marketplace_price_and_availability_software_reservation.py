@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_software_reservation import (
-    AzureMarketplacePriceAndAvailabilitySoftwareReservation,
-)  # noqa: E501
-
+from openapi_client.models.azure_marketplace_price_and_availability_software_reservation import AzureMarketplacePriceAndAvailabilitySoftwareReservation  # noqa: E501
 
 class TestAzureMarketplacePriceAndAvailabilitySoftwareReservation(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilitySoftwareReservation unit test stubs"""
@@ -30,13 +27,11 @@ class TestAzureMarketplacePriceAndAvailabilitySoftwareReservation(unittest.TestC
     def tearDown(self):
         pass
 
-    def make_instance(
-        self, include_optional
-    ) -> AzureMarketplacePriceAndAvailabilitySoftwareReservation:
+    def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilitySoftwareReservation:
         """Test AzureMarketplacePriceAndAvailabilitySoftwareReservation
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilitySoftwareReservation`
         """
         model = AzureMarketplacePriceAndAvailabilitySoftwareReservation()  # noqa: E501
@@ -56,6 +51,5 @@ class TestAzureMarketplacePriceAndAvailabilitySoftwareReservation(unittest.TestC
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

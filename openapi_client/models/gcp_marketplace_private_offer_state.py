@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class GcpMarketplacePrivateOfferState(str, Enum):
     """
     GcpMarketplacePrivateOfferState
@@ -27,16 +30,18 @@ class GcpMarketplacePrivateOfferState(str, Enum):
     """
     allowed enum values
     """
-    OFFER_PUBLISHED = "OFFER_PUBLISHED"
-    OFFER_ACTIVE = "OFFER_ACTIVE"
-    OFFER_ACTIVATING = "OFFER_ACTIVATING"
-    OFFER_LAPSED = "OFFER_LAPSED"
-    OFFER_EXPIRED = "OFFER_EXPIRED"
-    OFFER_CANCELLED = "OFFER_CANCELLED"
-    OFFER_UNAVAILABLE = "OFFER_UNAVAILABLE"
-    OFFER_DRAFT = "OFFER_DRAFT"
+    OFFER_PUBLISHED = 'OFFER_PUBLISHED'
+    OFFER_ACTIVE = 'OFFER_ACTIVE'
+    OFFER_ACTIVATING = 'OFFER_ACTIVATING'
+    OFFER_LAPSED = 'OFFER_LAPSED'
+    OFFER_EXPIRED = 'OFFER_EXPIRED'
+    OFFER_CANCELLED = 'OFFER_CANCELLED'
+    OFFER_UNAVAILABLE = 'OFFER_UNAVAILABLE'
+    OFFER_DRAFT = 'OFFER_DRAFT'
 
     @classmethod
     def from_json(cls, json_str: str) -> GcpMarketplacePrivateOfferState:
         """Create an instance of GcpMarketplacePrivateOfferState from a JSON string"""
         return GcpMarketplacePrivateOfferState(json.loads(json_str))
+
+

@@ -22,19 +22,16 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class AzurePendingUpdateInfo(BaseModel):
     """
     AzurePendingUpdateInfo
     """
-
     status: Optional[StrictStr] = None
     update_type: Optional[StrictStr] = Field(None, alias="updateType")
     __properties = ["status", "updateType"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,7 +50,10 @@ class AzurePendingUpdateInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,7 +65,10 @@ class AzurePendingUpdateInfo(BaseModel):
         if not isinstance(obj, dict):
             return AzurePendingUpdateInfo.parse_obj(obj)
 
-        _obj = AzurePendingUpdateInfo.parse_obj(
-            {"status": obj.get("status"), "update_type": obj.get("updateType")}
-        )
+        _obj = AzurePendingUpdateInfo.parse_obj({
+            "status": obj.get("status"),
+            "update_type": obj.get("updateType")
+        })
         return _obj
+
+

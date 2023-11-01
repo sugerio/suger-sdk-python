@@ -21,29 +21,18 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, StrictInt, conlist
-from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_batch_event_ok_message import (
-    GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage,
-)
+from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_batch_event_ok_message import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage
 
-
-class GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse(
-    BaseModel
-):
+class GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse(BaseModel):
     """
     GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse
     """
-
     count: Optional[StrictInt] = None
-    result: Optional[
-        conlist(
-            GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage
-        )
-    ] = None
+    result: Optional[conlist(GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage)] = None
     __properties = ["count", "result"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -56,48 +45,38 @@ class GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageE
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(
-        cls, json_str: str
-    ) -> GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse:
+    def from_json(cls, json_str: str) -> GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse:
         """Create an instance of GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in result (list)
         _items = []
         if self.result:
             for _item in self.result:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["result"] = _items
+            _dict['result'] = _items
         return _dict
 
     @classmethod
-    def from_dict(
-        cls, obj: dict
-    ) -> GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse:
+    def from_dict(cls, obj: dict) -> GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse:
         """Create an instance of GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse.parse_obj(
-                obj
-            )
+            return GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse.parse_obj(obj)
 
-        _obj = GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse.parse_obj(
-            {
-                "count": obj.get("count"),
-                "result": [
-                    GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage.from_dict(
-                        _item
-                    )
-                    for _item in obj.get("result")
-                ]
-                if obj.get("result") is not None
-                else None,
-            }
-        )
+        _obj = GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse.parse_obj({
+            "count": obj.get("count"),
+            "result": [GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage.from_dict(_item) for _item in obj.get("result")] if obj.get("result") is not None else None
+        })
         return _obj
+
+

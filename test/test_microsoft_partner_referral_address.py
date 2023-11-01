@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.microsoft_partner_referral_address import (
-    MicrosoftPartnerReferralAddress,
-)  # noqa: E501
-
+from openapi_client.models.microsoft_partner_referral_address import MicrosoftPartnerReferralAddress  # noqa: E501
 
 class TestMicrosoftPartnerReferralAddress(unittest.TestCase):
     """MicrosoftPartnerReferralAddress unit test stubs"""
@@ -32,9 +29,9 @@ class TestMicrosoftPartnerReferralAddress(unittest.TestCase):
 
     def make_instance(self, include_optional) -> MicrosoftPartnerReferralAddress:
         """Test MicrosoftPartnerReferralAddress
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `MicrosoftPartnerReferralAddress`
         """
         model = MicrosoftPartnerReferralAddress()  # noqa: E501
@@ -44,7 +41,7 @@ class TestMicrosoftPartnerReferralAddress(unittest.TestCase):
                 address_line2 = '',
                 city = '',
                 country = '',
-                postal_code = openapi_client.models.postal_code.postalCode(),
+                postal_code = '',
                 region = '',
                 state = ''
             )
@@ -58,6 +55,5 @@ class TestMicrosoftPartnerReferralAddress(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

@@ -24,12 +24,10 @@ from pydantic import BaseModel, Field, StrictStr, conlist
 from openapi_client.models.revenue_record import RevenueRecord
 from openapi_client.models.revenue_report_type import RevenueReportType
 
-
 class RevenueReport(BaseModel):
     """
     RevenueReport
     """
-
     buyer_id: Optional[StrictStr] = Field(None, alias="buyerID")
     entitlement_id: Optional[StrictStr] = Field(None, alias="entitlementID")
     organization_id: Optional[StrictStr] = Field(None, alias="organizationID")
@@ -37,25 +35,12 @@ class RevenueReport(BaseModel):
     product_id: Optional[StrictStr] = Field(None, alias="productID")
     report_date: Optional[datetime] = Field(None, alias="reportDate")
     report_type: Optional[RevenueReportType] = Field(None, alias="reportType")
-    revenue_records: Optional[conlist(RevenueRecord)] = Field(
-        None, alias="revenueRecords"
-    )
+    revenue_records: Optional[conlist(RevenueRecord)] = Field(None, alias="revenueRecords")
     service: Optional[StrictStr] = None
-    __properties = [
-        "buyerID",
-        "entitlementID",
-        "organizationID",
-        "partner",
-        "productID",
-        "reportDate",
-        "reportType",
-        "revenueRecords",
-        "service",
-    ]
+    __properties = ["buyerID", "entitlementID", "organizationID", "partner", "productID", "reportDate", "reportType", "revenueRecords", "service"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -74,14 +59,17 @@ class RevenueReport(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in revenue_records (list)
         _items = []
         if self.revenue_records:
             for _item in self.revenue_records:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["revenueRecords"] = _items
+            _dict['revenueRecords'] = _items
         return _dict
 
     @classmethod
@@ -93,22 +81,17 @@ class RevenueReport(BaseModel):
         if not isinstance(obj, dict):
             return RevenueReport.parse_obj(obj)
 
-        _obj = RevenueReport.parse_obj(
-            {
-                "buyer_id": obj.get("buyerID"),
-                "entitlement_id": obj.get("entitlementID"),
-                "organization_id": obj.get("organizationID"),
-                "partner": obj.get("partner"),
-                "product_id": obj.get("productID"),
-                "report_date": obj.get("reportDate"),
-                "report_type": obj.get("reportType"),
-                "revenue_records": [
-                    RevenueRecord.from_dict(_item)
-                    for _item in obj.get("revenueRecords")
-                ]
-                if obj.get("revenueRecords") is not None
-                else None,
-                "service": obj.get("service"),
-            }
-        )
+        _obj = RevenueReport.parse_obj({
+            "buyer_id": obj.get("buyerID"),
+            "entitlement_id": obj.get("entitlementID"),
+            "organization_id": obj.get("organizationID"),
+            "partner": obj.get("partner"),
+            "product_id": obj.get("productID"),
+            "report_date": obj.get("reportDate"),
+            "report_type": obj.get("reportType"),
+            "revenue_records": [RevenueRecord.from_dict(_item) for _item in obj.get("revenueRecords")] if obj.get("revenueRecords") is not None else None,
+            "service": obj.get("service")
+        })
         return _obj
+
+

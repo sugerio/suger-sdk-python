@@ -21,16 +21,12 @@ import json
 
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictStr
-from openapi_client.models.salesforce_sync_filter_operator import (
-    SalesforceSyncFilterOperator,
-)
-
+from openapi_client.models.salesforce_sync_filter_operator import SalesforceSyncFilterOperator
 
 class SalesforceSyncFilter(BaseModel):
     """
     SalesforceSyncFilter
     """
-
     field_name: Optional[StrictStr] = Field(None, alias="fieldName")
     operator: Optional[SalesforceSyncFilterOperator] = None
     value: Optional[Dict[str, Any]] = None
@@ -38,7 +34,6 @@ class SalesforceSyncFilter(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -57,7 +52,10 @@ class SalesforceSyncFilter(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -69,11 +67,11 @@ class SalesforceSyncFilter(BaseModel):
         if not isinstance(obj, dict):
             return SalesforceSyncFilter.parse_obj(obj)
 
-        _obj = SalesforceSyncFilter.parse_obj(
-            {
-                "field_name": obj.get("fieldName"),
-                "operator": obj.get("operator"),
-                "value": obj.get("value"),
-            }
-        )
+        _obj = SalesforceSyncFilter.parse_obj({
+            "field_name": obj.get("fieldName"),
+            "operator": obj.get("operator"),
+            "value": obj.get("value")
+        })
         return _obj
+
+

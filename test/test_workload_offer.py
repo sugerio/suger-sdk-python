@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.workload_offer import WorkloadOffer  # noqa: E501
 
-
 class TestWorkloadOffer(unittest.TestCase):
     """WorkloadOffer unit test stubs"""
 
@@ -30,9 +29,9 @@ class TestWorkloadOffer(unittest.TestCase):
 
     def make_instance(self, include_optional) -> WorkloadOffer:
         """Test WorkloadOffer
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `WorkloadOffer`
         """
         model = WorkloadOffer()  # noqa: E501
@@ -195,6 +194,7 @@ class TestWorkloadOffer(unittest.TestCase):
                     error_messages = [
                         ''
                         ], 
+                    hubspot_deal_id = '', 
                     internal_note = '', 
                     is_agreement_based_offer = True, 
                     is_renewal_offer = True, 
@@ -224,7 +224,8 @@ class TestWorkloadOffer(unittest.TestCase):
                                     timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                                 ], )
                         ], 
-                    renewal_offer_type = openapi_client.models.renewal_offer_type.renewalOfferType(), ),
+                    renewal_offer_type = openapi_client.models.renewal_offer_type.renewalOfferType(), 
+                    salesforce_opportunity_id = '', ),
                 name = '',
                 offer_type = 'DEFAULT',
                 organization_id = '',
@@ -243,6 +244,5 @@ class TestWorkloadOffer(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

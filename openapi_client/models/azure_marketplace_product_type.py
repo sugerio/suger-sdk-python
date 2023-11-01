@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class AzureMarketplaceProductType(str, Enum):
     """
     AzureMarketplaceProductType
@@ -27,24 +30,26 @@ class AzureMarketplaceProductType(str, Enum):
     """
     allowed enum values
     """
-    AZUREAPPLICATION = "azureApplication"
-    AZURECONTAINER = "azureContainer"
-    AZUREVIRTUALMACHINE = "azureVirtualMachine"
-    CONSULTINGSERVICE = "consultingService"
-    CONTAINERAPP = "containerApp"
-    COREVIRTUALMACHINE = "coreVirtualMachine"
-    COSELLONLY = "cosellOnly"
-    DYNAMICS365BUSINESSCENTRAL = "dynamics365BusinessCentral"
-    DYNAMICS365FORCUSTOMERENGAGEMENT = "dynamics365ForCustomerEngagement"
-    DYNAMICS365FOROPERATIONS = "dynamics365ForOperations"
-    IOTEDGEMODULE = "iotEdgeModule"
-    MANAGEDSERVICE = "managedService"
-    POWERBIAPP = "powerBiApp"
-    POWERBIVISUAL = "powerBiVisual"
-    SOFTWAREASASERVICE = "softwareAsAService"
-    XBOX360NONBACKCOMPAT = "xbox360NonBackcompat"
+    AZUREAPPLICATION = 'azureApplication'
+    AZURECONTAINER = 'azureContainer'
+    AZUREVIRTUALMACHINE = 'azureVirtualMachine'
+    CONSULTINGSERVICE = 'consultingService'
+    CONTAINERAPP = 'containerApp'
+    COREVIRTUALMACHINE = 'coreVirtualMachine'
+    COSELLONLY = 'cosellOnly'
+    DYNAMICS365BUSINESSCENTRAL = 'dynamics365BusinessCentral'
+    DYNAMICS365FORCUSTOMERENGAGEMENT = 'dynamics365ForCustomerEngagement'
+    DYNAMICS365FOROPERATIONS = 'dynamics365ForOperations'
+    IOTEDGEMODULE = 'iotEdgeModule'
+    MANAGEDSERVICE = 'managedService'
+    POWERBIAPP = 'powerBiApp'
+    POWERBIVISUAL = 'powerBiVisual'
+    SOFTWAREASASERVICE = 'softwareAsAService'
+    XBOX360NONBACKCOMPAT = 'xbox360NonBackcompat'
 
     @classmethod
     def from_json(cls, json_str: str) -> AzureMarketplaceProductType:
         """Create an instance of AzureMarketplaceProductType from a JSON string"""
         return AzureMarketplaceProductType(json.loads(json_str))
+
+

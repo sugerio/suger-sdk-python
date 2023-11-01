@@ -21,42 +21,24 @@ import json
 
 from typing import Any, Dict, Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
-from openapi_client.models.microsoft_partner_referral_requirements import (
-    MicrosoftPartnerReferralRequirements,
-)
-
+from openapi_client.models.microsoft_partner_referral_requirements import MicrosoftPartnerReferralRequirements
 
 class MicrosoftPartnerReferralDetail(BaseModel):
     """
     MicrosoftPartnerReferralDetail
     """
-
-    closing_date_time: Optional[StrictStr] = Field(
-        None, alias="closingDateTime", description="in UTC date time format"
-    )
+    closing_date_time: Optional[StrictStr] = Field(None, alias="closingDateTime", description="in UTC date time format")
     currency: Optional[StrictStr] = Field(None, description="ISO 4217 currency symbol")
     customer_action: Optional[Dict[str, Any]] = Field(None, alias="customerAction")
-    customer_requested_contact: Optional[Dict[str, Any]] = Field(
-        None, alias="customerRequestedContact"
-    )
+    customer_requested_contact: Optional[Dict[str, Any]] = Field(None, alias="customerRequestedContact")
     deal_value: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="dealValue")
     incentive_level: Optional[Dict[str, Any]] = Field(None, alias="incentiveLevel")
     notes: Optional[StrictStr] = None
     requirements: Optional[MicrosoftPartnerReferralRequirements] = None
-    __properties = [
-        "closingDateTime",
-        "currency",
-        "customerAction",
-        "customerRequestedContact",
-        "dealValue",
-        "incentiveLevel",
-        "notes",
-        "requirements",
-    ]
+    __properties = ["closingDateTime", "currency", "customerAction", "customerRequestedContact", "dealValue", "incentiveLevel", "notes", "requirements"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -75,10 +57,13 @@ class MicrosoftPartnerReferralDetail(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of requirements
         if self.requirements:
-            _dict["requirements"] = self.requirements.to_dict()
+            _dict['requirements'] = self.requirements.to_dict()
         return _dict
 
     @classmethod
@@ -90,20 +75,16 @@ class MicrosoftPartnerReferralDetail(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralDetail.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralDetail.parse_obj(
-            {
-                "closing_date_time": obj.get("closingDateTime"),
-                "currency": obj.get("currency"),
-                "customer_action": obj.get("customerAction"),
-                "customer_requested_contact": obj.get("customerRequestedContact"),
-                "deal_value": obj.get("dealValue"),
-                "incentive_level": obj.get("incentiveLevel"),
-                "notes": obj.get("notes"),
-                "requirements": MicrosoftPartnerReferralRequirements.from_dict(
-                    obj.get("requirements")
-                )
-                if obj.get("requirements") is not None
-                else None,
-            }
-        )
+        _obj = MicrosoftPartnerReferralDetail.parse_obj({
+            "closing_date_time": obj.get("closingDateTime"),
+            "currency": obj.get("currency"),
+            "customer_action": obj.get("customerAction"),
+            "customer_requested_contact": obj.get("customerRequestedContact"),
+            "deal_value": obj.get("dealValue"),
+            "incentive_level": obj.get("incentiveLevel"),
+            "notes": obj.get("notes"),
+            "requirements": MicrosoftPartnerReferralRequirements.from_dict(obj.get("requirements")) if obj.get("requirements") is not None else None
+        })
         return _obj
+
+

@@ -23,12 +23,10 @@ from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from openapi_client.models.operation_type import OperationType
 
-
 class Operation(BaseModel):
     """
     Operation
     """
-
     end_time: Optional[datetime] = Field(None, alias="endTime")
     id: Optional[StrictStr] = Field(None, description="Operation ID.")
     message: Optional[StrictStr] = None
@@ -40,7 +38,6 @@ class Operation(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -59,7 +56,10 @@ class Operation(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -71,15 +71,15 @@ class Operation(BaseModel):
         if not isinstance(obj, dict):
             return Operation.parse_obj(obj)
 
-        _obj = Operation.parse_obj(
-            {
-                "end_time": obj.get("endTime"),
-                "id": obj.get("id"),
-                "message": obj.get("message"),
-                "name": obj.get("name"),
-                "start_time": obj.get("startTime"),
-                "status": obj.get("status"),
-                "type": obj.get("type"),
-            }
-        )
+        _obj = Operation.parse_obj({
+            "end_time": obj.get("endTime"),
+            "id": obj.get("id"),
+            "message": obj.get("message"),
+            "name": obj.get("name"),
+            "start_time": obj.get("startTime"),
+            "status": obj.get("status"),
+            "type": obj.get("type")
+        })
         return _obj
+
+

@@ -21,83 +21,39 @@ import json
 
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist, validator
-from openapi_client.models.azure_marketplace_validation import (
-    AzureMarketplaceValidation,
-)
-
+from openapi_client.models.azure_marketplace_validation import AzureMarketplaceValidation
 
 class AzureMarketplaceCustomerLeads(BaseModel):
     """
     AzureMarketplaceCustomerLeads
     """
-
     var_schema: Optional[StrictStr] = Field(None, alias="$schema")
-    blob_lead_configuration: Optional[Dict[str, Any]] = Field(
-        None, alias="blobLeadConfiguration"
-    )
-    dynamics_lead_configuration: Optional[Dict[str, Any]] = Field(
-        None, alias="dynamicsLeadConfiguration"
-    )
-    email_lead_configuration: Optional[Dict[str, Any]] = Field(
-        None, alias="emailLeadConfiguration"
-    )
-    https_endpoint_lead_configuration: Optional[Dict[str, Any]] = Field(
-        None, alias="httpsEndpointLeadConfiguration"
-    )
+    blob_lead_configuration: Optional[Dict[str, Any]] = Field(None, alias="blobLeadConfiguration")
+    dynamics_lead_configuration: Optional[Dict[str, Any]] = Field(None, alias="dynamicsLeadConfiguration")
+    email_lead_configuration: Optional[Dict[str, Any]] = Field(None, alias="emailLeadConfiguration")
+    https_endpoint_lead_configuration: Optional[Dict[str, Any]] = Field(None, alias="httpsEndpointLeadConfiguration")
     id: Optional[StrictStr] = None
     lead_destination: Optional[StrictStr] = Field(None, alias="leadDestination")
-    marketo_lead_configuration: Optional[Dict[str, Any]] = Field(
-        None, alias="marketoLeadConfiguration"
-    )
+    marketo_lead_configuration: Optional[Dict[str, Any]] = Field(None, alias="marketoLeadConfiguration")
     product: Optional[StrictStr] = None
     resource_name: Optional[StrictStr] = Field(None, alias="resourceName")
-    salesforce_lead_configuration: Optional[Dict[str, Any]] = Field(
-        None, alias="salesforceLeadConfiguration"
-    )
-    table_lead_configuration: Optional[Dict[str, Any]] = Field(
-        None, alias="tableLeadConfiguration"
-    )
+    salesforce_lead_configuration: Optional[Dict[str, Any]] = Field(None, alias="salesforceLeadConfiguration")
+    table_lead_configuration: Optional[Dict[str, Any]] = Field(None, alias="tableLeadConfiguration")
     validations: Optional[conlist(AzureMarketplaceValidation)] = None
-    __properties = [
-        "$schema",
-        "blobLeadConfiguration",
-        "dynamicsLeadConfiguration",
-        "emailLeadConfiguration",
-        "httpsEndpointLeadConfiguration",
-        "id",
-        "leadDestination",
-        "marketoLeadConfiguration",
-        "product",
-        "resourceName",
-        "salesforceLeadConfiguration",
-        "tableLeadConfiguration",
-        "validations",
-    ]
+    __properties = ["$schema", "blobLeadConfiguration", "dynamicsLeadConfiguration", "emailLeadConfiguration", "httpsEndpointLeadConfiguration", "id", "leadDestination", "marketoLeadConfiguration", "product", "resourceName", "salesforceLeadConfiguration", "tableLeadConfiguration", "validations"]
 
-    @validator("lead_destination")
+    @validator('lead_destination')
     def lead_destination_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in (
-            "none",
-            "blob",
-            "dynamics",
-            "email",
-            "httpsEndpoint",
-            "marketo",
-            "salesforce",
-            "table",
-        ):
-            raise ValueError(
-                "must be one of enum values ('none', 'blob', 'dynamics', 'email', 'httpsEndpoint', 'marketo', 'salesforce', 'table')"
-            )
+        if value not in ('none', 'blob', 'dynamics', 'email', 'httpsEndpoint', 'marketo', 'salesforce', 'table'):
+            raise ValueError("must be one of enum values ('none', 'blob', 'dynamics', 'email', 'httpsEndpoint', 'marketo', 'salesforce', 'table')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -116,14 +72,17 @@ class AzureMarketplaceCustomerLeads(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in validations (list)
         _items = []
         if self.validations:
             for _item in self.validations:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["validations"] = _items
+            _dict['validations'] = _items
         return _dict
 
     @classmethod
@@ -135,28 +94,21 @@ class AzureMarketplaceCustomerLeads(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceCustomerLeads.parse_obj(obj)
 
-        _obj = AzureMarketplaceCustomerLeads.parse_obj(
-            {
-                "var_schema": obj.get("$schema"),
-                "blob_lead_configuration": obj.get("blobLeadConfiguration"),
-                "dynamics_lead_configuration": obj.get("dynamicsLeadConfiguration"),
-                "email_lead_configuration": obj.get("emailLeadConfiguration"),
-                "https_endpoint_lead_configuration": obj.get(
-                    "httpsEndpointLeadConfiguration"
-                ),
-                "id": obj.get("id"),
-                "lead_destination": obj.get("leadDestination"),
-                "marketo_lead_configuration": obj.get("marketoLeadConfiguration"),
-                "product": obj.get("product"),
-                "resource_name": obj.get("resourceName"),
-                "salesforce_lead_configuration": obj.get("salesforceLeadConfiguration"),
-                "table_lead_configuration": obj.get("tableLeadConfiguration"),
-                "validations": [
-                    AzureMarketplaceValidation.from_dict(_item)
-                    for _item in obj.get("validations")
-                ]
-                if obj.get("validations") is not None
-                else None,
-            }
-        )
+        _obj = AzureMarketplaceCustomerLeads.parse_obj({
+            "var_schema": obj.get("$schema"),
+            "blob_lead_configuration": obj.get("blobLeadConfiguration"),
+            "dynamics_lead_configuration": obj.get("dynamicsLeadConfiguration"),
+            "email_lead_configuration": obj.get("emailLeadConfiguration"),
+            "https_endpoint_lead_configuration": obj.get("httpsEndpointLeadConfiguration"),
+            "id": obj.get("id"),
+            "lead_destination": obj.get("leadDestination"),
+            "marketo_lead_configuration": obj.get("marketoLeadConfiguration"),
+            "product": obj.get("product"),
+            "resource_name": obj.get("resourceName"),
+            "salesforce_lead_configuration": obj.get("salesforceLeadConfiguration"),
+            "table_lead_configuration": obj.get("tableLeadConfiguration"),
+            "validations": [AzureMarketplaceValidation.from_dict(_item) for _item in obj.get("validations")] if obj.get("validations") is not None else None
+        })
         return _obj
+
+

@@ -22,19 +22,16 @@ import json
 from typing import Optional, Union
 from pydantic import BaseModel, StrictFloat, StrictInt, StrictStr
 
-
 class OrbPriceModelConfigBPS(BaseModel):
     """
     OrbPriceModelConfigBPS
     """
-
     bps: Optional[Union[StrictFloat, StrictInt]] = None
     per_unit_maximum: Optional[StrictStr] = None
     __properties = ["bps", "per_unit_maximum"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,7 +50,10 @@ class OrbPriceModelConfigBPS(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,7 +65,10 @@ class OrbPriceModelConfigBPS(BaseModel):
         if not isinstance(obj, dict):
             return OrbPriceModelConfigBPS.parse_obj(obj)
 
-        _obj = OrbPriceModelConfigBPS.parse_obj(
-            {"bps": obj.get("bps"), "per_unit_maximum": obj.get("per_unit_maximum")}
-        )
+        _obj = OrbPriceModelConfigBPS.parse_obj({
+            "bps": obj.get("bps"),
+            "per_unit_maximum": obj.get("per_unit_maximum")
+        })
         return _obj
+
+

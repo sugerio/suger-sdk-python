@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**metronome_daily_cost_amount** | **float** | The metronome daily cost amount (in dollars) of the customer. | [optional] 
 **origin_records** | **Dict[str, float]** | The original records reported by the customer before convertion. If no dimension mapping is applied, this field is the same as the records field. | [optional] 
 **source** | [**UsageRecordGroupSource**](UsageRecordGroupSource.md) |  | [optional] 
 **timestamp** | **datetime** | The timestamp (UTC)) of when the usage records were generated. Optional, if not provided, the current report timestamp will be used. | [optional] 

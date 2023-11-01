@@ -23,30 +23,17 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, conlist
 from openapi_client.models.notification_message import NotificationMessage
 
-
 class ListNotificationMessagesResponse(BaseModel):
     """
     ListNotificationMessagesResponse
     """
-
-    next_offset: Optional[StrictInt] = Field(
-        None,
-        alias="nextOffset",
-        description="The next offset to use in the next request to get the next page of notification messages. If this field is null, there are no more notification messages to get.",
-    )
-    notification_messages: Optional[conlist(NotificationMessage)] = Field(
-        None, alias="notificationMessages"
-    )
-    total_count: Optional[StrictInt] = Field(
-        None,
-        alias="totalCount",
-        description="The total number of notification messages. Only available when the request is made with the first offset = 0.",
-    )
+    next_offset: Optional[StrictInt] = Field(None, alias="nextOffset", description="The next offset to use in the next request to get the next page of notification messages. If this field is null, there are no more notification messages to get.")
+    notification_messages: Optional[conlist(NotificationMessage)] = Field(None, alias="notificationMessages")
+    total_count: Optional[StrictInt] = Field(None, alias="totalCount", description="The total number of notification messages. Only available when the request is made with the first offset = 0.")
     __properties = ["nextOffset", "notificationMessages", "totalCount"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -65,14 +52,17 @@ class ListNotificationMessagesResponse(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in notification_messages (list)
         _items = []
         if self.notification_messages:
             for _item in self.notification_messages:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["notificationMessages"] = _items
+            _dict['notificationMessages'] = _items
         return _dict
 
     @classmethod
@@ -84,16 +74,11 @@ class ListNotificationMessagesResponse(BaseModel):
         if not isinstance(obj, dict):
             return ListNotificationMessagesResponse.parse_obj(obj)
 
-        _obj = ListNotificationMessagesResponse.parse_obj(
-            {
-                "next_offset": obj.get("nextOffset"),
-                "notification_messages": [
-                    NotificationMessage.from_dict(_item)
-                    for _item in obj.get("notificationMessages")
-                ]
-                if obj.get("notificationMessages") is not None
-                else None,
-                "total_count": obj.get("totalCount"),
-            }
-        )
+        _obj = ListNotificationMessagesResponse.parse_obj({
+            "next_offset": obj.get("nextOffset"),
+            "notification_messages": [NotificationMessage.from_dict(_item) for _item in obj.get("notificationMessages")] if obj.get("notificationMessages") is not None else None,
+            "total_count": obj.get("totalCount")
+        })
         return _obj
+
+

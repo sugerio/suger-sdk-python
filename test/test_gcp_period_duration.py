@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.gcp_period_duration import GcpPeriodDuration  # noqa: E501
 
-
 class TestGcpPeriodDuration(unittest.TestCase):
     """GcpPeriodDuration unit test stubs"""
 
@@ -30,9 +29,9 @@ class TestGcpPeriodDuration(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpPeriodDuration:
         """Test GcpPeriodDuration
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `GcpPeriodDuration`
         """
         model = GcpPeriodDuration()  # noqa: E501
@@ -51,6 +50,5 @@ class TestGcpPeriodDuration(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

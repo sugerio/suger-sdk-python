@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class PartnerService(str, Enum):
     """
     PartnerService
@@ -27,15 +30,17 @@ class PartnerService(str, Enum):
     """
     allowed enum values
     """
-    DEFAULT = "DEFAULT"
-    MARKETPLACE = "MARKETPLACE"
-    ACE = "ACE"
-    CRM = "CRM"
-    CPQ = "CPQ"
-    CHATBOT = "CHATBOT"
-    BILLING = "BILLING"
+    DEFAULT = 'DEFAULT'
+    MARKETPLACE = 'MARKETPLACE'
+    ACE = 'ACE'
+    CRM = 'CRM'
+    CPQ = 'CPQ'
+    CHATBOT = 'CHATBOT'
+    BILLING = 'BILLING'
 
     @classmethod
     def from_json(cls, json_str: str) -> PartnerService:
         """Create an instance of PartnerService from a JSON string"""
         return PartnerService(json.loads(json_str))
+
+

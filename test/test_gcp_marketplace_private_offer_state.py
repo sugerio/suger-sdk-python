@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.gcp_marketplace_private_offer_state import (
-    GcpMarketplacePrivateOfferState,
-)  # noqa: E501
-
+from openapi_client.models.gcp_marketplace_private_offer_state import GcpMarketplacePrivateOfferState  # noqa: E501
 
 class TestGcpMarketplacePrivateOfferState(unittest.TestCase):
     """GcpMarketplacePrivateOfferState unit test stubs"""
@@ -34,6 +31,5 @@ class TestGcpMarketplacePrivateOfferState(unittest.TestCase):
         """Test GcpMarketplacePrivateOfferState"""
         # inst = GcpMarketplacePrivateOfferState()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

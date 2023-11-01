@@ -22,12 +22,10 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class AwsSaasProductDeliveryOption(BaseModel):
     """
     AwsSaasProductDeliveryOption
     """
-
     fulfillment_url: Optional[StrictStr] = Field(None, alias="FulfillmentUrl")
     id: Optional[StrictStr] = Field(None, alias="Id")
     type: Optional[StrictStr] = Field(None, alias="Type")
@@ -35,7 +33,6 @@ class AwsSaasProductDeliveryOption(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,7 +51,10 @@ class AwsSaasProductDeliveryOption(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,11 +66,11 @@ class AwsSaasProductDeliveryOption(BaseModel):
         if not isinstance(obj, dict):
             return AwsSaasProductDeliveryOption.parse_obj(obj)
 
-        _obj = AwsSaasProductDeliveryOption.parse_obj(
-            {
-                "fulfillment_url": obj.get("FulfillmentUrl"),
-                "id": obj.get("Id"),
-                "type": obj.get("Type"),
-            }
-        )
+        _obj = AwsSaasProductDeliveryOption.parse_obj({
+            "fulfillment_url": obj.get("FulfillmentUrl"),
+            "id": obj.get("Id"),
+            "type": obj.get("Type")
+        })
         return _obj
+
+

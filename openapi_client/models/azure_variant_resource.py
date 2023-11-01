@@ -23,19 +23,16 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from openapi_client.models.azure_type_value import AzureTypeValue
 
-
 class AzureVariantResource(BaseModel):
     """
     AzureVariantResource
     """
-
     resources: Optional[conlist(AzureTypeValue)] = None
     variant_id: Optional[StrictStr] = Field(None, alias="variantID")
     __properties = ["resources", "variantID"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,14 +51,17 @@ class AzureVariantResource(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in resources (list)
         _items = []
         if self.resources:
             for _item in self.resources:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["resources"] = _items
+            _dict['resources'] = _items
         return _dict
 
     @classmethod
@@ -73,14 +73,10 @@ class AzureVariantResource(BaseModel):
         if not isinstance(obj, dict):
             return AzureVariantResource.parse_obj(obj)
 
-        _obj = AzureVariantResource.parse_obj(
-            {
-                "resources": [
-                    AzureTypeValue.from_dict(_item) for _item in obj.get("resources")
-                ]
-                if obj.get("resources") is not None
-                else None,
-                "variant_id": obj.get("variantID"),
-            }
-        )
+        _obj = AzureVariantResource.parse_obj({
+            "resources": [AzureTypeValue.from_dict(_item) for _item in obj.get("resources")] if obj.get("resources") is not None else None,
+            "variant_id": obj.get("variantID")
+        })
         return _obj
+
+

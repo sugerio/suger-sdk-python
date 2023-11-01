@@ -22,32 +22,17 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class GcpMarketplacePrivateOfferProviderInfo(BaseModel):
     """
     GcpMarketplacePrivateOfferProviderInfo
     """
-
-    creator_email_address: Optional[StrictStr] = Field(
-        None,
-        alias="creatorEmailAddress",
-        description="The email address of who create the private offer in the provider.",
-    )
-    sales_contact_email: Optional[StrictStr] = Field(
-        None,
-        alias="salesContactEmail",
-        description="The sales contact email of the provider.",
-    )
-    sales_contact_name: Optional[StrictStr] = Field(
-        None,
-        alias="salesContactName",
-        description="The sales contact name of the provider.",
-    )
+    creator_email_address: Optional[StrictStr] = Field(None, alias="creatorEmailAddress", description="The email address of who create the private offer in the provider.")
+    sales_contact_email: Optional[StrictStr] = Field(None, alias="salesContactEmail", description="The sales contact email of the provider.")
+    sales_contact_name: Optional[StrictStr] = Field(None, alias="salesContactName", description="The sales contact name of the provider.")
     __properties = ["creatorEmailAddress", "salesContactEmail", "salesContactName"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -66,7 +51,10 @@ class GcpMarketplacePrivateOfferProviderInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -78,11 +66,11 @@ class GcpMarketplacePrivateOfferProviderInfo(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplacePrivateOfferProviderInfo.parse_obj(obj)
 
-        _obj = GcpMarketplacePrivateOfferProviderInfo.parse_obj(
-            {
-                "creator_email_address": obj.get("creatorEmailAddress"),
-                "sales_contact_email": obj.get("salesContactEmail"),
-                "sales_contact_name": obj.get("salesContactName"),
-            }
-        )
+        _obj = GcpMarketplacePrivateOfferProviderInfo.parse_obj({
+            "creator_email_address": obj.get("creatorEmailAddress"),
+            "sales_contact_email": obj.get("salesContactEmail"),
+            "sales_contact_name": obj.get("salesContactName")
+        })
         return _obj
+
+

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **is_archived** | **bool** |  | [optional] 
 **is_draft** | **bool** |  | [optional] 
 **salesforce_referral_id** | **str** |  | [optional] 
-**status** | **str** |  | [optional] 
+**status** | [**CosellReferralStatus**](CosellReferralStatus.md) |  | [optional] 
 **sync_record** | [**CosellSyncRecord**](CosellSyncRecord.md) |  | [optional] 
 
 ## Example

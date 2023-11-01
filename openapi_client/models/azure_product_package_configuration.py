@@ -22,46 +22,30 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr, validator
 
-
 class AzureProductPackageConfiguration(BaseModel):
     """
     AzureProductPackageConfiguration
     """
-
-    azure_active_directory_application_id: Optional[StrictStr] = Field(
-        None, alias="azureActiveDirectoryApplicationID"
-    )
-    azure_active_directory_tenant_id: Optional[StrictStr] = Field(
-        None, alias="azureActiveDirectoryTenantID"
-    )
+    azure_active_directory_application_id: Optional[StrictStr] = Field(None, alias="azureActiveDirectoryApplicationID")
+    azure_active_directory_tenant_id: Optional[StrictStr] = Field(None, alias="azureActiveDirectoryTenantID")
     connection_webhook: Optional[StrictStr] = Field(None, alias="connectionWebhook")
     id: Optional[StrictStr] = None
     landing_page_uri: Optional[StrictStr] = Field(None, alias="landingPageUri")
     resource_type: Optional[StrictStr] = Field(None, alias="resourceType")
-    __properties = [
-        "azureActiveDirectoryApplicationID",
-        "azureActiveDirectoryTenantID",
-        "connectionWebhook",
-        "id",
-        "landingPageUri",
-        "resourceType",
-    ]
+    __properties = ["azureActiveDirectoryApplicationID", "azureActiveDirectoryTenantID", "connectionWebhook", "id", "landingPageUri", "resourceType"]
 
-    @validator("resource_type")
+    @validator('resource_type')
     def resource_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("AzureSoftwareAsAServicePackageConfiguration"):
-            raise ValueError(
-                "must be one of enum values ('AzureSoftwareAsAServicePackageConfiguration')"
-            )
+        if value not in ('AzureSoftwareAsAServicePackageConfiguration'):
+            raise ValueError("must be one of enum values ('AzureSoftwareAsAServicePackageConfiguration')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -80,7 +64,10 @@ class AzureProductPackageConfiguration(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -92,18 +79,14 @@ class AzureProductPackageConfiguration(BaseModel):
         if not isinstance(obj, dict):
             return AzureProductPackageConfiguration.parse_obj(obj)
 
-        _obj = AzureProductPackageConfiguration.parse_obj(
-            {
-                "azure_active_directory_application_id": obj.get(
-                    "azureActiveDirectoryApplicationID"
-                ),
-                "azure_active_directory_tenant_id": obj.get(
-                    "azureActiveDirectoryTenantID"
-                ),
-                "connection_webhook": obj.get("connectionWebhook"),
-                "id": obj.get("id"),
-                "landing_page_uri": obj.get("landingPageUri"),
-                "resource_type": obj.get("resourceType"),
-            }
-        )
+        _obj = AzureProductPackageConfiguration.parse_obj({
+            "azure_active_directory_application_id": obj.get("azureActiveDirectoryApplicationID"),
+            "azure_active_directory_tenant_id": obj.get("azureActiveDirectoryTenantID"),
+            "connection_webhook": obj.get("connectionWebhook"),
+            "id": obj.get("id"),
+            "landing_page_uri": obj.get("landingPageUri"),
+            "resource_type": obj.get("resourceType")
+        })
         return _obj
+
+

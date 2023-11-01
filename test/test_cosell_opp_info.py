@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.cosell_opp_info import CosellOppInfo  # noqa: E501
 
-
 class TestCosellOppInfo(unittest.TestCase):
     """CosellOppInfo unit test stubs"""
 
@@ -30,9 +29,9 @@ class TestCosellOppInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CosellOppInfo:
         """Test CosellOppInfo
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `CosellOppInfo`
         """
         model = CosellOppInfo()  # noqa: E501
@@ -60,7 +59,7 @@ class TestCosellOppInfo(unittest.TestCase):
                             address_line2 = '', 
                             city = '', 
                             country = '', 
-                            postal_code = openapi_client.models.postal_code.postalCode(), 
+                            postal_code = '', 
                             region = '', 
                             state = '', ), 
                         ids = [
@@ -142,6 +141,7 @@ class TestCosellOppInfo(unittest.TestCase):
                     engagement_id = '', 
                     exception = openapi_client.models.exception.exception(), 
                     expiration_date_time = '', 
+                    external_reference_id = '', 
                     favorite = True, 
                     id = '', 
                     invite_context = openapi_client.models.microsoft_partner_referral_invite_context.MicrosoftPartnerReferralInviteContext(
@@ -175,6 +175,7 @@ class TestCosellOppInfo(unittest.TestCase):
                         ], 
                     sales_stage = openapi_client.models.sales_stage.salesStage(), 
                     status = '', 
+                    status_reason = '', 
                     substatus = '', 
                     tags = [
                         None
@@ -216,6 +217,5 @@ class TestCosellOppInfo(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

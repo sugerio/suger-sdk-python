@@ -21,42 +21,31 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr, validator
-from openapi_client.models.azure_marketplace_deprecation_schedule_alternative import (
-    AzureMarketplaceDeprecationScheduleAlternative,
-)
-
+from openapi_client.models.azure_marketplace_deprecation_schedule_alternative import AzureMarketplaceDeprecationScheduleAlternative
 
 class AzureMarketplaceDeprecationSchedule(BaseModel):
     """
     AzureMarketplaceDeprecationSchedule
     """
-
     var_schema: Optional[StrictStr] = Field(None, alias="$schema")
     alternative: Optional[AzureMarketplaceDeprecationScheduleAlternative] = None
-    var_date: Optional[StrictStr] = Field(
-        None, alias="date", description="format: date-time"
-    )
-    date_offset: Optional[StrictStr] = Field(
-        None, alias="dateOffset", description="format: duration"
-    )
+    var_date: Optional[StrictStr] = Field(None, alias="date", description="format: date-time")
+    date_offset: Optional[StrictStr] = Field(None, alias="dateOffset", description="format: duration")
     reason: Optional[StrictStr] = None
     __properties = ["$schema", "alternative", "date", "dateOffset", "reason"]
 
-    @validator("reason")
+    @validator('reason')
     def reason_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("criticalSecurityIssue", "endOfSupport", "other"):
-            raise ValueError(
-                "must be one of enum values ('criticalSecurityIssue', 'endOfSupport', 'other')"
-            )
+        if value not in ('criticalSecurityIssue', 'endOfSupport', 'other'):
+            raise ValueError("must be one of enum values ('criticalSecurityIssue', 'endOfSupport', 'other')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -75,10 +64,13 @@ class AzureMarketplaceDeprecationSchedule(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of alternative
         if self.alternative:
-            _dict["alternative"] = self.alternative.to_dict()
+            _dict['alternative'] = self.alternative.to_dict()
         return _dict
 
     @classmethod
@@ -90,17 +82,13 @@ class AzureMarketplaceDeprecationSchedule(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceDeprecationSchedule.parse_obj(obj)
 
-        _obj = AzureMarketplaceDeprecationSchedule.parse_obj(
-            {
-                "var_schema": obj.get("$schema"),
-                "alternative": AzureMarketplaceDeprecationScheduleAlternative.from_dict(
-                    obj.get("alternative")
-                )
-                if obj.get("alternative") is not None
-                else None,
-                "var_date": obj.get("date"),
-                "date_offset": obj.get("dateOffset"),
-                "reason": obj.get("reason"),
-            }
-        )
+        _obj = AzureMarketplaceDeprecationSchedule.parse_obj({
+            "var_schema": obj.get("$schema"),
+            "alternative": AzureMarketplaceDeprecationScheduleAlternative.from_dict(obj.get("alternative")) if obj.get("alternative") is not None else None,
+            "var_date": obj.get("date"),
+            "date_offset": obj.get("dateOffset"),
+            "reason": obj.get("reason")
+        })
         return _obj
+
+

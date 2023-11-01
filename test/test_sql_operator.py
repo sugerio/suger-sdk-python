@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.sql_operator import SqlOperator  # noqa: E501
 
-
 class TestSqlOperator(unittest.TestCase):
     """SqlOperator unit test stubs"""
 
@@ -32,6 +31,5 @@ class TestSqlOperator(unittest.TestCase):
         """Test SqlOperator"""
         # inst = SqlOperator()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

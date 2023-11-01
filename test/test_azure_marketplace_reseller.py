@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.azure_marketplace_reseller import (
-    AzureMarketplaceReseller,
-)  # noqa: E501
-
+from openapi_client.models.azure_marketplace_reseller import AzureMarketplaceReseller  # noqa: E501
 
 class TestAzureMarketplaceReseller(unittest.TestCase):
     """AzureMarketplaceReseller unit test stubs"""
@@ -32,24 +29,24 @@ class TestAzureMarketplaceReseller(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplaceReseller:
         """Test AzureMarketplaceReseller
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `AzureMarketplaceReseller`
         """
         model = AzureMarketplaceReseller()  # noqa: E501
         if include_optional:
             return AzureMarketplaceReseller(
                 var_schema = '',
-                id = '',
-                preview_audiences = [
+                audiences = [
                     openapi_client.models.azure_marketplace_preview_audience.AzureMarketplacePreviewAudience(
                         description = '', 
                         resource_id = '', 
                         type = 'subscription', )
                     ],
+                id = '',
                 product = '',
-                reseller_channel_state = 'noSet',
+                reseller_channel_state = '',
                 resource_name = '',
                 validations = [
                     openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
@@ -70,6 +67,5 @@ class TestAzureMarketplaceReseller(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class GcpMarketplaceUserAccountState(str, Enum):
     """
     GcpMarketplaceUserAccountState
@@ -27,10 +30,12 @@ class GcpMarketplaceUserAccountState(str, Enum):
     """
     allowed enum values
     """
-    ACCOUNT_STATE_UNSPECIFIED = "ACCOUNT_STATE_UNSPECIFIED"
-    ACCOUNT_ACTIVE = "ACCOUNT_ACTIVE"
+    ACCOUNT_STATE_UNSPECIFIED = 'ACCOUNT_STATE_UNSPECIFIED'
+    ACCOUNT_ACTIVE = 'ACCOUNT_ACTIVE'
 
     @classmethod
     def from_json(cls, json_str: str) -> GcpMarketplaceUserAccountState:
         """Create an instance of GcpMarketplaceUserAccountState from a JSON string"""
         return GcpMarketplaceUserAccountState(json.loads(json_str))
+
+

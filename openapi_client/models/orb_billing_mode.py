@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class OrbBillingMode(str, Enum):
     """
     OrbBillingMode
@@ -27,10 +30,12 @@ class OrbBillingMode(str, Enum):
     """
     allowed enum values
     """
-    QUANTITY = "quantity"
-    AMOUNT = "amount"
+    QUANTITY = 'quantity'
+    AMOUNT = 'amount'
 
     @classmethod
     def from_json(cls, json_str: str) -> OrbBillingMode:
         """Create an instance of OrbBillingMode from a JSON string"""
         return OrbBillingMode(json.loads(json_str))
+
+

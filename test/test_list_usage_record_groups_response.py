@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.list_usage_record_groups_response import (
-    ListUsageRecordGroupsResponse,
-)  # noqa: E501
-
+from openapi_client.models.list_usage_record_groups_response import ListUsageRecordGroupsResponse  # noqa: E501
 
 class TestListUsageRecordGroupsResponse(unittest.TestCase):
     """ListUsageRecordGroupsResponse unit test stubs"""
@@ -32,9 +29,9 @@ class TestListUsageRecordGroupsResponse(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ListUsageRecordGroupsResponse:
         """Test ListUsageRecordGroupsResponse
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `ListUsageRecordGroupsResponse`
         """
         model = ListUsageRecordGroupsResponse()  # noqa: E501
@@ -49,6 +46,7 @@ class TestListUsageRecordGroupsResponse(unittest.TestCase):
                         id = '', 
                         last_update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         meta_info = openapi_client.models.metering_usage_record_group_meta_info.MeteringUsageRecordGroupMetaInfo(
+                            metronome_daily_cost_amount = 1.337, 
                             origin_records = {
                                 'key' : 1.337
                                 }, 
@@ -74,6 +72,5 @@ class TestListUsageRecordGroupsResponse(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class UsageRecordGroupSource(str, Enum):
     """
     UsageRecordGroupSource
@@ -27,13 +30,15 @@ class UsageRecordGroupSource(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ""
-    API = "API"
-    INTERNAL = "INTERNAL"
-    METRONOME = "METRONOME"
-    ORB = "ORB"
+    EMPTY = ''
+    API = 'API'
+    INTERNAL = 'INTERNAL'
+    METRONOME = 'METRONOME'
+    ORB = 'ORB'
 
     @classmethod
     def from_json(cls, json_str: str) -> UsageRecordGroupSource:
         """Create an instance of UsageRecordGroupSource from a JSON string"""
         return UsageRecordGroupSource(json.loads(json_str))
+
+

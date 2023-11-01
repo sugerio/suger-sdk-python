@@ -22,19 +22,16 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
-
 class GcpMarketplaceProductLicenseSpec(BaseModel):
     """
     GcpMarketplaceProductLicenseSpec
     """
-
     description: Optional[StrictStr] = None
     uri: Optional[StrictStr] = None
     __properties = ["description", "uri"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,7 +50,10 @@ class GcpMarketplaceProductLicenseSpec(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,7 +65,10 @@ class GcpMarketplaceProductLicenseSpec(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceProductLicenseSpec.parse_obj(obj)
 
-        _obj = GcpMarketplaceProductLicenseSpec.parse_obj(
-            {"description": obj.get("description"), "uri": obj.get("uri")}
-        )
+        _obj = GcpMarketplaceProductLicenseSpec.parse_obj({
+            "description": obj.get("description"),
+            "uri": obj.get("uri")
+        })
         return _obj
+
+

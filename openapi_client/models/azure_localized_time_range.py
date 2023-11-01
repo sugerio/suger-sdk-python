@@ -23,19 +23,16 @@ from typing import Optional
 from pydantic import BaseModel, Field
 from openapi_client.models.azure_localized_date_time import AzureLocalizedDateTime
 
-
 class AzureLocalizedTimeRange(BaseModel):
     """
     AzureLocalizedTimeRange
     """
-
     end_at: Optional[AzureLocalizedDateTime] = Field(None, alias="endAt")
     start_at: Optional[AzureLocalizedDateTime] = Field(None, alias="startAt")
     __properties = ["endAt", "startAt"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,13 +51,16 @@ class AzureLocalizedTimeRange(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of end_at
         if self.end_at:
-            _dict["endAt"] = self.end_at.to_dict()
+            _dict['endAt'] = self.end_at.to_dict()
         # override the default output from pydantic by calling `to_dict()` of start_at
         if self.start_at:
-            _dict["startAt"] = self.start_at.to_dict()
+            _dict['startAt'] = self.start_at.to_dict()
         return _dict
 
     @classmethod
@@ -72,14 +72,10 @@ class AzureLocalizedTimeRange(BaseModel):
         if not isinstance(obj, dict):
             return AzureLocalizedTimeRange.parse_obj(obj)
 
-        _obj = AzureLocalizedTimeRange.parse_obj(
-            {
-                "end_at": AzureLocalizedDateTime.from_dict(obj.get("endAt"))
-                if obj.get("endAt") is not None
-                else None,
-                "start_at": AzureLocalizedDateTime.from_dict(obj.get("startAt"))
-                if obj.get("startAt") is not None
-                else None,
-            }
-        )
+        _obj = AzureLocalizedTimeRange.parse_obj({
+            "end_at": AzureLocalizedDateTime.from_dict(obj.get("endAt")) if obj.get("endAt") is not None else None,
+            "start_at": AzureLocalizedDateTime.from_dict(obj.get("startAt")) if obj.get("startAt") is not None else None
+        })
         return _obj
+
+

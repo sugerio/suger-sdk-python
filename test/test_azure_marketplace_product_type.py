@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.azure_marketplace_product_type import (
-    AzureMarketplaceProductType,
-)  # noqa: E501
-
+from openapi_client.models.azure_marketplace_product_type import AzureMarketplaceProductType  # noqa: E501
 
 class TestAzureMarketplaceProductType(unittest.TestCase):
     """AzureMarketplaceProductType unit test stubs"""
@@ -34,6 +31,5 @@ class TestAzureMarketplaceProductType(unittest.TestCase):
         """Test AzureMarketplaceProductType"""
         # inst = AzureMarketplaceProductType()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

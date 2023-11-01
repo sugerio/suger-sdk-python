@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.value_type import ValueType  # noqa: E501
 
-
 class TestValueType(unittest.TestCase):
     """ValueType unit test stubs"""
 
@@ -32,6 +31,5 @@ class TestValueType(unittest.TestCase):
         """Test ValueType"""
         # inst = ValueType()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

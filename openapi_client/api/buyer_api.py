@@ -29,7 +29,10 @@ from openapi_client.models.update_buyer_params import UpdateBuyerParams
 
 from openapi_client.api_client import ApiClient
 from openapi_client.api_response import ApiResponse
-from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
+from openapi_client.exceptions import (  # noqa: F401
+    ApiTypeError,
+    ApiValueError
+)
 
 
 class BuyerApi:
@@ -45,12 +48,7 @@ class BuyerApi:
         self.api_client = api_client
 
     @validate_arguments
-    def get_buyer(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        buyer_id: Annotated[StrictStr, Field(..., description="Buyer ID")],
-        **kwargs
-    ) -> IdentityBuyer:  # noqa: E501
+    def get_buyer(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], buyer_id : Annotated[StrictStr, Field(..., description="Buyer ID")], **kwargs) -> IdentityBuyer:  # noqa: E501
         """get buyer  # noqa: E501
 
         get buyer by the given organization and buyer id  # noqa: E501
@@ -75,19 +73,14 @@ class BuyerApi:
                  returns the request thread.
         :rtype: IdentityBuyer
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the get_buyer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
         return self.get_buyer_with_http_info(org_id, buyer_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_buyer_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        buyer_id: Annotated[StrictStr, Field(..., description="Buyer ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def get_buyer_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], buyer_id : Annotated[StrictStr, Field(..., description="Buyer ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """get buyer  # noqa: E501
 
         get buyer by the given organization and buyer id  # noqa: E501
@@ -128,66 +121,68 @@ class BuyerApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "buyer_id"]
+        _all_params = [
+            'org_id',
+            'buyer_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_buyer" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["buyer_id"]:
-            _path_params["buyerId"] = _params["buyer_id"]
+        if _params['buyer_id']:
+            _path_params['buyerId'] = _params['buyer_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "IdentityBuyer",
-            "400": "str",
-            "404": "str",
-            "500": "str",
+            '200': "IdentityBuyer",
+            '400': "str",
+            '404': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/buyer/{buyerId}",
-            "GET",
+            '/org/{orgId}/buyer/{buyerId}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -196,21 +191,15 @@ class BuyerApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_buyers_by_contact(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
-        **kwargs
-    ) -> List[IdentityBuyer]:  # noqa: E501
+    def list_buyers_by_contact(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], **kwargs) -> List[IdentityBuyer]:  # noqa: E501
         """list buyers by contact  # noqa: E501
 
         list all buyers by the given organization and contact  # noqa: E501
@@ -235,21 +224,14 @@ class BuyerApi:
                  returns the request thread.
         :rtype: List[IdentityBuyer]
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_buyers_by_contact_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_buyers_by_contact_with_http_info(
-            org_id, contact_id, **kwargs
-        )  # noqa: E501
+        return self.list_buyers_by_contact_with_http_info(org_id, contact_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_buyers_by_contact_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_buyers_by_contact_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """list buyers by contact  # noqa: E501
 
         list all buyers by the given organization and contact  # noqa: E501
@@ -290,65 +272,67 @@ class BuyerApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "contact_id"]
+        _all_params = [
+            'org_id',
+            'contact_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_buyers_by_contact" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["contact_id"]:
-            _path_params["contactId"] = _params["contact_id"]
+        if _params['contact_id']:
+            _path_params['contactId'] = _params['contact_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "List[IdentityBuyer]",
-            "400": "str",
-            "500": "str",
+            '200': "List[IdentityBuyer]",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/contact/{contactId}/buyer",
-            "GET",
+            '/org/{orgId}/contact/{contactId}/buyer', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -357,20 +341,15 @@ class BuyerApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_buyers_by_organization(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        **kwargs
-    ) -> List[IdentityBuyer]:  # noqa: E501
+    def list_buyers_by_organization(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> List[IdentityBuyer]:  # noqa: E501
         """list buyers by organization  # noqa: E501
 
         list all buyers by the given organization  # noqa: E501
@@ -393,20 +372,14 @@ class BuyerApi:
                  returns the request thread.
         :rtype: List[IdentityBuyer]
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_buyers_by_organization_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_buyers_by_organization_with_http_info(
-            org_id, **kwargs
-        )  # noqa: E501
+        return self.list_buyers_by_organization_with_http_info(org_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_buyers_by_organization_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_buyers_by_organization_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """list buyers by organization  # noqa: E501
 
         list all buyers by the given organization  # noqa: E501
@@ -445,61 +418,62 @@ class BuyerApi:
 
         _params = locals()
 
-        _all_params = ["org_id"]
+        _all_params = [
+            'org_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_buyers_by_organization" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "List[IdentityBuyer]",
-            "500": None,
+            '200': "List[IdentityBuyer]",
+            '500': None,
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/buyer",
-            "GET",
+            '/org/{orgId}/buyer', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -508,21 +482,15 @@ class BuyerApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_buyers_by_partner(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
-        **kwargs
-    ) -> List[IdentityBuyer]:  # noqa: E501
+    def list_buyers_by_partner(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], **kwargs) -> List[IdentityBuyer]:  # noqa: E501
         """list buyers by partner  # noqa: E501
 
         list all buyers by the given organization and partner  # noqa: E501
@@ -547,21 +515,14 @@ class BuyerApi:
                  returns the request thread.
         :rtype: List[IdentityBuyer]
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_buyers_by_partner_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_buyers_by_partner_with_http_info(
-            org_id, partner, **kwargs
-        )  # noqa: E501
+        return self.list_buyers_by_partner_with_http_info(org_id, partner, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_buyers_by_partner_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_buyers_by_partner_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], **kwargs) -> ApiResponse:  # noqa: E501
         """list buyers by partner  # noqa: E501
 
         list all buyers by the given organization and partner  # noqa: E501
@@ -602,65 +563,67 @@ class BuyerApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "partner"]
+        _all_params = [
+            'org_id',
+            'partner'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_buyers_by_partner" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["partner"]:
-            _path_params["partner"] = _params["partner"]
+        if _params['partner']:
+            _path_params['partner'] = _params['partner']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "List[IdentityBuyer]",
-            "400": "str",
-            "500": "str",
+            '200': "List[IdentityBuyer]",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/partner/{partner}/buyer",
-            "GET",
+            '/org/{orgId}/partner/{partner}/buyer', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -669,22 +632,15 @@ class BuyerApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_buyer(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        buyer_id: Annotated[StrictStr, Field(..., description="Buyer ID")],
-        data: Annotated[UpdateBuyerParams, Field(..., description="UpdateBuyerParams")],
-        **kwargs
-    ) -> IdentityBuyer:  # noqa: E501
+    def update_buyer(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], buyer_id : Annotated[StrictStr, Field(..., description="Buyer ID")], data : Annotated[UpdateBuyerParams, Field(..., description="UpdateBuyerParams")], **kwargs) -> IdentityBuyer:  # noqa: E501
         """update buyer  # noqa: E501
 
         update buyer by the given organization and buyer id  # noqa: E501
@@ -711,22 +667,14 @@ class BuyerApi:
                  returns the request thread.
         :rtype: IdentityBuyer
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the update_buyer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.update_buyer_with_http_info(
-            org_id, buyer_id, data, **kwargs
-        )  # noqa: E501
+        return self.update_buyer_with_http_info(org_id, buyer_id, data, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_buyer_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        buyer_id: Annotated[StrictStr, Field(..., description="Buyer ID")],
-        data: Annotated[UpdateBuyerParams, Field(..., description="UpdateBuyerParams")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def update_buyer_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], buyer_id : Annotated[StrictStr, Field(..., description="Buyer ID")], data : Annotated[UpdateBuyerParams, Field(..., description="UpdateBuyerParams")], **kwargs) -> ApiResponse:  # noqa: E501
         """update buyer  # noqa: E501
 
         update buyer by the given organization and buyer id  # noqa: E501
@@ -769,75 +717,77 @@ class BuyerApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "buyer_id", "data"]
+        _all_params = [
+            'org_id',
+            'buyer_id',
+            'data'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_buyer" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["buyer_id"]:
-            _path_params["buyerId"] = _params["buyer_id"]
+        if _params['buyer_id']:
+            _path_params['buyerId'] = _params['buyer_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params["data"] is not None:
-            _body_params = _params["data"]
+        if _params['data'] is not None:
+            _body_params = _params['data']
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get(
-            "_content_type",
-            self.api_client.select_header_content_type(["application/json"]),
-        )
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
         if _content_types_list:
-            _header_params["Content-Type"] = _content_types_list
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "IdentityBuyer",
-            "500": "str",
+            '200': "IdentityBuyer",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/buyer/{buyerId}",
-            "PATCH",
+            '/org/{orgId}/buyer/{buyerId}', 'PATCH',
             _path_params,
             _query_params,
             _header_params,
@@ -846,10 +796,9 @@ class BuyerApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))

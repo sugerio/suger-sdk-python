@@ -22,12 +22,10 @@ import json
 from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 
-
 class GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage(BaseModel):
     """
     GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage
     """
-
     abandoned: Optional[Union[StrictFloat, StrictInt]] = None
     account_id: Optional[StrictStr] = Field(None, alias="accountID")
     buyer_id: Optional[StrictStr] = Field(None, alias="buyerID")
@@ -42,16 +40,10 @@ class GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage(BaseModel)
     organization_id: Optional[StrictStr] = Field(None, alias="organizationID")
     payment_schedule: Optional[StrictStr] = Field(None, alias="paymentSchedule")
     payment_type: Optional[StrictStr] = Field(None, alias="paymentType")
-    prepay_credits: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None, alias="prepayCredits"
-    )
+    prepay_credits: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="prepayCredits")
     product_id: Optional[StrictStr] = Field(None, alias="productID")
-    refund_balance_deducted_this_month: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None, alias="refundBalanceDeductedThisMonth"
-    )
-    refund_balance_outstanding: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None, alias="refundBalanceOutstanding"
-    )
+    refund_balance_deducted_this_month: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="refundBalanceDeductedThisMonth")
+    refund_balance_outstanding: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="refundBalanceOutstanding")
     refund_reason: Optional[StrictStr] = Field(None, alias="refundReason")
     released: Optional[Union[StrictFloat, StrictInt]] = None
     report_date: Optional[StrictStr] = Field(None, alias="reportDate")
@@ -62,40 +54,10 @@ class GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage(BaseModel)
     usage: Optional[Union[StrictFloat, StrictInt]] = None
     used_by: Optional[StrictStr] = Field(None, alias="usedBy")
     withheld: Optional[Union[StrictFloat, StrictInt]] = None
-    __properties = [
-        "abandoned",
-        "accountID",
-        "buyerID",
-        "charges",
-        "currency",
-        "dueVendor",
-        "entitlementID",
-        "googleEntity",
-        "insightAccountID",
-        "offerID",
-        "ordinal",
-        "organizationID",
-        "paymentSchedule",
-        "paymentType",
-        "prepayCredits",
-        "productID",
-        "refundBalanceDeductedThisMonth",
-        "refundBalanceOutstanding",
-        "refundReason",
-        "released",
-        "reportDate",
-        "resource",
-        "sku",
-        "trialUse",
-        "unit",
-        "usage",
-        "usedBy",
-        "withheld",
-    ]
+    __properties = ["abandoned", "accountID", "buyerID", "charges", "currency", "dueVendor", "entitlementID", "googleEntity", "insightAccountID", "offerID", "ordinal", "organizationID", "paymentSchedule", "paymentType", "prepayCredits", "productID", "refundBalanceDeductedThisMonth", "refundBalanceOutstanding", "refundReason", "released", "reportDate", "resource", "sku", "trialUse", "unit", "usage", "usedBy", "withheld"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -108,64 +70,57 @@ class GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage(BaseModel)
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(
-        cls, json_str: str
-    ) -> GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage:
+    def from_json(cls, json_str: str) -> GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage:
         """Create an instance of GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(
-        cls, obj: dict
-    ) -> GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage:
+    def from_dict(cls, obj: dict) -> GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage:
         """Create an instance of GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage.parse_obj(
-                obj
-            )
+            return GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage.parse_obj(obj)
 
-        _obj = (
-            GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage.parse_obj(
-                {
-                    "abandoned": obj.get("abandoned"),
-                    "account_id": obj.get("accountID"),
-                    "buyer_id": obj.get("buyerID"),
-                    "charges": obj.get("charges"),
-                    "currency": obj.get("currency"),
-                    "due_vendor": obj.get("dueVendor"),
-                    "entitlement_id": obj.get("entitlementID"),
-                    "google_entity": obj.get("googleEntity"),
-                    "insight_account_id": obj.get("insightAccountID"),
-                    "offer_id": obj.get("offerID"),
-                    "ordinal": obj.get("ordinal"),
-                    "organization_id": obj.get("organizationID"),
-                    "payment_schedule": obj.get("paymentSchedule"),
-                    "payment_type": obj.get("paymentType"),
-                    "prepay_credits": obj.get("prepayCredits"),
-                    "product_id": obj.get("productID"),
-                    "refund_balance_deducted_this_month": obj.get(
-                        "refundBalanceDeductedThisMonth"
-                    ),
-                    "refund_balance_outstanding": obj.get("refundBalanceOutstanding"),
-                    "refund_reason": obj.get("refundReason"),
-                    "released": obj.get("released"),
-                    "report_date": obj.get("reportDate"),
-                    "resource": obj.get("resource"),
-                    "sku": obj.get("sku"),
-                    "trial_use": obj.get("trialUse"),
-                    "unit": obj.get("unit"),
-                    "usage": obj.get("usage"),
-                    "used_by": obj.get("usedBy"),
-                    "withheld": obj.get("withheld"),
-                }
-            )
-        )
+        _obj = GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage.parse_obj({
+            "abandoned": obj.get("abandoned"),
+            "account_id": obj.get("accountID"),
+            "buyer_id": obj.get("buyerID"),
+            "charges": obj.get("charges"),
+            "currency": obj.get("currency"),
+            "due_vendor": obj.get("dueVendor"),
+            "entitlement_id": obj.get("entitlementID"),
+            "google_entity": obj.get("googleEntity"),
+            "insight_account_id": obj.get("insightAccountID"),
+            "offer_id": obj.get("offerID"),
+            "ordinal": obj.get("ordinal"),
+            "organization_id": obj.get("organizationID"),
+            "payment_schedule": obj.get("paymentSchedule"),
+            "payment_type": obj.get("paymentType"),
+            "prepay_credits": obj.get("prepayCredits"),
+            "product_id": obj.get("productID"),
+            "refund_balance_deducted_this_month": obj.get("refundBalanceDeductedThisMonth"),
+            "refund_balance_outstanding": obj.get("refundBalanceOutstanding"),
+            "refund_reason": obj.get("refundReason"),
+            "released": obj.get("released"),
+            "report_date": obj.get("reportDate"),
+            "resource": obj.get("resource"),
+            "sku": obj.get("sku"),
+            "trial_use": obj.get("trialUse"),
+            "unit": obj.get("unit"),
+            "usage": obj.get("usage"),
+            "used_by": obj.get("usedBy"),
+            "withheld": obj.get("withheld")
+        })
         return _obj
+
+

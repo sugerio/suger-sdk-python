@@ -22,40 +22,22 @@ import json
 from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 
-
 class OrbPriceTier(BaseModel):
     """
     OrbPriceTier
     """
-
     bps: Optional[Union[StrictFloat, StrictInt]] = None
-    first_unit: Optional[StrictStr] = Field(
-        None, description="The following fields applicable only to UNIT price model"
-    )
+    first_unit: Optional[StrictStr] = Field(None, description="The following fields applicable only to UNIT price model")
     last_unit: Optional[StrictStr] = None
     maximum_amount: Optional[StrictStr] = None
-    maximum_units: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None, description="The following fields applicable only to BULK price model"
-    )
-    minimum_amount: Optional[StrictStr] = Field(
-        None, description="The following fields applicable only to BPS price model"
-    )
+    maximum_units: Optional[Union[StrictFloat, StrictInt]] = Field(None, description="The following fields applicable only to BULK price model")
+    minimum_amount: Optional[StrictStr] = Field(None, description="The following fields applicable only to BPS price model")
     per_unit_maximum: Optional[StrictStr] = None
     unit_amount: Optional[StrictStr] = None
-    __properties = [
-        "bps",
-        "first_unit",
-        "last_unit",
-        "maximum_amount",
-        "maximum_units",
-        "minimum_amount",
-        "per_unit_maximum",
-        "unit_amount",
-    ]
+    __properties = ["bps", "first_unit", "last_unit", "maximum_amount", "maximum_units", "minimum_amount", "per_unit_maximum", "unit_amount"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -74,7 +56,10 @@ class OrbPriceTier(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -86,16 +71,16 @@ class OrbPriceTier(BaseModel):
         if not isinstance(obj, dict):
             return OrbPriceTier.parse_obj(obj)
 
-        _obj = OrbPriceTier.parse_obj(
-            {
-                "bps": obj.get("bps"),
-                "first_unit": obj.get("first_unit"),
-                "last_unit": obj.get("last_unit"),
-                "maximum_amount": obj.get("maximum_amount"),
-                "maximum_units": obj.get("maximum_units"),
-                "minimum_amount": obj.get("minimum_amount"),
-                "per_unit_maximum": obj.get("per_unit_maximum"),
-                "unit_amount": obj.get("unit_amount"),
-            }
-        )
+        _obj = OrbPriceTier.parse_obj({
+            "bps": obj.get("bps"),
+            "first_unit": obj.get("first_unit"),
+            "last_unit": obj.get("last_unit"),
+            "maximum_amount": obj.get("maximum_amount"),
+            "maximum_units": obj.get("maximum_units"),
+            "minimum_amount": obj.get("minimum_amount"),
+            "per_unit_maximum": obj.get("per_unit_maximum"),
+            "unit_amount": obj.get("unit_amount")
+        })
         return _obj
+
+

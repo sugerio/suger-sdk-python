@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **address_line2** | **str** |  | [optional] 
 **city** | **str** |  | [optional] 
 **country** | **str** |  | [optional] 
-**postal_code** | **object** |  | [optional] 
+**postal_code** | **str** |  | [optional] 
 **region** | **str** |  | [optional] 
 **state** | **str** |  | [optional] 
 

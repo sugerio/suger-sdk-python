@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class GcpMarketplacePaymentScheduleType(str, Enum):
     """
     GcpMarketplacePaymentScheduleType
@@ -27,11 +30,13 @@ class GcpMarketplacePaymentScheduleType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ""
-    PREPAY = "PREPAY"
-    POSTPAY = "POSTPAY"
+    EMPTY = ''
+    PREPAY = 'PREPAY'
+    POSTPAY = 'POSTPAY'
 
     @classmethod
     def from_json(cls, json_str: str) -> GcpMarketplacePaymentScheduleType:
         """Create an instance of GcpMarketplacePaymentScheduleType from a JSON string"""
         return GcpMarketplacePaymentScheduleType(json.loads(json_str))
+
+
