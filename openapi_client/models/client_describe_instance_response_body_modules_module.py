@@ -21,27 +21,20 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
-from openapi_client.models.client_describe_instance_response_body_modules_module_properties import (
-    ClientDescribeInstanceResponseBodyModulesModuleProperties,
-)
-
+from openapi_client.models.client_describe_instance_response_body_modules_module_properties import ClientDescribeInstanceResponseBodyModulesModuleProperties
 
 class ClientDescribeInstanceResponseBodyModulesModule(BaseModel):
     """
     ClientDescribeInstanceResponseBodyModulesModule
     """
-
     code: Optional[StrictStr] = Field(None, alias="Code")
     id: Optional[StrictStr] = Field(None, alias="Id")
     name: Optional[StrictStr] = Field(None, alias="Name")
-    properties: Optional[
-        ClientDescribeInstanceResponseBodyModulesModuleProperties
-    ] = Field(None, alias="Properties")
+    properties: Optional[ClientDescribeInstanceResponseBodyModulesModuleProperties] = Field(None, alias="Properties")
     __properties = ["Code", "Id", "Name", "Properties"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,18 +47,19 @@ class ClientDescribeInstanceResponseBodyModulesModule(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(
-        cls, json_str: str
-    ) -> ClientDescribeInstanceResponseBodyModulesModule:
+    def from_json(cls, json_str: str) -> ClientDescribeInstanceResponseBodyModulesModule:
         """Create an instance of ClientDescribeInstanceResponseBodyModulesModule from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of properties
         if self.properties:
-            _dict["Properties"] = self.properties.to_dict()
+            _dict['Properties'] = self.properties.to_dict()
         return _dict
 
     @classmethod
@@ -77,16 +71,12 @@ class ClientDescribeInstanceResponseBodyModulesModule(BaseModel):
         if not isinstance(obj, dict):
             return ClientDescribeInstanceResponseBodyModulesModule.parse_obj(obj)
 
-        _obj = ClientDescribeInstanceResponseBodyModulesModule.parse_obj(
-            {
-                "code": obj.get("Code"),
-                "id": obj.get("Id"),
-                "name": obj.get("Name"),
-                "properties": ClientDescribeInstanceResponseBodyModulesModuleProperties.from_dict(
-                    obj.get("Properties")
-                )
-                if obj.get("Properties") is not None
-                else None,
-            }
-        )
+        _obj = ClientDescribeInstanceResponseBodyModulesModule.parse_obj({
+            "code": obj.get("Code"),
+            "id": obj.get("Id"),
+            "name": obj.get("Name"),
+            "properties": ClientDescribeInstanceResponseBodyModulesModuleProperties.from_dict(obj.get("Properties")) if obj.get("Properties") is not None else None
+        })
         return _obj
+
+

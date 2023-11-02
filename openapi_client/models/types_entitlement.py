@@ -22,46 +22,19 @@ import json
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class TypesEntitlement(BaseModel):
     """
     TypesEntitlement
     """
-
-    customer_identifier: Optional[StrictStr] = Field(
-        None,
-        alias="customerIdentifier",
-        description="The customer identifier is a handle to each unique customer in an application. Customer identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering Service.",
-    )
-    dimension: Optional[StrictStr] = Field(
-        None,
-        description="The dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.",
-    )
-    expiration_date: Optional[StrictStr] = Field(
-        None,
-        alias="expirationDate",
-        description="The expiration date represents the minimum date through which this entitlement is expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date is the date at which the customer will renew or cancel their contract. Customers who are opting to renew their contract will still have entitlements with an expiration date.",
-    )
-    product_code: Optional[StrictStr] = Field(
-        None,
-        alias="productCode",
-        description="The product code for which the given entitlement applies. Product codes are provided by AWS Marketplace when the product listing is created.",
-    )
-    value: Optional[Dict[str, Any]] = Field(
-        None,
-        description="The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.",
-    )
-    __properties = [
-        "customerIdentifier",
-        "dimension",
-        "expirationDate",
-        "productCode",
-        "value",
-    ]
+    customer_identifier: Optional[StrictStr] = Field(None, alias="customerIdentifier", description="The customer identifier is a handle to each unique customer in an application. Customer identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering Service.")
+    dimension: Optional[StrictStr] = Field(None, description="The dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.")
+    expiration_date: Optional[StrictStr] = Field(None, alias="expirationDate", description="The expiration date represents the minimum date through which this entitlement is expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date is the date at which the customer will renew or cancel their contract. Customers who are opting to renew their contract will still have entitlements with an expiration date.")
+    product_code: Optional[StrictStr] = Field(None, alias="productCode", description="The product code for which the given entitlement applies. Product codes are provided by AWS Marketplace when the product listing is created.")
+    value: Optional[Dict[str, Any]] = Field(None, description="The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.")
+    __properties = ["customerIdentifier", "dimension", "expirationDate", "productCode", "value"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -80,7 +53,10 @@ class TypesEntitlement(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -92,13 +68,13 @@ class TypesEntitlement(BaseModel):
         if not isinstance(obj, dict):
             return TypesEntitlement.parse_obj(obj)
 
-        _obj = TypesEntitlement.parse_obj(
-            {
-                "customer_identifier": obj.get("customerIdentifier"),
-                "dimension": obj.get("dimension"),
-                "expiration_date": obj.get("expirationDate"),
-                "product_code": obj.get("productCode"),
-                "value": obj.get("value"),
-            }
-        )
+        _obj = TypesEntitlement.parse_obj({
+            "customer_identifier": obj.get("customerIdentifier"),
+            "dimension": obj.get("dimension"),
+            "expiration_date": obj.get("expirationDate"),
+            "product_code": obj.get("productCode"),
+            "value": obj.get("value")
+        })
         return _obj
+
+

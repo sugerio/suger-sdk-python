@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.gcp_marketplace_private_offer_price_model_type import (
-    GcpMarketplacePrivateOfferPriceModelType,
-)  # noqa: E501
-
+from openapi_client.models.gcp_marketplace_private_offer_price_model_type import GcpMarketplacePrivateOfferPriceModelType  # noqa: E501
 
 class TestGcpMarketplacePrivateOfferPriceModelType(unittest.TestCase):
     """GcpMarketplacePrivateOfferPriceModelType unit test stubs"""
@@ -34,6 +31,5 @@ class TestGcpMarketplacePrivateOfferPriceModelType(unittest.TestCase):
         """Test GcpMarketplacePrivateOfferPriceModelType"""
         # inst = GcpMarketplacePrivateOfferPriceModelType()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

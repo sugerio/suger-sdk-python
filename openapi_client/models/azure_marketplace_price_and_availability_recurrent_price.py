@@ -21,37 +21,41 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist, validator
-from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_item import (
-    AzureMarketplacePriceAndAvailabilityRecurrentPriceItem,
-)
-
+from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_item import AzureMarketplacePriceAndAvailabilityRecurrentPriceItem
+from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_user_limit import AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit
 
 class AzureMarketplacePriceAndAvailabilityRecurrentPrice(BaseModel):
     """
     AzureMarketplacePriceAndAvailabilityRecurrentPrice
     """
+    price_input_option: Optional[StrictStr] = Field(None, alias="priceInputOption", description="default \"usd\"")
+    prices: Optional[conlist(AzureMarketplacePriceAndAvailabilityRecurrentPriceItem)] = None
+    recurrent_price_mode: Optional[StrictStr] = Field(None, alias="recurrentPriceMode", description="default \"flatRate\"")
+    user_limits: Optional[AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit] = Field(None, alias="userLimits")
+    __properties = ["priceInputOption", "prices", "recurrentPriceMode", "userLimits"]
 
-    price_input_option: Optional[StrictStr] = Field(
-        None, alias="priceInputOption", description='default "usd"'
-    )
-    prices: Optional[
-        conlist(AzureMarketplacePriceAndAvailabilityRecurrentPriceItem)
-    ] = None
-    __properties = ["priceInputOption", "prices"]
-
-    @validator("price_input_option")
+    @validator('price_input_option')
     def price_input_option_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("perMarket", "usd"):
+        if value not in ('perMarket', 'usd'):
             raise ValueError("must be one of enum values ('perMarket', 'usd')")
+        return value
+
+    @validator('recurrent_price_mode')
+    def recurrent_price_mode_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in ('flatRate', 'perUser'):
+            raise ValueError("must be one of enum values ('flatRate', 'perUser')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -64,22 +68,26 @@ class AzureMarketplacePriceAndAvailabilityRecurrentPrice(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(
-        cls, json_str: str
-    ) -> AzureMarketplacePriceAndAvailabilityRecurrentPrice:
+    def from_json(cls, json_str: str) -> AzureMarketplacePriceAndAvailabilityRecurrentPrice:
         """Create an instance of AzureMarketplacePriceAndAvailabilityRecurrentPrice from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in prices (list)
         _items = []
         if self.prices:
             for _item in self.prices:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["prices"] = _items
+            _dict['prices'] = _items
+        # override the default output from pydantic by calling `to_dict()` of user_limits
+        if self.user_limits:
+            _dict['userLimits'] = self.user_limits.to_dict()
         return _dict
 
     @classmethod
@@ -91,17 +99,12 @@ class AzureMarketplacePriceAndAvailabilityRecurrentPrice(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePriceAndAvailabilityRecurrentPrice.parse_obj(obj)
 
-        _obj = AzureMarketplacePriceAndAvailabilityRecurrentPrice.parse_obj(
-            {
-                "price_input_option": obj.get("priceInputOption"),
-                "prices": [
-                    AzureMarketplacePriceAndAvailabilityRecurrentPriceItem.from_dict(
-                        _item
-                    )
-                    for _item in obj.get("prices")
-                ]
-                if obj.get("prices") is not None
-                else None,
-            }
-        )
+        _obj = AzureMarketplacePriceAndAvailabilityRecurrentPrice.parse_obj({
+            "price_input_option": obj.get("priceInputOption"),
+            "prices": [AzureMarketplacePriceAndAvailabilityRecurrentPriceItem.from_dict(_item) for _item in obj.get("prices")] if obj.get("prices") is not None else None,
+            "recurrent_price_mode": obj.get("recurrentPriceMode"),
+            "user_limits": AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit.from_dict(obj.get("userLimits")) if obj.get("userLimits") is not None else None
+        })
         return _obj
+
+

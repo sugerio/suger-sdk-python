@@ -22,34 +22,21 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class AzureProductBranch(BaseModel):
     """
     AzureProductBranch
     """
-
-    current_draft_instance_id: Optional[StrictStr] = Field(
-        None, alias="currentDraftInstanceID"
-    )
+    current_draft_instance_id: Optional[StrictStr] = Field(None, alias="currentDraftInstanceID")
     friendly_name: Optional[StrictStr] = Field(None, alias="friendlyName")
     id: Optional[StrictStr] = None
     module: Optional[StrictStr] = None
     resource_type: Optional[StrictStr] = Field(None, alias="resourceType")
     type: Optional[StrictStr] = None
     variant_id: Optional[StrictStr] = Field(None, alias="variantID")
-    __properties = [
-        "currentDraftInstanceID",
-        "friendlyName",
-        "id",
-        "module",
-        "resourceType",
-        "type",
-        "variantID",
-    ]
+    __properties = ["currentDraftInstanceID", "friendlyName", "id", "module", "resourceType", "type", "variantID"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -68,7 +55,10 @@ class AzureProductBranch(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -80,15 +70,15 @@ class AzureProductBranch(BaseModel):
         if not isinstance(obj, dict):
             return AzureProductBranch.parse_obj(obj)
 
-        _obj = AzureProductBranch.parse_obj(
-            {
-                "current_draft_instance_id": obj.get("currentDraftInstanceID"),
-                "friendly_name": obj.get("friendlyName"),
-                "id": obj.get("id"),
-                "module": obj.get("module"),
-                "resource_type": obj.get("resourceType"),
-                "type": obj.get("type"),
-                "variant_id": obj.get("variantID"),
-            }
-        )
+        _obj = AzureProductBranch.parse_obj({
+            "current_draft_instance_id": obj.get("currentDraftInstanceID"),
+            "friendly_name": obj.get("friendlyName"),
+            "id": obj.get("id"),
+            "module": obj.get("module"),
+            "resource_type": obj.get("resourceType"),
+            "type": obj.get("type"),
+            "variant_id": obj.get("variantID")
+        })
         return _obj
+
+

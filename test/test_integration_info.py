@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.integration_info import IntegrationInfo  # noqa: E501
 
-
 class TestIntegrationInfo(unittest.TestCase):
     """IntegrationInfo unit test stubs"""
 
@@ -30,9 +29,9 @@ class TestIntegrationInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> IntegrationInfo:
         """Test IntegrationInfo
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `IntegrationInfo`
         """
         model = IntegrationInfo()  # noqa: E501
@@ -136,6 +135,7 @@ class TestIntegrationInfo(unittest.TestCase):
                     deal_fields = [
                         ''
                         ], 
+                    last_sync_time = '', 
                     paused = True, 
                     portal_id = 56, 
                     secret_key = '', 
@@ -160,6 +160,7 @@ class TestIntegrationInfo(unittest.TestCase):
                             id = '', 
                             name = '', )
                         ], 
+                    billing_mode = openapi_client.models.billing_mode.billingMode(), 
                     enable_auto_report_usage = True, 
                     enable_billable_metric_whitelist = True, 
                     secret_key = '', ),
@@ -319,6 +320,7 @@ class TestIntegrationInfo(unittest.TestCase):
                         ], 
                     instance_url = '', 
                     is_sandbox = True, 
+                    last_sync_time = '', 
                     paused = True, 
                     secret_key = '', 
                     subdomain = '', 
@@ -361,6 +363,5 @@ class TestIntegrationInfo(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

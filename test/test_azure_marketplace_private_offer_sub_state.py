@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.azure_marketplace_private_offer_sub_state import (
-    AzureMarketplacePrivateOfferSubState,
-)  # noqa: E501
-
+from openapi_client.models.azure_marketplace_private_offer_sub_state import AzureMarketplacePrivateOfferSubState  # noqa: E501
 
 class TestAzureMarketplacePrivateOfferSubState(unittest.TestCase):
     """AzureMarketplacePrivateOfferSubState unit test stubs"""
@@ -34,6 +31,5 @@ class TestAzureMarketplacePrivateOfferSubState(unittest.TestCase):
         """Test AzureMarketplacePrivateOfferSubState"""
         # inst = AzureMarketplacePrivateOfferSubState()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

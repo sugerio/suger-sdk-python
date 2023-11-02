@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.notification_event_status import (
-    NotificationEventStatus,
-)  # noqa: E501
-
+from openapi_client.models.notification_event_status import NotificationEventStatus  # noqa: E501
 
 class TestNotificationEventStatus(unittest.TestCase):
     """NotificationEventStatus unit test stubs"""
@@ -34,6 +31,5 @@ class TestNotificationEventStatus(unittest.TestCase):
         """Test NotificationEventStatus"""
         # inst = NotificationEventStatus()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

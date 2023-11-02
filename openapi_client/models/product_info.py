@@ -24,60 +24,33 @@ from pydantic import BaseModel, Field, StrictStr, conlist
 from openapi_client.models.alibaba_marketplace_product import AlibabaMarketplaceProduct
 from openapi_client.models.aws_saas_product import AwsSaasProduct
 from openapi_client.models.aws_sns_subscription import AwsSnsSubscription
-from openapi_client.models.azure_marketplace_product_resource import (
-    AzureMarketplaceProductResource,
-)
+from openapi_client.models.azure_marketplace_product_resource import AzureMarketplaceProductResource
 from openapi_client.models.azure_product import AzureProduct
 from openapi_client.models.commit_dimension import CommitDimension
 from openapi_client.models.gcp_marketplace_product import GcpMarketplaceProduct
 from openapi_client.models.metering_dimension import MeteringDimension
 
-
 class ProductInfo(BaseModel):
     """
     ProductInfo
     """
-
-    alibaba_product: Optional[AlibabaMarketplaceProduct] = Field(
-        None, alias="alibabaProduct"
-    )
+    alibaba_product: Optional[AlibabaMarketplaceProduct] = Field(None, alias="alibabaProduct")
     attributes: Optional[Dict[str, StrictStr]] = None
     aws_saas_product: Optional[AwsSaasProduct] = Field(None, alias="awsSaasProduct")
-    aws_sns_subscriptions: Optional[conlist(AwsSnsSubscription)] = Field(
-        None, alias="awsSnsSubscriptions"
-    )
+    aws_sns_subscriptions: Optional[conlist(AwsSnsSubscription)] = Field(None, alias="awsSnsSubscriptions")
     azure_product: Optional[AzureProduct] = Field(None, alias="azureProduct")
-    azure_product_resource: Optional[AzureMarketplaceProductResource] = Field(
-        None, alias="azureProductResource"
-    )
+    azure_product_resource: Optional[AzureMarketplaceProductResource] = Field(None, alias="azureProductResource")
     commits: Optional[conlist(CommitDimension)] = None
     currency: Optional[StrictStr] = None
     dimensions: Optional[conlist(MeteringDimension)] = None
     eula_url: Optional[StrictStr] = Field(None, alias="eulaUrl")
     gcp_product: Optional[GcpMarketplaceProduct] = Field(None, alias="gcpProduct")
-    refund_cancelation_policy: Optional[StrictStr] = Field(
-        None, alias="refundCancelationPolicy"
-    )
+    refund_cancelation_policy: Optional[StrictStr] = Field(None, alias="refundCancelationPolicy")
     seller_notes: Optional[StrictStr] = Field(None, alias="sellerNotes")
-    __properties = [
-        "alibabaProduct",
-        "attributes",
-        "awsSaasProduct",
-        "awsSnsSubscriptions",
-        "azureProduct",
-        "azureProductResource",
-        "commits",
-        "currency",
-        "dimensions",
-        "eulaUrl",
-        "gcpProduct",
-        "refundCancelationPolicy",
-        "sellerNotes",
-    ]
+    __properties = ["alibabaProduct", "attributes", "awsSaasProduct", "awsSnsSubscriptions", "azureProduct", "azureProductResource", "commits", "currency", "dimensions", "eulaUrl", "gcpProduct", "refundCancelationPolicy", "sellerNotes"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -96,43 +69,46 @@ class ProductInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of alibaba_product
         if self.alibaba_product:
-            _dict["alibabaProduct"] = self.alibaba_product.to_dict()
+            _dict['alibabaProduct'] = self.alibaba_product.to_dict()
         # override the default output from pydantic by calling `to_dict()` of aws_saas_product
         if self.aws_saas_product:
-            _dict["awsSaasProduct"] = self.aws_saas_product.to_dict()
+            _dict['awsSaasProduct'] = self.aws_saas_product.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in aws_sns_subscriptions (list)
         _items = []
         if self.aws_sns_subscriptions:
             for _item in self.aws_sns_subscriptions:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["awsSnsSubscriptions"] = _items
+            _dict['awsSnsSubscriptions'] = _items
         # override the default output from pydantic by calling `to_dict()` of azure_product
         if self.azure_product:
-            _dict["azureProduct"] = self.azure_product.to_dict()
+            _dict['azureProduct'] = self.azure_product.to_dict()
         # override the default output from pydantic by calling `to_dict()` of azure_product_resource
         if self.azure_product_resource:
-            _dict["azureProductResource"] = self.azure_product_resource.to_dict()
+            _dict['azureProductResource'] = self.azure_product_resource.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in commits (list)
         _items = []
         if self.commits:
             for _item in self.commits:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["commits"] = _items
+            _dict['commits'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in dimensions (list)
         _items = []
         if self.dimensions:
             for _item in self.dimensions:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["dimensions"] = _items
+            _dict['dimensions'] = _items
         # override the default output from pydantic by calling `to_dict()` of gcp_product
         if self.gcp_product:
-            _dict["gcpProduct"] = self.gcp_product.to_dict()
+            _dict['gcpProduct'] = self.gcp_product.to_dict()
         return _dict
 
     @classmethod
@@ -144,49 +120,21 @@ class ProductInfo(BaseModel):
         if not isinstance(obj, dict):
             return ProductInfo.parse_obj(obj)
 
-        _obj = ProductInfo.parse_obj(
-            {
-                "alibaba_product": AlibabaMarketplaceProduct.from_dict(
-                    obj.get("alibabaProduct")
-                )
-                if obj.get("alibabaProduct") is not None
-                else None,
-                "attributes": obj.get("attributes"),
-                "aws_saas_product": AwsSaasProduct.from_dict(obj.get("awsSaasProduct"))
-                if obj.get("awsSaasProduct") is not None
-                else None,
-                "aws_sns_subscriptions": [
-                    AwsSnsSubscription.from_dict(_item)
-                    for _item in obj.get("awsSnsSubscriptions")
-                ]
-                if obj.get("awsSnsSubscriptions") is not None
-                else None,
-                "azure_product": AzureProduct.from_dict(obj.get("azureProduct"))
-                if obj.get("azureProduct") is not None
-                else None,
-                "azure_product_resource": AzureMarketplaceProductResource.from_dict(
-                    obj.get("azureProductResource")
-                )
-                if obj.get("azureProductResource") is not None
-                else None,
-                "commits": [
-                    CommitDimension.from_dict(_item) for _item in obj.get("commits")
-                ]
-                if obj.get("commits") is not None
-                else None,
-                "currency": obj.get("currency"),
-                "dimensions": [
-                    MeteringDimension.from_dict(_item)
-                    for _item in obj.get("dimensions")
-                ]
-                if obj.get("dimensions") is not None
-                else None,
-                "eula_url": obj.get("eulaUrl"),
-                "gcp_product": GcpMarketplaceProduct.from_dict(obj.get("gcpProduct"))
-                if obj.get("gcpProduct") is not None
-                else None,
-                "refund_cancelation_policy": obj.get("refundCancelationPolicy"),
-                "seller_notes": obj.get("sellerNotes"),
-            }
-        )
+        _obj = ProductInfo.parse_obj({
+            "alibaba_product": AlibabaMarketplaceProduct.from_dict(obj.get("alibabaProduct")) if obj.get("alibabaProduct") is not None else None,
+            "attributes": obj.get("attributes"),
+            "aws_saas_product": AwsSaasProduct.from_dict(obj.get("awsSaasProduct")) if obj.get("awsSaasProduct") is not None else None,
+            "aws_sns_subscriptions": [AwsSnsSubscription.from_dict(_item) for _item in obj.get("awsSnsSubscriptions")] if obj.get("awsSnsSubscriptions") is not None else None,
+            "azure_product": AzureProduct.from_dict(obj.get("azureProduct")) if obj.get("azureProduct") is not None else None,
+            "azure_product_resource": AzureMarketplaceProductResource.from_dict(obj.get("azureProductResource")) if obj.get("azureProductResource") is not None else None,
+            "commits": [CommitDimension.from_dict(_item) for _item in obj.get("commits")] if obj.get("commits") is not None else None,
+            "currency": obj.get("currency"),
+            "dimensions": [MeteringDimension.from_dict(_item) for _item in obj.get("dimensions")] if obj.get("dimensions") is not None else None,
+            "eula_url": obj.get("eulaUrl"),
+            "gcp_product": GcpMarketplaceProduct.from_dict(obj.get("gcpProduct")) if obj.get("gcpProduct") is not None else None,
+            "refund_cancelation_policy": obj.get("refundCancelationPolicy"),
+            "seller_notes": obj.get("sellerNotes")
+        })
         return _obj
+
+

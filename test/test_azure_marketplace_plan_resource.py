@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.azure_marketplace_plan_resource import (
-    AzureMarketplacePlanResource,
-)  # noqa: E501
-
+from openapi_client.models.azure_marketplace_plan_resource import AzureMarketplacePlanResource  # noqa: E501
 
 class TestAzureMarketplacePlanResource(unittest.TestCase):
     """AzureMarketplacePlanResource unit test stubs"""
@@ -32,9 +29,9 @@ class TestAzureMarketplacePlanResource(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePlanResource:
         """Test AzureMarketplacePlanResource
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePlanResource`
         """
         model = AzureMarketplacePlanResource()  # noqa: E501
@@ -99,11 +96,11 @@ class TestAzureMarketplacePlanResource(unittest.TestCase):
                     __schema = '', 
                     audience = 'public', 
                     billing_tag = '', 
-                    customer_markets = 'customMarkets', 
                     id = '', 
                     markets = [
                         ''
                         ], 
+                    meter_define = '', 
                     plan = '', 
                     pricing = openapi_client.models.azure_marketplace_price_and_availability_price.AzureMarketplacePriceAndAvailabilityPrice(
                         core_pricing = openapi_client.models.azure_marketplace_price_and_availability_core_price.AzureMarketplacePriceAndAvailabilityCorePrice(
@@ -116,7 +113,33 @@ class TestAzureMarketplacePlanResource(unittest.TestCase):
                                     currency = '', 
                                     price = 1.337, )
                                 ], ), 
-                        license_model = '', ), 
+                        custom_meters = openapi_client.models.azure_marketplace_price_and_availability_custom_meter_price.AzureMarketplacePriceAndAvailabilityCustomMeterPrice(
+                            meters = {
+                                'key' : openapi_client.models.azure_marketplace_price_and_availability_custom_meter_price_meter_item.AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItem(
+                                    billing_term = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
+                                        type = 'day', 
+                                        value = 1.337, ), 
+                                    included_quantities = [
+                                        openapi_client.models.azure_marketplace_price_and_availability_custom_meter_price_included_quantity_item.AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem(
+                                            is_infinite = True, 
+                                            quantity = 1.337, )
+                                        ], 
+                                    payment_option = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
+                                        type = 'day', 
+                                        value = 1.337, ), 
+                                    price_per_payment_in_usd = 1.337, )
+                                }, 
+                            price_input_option = 'perMarket', ), 
+                        license_model = 'byol', 
+                        recurrent_price = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price.AzureMarketplacePriceAndAvailabilityRecurrentPrice(
+                            price_input_option = 'perMarket', 
+                            recurrent_price_mode = 'flatRate', 
+                            user_limits = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_user_limit.AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit(
+                                max = 1.337, 
+                                min = 1.337, ), ), 
+                        system_meter_pricing = openapi_client.models.azure_marketplace_price_and_availability_system_meter_price.AzureMarketplacePriceAndAvailabilitySystemMeterPrice(
+                            price = 1.337, 
+                            price_input_option = 'perCore', ), ), 
                     private_audiences = [
                         openapi_client.models.azure_marketplace_price_and_availability_audience.AzureMarketplacePriceAndAvailabilityAudience(
                             id = '', 
@@ -131,9 +154,7 @@ class TestAzureMarketplacePlanResource(unittest.TestCase):
                             term = 1.337, 
                             type = 'month', )
                         ], 
-                    trial = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                        type = 'day', 
-                        value = 1.337, ), 
+                    trial = , 
                     validations = [
                         openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
                             __schema = '', 
@@ -154,6 +175,5 @@ class TestAzureMarketplacePlanResource(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

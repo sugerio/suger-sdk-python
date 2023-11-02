@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.metering_usage_record_report_info import (
-    MeteringUsageRecordReportInfo,
-)  # noqa: E501
-
+from openapi_client.models.metering_usage_record_report_info import MeteringUsageRecordReportInfo  # noqa: E501
 
 class TestMeteringUsageRecordReportInfo(unittest.TestCase):
     """MeteringUsageRecordReportInfo unit test stubs"""
@@ -32,9 +29,9 @@ class TestMeteringUsageRecordReportInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> MeteringUsageRecordReportInfo:
         """Test MeteringUsageRecordReportInfo
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `MeteringUsageRecordReportInfo`
         """
         model = MeteringUsageRecordReportInfo()  # noqa: E501
@@ -155,6 +152,5 @@ class TestMeteringUsageRecordReportInfo(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

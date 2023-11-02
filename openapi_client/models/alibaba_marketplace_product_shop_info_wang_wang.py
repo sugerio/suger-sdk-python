@@ -22,19 +22,16 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class AlibabaMarketplaceProductShopInfoWangWang(BaseModel):
     """
     AlibabaMarketplaceProductShopInfoWangWang
     """
-
     remark: Optional[StrictStr] = Field(None, alias="Remark")
     user_name: Optional[StrictStr] = Field(None, alias="UserName")
     __properties = ["Remark", "UserName"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,7 +50,10 @@ class AlibabaMarketplaceProductShopInfoWangWang(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,7 +65,10 @@ class AlibabaMarketplaceProductShopInfoWangWang(BaseModel):
         if not isinstance(obj, dict):
             return AlibabaMarketplaceProductShopInfoWangWang.parse_obj(obj)
 
-        _obj = AlibabaMarketplaceProductShopInfoWangWang.parse_obj(
-            {"remark": obj.get("Remark"), "user_name": obj.get("UserName")}
-        )
+        _obj = AlibabaMarketplaceProductShopInfoWangWang.parse_obj({
+            "remark": obj.get("Remark"),
+            "user_name": obj.get("UserName")
+        })
         return _obj
+
+

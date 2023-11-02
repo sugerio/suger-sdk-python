@@ -25,58 +25,23 @@ from openapi_client.models.aws_account_identifier import AwsAccountIdentifier
 from openapi_client.models.azure_ad_identifier import AzureADIdentifier
 from openapi_client.models.gcp_marketplace_user_account import GcpMarketplaceUserAccount
 
-
 class BuyerInfo(BaseModel):
     """
     BuyerInfo
     """
-
     aws_buyer: Optional[AwsAccountIdentifier] = Field(None, alias="awsBuyer")
     azure_buyer: Optional[AzureADIdentifier] = Field(None, alias="azureBuyer")
-    collectable_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None,
-        alias="collectableAmount",
-        description="The amount that the seller can collect. It excludes the marketplace commision fee.",
-    )
-    customer_id: Optional[StrictStr] = Field(
-        None, alias="customerId", description="customerID of buyer on seller's side"
-    )
-    disbursed_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None,
-        alias="disbursedAmount",
-        description="The amount that has been disbursed to the seller account.",
-    )
+    collectable_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="collectableAmount", description="The amount that the seller can collect. It excludes the marketplace commision fee.")
+    customer_id: Optional[StrictStr] = Field(None, alias="customerId", description="customerID of buyer on seller's side")
+    disbursed_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="disbursedAmount", description="The amount that has been disbursed to the seller account.")
     gcp_buyer: Optional[GcpMarketplaceUserAccount] = Field(None, alias="gcpBuyer")
-    invoiced_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None,
-        alias="invoicedAmount",
-        description="The amount that the buyer has got invoiced.",
-    )
-    metronome_customer_id: Optional[StrictStr] = Field(
-        None,
-        alias="metronomeCustomerId",
-        description="The metronome customer ID for the buyer if it is connected to a metronome customer.",
-    )
-    orb_customer_id: Optional[StrictStr] = Field(
-        None,
-        alias="orbCustomerId",
-        description="The orb customer ID for the buyer if it is connected to a orb customer.",
-    )
-    __properties = [
-        "awsBuyer",
-        "azureBuyer",
-        "collectableAmount",
-        "customerId",
-        "disbursedAmount",
-        "gcpBuyer",
-        "invoicedAmount",
-        "metronomeCustomerId",
-        "orbCustomerId",
-    ]
+    invoiced_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="invoicedAmount", description="The amount that the buyer has got invoiced.")
+    metronome_customer_id: Optional[StrictStr] = Field(None, alias="metronomeCustomerId", description="The metronome customer ID for the buyer if it is connected to a metronome customer.")
+    orb_customer_id: Optional[StrictStr] = Field(None, alias="orbCustomerId", description="The orb customer ID for the buyer if it is connected to a orb customer.")
+    __properties = ["awsBuyer", "azureBuyer", "collectableAmount", "customerId", "disbursedAmount", "gcpBuyer", "invoicedAmount", "metronomeCustomerId", "orbCustomerId"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -95,16 +60,19 @@ class BuyerInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of aws_buyer
         if self.aws_buyer:
-            _dict["awsBuyer"] = self.aws_buyer.to_dict()
+            _dict['awsBuyer'] = self.aws_buyer.to_dict()
         # override the default output from pydantic by calling `to_dict()` of azure_buyer
         if self.azure_buyer:
-            _dict["azureBuyer"] = self.azure_buyer.to_dict()
+            _dict['azureBuyer'] = self.azure_buyer.to_dict()
         # override the default output from pydantic by calling `to_dict()` of gcp_buyer
         if self.gcp_buyer:
-            _dict["gcpBuyer"] = self.gcp_buyer.to_dict()
+            _dict['gcpBuyer'] = self.gcp_buyer.to_dict()
         return _dict
 
     @classmethod
@@ -116,23 +84,17 @@ class BuyerInfo(BaseModel):
         if not isinstance(obj, dict):
             return BuyerInfo.parse_obj(obj)
 
-        _obj = BuyerInfo.parse_obj(
-            {
-                "aws_buyer": AwsAccountIdentifier.from_dict(obj.get("awsBuyer"))
-                if obj.get("awsBuyer") is not None
-                else None,
-                "azure_buyer": AzureADIdentifier.from_dict(obj.get("azureBuyer"))
-                if obj.get("azureBuyer") is not None
-                else None,
-                "collectable_amount": obj.get("collectableAmount"),
-                "customer_id": obj.get("customerId"),
-                "disbursed_amount": obj.get("disbursedAmount"),
-                "gcp_buyer": GcpMarketplaceUserAccount.from_dict(obj.get("gcpBuyer"))
-                if obj.get("gcpBuyer") is not None
-                else None,
-                "invoiced_amount": obj.get("invoicedAmount"),
-                "metronome_customer_id": obj.get("metronomeCustomerId"),
-                "orb_customer_id": obj.get("orbCustomerId"),
-            }
-        )
+        _obj = BuyerInfo.parse_obj({
+            "aws_buyer": AwsAccountIdentifier.from_dict(obj.get("awsBuyer")) if obj.get("awsBuyer") is not None else None,
+            "azure_buyer": AzureADIdentifier.from_dict(obj.get("azureBuyer")) if obj.get("azureBuyer") is not None else None,
+            "collectable_amount": obj.get("collectableAmount"),
+            "customer_id": obj.get("customerId"),
+            "disbursed_amount": obj.get("disbursedAmount"),
+            "gcp_buyer": GcpMarketplaceUserAccount.from_dict(obj.get("gcpBuyer")) if obj.get("gcpBuyer") is not None else None,
+            "invoiced_amount": obj.get("invoicedAmount"),
+            "metronome_customer_id": obj.get("metronomeCustomerId"),
+            "orb_customer_id": obj.get("orbCustomerId")
+        })
         return _obj
+
+

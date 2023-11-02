@@ -21,61 +21,39 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist, validator
-from openapi_client.models.azure_marketplace_resource_lifecycle_state import (
-    AzureMarketplaceResourceLifecycleState,
-)
-from openapi_client.models.azure_marketplace_validation import (
-    AzureMarketplaceValidation,
-)
-
+from openapi_client.models.azure_marketplace_resource_lifecycle_state import AzureMarketplaceResourceLifecycleState
+from openapi_client.models.azure_marketplace_validation import AzureMarketplaceValidation
 
 class AzureMarketplacePlanListing(BaseModel):
     """
     AzureMarketplacePlanListing
     """
-
     var_schema: Optional[StrictStr] = Field(None, alias="$schema")
     description: Optional[StrictStr] = None
     id: Optional[StrictStr] = None
     kind: Optional[StrictStr] = None
     language_id: Optional[StrictStr] = Field(None, alias="languageId")
-    lifecycle_state: Optional[AzureMarketplaceResourceLifecycleState] = Field(
-        None, alias="lifecycleState"
-    )
+    lifecycle_state: Optional[AzureMarketplaceResourceLifecycleState] = Field(None, alias="lifecycleState")
     name: Optional[StrictStr] = None
     plan: Optional[StrictStr] = None
     product: Optional[StrictStr] = None
     resource_name: Optional[StrictStr] = Field(None, alias="resourceName")
     summary: Optional[StrictStr] = None
     validations: Optional[conlist(AzureMarketplaceValidation)] = None
-    __properties = [
-        "$schema",
-        "description",
-        "id",
-        "kind",
-        "languageId",
-        "lifecycleState",
-        "name",
-        "plan",
-        "product",
-        "resourceName",
-        "summary",
-        "validations",
-    ]
+    __properties = ["$schema", "description", "id", "kind", "languageId", "lifecycleState", "name", "plan", "product", "resourceName", "summary", "validations"]
 
-    @validator("kind")
+    @validator('kind')
     def kind_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("azureVM-plan"):
-            raise ValueError("must be one of enum values ('azureVM-plan')")
+        if value not in ('azureVM-plan', 'azureSaaS-plan', 'azureCoreVM-plan', 'azureContainer-plan'):
+            raise ValueError("must be one of enum values ('azureVM-plan', 'azureSaaS-plan', 'azureCoreVM-plan', 'azureContainer-plan')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -94,14 +72,17 @@ class AzureMarketplacePlanListing(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in validations (list)
         _items = []
         if self.validations:
             for _item in self.validations:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["validations"] = _items
+            _dict['validations'] = _items
         return _dict
 
     @classmethod
@@ -113,25 +94,20 @@ class AzureMarketplacePlanListing(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePlanListing.parse_obj(obj)
 
-        _obj = AzureMarketplacePlanListing.parse_obj(
-            {
-                "var_schema": obj.get("$schema"),
-                "description": obj.get("description"),
-                "id": obj.get("id"),
-                "kind": obj.get("kind"),
-                "language_id": obj.get("languageId"),
-                "lifecycle_state": obj.get("lifecycleState"),
-                "name": obj.get("name"),
-                "plan": obj.get("plan"),
-                "product": obj.get("product"),
-                "resource_name": obj.get("resourceName"),
-                "summary": obj.get("summary"),
-                "validations": [
-                    AzureMarketplaceValidation.from_dict(_item)
-                    for _item in obj.get("validations")
-                ]
-                if obj.get("validations") is not None
-                else None,
-            }
-        )
+        _obj = AzureMarketplacePlanListing.parse_obj({
+            "var_schema": obj.get("$schema"),
+            "description": obj.get("description"),
+            "id": obj.get("id"),
+            "kind": obj.get("kind"),
+            "language_id": obj.get("languageId"),
+            "lifecycle_state": obj.get("lifecycleState"),
+            "name": obj.get("name"),
+            "plan": obj.get("plan"),
+            "product": obj.get("product"),
+            "resource_name": obj.get("resourceName"),
+            "summary": obj.get("summary"),
+            "validations": [AzureMarketplaceValidation.from_dict(_item) for _item in obj.get("validations")] if obj.get("validations") is not None else None
+        })
         return _obj
+
+

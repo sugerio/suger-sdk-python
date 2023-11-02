@@ -21,24 +21,17 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, conlist
-from openapi_client.models.alibaba_marketplace_product_extra import (
-    AlibabaMarketplaceProductExtra,
-)
-
+from openapi_client.models.alibaba_marketplace_product_extra import AlibabaMarketplaceProductExtra
 
 class AlibabaMarketplaceProductExtras(BaseModel):
     """
     AlibabaMarketplaceProductExtras
     """
-
-    product_extra: Optional[conlist(AlibabaMarketplaceProductExtra)] = Field(
-        None, alias="ProductExtra"
-    )
+    product_extra: Optional[conlist(AlibabaMarketplaceProductExtra)] = Field(None, alias="ProductExtra")
     __properties = ["ProductExtra"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -57,14 +50,17 @@ class AlibabaMarketplaceProductExtras(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in product_extra (list)
         _items = []
         if self.product_extra:
             for _item in self.product_extra:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["ProductExtra"] = _items
+            _dict['ProductExtra'] = _items
         return _dict
 
     @classmethod
@@ -76,14 +72,9 @@ class AlibabaMarketplaceProductExtras(BaseModel):
         if not isinstance(obj, dict):
             return AlibabaMarketplaceProductExtras.parse_obj(obj)
 
-        _obj = AlibabaMarketplaceProductExtras.parse_obj(
-            {
-                "product_extra": [
-                    AlibabaMarketplaceProductExtra.from_dict(_item)
-                    for _item in obj.get("ProductExtra")
-                ]
-                if obj.get("ProductExtra") is not None
-                else None
-            }
-        )
+        _obj = AlibabaMarketplaceProductExtras.parse_obj({
+            "product_extra": [AlibabaMarketplaceProductExtra.from_dict(_item) for _item in obj.get("ProductExtra")] if obj.get("ProductExtra") is not None else None
+        })
         return _obj
+
+

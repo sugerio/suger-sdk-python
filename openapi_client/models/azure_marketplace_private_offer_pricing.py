@@ -21,77 +21,40 @@ import json
 
 from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr, validator
-from openapi_client.models.azure_marketplace_price_and_availability_private_offer_plan import (
-    AzureMarketplacePriceAndAvailabilityPrivateOfferPlan,
-)
+from openapi_client.models.azure_marketplace_price_and_availability_private_offer_plan import AzureMarketplacePriceAndAvailabilityPrivateOfferPlan
 from openapi_client.models.private_offer_discount_type import PrivateOfferDiscountType
-
 
 class AzureMarketplacePrivateOfferPricing(BaseModel):
     """
     AzureMarketplacePrivateOfferPricing
     """
-
-    discount_percentage: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None, alias="discountPercentage", description="between 0.01 to 100"
-    )
-    discount_type: Optional[PrivateOfferDiscountType] = Field(
-        None, alias="discountType"
-    )
-    markup_percentage: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None, alias="markupPercentage", description="between 0.00000001 to 100"
-    )
-    original_plan: Optional[
-        AzureMarketplacePriceAndAvailabilityPrivateOfferPlan
-    ] = Field(None, alias="originalPlan")
-    plan: Optional[StrictStr] = Field(
-        None, description='in format of "plan/product-durable-id/plan-durable-id"'
-    )
+    discount_percentage: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="discountPercentage", description="between 0.01 to 100")
+    discount_type: Optional[PrivateOfferDiscountType] = Field(None, alias="discountType")
+    markup_percentage: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="markupPercentage", description="between 0.00000001 to 100")
+    original_plan: Optional[AzureMarketplacePriceAndAvailabilityPrivateOfferPlan] = Field(None, alias="originalPlan")
+    plan: Optional[StrictStr] = Field(None, description="in format of \"plan/product-durable-id/plan-durable-id\"")
     plan_id: Optional[StrictStr] = Field(None, alias="planId")
     plan_name: Optional[StrictStr] = Field(None, alias="planName")
-    plan_type: Optional[StrictStr] = Field(
-        None,
-        alias="planType",
-        description="The type of the plan, FLAT_RATE or PER_USER.",
-    )
+    plan_type: Optional[StrictStr] = Field(None, alias="planType", description="The type of the plan, FLAT_RATE or PER_USER.")
     price_details: Optional[StrictStr] = Field(None, alias="priceDetails")
-    private_offer_plan: Optional[
-        AzureMarketplacePriceAndAvailabilityPrivateOfferPlan
-    ] = Field(None, alias="privateOfferPlan")
-    product: Optional[StrictStr] = Field(
-        None, description='in format of "product/product-durable-id"'
-    )
+    private_offer_plan: Optional[AzureMarketplacePriceAndAvailabilityPrivateOfferPlan] = Field(None, alias="privateOfferPlan")
+    product: Optional[StrictStr] = Field(None, description="in format of \"product/product-durable-id\"")
     product_name: Optional[StrictStr] = Field(None, alias="productName")
     suger_offer_id: Optional[StrictStr] = Field(None, alias="sugerOfferId")
-    __properties = [
-        "discountPercentage",
-        "discountType",
-        "markupPercentage",
-        "originalPlan",
-        "plan",
-        "planId",
-        "planName",
-        "planType",
-        "priceDetails",
-        "privateOfferPlan",
-        "product",
-        "productName",
-        "sugerOfferId",
-    ]
+    __properties = ["discountPercentage", "discountType", "markupPercentage", "originalPlan", "plan", "planId", "planName", "planType", "priceDetails", "privateOfferPlan", "product", "productName", "sugerOfferId"]
 
-    @validator("plan_type")
+    @validator('plan_type')
     def plan_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("FLAT_RATE", "PER_USER"):
+        if value not in ('FLAT_RATE', 'PER_USER'):
             raise ValueError("must be one of enum values ('FLAT_RATE', 'PER_USER')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -110,13 +73,16 @@ class AzureMarketplacePrivateOfferPricing(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of original_plan
         if self.original_plan:
-            _dict["originalPlan"] = self.original_plan.to_dict()
+            _dict['originalPlan'] = self.original_plan.to_dict()
         # override the default output from pydantic by calling `to_dict()` of private_offer_plan
         if self.private_offer_plan:
-            _dict["privateOfferPlan"] = self.private_offer_plan.to_dict()
+            _dict['privateOfferPlan'] = self.private_offer_plan.to_dict()
         return _dict
 
     @classmethod
@@ -128,29 +94,21 @@ class AzureMarketplacePrivateOfferPricing(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePrivateOfferPricing.parse_obj(obj)
 
-        _obj = AzureMarketplacePrivateOfferPricing.parse_obj(
-            {
-                "discount_percentage": obj.get("discountPercentage"),
-                "discount_type": obj.get("discountType"),
-                "markup_percentage": obj.get("markupPercentage"),
-                "original_plan": AzureMarketplacePriceAndAvailabilityPrivateOfferPlan.from_dict(
-                    obj.get("originalPlan")
-                )
-                if obj.get("originalPlan") is not None
-                else None,
-                "plan": obj.get("plan"),
-                "plan_id": obj.get("planId"),
-                "plan_name": obj.get("planName"),
-                "plan_type": obj.get("planType"),
-                "price_details": obj.get("priceDetails"),
-                "private_offer_plan": AzureMarketplacePriceAndAvailabilityPrivateOfferPlan.from_dict(
-                    obj.get("privateOfferPlan")
-                )
-                if obj.get("privateOfferPlan") is not None
-                else None,
-                "product": obj.get("product"),
-                "product_name": obj.get("productName"),
-                "suger_offer_id": obj.get("sugerOfferId"),
-            }
-        )
+        _obj = AzureMarketplacePrivateOfferPricing.parse_obj({
+            "discount_percentage": obj.get("discountPercentage"),
+            "discount_type": obj.get("discountType"),
+            "markup_percentage": obj.get("markupPercentage"),
+            "original_plan": AzureMarketplacePriceAndAvailabilityPrivateOfferPlan.from_dict(obj.get("originalPlan")) if obj.get("originalPlan") is not None else None,
+            "plan": obj.get("plan"),
+            "plan_id": obj.get("planId"),
+            "plan_name": obj.get("planName"),
+            "plan_type": obj.get("planType"),
+            "price_details": obj.get("priceDetails"),
+            "private_offer_plan": AzureMarketplacePriceAndAvailabilityPrivateOfferPlan.from_dict(obj.get("privateOfferPlan")) if obj.get("privateOfferPlan") is not None else None,
+            "product": obj.get("product"),
+            "product_name": obj.get("productName"),
+            "suger_offer_id": obj.get("sugerOfferId")
+        })
         return _obj
+
+

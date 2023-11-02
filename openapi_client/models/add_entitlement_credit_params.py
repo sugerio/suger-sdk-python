@@ -22,24 +22,17 @@ import json
 from typing import Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 
-
 class AddEntitlementCreditParams(BaseModel):
     """
     AddEntitlementCreditParams
     """
-
-    credit_amount_increment: Union[StrictFloat, StrictInt] = Field(
-        ...,
-        alias="creditAmountIncrement",
-        description="The amount to be added to the credit amount.",
-    )
+    credit_amount_increment: Union[StrictFloat, StrictInt] = Field(..., alias="creditAmountIncrement", description="The amount to be added to the credit amount.")
     entitlement_id: StrictStr = Field(..., alias="entitlementID")
     organization_id: StrictStr = Field(..., alias="organizationID")
     __properties = ["creditAmountIncrement", "entitlementID", "organizationID"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -58,7 +51,10 @@ class AddEntitlementCreditParams(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -70,11 +66,11 @@ class AddEntitlementCreditParams(BaseModel):
         if not isinstance(obj, dict):
             return AddEntitlementCreditParams.parse_obj(obj)
 
-        _obj = AddEntitlementCreditParams.parse_obj(
-            {
-                "credit_amount_increment": obj.get("creditAmountIncrement"),
-                "entitlement_id": obj.get("entitlementID"),
-                "organization_id": obj.get("organizationID"),
-            }
-        )
+        _obj = AddEntitlementCreditParams.parse_obj({
+            "credit_amount_increment": obj.get("creditAmountIncrement"),
+            "entitlement_id": obj.get("entitlementID"),
+            "organization_id": obj.get("organizationID")
+        })
         return _obj
+
+

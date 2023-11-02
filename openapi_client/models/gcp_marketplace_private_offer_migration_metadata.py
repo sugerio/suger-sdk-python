@@ -22,28 +22,17 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class GcpMarketplacePrivateOfferMigrationMetadata(BaseModel):
     """
     GcpMarketplacePrivateOfferMigrationMetadata
     """
-
-    inventory_flavor_external_name: Optional[StrictStr] = Field(
-        None,
-        alias="inventoryFlavorExternalName",
-        description='Plan name maybe with term suffix, such as "plan-name-P1Y"',
-    )
-    product_external_name: Optional[StrictStr] = Field(
-        None,
-        alias="productExternalName",
-        description='in format of "product-service-id.endpoints.gcp-project-id.cloud.goog"',
-    )
+    inventory_flavor_external_name: Optional[StrictStr] = Field(None, alias="inventoryFlavorExternalName", description="Plan name maybe with term suffix, such as \"plan-name-P1Y\"")
+    product_external_name: Optional[StrictStr] = Field(None, alias="productExternalName", description="in format of \"product-service-id.endpoints.gcp-project-id.cloud.goog\"")
     provider_id: Optional[StrictStr] = Field(None, alias="providerId")
     __properties = ["inventoryFlavorExternalName", "productExternalName", "providerId"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -62,7 +51,10 @@ class GcpMarketplacePrivateOfferMigrationMetadata(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -74,13 +66,11 @@ class GcpMarketplacePrivateOfferMigrationMetadata(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplacePrivateOfferMigrationMetadata.parse_obj(obj)
 
-        _obj = GcpMarketplacePrivateOfferMigrationMetadata.parse_obj(
-            {
-                "inventory_flavor_external_name": obj.get(
-                    "inventoryFlavorExternalName"
-                ),
-                "product_external_name": obj.get("productExternalName"),
-                "provider_id": obj.get("providerId"),
-            }
-        )
+        _obj = GcpMarketplacePrivateOfferMigrationMetadata.parse_obj({
+            "inventory_flavor_external_name": obj.get("inventoryFlavorExternalName"),
+            "product_external_name": obj.get("productExternalName"),
+            "provider_id": obj.get("providerId")
+        })
         return _obj
+
+

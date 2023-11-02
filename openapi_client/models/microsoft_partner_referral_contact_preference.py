@@ -22,21 +22,16 @@ import json
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field
 
-
 class MicrosoftPartnerReferralContactPreference(BaseModel):
     """
     MicrosoftPartnerReferralContactPreference
     """
-
-    disable_notifications: Optional[Dict[str, Any]] = Field(
-        None, alias="disableNotifications"
-    )
+    disable_notifications: Optional[Dict[str, Any]] = Field(None, alias="disableNotifications")
     locale: Optional[Dict[str, Any]] = None
     __properties = ["disableNotifications", "locale"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -55,7 +50,10 @@ class MicrosoftPartnerReferralContactPreference(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -67,10 +65,10 @@ class MicrosoftPartnerReferralContactPreference(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralContactPreference.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralContactPreference.parse_obj(
-            {
-                "disable_notifications": obj.get("disableNotifications"),
-                "locale": obj.get("locale"),
-            }
-        )
+        _obj = MicrosoftPartnerReferralContactPreference.parse_obj({
+            "disable_notifications": obj.get("disableNotifications"),
+            "locale": obj.get("locale")
+        })
         return _obj
+
+

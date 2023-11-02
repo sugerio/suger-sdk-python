@@ -21,60 +21,38 @@ import json
 from datetime import datetime
 from typing import Dict, Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr, validator
-from openapi_client.models.metering_usage_record_group_meta_info import (
-    MeteringUsageRecordGroupMetaInfo,
-)
-
+from openapi_client.models.metering_usage_record_group_meta_info import MeteringUsageRecordGroupMetaInfo
 
 class MeteringUsageRecordGroup(BaseModel):
     """
     MeteringUsageRecordGroup
     """
-
     buyer_id: Optional[StrictStr] = Field(None, alias="buyerID")
     creation_time: Optional[datetime] = Field(None, alias="creationTime")
     entitlement_id: Optional[StrictStr] = Field(None, alias="entitlementID")
     id: Optional[StrictStr] = None
     last_update_time: Optional[datetime] = Field(None, alias="lastUpdateTime")
-    meta_info: Optional[MeteringUsageRecordGroupMetaInfo] = Field(
-        None, alias="metaInfo"
-    )
+    meta_info: Optional[MeteringUsageRecordGroupMetaInfo] = Field(None, alias="metaInfo")
     organization_id: Optional[StrictStr] = Field(None, alias="organizationID")
     partner: Optional[StrictStr] = None
     records: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = None
     serial_id: Optional[StrictInt] = Field(None, alias="serialID")
     status: Optional[StrictStr] = None
-    usage_record_report_id: Optional[StrictStr] = Field(
-        None, alias="usageRecordReportID"
-    )
-    __properties = [
-        "buyerID",
-        "creationTime",
-        "entitlementID",
-        "id",
-        "lastUpdateTime",
-        "metaInfo",
-        "organizationID",
-        "partner",
-        "records",
-        "serialID",
-        "status",
-        "usageRecordReportID",
-    ]
+    usage_record_report_id: Optional[StrictStr] = Field(None, alias="usageRecordReportID")
+    __properties = ["buyerID", "creationTime", "entitlementID", "id", "lastUpdateTime", "metaInfo", "organizationID", "partner", "records", "serialID", "status", "usageRecordReportID"]
 
-    @validator("partner")
+    @validator('partner')
     def partner_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("AWS", "AZURE", "GCP"):
+        if value not in ('AWS', 'AZURE', 'GCP'):
             raise ValueError("must be one of enum values ('AWS', 'AZURE', 'GCP')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -93,10 +71,13 @@ class MeteringUsageRecordGroup(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of meta_info
         if self.meta_info:
-            _dict["metaInfo"] = self.meta_info.to_dict()
+            _dict['metaInfo'] = self.meta_info.to_dict()
         return _dict
 
     @classmethod
@@ -108,24 +89,20 @@ class MeteringUsageRecordGroup(BaseModel):
         if not isinstance(obj, dict):
             return MeteringUsageRecordGroup.parse_obj(obj)
 
-        _obj = MeteringUsageRecordGroup.parse_obj(
-            {
-                "buyer_id": obj.get("buyerID"),
-                "creation_time": obj.get("creationTime"),
-                "entitlement_id": obj.get("entitlementID"),
-                "id": obj.get("id"),
-                "last_update_time": obj.get("lastUpdateTime"),
-                "meta_info": MeteringUsageRecordGroupMetaInfo.from_dict(
-                    obj.get("metaInfo")
-                )
-                if obj.get("metaInfo") is not None
-                else None,
-                "organization_id": obj.get("organizationID"),
-                "partner": obj.get("partner"),
-                "records": obj.get("records"),
-                "serial_id": obj.get("serialID"),
-                "status": obj.get("status"),
-                "usage_record_report_id": obj.get("usageRecordReportID"),
-            }
-        )
+        _obj = MeteringUsageRecordGroup.parse_obj({
+            "buyer_id": obj.get("buyerID"),
+            "creation_time": obj.get("creationTime"),
+            "entitlement_id": obj.get("entitlementID"),
+            "id": obj.get("id"),
+            "last_update_time": obj.get("lastUpdateTime"),
+            "meta_info": MeteringUsageRecordGroupMetaInfo.from_dict(obj.get("metaInfo")) if obj.get("metaInfo") is not None else None,
+            "organization_id": obj.get("organizationID"),
+            "partner": obj.get("partner"),
+            "records": obj.get("records"),
+            "serial_id": obj.get("serialID"),
+            "status": obj.get("status"),
+            "usage_record_report_id": obj.get("usageRecordReportID")
+        })
         return _obj
+
+

@@ -23,52 +23,25 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from openapi_client.models.aws_saas_product_description import AwsSaasProductDescription
 from openapi_client.models.aws_saas_product_dimension import AwsSaasProductDimension
-from openapi_client.models.aws_saas_product_promotional_resources import (
-    AwsSaasProductPromotionalResources,
-)
-from openapi_client.models.aws_saas_product_support_information import (
-    AwsSaasProductSupportInformation,
-)
+from openapi_client.models.aws_saas_product_promotional_resources import AwsSaasProductPromotionalResources
+from openapi_client.models.aws_saas_product_support_information import AwsSaasProductSupportInformation
 from openapi_client.models.aws_saas_product_version import AwsSaasProductVersion
-
 
 class AwsSaasProduct(BaseModel):
     """
     AwsSaasProduct
     """
-
     description: Optional[AwsSaasProductDescription] = Field(None, alias="Description")
-    dimensions: Optional[conlist(AwsSaasProductDimension)] = Field(
-        None, alias="Dimensions"
-    )
-    promotional_resources: Optional[AwsSaasProductPromotionalResources] = Field(
-        None, alias="PromotionalResources"
-    )
-    support_information: Optional[AwsSaasProductSupportInformation] = Field(
-        None, alias="SupportInformation"
-    )
+    dimensions: Optional[conlist(AwsSaasProductDimension)] = Field(None, alias="Dimensions")
+    promotional_resources: Optional[AwsSaasProductPromotionalResources] = Field(None, alias="PromotionalResources")
+    support_information: Optional[AwsSaasProductSupportInformation] = Field(None, alias="SupportInformation")
     versions: Optional[conlist(AwsSaasProductVersion)] = Field(None, alias="Versions")
-    data_feed_product_id: Optional[StrictStr] = Field(
-        None,
-        alias="dataFeedProductId",
-        description="The product Id in AWS Marketplace Data Feed Service.",
-    )
-    product_id: Optional[StrictStr] = Field(
-        None, alias="productId", description="AWS Product ID"
-    )
-    __properties = [
-        "Description",
-        "Dimensions",
-        "PromotionalResources",
-        "SupportInformation",
-        "Versions",
-        "dataFeedProductId",
-        "productId",
-    ]
+    data_feed_product_id: Optional[StrictStr] = Field(None, alias="dataFeedProductId", description="The product Id in AWS Marketplace Data Feed Service.")
+    product_id: Optional[StrictStr] = Field(None, alias="productId", description="AWS Product ID")
+    __properties = ["Description", "Dimensions", "PromotionalResources", "SupportInformation", "Versions", "dataFeedProductId", "productId"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -87,30 +60,33 @@ class AwsSaasProduct(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of description
         if self.description:
-            _dict["Description"] = self.description.to_dict()
+            _dict['Description'] = self.description.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in dimensions (list)
         _items = []
         if self.dimensions:
             for _item in self.dimensions:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["Dimensions"] = _items
+            _dict['Dimensions'] = _items
         # override the default output from pydantic by calling `to_dict()` of promotional_resources
         if self.promotional_resources:
-            _dict["PromotionalResources"] = self.promotional_resources.to_dict()
+            _dict['PromotionalResources'] = self.promotional_resources.to_dict()
         # override the default output from pydantic by calling `to_dict()` of support_information
         if self.support_information:
-            _dict["SupportInformation"] = self.support_information.to_dict()
+            _dict['SupportInformation'] = self.support_information.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in versions (list)
         _items = []
         if self.versions:
             for _item in self.versions:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["Versions"] = _items
+            _dict['Versions'] = _items
         return _dict
 
     @classmethod
@@ -122,37 +98,15 @@ class AwsSaasProduct(BaseModel):
         if not isinstance(obj, dict):
             return AwsSaasProduct.parse_obj(obj)
 
-        _obj = AwsSaasProduct.parse_obj(
-            {
-                "description": AwsSaasProductDescription.from_dict(
-                    obj.get("Description")
-                )
-                if obj.get("Description") is not None
-                else None,
-                "dimensions": [
-                    AwsSaasProductDimension.from_dict(_item)
-                    for _item in obj.get("Dimensions")
-                ]
-                if obj.get("Dimensions") is not None
-                else None,
-                "promotional_resources": AwsSaasProductPromotionalResources.from_dict(
-                    obj.get("PromotionalResources")
-                )
-                if obj.get("PromotionalResources") is not None
-                else None,
-                "support_information": AwsSaasProductSupportInformation.from_dict(
-                    obj.get("SupportInformation")
-                )
-                if obj.get("SupportInformation") is not None
-                else None,
-                "versions": [
-                    AwsSaasProductVersion.from_dict(_item)
-                    for _item in obj.get("Versions")
-                ]
-                if obj.get("Versions") is not None
-                else None,
-                "data_feed_product_id": obj.get("dataFeedProductId"),
-                "product_id": obj.get("productId"),
-            }
-        )
+        _obj = AwsSaasProduct.parse_obj({
+            "description": AwsSaasProductDescription.from_dict(obj.get("Description")) if obj.get("Description") is not None else None,
+            "dimensions": [AwsSaasProductDimension.from_dict(_item) for _item in obj.get("Dimensions")] if obj.get("Dimensions") is not None else None,
+            "promotional_resources": AwsSaasProductPromotionalResources.from_dict(obj.get("PromotionalResources")) if obj.get("PromotionalResources") is not None else None,
+            "support_information": AwsSaasProductSupportInformation.from_dict(obj.get("SupportInformation")) if obj.get("SupportInformation") is not None else None,
+            "versions": [AwsSaasProductVersion.from_dict(_item) for _item in obj.get("Versions")] if obj.get("Versions") is not None else None,
+            "data_feed_product_id": obj.get("dataFeedProductId"),
+            "product_id": obj.get("productId")
+        })
         return _obj
+
+

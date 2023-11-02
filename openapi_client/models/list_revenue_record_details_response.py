@@ -23,21 +23,16 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, conlist
 from openapi_client.models.revenue_record_detail import RevenueRecordDetail
 
-
 class ListRevenueRecordDetailsResponse(BaseModel):
     """
     ListRevenueRecordDetailsResponse
     """
-
     next_offset: Optional[StrictInt] = Field(None, alias="nextOffset")
-    revenue_record_details: Optional[conlist(RevenueRecordDetail)] = Field(
-        None, alias="revenueRecordDetails"
-    )
+    revenue_record_details: Optional[conlist(RevenueRecordDetail)] = Field(None, alias="revenueRecordDetails")
     __properties = ["nextOffset", "revenueRecordDetails"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -56,14 +51,17 @@ class ListRevenueRecordDetailsResponse(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in revenue_record_details (list)
         _items = []
         if self.revenue_record_details:
             for _item in self.revenue_record_details:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["revenueRecordDetails"] = _items
+            _dict['revenueRecordDetails'] = _items
         return _dict
 
     @classmethod
@@ -75,15 +73,10 @@ class ListRevenueRecordDetailsResponse(BaseModel):
         if not isinstance(obj, dict):
             return ListRevenueRecordDetailsResponse.parse_obj(obj)
 
-        _obj = ListRevenueRecordDetailsResponse.parse_obj(
-            {
-                "next_offset": obj.get("nextOffset"),
-                "revenue_record_details": [
-                    RevenueRecordDetail.from_dict(_item)
-                    for _item in obj.get("revenueRecordDetails")
-                ]
-                if obj.get("revenueRecordDetails") is not None
-                else None,
-            }
-        )
+        _obj = ListRevenueRecordDetailsResponse.parse_obj({
+            "next_offset": obj.get("nextOffset"),
+            "revenue_record_details": [RevenueRecordDetail.from_dict(_item) for _item in obj.get("revenueRecordDetails")] if obj.get("revenueRecordDetails") is not None else None
+        })
         return _obj
+
+

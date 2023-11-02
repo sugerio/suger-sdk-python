@@ -25,12 +25,10 @@ from openapi_client.models.integration_info import IntegrationInfo
 from openapi_client.models.partner import Partner
 from openapi_client.models.partner_service import PartnerService
 
-
 class CreateIntegrationParams(BaseModel):
     """
     CreateIntegrationParams
     """
-
     created_by: Optional[StrictStr] = Field(None, alias="createdBy")
     info: IntegrationInfo = Field(...)
     organization_id: StrictStr = Field(..., alias="organizationID")
@@ -40,7 +38,6 @@ class CreateIntegrationParams(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -59,10 +56,13 @@ class CreateIntegrationParams(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of info
         if self.info:
-            _dict["info"] = self.info.to_dict()
+            _dict['info'] = self.info.to_dict()
         return _dict
 
     @classmethod
@@ -74,15 +74,13 @@ class CreateIntegrationParams(BaseModel):
         if not isinstance(obj, dict):
             return CreateIntegrationParams.parse_obj(obj)
 
-        _obj = CreateIntegrationParams.parse_obj(
-            {
-                "created_by": obj.get("createdBy"),
-                "info": IntegrationInfo.from_dict(obj.get("info"))
-                if obj.get("info") is not None
-                else None,
-                "organization_id": obj.get("organizationID"),
-                "partner": obj.get("partner"),
-                "service": obj.get("service"),
-            }
-        )
+        _obj = CreateIntegrationParams.parse_obj({
+            "created_by": obj.get("createdBy"),
+            "info": IntegrationInfo.from_dict(obj.get("info")) if obj.get("info") is not None else None,
+            "organization_id": obj.get("organizationID"),
+            "partner": obj.get("partner"),
+            "service": obj.get("service")
+        })
         return _obj
+
+

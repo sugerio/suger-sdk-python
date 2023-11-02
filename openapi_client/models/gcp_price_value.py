@@ -22,26 +22,17 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr
 
-
 class GcpPriceValue(BaseModel):
     """
     GcpPriceValue
     """
-
-    currency_code: Optional[StrictStr] = Field(
-        None, alias="currencyCode", description='such as "USD"'
-    )
-    nanos: Optional[StrictInt] = Field(
-        None, description="for the decimal part, such as 30000000 = $0.03"
-    )
-    units: Optional[StrictStr] = Field(
-        None, description='for the integer part, such as "500000" = $50K'
-    )
+    currency_code: Optional[StrictStr] = Field(None, alias="currencyCode", description="such as \"USD\"")
+    nanos: Optional[StrictInt] = Field(None, description="for the decimal part, such as 30000000 = $0.03")
+    units: Optional[StrictStr] = Field(None, description="for the integer part, such as \"500000\" = $50K")
     __properties = ["currencyCode", "nanos", "units"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -60,7 +51,10 @@ class GcpPriceValue(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -72,11 +66,11 @@ class GcpPriceValue(BaseModel):
         if not isinstance(obj, dict):
             return GcpPriceValue.parse_obj(obj)
 
-        _obj = GcpPriceValue.parse_obj(
-            {
-                "currency_code": obj.get("currencyCode"),
-                "nanos": obj.get("nanos"),
-                "units": obj.get("units"),
-            }
-        )
+        _obj = GcpPriceValue.parse_obj({
+            "currency_code": obj.get("currencyCode"),
+            "nanos": obj.get("nanos"),
+            "units": obj.get("units")
+        })
         return _obj
+
+

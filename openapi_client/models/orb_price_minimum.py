@@ -22,22 +22,16 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 
-
 class OrbPriceMinimum(BaseModel):
     """
     OrbPriceMinimum
     """
-
-    applies_to_price_ids: Optional[conlist(StrictStr)] = Field(
-        None,
-        description="List of price_ids that this minimum amount applies to. For plan/plan phase minimums, this can be a subset of prices.",
-    )
+    applies_to_price_ids: Optional[conlist(StrictStr)] = Field(None, description="List of price_ids that this minimum amount applies to. For plan/plan phase minimums, this can be a subset of prices.")
     minimum_amount: Optional[StrictStr] = None
     __properties = ["applies_to_price_ids", "minimum_amount"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -56,7 +50,10 @@ class OrbPriceMinimum(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -68,10 +65,10 @@ class OrbPriceMinimum(BaseModel):
         if not isinstance(obj, dict):
             return OrbPriceMinimum.parse_obj(obj)
 
-        _obj = OrbPriceMinimum.parse_obj(
-            {
-                "applies_to_price_ids": obj.get("applies_to_price_ids"),
-                "minimum_amount": obj.get("minimum_amount"),
-            }
-        )
+        _obj = OrbPriceMinimum.parse_obj({
+            "applies_to_price_ids": obj.get("applies_to_price_ids"),
+            "minimum_amount": obj.get("minimum_amount")
+        })
         return _obj
+
+

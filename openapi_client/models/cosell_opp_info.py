@@ -23,34 +23,21 @@ from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictStr
 from openapi_client.models.microsoft_partner_referral import MicrosoftPartnerReferral
 
-
 class CosellOppInfo(BaseModel):
     """
     CosellOppInfo
     """
-
     account: Optional[Dict[str, Any]] = None
     contact: Optional[Dict[str, Any]] = None
     creation_time: Optional[StrictStr] = Field(None, alias="creationTime")
     last_modified_time: Optional[StrictStr] = Field(None, alias="lastModifiedTime")
-    microsoft_partner_referral: Optional[MicrosoftPartnerReferral] = Field(
-        None, alias="microsoftPartnerReferral"
-    )
+    microsoft_partner_referral: Optional[MicrosoftPartnerReferral] = Field(None, alias="microsoftPartnerReferral")
     opportunity: Optional[Dict[str, Any]] = None
     owner: Optional[Dict[str, Any]] = None
-    __properties = [
-        "account",
-        "contact",
-        "creationTime",
-        "lastModifiedTime",
-        "microsoftPartnerReferral",
-        "opportunity",
-        "owner",
-    ]
+    __properties = ["account", "contact", "creationTime", "lastModifiedTime", "microsoftPartnerReferral", "opportunity", "owner"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -69,12 +56,13 @@ class CosellOppInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of microsoft_partner_referral
         if self.microsoft_partner_referral:
-            _dict[
-                "microsoftPartnerReferral"
-            ] = self.microsoft_partner_referral.to_dict()
+            _dict['microsoftPartnerReferral'] = self.microsoft_partner_referral.to_dict()
         return _dict
 
     @classmethod
@@ -86,19 +74,15 @@ class CosellOppInfo(BaseModel):
         if not isinstance(obj, dict):
             return CosellOppInfo.parse_obj(obj)
 
-        _obj = CosellOppInfo.parse_obj(
-            {
-                "account": obj.get("account"),
-                "contact": obj.get("contact"),
-                "creation_time": obj.get("creationTime"),
-                "last_modified_time": obj.get("lastModifiedTime"),
-                "microsoft_partner_referral": MicrosoftPartnerReferral.from_dict(
-                    obj.get("microsoftPartnerReferral")
-                )
-                if obj.get("microsoftPartnerReferral") is not None
-                else None,
-                "opportunity": obj.get("opportunity"),
-                "owner": obj.get("owner"),
-            }
-        )
+        _obj = CosellOppInfo.parse_obj({
+            "account": obj.get("account"),
+            "contact": obj.get("contact"),
+            "creation_time": obj.get("creationTime"),
+            "last_modified_time": obj.get("lastModifiedTime"),
+            "microsoft_partner_referral": MicrosoftPartnerReferral.from_dict(obj.get("microsoftPartnerReferral")) if obj.get("microsoftPartnerReferral") is not None else None,
+            "opportunity": obj.get("opportunity"),
+            "owner": obj.get("owner")
+        })
         return _obj
+
+

@@ -14,11 +14,9 @@
 
 
 import unittest
+import datetime
 
-from openapi_client.models.add_entitlement_credit_params import (
-    AddEntitlementCreditParams,
-)  # noqa: E501
-
+from openapi_client.models.add_entitlement_credit_params import AddEntitlementCreditParams  # noqa: E501
 
 class TestAddEntitlementCreditParams(unittest.TestCase):
     """AddEntitlementCreditParams unit test stubs"""
@@ -31,9 +29,9 @@ class TestAddEntitlementCreditParams(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AddEntitlementCreditParams:
         """Test AddEntitlementCreditParams
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `AddEntitlementCreditParams`
         """
         model = AddEntitlementCreditParams()  # noqa: E501
@@ -56,6 +54,5 @@ class TestAddEntitlementCreditParams(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

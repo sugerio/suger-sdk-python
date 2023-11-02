@@ -22,19 +22,16 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 
-
 class AzureValidationResult(BaseModel):
     """
     AzureValidationResult
     """
-
     error_message: Optional[StrictStr] = Field(None, alias="errorMessage")
     member_names: Optional[conlist(StrictStr)] = Field(None, alias="memberNames")
     __properties = ["errorMessage", "memberNames"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,7 +50,10 @@ class AzureValidationResult(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +65,10 @@ class AzureValidationResult(BaseModel):
         if not isinstance(obj, dict):
             return AzureValidationResult.parse_obj(obj)
 
-        _obj = AzureValidationResult.parse_obj(
-            {
-                "error_message": obj.get("errorMessage"),
-                "member_names": obj.get("memberNames"),
-            }
-        )
+        _obj = AzureValidationResult.parse_obj({
+            "error_message": obj.get("errorMessage"),
+            "member_names": obj.get("memberNames")
+        })
         return _obj
+
+

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **filters** | [**List[SalesforceSyncFilter]**](SalesforceSyncFilter.md) |  | [optional] 
 **instance_url** | **str** |  | [optional] 
 **is_sandbox** | **bool** |  | [optional] 
+**last_sync_time** | **str** |  | [optional] 
 **paused** | **bool** |  | [optional] 
 **secret_key** | **str** |  | [optional] 
 **subdomain** | **str** | User defined when setting up the integration | [optional] 

@@ -5,7 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **core_pricing** | [**AzureMarketplacePriceAndAvailabilityCorePrice**](AzureMarketplacePriceAndAvailabilityCorePrice.md) |  | [optional] 
+**custom_meters** | [**AzureMarketplacePriceAndAvailabilityCustomMeterPrice**](AzureMarketplacePriceAndAvailabilityCustomMeterPrice.md) |  | [optional] 
 **license_model** | **str** |  | [optional] 
+**recurrent_price** | [**AzureMarketplacePriceAndAvailabilityRecurrentPrice**](AzureMarketplacePriceAndAvailabilityRecurrentPrice.md) |  | [optional] 
+**system_meter_pricing** | [**AzureMarketplacePriceAndAvailabilitySystemMeterPrice**](AzureMarketplacePriceAndAvailabilitySystemMeterPrice.md) |  | [optional] 
 
 ## Example
 

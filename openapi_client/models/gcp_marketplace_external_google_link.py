@@ -22,18 +22,15 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
-
 class GcpMarketplaceExternalGoogleLink(BaseModel):
     """
     GcpMarketplaceExternalGoogleLink
     """
-
     uri: Optional[StrictStr] = None
     __properties = ["uri"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -52,7 +49,10 @@ class GcpMarketplaceExternalGoogleLink(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -64,5 +64,9 @@ class GcpMarketplaceExternalGoogleLink(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceExternalGoogleLink.parse_obj(obj)
 
-        _obj = GcpMarketplaceExternalGoogleLink.parse_obj({"uri": obj.get("uri")})
+        _obj = GcpMarketplaceExternalGoogleLink.parse_obj({
+            "uri": obj.get("uri")
+        })
         return _obj
+
+

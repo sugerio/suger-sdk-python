@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.orb_price_model_config_tieredbps import (
-    OrbPriceModelConfigTIEREDBPS,
-)  # noqa: E501
-
+from openapi_client.models.orb_price_model_config_tieredbps import OrbPriceModelConfigTIEREDBPS  # noqa: E501
 
 class TestOrbPriceModelConfigTIEREDBPS(unittest.TestCase):
     """OrbPriceModelConfigTIEREDBPS unit test stubs"""
@@ -32,9 +29,9 @@ class TestOrbPriceModelConfigTIEREDBPS(unittest.TestCase):
 
     def make_instance(self, include_optional) -> OrbPriceModelConfigTIEREDBPS:
         """Test OrbPriceModelConfigTIEREDBPS
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `OrbPriceModelConfigTIEREDBPS`
         """
         model = OrbPriceModelConfigTIEREDBPS()  # noqa: E501
@@ -62,6 +59,5 @@ class TestOrbPriceModelConfigTIEREDBPS(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

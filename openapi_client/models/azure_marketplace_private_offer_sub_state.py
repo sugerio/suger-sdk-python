@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class AzureMarketplacePrivateOfferSubState(str, Enum):
     """
     AzureMarketplacePrivateOfferSubState
@@ -27,11 +30,13 @@ class AzureMarketplacePrivateOfferSubState(str, Enum):
     """
     allowed enum values
     """
-    PENDINGACCEPTANCE = "pendingAcceptance"
-    ACCEPTED = "accepted"
-    PENDINGPARTNERACTION = "pendingPartnerAction"
+    PENDINGACCEPTANCE = 'pendingAcceptance'
+    ACCEPTED = 'accepted'
+    PENDINGPARTNERACTION = 'pendingPartnerAction'
 
     @classmethod
     def from_json(cls, json_str: str) -> AzureMarketplacePrivateOfferSubState:
         """Create an instance of AzureMarketplacePrivateOfferSubState from a JSON string"""
         return AzureMarketplacePrivateOfferSubState(json.loads(json_str))
+
+

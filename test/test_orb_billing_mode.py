@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.orb_billing_mode import OrbBillingMode  # noqa: E501
 
-
 class TestOrbBillingMode(unittest.TestCase):
     """OrbBillingMode unit test stubs"""
 
@@ -32,6 +31,5 @@ class TestOrbBillingMode(unittest.TestCase):
         """Test OrbBillingMode"""
         # inst = OrbBillingMode()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

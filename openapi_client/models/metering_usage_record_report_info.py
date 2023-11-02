@@ -21,169 +21,44 @@ import json
 from datetime import datetime
 from typing import Dict, List, Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr, conlist
-from openapi_client.models.client_push_metering_data_request import (
-    ClientPushMeteringDataRequest,
-)
-from openapi_client.models.client_push_metering_data_response_body import (
-    ClientPushMeteringDataResponseBody,
-)
-from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_batch_usage_event_ok_response import (
-    GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse,
-)
-from openapi_client.models.marketplacemetering_batch_meter_usage_output import (
-    MarketplacemeteringBatchMeterUsageOutput,
-)
-from openapi_client.models.servicecontrol_report_response import (
-    ServicecontrolReportResponse,
-)
-
+from openapi_client.models.client_push_metering_data_request import ClientPushMeteringDataRequest
+from openapi_client.models.client_push_metering_data_response_body import ClientPushMeteringDataResponseBody
+from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_batch_usage_event_ok_response import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse
+from openapi_client.models.marketplacemetering_batch_meter_usage_output import MarketplacemeteringBatchMeterUsageOutput
+from openapi_client.models.servicecontrol_report_response import ServicecontrolReportResponse
 
 class MeteringUsageRecordReportInfo(BaseModel):
     """
     MeteringUsageRecordReportInfo
     """
-
-    alibaba_metering_request: Optional[ClientPushMeteringDataRequest] = Field(
-        None, alias="alibabaMeteringRequest"
-    )
-    alibaba_metering_response: Optional[ClientPushMeteringDataResponseBody] = Field(
-        None, alias="alibabaMeteringResponse"
-    )
-    aws_metering_response: Optional[MarketplacemeteringBatchMeterUsageOutput] = Field(
-        None, alias="awsMeteringResponse"
-    )
-    azure_metering_response: Optional[
-        GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse
-    ] = Field(None, alias="azureMeteringResponse")
-    commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None,
-        alias="commitAmount",
-        description="The amount of the commit if applicable.",
-    )
-    credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None,
-        alias="creditAmount",
-        description="The amount of the credit if applicable.",
-    )
-    credit_records: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(
-        None,
-        alias="creditRecords",
-        description="The credit usage records in the map of <DimensionKey, Count>",
-    )
-    decimal_parts: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(
-        None,
-        alias="decimalParts",
-        description="The decimal parts of the usage dimension quantity in the map of <DimensionKey, DecimalPart>, before this usage record report.",
-    )
-    dimension_categories: Optional[Dict[str, StrictStr]] = Field(
-        None,
-        alias="dimensionCategories",
-        description="The categories of the usage records in the map of <DimensionKey, Category>. The dimension category is required when reporting usage records to Alibaba Marketplace. It comes from the metering dimension category.",
-    )
-    dimension_unit_list_price: Optional[
-        Dict[str, Union[StrictFloat, StrictInt]]
-    ] = Field(
-        None,
-        alias="dimensionUnitListPrice",
-        description="The public list price of each dimension in the map of <DimensionKey, UnitPrice>.",
-    )
-    dimension_unit_price: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(
-        None,
-        alias="dimensionUnitPrice",
-        description="The unit price of each dimension in the map of <DimensionKey, UnitPrice>. It can be the negotiated price in the private offer or the public list price.",
-    )
-    end_time: Optional[datetime] = Field(
-        None, alias="endTime", description="time in UTC when the UsageRecordReport ends"
-    )
-    gcp_metering_response: Optional[ServicecontrolReportResponse] = Field(
-        None, alias="gcpMeteringResponse"
-    )
-    included_records: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(
-        None,
-        alias="includedRecords",
-        description="The included usage records in the map of <DimensionKey, Count>",
-    )
-    new_decimal_parts: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(
-        None,
-        alias="newDecimalParts",
-        description="The decimal parts of the usage dimension quantity in the map of <DimensionKey, DecimalPart>, after this usage record report.",
-    )
-    partner: Optional[StrictStr] = Field(
-        None,
-        description="The partner where this usage record report is sent to. Such as AWS, AZURE or GCP.",
-    )
-    records_to_report_before_adjustment_at_list_price: Optional[
-        Dict[str, Union[StrictFloat, StrictInt]]
-    ] = Field(
-        None,
-        alias="recordsToReportBeforeAdjustmentAtListPrice",
-        description="The usage records to report before the adjustment by the commit with additional usage at list price, in the map of <DimensionKey, Count>.",
-    )
-    reported_records: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(
-        None,
-        alias="reportedRecords",
-        description="The reported usage records in the map of <DimensionKey, Count>",
-    )
-    start_time: Optional[datetime] = Field(
-        None,
-        alias="startTime",
-        description="time in UTC when the UsageRecordReport starts",
-    )
-    usage_record_group_ids: Optional[conlist(StrictStr)] = Field(
-        None,
-        alias="usageRecordGroupIds",
-        description="The IDs of UsageRecordGroups aggregated in this UsageRecordReport.",
-    )
-    used_commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None,
-        alias="usedCommitAmount",
-        description="The amount of the used commit before this usage record report if applicable.",
-    )
-    used_commit_amount_increment: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None,
-        alias="usedCommitAmountIncrement",
-        description="The amount of the used commit increment in this usage record report if applicable.",
-    )
-    used_credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None,
-        alias="usedCreditAmount",
-        description="The amount of the used credit before this usage record report if applicable.",
-    )
-    used_credit_amount_increment: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None,
-        alias="usedCreditAmountIncrement",
-        description="The amount of the used credit increment in this usage record report if applicable.",
-    )
-    __properties = [
-        "alibabaMeteringRequest",
-        "alibabaMeteringResponse",
-        "awsMeteringResponse",
-        "azureMeteringResponse",
-        "commitAmount",
-        "creditAmount",
-        "creditRecords",
-        "decimalParts",
-        "dimensionCategories",
-        "dimensionUnitListPrice",
-        "dimensionUnitPrice",
-        "endTime",
-        "gcpMeteringResponse",
-        "includedRecords",
-        "newDecimalParts",
-        "partner",
-        "recordsToReportBeforeAdjustmentAtListPrice",
-        "reportedRecords",
-        "startTime",
-        "usageRecordGroupIds",
-        "usedCommitAmount",
-        "usedCommitAmountIncrement",
-        "usedCreditAmount",
-        "usedCreditAmountIncrement",
-    ]
+    alibaba_metering_request: Optional[ClientPushMeteringDataRequest] = Field(None, alias="alibabaMeteringRequest")
+    alibaba_metering_response: Optional[ClientPushMeteringDataResponseBody] = Field(None, alias="alibabaMeteringResponse")
+    aws_metering_response: Optional[MarketplacemeteringBatchMeterUsageOutput] = Field(None, alias="awsMeteringResponse")
+    azure_metering_response: Optional[GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse] = Field(None, alias="azureMeteringResponse")
+    commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="commitAmount", description="The amount of the commit if applicable.")
+    credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="creditAmount", description="The amount of the credit if applicable.")
+    credit_records: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(None, alias="creditRecords", description="The credit usage records in the map of <DimensionKey, Count>")
+    decimal_parts: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(None, alias="decimalParts", description="The decimal parts of the usage dimension quantity in the map of <DimensionKey, DecimalPart>, before this usage record report.")
+    dimension_categories: Optional[Dict[str, StrictStr]] = Field(None, alias="dimensionCategories", description="The categories of the usage records in the map of <DimensionKey, Category>. The dimension category is required when reporting usage records to Alibaba Marketplace. It comes from the metering dimension category.")
+    dimension_unit_list_price: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(None, alias="dimensionUnitListPrice", description="The public list price of each dimension in the map of <DimensionKey, UnitPrice>.")
+    dimension_unit_price: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(None, alias="dimensionUnitPrice", description="The unit price of each dimension in the map of <DimensionKey, UnitPrice>. It can be the negotiated price in the private offer or the public list price.")
+    end_time: Optional[datetime] = Field(None, alias="endTime", description="time in UTC when the UsageRecordReport ends")
+    gcp_metering_response: Optional[ServicecontrolReportResponse] = Field(None, alias="gcpMeteringResponse")
+    included_records: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(None, alias="includedRecords", description="The included usage records in the map of <DimensionKey, Count>")
+    new_decimal_parts: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(None, alias="newDecimalParts", description="The decimal parts of the usage dimension quantity in the map of <DimensionKey, DecimalPart>, after this usage record report.")
+    partner: Optional[StrictStr] = Field(None, description="The partner where this usage record report is sent to. Such as AWS, AZURE or GCP.")
+    records_to_report_before_adjustment_at_list_price: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(None, alias="recordsToReportBeforeAdjustmentAtListPrice", description="The usage records to report before the adjustment by the commit with additional usage at list price, in the map of <DimensionKey, Count>.")
+    reported_records: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(None, alias="reportedRecords", description="The reported usage records in the map of <DimensionKey, Count>")
+    start_time: Optional[datetime] = Field(None, alias="startTime", description="time in UTC when the UsageRecordReport starts")
+    usage_record_group_ids: Optional[conlist(StrictStr)] = Field(None, alias="usageRecordGroupIds", description="The IDs of UsageRecordGroups aggregated in this UsageRecordReport.")
+    used_commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="usedCommitAmount", description="The amount of the used commit before this usage record report if applicable.")
+    used_commit_amount_increment: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="usedCommitAmountIncrement", description="The amount of the used commit increment in this usage record report if applicable.")
+    used_credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="usedCreditAmount", description="The amount of the used credit before this usage record report if applicable.")
+    used_credit_amount_increment: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="usedCreditAmountIncrement", description="The amount of the used credit increment in this usage record report if applicable.")
+    __properties = ["alibabaMeteringRequest", "alibabaMeteringResponse", "awsMeteringResponse", "azureMeteringResponse", "commitAmount", "creditAmount", "creditRecords", "decimalParts", "dimensionCategories", "dimensionUnitListPrice", "dimensionUnitPrice", "endTime", "gcpMeteringResponse", "includedRecords", "newDecimalParts", "partner", "recordsToReportBeforeAdjustmentAtListPrice", "reportedRecords", "startTime", "usageRecordGroupIds", "usedCommitAmount", "usedCommitAmountIncrement", "usedCreditAmount", "usedCreditAmountIncrement"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -202,22 +77,25 @@ class MeteringUsageRecordReportInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of alibaba_metering_request
         if self.alibaba_metering_request:
-            _dict["alibabaMeteringRequest"] = self.alibaba_metering_request.to_dict()
+            _dict['alibabaMeteringRequest'] = self.alibaba_metering_request.to_dict()
         # override the default output from pydantic by calling `to_dict()` of alibaba_metering_response
         if self.alibaba_metering_response:
-            _dict["alibabaMeteringResponse"] = self.alibaba_metering_response.to_dict()
+            _dict['alibabaMeteringResponse'] = self.alibaba_metering_response.to_dict()
         # override the default output from pydantic by calling `to_dict()` of aws_metering_response
         if self.aws_metering_response:
-            _dict["awsMeteringResponse"] = self.aws_metering_response.to_dict()
+            _dict['awsMeteringResponse'] = self.aws_metering_response.to_dict()
         # override the default output from pydantic by calling `to_dict()` of azure_metering_response
         if self.azure_metering_response:
-            _dict["azureMeteringResponse"] = self.azure_metering_response.to_dict()
+            _dict['azureMeteringResponse'] = self.azure_metering_response.to_dict()
         # override the default output from pydantic by calling `to_dict()` of gcp_metering_response
         if self.gcp_metering_response:
-            _dict["gcpMeteringResponse"] = self.gcp_metering_response.to_dict()
+            _dict['gcpMeteringResponse'] = self.gcp_metering_response.to_dict()
         return _dict
 
     @classmethod
@@ -229,54 +107,32 @@ class MeteringUsageRecordReportInfo(BaseModel):
         if not isinstance(obj, dict):
             return MeteringUsageRecordReportInfo.parse_obj(obj)
 
-        _obj = MeteringUsageRecordReportInfo.parse_obj(
-            {
-                "alibaba_metering_request": ClientPushMeteringDataRequest.from_dict(
-                    obj.get("alibabaMeteringRequest")
-                )
-                if obj.get("alibabaMeteringRequest") is not None
-                else None,
-                "alibaba_metering_response": ClientPushMeteringDataResponseBody.from_dict(
-                    obj.get("alibabaMeteringResponse")
-                )
-                if obj.get("alibabaMeteringResponse") is not None
-                else None,
-                "aws_metering_response": MarketplacemeteringBatchMeterUsageOutput.from_dict(
-                    obj.get("awsMeteringResponse")
-                )
-                if obj.get("awsMeteringResponse") is not None
-                else None,
-                "azure_metering_response": GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse.from_dict(
-                    obj.get("azureMeteringResponse")
-                )
-                if obj.get("azureMeteringResponse") is not None
-                else None,
-                "commit_amount": obj.get("commitAmount"),
-                "credit_amount": obj.get("creditAmount"),
-                "credit_records": obj.get("creditRecords"),
-                "decimal_parts": obj.get("decimalParts"),
-                "dimension_categories": obj.get("dimensionCategories"),
-                "dimension_unit_list_price": obj.get("dimensionUnitListPrice"),
-                "dimension_unit_price": obj.get("dimensionUnitPrice"),
-                "end_time": obj.get("endTime"),
-                "gcp_metering_response": ServicecontrolReportResponse.from_dict(
-                    obj.get("gcpMeteringResponse")
-                )
-                if obj.get("gcpMeteringResponse") is not None
-                else None,
-                "included_records": obj.get("includedRecords"),
-                "new_decimal_parts": obj.get("newDecimalParts"),
-                "partner": obj.get("partner"),
-                "records_to_report_before_adjustment_at_list_price": obj.get(
-                    "recordsToReportBeforeAdjustmentAtListPrice"
-                ),
-                "reported_records": obj.get("reportedRecords"),
-                "start_time": obj.get("startTime"),
-                "usage_record_group_ids": obj.get("usageRecordGroupIds"),
-                "used_commit_amount": obj.get("usedCommitAmount"),
-                "used_commit_amount_increment": obj.get("usedCommitAmountIncrement"),
-                "used_credit_amount": obj.get("usedCreditAmount"),
-                "used_credit_amount_increment": obj.get("usedCreditAmountIncrement"),
-            }
-        )
+        _obj = MeteringUsageRecordReportInfo.parse_obj({
+            "alibaba_metering_request": ClientPushMeteringDataRequest.from_dict(obj.get("alibabaMeteringRequest")) if obj.get("alibabaMeteringRequest") is not None else None,
+            "alibaba_metering_response": ClientPushMeteringDataResponseBody.from_dict(obj.get("alibabaMeteringResponse")) if obj.get("alibabaMeteringResponse") is not None else None,
+            "aws_metering_response": MarketplacemeteringBatchMeterUsageOutput.from_dict(obj.get("awsMeteringResponse")) if obj.get("awsMeteringResponse") is not None else None,
+            "azure_metering_response": GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse.from_dict(obj.get("azureMeteringResponse")) if obj.get("azureMeteringResponse") is not None else None,
+            "commit_amount": obj.get("commitAmount"),
+            "credit_amount": obj.get("creditAmount"),
+            "credit_records": obj.get("creditRecords"),
+            "decimal_parts": obj.get("decimalParts"),
+            "dimension_categories": obj.get("dimensionCategories"),
+            "dimension_unit_list_price": obj.get("dimensionUnitListPrice"),
+            "dimension_unit_price": obj.get("dimensionUnitPrice"),
+            "end_time": obj.get("endTime"),
+            "gcp_metering_response": ServicecontrolReportResponse.from_dict(obj.get("gcpMeteringResponse")) if obj.get("gcpMeteringResponse") is not None else None,
+            "included_records": obj.get("includedRecords"),
+            "new_decimal_parts": obj.get("newDecimalParts"),
+            "partner": obj.get("partner"),
+            "records_to_report_before_adjustment_at_list_price": obj.get("recordsToReportBeforeAdjustmentAtListPrice"),
+            "reported_records": obj.get("reportedRecords"),
+            "start_time": obj.get("startTime"),
+            "usage_record_group_ids": obj.get("usageRecordGroupIds"),
+            "used_commit_amount": obj.get("usedCommitAmount"),
+            "used_commit_amount_increment": obj.get("usedCommitAmountIncrement"),
+            "used_credit_amount": obj.get("usedCreditAmount"),
+            "used_credit_amount_increment": obj.get("usedCreditAmountIncrement")
+        })
         return _obj
+
+

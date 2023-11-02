@@ -22,12 +22,10 @@ from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class AwsMarketplaceEventBridgeEventOffer(BaseModel):
     """
     AwsMarketplaceEventBridgeEventOffer
     """
-
     arn: Optional[StrictStr] = None
     expiration_date: Optional[datetime] = Field(None, alias="expirationDate")
     id: Optional[StrictStr] = None
@@ -36,7 +34,6 @@ class AwsMarketplaceEventBridgeEventOffer(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -55,7 +52,10 @@ class AwsMarketplaceEventBridgeEventOffer(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -67,12 +67,12 @@ class AwsMarketplaceEventBridgeEventOffer(BaseModel):
         if not isinstance(obj, dict):
             return AwsMarketplaceEventBridgeEventOffer.parse_obj(obj)
 
-        _obj = AwsMarketplaceEventBridgeEventOffer.parse_obj(
-            {
-                "arn": obj.get("arn"),
-                "expiration_date": obj.get("expirationDate"),
-                "id": obj.get("id"),
-                "name": obj.get("name"),
-            }
-        )
+        _obj = AwsMarketplaceEventBridgeEventOffer.parse_obj({
+            "arn": obj.get("arn"),
+            "expiration_date": obj.get("expirationDate"),
+            "id": obj.get("id"),
+            "name": obj.get("name")
+        })
         return _obj
+
+

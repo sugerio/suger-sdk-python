@@ -9,11 +9,13 @@ Name | Type | Description | Notes
 **contacts** | [**List[Contact]**](Contact.md) | The contacts of the offer to notify if any updates. | [optional] 
 **custom_meta_info** | **Dict[str, str]** | The custom meta info of the offer can be updated by seller via API or console. | [optional] 
 **error_messages** | **List[str]** | The error messages when the offer is invalid or offer related tasks failed. Populated by Suger service. | [optional] 
+**hubspot_deal_id** | **str** | Hubsport deal ID of the private offer if available. | [optional] 
 **internal_note** | **str** | The Internal note of the private offer. It is only visible to the seller/ISV, not visible to the buyer. Up to 1000 characters. | [optional] 
 **is_agreement_based_offer** | **bool** | Applicable for AWS Marketplace only, If this offer is agreement based offer. | [optional] 
 **is_renewal_offer** | **bool** | Applicable for AWS Marketplace only. If this offer is renewal offer of existing agreement. The existing agreement can be within or outside AWS Marketplace. AWS may audit and verify your offer is a renewal. If AWS is unable to verify your offer, then AWS may revoke the offer and entitlements from your customer. | [optional] 
 **notifications** | [**List[NotificationEvent]**](NotificationEvent.md) | The notifications of the offer if any updates. In most cases, it is to notify contacts/buyers when the offer is pending acceptance. | [optional] 
 **renewal_offer_type** | [**AwsRenewalOfferType**](AwsRenewalOfferType.md) |  | [optional] 
+**salesforce_opportunity_id** | **str** | The Salesforce opportunity ID of the private offer if available. | [optional] 
 
 ## Example
 

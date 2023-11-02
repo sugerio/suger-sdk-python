@@ -20,40 +20,29 @@ import json
 
 
 from typing import Optional, Union
-from pydantic import (
-    BaseModel,
-    Field,
-    StrictBool,
-    StrictFloat,
-    StrictInt,
-    StrictStr,
-    validator,
-)
-
+from pydantic import BaseModel, Field, StrictBool, StrictFloat, StrictInt, StrictStr, validator
 
 class AzureIncludedBaseQuantity(BaseModel):
     """
     AzureIncludedBaseQuantity
     """
-
     is_infinite: Optional[StrictBool] = Field(None, alias="isInfinite")
     quantity: Optional[Union[StrictFloat, StrictInt]] = None
     recurring_unit: Optional[StrictStr] = Field(None, alias="recurringUnit")
     __properties = ["isInfinite", "quantity", "recurringUnit"]
 
-    @validator("recurring_unit")
+    @validator('recurring_unit')
     def recurring_unit_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("Monthly", "Annual"):
+        if value not in ('Monthly', 'Annual'):
             raise ValueError("must be one of enum values ('Monthly', 'Annual')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -72,7 +61,10 @@ class AzureIncludedBaseQuantity(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -84,11 +76,11 @@ class AzureIncludedBaseQuantity(BaseModel):
         if not isinstance(obj, dict):
             return AzureIncludedBaseQuantity.parse_obj(obj)
 
-        _obj = AzureIncludedBaseQuantity.parse_obj(
-            {
-                "is_infinite": obj.get("isInfinite"),
-                "quantity": obj.get("quantity"),
-                "recurring_unit": obj.get("recurringUnit"),
-            }
-        )
+        _obj = AzureIncludedBaseQuantity.parse_obj({
+            "is_infinite": obj.get("isInfinite"),
+            "quantity": obj.get("quantity"),
+            "recurring_unit": obj.get("recurringUnit")
+        })
         return _obj
+
+

@@ -21,78 +21,40 @@ import json
 from datetime import datetime
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictStr, validator
-from openapi_client.models.gcp_marketplace_product_derived_discovery_state import (
-    GcpMarketplaceProductDerivedDiscoveryState,
-)
-from openapi_client.models.gcp_marketplace_product_listing_spec import (
-    GcpMarketplaceProductListingSpec,
-)
-from openapi_client.models.gcp_marketplace_product_service_config import (
-    GcpMarketplaceProductServiceConfig,
-)
-
+from openapi_client.models.gcp_marketplace_product_derived_discovery_state import GcpMarketplaceProductDerivedDiscoveryState
+from openapi_client.models.gcp_marketplace_product_listing_spec import GcpMarketplaceProductListingSpec
+from openapi_client.models.gcp_marketplace_product_service_config import GcpMarketplaceProductServiceConfig
 
 class GcpMarketplaceProduct(BaseModel):
     """
     GcpMarketplaceProduct
     """
-
     create_time: Optional[datetime] = Field(None, alias="createTime")
-    derived_discovery_state: Optional[
-        GcpMarketplaceProductDerivedDiscoveryState
-    ] = Field(None, alias="derivedDiscoveryState")
-    id: Optional[StrictStr] = Field(
-        None, description="Nullable, GCP Marketplace Product UUID"
-    )
+    derived_discovery_state: Optional[GcpMarketplaceProductDerivedDiscoveryState] = Field(None, alias="derivedDiscoveryState")
+    id: Optional[StrictStr] = Field(None, description="Nullable, GCP Marketplace Product UUID")
     last_publish_time: Optional[datetime] = Field(None, alias="lastPublishTime")
-    listing_spec: Optional[GcpMarketplaceProductListingSpec] = Field(
-        None, alias="listingSpec"
-    )
+    listing_spec: Optional[GcpMarketplaceProductListingSpec] = Field(None, alias="listingSpec")
     marketplace: Optional[StrictStr] = None
-    name: Optional[StrictStr] = Field(
-        None,
-        description='In format of "projects/{project-number}/listings/{product-name}.endpoints.{provider-id}.cloud.goog"',
-    )
+    name: Optional[StrictStr] = Field(None, description="In format of \"projects/{project-number}/listings/{product-name}.endpoints.{provider-id}.cloud.goog\"")
     revision_create_time: Optional[datetime] = Field(None, alias="revisionCreateTime")
     revision_id: Optional[StrictStr] = Field(None, alias="revisionId")
-    service: Optional[StrictStr] = Field(
-        None,
-        description='In format of "services/{product-name}.endpoints.{provider-id}.cloud.goog"',
-    )
-    service_config: Optional[GcpMarketplaceProductServiceConfig] = Field(
-        None, alias="serviceConfig"
-    )
-    validation_summary: Optional[Dict[str, Any]] = Field(
-        None, alias="validationSummary", description="TODO: add type"
-    )
-    __properties = [
-        "createTime",
-        "derivedDiscoveryState",
-        "id",
-        "lastPublishTime",
-        "listingSpec",
-        "marketplace",
-        "name",
-        "revisionCreateTime",
-        "revisionId",
-        "service",
-        "serviceConfig",
-        "validationSummary",
-    ]
+    service: Optional[StrictStr] = Field(None, description="In format of \"services/{product-name}.endpoints.{provider-id}.cloud.goog\"")
+    service_config: Optional[GcpMarketplaceProductServiceConfig] = Field(None, alias="serviceConfig")
+    validation_summary: Optional[Dict[str, Any]] = Field(None, alias="validationSummary", description="TODO: add type")
+    __properties = ["createTime", "derivedDiscoveryState", "id", "lastPublishTime", "listingSpec", "marketplace", "name", "revisionCreateTime", "revisionId", "service", "serviceConfig", "validationSummary"]
 
-    @validator("marketplace")
+    @validator('marketplace')
     def marketplace_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("marketplaces/google-cloud"):
+        if value not in ('marketplaces/google-cloud'):
             raise ValueError("must be one of enum values ('marketplaces/google-cloud')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -111,16 +73,19 @@ class GcpMarketplaceProduct(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of derived_discovery_state
         if self.derived_discovery_state:
-            _dict["derivedDiscoveryState"] = self.derived_discovery_state.to_dict()
+            _dict['derivedDiscoveryState'] = self.derived_discovery_state.to_dict()
         # override the default output from pydantic by calling `to_dict()` of listing_spec
         if self.listing_spec:
-            _dict["listingSpec"] = self.listing_spec.to_dict()
+            _dict['listingSpec'] = self.listing_spec.to_dict()
         # override the default output from pydantic by calling `to_dict()` of service_config
         if self.service_config:
-            _dict["serviceConfig"] = self.service_config.to_dict()
+            _dict['serviceConfig'] = self.service_config.to_dict()
         return _dict
 
     @classmethod
@@ -132,32 +97,20 @@ class GcpMarketplaceProduct(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceProduct.parse_obj(obj)
 
-        _obj = GcpMarketplaceProduct.parse_obj(
-            {
-                "create_time": obj.get("createTime"),
-                "derived_discovery_state": GcpMarketplaceProductDerivedDiscoveryState.from_dict(
-                    obj.get("derivedDiscoveryState")
-                )
-                if obj.get("derivedDiscoveryState") is not None
-                else None,
-                "id": obj.get("id"),
-                "last_publish_time": obj.get("lastPublishTime"),
-                "listing_spec": GcpMarketplaceProductListingSpec.from_dict(
-                    obj.get("listingSpec")
-                )
-                if obj.get("listingSpec") is not None
-                else None,
-                "marketplace": obj.get("marketplace"),
-                "name": obj.get("name"),
-                "revision_create_time": obj.get("revisionCreateTime"),
-                "revision_id": obj.get("revisionId"),
-                "service": obj.get("service"),
-                "service_config": GcpMarketplaceProductServiceConfig.from_dict(
-                    obj.get("serviceConfig")
-                )
-                if obj.get("serviceConfig") is not None
-                else None,
-                "validation_summary": obj.get("validationSummary"),
-            }
-        )
+        _obj = GcpMarketplaceProduct.parse_obj({
+            "create_time": obj.get("createTime"),
+            "derived_discovery_state": GcpMarketplaceProductDerivedDiscoveryState.from_dict(obj.get("derivedDiscoveryState")) if obj.get("derivedDiscoveryState") is not None else None,
+            "id": obj.get("id"),
+            "last_publish_time": obj.get("lastPublishTime"),
+            "listing_spec": GcpMarketplaceProductListingSpec.from_dict(obj.get("listingSpec")) if obj.get("listingSpec") is not None else None,
+            "marketplace": obj.get("marketplace"),
+            "name": obj.get("name"),
+            "revision_create_time": obj.get("revisionCreateTime"),
+            "revision_id": obj.get("revisionId"),
+            "service": obj.get("service"),
+            "service_config": GcpMarketplaceProductServiceConfig.from_dict(obj.get("serviceConfig")) if obj.get("serviceConfig") is not None else None,
+            "validation_summary": obj.get("validationSummary")
+        })
         return _obj
+
+

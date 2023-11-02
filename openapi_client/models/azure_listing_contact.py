@@ -22,12 +22,10 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr, validator
 
-
 class AzureListingContact(BaseModel):
     """
     AzureListingContact
     """
-
     email: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     phone: Optional[StrictStr] = None
@@ -35,21 +33,18 @@ class AzureListingContact(BaseModel):
     uri: Optional[StrictStr] = None
     __properties = ["email", "name", "phone", "type", "uri"]
 
-    @validator("type")
+    @validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("CustomerSupport", "Engineering", "ChannelManager"):
-            raise ValueError(
-                "must be one of enum values ('CustomerSupport', 'Engineering', 'ChannelManager')"
-            )
+        if value not in ('CustomerSupport', 'Engineering', 'ChannelManager'):
+            raise ValueError("must be one of enum values ('CustomerSupport', 'Engineering', 'ChannelManager')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -68,7 +63,10 @@ class AzureListingContact(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -80,13 +78,13 @@ class AzureListingContact(BaseModel):
         if not isinstance(obj, dict):
             return AzureListingContact.parse_obj(obj)
 
-        _obj = AzureListingContact.parse_obj(
-            {
-                "email": obj.get("email"),
-                "name": obj.get("name"),
-                "phone": obj.get("phone"),
-                "type": obj.get("type"),
-                "uri": obj.get("uri"),
-            }
-        )
+        _obj = AzureListingContact.parse_obj({
+            "email": obj.get("email"),
+            "name": obj.get("name"),
+            "phone": obj.get("phone"),
+            "type": obj.get("type"),
+            "uri": obj.get("uri")
+        })
         return _obj
+
+

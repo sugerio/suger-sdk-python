@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.microsoft_partner_referral_target_type import (
-    MicrosoftPartnerReferralTargetType,
-)  # noqa: E501
-
+from openapi_client.models.microsoft_partner_referral_target_type import MicrosoftPartnerReferralTargetType  # noqa: E501
 
 class TestMicrosoftPartnerReferralTargetType(unittest.TestCase):
     """MicrosoftPartnerReferralTargetType unit test stubs"""
@@ -34,6 +31,5 @@ class TestMicrosoftPartnerReferralTargetType(unittest.TestCase):
         """Test MicrosoftPartnerReferralTargetType"""
         # inst = MicrosoftPartnerReferralTargetType()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

@@ -21,28 +21,21 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
-from openapi_client.models.alibaba_marketplace_product_sku_module_property_values import (
-    AlibabaMarketplaceProductSkuModulePropertyValues,
-)
-
+from openapi_client.models.alibaba_marketplace_product_sku_module_property_values import AlibabaMarketplaceProductSkuModulePropertyValues
 
 class AlibabaMarketplaceProductSkuModuleProperty(BaseModel):
     """
     AlibabaMarketplaceProductSkuModuleProperty
     """
-
     display_unit: Optional[StrictStr] = Field(None, alias="DisplayUnit")
     key: Optional[StrictStr] = Field(None, alias="Key")
     name: Optional[StrictStr] = Field(None, alias="Name")
-    property_values: Optional[AlibabaMarketplaceProductSkuModulePropertyValues] = Field(
-        None, alias="PropertyValues"
-    )
+    property_values: Optional[AlibabaMarketplaceProductSkuModulePropertyValues] = Field(None, alias="PropertyValues")
     show_type: Optional[StrictStr] = Field(None, alias="showType")
     __properties = ["DisplayUnit", "Key", "Name", "PropertyValues", "showType"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -61,10 +54,13 @@ class AlibabaMarketplaceProductSkuModuleProperty(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of property_values
         if self.property_values:
-            _dict["PropertyValues"] = self.property_values.to_dict()
+            _dict['PropertyValues'] = self.property_values.to_dict()
         return _dict
 
     @classmethod
@@ -76,17 +72,13 @@ class AlibabaMarketplaceProductSkuModuleProperty(BaseModel):
         if not isinstance(obj, dict):
             return AlibabaMarketplaceProductSkuModuleProperty.parse_obj(obj)
 
-        _obj = AlibabaMarketplaceProductSkuModuleProperty.parse_obj(
-            {
-                "display_unit": obj.get("DisplayUnit"),
-                "key": obj.get("Key"),
-                "name": obj.get("Name"),
-                "property_values": AlibabaMarketplaceProductSkuModulePropertyValues.from_dict(
-                    obj.get("PropertyValues")
-                )
-                if obj.get("PropertyValues") is not None
-                else None,
-                "show_type": obj.get("showType"),
-            }
-        )
+        _obj = AlibabaMarketplaceProductSkuModuleProperty.parse_obj({
+            "display_unit": obj.get("DisplayUnit"),
+            "key": obj.get("Key"),
+            "name": obj.get("Name"),
+            "property_values": AlibabaMarketplaceProductSkuModulePropertyValues.from_dict(obj.get("PropertyValues")) if obj.get("PropertyValues") is not None else None,
+            "show_type": obj.get("showType")
+        })
         return _obj
+
+

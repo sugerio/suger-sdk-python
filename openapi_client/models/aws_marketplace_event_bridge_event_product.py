@@ -22,12 +22,10 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
-
 class AwsMarketplaceEventBridgeEventProduct(BaseModel):
     """
     AwsMarketplaceEventBridgeEventProduct
     """
-
     arn: Optional[StrictStr] = None
     id: Optional[StrictStr] = None
     title: Optional[StrictStr] = None
@@ -35,7 +33,6 @@ class AwsMarketplaceEventBridgeEventProduct(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,7 +51,10 @@ class AwsMarketplaceEventBridgeEventProduct(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,7 +66,11 @@ class AwsMarketplaceEventBridgeEventProduct(BaseModel):
         if not isinstance(obj, dict):
             return AwsMarketplaceEventBridgeEventProduct.parse_obj(obj)
 
-        _obj = AwsMarketplaceEventBridgeEventProduct.parse_obj(
-            {"arn": obj.get("arn"), "id": obj.get("id"), "title": obj.get("title")}
-        )
+        _obj = AwsMarketplaceEventBridgeEventProduct.parse_obj({
+            "arn": obj.get("arn"),
+            "id": obj.get("id"),
+            "title": obj.get("title")
+        })
         return _obj
+
+

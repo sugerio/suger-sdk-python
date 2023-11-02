@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class OrbPriceModelType(str, Enum):
     """
     OrbPriceModelType
@@ -27,17 +30,19 @@ class OrbPriceModelType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ""
-    UNIT = "unit"
-    TIERED = "tiered"
-    BULK = "bulk"
-    PACKAGE = "package"
-    BPS = "bps"
-    TIERED_BPS = "tiered_bps"
-    BULK_BPS = "bulk_bps"
-    MATRIX = "matrix"
+    EMPTY = ''
+    UNIT = 'unit'
+    TIERED = 'tiered'
+    BULK = 'bulk'
+    PACKAGE = 'package'
+    BPS = 'bps'
+    TIERED_BPS = 'tiered_bps'
+    BULK_BPS = 'bulk_bps'
+    MATRIX = 'matrix'
 
     @classmethod
     def from_json(cls, json_str: str) -> OrbPriceModelType:
         """Create an instance of OrbPriceModelType from a JSON string"""
         return OrbPriceModelType(json.loads(json_str))
+
+

@@ -22,22 +22,17 @@ import json
 from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 
-
 class AzurePrice(BaseModel):
     """
     AzurePrice
     """
-
-    currency_code: Optional[StrictStr] = Field(
-        None, alias="currencyCode", description="ISO currency code, Three characters"
-    )
+    currency_code: Optional[StrictStr] = Field(None, alias="currencyCode", description="ISO currency code, Three characters")
     open_price: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="openPrice")
     price_tier_id: Optional[StrictStr] = Field(None, alias="priceTierID")
     __properties = ["currencyCode", "openPrice", "priceTierID"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -56,7 +51,10 @@ class AzurePrice(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -68,11 +66,11 @@ class AzurePrice(BaseModel):
         if not isinstance(obj, dict):
             return AzurePrice.parse_obj(obj)
 
-        _obj = AzurePrice.parse_obj(
-            {
-                "currency_code": obj.get("currencyCode"),
-                "open_price": obj.get("openPrice"),
-                "price_tier_id": obj.get("priceTierID"),
-            }
-        )
+        _obj = AzurePrice.parse_obj({
+            "currency_code": obj.get("currencyCode"),
+            "open_price": obj.get("openPrice"),
+            "price_tier_id": obj.get("priceTierID")
+        })
         return _obj
+
+

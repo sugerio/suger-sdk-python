@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.slack_integration import SlackIntegration  # noqa: E501
 
-
 class TestSlackIntegration(unittest.TestCase):
     """SlackIntegration unit test stubs"""
 
@@ -30,9 +29,9 @@ class TestSlackIntegration(unittest.TestCase):
 
     def make_instance(self, include_optional) -> SlackIntegration:
         """Test SlackIntegration
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `SlackIntegration`
         """
         model = SlackIntegration()  # noqa: E501
@@ -75,6 +74,5 @@ class TestSlackIntegration(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

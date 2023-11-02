@@ -24,15 +24,9 @@ from pydantic import Field, StrictInt, StrictStr, conlist
 
 from typing import List, Optional
 
-from openapi_client.models.create_usage_record_group_params import (
-    CreateUsageRecordGroupParams,
-)
-from openapi_client.models.list_usage_record_groups_response import (
-    ListUsageRecordGroupsResponse,
-)
-from openapi_client.models.list_usage_record_reports_response import (
-    ListUsageRecordReportsResponse,
-)
+from openapi_client.models.create_usage_record_group_params import CreateUsageRecordGroupParams
+from openapi_client.models.list_usage_record_groups_response import ListUsageRecordGroupsResponse
+from openapi_client.models.list_usage_record_reports_response import ListUsageRecordReportsResponse
 from openapi_client.models.metering_usage_record_group import MeteringUsageRecordGroup
 from openapi_client.models.metering_usage_record_report import MeteringUsageRecordReport
 from openapi_client.models.new_usage_record_group import NewUsageRecordGroup
@@ -40,7 +34,10 @@ from openapi_client.models.usage_metering_config_info import UsageMeteringConfig
 
 from openapi_client.api_client import ApiClient
 from openapi_client.api_response import ApiResponse
-from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
+from openapi_client.exceptions import (  # noqa: F401
+    ApiTypeError,
+    ApiValueError
+)
 
 
 class MeteringApi:
@@ -56,15 +53,7 @@ class MeteringApi:
         self.api_client = api_client
 
     @validate_arguments
-    def batch_report_usage_record_groups(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        usage_record_groups: Annotated[
-            conlist(NewUsageRecordGroup),
-            Field(..., description="Array of new usage record groups to report"),
-        ],
-        **kwargs
-    ) -> List[MeteringUsageRecordGroup]:  # noqa: E501
+    def batch_report_usage_record_groups(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], usage_record_groups : Annotated[conlist(NewUsageRecordGroup), Field(..., description="Array of new usage record groups to report")], **kwargs) -> List[MeteringUsageRecordGroup]:  # noqa: E501
         """batch report usageRecordGroups  # noqa: E501
 
         Batch report new usage record groups.  # noqa: E501
@@ -89,24 +78,14 @@ class MeteringApi:
                  returns the request thread.
         :rtype: List[MeteringUsageRecordGroup]
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the batch_report_usage_record_groups_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.batch_report_usage_record_groups_with_http_info(
-            org_id, usage_record_groups, **kwargs
-        )  # noqa: E501
+        return self.batch_report_usage_record_groups_with_http_info(org_id, usage_record_groups, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def batch_report_usage_record_groups_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        usage_record_groups: Annotated[
-            conlist(NewUsageRecordGroup),
-            Field(..., description="Array of new usage record groups to report"),
-        ],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def batch_report_usage_record_groups_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], usage_record_groups : Annotated[conlist(NewUsageRecordGroup), Field(..., description="Array of new usage record groups to report")], **kwargs) -> ApiResponse:  # noqa: E501
         """batch report usageRecordGroups  # noqa: E501
 
         Batch report new usage record groups.  # noqa: E501
@@ -147,73 +126,74 @@ class MeteringApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "usage_record_groups"]
+        _all_params = [
+            'org_id',
+            'usage_record_groups'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method batch_report_usage_record_groups" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params["usage_record_groups"] is not None:
-            _body_params = _params["usage_record_groups"]
+        if _params['usage_record_groups'] is not None:
+            _body_params = _params['usage_record_groups']
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get(
-            "_content_type",
-            self.api_client.select_header_content_type(["application/json"]),
-        )
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
         if _content_types_list:
-            _header_params["Content-Type"] = _content_types_list
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "List[MeteringUsageRecordGroup]",
-            "400": "str",
-            "500": "str",
+            '200': "List[MeteringUsageRecordGroup]",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/batchCreateUsageRecordGroups",
-            "POST",
+            '/org/{orgId}/batchCreateUsageRecordGroups', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -222,24 +202,15 @@ class MeteringApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def batch_validate_usage_record_groups(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        data: Annotated[
-            conlist(NewUsageRecordGroup),
-            Field(..., description="Array of usage record groups to be validated"),
-        ],
-        **kwargs
-    ) -> str:  # noqa: E501
+    def batch_validate_usage_record_groups(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[conlist(NewUsageRecordGroup), Field(..., description="Array of usage record groups to be validated")], **kwargs) -> str:  # noqa: E501
         """batch validate usageRecordGroups  # noqa: E501
 
         Provide a batch of usage record groups and validate each individual usage record group one by one.  # noqa: E501
@@ -264,24 +235,14 @@ class MeteringApi:
                  returns the request thread.
         :rtype: str
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the batch_validate_usage_record_groups_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.batch_validate_usage_record_groups_with_http_info(
-            org_id, data, **kwargs
-        )  # noqa: E501
+        return self.batch_validate_usage_record_groups_with_http_info(org_id, data, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def batch_validate_usage_record_groups_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        data: Annotated[
-            conlist(NewUsageRecordGroup),
-            Field(..., description="Array of usage record groups to be validated"),
-        ],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def batch_validate_usage_record_groups_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[conlist(NewUsageRecordGroup), Field(..., description="Array of usage record groups to be validated")], **kwargs) -> ApiResponse:  # noqa: E501
         """batch validate usageRecordGroups  # noqa: E501
 
         Provide a batch of usage record groups and validate each individual usage record group one by one.  # noqa: E501
@@ -322,73 +283,74 @@ class MeteringApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "data"]
+        _all_params = [
+            'org_id',
+            'data'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method batch_validate_usage_record_groups" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params["data"] is not None:
-            _body_params = _params["data"]
+        if _params['data'] is not None:
+            _body_params = _params['data']
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get(
-            "_content_type",
-            self.api_client.select_header_content_type(["application/json"]),
-        )
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
         if _content_types_list:
-            _header_params["Content-Type"] = _content_types_list
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "str",
-            "400": "str",
-            "500": "str",
+            '200': "str",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/batchValidateUsageRecordGroups",
-            "POST",
+            '/org/{orgId}/batchValidateUsageRecordGroups', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -397,23 +359,15 @@ class MeteringApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_usage_record_group(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        usage_record_group_id: Annotated[
-            StrictStr, Field(..., description="UsageRecordGroup ID")
-        ],
-        **kwargs
-    ) -> MeteringUsageRecordGroup:  # noqa: E501
+    def delete_usage_record_group(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], usage_record_group_id : Annotated[StrictStr, Field(..., description="UsageRecordGroup ID")], **kwargs) -> MeteringUsageRecordGroup:  # noqa: E501
         """delete usageRecordGroup  # noqa: E501
 
         delete the UsageRecordGroup for the given organization and usageRecordGroup ID. Only usageRecordGroup with status \"CREATED\" or \"INVALID\" can be deleted.  # noqa: E501
@@ -438,23 +392,14 @@ class MeteringApi:
                  returns the request thread.
         :rtype: MeteringUsageRecordGroup
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the delete_usage_record_group_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.delete_usage_record_group_with_http_info(
-            org_id, usage_record_group_id, **kwargs
-        )  # noqa: E501
+        return self.delete_usage_record_group_with_http_info(org_id, usage_record_group_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_usage_record_group_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        usage_record_group_id: Annotated[
-            StrictStr, Field(..., description="UsageRecordGroup ID")
-        ],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def delete_usage_record_group_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], usage_record_group_id : Annotated[StrictStr, Field(..., description="UsageRecordGroup ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """delete usageRecordGroup  # noqa: E501
 
         delete the UsageRecordGroup for the given organization and usageRecordGroup ID. Only usageRecordGroup with status \"CREATED\" or \"INVALID\" can be deleted.  # noqa: E501
@@ -495,66 +440,68 @@ class MeteringApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "usage_record_group_id"]
+        _all_params = [
+            'org_id',
+            'usage_record_group_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method delete_usage_record_group" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["usage_record_group_id"]:
-            _path_params["usageRecordGroupId"] = _params["usage_record_group_id"]
+        if _params['usage_record_group_id']:
+            _path_params['usageRecordGroupId'] = _params['usage_record_group_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "MeteringUsageRecordGroup",
-            "400": "str",
-            "404": "str",
-            "500": "str",
+            '200': "MeteringUsageRecordGroup",
+            '400': "str",
+            '404': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/usageRecordGroup/{usageRecordGroupId}",
-            "DELETE",
+            '/org/{orgId}/usageRecordGroup/{usageRecordGroupId}', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -563,20 +510,15 @@ class MeteringApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_usage_metering_config_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        **kwargs
-    ) -> UsageMeteringConfigInfo:  # noqa: E501
+    def get_usage_metering_config_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> UsageMeteringConfigInfo:  # noqa: E501
         """get usage metering config info  # noqa: E501
 
         Get the usage metering config info of the given organization.  # noqa: E501
@@ -599,20 +541,14 @@ class MeteringApi:
                  returns the request thread.
         :rtype: UsageMeteringConfigInfo
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the get_usage_metering_config_info_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.get_usage_metering_config_info_with_http_info(
-            org_id, **kwargs
-        )  # noqa: E501
+        return self.get_usage_metering_config_info_with_http_info(org_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_usage_metering_config_info_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def get_usage_metering_config_info_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """get usage metering config info  # noqa: E501
 
         Get the usage metering config info of the given organization.  # noqa: E501
@@ -651,62 +587,63 @@ class MeteringApi:
 
         _params = locals()
 
-        _all_params = ["org_id"]
+        _all_params = [
+            'org_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_usage_metering_config_info" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "UsageMeteringConfigInfo",
-            "400": "str",
-            "500": "str",
+            '200': "UsageMeteringConfigInfo",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/usageMeteringConfigInfo",
-            "GET",
+            '/org/{orgId}/usageMeteringConfigInfo', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -715,23 +652,15 @@ class MeteringApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_usage_record_group(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        usage_record_group_id: Annotated[
-            StrictStr, Field(..., description="UsageRecordGroup ID")
-        ],
-        **kwargs
-    ) -> MeteringUsageRecordGroup:  # noqa: E501
+    def get_usage_record_group(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], usage_record_group_id : Annotated[StrictStr, Field(..., description="UsageRecordGroup ID")], **kwargs) -> MeteringUsageRecordGroup:  # noqa: E501
         """get usageRecordGroup  # noqa: E501
 
         get UsageRecordGroup for the given organization and usageRecordGroup ID  # noqa: E501
@@ -756,23 +685,14 @@ class MeteringApi:
                  returns the request thread.
         :rtype: MeteringUsageRecordGroup
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the get_usage_record_group_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.get_usage_record_group_with_http_info(
-            org_id, usage_record_group_id, **kwargs
-        )  # noqa: E501
+        return self.get_usage_record_group_with_http_info(org_id, usage_record_group_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_usage_record_group_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        usage_record_group_id: Annotated[
-            StrictStr, Field(..., description="UsageRecordGroup ID")
-        ],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def get_usage_record_group_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], usage_record_group_id : Annotated[StrictStr, Field(..., description="UsageRecordGroup ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """get usageRecordGroup  # noqa: E501
 
         get UsageRecordGroup for the given organization and usageRecordGroup ID  # noqa: E501
@@ -813,66 +733,68 @@ class MeteringApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "usage_record_group_id"]
+        _all_params = [
+            'org_id',
+            'usage_record_group_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_usage_record_group" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["usage_record_group_id"]:
-            _path_params["usageRecordGroupId"] = _params["usage_record_group_id"]
+        if _params['usage_record_group_id']:
+            _path_params['usageRecordGroupId'] = _params['usage_record_group_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "MeteringUsageRecordGroup",
-            "400": "str",
-            "404": "str",
-            "500": "str",
+            '200': "MeteringUsageRecordGroup",
+            '400': "str",
+            '404': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/usageRecordGroup/{usageRecordGroupId}",
-            "GET",
+            '/org/{orgId}/usageRecordGroup/{usageRecordGroupId}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -881,23 +803,15 @@ class MeteringApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_usage_record_report(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        usage_record_report_id: Annotated[
-            StrictStr, Field(..., description="UsageRecordReport ID")
-        ],
-        **kwargs
-    ) -> MeteringUsageRecordReport:  # noqa: E501
+    def get_usage_record_report(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], usage_record_report_id : Annotated[StrictStr, Field(..., description="UsageRecordReport ID")], **kwargs) -> MeteringUsageRecordReport:  # noqa: E501
         """get usageRecordReport  # noqa: E501
 
         get the usageRecordReport for a given organization and usageRecordReport ID.  # noqa: E501
@@ -922,23 +836,14 @@ class MeteringApi:
                  returns the request thread.
         :rtype: MeteringUsageRecordReport
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the get_usage_record_report_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.get_usage_record_report_with_http_info(
-            org_id, usage_record_report_id, **kwargs
-        )  # noqa: E501
+        return self.get_usage_record_report_with_http_info(org_id, usage_record_report_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_usage_record_report_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        usage_record_report_id: Annotated[
-            StrictStr, Field(..., description="UsageRecordReport ID")
-        ],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def get_usage_record_report_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], usage_record_report_id : Annotated[StrictStr, Field(..., description="UsageRecordReport ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """get usageRecordReport  # noqa: E501
 
         get the usageRecordReport for a given organization and usageRecordReport ID.  # noqa: E501
@@ -979,66 +884,68 @@ class MeteringApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "usage_record_report_id"]
+        _all_params = [
+            'org_id',
+            'usage_record_report_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_usage_record_report" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["usage_record_report_id"]:
-            _path_params["usageRecordReportId"] = _params["usage_record_report_id"]
+        if _params['usage_record_report_id']:
+            _path_params['usageRecordReportId'] = _params['usage_record_report_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "MeteringUsageRecordReport",
-            "400": "str",
-            "404": "str",
-            "500": "str",
+            '200': "MeteringUsageRecordReport",
+            '400': "str",
+            '404': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/usageRecordReport/{usageRecordReportId}",
-            "GET",
+            '/org/{orgId}/usageRecordReport/{usageRecordReportId}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1047,47 +954,15 @@ class MeteringApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_usage_record_groups(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        partner: Annotated[
-            Optional[StrictStr], Field(description="Cloud Partner")
-        ] = None,
-        product_id: Annotated[
-            Optional[StrictStr], Field(description="product ID")
-        ] = None,
-        entitlement_id: Annotated[
-            Optional[StrictStr], Field(description="entitlement ID")
-        ] = None,
-        buyer_id: Annotated[Optional[StrictStr], Field(description="buyer ID")] = None,
-        start_date: Annotated[
-            Optional[StrictStr],
-            Field(
-                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
-            ),
-        ] = None,
-        end_date: Annotated[
-            Optional[StrictStr],
-            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
-        ] = None,
-        limit: Annotated[
-            Optional[StrictInt],
-            Field(description="List pagination size, default 20, max value is 1000"),
-        ] = None,
-        offset: Annotated[
-            Optional[StrictInt], Field(description="List pagination offset, default 0")
-        ] = None,
-        **kwargs
-    ) -> ListUsageRecordGroupsResponse:  # noqa: E501
+    def list_usage_record_groups(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[Optional[StrictStr], Field(description="Cloud Partner")] = None, product_id : Annotated[Optional[StrictStr], Field(description="product ID")] = None, entitlement_id : Annotated[Optional[StrictStr], Field(description="entitlement ID")] = None, buyer_id : Annotated[Optional[StrictStr], Field(description="buyer ID")] = None, start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ListUsageRecordGroupsResponse:  # noqa: E501
         """list usageRecordGroups  # noqa: E501
 
         List UsageRecordGroups by the given organization, partner, product, entitlement or buyer. Only provide one or none of the optional query parameters: partner, productId, entitlementId & buyerId .  # noqa: E501
@@ -1126,56 +1001,14 @@ class MeteringApi:
                  returns the request thread.
         :rtype: ListUsageRecordGroupsResponse
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_usage_record_groups_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_usage_record_groups_with_http_info(
-            org_id,
-            partner,
-            product_id,
-            entitlement_id,
-            buyer_id,
-            start_date,
-            end_date,
-            limit,
-            offset,
-            **kwargs
-        )  # noqa: E501
+        return self.list_usage_record_groups_with_http_info(org_id, partner, product_id, entitlement_id, buyer_id, start_date, end_date, limit, offset, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_usage_record_groups_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        partner: Annotated[
-            Optional[StrictStr], Field(description="Cloud Partner")
-        ] = None,
-        product_id: Annotated[
-            Optional[StrictStr], Field(description="product ID")
-        ] = None,
-        entitlement_id: Annotated[
-            Optional[StrictStr], Field(description="entitlement ID")
-        ] = None,
-        buyer_id: Annotated[Optional[StrictStr], Field(description="buyer ID")] = None,
-        start_date: Annotated[
-            Optional[StrictStr],
-            Field(
-                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
-            ),
-        ] = None,
-        end_date: Annotated[
-            Optional[StrictStr],
-            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
-        ] = None,
-        limit: Annotated[
-            Optional[StrictInt],
-            Field(description="List pagination size, default 20, max value is 1000"),
-        ] = None,
-        offset: Annotated[
-            Optional[StrictInt], Field(description="List pagination offset, default 0")
-        ] = None,
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_usage_record_groups_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[Optional[StrictStr], Field(description="Cloud Partner")] = None, product_id : Annotated[Optional[StrictStr], Field(description="product ID")] = None, entitlement_id : Annotated[Optional[StrictStr], Field(description="entitlement ID")] = None, buyer_id : Annotated[Optional[StrictStr], Field(description="buyer ID")] = None, start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """list usageRecordGroups  # noqa: E501
 
         List UsageRecordGroups by the given organization, partner, product, entitlement or buyer. Only provide one or none of the optional query parameters: partner, productId, entitlementId & buyerId .  # noqa: E501
@@ -1231,95 +1064,94 @@ class MeteringApi:
         _params = locals()
 
         _all_params = [
-            "org_id",
-            "partner",
-            "product_id",
-            "entitlement_id",
-            "buyer_id",
-            "start_date",
-            "end_date",
-            "limit",
-            "offset",
+            'org_id',
+            'partner',
+            'product_id',
+            'entitlement_id',
+            'buyer_id',
+            'start_date',
+            'end_date',
+            'limit',
+            'offset'
         ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_usage_record_groups" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
 
         # process the query parameters
         _query_params = []
-        if _params.get("partner") is not None:  # noqa: E501
-            _query_params.append(("partner", _params["partner"]))
+        if _params.get('partner') is not None:  # noqa: E501
+            _query_params.append(('partner', _params['partner']))
 
-        if _params.get("product_id") is not None:  # noqa: E501
-            _query_params.append(("productId", _params["product_id"]))
+        if _params.get('product_id') is not None:  # noqa: E501
+            _query_params.append(('productId', _params['product_id']))
 
-        if _params.get("entitlement_id") is not None:  # noqa: E501
-            _query_params.append(("entitlementId", _params["entitlement_id"]))
+        if _params.get('entitlement_id') is not None:  # noqa: E501
+            _query_params.append(('entitlementId', _params['entitlement_id']))
 
-        if _params.get("buyer_id") is not None:  # noqa: E501
-            _query_params.append(("buyerId", _params["buyer_id"]))
+        if _params.get('buyer_id') is not None:  # noqa: E501
+            _query_params.append(('buyerId', _params['buyer_id']))
 
-        if _params.get("start_date") is not None:  # noqa: E501
-            _query_params.append(("startDate", _params["start_date"]))
+        if _params.get('start_date') is not None:  # noqa: E501
+            _query_params.append(('startDate', _params['start_date']))
 
-        if _params.get("end_date") is not None:  # noqa: E501
-            _query_params.append(("endDate", _params["end_date"]))
+        if _params.get('end_date') is not None:  # noqa: E501
+            _query_params.append(('endDate', _params['end_date']))
 
-        if _params.get("limit") is not None:  # noqa: E501
-            _query_params.append(("limit", _params["limit"]))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
 
-        if _params.get("offset") is not None:  # noqa: E501
-            _query_params.append(("offset", _params["offset"]))
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
 
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "ListUsageRecordGroupsResponse",
-            "400": "str",
-            "500": "str",
+            '200': "ListUsageRecordGroupsResponse",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/usageRecordGroup",
-            "GET",
+            '/org/{orgId}/usageRecordGroup', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1328,38 +1160,15 @@ class MeteringApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_usage_record_groups_by_entitlement(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="entitlement ID")],
-        start_date: Annotated[
-            Optional[StrictStr],
-            Field(
-                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
-            ),
-        ] = None,
-        end_date: Annotated[
-            Optional[StrictStr],
-            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
-        ] = None,
-        limit: Annotated[
-            Optional[StrictInt],
-            Field(description="List pagination size, default 20, max value is 1000"),
-        ] = None,
-        offset: Annotated[
-            Optional[StrictInt], Field(description="List pagination offset, default 0")
-        ] = None,
-        **kwargs
-    ) -> ListUsageRecordGroupsResponse:  # noqa: E501
+    def list_usage_record_groups_by_entitlement(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="entitlement ID")], start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ListUsageRecordGroupsResponse:  # noqa: E501
         """list usageRecordGroups by entitlement  # noqa: E501
 
         List UsageRecordGroups by the given organization and entitlement.  # noqa: E501
@@ -1392,38 +1201,14 @@ class MeteringApi:
                  returns the request thread.
         :rtype: ListUsageRecordGroupsResponse
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_usage_record_groups_by_entitlement_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_usage_record_groups_by_entitlement_with_http_info(
-            org_id, entitlement_id, start_date, end_date, limit, offset, **kwargs
-        )  # noqa: E501
+        return self.list_usage_record_groups_by_entitlement_with_http_info(org_id, entitlement_id, start_date, end_date, limit, offset, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_usage_record_groups_by_entitlement_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="entitlement ID")],
-        start_date: Annotated[
-            Optional[StrictStr],
-            Field(
-                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
-            ),
-        ] = None,
-        end_date: Annotated[
-            Optional[StrictStr],
-            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
-        ] = None,
-        limit: Annotated[
-            Optional[StrictInt],
-            Field(description="List pagination size, default 20, max value is 1000"),
-        ] = None,
-        offset: Annotated[
-            Optional[StrictInt], Field(description="List pagination offset, default 0")
-        ] = None,
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_usage_record_groups_by_entitlement_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="entitlement ID")], start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """list usageRecordGroups by entitlement  # noqa: E501
 
         List UsageRecordGroups by the given organization and entitlement.  # noqa: E501
@@ -1473,83 +1258,82 @@ class MeteringApi:
         _params = locals()
 
         _all_params = [
-            "org_id",
-            "entitlement_id",
-            "start_date",
-            "end_date",
-            "limit",
-            "offset",
+            'org_id',
+            'entitlement_id',
+            'start_date',
+            'end_date',
+            'limit',
+            'offset'
         ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_usage_record_groups_by_entitlement" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["entitlement_id"]:
-            _path_params["entitlementId"] = _params["entitlement_id"]
+        if _params['entitlement_id']:
+            _path_params['entitlementId'] = _params['entitlement_id']
+
 
         # process the query parameters
         _query_params = []
-        if _params.get("start_date") is not None:  # noqa: E501
-            _query_params.append(("startDate", _params["start_date"]))
+        if _params.get('start_date') is not None:  # noqa: E501
+            _query_params.append(('startDate', _params['start_date']))
 
-        if _params.get("end_date") is not None:  # noqa: E501
-            _query_params.append(("endDate", _params["end_date"]))
+        if _params.get('end_date') is not None:  # noqa: E501
+            _query_params.append(('endDate', _params['end_date']))
 
-        if _params.get("limit") is not None:  # noqa: E501
-            _query_params.append(("limit", _params["limit"]))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
 
-        if _params.get("offset") is not None:  # noqa: E501
-            _query_params.append(("offset", _params["offset"]))
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
 
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "ListUsageRecordGroupsResponse",
-            "400": "str",
-            "500": "str",
+            '200': "ListUsageRecordGroupsResponse",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/entitlement/{entitlementId}/usageRecordGroup",
-            "GET",
+            '/org/{orgId}/entitlement/{entitlementId}/usageRecordGroup', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1558,38 +1342,15 @@ class MeteringApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_usage_record_groups_by_product(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        product_id: Annotated[StrictStr, Field(..., description="product ID")],
-        start_date: Annotated[
-            Optional[StrictStr],
-            Field(
-                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
-            ),
-        ] = None,
-        end_date: Annotated[
-            Optional[StrictStr],
-            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
-        ] = None,
-        limit: Annotated[
-            Optional[StrictInt],
-            Field(description="List pagination size, default 20, max value is 1000"),
-        ] = None,
-        offset: Annotated[
-            Optional[StrictInt], Field(description="List pagination offset, default 0")
-        ] = None,
-        **kwargs
-    ) -> ListUsageRecordGroupsResponse:  # noqa: E501
+    def list_usage_record_groups_by_product(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="product ID")], start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ListUsageRecordGroupsResponse:  # noqa: E501
         """list usageRecordGroups by product  # noqa: E501
 
         List UsageRecordGroups by the given organization and product.  # noqa: E501
@@ -1622,38 +1383,14 @@ class MeteringApi:
                  returns the request thread.
         :rtype: ListUsageRecordGroupsResponse
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_usage_record_groups_by_product_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_usage_record_groups_by_product_with_http_info(
-            org_id, product_id, start_date, end_date, limit, offset, **kwargs
-        )  # noqa: E501
+        return self.list_usage_record_groups_by_product_with_http_info(org_id, product_id, start_date, end_date, limit, offset, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_usage_record_groups_by_product_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        product_id: Annotated[StrictStr, Field(..., description="product ID")],
-        start_date: Annotated[
-            Optional[StrictStr],
-            Field(
-                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
-            ),
-        ] = None,
-        end_date: Annotated[
-            Optional[StrictStr],
-            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
-        ] = None,
-        limit: Annotated[
-            Optional[StrictInt],
-            Field(description="List pagination size, default 20, max value is 1000"),
-        ] = None,
-        offset: Annotated[
-            Optional[StrictInt], Field(description="List pagination offset, default 0")
-        ] = None,
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_usage_record_groups_by_product_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="product ID")], start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """list usageRecordGroups by product  # noqa: E501
 
         List UsageRecordGroups by the given organization and product.  # noqa: E501
@@ -1703,83 +1440,82 @@ class MeteringApi:
         _params = locals()
 
         _all_params = [
-            "org_id",
-            "product_id",
-            "start_date",
-            "end_date",
-            "limit",
-            "offset",
+            'org_id',
+            'product_id',
+            'start_date',
+            'end_date',
+            'limit',
+            'offset'
         ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_usage_record_groups_by_product" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["product_id"]:
-            _path_params["productId"] = _params["product_id"]
+        if _params['product_id']:
+            _path_params['productId'] = _params['product_id']
+
 
         # process the query parameters
         _query_params = []
-        if _params.get("start_date") is not None:  # noqa: E501
-            _query_params.append(("startDate", _params["start_date"]))
+        if _params.get('start_date') is not None:  # noqa: E501
+            _query_params.append(('startDate', _params['start_date']))
 
-        if _params.get("end_date") is not None:  # noqa: E501
-            _query_params.append(("endDate", _params["end_date"]))
+        if _params.get('end_date') is not None:  # noqa: E501
+            _query_params.append(('endDate', _params['end_date']))
 
-        if _params.get("limit") is not None:  # noqa: E501
-            _query_params.append(("limit", _params["limit"]))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
 
-        if _params.get("offset") is not None:  # noqa: E501
-            _query_params.append(("offset", _params["offset"]))
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
 
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "ListUsageRecordGroupsResponse",
-            "400": "str",
-            "500": "str",
+            '200': "ListUsageRecordGroupsResponse",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/product/{productId}/usageRecordGroup",
-            "GET",
+            '/org/{orgId}/product/{productId}/usageRecordGroup', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1788,47 +1524,15 @@ class MeteringApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_usage_record_reports(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        partner: Annotated[
-            Optional[StrictStr], Field(description="Cloud Partner")
-        ] = None,
-        product_id: Annotated[
-            Optional[StrictStr], Field(description="product ID")
-        ] = None,
-        entitlement_id: Annotated[
-            Optional[StrictStr], Field(description="entitlement ID")
-        ] = None,
-        buyer_id: Annotated[Optional[StrictStr], Field(description="buyer ID")] = None,
-        start_date: Annotated[
-            Optional[StrictStr],
-            Field(
-                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
-            ),
-        ] = None,
-        end_date: Annotated[
-            Optional[StrictStr],
-            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
-        ] = None,
-        limit: Annotated[
-            Optional[StrictInt],
-            Field(description="List pagination size, default 20, max value is 1000"),
-        ] = None,
-        offset: Annotated[
-            Optional[StrictInt], Field(description="List pagination offset, default 0")
-        ] = None,
-        **kwargs
-    ) -> ListUsageRecordReportsResponse:  # noqa: E501
+    def list_usage_record_reports(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[Optional[StrictStr], Field(description="Cloud Partner")] = None, product_id : Annotated[Optional[StrictStr], Field(description="product ID")] = None, entitlement_id : Annotated[Optional[StrictStr], Field(description="entitlement ID")] = None, buyer_id : Annotated[Optional[StrictStr], Field(description="buyer ID")] = None, start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ListUsageRecordReportsResponse:  # noqa: E501
         """list usageRecordReports  # noqa: E501
 
         List usageRecordReports under the given organization, partner, product, entitlement or buyer. Only provide one or none of the following parameters: partner, product, entitlement or buyer.  # noqa: E501
@@ -1867,56 +1571,14 @@ class MeteringApi:
                  returns the request thread.
         :rtype: ListUsageRecordReportsResponse
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_usage_record_reports_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_usage_record_reports_with_http_info(
-            org_id,
-            partner,
-            product_id,
-            entitlement_id,
-            buyer_id,
-            start_date,
-            end_date,
-            limit,
-            offset,
-            **kwargs
-        )  # noqa: E501
+        return self.list_usage_record_reports_with_http_info(org_id, partner, product_id, entitlement_id, buyer_id, start_date, end_date, limit, offset, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_usage_record_reports_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        partner: Annotated[
-            Optional[StrictStr], Field(description="Cloud Partner")
-        ] = None,
-        product_id: Annotated[
-            Optional[StrictStr], Field(description="product ID")
-        ] = None,
-        entitlement_id: Annotated[
-            Optional[StrictStr], Field(description="entitlement ID")
-        ] = None,
-        buyer_id: Annotated[Optional[StrictStr], Field(description="buyer ID")] = None,
-        start_date: Annotated[
-            Optional[StrictStr],
-            Field(
-                description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate"
-            ),
-        ] = None,
-        end_date: Annotated[
-            Optional[StrictStr],
-            Field(description="end date (UTC) in YYYY-MM-DD format, default is today"),
-        ] = None,
-        limit: Annotated[
-            Optional[StrictInt],
-            Field(description="List pagination size, default 20, max value is 1000"),
-        ] = None,
-        offset: Annotated[
-            Optional[StrictInt], Field(description="List pagination offset, default 0")
-        ] = None,
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_usage_record_reports_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[Optional[StrictStr], Field(description="Cloud Partner")] = None, product_id : Annotated[Optional[StrictStr], Field(description="product ID")] = None, entitlement_id : Annotated[Optional[StrictStr], Field(description="entitlement ID")] = None, buyer_id : Annotated[Optional[StrictStr], Field(description="buyer ID")] = None, start_date : Annotated[Optional[StrictStr], Field(description="start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate")] = None, end_date : Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None, limit : Annotated[Optional[StrictInt], Field(description="List pagination size, default 20, max value is 1000")] = None, offset : Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """list usageRecordReports  # noqa: E501
 
         List usageRecordReports under the given organization, partner, product, entitlement or buyer. Only provide one or none of the following parameters: partner, product, entitlement or buyer.  # noqa: E501
@@ -1972,95 +1634,94 @@ class MeteringApi:
         _params = locals()
 
         _all_params = [
-            "org_id",
-            "partner",
-            "product_id",
-            "entitlement_id",
-            "buyer_id",
-            "start_date",
-            "end_date",
-            "limit",
-            "offset",
+            'org_id',
+            'partner',
+            'product_id',
+            'entitlement_id',
+            'buyer_id',
+            'start_date',
+            'end_date',
+            'limit',
+            'offset'
         ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_usage_record_reports" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
 
         # process the query parameters
         _query_params = []
-        if _params.get("partner") is not None:  # noqa: E501
-            _query_params.append(("partner", _params["partner"]))
+        if _params.get('partner') is not None:  # noqa: E501
+            _query_params.append(('partner', _params['partner']))
 
-        if _params.get("product_id") is not None:  # noqa: E501
-            _query_params.append(("productId", _params["product_id"]))
+        if _params.get('product_id') is not None:  # noqa: E501
+            _query_params.append(('productId', _params['product_id']))
 
-        if _params.get("entitlement_id") is not None:  # noqa: E501
-            _query_params.append(("entitlementId", _params["entitlement_id"]))
+        if _params.get('entitlement_id') is not None:  # noqa: E501
+            _query_params.append(('entitlementId', _params['entitlement_id']))
 
-        if _params.get("buyer_id") is not None:  # noqa: E501
-            _query_params.append(("buyerId", _params["buyer_id"]))
+        if _params.get('buyer_id') is not None:  # noqa: E501
+            _query_params.append(('buyerId', _params['buyer_id']))
 
-        if _params.get("start_date") is not None:  # noqa: E501
-            _query_params.append(("startDate", _params["start_date"]))
+        if _params.get('start_date') is not None:  # noqa: E501
+            _query_params.append(('startDate', _params['start_date']))
 
-        if _params.get("end_date") is not None:  # noqa: E501
-            _query_params.append(("endDate", _params["end_date"]))
+        if _params.get('end_date') is not None:  # noqa: E501
+            _query_params.append(('endDate', _params['end_date']))
 
-        if _params.get("limit") is not None:  # noqa: E501
-            _query_params.append(("limit", _params["limit"]))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
 
-        if _params.get("offset") is not None:  # noqa: E501
-            _query_params.append(("offset", _params["offset"]))
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
 
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "ListUsageRecordReportsResponse",
-            "400": "str",
-            "500": "str",
+            '200': "ListUsageRecordReportsResponse",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/usageRecordReport",
-            "GET",
+            '/org/{orgId}/usageRecordReport', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -2069,24 +1730,15 @@ class MeteringApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def report_usage_record_group(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="Entitlement ID")],
-        data: Annotated[
-            CreateUsageRecordGroupParams, Field(..., description="RequestBody")
-        ],
-        **kwargs
-    ) -> MeteringUsageRecordGroup:  # noqa: E501
+    def report_usage_record_group(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="Entitlement ID")], data : Annotated[CreateUsageRecordGroupParams, Field(..., description="RequestBody")], **kwargs) -> MeteringUsageRecordGroup:  # noqa: E501
         """report usageRecordGroup  # noqa: E501
 
         It is recommended to provide the ID in the request body CreateUsageRecordGroupParams, so the report can be deduplicated. All duplicate report will return error code 409.  # noqa: E501
@@ -2113,24 +1765,14 @@ class MeteringApi:
                  returns the request thread.
         :rtype: MeteringUsageRecordGroup
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the report_usage_record_group_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.report_usage_record_group_with_http_info(
-            org_id, entitlement_id, data, **kwargs
-        )  # noqa: E501
+        return self.report_usage_record_group_with_http_info(org_id, entitlement_id, data, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def report_usage_record_group_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        entitlement_id: Annotated[StrictStr, Field(..., description="Entitlement ID")],
-        data: Annotated[
-            CreateUsageRecordGroupParams, Field(..., description="RequestBody")
-        ],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def report_usage_record_group_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], entitlement_id : Annotated[StrictStr, Field(..., description="Entitlement ID")], data : Annotated[CreateUsageRecordGroupParams, Field(..., description="RequestBody")], **kwargs) -> ApiResponse:  # noqa: E501
         """report usageRecordGroup  # noqa: E501
 
         It is recommended to provide the ID in the request body CreateUsageRecordGroupParams, so the report can be deduplicated. All duplicate report will return error code 409.  # noqa: E501
@@ -2173,76 +1815,78 @@ class MeteringApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "entitlement_id", "data"]
+        _all_params = [
+            'org_id',
+            'entitlement_id',
+            'data'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method report_usage_record_group" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["entitlement_id"]:
-            _path_params["entitlementId"] = _params["entitlement_id"]
+        if _params['entitlement_id']:
+            _path_params['entitlementId'] = _params['entitlement_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params["data"] is not None:
-            _body_params = _params["data"]
+        if _params['data'] is not None:
+            _body_params = _params['data']
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get(
-            "_content_type",
-            self.api_client.select_header_content_type(["application/json"]),
-        )
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
         if _content_types_list:
-            _header_params["Content-Type"] = _content_types_list
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "MeteringUsageRecordGroup",
-            "400": "str",
-            "500": "str",
+            '200': "MeteringUsageRecordGroup",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/entitlement/{entitlementId}/usageRecordGroup",
-            "POST",
+            '/org/{orgId}/entitlement/{entitlementId}/usageRecordGroup', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -2251,24 +1895,15 @@ class MeteringApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_usage_metering_config_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        data: Annotated[
-            UsageMeteringConfigInfo,
-            Field(..., description="The usage metering config info to be updated"),
-        ],
-        **kwargs
-    ) -> UsageMeteringConfigInfo:  # noqa: E501
+    def update_usage_metering_config_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[UsageMeteringConfigInfo, Field(..., description="The usage metering config info to be updated")], **kwargs) -> UsageMeteringConfigInfo:  # noqa: E501
         """update usage metering config info  # noqa: E501
 
         Update the usage metering config info of the given organization.  # noqa: E501
@@ -2293,24 +1928,14 @@ class MeteringApi:
                  returns the request thread.
         :rtype: UsageMeteringConfigInfo
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the update_usage_metering_config_info_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.update_usage_metering_config_info_with_http_info(
-            org_id, data, **kwargs
-        )  # noqa: E501
+        return self.update_usage_metering_config_info_with_http_info(org_id, data, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_usage_metering_config_info_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        data: Annotated[
-            UsageMeteringConfigInfo,
-            Field(..., description="The usage metering config info to be updated"),
-        ],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def update_usage_metering_config_info_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[UsageMeteringConfigInfo, Field(..., description="The usage metering config info to be updated")], **kwargs) -> ApiResponse:  # noqa: E501
         """update usage metering config info  # noqa: E501
 
         Update the usage metering config info of the given organization.  # noqa: E501
@@ -2351,73 +1976,74 @@ class MeteringApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "data"]
+        _all_params = [
+            'org_id',
+            'data'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_usage_metering_config_info" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params["data"] is not None:
-            _body_params = _params["data"]
+        if _params['data'] is not None:
+            _body_params = _params['data']
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get(
-            "_content_type",
-            self.api_client.select_header_content_type(["application/json"]),
-        )
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
         if _content_types_list:
-            _header_params["Content-Type"] = _content_types_list
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "UsageMeteringConfigInfo",
-            "400": "str",
-            "500": "str",
+            '200': "UsageMeteringConfigInfo",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/usageMeteringConfigInfo",
-            "PATCH",
+            '/org/{orgId}/usageMeteringConfigInfo', 'PATCH',
             _path_params,
             _query_params,
             _header_params,
@@ -2426,10 +2052,9 @@ class MeteringApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))

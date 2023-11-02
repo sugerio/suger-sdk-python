@@ -22,72 +22,32 @@ import json
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 
-
 class AzureProductProperty(BaseModel):
     """
     AzureProductProperty
     """
-
-    additional_categories: Optional[conlist(StrictStr)] = Field(
-        None, alias="additionalCategories"
-    )
+    additional_categories: Optional[conlist(StrictStr)] = Field(None, alias="additionalCategories")
     app_version: Optional[StrictStr] = Field(None, alias="appVersion")
-    applicable_products: Optional[conlist(StrictStr)] = Field(
-        None, alias="applicableProducts"
-    )
+    applicable_products: Optional[conlist(StrictStr)] = Field(None, alias="applicableProducts")
     categories: Optional[conlist(StrictStr)] = None
-    custom_amendments: Optional[conlist(StrictStr)] = Field(
-        None, alias="customAmendments"
-    )
-    extended_properties: Optional[conlist(StrictStr)] = Field(
-        None, alias="extendedProperties"
-    )
-    global_amendment_terms: Optional[StrictStr] = Field(
-        None, alias="globalAmendmentTerms"
-    )
+    custom_amendments: Optional[conlist(StrictStr)] = Field(None, alias="customAmendments")
+    extended_properties: Optional[conlist(StrictStr)] = Field(None, alias="extendedProperties")
+    global_amendment_terms: Optional[StrictStr] = Field(None, alias="globalAmendmentTerms")
     hide_keys: Optional[conlist(StrictStr)] = Field(None, alias="hideKeys")
     id: Optional[StrictStr] = None
     industries: Optional[conlist(StrictStr)] = None
-    leveled_categories: Optional[Dict[str, Any]] = Field(
-        None, alias="leveledCategories"
-    )
-    leveled_industries: Optional[Dict[str, Any]] = Field(
-        None, alias="leveledIndustries"
-    )
-    marketing_only_change: Optional[StrictBool] = Field(
-        None, alias="marketingOnlyChange"
-    )
+    leveled_categories: Optional[Dict[str, Any]] = Field(None, alias="leveledCategories")
+    leveled_industries: Optional[Dict[str, Any]] = Field(None, alias="leveledIndustries")
+    marketing_only_change: Optional[StrictBool] = Field(None, alias="marketingOnlyChange")
     product_tags: Optional[conlist(StrictStr)] = Field(None, alias="productTags")
     resource_type: Optional[StrictStr] = Field(None, alias="resourceType")
     submission_version: Optional[StrictStr] = Field(None, alias="submissionVersion")
     terms_of_use: Optional[StrictStr] = Field(None, alias="termsOfUse")
-    use_enterprise_contract: Optional[StrictBool] = Field(
-        None, alias="useEnterpriseContract"
-    )
-    __properties = [
-        "additionalCategories",
-        "appVersion",
-        "applicableProducts",
-        "categories",
-        "customAmendments",
-        "extendedProperties",
-        "globalAmendmentTerms",
-        "hideKeys",
-        "id",
-        "industries",
-        "leveledCategories",
-        "leveledIndustries",
-        "marketingOnlyChange",
-        "productTags",
-        "resourceType",
-        "submissionVersion",
-        "termsOfUse",
-        "useEnterpriseContract",
-    ]
+    use_enterprise_contract: Optional[StrictBool] = Field(None, alias="useEnterpriseContract")
+    __properties = ["additionalCategories", "appVersion", "applicableProducts", "categories", "customAmendments", "extendedProperties", "globalAmendmentTerms", "hideKeys", "id", "industries", "leveledCategories", "leveledIndustries", "marketingOnlyChange", "productTags", "resourceType", "submissionVersion", "termsOfUse", "useEnterpriseContract"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -106,7 +66,10 @@ class AzureProductProperty(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -118,26 +81,26 @@ class AzureProductProperty(BaseModel):
         if not isinstance(obj, dict):
             return AzureProductProperty.parse_obj(obj)
 
-        _obj = AzureProductProperty.parse_obj(
-            {
-                "additional_categories": obj.get("additionalCategories"),
-                "app_version": obj.get("appVersion"),
-                "applicable_products": obj.get("applicableProducts"),
-                "categories": obj.get("categories"),
-                "custom_amendments": obj.get("customAmendments"),
-                "extended_properties": obj.get("extendedProperties"),
-                "global_amendment_terms": obj.get("globalAmendmentTerms"),
-                "hide_keys": obj.get("hideKeys"),
-                "id": obj.get("id"),
-                "industries": obj.get("industries"),
-                "leveled_categories": obj.get("leveledCategories"),
-                "leveled_industries": obj.get("leveledIndustries"),
-                "marketing_only_change": obj.get("marketingOnlyChange"),
-                "product_tags": obj.get("productTags"),
-                "resource_type": obj.get("resourceType"),
-                "submission_version": obj.get("submissionVersion"),
-                "terms_of_use": obj.get("termsOfUse"),
-                "use_enterprise_contract": obj.get("useEnterpriseContract"),
-            }
-        )
+        _obj = AzureProductProperty.parse_obj({
+            "additional_categories": obj.get("additionalCategories"),
+            "app_version": obj.get("appVersion"),
+            "applicable_products": obj.get("applicableProducts"),
+            "categories": obj.get("categories"),
+            "custom_amendments": obj.get("customAmendments"),
+            "extended_properties": obj.get("extendedProperties"),
+            "global_amendment_terms": obj.get("globalAmendmentTerms"),
+            "hide_keys": obj.get("hideKeys"),
+            "id": obj.get("id"),
+            "industries": obj.get("industries"),
+            "leveled_categories": obj.get("leveledCategories"),
+            "leveled_industries": obj.get("leveledIndustries"),
+            "marketing_only_change": obj.get("marketingOnlyChange"),
+            "product_tags": obj.get("productTags"),
+            "resource_type": obj.get("resourceType"),
+            "submission_version": obj.get("submissionVersion"),
+            "terms_of_use": obj.get("termsOfUse"),
+            "use_enterprise_contract": obj.get("useEnterpriseContract")
+        })
         return _obj
+
+

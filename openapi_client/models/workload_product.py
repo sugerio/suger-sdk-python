@@ -26,12 +26,10 @@ from openapi_client.models.partner_service import PartnerService
 from openapi_client.models.product_info import ProductInfo
 from openapi_client.models.workload_meta_info import WorkloadMetaInfo
 
-
 class WorkloadProduct(BaseModel):
     """
     WorkloadProduct
     """
-
     created_by: Optional[StrictStr] = Field(None, alias="createdBy")
     creation_time: Optional[datetime] = Field(None, alias="creationTime")
     external_id: Optional[StrictStr] = Field(None, alias="externalID")
@@ -47,46 +45,20 @@ class WorkloadProduct(BaseModel):
     product_type: Optional[StrictStr] = Field(None, alias="productType")
     service: Optional[PartnerService] = None
     status: Optional[StrictStr] = None
-    __properties = [
-        "createdBy",
-        "creationTime",
-        "externalID",
-        "fulfillmentUrl",
-        "id",
-        "info",
-        "lastUpdateTime",
-        "lastUpdatedBy",
-        "metaInfo",
-        "name",
-        "organizationID",
-        "partner",
-        "productType",
-        "service",
-        "status",
-    ]
+    __properties = ["createdBy", "creationTime", "externalID", "fulfillmentUrl", "id", "info", "lastUpdateTime", "lastUpdatedBy", "metaInfo", "name", "organizationID", "partner", "productType", "service", "status"]
 
-    @validator("product_type")
+    @validator('product_type')
     def product_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in (
-            "UNKNOWN",
-            "SUBSCRIPTION",
-            "CONTRACT",
-            "FLAT_RATE",
-            "PER_USER",
-            "USAGE_BASED",
-        ):
-            raise ValueError(
-                "must be one of enum values ('UNKNOWN', 'SUBSCRIPTION', 'CONTRACT', 'FLAT_RATE', 'PER_USER', 'USAGE_BASED')"
-            )
+        if value not in ('UNKNOWN', 'SUBSCRIPTION', 'CONTRACT', 'FLAT_RATE', 'PER_USER', 'USAGE_BASED'):
+            raise ValueError("must be one of enum values ('UNKNOWN', 'SUBSCRIPTION', 'CONTRACT', 'FLAT_RATE', 'PER_USER', 'USAGE_BASED')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -105,13 +77,16 @@ class WorkloadProduct(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of info
         if self.info:
-            _dict["info"] = self.info.to_dict()
+            _dict['info'] = self.info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of meta_info
         if self.meta_info:
-            _dict["metaInfo"] = self.meta_info.to_dict()
+            _dict['metaInfo'] = self.meta_info.to_dict()
         return _dict
 
     @classmethod
@@ -123,27 +98,23 @@ class WorkloadProduct(BaseModel):
         if not isinstance(obj, dict):
             return WorkloadProduct.parse_obj(obj)
 
-        _obj = WorkloadProduct.parse_obj(
-            {
-                "created_by": obj.get("createdBy"),
-                "creation_time": obj.get("creationTime"),
-                "external_id": obj.get("externalID"),
-                "fulfillment_url": obj.get("fulfillmentUrl"),
-                "id": obj.get("id"),
-                "info": ProductInfo.from_dict(obj.get("info"))
-                if obj.get("info") is not None
-                else None,
-                "last_update_time": obj.get("lastUpdateTime"),
-                "last_updated_by": obj.get("lastUpdatedBy"),
-                "meta_info": WorkloadMetaInfo.from_dict(obj.get("metaInfo"))
-                if obj.get("metaInfo") is not None
-                else None,
-                "name": obj.get("name"),
-                "organization_id": obj.get("organizationID"),
-                "partner": obj.get("partner"),
-                "product_type": obj.get("productType"),
-                "service": obj.get("service"),
-                "status": obj.get("status"),
-            }
-        )
+        _obj = WorkloadProduct.parse_obj({
+            "created_by": obj.get("createdBy"),
+            "creation_time": obj.get("creationTime"),
+            "external_id": obj.get("externalID"),
+            "fulfillment_url": obj.get("fulfillmentUrl"),
+            "id": obj.get("id"),
+            "info": ProductInfo.from_dict(obj.get("info")) if obj.get("info") is not None else None,
+            "last_update_time": obj.get("lastUpdateTime"),
+            "last_updated_by": obj.get("lastUpdatedBy"),
+            "meta_info": WorkloadMetaInfo.from_dict(obj.get("metaInfo")) if obj.get("metaInfo") is not None else None,
+            "name": obj.get("name"),
+            "organization_id": obj.get("organizationID"),
+            "partner": obj.get("partner"),
+            "product_type": obj.get("productType"),
+            "service": obj.get("service"),
+            "status": obj.get("status")
+        })
         return _obj
+
+

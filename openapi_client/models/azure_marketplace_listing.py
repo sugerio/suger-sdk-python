@@ -22,107 +22,50 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist, validator
 from openapi_client.models.azure_marketplace_contact import AzureMarketplaceContact
-from openapi_client.models.azure_marketplace_general_link import (
-    AzureMarketplaceGeneralLink,
-)
-from openapi_client.models.azure_marketplace_resource_lifecycle_state import (
-    AzureMarketplaceResourceLifecycleState,
-)
-from openapi_client.models.azure_marketplace_validation import (
-    AzureMarketplaceValidation,
-)
-
+from openapi_client.models.azure_marketplace_general_link import AzureMarketplaceGeneralLink
+from openapi_client.models.azure_marketplace_resource_lifecycle_state import AzureMarketplaceResourceLifecycleState
+from openapi_client.models.azure_marketplace_validation import AzureMarketplaceValidation
 
 class AzureMarketplaceListing(BaseModel):
     """
     AzureMarketplaceListing
     """
-
     var_schema: Optional[StrictStr] = Field(None, alias="$schema")
-    cloud_solution_provider_contact: Optional[AzureMarketplaceContact] = Field(
-        None, alias="cloudSolutionProviderContact"
-    )
-    cloud_solution_provider_marketing_materials: Optional[StrictStr] = Field(
-        None, alias="cloudSolutionProviderMarketingMaterials"
-    )
+    cloud_solution_provider_contact: Optional[AzureMarketplaceContact] = Field(None, alias="cloudSolutionProviderContact")
+    cloud_solution_provider_marketing_materials: Optional[StrictStr] = Field(None, alias="cloudSolutionProviderMarketingMaterials")
     description: Optional[StrictStr] = None
-    engineering_contact: Optional[AzureMarketplaceContact] = Field(
-        None, alias="engineeringContact"
-    )
-    general_links: Optional[conlist(AzureMarketplaceGeneralLink)] = Field(
-        None, alias="generalLinks"
-    )
-    getting_started_instructions: Optional[StrictStr] = Field(
-        None, alias="gettingStartedInstructions"
-    )
-    gloabal_support_website: Optional[StrictStr] = Field(
-        None, alias="gloabalSupportWebsite"
-    )
-    government_support_website: Optional[StrictStr] = Field(
-        None, alias="governmentSupportWebsite"
-    )
+    engineering_contact: Optional[AzureMarketplaceContact] = Field(None, alias="engineeringContact")
+    general_links: Optional[conlist(AzureMarketplaceGeneralLink)] = Field(None, alias="generalLinks")
+    getting_started_instructions: Optional[StrictStr] = Field(None, alias="gettingStartedInstructions")
+    gloabal_support_website: Optional[StrictStr] = Field(None, alias="gloabalSupportWebsite")
+    government_support_website: Optional[StrictStr] = Field(None, alias="governmentSupportWebsite")
     id: Optional[StrictStr] = None
     kind: Optional[StrictStr] = None
     language_id: Optional[StrictStr] = Field(None, alias="languageId")
-    lifecycle_state: Optional[AzureMarketplaceResourceLifecycleState] = Field(
-        None, alias="lifecycleState"
-    )
+    lifecycle_state: Optional[AzureMarketplaceResourceLifecycleState] = Field(None, alias="lifecycleState")
     privacy_policy_link: Optional[StrictStr] = Field(None, alias="privacyPolicyLink")
-    product: Optional[StrictStr] = Field(
-        None,
-        description='Product resource name, in format of "product/product-durable-id"',
-    )
+    product: Optional[StrictStr] = Field(None, description="Product resource name, in format of \"product/product-durable-id\"")
     resource_name: Optional[StrictStr] = Field(None, alias="resourceName")
     search_keywords: Optional[conlist(StrictStr)] = Field(None, alias="searchKeywords")
-    search_result_summary: Optional[StrictStr] = Field(
-        None, alias="searchResultSummary"
-    )
+    search_result_summary: Optional[StrictStr] = Field(None, alias="searchResultSummary")
     short_description: Optional[StrictStr] = Field(None, alias="shortDescription")
-    support_contact: Optional[AzureMarketplaceContact] = Field(
-        None, alias="supportContact"
-    )
+    support_contact: Optional[AzureMarketplaceContact] = Field(None, alias="supportContact")
     title: Optional[StrictStr] = Field(None, description="Max string length is 200.")
     validations: Optional[conlist(AzureMarketplaceValidation)] = None
-    __properties = [
-        "$schema",
-        "cloudSolutionProviderContact",
-        "cloudSolutionProviderMarketingMaterials",
-        "description",
-        "engineeringContact",
-        "generalLinks",
-        "gettingStartedInstructions",
-        "gloabalSupportWebsite",
-        "governmentSupportWebsite",
-        "id",
-        "kind",
-        "languageId",
-        "lifecycleState",
-        "privacyPolicyLink",
-        "product",
-        "resourceName",
-        "searchKeywords",
-        "searchResultSummary",
-        "shortDescription",
-        "supportContact",
-        "title",
-        "validations",
-    ]
+    __properties = ["$schema", "cloudSolutionProviderContact", "cloudSolutionProviderMarketingMaterials", "description", "engineeringContact", "generalLinks", "gettingStartedInstructions", "gloabalSupportWebsite", "governmentSupportWebsite", "id", "kind", "languageId", "lifecycleState", "privacyPolicyLink", "product", "resourceName", "searchKeywords", "searchResultSummary", "shortDescription", "supportContact", "title", "validations"]
 
-    @validator("kind")
+    @validator('kind')
     def kind_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("azureSaaS", "azureVM", "xbox360NonBackCompat"):
-            raise ValueError(
-                "must be one of enum values ('azureSaaS', 'azureVM', 'xbox360NonBackCompat')"
-            )
+        if value not in ('azureSaaS', 'azureVM', 'xbox360NonBackCompat'):
+            raise ValueError("must be one of enum values ('azureSaaS', 'azureVM', 'xbox360NonBackCompat')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -141,32 +84,33 @@ class AzureMarketplaceListing(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of cloud_solution_provider_contact
         if self.cloud_solution_provider_contact:
-            _dict[
-                "cloudSolutionProviderContact"
-            ] = self.cloud_solution_provider_contact.to_dict()
+            _dict['cloudSolutionProviderContact'] = self.cloud_solution_provider_contact.to_dict()
         # override the default output from pydantic by calling `to_dict()` of engineering_contact
         if self.engineering_contact:
-            _dict["engineeringContact"] = self.engineering_contact.to_dict()
+            _dict['engineeringContact'] = self.engineering_contact.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in general_links (list)
         _items = []
         if self.general_links:
             for _item in self.general_links:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["generalLinks"] = _items
+            _dict['generalLinks'] = _items
         # override the default output from pydantic by calling `to_dict()` of support_contact
         if self.support_contact:
-            _dict["supportContact"] = self.support_contact.to_dict()
+            _dict['supportContact'] = self.support_contact.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in validations (list)
         _items = []
         if self.validations:
             for _item in self.validations:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["validations"] = _items
+            _dict['validations'] = _items
         return _dict
 
     @classmethod
@@ -178,54 +122,30 @@ class AzureMarketplaceListing(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceListing.parse_obj(obj)
 
-        _obj = AzureMarketplaceListing.parse_obj(
-            {
-                "var_schema": obj.get("$schema"),
-                "cloud_solution_provider_contact": AzureMarketplaceContact.from_dict(
-                    obj.get("cloudSolutionProviderContact")
-                )
-                if obj.get("cloudSolutionProviderContact") is not None
-                else None,
-                "cloud_solution_provider_marketing_materials": obj.get(
-                    "cloudSolutionProviderMarketingMaterials"
-                ),
-                "description": obj.get("description"),
-                "engineering_contact": AzureMarketplaceContact.from_dict(
-                    obj.get("engineeringContact")
-                )
-                if obj.get("engineeringContact") is not None
-                else None,
-                "general_links": [
-                    AzureMarketplaceGeneralLink.from_dict(_item)
-                    for _item in obj.get("generalLinks")
-                ]
-                if obj.get("generalLinks") is not None
-                else None,
-                "getting_started_instructions": obj.get("gettingStartedInstructions"),
-                "gloabal_support_website": obj.get("gloabalSupportWebsite"),
-                "government_support_website": obj.get("governmentSupportWebsite"),
-                "id": obj.get("id"),
-                "kind": obj.get("kind"),
-                "language_id": obj.get("languageId"),
-                "lifecycle_state": obj.get("lifecycleState"),
-                "privacy_policy_link": obj.get("privacyPolicyLink"),
-                "product": obj.get("product"),
-                "resource_name": obj.get("resourceName"),
-                "search_keywords": obj.get("searchKeywords"),
-                "search_result_summary": obj.get("searchResultSummary"),
-                "short_description": obj.get("shortDescription"),
-                "support_contact": AzureMarketplaceContact.from_dict(
-                    obj.get("supportContact")
-                )
-                if obj.get("supportContact") is not None
-                else None,
-                "title": obj.get("title"),
-                "validations": [
-                    AzureMarketplaceValidation.from_dict(_item)
-                    for _item in obj.get("validations")
-                ]
-                if obj.get("validations") is not None
-                else None,
-            }
-        )
+        _obj = AzureMarketplaceListing.parse_obj({
+            "var_schema": obj.get("$schema"),
+            "cloud_solution_provider_contact": AzureMarketplaceContact.from_dict(obj.get("cloudSolutionProviderContact")) if obj.get("cloudSolutionProviderContact") is not None else None,
+            "cloud_solution_provider_marketing_materials": obj.get("cloudSolutionProviderMarketingMaterials"),
+            "description": obj.get("description"),
+            "engineering_contact": AzureMarketplaceContact.from_dict(obj.get("engineeringContact")) if obj.get("engineeringContact") is not None else None,
+            "general_links": [AzureMarketplaceGeneralLink.from_dict(_item) for _item in obj.get("generalLinks")] if obj.get("generalLinks") is not None else None,
+            "getting_started_instructions": obj.get("gettingStartedInstructions"),
+            "gloabal_support_website": obj.get("gloabalSupportWebsite"),
+            "government_support_website": obj.get("governmentSupportWebsite"),
+            "id": obj.get("id"),
+            "kind": obj.get("kind"),
+            "language_id": obj.get("languageId"),
+            "lifecycle_state": obj.get("lifecycleState"),
+            "privacy_policy_link": obj.get("privacyPolicyLink"),
+            "product": obj.get("product"),
+            "resource_name": obj.get("resourceName"),
+            "search_keywords": obj.get("searchKeywords"),
+            "search_result_summary": obj.get("searchResultSummary"),
+            "short_description": obj.get("shortDescription"),
+            "support_contact": AzureMarketplaceContact.from_dict(obj.get("supportContact")) if obj.get("supportContact") is not None else None,
+            "title": obj.get("title"),
+            "validations": [AzureMarketplaceValidation.from_dict(_item) for _item in obj.get("validations")] if obj.get("validations") is not None else None
+        })
         return _obj
+
+

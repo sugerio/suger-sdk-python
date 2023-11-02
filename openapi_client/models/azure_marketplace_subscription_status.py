@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class AzureMarketplaceSubscriptionStatus(str, Enum):
     """
     AzureMarketplaceSubscriptionStatus
@@ -27,13 +30,15 @@ class AzureMarketplaceSubscriptionStatus(str, Enum):
     """
     allowed enum values
     """
-    NOTSTARTED = "NotStarted"
-    PENDINGFULFILLMENTSTART = "PendingFulfillmentStart"
-    SUBSCRIBED = "Subscribed"
-    SUSPENDED = "Suspended"
-    UNSUBSCRIBED = "Unsubscribed"
+    NOTSTARTED = 'NotStarted'
+    PENDINGFULFILLMENTSTART = 'PendingFulfillmentStart'
+    SUBSCRIBED = 'Subscribed'
+    SUSPENDED = 'Suspended'
+    UNSUBSCRIBED = 'Unsubscribed'
 
     @classmethod
     def from_json(cls, json_str: str) -> AzureMarketplaceSubscriptionStatus:
         """Create an instance of AzureMarketplaceSubscriptionStatus from a JSON string"""
         return AzureMarketplaceSubscriptionStatus(json.loads(json_str))
+
+

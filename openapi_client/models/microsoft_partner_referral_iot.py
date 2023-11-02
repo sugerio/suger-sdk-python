@@ -22,32 +22,19 @@ import json
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictBool
 
-
 class MicrosoftPartnerReferralIot(BaseModel):
     """
     MicrosoftPartnerReferralIot
     """
-
     attach_services: Optional[StrictBool] = Field(None, alias="attachServices")
-    azure_certified_device: Optional[StrictBool] = Field(
-        None, alias="azureCertifiedDevice"
-    )
-    customer_license_agreement_number: Optional[Dict[str, Any]] = Field(
-        None, alias="customerLicenseAgreementNumber"
-    )
+    azure_certified_device: Optional[StrictBool] = Field(None, alias="azureCertifiedDevice")
+    customer_license_agreement_number: Optional[Dict[str, Any]] = Field(None, alias="customerLicenseAgreementNumber")
     device_category: Optional[Dict[str, Any]] = Field(None, alias="deviceCategory")
     silicon_type: Optional[Dict[str, Any]] = Field(None, alias="siliconType")
-    __properties = [
-        "attachServices",
-        "azureCertifiedDevice",
-        "customerLicenseAgreementNumber",
-        "deviceCategory",
-        "siliconType",
-    ]
+    __properties = ["attachServices", "azureCertifiedDevice", "customerLicenseAgreementNumber", "deviceCategory", "siliconType"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -66,7 +53,10 @@ class MicrosoftPartnerReferralIot(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -78,15 +68,13 @@ class MicrosoftPartnerReferralIot(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralIot.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralIot.parse_obj(
-            {
-                "attach_services": obj.get("attachServices"),
-                "azure_certified_device": obj.get("azureCertifiedDevice"),
-                "customer_license_agreement_number": obj.get(
-                    "customerLicenseAgreementNumber"
-                ),
-                "device_category": obj.get("deviceCategory"),
-                "silicon_type": obj.get("siliconType"),
-            }
-        )
+        _obj = MicrosoftPartnerReferralIot.parse_obj({
+            "attach_services": obj.get("attachServices"),
+            "azure_certified_device": obj.get("azureCertifiedDevice"),
+            "customer_license_agreement_number": obj.get("customerLicenseAgreementNumber"),
+            "device_category": obj.get("deviceCategory"),
+            "silicon_type": obj.get("siliconType")
+        })
         return _obj
+
+

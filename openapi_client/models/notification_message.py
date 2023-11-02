@@ -24,12 +24,10 @@ from pydantic import BaseModel, Field, StrictStr
 from openapi_client.models.notification_message_info import NotificationMessageInfo
 from openapi_client.models.notification_type import NotificationType
 
-
 class NotificationMessage(BaseModel):
     """
     NotificationMessage
     """
-
     creation_time: Optional[datetime] = Field(None, alias="creationTime")
     id: Optional[StrictStr] = None
     info: Optional[NotificationMessageInfo] = None
@@ -40,7 +38,6 @@ class NotificationMessage(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -59,10 +56,13 @@ class NotificationMessage(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of info
         if self.info:
-            _dict["info"] = self.info.to_dict()
+            _dict['info'] = self.info.to_dict()
         return _dict
 
     @classmethod
@@ -74,16 +74,14 @@ class NotificationMessage(BaseModel):
         if not isinstance(obj, dict):
             return NotificationMessage.parse_obj(obj)
 
-        _obj = NotificationMessage.parse_obj(
-            {
-                "creation_time": obj.get("creationTime"),
-                "id": obj.get("id"),
-                "info": NotificationMessageInfo.from_dict(obj.get("info"))
-                if obj.get("info") is not None
-                else None,
-                "organization_id": obj.get("organizationID"),
-                "recipient": obj.get("recipient"),
-                "type": obj.get("type"),
-            }
-        )
+        _obj = NotificationMessage.parse_obj({
+            "creation_time": obj.get("creationTime"),
+            "id": obj.get("id"),
+            "info": NotificationMessageInfo.from_dict(obj.get("info")) if obj.get("info") is not None else None,
+            "organization_id": obj.get("organizationID"),
+            "recipient": obj.get("recipient"),
+            "type": obj.get("type")
+        })
         return _obj
+
+

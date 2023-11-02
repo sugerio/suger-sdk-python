@@ -22,25 +22,16 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 
-
 class GcpUserInfo(BaseModel):
     """
     GcpUserInfo
     """
-
-    roles: Optional[conlist(StrictStr)] = Field(
-        None,
-        description="An array of strings representing the user's roles. Right now, it can be either: ** account_admin, which indicates that the user is a Billing Account Administrator of the billing account that purchased the product, or ** project_editor, which indicates that the user is a Project Editor, but not a Billing Administrator, of the project under that billing account.",
-    )
-    user_identity: Optional[StrictStr] = Field(
-        None,
-        description="The user's obfuscated GAIA ID, which can be used to initiate Open ID Connect.",
-    )
+    roles: Optional[conlist(StrictStr)] = Field(None, description="An array of strings representing the user's roles. Right now, it can be either: ** account_admin, which indicates that the user is a Billing Account Administrator of the billing account that purchased the product, or ** project_editor, which indicates that the user is a Project Editor, but not a Billing Administrator, of the project under that billing account.")
+    user_identity: Optional[StrictStr] = Field(None, description="The user's obfuscated GAIA ID, which can be used to initiate Open ID Connect.")
     __properties = ["roles", "user_identity"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -59,7 +50,10 @@ class GcpUserInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -71,7 +65,10 @@ class GcpUserInfo(BaseModel):
         if not isinstance(obj, dict):
             return GcpUserInfo.parse_obj(obj)
 
-        _obj = GcpUserInfo.parse_obj(
-            {"roles": obj.get("roles"), "user_identity": obj.get("user_identity")}
-        )
+        _obj = GcpUserInfo.parse_obj({
+            "roles": obj.get("roles"),
+            "user_identity": obj.get("user_identity")
+        })
         return _obj
+
+

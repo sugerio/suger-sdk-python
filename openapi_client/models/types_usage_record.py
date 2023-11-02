@@ -23,45 +23,19 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist
 from openapi_client.models.types_usage_allocation import TypesUsageAllocation
 
-
 class TypesUsageRecord(BaseModel):
     """
     TypesUsageRecord
     """
-
-    customer_identifier: Optional[StrictStr] = Field(
-        None,
-        alias="customerIdentifier",
-        description="The CustomerIdentifier is obtained through the ResolveCustomer operation and represents an individual buyer in your application.  This member is required.",
-    )
-    dimension: Optional[StrictStr] = Field(
-        None,
-        description="During the process of registering a product on AWS Marketplace, dimensions are specified. These represent different units of value in your application.  This member is required.",
-    )
-    quantity: Optional[StrictInt] = Field(
-        None,
-        description="The quantity of usage consumed by the customer for the given dimension and time. Defaults to 0 if not specified.",
-    )
-    timestamp: Optional[StrictStr] = Field(
-        None,
-        description="Timestamp, in UTC, for which the usage is being reported. Your application can meter usage for up to one hour in the past. Make sure the timestamp value is not before the start of the software usage.  This member is required.",
-    )
-    usage_allocations: Optional[conlist(TypesUsageAllocation)] = Field(
-        None,
-        alias="usageAllocations",
-        description="The set of UsageAllocations to submit. The sum of all UsageAllocation quantities must equal the Quantity of the UsageRecord.",
-    )
-    __properties = [
-        "customerIdentifier",
-        "dimension",
-        "quantity",
-        "timestamp",
-        "usageAllocations",
-    ]
+    customer_identifier: Optional[StrictStr] = Field(None, alias="customerIdentifier", description="The CustomerIdentifier is obtained through the ResolveCustomer operation and represents an individual buyer in your application.  This member is required.")
+    dimension: Optional[StrictStr] = Field(None, description="During the process of registering a product on AWS Marketplace, dimensions are specified. These represent different units of value in your application.  This member is required.")
+    quantity: Optional[StrictInt] = Field(None, description="The quantity of usage consumed by the customer for the given dimension and time. Defaults to 0 if not specified.")
+    timestamp: Optional[StrictStr] = Field(None, description="Timestamp, in UTC, for which the usage is being reported. Your application can meter usage for up to one hour in the past. Make sure the timestamp value is not before the start of the software usage.  This member is required.")
+    usage_allocations: Optional[conlist(TypesUsageAllocation)] = Field(None, alias="usageAllocations", description="The set of UsageAllocations to submit. The sum of all UsageAllocation quantities must equal the Quantity of the UsageRecord.")
+    __properties = ["customerIdentifier", "dimension", "quantity", "timestamp", "usageAllocations"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -80,14 +54,17 @@ class TypesUsageRecord(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in usage_allocations (list)
         _items = []
         if self.usage_allocations:
             for _item in self.usage_allocations:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["usageAllocations"] = _items
+            _dict['usageAllocations'] = _items
         return _dict
 
     @classmethod
@@ -99,18 +76,13 @@ class TypesUsageRecord(BaseModel):
         if not isinstance(obj, dict):
             return TypesUsageRecord.parse_obj(obj)
 
-        _obj = TypesUsageRecord.parse_obj(
-            {
-                "customer_identifier": obj.get("customerIdentifier"),
-                "dimension": obj.get("dimension"),
-                "quantity": obj.get("quantity"),
-                "timestamp": obj.get("timestamp"),
-                "usage_allocations": [
-                    TypesUsageAllocation.from_dict(_item)
-                    for _item in obj.get("usageAllocations")
-                ]
-                if obj.get("usageAllocations") is not None
-                else None,
-            }
-        )
+        _obj = TypesUsageRecord.parse_obj({
+            "customer_identifier": obj.get("customerIdentifier"),
+            "dimension": obj.get("dimension"),
+            "quantity": obj.get("quantity"),
+            "timestamp": obj.get("timestamp"),
+            "usage_allocations": [TypesUsageAllocation.from_dict(_item) for _item in obj.get("usageAllocations")] if obj.get("usageAllocations") is not None else None
+        })
         return _obj
+
+

@@ -21,46 +21,25 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
-from openapi_client.models.microsoft_partner_referral_contact_preference import (
-    MicrosoftPartnerReferralContactPreference,
-)
-
+from openapi_client.models.microsoft_partner_referral_contact_preference import MicrosoftPartnerReferralContactPreference
 
 class MicrosoftPartnerReferralPerson(BaseModel):
     """
     MicrosoftPartnerReferralPerson
     """
-
-    contact_preference: Optional[MicrosoftPartnerReferralContactPreference] = Field(
-        None, alias="contactPreference"
-    )
+    contact_preference: Optional[MicrosoftPartnerReferralContactPreference] = Field(None, alias="contactPreference")
     email: Optional[StrictStr] = None
-    email_validation_status: Optional[StrictStr] = Field(
-        None, alias="emailValidationStatus"
-    )
+    email_validation_status: Optional[StrictStr] = Field(None, alias="emailValidationStatus")
     first_name: Optional[StrictStr] = Field(None, alias="firstName")
     last_name: Optional[StrictStr] = Field(None, alias="lastName")
     linked_in_profile_url: Optional[StrictStr] = Field(None, alias="linkedInProfileUrl")
     phone_number: Optional[StrictStr] = Field(None, alias="phoneNumber")
-    phone_validation_status: Optional[StrictStr] = Field(
-        None, alias="phoneValidationStatus"
-    )
+    phone_validation_status: Optional[StrictStr] = Field(None, alias="phoneValidationStatus")
     title: Optional[StrictStr] = None
-    __properties = [
-        "contactPreference",
-        "email",
-        "emailValidationStatus",
-        "firstName",
-        "lastName",
-        "linkedInProfileUrl",
-        "phoneNumber",
-        "phoneValidationStatus",
-        "title",
-    ]
+    __properties = ["contactPreference", "email", "emailValidationStatus", "firstName", "lastName", "linkedInProfileUrl", "phoneNumber", "phoneValidationStatus", "title"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -79,10 +58,13 @@ class MicrosoftPartnerReferralPerson(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of contact_preference
         if self.contact_preference:
-            _dict["contactPreference"] = self.contact_preference.to_dict()
+            _dict['contactPreference'] = self.contact_preference.to_dict()
         return _dict
 
     @classmethod
@@ -94,21 +76,17 @@ class MicrosoftPartnerReferralPerson(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralPerson.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralPerson.parse_obj(
-            {
-                "contact_preference": MicrosoftPartnerReferralContactPreference.from_dict(
-                    obj.get("contactPreference")
-                )
-                if obj.get("contactPreference") is not None
-                else None,
-                "email": obj.get("email"),
-                "email_validation_status": obj.get("emailValidationStatus"),
-                "first_name": obj.get("firstName"),
-                "last_name": obj.get("lastName"),
-                "linked_in_profile_url": obj.get("linkedInProfileUrl"),
-                "phone_number": obj.get("phoneNumber"),
-                "phone_validation_status": obj.get("phoneValidationStatus"),
-                "title": obj.get("title"),
-            }
-        )
+        _obj = MicrosoftPartnerReferralPerson.parse_obj({
+            "contact_preference": MicrosoftPartnerReferralContactPreference.from_dict(obj.get("contactPreference")) if obj.get("contactPreference") is not None else None,
+            "email": obj.get("email"),
+            "email_validation_status": obj.get("emailValidationStatus"),
+            "first_name": obj.get("firstName"),
+            "last_name": obj.get("lastName"),
+            "linked_in_profile_url": obj.get("linkedInProfileUrl"),
+            "phone_number": obj.get("phoneNumber"),
+            "phone_validation_status": obj.get("phoneValidationStatus"),
+            "title": obj.get("title")
+        })
         return _obj
+
+

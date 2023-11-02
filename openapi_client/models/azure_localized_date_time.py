@@ -22,19 +22,16 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 
-
 class AzureLocalizedDateTime(BaseModel):
     """
     AzureLocalizedDateTime
     """
-
     date_time_in_utc: Optional[StrictStr] = Field(None, alias="dateTimeInUtc")
     localize_per_market: Optional[StrictBool] = Field(None, alias="localizePerMarket")
     __properties = ["dateTimeInUtc", "localizePerMarket"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,7 +50,10 @@ class AzureLocalizedDateTime(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,10 +65,10 @@ class AzureLocalizedDateTime(BaseModel):
         if not isinstance(obj, dict):
             return AzureLocalizedDateTime.parse_obj(obj)
 
-        _obj = AzureLocalizedDateTime.parse_obj(
-            {
-                "date_time_in_utc": obj.get("dateTimeInUtc"),
-                "localize_per_market": obj.get("localizePerMarket"),
-            }
-        )
+        _obj = AzureLocalizedDateTime.parse_obj({
+            "date_time_in_utc": obj.get("dateTimeInUtc"),
+            "localize_per_market": obj.get("localizePerMarket")
+        })
         return _obj
+
+

@@ -22,12 +22,10 @@ import json
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr
 
-
 class AlibabaMarketplaceProductExtra(BaseModel):
     """
     AlibabaMarketplaceProductExtra
     """
-
     key: Optional[StrictStr] = Field(None, alias="Key")
     label: Optional[StrictStr] = Field(None, alias="Label")
     order: Optional[StrictInt] = Field(None, alias="Order")
@@ -37,7 +35,6 @@ class AlibabaMarketplaceProductExtra(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -56,7 +53,10 @@ class AlibabaMarketplaceProductExtra(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -68,13 +68,13 @@ class AlibabaMarketplaceProductExtra(BaseModel):
         if not isinstance(obj, dict):
             return AlibabaMarketplaceProductExtra.parse_obj(obj)
 
-        _obj = AlibabaMarketplaceProductExtra.parse_obj(
-            {
-                "key": obj.get("Key"),
-                "label": obj.get("Label"),
-                "order": obj.get("Order"),
-                "type": obj.get("Type"),
-                "values": obj.get("Values"),
-            }
-        )
+        _obj = AlibabaMarketplaceProductExtra.parse_obj({
+            "key": obj.get("Key"),
+            "label": obj.get("Label"),
+            "order": obj.get("Order"),
+            "type": obj.get("Type"),
+            "values": obj.get("Values")
+        })
         return _obj
+
+

@@ -23,23 +23,16 @@ from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from openapi_client.models.servicecontrol_status import ServicecontrolStatus
 
-
 class ServicecontrolReportError(BaseModel):
     """
     ServicecontrolReportError
     """
-
-    operation_id: Optional[StrictStr] = Field(
-        None,
-        alias="operationId",
-        description="OperationId: The Operation.operation_id value from the request.",
-    )
+    operation_id: Optional[StrictStr] = Field(None, alias="operationId", description="OperationId: The Operation.operation_id value from the request.")
     status: Optional[ServicecontrolStatus] = None
     __properties = ["operationId", "status"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -58,10 +51,13 @@ class ServicecontrolReportError(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of status
         if self.status:
-            _dict["status"] = self.status.to_dict()
+            _dict['status'] = self.status.to_dict()
         return _dict
 
     @classmethod
@@ -73,12 +69,10 @@ class ServicecontrolReportError(BaseModel):
         if not isinstance(obj, dict):
             return ServicecontrolReportError.parse_obj(obj)
 
-        _obj = ServicecontrolReportError.parse_obj(
-            {
-                "operation_id": obj.get("operationId"),
-                "status": ServicecontrolStatus.from_dict(obj.get("status"))
-                if obj.get("status") is not None
-                else None,
-            }
-        )
+        _obj = ServicecontrolReportError.parse_obj({
+            "operation_id": obj.get("operationId"),
+            "status": ServicecontrolStatus.from_dict(obj.get("status")) if obj.get("status") is not None else None
+        })
         return _obj
+
+

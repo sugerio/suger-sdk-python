@@ -21,24 +21,17 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, conlist
-from openapi_client.models.alibaba_marketplace_product_sku_order_period import (
-    AlibabaMarketplaceProductSkuOrderPeriod,
-)
-
+from openapi_client.models.alibaba_marketplace_product_sku_order_period import AlibabaMarketplaceProductSkuOrderPeriod
 
 class AlibabaMarketplaceProductSkuOrderPeriods(BaseModel):
     """
     AlibabaMarketplaceProductSkuOrderPeriods
     """
-
-    order_period: Optional[conlist(AlibabaMarketplaceProductSkuOrderPeriod)] = Field(
-        None, alias="OrderPeriod"
-    )
+    order_period: Optional[conlist(AlibabaMarketplaceProductSkuOrderPeriod)] = Field(None, alias="OrderPeriod")
     __properties = ["OrderPeriod"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -57,14 +50,17 @@ class AlibabaMarketplaceProductSkuOrderPeriods(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in order_period (list)
         _items = []
         if self.order_period:
             for _item in self.order_period:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["OrderPeriod"] = _items
+            _dict['OrderPeriod'] = _items
         return _dict
 
     @classmethod
@@ -76,14 +72,9 @@ class AlibabaMarketplaceProductSkuOrderPeriods(BaseModel):
         if not isinstance(obj, dict):
             return AlibabaMarketplaceProductSkuOrderPeriods.parse_obj(obj)
 
-        _obj = AlibabaMarketplaceProductSkuOrderPeriods.parse_obj(
-            {
-                "order_period": [
-                    AlibabaMarketplaceProductSkuOrderPeriod.from_dict(_item)
-                    for _item in obj.get("OrderPeriod")
-                ]
-                if obj.get("OrderPeriod") is not None
-                else None
-            }
-        )
+        _obj = AlibabaMarketplaceProductSkuOrderPeriods.parse_obj({
+            "order_period": [AlibabaMarketplaceProductSkuOrderPeriod.from_dict(_item) for _item in obj.get("OrderPeriod")] if obj.get("OrderPeriod") is not None else None
+        })
         return _obj
+
+

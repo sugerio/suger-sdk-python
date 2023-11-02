@@ -30,7 +30,10 @@ from openapi_client.models.workload_offer import WorkloadOffer
 
 from openapi_client.api_client import ApiClient
 from openapi_client.api_response import ApiResponse
-from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
+from openapi_client.exceptions import (  # noqa: F401
+    ApiTypeError,
+    ApiValueError
+)
 
 
 class OfferApi:
@@ -46,12 +49,7 @@ class OfferApi:
         self.api_client = api_client
 
     @validate_arguments
-    def cancel_offer(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        **kwargs
-    ) -> str:  # noqa: E501
+    def cancel_offer(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], **kwargs) -> str:  # noqa: E501
         """cancel offer  # noqa: E501
 
         Only the offer with status = \"PENDING_ACCEPTANCE\" or \"PENDING_CANCEL\" is allowed to cancel.  # noqa: E501
@@ -76,21 +74,14 @@ class OfferApi:
                  returns the request thread.
         :rtype: str
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the cancel_offer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.cancel_offer_with_http_info(
-            org_id, offer_id, **kwargs
-        )  # noqa: E501
+        return self.cancel_offer_with_http_info(org_id, offer_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def cancel_offer_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def cancel_offer_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """cancel offer  # noqa: E501
 
         Only the offer with status = \"PENDING_ACCEPTANCE\" or \"PENDING_CANCEL\" is allowed to cancel.  # noqa: E501
@@ -131,66 +122,68 @@ class OfferApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "offer_id"]
+        _all_params = [
+            'org_id',
+            'offer_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method cancel_offer" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["offer_id"]:
-            _path_params["offerId"] = _params["offer_id"]
+        if _params['offer_id']:
+            _path_params['offerId'] = _params['offer_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "str",
-            "400": "str",
-            "405": "str",
-            "500": "str",
+            '200': "str",
+            '400': "str",
+            '405': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/offer/{offerId}/cancel",
-            "POST",
+            '/org/{orgId}/offer/{offerId}/cancel', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -199,21 +192,15 @@ class OfferApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def create_offer(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        data: Annotated[WorkloadOffer, Field(..., description="Offer to create")],
-        **kwargs
-    ) -> WorkloadOffer:  # noqa: E501
+    def create_offer(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[WorkloadOffer, Field(..., description="Offer to create")], **kwargs) -> WorkloadOffer:  # noqa: E501
         """create offer  # noqa: E501
 
         Create a private offer under the given organization.  # noqa: E501
@@ -238,19 +225,14 @@ class OfferApi:
                  returns the request thread.
         :rtype: WorkloadOffer
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the create_offer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
         return self.create_offer_with_http_info(org_id, data, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def create_offer_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        data: Annotated[WorkloadOffer, Field(..., description="Offer to create")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def create_offer_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[WorkloadOffer, Field(..., description="Offer to create")], **kwargs) -> ApiResponse:  # noqa: E501
         """create offer  # noqa: E501
 
         Create a private offer under the given organization.  # noqa: E501
@@ -291,74 +273,75 @@ class OfferApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "data"]
+        _all_params = [
+            'org_id',
+            'data'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method create_offer" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params["data"] is not None:
-            _body_params = _params["data"]
+        if _params['data'] is not None:
+            _body_params = _params['data']
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get(
-            "_content_type",
-            self.api_client.select_header_content_type(["application/json"]),
-        )
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
         if _content_types_list:
-            _header_params["Content-Type"] = _content_types_list
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "WorkloadOffer",
-            "400": "str",
-            "405": "str",
-            "500": "str",
+            '200': "WorkloadOffer",
+            '400': "str",
+            '405': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/offer",
-            "POST",
+            '/org/{orgId}/offer', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -367,23 +350,15 @@ class OfferApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def create_or_update_draft_offer(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        data: Annotated[
-            WorkloadOffer, Field(..., description="the draft offer to create")
-        ],
-        **kwargs
-    ) -> WorkloadOffer:  # noqa: E501
+    def create_or_update_draft_offer(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[WorkloadOffer, Field(..., description="the draft offer to create")], **kwargs) -> WorkloadOffer:  # noqa: E501
         """create or update draft offer  # noqa: E501
 
         Create a new draft offer or update the existing draft offer. When updating draft offer, the offer.ID is required.  # noqa: E501
@@ -408,23 +383,14 @@ class OfferApi:
                  returns the request thread.
         :rtype: WorkloadOffer
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the create_or_update_draft_offer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.create_or_update_draft_offer_with_http_info(
-            org_id, data, **kwargs
-        )  # noqa: E501
+        return self.create_or_update_draft_offer_with_http_info(org_id, data, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def create_or_update_draft_offer_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        data: Annotated[
-            WorkloadOffer, Field(..., description="the draft offer to create")
-        ],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def create_or_update_draft_offer_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], data : Annotated[WorkloadOffer, Field(..., description="the draft offer to create")], **kwargs) -> ApiResponse:  # noqa: E501
         """create or update draft offer  # noqa: E501
 
         Create a new draft offer or update the existing draft offer. When updating draft offer, the offer.ID is required.  # noqa: E501
@@ -465,74 +431,75 @@ class OfferApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "data"]
+        _all_params = [
+            'org_id',
+            'data'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method create_or_update_draft_offer" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params["data"] is not None:
-            _body_params = _params["data"]
+        if _params['data'] is not None:
+            _body_params = _params['data']
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get(
-            "_content_type",
-            self.api_client.select_header_content_type(["application/json"]),
-        )
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
         if _content_types_list:
-            _header_params["Content-Type"] = _content_types_list
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "WorkloadOffer",
-            "400": "str",
-            "405": "str",
-            "500": "str",
+            '200': "WorkloadOffer",
+            '400': "str",
+            '405': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/draftOffer",
-            "POST",
+            '/org/{orgId}/draftOffer', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -541,21 +508,15 @@ class OfferApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_offer(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        **kwargs
-    ) -> str:  # noqa: E501
+    def delete_offer(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], **kwargs) -> str:  # noqa: E501
         """delete offer  # noqa: E501
 
         Only the offer with status = \"DRAFT\" or \"CREATE_FAILED\" is allowed to be deleted.  # noqa: E501
@@ -580,21 +541,14 @@ class OfferApi:
                  returns the request thread.
         :rtype: str
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the delete_offer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.delete_offer_with_http_info(
-            org_id, offer_id, **kwargs
-        )  # noqa: E501
+        return self.delete_offer_with_http_info(org_id, offer_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_offer_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def delete_offer_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """delete offer  # noqa: E501
 
         Only the offer with status = \"DRAFT\" or \"CREATE_FAILED\" is allowed to be deleted.  # noqa: E501
@@ -635,66 +589,68 @@ class OfferApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "offer_id"]
+        _all_params = [
+            'org_id',
+            'offer_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method delete_offer" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["offer_id"]:
-            _path_params["offerId"] = _params["offer_id"]
+        if _params['offer_id']:
+            _path_params['offerId'] = _params['offer_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "str",
-            "400": "str",
-            "405": "str",
-            "500": "str",
+            '200': "str",
+            '400': "str",
+            '405': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/offer/{offerId}",
-            "DELETE",
+            '/org/{orgId}/offer/{offerId}', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -703,24 +659,15 @@ class OfferApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def extend_private_offer_expiry_date(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        new_expiry_date: Annotated[
-            StrictStr, Field(..., description="new expiry date in YYYY-MM-DD format")
-        ],
-        **kwargs
-    ) -> str:  # noqa: E501
+    def extend_private_offer_expiry_date(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], new_expiry_date : Annotated[StrictStr, Field(..., description="new expiry date in YYYY-MM-DD format")], **kwargs) -> str:  # noqa: E501
         """extend offer expiry date  # noqa: E501
 
         Only the offer with status = \"PENDING_ACCEPTANCE\" or \"EXPIRED\" is allowed to extend expiry date.  # noqa: E501
@@ -747,24 +694,14 @@ class OfferApi:
                  returns the request thread.
         :rtype: str
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the extend_private_offer_expiry_date_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.extend_private_offer_expiry_date_with_http_info(
-            org_id, offer_id, new_expiry_date, **kwargs
-        )  # noqa: E501
+        return self.extend_private_offer_expiry_date_with_http_info(org_id, offer_id, new_expiry_date, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def extend_private_offer_expiry_date_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        new_expiry_date: Annotated[
-            StrictStr, Field(..., description="new expiry date in YYYY-MM-DD format")
-        ],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def extend_private_offer_expiry_date_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], new_expiry_date : Annotated[StrictStr, Field(..., description="new expiry date in YYYY-MM-DD format")], **kwargs) -> ApiResponse:  # noqa: E501
         """extend offer expiry date  # noqa: E501
 
         Only the offer with status = \"PENDING_ACCEPTANCE\" or \"EXPIRED\" is allowed to extend expiry date.  # noqa: E501
@@ -807,70 +744,73 @@ class OfferApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "offer_id", "new_expiry_date"]
+        _all_params = [
+            'org_id',
+            'offer_id',
+            'new_expiry_date'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method extend_private_offer_expiry_date" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["offer_id"]:
-            _path_params["offerId"] = _params["offer_id"]
+        if _params['offer_id']:
+            _path_params['offerId'] = _params['offer_id']
+
 
         # process the query parameters
         _query_params = []
-        if _params.get("new_expiry_date") is not None:  # noqa: E501
-            _query_params.append(("newExpiryDate", _params["new_expiry_date"]))
+        if _params.get('new_expiry_date') is not None:  # noqa: E501
+            _query_params.append(('newExpiryDate', _params['new_expiry_date']))
 
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "str",
-            "400": "str",
-            "404": "str",
-            "405": "str",
-            "500": "str",
+            '200': "str",
+            '400': "str",
+            '404': "str",
+            '405': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/offer/{offerId}/extendExpiryDate",
-            "POST",
+            '/org/{orgId}/offer/{offerId}/extendExpiryDate', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -879,21 +819,15 @@ class OfferApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_offer(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        **kwargs
-    ) -> WorkloadOffer:  # noqa: E501
+    def get_offer(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], **kwargs) -> WorkloadOffer:  # noqa: E501
         """get offer  # noqa: E501
 
         Get the offer by the given offer ID.  # noqa: E501
@@ -918,19 +852,14 @@ class OfferApi:
                  returns the request thread.
         :rtype: WorkloadOffer
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the get_offer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
         return self.get_offer_with_http_info(org_id, offer_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_offer_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def get_offer_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """get offer  # noqa: E501
 
         Get the offer by the given offer ID.  # noqa: E501
@@ -971,67 +900,69 @@ class OfferApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "offer_id"]
+        _all_params = [
+            'org_id',
+            'offer_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_offer" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["offer_id"]:
-            _path_params["offerId"] = _params["offer_id"]
+        if _params['offer_id']:
+            _path_params['offerId'] = _params['offer_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "WorkloadOffer",
-            "400": "str",
-            "404": "str",
-            "405": "str",
-            "500": "str",
+            '200': "WorkloadOffer",
+            '400': "str",
+            '404': "str",
+            '405': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/offer/{offerId}",
-            "GET",
+            '/org/{orgId}/offer/{offerId}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1040,21 +971,15 @@ class OfferApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_offer_eula(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        **kwargs
-    ) -> str:  # noqa: E501
+    def get_offer_eula(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], **kwargs) -> str:  # noqa: E501
         """get offer EULA  # noqa: E501
 
         Get the EULA file of the given offer ID.  # noqa: E501
@@ -1079,21 +1004,14 @@ class OfferApi:
                  returns the request thread.
         :rtype: str
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the get_offer_eula_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.get_offer_eula_with_http_info(
-            org_id, offer_id, **kwargs
-        )  # noqa: E501
+        return self.get_offer_eula_with_http_info(org_id, offer_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_offer_eula_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def get_offer_eula_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """get offer EULA  # noqa: E501
 
         Get the EULA file of the given offer ID.  # noqa: E501
@@ -1134,66 +1052,68 @@ class OfferApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "offer_id"]
+        _all_params = [
+            'org_id',
+            'offer_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_offer_eula" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["offer_id"]:
-            _path_params["offerId"] = _params["offer_id"]
+        if _params['offer_id']:
+            _path_params['offerId'] = _params['offer_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "str",
-            "400": "str",
-            "405": "str",
-            "500": "str",
+            '200': "str",
+            '400': "str",
+            '405': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/offer/{offerId}/eula",
-            "GET",
+            '/org/{orgId}/offer/{offerId}/eula', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1202,21 +1122,15 @@ class OfferApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_offers_by_contact(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
-        **kwargs
-    ) -> List[WorkloadOffer]:  # noqa: E501
+    def list_offers_by_contact(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], **kwargs) -> List[WorkloadOffer]:  # noqa: E501
         """list offers by contact  # noqa: E501
 
         List all offers under the given organization & contact.  # noqa: E501
@@ -1241,21 +1155,14 @@ class OfferApi:
                  returns the request thread.
         :rtype: List[WorkloadOffer]
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_offers_by_contact_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_offers_by_contact_with_http_info(
-            org_id, contact_id, **kwargs
-        )  # noqa: E501
+        return self.list_offers_by_contact_with_http_info(org_id, contact_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_offers_by_contact_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        contact_id: Annotated[StrictStr, Field(..., description="Contact ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_offers_by_contact_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], contact_id : Annotated[StrictStr, Field(..., description="Contact ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """list offers by contact  # noqa: E501
 
         List all offers under the given organization & contact.  # noqa: E501
@@ -1296,66 +1203,68 @@ class OfferApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "contact_id"]
+        _all_params = [
+            'org_id',
+            'contact_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_offers_by_contact" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["contact_id"]:
-            _path_params["contactId"] = _params["contact_id"]
+        if _params['contact_id']:
+            _path_params['contactId'] = _params['contact_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "List[WorkloadOffer]",
-            "400": "str",
-            "405": "str",
-            "500": "str",
+            '200': "List[WorkloadOffer]",
+            '400': "str",
+            '405': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/contact/{contactId}/offer",
-            "GET",
+            '/org/{orgId}/contact/{contactId}/offer', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1364,20 +1273,15 @@ class OfferApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_offers_by_organization(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        **kwargs
-    ) -> List[WorkloadOffer]:  # noqa: E501
+    def list_offers_by_organization(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> List[WorkloadOffer]:  # noqa: E501
         """list offers by organization  # noqa: E501
 
         List all offers under the given organization.  # noqa: E501
@@ -1400,20 +1304,14 @@ class OfferApi:
                  returns the request thread.
         :rtype: List[WorkloadOffer]
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_offers_by_organization_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_offers_by_organization_with_http_info(
-            org_id, **kwargs
-        )  # noqa: E501
+        return self.list_offers_by_organization_with_http_info(org_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_offers_by_organization_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_offers_by_organization_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """list offers by organization  # noqa: E501
 
         List all offers under the given organization.  # noqa: E501
@@ -1452,63 +1350,64 @@ class OfferApi:
 
         _params = locals()
 
-        _all_params = ["org_id"]
+        _all_params = [
+            'org_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_offers_by_organization" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "List[WorkloadOffer]",
-            "400": "str",
-            "405": "str",
-            "500": "str",
+            '200': "List[WorkloadOffer]",
+            '400': "str",
+            '405': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/offer",
-            "GET",
+            '/org/{orgId}/offer', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1517,21 +1416,15 @@ class OfferApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_offers_by_partner(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
-        **kwargs
-    ) -> List[WorkloadOffer]:  # noqa: E501
+    def list_offers_by_partner(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], **kwargs) -> List[WorkloadOffer]:  # noqa: E501
         """list offers by partner  # noqa: E501
 
         List all offers under the given organization & cloud partner.  # noqa: E501
@@ -1556,21 +1449,14 @@ class OfferApi:
                  returns the request thread.
         :rtype: List[WorkloadOffer]
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_offers_by_partner_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_offers_by_partner_with_http_info(
-            org_id, partner, **kwargs
-        )  # noqa: E501
+        return self.list_offers_by_partner_with_http_info(org_id, partner, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_offers_by_partner_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        partner: Annotated[StrictStr, Field(..., description="Cloud Partner")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_offers_by_partner_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], partner : Annotated[StrictStr, Field(..., description="Cloud Partner")], **kwargs) -> ApiResponse:  # noqa: E501
         """list offers by partner  # noqa: E501
 
         List all offers under the given organization & cloud partner.  # noqa: E501
@@ -1611,66 +1497,68 @@ class OfferApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "partner"]
+        _all_params = [
+            'org_id',
+            'partner'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_offers_by_partner" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["partner"]:
-            _path_params["partner"] = _params["partner"]
+        if _params['partner']:
+            _path_params['partner'] = _params['partner']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "List[WorkloadOffer]",
-            "400": "str",
-            "405": "str",
-            "500": "str",
+            '200': "List[WorkloadOffer]",
+            '400': "str",
+            '405': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/partner/{partner}/offer",
-            "GET",
+            '/org/{orgId}/partner/{partner}/offer', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1679,21 +1567,15 @@ class OfferApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_offers_by_product(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        product_id: Annotated[StrictStr, Field(..., description="Product ID")],
-        **kwargs
-    ) -> List[WorkloadOffer]:  # noqa: E501
+    def list_offers_by_product(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="Product ID")], **kwargs) -> List[WorkloadOffer]:  # noqa: E501
         """list offers by product  # noqa: E501
 
         List all offers under the given organization & product.  # noqa: E501
@@ -1718,21 +1600,14 @@ class OfferApi:
                  returns the request thread.
         :rtype: List[WorkloadOffer]
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the list_offers_by_product_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.list_offers_by_product_with_http_info(
-            org_id, product_id, **kwargs
-        )  # noqa: E501
+        return self.list_offers_by_product_with_http_info(org_id, product_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_offers_by_product_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        product_id: Annotated[StrictStr, Field(..., description="Product ID")],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def list_offers_by_product_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], product_id : Annotated[StrictStr, Field(..., description="Product ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """list offers by product  # noqa: E501
 
         List all offers under the given organization & product.  # noqa: E501
@@ -1773,65 +1648,67 @@ class OfferApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "product_id"]
+        _all_params = [
+            'org_id',
+            'product_id'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_offers_by_product" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["product_id"]:
-            _path_params["productId"] = _params["product_id"]
+        if _params['product_id']:
+            _path_params['productId'] = _params['product_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "List[WorkloadOffer]",
-            "400": "str",
-            "500": "str",
+            '200': "List[WorkloadOffer]",
+            '400': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/product/{productId}/offer",
-            "GET",
+            '/org/{orgId}/product/{productId}/offer', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1840,27 +1717,15 @@ class OfferApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def send_offer_notifications(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        contact_ids: Annotated[
-            Optional[conlist(StrictStr)],
-            Field(
-                description="List of Contact IDs, if emoty or nil, send notifications to all contacts of the offer"
-            ),
-        ] = None,
-        **kwargs
-    ) -> NotificationEvent:  # noqa: E501
+    def send_offer_notifications(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], contact_ids : Annotated[Optional[conlist(StrictStr)], Field(description="List of Contact IDs, if emoty or nil, send notifications to all contacts of the offer")] = None, **kwargs) -> NotificationEvent:  # noqa: E501
         """notify offer contacts  # noqa: E501
 
         Send offer notifications to the given contact ids. If contactIds is empty, send notifications to all contacts of the offer.  # noqa: E501
@@ -1887,27 +1752,14 @@ class OfferApi:
                  returns the request thread.
         :rtype: NotificationEvent
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the send_offer_notifications_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.send_offer_notifications_with_http_info(
-            org_id, offer_id, contact_ids, **kwargs
-        )  # noqa: E501
+        return self.send_offer_notifications_with_http_info(org_id, offer_id, contact_ids, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def send_offer_notifications_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        contact_ids: Annotated[
-            Optional[conlist(StrictStr)],
-            Field(
-                description="List of Contact IDs, if emoty or nil, send notifications to all contacts of the offer"
-            ),
-        ] = None,
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def send_offer_notifications_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], contact_ids : Annotated[Optional[conlist(StrictStr)], Field(description="List of Contact IDs, if emoty or nil, send notifications to all contacts of the offer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """notify offer contacts  # noqa: E501
 
         Send offer notifications to the given contact ids. If contactIds is empty, send notifications to all contacts of the offer.  # noqa: E501
@@ -1950,77 +1802,79 @@ class OfferApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "offer_id", "contact_ids"]
+        _all_params = [
+            'org_id',
+            'offer_id',
+            'contact_ids'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method send_offer_notifications" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["offer_id"]:
-            _path_params["offerId"] = _params["offer_id"]
+        if _params['offer_id']:
+            _path_params['offerId'] = _params['offer_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params["contact_ids"] is not None:
-            _body_params = _params["contact_ids"]
+        if _params['contact_ids'] is not None:
+            _body_params = _params['contact_ids']
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get(
-            "_content_type",
-            self.api_client.select_header_content_type(["application/json"]),
-        )
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
         if _content_types_list:
-            _header_params["Content-Type"] = _content_types_list
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "NotificationEvent",
-            "400": "str",
-            "405": "str",
-            "500": "str",
+            '200': "NotificationEvent",
+            '400': "str",
+            '405': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/offer/{offerId}/notifyContacts",
-            "POST",
+            '/org/{orgId}/offer/{offerId}/notifyContacts', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -2029,24 +1883,15 @@ class OfferApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_offer_meta_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        data: Annotated[
-            WorkloadMetaInfo, Field(..., description="Offer meta info to update")
-        ],
-        **kwargs
-    ) -> WorkloadMetaInfo:  # noqa: E501
+    def update_offer_meta_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], data : Annotated[WorkloadMetaInfo, Field(..., description="Offer meta info to update")], **kwargs) -> WorkloadMetaInfo:  # noqa: E501
         """update offer meta info  # noqa: E501
 
         Update the meta info of the given offer.  # noqa: E501
@@ -2073,24 +1918,14 @@ class OfferApi:
                  returns the request thread.
         :rtype: WorkloadMetaInfo
         """
-        kwargs["_return_http_data_only"] = True
-        if "_preload_content" in kwargs:
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
             message = "Error! Please call the update_offer_meta_info_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.update_offer_meta_info_with_http_info(
-            org_id, offer_id, data, **kwargs
-        )  # noqa: E501
+        return self.update_offer_meta_info_with_http_info(org_id, offer_id, data, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_offer_meta_info_with_http_info(
-        self,
-        org_id: Annotated[StrictStr, Field(..., description="Organization ID")],
-        offer_id: Annotated[StrictStr, Field(..., description="Offer ID")],
-        data: Annotated[
-            WorkloadMetaInfo, Field(..., description="Offer meta info to update")
-        ],
-        **kwargs
-    ) -> ApiResponse:  # noqa: E501
+    def update_offer_meta_info_with_http_info(self, org_id : Annotated[StrictStr, Field(..., description="Organization ID")], offer_id : Annotated[StrictStr, Field(..., description="Offer ID")], data : Annotated[WorkloadMetaInfo, Field(..., description="Offer meta info to update")], **kwargs) -> ApiResponse:  # noqa: E501
         """update offer meta info  # noqa: E501
 
         Update the meta info of the given offer.  # noqa: E501
@@ -2133,77 +1968,79 @@ class OfferApi:
 
         _params = locals()
 
-        _all_params = ["org_id", "offer_id", "data"]
+        _all_params = [
+            'org_id',
+            'offer_id',
+            'data'
+        ]
         _all_params.extend(
             [
-                "async_req",
-                "_return_http_data_only",
-                "_preload_content",
-                "_request_timeout",
-                "_request_auth",
-                "_content_type",
-                "_headers",
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
         # validate the arguments
-        for _key, _val in _params["kwargs"].items():
+        for _key, _val in _params['kwargs'].items():
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_offer_meta_info" % _key
                 )
             _params[_key] = _val
-        del _params["kwargs"]
+        del _params['kwargs']
 
         _collection_formats = {}
 
         # process the path parameters
         _path_params = {}
-        if _params["org_id"]:
-            _path_params["orgId"] = _params["org_id"]
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
-        if _params["offer_id"]:
-            _path_params["offerId"] = _params["offer_id"]
+        if _params['offer_id']:
+            _path_params['offerId'] = _params['offer_id']
+
 
         # process the query parameters
         _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get("_headers", {}))
+        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
         _form_params = []
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params["data"] is not None:
-            _body_params = _params["data"]
+        if _params['data'] is not None:
+            _body_params = _params['data']
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get(
-            "_content_type",
-            self.api_client.select_header_content_type(["application/json"]),
-        )
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
         if _content_types_list:
-            _header_params["Content-Type"] = _content_types_list
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ["BearerTokenAuth"]  # noqa: E501
+        _auth_settings = ['BearerTokenAuth']  # noqa: E501
 
         _response_types_map = {
-            "200": "WorkloadMetaInfo",
-            "400": "str",
-            "405": "str",
-            "500": "str",
+            '200': "WorkloadMetaInfo",
+            '400': "str",
+            '405': "str",
+            '500': "str",
         }
 
         return self.api_client.call_api(
-            "/org/{orgId}/offer/{offerId}/metaInfo",
-            "PATCH",
+            '/org/{orgId}/offer/{offerId}/metaInfo', 'PATCH',
             _path_params,
             _query_params,
             _header_params,
@@ -2212,10 +2049,9 @@ class OfferApi:
             files=_files,
             response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get("async_req"),
-            _return_http_data_only=_params.get("_return_http_data_only"),  # noqa: E501
-            _preload_content=_params.get("_preload_content", True),
-            _request_timeout=_params.get("_request_timeout"),
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get("_request_auth"),
-        )
+            _request_auth=_params.get('_request_auth'))

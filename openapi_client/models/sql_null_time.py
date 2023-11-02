@@ -22,21 +22,16 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 
-
 class SqlNullTime(BaseModel):
     """
     SqlNullTime
     """
-
     time: Optional[StrictStr] = None
-    valid: Optional[StrictBool] = Field(
-        None, description="Valid is true if Time is not NULL"
-    )
+    valid: Optional[StrictBool] = Field(None, description="Valid is true if Time is not NULL")
     __properties = ["time", "valid"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -55,7 +50,10 @@ class SqlNullTime(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -67,7 +65,10 @@ class SqlNullTime(BaseModel):
         if not isinstance(obj, dict):
             return SqlNullTime.parse_obj(obj)
 
-        _obj = SqlNullTime.parse_obj(
-            {"time": obj.get("time"), "valid": obj.get("valid")}
-        )
+        _obj = SqlNullTime.parse_obj({
+            "time": obj.get("time"),
+            "valid": obj.get("valid")
+        })
         return _obj
+
+

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **contact_fields** | **List[str]** |  | [optional] 
 **credential** | [**HubspotCrmCredential**](HubspotCrmCredential.md) |  | [optional] 
 **deal_fields** | **List[str]** |  | [optional] 
+**last_sync_time** | **str** |  | [optional] 
 **paused** | **bool** | Paused means the integration is not syncing. | [optional] 
 **portal_id** | **int** | Hubspot Account Id | [optional] 
 **secret_key** | **str** |  | [optional] 

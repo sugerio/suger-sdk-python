@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.azure_product_variant_custom_meter import (
-    AzureProductVariantCustomMeter,
-)  # noqa: E501
-
+from openapi_client.models.azure_product_variant_custom_meter import AzureProductVariantCustomMeter  # noqa: E501
 
 class TestAzureProductVariantCustomMeter(unittest.TestCase):
     """AzureProductVariantCustomMeter unit test stubs"""
@@ -32,9 +29,9 @@ class TestAzureProductVariantCustomMeter(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureProductVariantCustomMeter:
         """Test AzureProductVariantCustomMeter
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `AzureProductVariantCustomMeter`
         """
         model = AzureProductVariantCustomMeter()  # noqa: E501
@@ -63,6 +60,5 @@ class TestAzureProductVariantCustomMeter(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

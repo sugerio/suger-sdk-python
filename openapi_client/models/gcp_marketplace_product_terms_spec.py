@@ -22,24 +22,17 @@ import json
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class GcpMarketplaceProductTermsSpec(BaseModel):
     """
     GcpMarketplaceProductTermsSpec
     """
-
     eula_uri: Optional[StrictStr] = Field(None, alias="eulaUri")
-    inline_eula: Optional[Dict[str, Any]] = Field(
-        None, alias="inlineEula", description="TODO: need to define the type"
-    )
-    standard_eula: Optional[Dict[str, Any]] = Field(
-        None, alias="standardEula", description="TODO: need to define the type"
-    )
+    inline_eula: Optional[Dict[str, Any]] = Field(None, alias="inlineEula", description="TODO: need to define the type")
+    standard_eula: Optional[Dict[str, Any]] = Field(None, alias="standardEula", description="TODO: need to define the type")
     __properties = ["eulaUri", "inlineEula", "standardEula"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -58,7 +51,10 @@ class GcpMarketplaceProductTermsSpec(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -70,11 +66,11 @@ class GcpMarketplaceProductTermsSpec(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceProductTermsSpec.parse_obj(obj)
 
-        _obj = GcpMarketplaceProductTermsSpec.parse_obj(
-            {
-                "eula_uri": obj.get("eulaUri"),
-                "inline_eula": obj.get("inlineEula"),
-                "standard_eula": obj.get("standardEula"),
-            }
-        )
+        _obj = GcpMarketplaceProductTermsSpec.parse_obj({
+            "eula_uri": obj.get("eulaUri"),
+            "inline_eula": obj.get("inlineEula"),
+            "standard_eula": obj.get("standardEula")
+        })
         return _obj
+
+

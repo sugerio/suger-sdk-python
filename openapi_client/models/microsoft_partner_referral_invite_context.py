@@ -21,29 +21,20 @@ import json
 
 from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictStr
-from openapi_client.models.microsoft_partner_referral_invited_info import (
-    MicrosoftPartnerReferralInvitedInfo,
-)
-
+from openapi_client.models.microsoft_partner_referral_invited_info import MicrosoftPartnerReferralInvitedInfo
 
 class MicrosoftPartnerReferralInviteContext(BaseModel):
     """
     MicrosoftPartnerReferralInviteContext
     """
-
-    assistance_request_code: Optional[StrictStr] = Field(
-        None, alias="assistanceRequestCode"
-    )
-    invited_by: Optional[MicrosoftPartnerReferralInvitedInfo] = Field(
-        None, alias="invitedBy"
-    )
+    assistance_request_code: Optional[StrictStr] = Field(None, alias="assistanceRequestCode")
+    invited_by: Optional[MicrosoftPartnerReferralInvitedInfo] = Field(None, alias="invitedBy")
     invited_mpn_id: Optional[StrictStr] = Field(None, alias="invitedMpnId")
     notes: Optional[Dict[str, Any]] = None
     __properties = ["assistanceRequestCode", "invitedBy", "invitedMpnId", "notes"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -62,10 +53,13 @@ class MicrosoftPartnerReferralInviteContext(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of invited_by
         if self.invited_by:
-            _dict["invitedBy"] = self.invited_by.to_dict()
+            _dict['invitedBy'] = self.invited_by.to_dict()
         return _dict
 
     @classmethod
@@ -77,16 +71,12 @@ class MicrosoftPartnerReferralInviteContext(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralInviteContext.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralInviteContext.parse_obj(
-            {
-                "assistance_request_code": obj.get("assistanceRequestCode"),
-                "invited_by": MicrosoftPartnerReferralInvitedInfo.from_dict(
-                    obj.get("invitedBy")
-                )
-                if obj.get("invitedBy") is not None
-                else None,
-                "invited_mpn_id": obj.get("invitedMpnId"),
-                "notes": obj.get("notes"),
-            }
-        )
+        _obj = MicrosoftPartnerReferralInviteContext.parse_obj({
+            "assistance_request_code": obj.get("assistanceRequestCode"),
+            "invited_by": MicrosoftPartnerReferralInvitedInfo.from_dict(obj.get("invitedBy")) if obj.get("invitedBy") is not None else None,
+            "invited_mpn_id": obj.get("invitedMpnId"),
+            "notes": obj.get("notes")
+        })
         return _obj
+
+

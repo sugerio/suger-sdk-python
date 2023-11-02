@@ -21,23 +21,18 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, StrictStr
-from openapi_client.models.microsoft_partner_referral_target_type import (
-    MicrosoftPartnerReferralTargetType,
-)
-
+from openapi_client.models.microsoft_partner_referral_target_type import MicrosoftPartnerReferralTargetType
 
 class MicrosoftPartnerReferralTarget(BaseModel):
     """
     MicrosoftPartnerReferralTarget
     """
-
     id: Optional[StrictStr] = None
     type: Optional[MicrosoftPartnerReferralTargetType] = None
     __properties = ["id", "type"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -56,7 +51,10 @@ class MicrosoftPartnerReferralTarget(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -68,7 +66,10 @@ class MicrosoftPartnerReferralTarget(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralTarget.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralTarget.parse_obj(
-            {"id": obj.get("id"), "type": obj.get("type")}
-        )
+        _obj = MicrosoftPartnerReferralTarget.parse_obj({
+            "id": obj.get("id"),
+            "type": obj.get("type")
+        })
         return _obj
+
+

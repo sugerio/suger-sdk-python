@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.types_usage_record_result_status import (
-    TypesUsageRecordResultStatus,
-)  # noqa: E501
-
+from openapi_client.models.types_usage_record_result_status import TypesUsageRecordResultStatus  # noqa: E501
 
 class TestTypesUsageRecordResultStatus(unittest.TestCase):
     """TypesUsageRecordResultStatus unit test stubs"""
@@ -34,6 +31,5 @@ class TestTypesUsageRecordResultStatus(unittest.TestCase):
         """Test TypesUsageRecordResultStatus"""
         # inst = TypesUsageRecordResultStatus()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

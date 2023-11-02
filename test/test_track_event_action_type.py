@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.track_event_action_type import (
-    TrackEventActionType,
-)  # noqa: E501
-
+from openapi_client.models.track_event_action_type import TrackEventActionType  # noqa: E501
 
 class TestTrackEventActionType(unittest.TestCase):
     """TrackEventActionType unit test stubs"""
@@ -34,6 +31,5 @@ class TestTrackEventActionType(unittest.TestCase):
         """Test TrackEventActionType"""
         # inst = TrackEventActionType()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

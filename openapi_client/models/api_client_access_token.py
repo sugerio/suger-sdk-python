@@ -22,25 +22,18 @@ from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr
 
-
 class ApiClientAccessToken(BaseModel):
     """
     ApiClientAccessToken
     """
-
     access_token: Optional[StrictStr] = None
-    expires_in: Optional[StrictInt] = Field(
-        None, description="The token expires in 1 hour"
-    )
-    expires_on: Optional[datetime] = Field(
-        None, description="The UTC timestamp when the token expires"
-    )
-    token_type: Optional[StrictStr] = "Bearer"
+    expires_in: Optional[StrictInt] = Field(None, description="The token expires in 1 hour")
+    expires_on: Optional[datetime] = Field(None, description="The UTC timestamp when the token expires")
+    token_type: Optional[StrictStr] = 'Bearer'
     __properties = ["access_token", "expires_in", "expires_on", "token_type"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -59,7 +52,10 @@ class ApiClientAccessToken(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -71,14 +67,12 @@ class ApiClientAccessToken(BaseModel):
         if not isinstance(obj, dict):
             return ApiClientAccessToken.parse_obj(obj)
 
-        _obj = ApiClientAccessToken.parse_obj(
-            {
-                "access_token": obj.get("access_token"),
-                "expires_in": obj.get("expires_in"),
-                "expires_on": obj.get("expires_on"),
-                "token_type": obj.get("token_type")
-                if obj.get("token_type") is not None
-                else "Bearer",
-            }
-        )
+        _obj = ApiClientAccessToken.parse_obj({
+            "access_token": obj.get("access_token"),
+            "expires_in": obj.get("expires_in"),
+            "expires_on": obj.get("expires_on"),
+            "token_type": obj.get("token_type") if obj.get("token_type") is not None else 'Bearer'
+        })
         return _obj
+
+

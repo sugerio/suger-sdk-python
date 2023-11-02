@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.microsoft_partner_referral_sub_status import (
-    MicrosoftPartnerReferralSubStatus,
-)  # noqa: E501
-
+from openapi_client.models.microsoft_partner_referral_sub_status import MicrosoftPartnerReferralSubStatus  # noqa: E501
 
 class TestMicrosoftPartnerReferralSubStatus(unittest.TestCase):
     """MicrosoftPartnerReferralSubStatus unit test stubs"""
@@ -34,6 +31,5 @@ class TestMicrosoftPartnerReferralSubStatus(unittest.TestCase):
         """Test MicrosoftPartnerReferralSubStatus"""
         # inst = MicrosoftPartnerReferralSubStatus()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

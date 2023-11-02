@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.entity_type import EntityType  # noqa: E501
 
-
 class TestEntityType(unittest.TestCase):
     """EntityType unit test stubs"""
 
@@ -32,6 +31,5 @@ class TestEntityType(unittest.TestCase):
         """Test EntityType"""
         # inst = EntityType()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

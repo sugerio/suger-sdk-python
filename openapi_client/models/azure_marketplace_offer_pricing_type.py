@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class AzureMarketplaceOfferPricingType(str, Enum):
     """
     AzureMarketplaceOfferPricingType
@@ -27,12 +30,14 @@ class AzureMarketplaceOfferPricingType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ""
-    EDITEXISTINGOFFERPRICINGONLY = "editExistingOfferPricingOnly"
-    SAASNEWCUSTOMIZEDPLANS = "saasNewCustomizedPlans"
-    VMSOFTWARERESERVATIONS = "vmSoftwareReservations"
+    EMPTY = ''
+    EDITEXISTINGOFFERPRICINGONLY = 'editExistingOfferPricingOnly'
+    SAASNEWCUSTOMIZEDPLANS = 'saasNewCustomizedPlans'
+    VMSOFTWARERESERVATIONS = 'vmSoftwareReservations'
 
     @classmethod
     def from_json(cls, json_str: str) -> AzureMarketplaceOfferPricingType:
         """Create an instance of AzureMarketplaceOfferPricingType from a JSON string"""
         return AzureMarketplaceOfferPricingType(json.loads(json_str))
+
+

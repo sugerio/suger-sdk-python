@@ -16,14 +16,9 @@
 import unittest
 import datetime
 
-from openapi_client.models.client_describe_instance_response_body_modules_module_properties_property import (
-    ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty,
-)  # noqa: E501
+from openapi_client.models.client_describe_instance_response_body_modules_module_properties_property import ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty  # noqa: E501
 
-
-class TestClientDescribeInstanceResponseBodyModulesModulePropertiesProperty(
-    unittest.TestCase
-):
+class TestClientDescribeInstanceResponseBodyModulesModulePropertiesProperty(unittest.TestCase):
     """ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty unit test stubs"""
 
     def setUp(self):
@@ -32,13 +27,11 @@ class TestClientDescribeInstanceResponseBodyModulesModulePropertiesProperty(
     def tearDown(self):
         pass
 
-    def make_instance(
-        self, include_optional
-    ) -> ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty:
+    def make_instance(self, include_optional) -> ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty:
         """Test ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty`
         """
         model = ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty()  # noqa: E501
@@ -70,6 +63,5 @@ class TestClientDescribeInstanceResponseBodyModulesModulePropertiesProperty(
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

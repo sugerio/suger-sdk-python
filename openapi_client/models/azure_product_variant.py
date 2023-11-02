@@ -21,82 +21,50 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist, validator
-from openapi_client.models.azure_government_certification import (
-    AzureGovernmentCertification,
-)
-from openapi_client.models.azure_product_feature_availability import (
-    AzureProductFeatureAvailability,
-)
+from openapi_client.models.azure_government_certification import AzureGovernmentCertification
+from openapi_client.models.azure_product_feature_availability import AzureProductFeatureAvailability
 from openapi_client.models.azure_type_value import AzureTypeValue
-
 
 class AzureProductVariant(BaseModel):
     """
     AzureProductVariant
     """
-
-    azure_government_certifications: Optional[
-        conlist(AzureGovernmentCertification)
-    ] = Field(None, alias="azureGovernmentCertifications")
-    cloud_availabilities: Optional[conlist(StrictStr)] = Field(
-        None, alias="cloudAvailabilities"
-    )
+    azure_government_certifications: Optional[conlist(AzureGovernmentCertification)] = Field(None, alias="azureGovernmentCertifications")
+    cloud_availabilities: Optional[conlist(StrictStr)] = Field(None, alias="cloudAvailabilities")
     conversion_paths: Optional[StrictStr] = Field(None, alias="conversionPaths")
-    extended_properties: Optional[conlist(AzureTypeValue)] = Field(
-        None, alias="extendedProperties"
-    )
+    extended_properties: Optional[conlist(AzureTypeValue)] = Field(None, alias="extendedProperties")
     external_id: Optional[StrictStr] = Field(None, alias="externalID")
-    feature_availabilities: Optional[conlist(AzureProductFeatureAvailability)] = Field(
-        None,
-        alias="featureAvailabilities",
-        description="Not original fields. They are populated by other API calls",
-    )
+    feature_availabilities: Optional[conlist(AzureProductFeatureAvailability)] = Field(None, alias="featureAvailabilities", description="Not original fields. They are populated by other API calls")
     friendly_name: Optional[StrictStr] = Field(None, alias="friendlyName")
     id: Optional[StrictStr] = None
     lead_gen_id: Optional[StrictStr] = Field(None, alias="leadGenID")
     reference_variant_id: Optional[StrictStr] = Field(None, alias="referenceVariantID")
     resource_type: Optional[StrictStr] = Field(None, alias="resourceType")
     state: Optional[StrictStr] = None
-    __properties = [
-        "azureGovernmentCertifications",
-        "cloudAvailabilities",
-        "conversionPaths",
-        "extendedProperties",
-        "externalID",
-        "featureAvailabilities",
-        "friendlyName",
-        "id",
-        "leadGenID",
-        "referenceVariantID",
-        "resourceType",
-        "state",
-    ]
+    __properties = ["azureGovernmentCertifications", "cloudAvailabilities", "conversionPaths", "extendedProperties", "externalID", "featureAvailabilities", "friendlyName", "id", "leadGenID", "referenceVariantID", "resourceType", "state"]
 
-    @validator("resource_type")
+    @validator('resource_type')
     def resource_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("AzureSkuVariant", "AzureTestDriveVariant"):
-            raise ValueError(
-                "must be one of enum values ('AzureSkuVariant', 'AzureTestDriveVariant')"
-            )
+        if value not in ('AzureSkuVariant', 'AzureTestDriveVariant'):
+            raise ValueError("must be one of enum values ('AzureSkuVariant', 'AzureTestDriveVariant')")
         return value
 
-    @validator("state")
+    @validator('state')
     def state_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("InActive", "Active"):
+        if value not in ('InActive', 'Active'):
             raise ValueError("must be one of enum values ('InActive', 'Active')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -115,28 +83,31 @@ class AzureProductVariant(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in azure_government_certifications (list)
         _items = []
         if self.azure_government_certifications:
             for _item in self.azure_government_certifications:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["azureGovernmentCertifications"] = _items
+            _dict['azureGovernmentCertifications'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in extended_properties (list)
         _items = []
         if self.extended_properties:
             for _item in self.extended_properties:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["extendedProperties"] = _items
+            _dict['extendedProperties'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in feature_availabilities (list)
         _items = []
         if self.feature_availabilities:
             for _item in self.feature_availabilities:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["featureAvailabilities"] = _items
+            _dict['featureAvailabilities'] = _items
         return _dict
 
     @classmethod
@@ -148,35 +119,20 @@ class AzureProductVariant(BaseModel):
         if not isinstance(obj, dict):
             return AzureProductVariant.parse_obj(obj)
 
-        _obj = AzureProductVariant.parse_obj(
-            {
-                "azure_government_certifications": [
-                    AzureGovernmentCertification.from_dict(_item)
-                    for _item in obj.get("azureGovernmentCertifications")
-                ]
-                if obj.get("azureGovernmentCertifications") is not None
-                else None,
-                "cloud_availabilities": obj.get("cloudAvailabilities"),
-                "conversion_paths": obj.get("conversionPaths"),
-                "extended_properties": [
-                    AzureTypeValue.from_dict(_item)
-                    for _item in obj.get("extendedProperties")
-                ]
-                if obj.get("extendedProperties") is not None
-                else None,
-                "external_id": obj.get("externalID"),
-                "feature_availabilities": [
-                    AzureProductFeatureAvailability.from_dict(_item)
-                    for _item in obj.get("featureAvailabilities")
-                ]
-                if obj.get("featureAvailabilities") is not None
-                else None,
-                "friendly_name": obj.get("friendlyName"),
-                "id": obj.get("id"),
-                "lead_gen_id": obj.get("leadGenID"),
-                "reference_variant_id": obj.get("referenceVariantID"),
-                "resource_type": obj.get("resourceType"),
-                "state": obj.get("state"),
-            }
-        )
+        _obj = AzureProductVariant.parse_obj({
+            "azure_government_certifications": [AzureGovernmentCertification.from_dict(_item) for _item in obj.get("azureGovernmentCertifications")] if obj.get("azureGovernmentCertifications") is not None else None,
+            "cloud_availabilities": obj.get("cloudAvailabilities"),
+            "conversion_paths": obj.get("conversionPaths"),
+            "extended_properties": [AzureTypeValue.from_dict(_item) for _item in obj.get("extendedProperties")] if obj.get("extendedProperties") is not None else None,
+            "external_id": obj.get("externalID"),
+            "feature_availabilities": [AzureProductFeatureAvailability.from_dict(_item) for _item in obj.get("featureAvailabilities")] if obj.get("featureAvailabilities") is not None else None,
+            "friendly_name": obj.get("friendlyName"),
+            "id": obj.get("id"),
+            "lead_gen_id": obj.get("leadGenID"),
+            "reference_variant_id": obj.get("referenceVariantID"),
+            "resource_type": obj.get("resourceType"),
+            "state": obj.get("state")
+        })
         return _obj
+
+

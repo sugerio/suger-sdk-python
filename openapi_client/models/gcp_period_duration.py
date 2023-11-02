@@ -23,19 +23,16 @@ from typing import Optional
 from pydantic import BaseModel, Field, StrictInt
 from openapi_client.models.gcp_period_duration_unit import GcpPeriodDurationUnit
 
-
 class GcpPeriodDuration(BaseModel):
     """
     GcpPeriodDuration
     """
-
     count: Optional[StrictInt] = Field(None, description="such as 1, 6, 12")
     unit: Optional[GcpPeriodDurationUnit] = None
     __properties = ["count", "unit"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,7 +51,10 @@ class GcpPeriodDuration(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,7 +66,10 @@ class GcpPeriodDuration(BaseModel):
         if not isinstance(obj, dict):
             return GcpPeriodDuration.parse_obj(obj)
 
-        _obj = GcpPeriodDuration.parse_obj(
-            {"count": obj.get("count"), "unit": obj.get("unit")}
-        )
+        _obj = GcpPeriodDuration.parse_obj({
+            "count": obj.get("count"),
+            "unit": obj.get("unit")
+        })
         return _obj
+
+

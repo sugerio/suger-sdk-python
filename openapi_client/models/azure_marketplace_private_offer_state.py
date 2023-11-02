@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class AzureMarketplacePrivateOfferState(str, Enum):
     """
     AzureMarketplacePrivateOfferState
@@ -27,12 +30,14 @@ class AzureMarketplacePrivateOfferState(str, Enum):
     """
     allowed enum values
     """
-    DRAFT = "draft"
-    LIVE = "live"
-    DELETED = "deleted"
-    WITHDRAWN = "withdrawn"
+    DRAFT = 'draft'
+    LIVE = 'live'
+    DELETED = 'deleted'
+    WITHDRAWN = 'withdrawn'
 
     @classmethod
     def from_json(cls, json_str: str) -> AzureMarketplacePrivateOfferState:
         """Create an instance of AzureMarketplacePrivateOfferState from a JSON string"""
         return AzureMarketplacePrivateOfferState(json.loads(json_str))
+
+

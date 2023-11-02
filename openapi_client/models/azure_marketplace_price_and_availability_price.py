@@ -20,26 +20,35 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel, Field, StrictStr
-from openapi_client.models.azure_marketplace_price_and_availability_core_price import (
-    AzureMarketplacePriceAndAvailabilityCorePrice,
-)
-
+from pydantic import BaseModel, Field, StrictStr, validator
+from openapi_client.models.azure_marketplace_price_and_availability_core_price import AzureMarketplacePriceAndAvailabilityCorePrice
+from openapi_client.models.azure_marketplace_price_and_availability_custom_meter_price import AzureMarketplacePriceAndAvailabilityCustomMeterPrice
+from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price import AzureMarketplacePriceAndAvailabilityRecurrentPrice
+from openapi_client.models.azure_marketplace_price_and_availability_system_meter_price import AzureMarketplacePriceAndAvailabilitySystemMeterPrice
 
 class AzureMarketplacePriceAndAvailabilityPrice(BaseModel):
     """
     AzureMarketplacePriceAndAvailabilityPrice
     """
-
-    core_pricing: Optional[AzureMarketplacePriceAndAvailabilityCorePrice] = Field(
-        None, alias="corePricing"
-    )
+    core_pricing: Optional[AzureMarketplacePriceAndAvailabilityCorePrice] = Field(None, alias="corePricing")
+    custom_meters: Optional[AzureMarketplacePriceAndAvailabilityCustomMeterPrice] = Field(None, alias="customMeters")
     license_model: Optional[StrictStr] = Field(None, alias="licenseModel")
-    __properties = ["corePricing", "licenseModel"]
+    recurrent_price: Optional[AzureMarketplacePriceAndAvailabilityRecurrentPrice] = Field(None, alias="recurrentPrice")
+    system_meter_pricing: Optional[AzureMarketplacePriceAndAvailabilitySystemMeterPrice] = Field(None, alias="systemMeterPricing")
+    __properties = ["corePricing", "customMeters", "licenseModel", "recurrentPrice", "systemMeterPricing"]
+
+    @validator('license_model')
+    def license_model_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in ('byol', 'payAsYouGo'):
+            raise ValueError("must be one of enum values ('byol', 'payAsYouGo')")
+        return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -58,10 +67,22 @@ class AzureMarketplacePriceAndAvailabilityPrice(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of core_pricing
         if self.core_pricing:
-            _dict["corePricing"] = self.core_pricing.to_dict()
+            _dict['corePricing'] = self.core_pricing.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of custom_meters
+        if self.custom_meters:
+            _dict['customMeters'] = self.custom_meters.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of recurrent_price
+        if self.recurrent_price:
+            _dict['recurrentPrice'] = self.recurrent_price.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of system_meter_pricing
+        if self.system_meter_pricing:
+            _dict['systemMeterPricing'] = self.system_meter_pricing.to_dict()
         return _dict
 
     @classmethod
@@ -73,14 +94,13 @@ class AzureMarketplacePriceAndAvailabilityPrice(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePriceAndAvailabilityPrice.parse_obj(obj)
 
-        _obj = AzureMarketplacePriceAndAvailabilityPrice.parse_obj(
-            {
-                "core_pricing": AzureMarketplacePriceAndAvailabilityCorePrice.from_dict(
-                    obj.get("corePricing")
-                )
-                if obj.get("corePricing") is not None
-                else None,
-                "license_model": obj.get("licenseModel"),
-            }
-        )
+        _obj = AzureMarketplacePriceAndAvailabilityPrice.parse_obj({
+            "core_pricing": AzureMarketplacePriceAndAvailabilityCorePrice.from_dict(obj.get("corePricing")) if obj.get("corePricing") is not None else None,
+            "custom_meters": AzureMarketplacePriceAndAvailabilityCustomMeterPrice.from_dict(obj.get("customMeters")) if obj.get("customMeters") is not None else None,
+            "license_model": obj.get("licenseModel"),
+            "recurrent_price": AzureMarketplacePriceAndAvailabilityRecurrentPrice.from_dict(obj.get("recurrentPrice")) if obj.get("recurrentPrice") is not None else None,
+            "system_meter_pricing": AzureMarketplacePriceAndAvailabilitySystemMeterPrice.from_dict(obj.get("systemMeterPricing")) if obj.get("systemMeterPricing") is not None else None
+        })
         return _obj
+
+

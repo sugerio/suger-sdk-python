@@ -21,24 +21,19 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel
-from openapi_client.models.gcp_marketplace_private_offer_price_model_discount import (
-    GcpMarketplacePrivateOfferPriceModelDiscount,
-)
+from openapi_client.models.gcp_marketplace_private_offer_price_model_discount import GcpMarketplacePrivateOfferPriceModelDiscount
 from openapi_client.models.gcp_period_duration import GcpPeriodDuration
-
 
 class GcpMarketplacePrivateOfferPriceModelFixed(BaseModel):
     """
     GcpMarketplacePrivateOfferPriceModelFixed
     """
-
     discount: Optional[GcpMarketplacePrivateOfferPriceModelDiscount] = None
     period: Optional[GcpPeriodDuration] = None
     __properties = ["discount", "period"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -57,13 +52,16 @@ class GcpMarketplacePrivateOfferPriceModelFixed(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of discount
         if self.discount:
-            _dict["discount"] = self.discount.to_dict()
+            _dict['discount'] = self.discount.to_dict()
         # override the default output from pydantic by calling `to_dict()` of period
         if self.period:
-            _dict["period"] = self.period.to_dict()
+            _dict['period'] = self.period.to_dict()
         return _dict
 
     @classmethod
@@ -75,16 +73,10 @@ class GcpMarketplacePrivateOfferPriceModelFixed(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplacePrivateOfferPriceModelFixed.parse_obj(obj)
 
-        _obj = GcpMarketplacePrivateOfferPriceModelFixed.parse_obj(
-            {
-                "discount": GcpMarketplacePrivateOfferPriceModelDiscount.from_dict(
-                    obj.get("discount")
-                )
-                if obj.get("discount") is not None
-                else None,
-                "period": GcpPeriodDuration.from_dict(obj.get("period"))
-                if obj.get("period") is not None
-                else None,
-            }
-        )
+        _obj = GcpMarketplacePrivateOfferPriceModelFixed.parse_obj({
+            "discount": GcpMarketplacePrivateOfferPriceModelDiscount.from_dict(obj.get("discount")) if obj.get("discount") is not None else None,
+            "period": GcpPeriodDuration.from_dict(obj.get("period")) if obj.get("period") is not None else None
+        })
         return _obj
+
+

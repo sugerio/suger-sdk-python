@@ -21,63 +21,23 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_aws_billing_event import (
-    GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent,
-)
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_azure_cma_revenue import (
-    GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue,
-)
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage import (
-    GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage,
-)
-
+from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_aws_billing_event import GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent
+from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_azure_cma_revenue import GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue
+from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage import GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage
 
 class RevenueRecordInfo(BaseModel):
     """
     RevenueRecordInfo
     """
-
-    aws_revenue_records: Optional[
-        conlist(GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent)
-    ] = Field(
-        None,
-        alias="awsRevenueRecords",
-        description="For raw revenue records in AWS Marketplace",
-    )
-    azure_revenue_records: Optional[
-        conlist(GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue)
-    ] = Field(
-        None,
-        alias="azureRevenueRecords",
-        description="For raw revenue records in Azure Marketplace",
-    )
-    disbursement_notification_sent: Optional[StrictBool] = Field(
-        None,
-        alias="disbursementNotificationSent",
-        description="Whether the disbursement notification has been sent to the seller/ISV.",
-    )
-    gcp_revenue_records: Optional[
-        conlist(GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage)
-    ] = Field(
-        None,
-        alias="gcpRevenueRecords",
-        description="For raw revenue records in GCP Marketplace",
-    )
-    resource: Optional[StrictStr] = Field(
-        None,
-        description="Resource name for the revenue record. Applicable only to GCP Marketplace.",
-    )
-    __properties = [
-        "awsRevenueRecords",
-        "azureRevenueRecords",
-        "disbursementNotificationSent",
-        "gcpRevenueRecords",
-        "resource",
-    ]
+    aws_revenue_records: Optional[conlist(GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent)] = Field(None, alias="awsRevenueRecords", description="For raw revenue records in AWS Marketplace")
+    azure_revenue_records: Optional[conlist(GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue)] = Field(None, alias="azureRevenueRecords", description="For raw revenue records in Azure Marketplace")
+    disbursement_notification_sent: Optional[StrictBool] = Field(None, alias="disbursementNotificationSent", description="Whether the disbursement notification has been sent to the seller/ISV.")
+    gcp_revenue_records: Optional[conlist(GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage)] = Field(None, alias="gcpRevenueRecords", description="For raw revenue records in GCP Marketplace")
+    resource: Optional[StrictStr] = Field(None, description="Resource name for the revenue record. Applicable only to GCP Marketplace.")
+    __properties = ["awsRevenueRecords", "azureRevenueRecords", "disbursementNotificationSent", "gcpRevenueRecords", "resource"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -96,28 +56,31 @@ class RevenueRecordInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in aws_revenue_records (list)
         _items = []
         if self.aws_revenue_records:
             for _item in self.aws_revenue_records:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["awsRevenueRecords"] = _items
+            _dict['awsRevenueRecords'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in azure_revenue_records (list)
         _items = []
         if self.azure_revenue_records:
             for _item in self.azure_revenue_records:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["azureRevenueRecords"] = _items
+            _dict['azureRevenueRecords'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in gcp_revenue_records (list)
         _items = []
         if self.gcp_revenue_records:
             for _item in self.gcp_revenue_records:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["gcpRevenueRecords"] = _items
+            _dict['gcpRevenueRecords'] = _items
         return _dict
 
     @classmethod
@@ -129,36 +92,13 @@ class RevenueRecordInfo(BaseModel):
         if not isinstance(obj, dict):
             return RevenueRecordInfo.parse_obj(obj)
 
-        _obj = RevenueRecordInfo.parse_obj(
-            {
-                "aws_revenue_records": [
-                    GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent.from_dict(
-                        _item
-                    )
-                    for _item in obj.get("awsRevenueRecords")
-                ]
-                if obj.get("awsRevenueRecords") is not None
-                else None,
-                "azure_revenue_records": [
-                    GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue.from_dict(
-                        _item
-                    )
-                    for _item in obj.get("azureRevenueRecords")
-                ]
-                if obj.get("azureRevenueRecords") is not None
-                else None,
-                "disbursement_notification_sent": obj.get(
-                    "disbursementNotificationSent"
-                ),
-                "gcp_revenue_records": [
-                    GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage.from_dict(
-                        _item
-                    )
-                    for _item in obj.get("gcpRevenueRecords")
-                ]
-                if obj.get("gcpRevenueRecords") is not None
-                else None,
-                "resource": obj.get("resource"),
-            }
-        )
+        _obj = RevenueRecordInfo.parse_obj({
+            "aws_revenue_records": [GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent.from_dict(_item) for _item in obj.get("awsRevenueRecords")] if obj.get("awsRevenueRecords") is not None else None,
+            "azure_revenue_records": [GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue.from_dict(_item) for _item in obj.get("azureRevenueRecords")] if obj.get("azureRevenueRecords") is not None else None,
+            "disbursement_notification_sent": obj.get("disbursementNotificationSent"),
+            "gcp_revenue_records": [GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage.from_dict(_item) for _item in obj.get("gcpRevenueRecords")] if obj.get("gcpRevenueRecords") is not None else None,
+            "resource": obj.get("resource")
+        })
         return _obj
+
+

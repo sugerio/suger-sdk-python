@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **price_input_option** | **str** | default \&quot;usd\&quot; | [optional] 
 **prices** | [**List[AzureMarketplacePriceAndAvailabilityRecurrentPriceItem]**](AzureMarketplacePriceAndAvailabilityRecurrentPriceItem.md) |  | [optional] 
+**recurrent_price_mode** | **str** | default \&quot;flatRate\&quot; | [optional] 
+**user_limits** | [**AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit**](AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit.md) |  | [optional] 
 
 ## Example
 

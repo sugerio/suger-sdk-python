@@ -22,27 +22,16 @@ import json
 from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 
-
 class UsageMeteringDimensionMappingValue(BaseModel):
     """
     UsageMeteringDimensionMappingValue
     """
-
-    convertion_multiplier: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None,
-        alias="convertionMultiplier",
-        description="The convertion multiplier when mapping to the DimensionKey.",
-    )
-    dimension_key: Optional[StrictStr] = Field(
-        None,
-        alias="dimensionKey",
-        description="The dimension key of the usage metering.",
-    )
+    convertion_multiplier: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="convertionMultiplier", description="The convertion multiplier when mapping to the DimensionKey.")
+    dimension_key: Optional[StrictStr] = Field(None, alias="dimensionKey", description="The dimension key of the usage metering.")
     __properties = ["convertionMultiplier", "dimensionKey"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -61,7 +50,10 @@ class UsageMeteringDimensionMappingValue(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -73,10 +65,10 @@ class UsageMeteringDimensionMappingValue(BaseModel):
         if not isinstance(obj, dict):
             return UsageMeteringDimensionMappingValue.parse_obj(obj)
 
-        _obj = UsageMeteringDimensionMappingValue.parse_obj(
-            {
-                "convertion_multiplier": obj.get("convertionMultiplier"),
-                "dimension_key": obj.get("dimensionKey"),
-            }
-        )
+        _obj = UsageMeteringDimensionMappingValue.parse_obj({
+            "convertion_multiplier": obj.get("convertionMultiplier"),
+            "dimension_key": obj.get("dimensionKey")
+        })
         return _obj
+
+

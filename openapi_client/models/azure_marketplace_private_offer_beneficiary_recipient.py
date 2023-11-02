@@ -22,31 +22,26 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr, validator
 
-
 class AzureMarketplacePrivateOfferBeneficiaryRecipient(BaseModel):
     """
     AzureMarketplacePrivateOfferBeneficiaryRecipient
     """
-
     id: Optional[StrictStr] = None
     recipient_type: Optional[StrictStr] = Field(None, alias="recipientType")
     __properties = ["id", "recipientType"]
 
-    @validator("recipient_type")
+    @validator('recipient_type')
     def recipient_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("cspCustomer", "billingGroup"):
-            raise ValueError(
-                "must be one of enum values ('cspCustomer', 'billingGroup')"
-            )
+        if value not in ('cspCustomer', 'billingGroup'):
+            raise ValueError("must be one of enum values ('cspCustomer', 'billingGroup')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -59,15 +54,16 @@ class AzureMarketplacePrivateOfferBeneficiaryRecipient(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(
-        cls, json_str: str
-    ) -> AzureMarketplacePrivateOfferBeneficiaryRecipient:
+    def from_json(cls, json_str: str) -> AzureMarketplacePrivateOfferBeneficiaryRecipient:
         """Create an instance of AzureMarketplacePrivateOfferBeneficiaryRecipient from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -79,7 +75,10 @@ class AzureMarketplacePrivateOfferBeneficiaryRecipient(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplacePrivateOfferBeneficiaryRecipient.parse_obj(obj)
 
-        _obj = AzureMarketplacePrivateOfferBeneficiaryRecipient.parse_obj(
-            {"id": obj.get("id"), "recipient_type": obj.get("recipientType")}
-        )
+        _obj = AzureMarketplacePrivateOfferBeneficiaryRecipient.parse_obj({
+            "id": obj.get("id"),
+            "recipient_type": obj.get("recipientType")
+        })
         return _obj
+
+

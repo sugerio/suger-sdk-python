@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class GcpMarketplacePrivateOfferPriceModelType(str, Enum):
     """
     GcpMarketplacePrivateOfferPriceModelType
@@ -27,15 +30,17 @@ class GcpMarketplacePrivateOfferPriceModelType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ""
-    PRICE_MODEL_TYPE_UNSPECIFIED = "PRICE_MODEL_TYPE_UNSPECIFIED"
-    CUD = "CUD"
-    PAYG = "PAYG"
-    PAYG_WITH_CUD = "PAYG_WITH_CUD"
-    FIXED_FEE = "FIXED_FEE"
-    FIXED_FEE_WITH_OVERAGE = "FIXED_FEE_WITH_OVERAGE"
+    EMPTY = ''
+    PRICE_MODEL_TYPE_UNSPECIFIED = 'PRICE_MODEL_TYPE_UNSPECIFIED'
+    CUD = 'CUD'
+    PAYG = 'PAYG'
+    PAYG_WITH_CUD = 'PAYG_WITH_CUD'
+    FIXED_FEE = 'FIXED_FEE'
+    FIXED_FEE_WITH_OVERAGE = 'FIXED_FEE_WITH_OVERAGE'
 
     @classmethod
     def from_json(cls, json_str: str) -> GcpMarketplacePrivateOfferPriceModelType:
         """Create an instance of GcpMarketplacePrivateOfferPriceModelType from a JSON string"""
         return GcpMarketplacePrivateOfferPriceModelType(json.loads(json_str))
+
+

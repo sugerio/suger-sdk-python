@@ -22,12 +22,10 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictStr
 
-
 class OrbProduct(BaseModel):
     """
     OrbProduct
     """
-
     created_at: Optional[StrictStr] = None
     id: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
@@ -35,7 +33,6 @@ class OrbProduct(BaseModel):
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -54,7 +51,10 @@ class OrbProduct(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -66,11 +66,11 @@ class OrbProduct(BaseModel):
         if not isinstance(obj, dict):
             return OrbProduct.parse_obj(obj)
 
-        _obj = OrbProduct.parse_obj(
-            {
-                "created_at": obj.get("created_at"),
-                "id": obj.get("id"),
-                "name": obj.get("name"),
-            }
-        )
+        _obj = OrbProduct.parse_obj({
+            "created_at": obj.get("created_at"),
+            "id": obj.get("id"),
+            "name": obj.get("name")
+        })
         return _obj
+
+

@@ -21,46 +21,25 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, conlist
-from openapi_client.models.microsoft_partner_referral_additional_requirements import (
-    MicrosoftPartnerReferralAdditionalRequirements,
-)
-from openapi_client.models.microsoft_partner_referral_solution import (
-    MicrosoftPartnerReferralSolution,
-)
-from openapi_client.models.microsoft_partner_referral_tag import (
-    MicrosoftPartnerReferralTag,
-)
-
+from openapi_client.models.microsoft_partner_referral_additional_requirements import MicrosoftPartnerReferralAdditionalRequirements
+from openapi_client.models.microsoft_partner_referral_solution import MicrosoftPartnerReferralSolution
+from openapi_client.models.microsoft_partner_referral_tag import MicrosoftPartnerReferralTag
 
 class MicrosoftPartnerReferralRequirements(BaseModel):
     """
     MicrosoftPartnerReferralRequirements
     """
-
-    additional_requirements: Optional[
-        MicrosoftPartnerReferralAdditionalRequirements
-    ] = Field(None, alias="additionalRequirements")
+    additional_requirements: Optional[MicrosoftPartnerReferralAdditionalRequirements] = Field(None, alias="additionalRequirements")
     industries: Optional[conlist(MicrosoftPartnerReferralTag)] = None
     offers: Optional[conlist(MicrosoftPartnerReferralTag)] = None
     products: Optional[conlist(MicrosoftPartnerReferralTag)] = None
-    sales_plays: Optional[conlist(MicrosoftPartnerReferralTag)] = Field(
-        None, alias="salesPlays"
-    )
+    sales_plays: Optional[conlist(MicrosoftPartnerReferralTag)] = Field(None, alias="salesPlays")
     services: Optional[conlist(MicrosoftPartnerReferralTag)] = None
     solutions: Optional[conlist(MicrosoftPartnerReferralSolution)] = None
-    __properties = [
-        "additionalRequirements",
-        "industries",
-        "offers",
-        "products",
-        "salesPlays",
-        "services",
-        "solutions",
-    ]
+    __properties = ["additionalRequirements", "industries", "offers", "products", "salesPlays", "services", "solutions"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -79,52 +58,55 @@ class MicrosoftPartnerReferralRequirements(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of additional_requirements
         if self.additional_requirements:
-            _dict["additionalRequirements"] = self.additional_requirements.to_dict()
+            _dict['additionalRequirements'] = self.additional_requirements.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in industries (list)
         _items = []
         if self.industries:
             for _item in self.industries:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["industries"] = _items
+            _dict['industries'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in offers (list)
         _items = []
         if self.offers:
             for _item in self.offers:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["offers"] = _items
+            _dict['offers'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in products (list)
         _items = []
         if self.products:
             for _item in self.products:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["products"] = _items
+            _dict['products'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in sales_plays (list)
         _items = []
         if self.sales_plays:
             for _item in self.sales_plays:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["salesPlays"] = _items
+            _dict['salesPlays'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in services (list)
         _items = []
         if self.services:
             for _item in self.services:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["services"] = _items
+            _dict['services'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in solutions (list)
         _items = []
         if self.solutions:
             for _item in self.solutions:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["solutions"] = _items
+            _dict['solutions'] = _items
         return _dict
 
     @classmethod
@@ -136,49 +118,15 @@ class MicrosoftPartnerReferralRequirements(BaseModel):
         if not isinstance(obj, dict):
             return MicrosoftPartnerReferralRequirements.parse_obj(obj)
 
-        _obj = MicrosoftPartnerReferralRequirements.parse_obj(
-            {
-                "additional_requirements": MicrosoftPartnerReferralAdditionalRequirements.from_dict(
-                    obj.get("additionalRequirements")
-                )
-                if obj.get("additionalRequirements") is not None
-                else None,
-                "industries": [
-                    MicrosoftPartnerReferralTag.from_dict(_item)
-                    for _item in obj.get("industries")
-                ]
-                if obj.get("industries") is not None
-                else None,
-                "offers": [
-                    MicrosoftPartnerReferralTag.from_dict(_item)
-                    for _item in obj.get("offers")
-                ]
-                if obj.get("offers") is not None
-                else None,
-                "products": [
-                    MicrosoftPartnerReferralTag.from_dict(_item)
-                    for _item in obj.get("products")
-                ]
-                if obj.get("products") is not None
-                else None,
-                "sales_plays": [
-                    MicrosoftPartnerReferralTag.from_dict(_item)
-                    for _item in obj.get("salesPlays")
-                ]
-                if obj.get("salesPlays") is not None
-                else None,
-                "services": [
-                    MicrosoftPartnerReferralTag.from_dict(_item)
-                    for _item in obj.get("services")
-                ]
-                if obj.get("services") is not None
-                else None,
-                "solutions": [
-                    MicrosoftPartnerReferralSolution.from_dict(_item)
-                    for _item in obj.get("solutions")
-                ]
-                if obj.get("solutions") is not None
-                else None,
-            }
-        )
+        _obj = MicrosoftPartnerReferralRequirements.parse_obj({
+            "additional_requirements": MicrosoftPartnerReferralAdditionalRequirements.from_dict(obj.get("additionalRequirements")) if obj.get("additionalRequirements") is not None else None,
+            "industries": [MicrosoftPartnerReferralTag.from_dict(_item) for _item in obj.get("industries")] if obj.get("industries") is not None else None,
+            "offers": [MicrosoftPartnerReferralTag.from_dict(_item) for _item in obj.get("offers")] if obj.get("offers") is not None else None,
+            "products": [MicrosoftPartnerReferralTag.from_dict(_item) for _item in obj.get("products")] if obj.get("products") is not None else None,
+            "sales_plays": [MicrosoftPartnerReferralTag.from_dict(_item) for _item in obj.get("salesPlays")] if obj.get("salesPlays") is not None else None,
+            "services": [MicrosoftPartnerReferralTag.from_dict(_item) for _item in obj.get("services")] if obj.get("services") is not None else None,
+            "solutions": [MicrosoftPartnerReferralSolution.from_dict(_item) for _item in obj.get("solutions")] if obj.get("solutions") is not None else None
+        })
         return _obj
+
+

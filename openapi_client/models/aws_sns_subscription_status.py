@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class AwsSnsSubscriptionStatus(str, Enum):
     """
     AwsSnsSubscriptionStatus
@@ -27,11 +30,13 @@ class AwsSnsSubscriptionStatus(str, Enum):
     """
     allowed enum values
     """
-    UNKNOWN = "UNKNOWN"
-    CONFIRMED = "CONFIRMED"
-    PENDING_CONFIRMATION = "PENDING_CONFIRMATION"
+    UNKNOWN = 'UNKNOWN'
+    CONFIRMED = 'CONFIRMED'
+    PENDING_CONFIRMATION = 'PENDING_CONFIRMATION'
 
     @classmethod
     def from_json(cls, json_str: str) -> AwsSnsSubscriptionStatus:
         """Create an instance of AwsSnsSubscriptionStatus from a JSON string"""
         return AwsSnsSubscriptionStatus(json.loads(json_str))
+
+

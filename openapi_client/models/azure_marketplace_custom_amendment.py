@@ -21,23 +21,18 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, StrictStr
-from openapi_client.models.azure_marketplace_custom_amendment_tenant import (
-    AzureMarketplaceCustomAmendmentTenant,
-)
-
+from openapi_client.models.azure_marketplace_custom_amendment_tenant import AzureMarketplaceCustomAmendmentTenant
 
 class AzureMarketplaceCustomAmendment(BaseModel):
     """
     AzureMarketplaceCustomAmendment
     """
-
     tenants: Optional[AzureMarketplaceCustomAmendmentTenant] = None
     terms: Optional[StrictStr] = None
     __properties = ["tenants", "terms"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -56,10 +51,13 @@ class AzureMarketplaceCustomAmendment(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of tenants
         if self.tenants:
-            _dict["tenants"] = self.tenants.to_dict()
+            _dict['tenants'] = self.tenants.to_dict()
         return _dict
 
     @classmethod
@@ -71,14 +69,10 @@ class AzureMarketplaceCustomAmendment(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceCustomAmendment.parse_obj(obj)
 
-        _obj = AzureMarketplaceCustomAmendment.parse_obj(
-            {
-                "tenants": AzureMarketplaceCustomAmendmentTenant.from_dict(
-                    obj.get("tenants")
-                )
-                if obj.get("tenants") is not None
-                else None,
-                "terms": obj.get("terms"),
-            }
-        )
+        _obj = AzureMarketplaceCustomAmendment.parse_obj({
+            "tenants": AzureMarketplaceCustomAmendmentTenant.from_dict(obj.get("tenants")) if obj.get("tenants") is not None else None,
+            "terms": obj.get("terms")
+        })
         return _obj
+
+

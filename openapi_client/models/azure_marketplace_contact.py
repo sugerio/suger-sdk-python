@@ -22,23 +22,18 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class AzureMarketplaceContact(BaseModel):
     """
     AzureMarketplaceContact
     """
-
     email: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     phone: Optional[StrictStr] = None
-    url: Optional[StrictStr] = Field(
-        None, description='in patern of "^(http|https)://"'
-    )
+    url: Optional[StrictStr] = Field(None, description="in patern of \"^(http|https)://\"")
     __properties = ["email", "name", "phone", "url"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -57,7 +52,10 @@ class AzureMarketplaceContact(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -69,12 +67,12 @@ class AzureMarketplaceContact(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceContact.parse_obj(obj)
 
-        _obj = AzureMarketplaceContact.parse_obj(
-            {
-                "email": obj.get("email"),
-                "name": obj.get("name"),
-                "phone": obj.get("phone"),
-                "url": obj.get("url"),
-            }
-        )
+        _obj = AzureMarketplaceContact.parse_obj({
+            "email": obj.get("email"),
+            "name": obj.get("name"),
+            "phone": obj.get("phone"),
+            "url": obj.get("url")
+        })
         return _obj
+
+

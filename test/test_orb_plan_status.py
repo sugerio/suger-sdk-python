@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.orb_plan_status import OrbPlanStatus  # noqa: E501
 
-
 class TestOrbPlanStatus(unittest.TestCase):
     """OrbPlanStatus unit test stubs"""
 
@@ -32,6 +31,5 @@ class TestOrbPlanStatus(unittest.TestCase):
         """Test OrbPlanStatus"""
         # inst = OrbPlanStatus()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

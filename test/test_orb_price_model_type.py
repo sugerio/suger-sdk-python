@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.orb_price_model_type import OrbPriceModelType  # noqa: E501
 
-
 class TestOrbPriceModelType(unittest.TestCase):
     """OrbPriceModelType unit test stubs"""
 
@@ -32,6 +31,5 @@ class TestOrbPriceModelType(unittest.TestCase):
         """Test OrbPriceModelType"""
         # inst = OrbPriceModelType()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

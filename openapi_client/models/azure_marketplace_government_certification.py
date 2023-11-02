@@ -22,21 +22,16 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class AzureMarketplaceGovernmentCertification(BaseModel):
     """
     AzureMarketplaceGovernmentCertification
     """
-
-    link: Optional[StrictStr] = Field(
-        None, description='in patern of "^(http|https)://"'
-    )
+    link: Optional[StrictStr] = Field(None, description="in patern of \"^(http|https)://\"")
     name: Optional[StrictStr] = None
     __properties = ["link", "name"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -55,7 +50,10 @@ class AzureMarketplaceGovernmentCertification(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -67,7 +65,10 @@ class AzureMarketplaceGovernmentCertification(BaseModel):
         if not isinstance(obj, dict):
             return AzureMarketplaceGovernmentCertification.parse_obj(obj)
 
-        _obj = AzureMarketplaceGovernmentCertification.parse_obj(
-            {"link": obj.get("link"), "name": obj.get("name")}
-        )
+        _obj = AzureMarketplaceGovernmentCertification.parse_obj({
+            "link": obj.get("link"),
+            "name": obj.get("name")
+        })
         return _obj
+
+

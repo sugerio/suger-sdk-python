@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.salesforce_sync_filter_operator import (
-    SalesforceSyncFilterOperator,
-)  # noqa: E501
-
+from openapi_client.models.salesforce_sync_filter_operator import SalesforceSyncFilterOperator  # noqa: E501
 
 class TestSalesforceSyncFilterOperator(unittest.TestCase):
     """SalesforceSyncFilterOperator unit test stubs"""
@@ -34,6 +31,5 @@ class TestSalesforceSyncFilterOperator(unittest.TestCase):
         """Test SalesforceSyncFilterOperator"""
         # inst = SalesforceSyncFilterOperator()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

@@ -27,6 +27,13 @@ class TestCosellApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_get_crm_record(self) -> None:
+        """Test case for get_crm_record
+
+        get a record from a CRM partner.  # noqa: E501
+        """
+        pass
+
     def test_list_cosell_opp_referrals(self) -> None:
         """Test case for list_cosell_opp_referrals
 
@@ -34,6 +41,20 @@ class TestCosellApi(unittest.TestCase):
         """
         pass
 
+    def test_list_crm_records(self) -> None:
+        """Test case for list_crm_records
 
-if __name__ == "__main__":
+        list records from a CRM partner by object type and other conditions.  # noqa: E501
+        """
+        pass
+
+    def test_update_opp_referral_meta(self) -> None:
+        """Test case for update_opp_referral_meta
+
+        update the metadata for cosell opp referral  # noqa: E501
+        """
+        pass
+
+
+if __name__ == '__main__':
     unittest.main()

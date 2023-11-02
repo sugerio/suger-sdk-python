@@ -23,12 +23,10 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist, validator
 from openapi_client.models.buyer_info import BuyerInfo
 
-
 class IdentityBuyer(BaseModel):
     """
     IdentityBuyer
     """
-
     contact_ids: Optional[conlist(StrictStr)] = Field(None, alias="contactIds")
     creation_time: Optional[datetime] = Field(None, alias="creationTime")
     description: Optional[StrictStr] = None
@@ -39,32 +37,20 @@ class IdentityBuyer(BaseModel):
     name: Optional[StrictStr] = None
     organization_id: Optional[StrictStr] = Field(None, alias="organizationID")
     partner: Optional[StrictStr] = None
-    __properties = [
-        "contactIds",
-        "creationTime",
-        "description",
-        "externalID",
-        "id",
-        "info",
-        "lastUpdateTime",
-        "name",
-        "organizationID",
-        "partner",
-    ]
+    __properties = ["contactIds", "creationTime", "description", "externalID", "id", "info", "lastUpdateTime", "name", "organizationID", "partner"]
 
-    @validator("partner")
+    @validator('partner')
     def partner_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("AWS", "AZURE", "GCP"):
+        if value not in ('AWS', 'AZURE', 'GCP'):
             raise ValueError("must be one of enum values ('AWS', 'AZURE', 'GCP')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -83,10 +69,13 @@ class IdentityBuyer(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of info
         if self.info:
-            _dict["info"] = self.info.to_dict()
+            _dict['info'] = self.info.to_dict()
         return _dict
 
     @classmethod
@@ -98,20 +87,18 @@ class IdentityBuyer(BaseModel):
         if not isinstance(obj, dict):
             return IdentityBuyer.parse_obj(obj)
 
-        _obj = IdentityBuyer.parse_obj(
-            {
-                "contact_ids": obj.get("contactIds"),
-                "creation_time": obj.get("creationTime"),
-                "description": obj.get("description"),
-                "external_id": obj.get("externalID"),
-                "id": obj.get("id"),
-                "info": BuyerInfo.from_dict(obj.get("info"))
-                if obj.get("info") is not None
-                else None,
-                "last_update_time": obj.get("lastUpdateTime"),
-                "name": obj.get("name"),
-                "organization_id": obj.get("organizationID"),
-                "partner": obj.get("partner"),
-            }
-        )
+        _obj = IdentityBuyer.parse_obj({
+            "contact_ids": obj.get("contactIds"),
+            "creation_time": obj.get("creationTime"),
+            "description": obj.get("description"),
+            "external_id": obj.get("externalID"),
+            "id": obj.get("id"),
+            "info": BuyerInfo.from_dict(obj.get("info")) if obj.get("info") is not None else None,
+            "last_update_time": obj.get("lastUpdateTime"),
+            "name": obj.get("name"),
+            "organization_id": obj.get("organizationID"),
+            "partner": obj.get("partner")
+        })
         return _obj
+
+

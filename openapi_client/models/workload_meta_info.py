@@ -25,73 +25,26 @@ from openapi_client.models.aws_renewal_offer_type import AwsRenewalOfferType
 from openapi_client.models.contact import Contact
 from openapi_client.models.notification_event import NotificationEvent
 
-
 class WorkloadMetaInfo(BaseModel):
     """
     WorkloadMetaInfo
     """
-
-    base_agreement_id: Optional[StrictStr] = Field(
-        None,
-        alias="baseAgreementId",
-        description="Applicable for AWS Marketplace only, when the IsAgreementBasedOffer is true.",
-    )
-    buyer_ids: Optional[conlist(StrictStr)] = Field(
-        None,
-        alias="buyerIds",
-        description="The Suger buyer IDs of the private offer if available.",
-    )
-    contacts: Optional[conlist(Contact)] = Field(
-        None, description="The contacts of the offer to notify if any updates."
-    )
-    custom_meta_info: Optional[Dict[str, StrictStr]] = Field(
-        None,
-        alias="customMetaInfo",
-        description="The custom meta info of the offer can be updated by seller via API or console.",
-    )
-    error_messages: Optional[conlist(StrictStr)] = Field(
-        None,
-        alias="errorMessages",
-        description="The error messages when the offer is invalid or offer related tasks failed. Populated by Suger service.",
-    )
-    internal_note: Optional[StrictStr] = Field(
-        None,
-        alias="internalNote",
-        description="The Internal note of the private offer. It is only visible to the seller/ISV, not visible to the buyer. Up to 1000 characters.",
-    )
-    is_agreement_based_offer: Optional[StrictBool] = Field(
-        None,
-        alias="isAgreementBasedOffer",
-        description="Applicable for AWS Marketplace only, If this offer is agreement based offer.",
-    )
-    is_renewal_offer: Optional[StrictBool] = Field(
-        None,
-        alias="isRenewalOffer",
-        description="Applicable for AWS Marketplace only. If this offer is renewal offer of existing agreement. The existing agreement can be within or outside AWS Marketplace. AWS may audit and verify your offer is a renewal. If AWS is unable to verify your offer, then AWS may revoke the offer and entitlements from your customer.",
-    )
-    notifications: Optional[conlist(NotificationEvent)] = Field(
-        None,
-        description="The notifications of the offer if any updates. In most cases, it is to notify contacts/buyers when the offer is pending acceptance.",
-    )
-    renewal_offer_type: Optional[AwsRenewalOfferType] = Field(
-        None, alias="renewalOfferType"
-    )
-    __properties = [
-        "baseAgreementId",
-        "buyerIds",
-        "contacts",
-        "customMetaInfo",
-        "errorMessages",
-        "internalNote",
-        "isAgreementBasedOffer",
-        "isRenewalOffer",
-        "notifications",
-        "renewalOfferType",
-    ]
+    base_agreement_id: Optional[StrictStr] = Field(None, alias="baseAgreementId", description="Applicable for AWS Marketplace only, when the IsAgreementBasedOffer is true.")
+    buyer_ids: Optional[conlist(StrictStr)] = Field(None, alias="buyerIds", description="The Suger buyer IDs of the private offer if available.")
+    contacts: Optional[conlist(Contact)] = Field(None, description="The contacts of the offer to notify if any updates.")
+    custom_meta_info: Optional[Dict[str, StrictStr]] = Field(None, alias="customMetaInfo", description="The custom meta info of the offer can be updated by seller via API or console.")
+    error_messages: Optional[conlist(StrictStr)] = Field(None, alias="errorMessages", description="The error messages when the offer is invalid or offer related tasks failed. Populated by Suger service.")
+    hubspot_deal_id: Optional[StrictStr] = Field(None, alias="hubspotDealId", description="Hubsport deal ID of the private offer if available.")
+    internal_note: Optional[StrictStr] = Field(None, alias="internalNote", description="The Internal note of the private offer. It is only visible to the seller/ISV, not visible to the buyer. Up to 1000 characters.")
+    is_agreement_based_offer: Optional[StrictBool] = Field(None, alias="isAgreementBasedOffer", description="Applicable for AWS Marketplace only, If this offer is agreement based offer.")
+    is_renewal_offer: Optional[StrictBool] = Field(None, alias="isRenewalOffer", description="Applicable for AWS Marketplace only. If this offer is renewal offer of existing agreement. The existing agreement can be within or outside AWS Marketplace. AWS may audit and verify your offer is a renewal. If AWS is unable to verify your offer, then AWS may revoke the offer and entitlements from your customer.")
+    notifications: Optional[conlist(NotificationEvent)] = Field(None, description="The notifications of the offer if any updates. In most cases, it is to notify contacts/buyers when the offer is pending acceptance.")
+    renewal_offer_type: Optional[AwsRenewalOfferType] = Field(None, alias="renewalOfferType")
+    salesforce_opportunity_id: Optional[StrictStr] = Field(None, alias="salesforceOpportunityId", description="The Salesforce opportunity ID of the private offer if available.")
+    __properties = ["baseAgreementId", "buyerIds", "contacts", "customMetaInfo", "errorMessages", "hubspotDealId", "internalNote", "isAgreementBasedOffer", "isRenewalOffer", "notifications", "renewalOfferType", "salesforceOpportunityId"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -110,21 +63,24 @@ class WorkloadMetaInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in contacts (list)
         _items = []
         if self.contacts:
             for _item in self.contacts:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["contacts"] = _items
+            _dict['contacts'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in notifications (list)
         _items = []
         if self.notifications:
             for _item in self.notifications:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["notifications"] = _items
+            _dict['notifications'] = _items
         return _dict
 
     @classmethod
@@ -136,25 +92,20 @@ class WorkloadMetaInfo(BaseModel):
         if not isinstance(obj, dict):
             return WorkloadMetaInfo.parse_obj(obj)
 
-        _obj = WorkloadMetaInfo.parse_obj(
-            {
-                "base_agreement_id": obj.get("baseAgreementId"),
-                "buyer_ids": obj.get("buyerIds"),
-                "contacts": [Contact.from_dict(_item) for _item in obj.get("contacts")]
-                if obj.get("contacts") is not None
-                else None,
-                "custom_meta_info": obj.get("customMetaInfo"),
-                "error_messages": obj.get("errorMessages"),
-                "internal_note": obj.get("internalNote"),
-                "is_agreement_based_offer": obj.get("isAgreementBasedOffer"),
-                "is_renewal_offer": obj.get("isRenewalOffer"),
-                "notifications": [
-                    NotificationEvent.from_dict(_item)
-                    for _item in obj.get("notifications")
-                ]
-                if obj.get("notifications") is not None
-                else None,
-                "renewal_offer_type": obj.get("renewalOfferType"),
-            }
-        )
+        _obj = WorkloadMetaInfo.parse_obj({
+            "base_agreement_id": obj.get("baseAgreementId"),
+            "buyer_ids": obj.get("buyerIds"),
+            "contacts": [Contact.from_dict(_item) for _item in obj.get("contacts")] if obj.get("contacts") is not None else None,
+            "custom_meta_info": obj.get("customMetaInfo"),
+            "error_messages": obj.get("errorMessages"),
+            "hubspot_deal_id": obj.get("hubspotDealId"),
+            "internal_note": obj.get("internalNote"),
+            "is_agreement_based_offer": obj.get("isAgreementBasedOffer"),
+            "is_renewal_offer": obj.get("isRenewalOffer"),
+            "notifications": [NotificationEvent.from_dict(_item) for _item in obj.get("notifications")] if obj.get("notifications") is not None else None,
+            "renewal_offer_type": obj.get("renewalOfferType"),
+            "salesforce_opportunity_id": obj.get("salesforceOpportunityId")
+        })
         return _obj
+
+

@@ -14,11 +14,9 @@
 
 
 import unittest
+import datetime
 
-from openapi_client.models.alibaba_integration_credential import (
-    AlibabaIntegrationCredential,
-)  # noqa: E501
-
+from openapi_client.models.alibaba_integration_credential import AlibabaIntegrationCredential  # noqa: E501
 
 class TestAlibabaIntegrationCredential(unittest.TestCase):
     """AlibabaIntegrationCredential unit test stubs"""
@@ -31,9 +29,9 @@ class TestAlibabaIntegrationCredential(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AlibabaIntegrationCredential:
         """Test AlibabaIntegrationCredential
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `AlibabaIntegrationCredential`
         """
         model = AlibabaIntegrationCredential()  # noqa: E501
@@ -54,6 +52,5 @@ class TestAlibabaIntegrationCredential(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

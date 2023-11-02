@@ -22,38 +22,21 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from openapi_client.models.gcp_marketplace_price_model import GcpMarketplacePriceModel
-from openapi_client.models.gcp_marketplace_product_subscription_plan import (
-    GcpMarketplaceProductSubscriptionPlan,
-)
-from openapi_client.models.gcp_marketplace_product_usage_fee import (
-    GcpMarketplaceProductUsageFee,
-)
-
+from openapi_client.models.gcp_marketplace_product_subscription_plan import GcpMarketplaceProductSubscriptionPlan
+from openapi_client.models.gcp_marketplace_product_usage_fee import GcpMarketplaceProductUsageFee
 
 class GcpMarketplaceProductPriceInfo(BaseModel):
     """
     GcpMarketplaceProductPriceInfo
     """
-
     description: Optional[StrictStr] = None
     price_model: Optional[GcpMarketplacePriceModel] = Field(None, alias="priceModel")
-    subscription_plans: Optional[
-        conlist(GcpMarketplaceProductSubscriptionPlan)
-    ] = Field(
-        None,
-        alias="subscriptionPlans",
-        description="Subscription Plan (Flat Commitment)",
-    )
-    usage_fees: Optional[conlist(GcpMarketplaceProductUsageFee)] = Field(
-        None,
-        alias="usageFees",
-        description="Usage Metering Dimension/Metric if available",
-    )
+    subscription_plans: Optional[conlist(GcpMarketplaceProductSubscriptionPlan)] = Field(None, alias="subscriptionPlans", description="Subscription Plan (Flat Commitment)")
+    usage_fees: Optional[conlist(GcpMarketplaceProductUsageFee)] = Field(None, alias="usageFees", description="Usage Metering Dimension/Metric if available")
     __properties = ["description", "priceModel", "subscriptionPlans", "usageFees"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -72,21 +55,24 @@ class GcpMarketplaceProductPriceInfo(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in subscription_plans (list)
         _items = []
         if self.subscription_plans:
             for _item in self.subscription_plans:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["subscriptionPlans"] = _items
+            _dict['subscriptionPlans'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in usage_fees (list)
         _items = []
         if self.usage_fees:
             for _item in self.usage_fees:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["usageFees"] = _items
+            _dict['usageFees'] = _items
         return _dict
 
     @classmethod
@@ -98,22 +84,12 @@ class GcpMarketplaceProductPriceInfo(BaseModel):
         if not isinstance(obj, dict):
             return GcpMarketplaceProductPriceInfo.parse_obj(obj)
 
-        _obj = GcpMarketplaceProductPriceInfo.parse_obj(
-            {
-                "description": obj.get("description"),
-                "price_model": obj.get("priceModel"),
-                "subscription_plans": [
-                    GcpMarketplaceProductSubscriptionPlan.from_dict(_item)
-                    for _item in obj.get("subscriptionPlans")
-                ]
-                if obj.get("subscriptionPlans") is not None
-                else None,
-                "usage_fees": [
-                    GcpMarketplaceProductUsageFee.from_dict(_item)
-                    for _item in obj.get("usageFees")
-                ]
-                if obj.get("usageFees") is not None
-                else None,
-            }
-        )
+        _obj = GcpMarketplaceProductPriceInfo.parse_obj({
+            "description": obj.get("description"),
+            "price_model": obj.get("priceModel"),
+            "subscription_plans": [GcpMarketplaceProductSubscriptionPlan.from_dict(_item) for _item in obj.get("subscriptionPlans")] if obj.get("subscriptionPlans") is not None else None,
+            "usage_fees": [GcpMarketplaceProductUsageFee.from_dict(_item) for _item in obj.get("usageFees")] if obj.get("usageFees") is not None else None
+        })
         return _obj
+
+

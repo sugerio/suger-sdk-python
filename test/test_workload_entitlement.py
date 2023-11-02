@@ -18,7 +18,6 @@ import datetime
 
 from openapi_client.models.workload_entitlement import WorkloadEntitlement  # noqa: E501
 
-
 class TestWorkloadEntitlement(unittest.TestCase):
     """WorkloadEntitlement unit test stubs"""
 
@@ -30,9 +29,9 @@ class TestWorkloadEntitlement(unittest.TestCase):
 
     def make_instance(self, include_optional) -> WorkloadEntitlement:
         """Test WorkloadEntitlement
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `WorkloadEntitlement`
         """
         model = WorkloadEntitlement()  # noqa: E501
@@ -336,6 +335,7 @@ class TestWorkloadEntitlement(unittest.TestCase):
                     error_messages = [
                         ''
                         ], 
+                    hubspot_deal_id = '', 
                     internal_note = '', 
                     is_agreement_based_offer = True, 
                     is_renewal_offer = True, 
@@ -365,7 +365,8 @@ class TestWorkloadEntitlement(unittest.TestCase):
                                     timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                                 ], )
                         ], 
-                    renewal_offer_type = openapi_client.models.renewal_offer_type.renewalOfferType(), ),
+                    renewal_offer_type = openapi_client.models.renewal_offer_type.renewalOfferType(), 
+                    salesforce_opportunity_id = '', ),
                 name = '',
                 offer_id = '',
                 organization_id = '',
@@ -386,6 +387,5 @@ class TestWorkloadEntitlement(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

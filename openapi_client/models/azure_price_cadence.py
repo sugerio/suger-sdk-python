@@ -22,29 +22,26 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictInt, StrictStr, validator
 
-
 class AzurePriceCadence(BaseModel):
     """
     AzurePriceCadence
     """
-
     type: Optional[StrictStr] = None
     value: Optional[StrictInt] = None
     __properties = ["type", "value"]
 
-    @validator("type")
+    @validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ("Month", "Year"):
+        if value not in ('Month', 'Year'):
             raise ValueError("must be one of enum values ('Month', 'Year')")
         return value
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -63,7 +60,10 @@ class AzurePriceCadence(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -75,7 +75,10 @@ class AzurePriceCadence(BaseModel):
         if not isinstance(obj, dict):
             return AzurePriceCadence.parse_obj(obj)
 
-        _obj = AzurePriceCadence.parse_obj(
-            {"type": obj.get("type"), "value": obj.get("value")}
-        )
+        _obj = AzurePriceCadence.parse_obj({
+            "type": obj.get("type"),
+            "value": obj.get("value")
+        })
         return _obj
+
+

@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.gcp_marketplace_product_service_config_billing import (
-    GcpMarketplaceProductServiceConfigBilling,
-)  # noqa: E501
-
+from openapi_client.models.gcp_marketplace_product_service_config_billing import GcpMarketplaceProductServiceConfigBilling  # noqa: E501
 
 class TestGcpMarketplaceProductServiceConfigBilling(unittest.TestCase):
     """GcpMarketplaceProductServiceConfigBilling unit test stubs"""
@@ -30,13 +27,11 @@ class TestGcpMarketplaceProductServiceConfigBilling(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(
-        self, include_optional
-    ) -> GcpMarketplaceProductServiceConfigBilling:
+    def make_instance(self, include_optional) -> GcpMarketplaceProductServiceConfigBilling:
         """Test GcpMarketplaceProductServiceConfigBilling
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceProductServiceConfigBilling`
         """
         model = GcpMarketplaceProductServiceConfigBilling()  # noqa: E501
@@ -56,6 +51,5 @@ class TestGcpMarketplaceProductServiceConfigBilling(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

@@ -16,10 +16,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.usage_record_group_source import (
-    UsageRecordGroupSource,
-)  # noqa: E501
-
+from openapi_client.models.usage_record_group_source import UsageRecordGroupSource  # noqa: E501
 
 class TestUsageRecordGroupSource(unittest.TestCase):
     """UsageRecordGroupSource unit test stubs"""
@@ -34,6 +31,5 @@ class TestUsageRecordGroupSource(unittest.TestCase):
         """Test UsageRecordGroupSource"""
         # inst = UsageRecordGroupSource()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

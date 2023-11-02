@@ -20,47 +20,24 @@ import json
 
 
 from typing import List, Optional, Union
-from pydantic import (
-    BaseModel,
-    Field,
-    StrictBool,
-    StrictFloat,
-    StrictInt,
-    StrictStr,
-    conlist,
-)
+from pydantic import BaseModel, Field, StrictBool, StrictFloat, StrictInt, StrictStr, conlist
 from openapi_client.models.azure_included_base_quantity import AzureIncludedBaseQuantity
-
 
 class AzureProductVariantCustomMeter(BaseModel):
     """
     AzureProductVariantCustomMeter
     """
-
     display_name: Optional[StrictStr] = Field(None, alias="displayName")
     id: Optional[StrictStr] = None
-    included_base_quantities: Optional[conlist(AzureIncludedBaseQuantity)] = Field(
-        None, alias="includedBaseQuantities"
-    )
+    included_base_quantities: Optional[conlist(AzureIncludedBaseQuantity)] = Field(None, alias="includedBaseQuantities")
     is_enabled: Optional[StrictBool] = Field(None, alias="isEnabled")
-    price_in_usd: Optional[Union[StrictFloat, StrictInt]] = Field(
-        None, alias="priceInUsd"
-    )
+    price_in_usd: Optional[Union[StrictFloat, StrictInt]] = Field(None, alias="priceInUsd")
     unique_id: Optional[StrictStr] = Field(None, alias="uniqueID")
     unit_of_measure: Optional[StrictStr] = Field(None, alias="unitOfMeasure")
-    __properties = [
-        "displayName",
-        "id",
-        "includedBaseQuantities",
-        "isEnabled",
-        "priceInUsd",
-        "uniqueID",
-        "unitOfMeasure",
-    ]
+    __properties = ["displayName", "id", "includedBaseQuantities", "isEnabled", "priceInUsd", "uniqueID", "unitOfMeasure"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -79,14 +56,17 @@ class AzureProductVariantCustomMeter(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in included_base_quantities (list)
         _items = []
         if self.included_base_quantities:
             for _item in self.included_base_quantities:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["includedBaseQuantities"] = _items
+            _dict['includedBaseQuantities'] = _items
         return _dict
 
     @classmethod
@@ -98,20 +78,15 @@ class AzureProductVariantCustomMeter(BaseModel):
         if not isinstance(obj, dict):
             return AzureProductVariantCustomMeter.parse_obj(obj)
 
-        _obj = AzureProductVariantCustomMeter.parse_obj(
-            {
-                "display_name": obj.get("displayName"),
-                "id": obj.get("id"),
-                "included_base_quantities": [
-                    AzureIncludedBaseQuantity.from_dict(_item)
-                    for _item in obj.get("includedBaseQuantities")
-                ]
-                if obj.get("includedBaseQuantities") is not None
-                else None,
-                "is_enabled": obj.get("isEnabled"),
-                "price_in_usd": obj.get("priceInUsd"),
-                "unique_id": obj.get("uniqueID"),
-                "unit_of_measure": obj.get("unitOfMeasure"),
-            }
-        )
+        _obj = AzureProductVariantCustomMeter.parse_obj({
+            "display_name": obj.get("displayName"),
+            "id": obj.get("id"),
+            "included_base_quantities": [AzureIncludedBaseQuantity.from_dict(_item) for _item in obj.get("includedBaseQuantities")] if obj.get("includedBaseQuantities") is not None else None,
+            "is_enabled": obj.get("isEnabled"),
+            "price_in_usd": obj.get("priceInUsd"),
+            "unique_id": obj.get("uniqueID"),
+            "unit_of_measure": obj.get("unitOfMeasure")
+        })
         return _obj
+
+

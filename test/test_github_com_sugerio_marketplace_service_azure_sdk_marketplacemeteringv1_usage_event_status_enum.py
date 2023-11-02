@@ -16,14 +16,9 @@
 import unittest
 import datetime
 
-from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_status_enum import (
-    GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum,
-)  # noqa: E501
+from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_status_enum import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum  # noqa: E501
 
-
-class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum(
-    unittest.TestCase
-):
+class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum(unittest.TestCase):
     """GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum unit test stubs"""
 
     def setUp(self):
@@ -32,12 +27,9 @@ class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEv
     def tearDown(self):
         pass
 
-    def testGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum(
-        self,
-    ):
+    def testGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum(self):
         """Test GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum"""
         # inst = GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

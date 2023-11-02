@@ -22,19 +22,16 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
-
 class AwsMarketplaceEventBridgeEventAccount(BaseModel):
     """
     AwsMarketplaceEventBridgeEventAccount
     """
-
     account_id: Optional[StrictStr] = Field(None, alias="accountId")
     name: Optional[StrictStr] = None
     __properties = ["accountId", "name"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -53,7 +50,10 @@ class AwsMarketplaceEventBridgeEventAccount(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -65,7 +65,10 @@ class AwsMarketplaceEventBridgeEventAccount(BaseModel):
         if not isinstance(obj, dict):
             return AwsMarketplaceEventBridgeEventAccount.parse_obj(obj)
 
-        _obj = AwsMarketplaceEventBridgeEventAccount.parse_obj(
-            {"account_id": obj.get("accountId"), "name": obj.get("name")}
-        )
+        _obj = AwsMarketplaceEventBridgeEventAccount.parse_obj({
+            "account_id": obj.get("accountId"),
+            "name": obj.get("name")
+        })
         return _obj
+
+

@@ -19,6 +19,9 @@ import re  # noqa: F401
 from aenum import Enum, no_arg
 
 
+
+
+
 class SqlValueType(str, Enum):
     """
     SqlValueType
@@ -27,17 +30,19 @@ class SqlValueType(str, Enum):
     """
     allowed enum values
     """
-    STRING = "STRING"
-    INT = "INT"
-    FLOAT = "FLOAT"
-    BOOL = "BOOL"
-    STRING_ARRAY = "STRING_ARRAY"
-    INT_ARRAY = "INT_ARRAY"
-    FLOAT_ARRAY = "FLOAT_ARRAY"
-    BOOL_ARRAY = "BOOL_ARRAY"
-    NULL = "NULL"
+    STRING = 'STRING'
+    INT = 'INT'
+    FLOAT = 'FLOAT'
+    BOOL = 'BOOL'
+    STRING_ARRAY = 'STRING_ARRAY'
+    INT_ARRAY = 'INT_ARRAY'
+    FLOAT_ARRAY = 'FLOAT_ARRAY'
+    BOOL_ARRAY = 'BOOL_ARRAY'
+    NULL = 'NULL'
 
     @classmethod
     def from_json(cls, json_str: str) -> SqlValueType:
         """Create an instance of SqlValueType from a JSON string"""
         return SqlValueType(json.loads(json_str))
+
+

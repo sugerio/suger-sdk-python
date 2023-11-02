@@ -22,30 +22,20 @@ import json
 from typing import Optional
 from pydantic import BaseModel, StrictInt, StrictStr
 
-
 class SlackOAuthV2ResponseAuthedUser(BaseModel):
     """
     SlackOAuthV2ResponseAuthedUser
     """
-
     access_token: Optional[StrictStr] = None
     expires_in: Optional[StrictInt] = None
     id: Optional[StrictStr] = None
     refresh_token: Optional[StrictStr] = None
     scope: Optional[StrictStr] = None
     token_type: Optional[StrictStr] = None
-    __properties = [
-        "access_token",
-        "expires_in",
-        "id",
-        "refresh_token",
-        "scope",
-        "token_type",
-    ]
+    __properties = ["access_token", "expires_in", "id", "refresh_token", "scope", "token_type"]
 
     class Config:
         """Pydantic configuration"""
-
         allow_population_by_field_name = True
         validate_assignment = True
 
@@ -64,7 +54,10 @@ class SlackOAuthV2ResponseAuthedUser(BaseModel):
 
     def to_dict(self):
         """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True, exclude={}, exclude_none=True)
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
@@ -76,14 +69,14 @@ class SlackOAuthV2ResponseAuthedUser(BaseModel):
         if not isinstance(obj, dict):
             return SlackOAuthV2ResponseAuthedUser.parse_obj(obj)
 
-        _obj = SlackOAuthV2ResponseAuthedUser.parse_obj(
-            {
-                "access_token": obj.get("access_token"),
-                "expires_in": obj.get("expires_in"),
-                "id": obj.get("id"),
-                "refresh_token": obj.get("refresh_token"),
-                "scope": obj.get("scope"),
-                "token_type": obj.get("token_type"),
-            }
-        )
+        _obj = SlackOAuthV2ResponseAuthedUser.parse_obj({
+            "access_token": obj.get("access_token"),
+            "expires_in": obj.get("expires_in"),
+            "id": obj.get("id"),
+            "refresh_token": obj.get("refresh_token"),
+            "scope": obj.get("scope"),
+            "token_type": obj.get("token_type")
+        })
         return _obj
+
+
