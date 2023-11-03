@@ -53,6 +53,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 import time
 import openapi_client
+from openapi_client.api.product_api import ProductApi
 from openapi_client.rest import ApiException
 from pprint import pprint
 
@@ -68,26 +69,21 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
-
+configuration.api_key['BearerTokenAuth'] = "Bearer YOUR_API_KEY"
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = openapi_client.APIApi(api_client)
-    org_id = 'org_id_example' # str | Organization ID
-    type = 'type_example' # str | API client type, the default is BEARER_TOKEN if not provided (optional)
+    # Create an instance of the ProductApi class
+    product_api_instance = ProductApi(api_client)
+    org_id = 'YOUR_ORGANIZATION_ID' # str | Organization ID
 
     try:
-        # create api client
-        api_response = api_instance.create_api_client(org_id, type=type)
-        print("The response of APIApi->create_api_client:\n")
-        pprint(api_response)
+        # Call list_products_by_organization
+        products = product_api_instance.list_products_by_organization(org_id)
+        print("The number of products: %d\n" % len(products))
+        pprint(products)
     except ApiException as e:
-        print("Exception when calling APIApi->create_api_client: %s\n" % e)
+        print("Exception when calling ProductApi->list_products_by_organization: %s\n" % e)
 
 ```
 
