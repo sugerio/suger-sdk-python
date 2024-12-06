@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_listing_asset import AzureMarketplaceListingAsset  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_listing_asset import AzureMarketplaceListingAsset
 
 class TestAzureMarketplaceListingAsset(unittest.TestCase):
     """AzureMarketplaceListingAsset unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplaceListingAsset(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplaceListingAsset:
         """Test AzureMarketplaceListingAsset
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplaceListingAsset`
         """
-        model = AzureMarketplaceListingAsset()  # noqa: E501
+        model = AzureMarketplaceListingAsset()
         if include_optional:
             return AzureMarketplaceListingAsset(
                 var_schema = '',
@@ -52,12 +51,7 @@ class TestAzureMarketplaceListingAsset(unittest.TestCase):
                 type = 'azureLogoSmall',
                 url = '',
                 validations = [
-                    openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                        __schema = '', 
-                        code = 'businessValidationError', 
-                        level = 'informational', 
-                        message = '', 
-                        resource_id = '', )
+                    {"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}
                     ]
             )
         else:

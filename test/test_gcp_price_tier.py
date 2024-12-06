@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_price_tier import GcpPriceTier  # noqa: E501
+from suger_sdk_python.models.gcp_price_tier import GcpPriceTier
 
 class TestGcpPriceTier(unittest.TestCase):
     """GcpPriceTier unit test stubs"""
@@ -29,19 +28,16 @@ class TestGcpPriceTier(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpPriceTier:
         """Test GcpPriceTier
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpPriceTier`
         """
-        model = GcpPriceTier()  # noqa: E501
+        model = GcpPriceTier()
         if include_optional:
             return GcpPriceTier(
                 from_amount = 1.337,
-                price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                    currency_code = '', 
-                    nanos = 56, 
-                    units = '', ),
+                price = {"nanos":1,"units":"units","currencyCode":"currencyCode"},
                 starting_usage_amount = ''
             )
         else:

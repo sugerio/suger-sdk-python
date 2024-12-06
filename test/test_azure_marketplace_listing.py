@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_listing import AzureMarketplaceListing  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_listing import AzureMarketplaceListing
 
 class TestAzureMarketplaceListing(unittest.TestCase):
     """AzureMarketplaceListing unit test stubs"""
@@ -29,31 +28,21 @@ class TestAzureMarketplaceListing(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplaceListing:
         """Test AzureMarketplaceListing
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplaceListing`
         """
-        model = AzureMarketplaceListing()  # noqa: E501
+        model = AzureMarketplaceListing()
         if include_optional:
             return AzureMarketplaceListing(
                 var_schema = '',
-                cloud_solution_provider_contact = openapi_client.models.azure_marketplace_contact.AzureMarketplaceContact(
-                    email = '', 
-                    name = '', 
-                    phone = '', 
-                    url = '', ),
+                cloud_solution_provider_contact = {"phone":"phone","name":"name","email":"email","url":"url"},
                 cloud_solution_provider_marketing_materials = '',
                 description = '',
-                engineering_contact = openapi_client.models.azure_marketplace_contact.AzureMarketplaceContact(
-                    email = '', 
-                    name = '', 
-                    phone = '', 
-                    url = '', ),
+                engineering_contact = {"phone":"phone","name":"name","email":"email","url":"url"},
                 general_links = [
-                    openapi_client.models.azure_marketplace_general_link.AzureMarketplaceGeneralLink(
-                        display_text = '', 
-                        link = '', )
+                    {"displayText":"displayText","link":"link"}
                     ],
                 getting_started_instructions = '',
                 gloabal_support_website = '',
@@ -70,19 +59,10 @@ class TestAzureMarketplaceListing(unittest.TestCase):
                     ],
                 search_result_summary = '',
                 short_description = '',
-                support_contact = openapi_client.models.azure_marketplace_contact.AzureMarketplaceContact(
-                    email = '', 
-                    name = '', 
-                    phone = '', 
-                    url = '', ),
+                support_contact = {"phone":"phone","name":"name","email":"email","url":"url"},
                 title = '',
                 validations = [
-                    openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                        __schema = '', 
-                        code = 'businessValidationError', 
-                        level = 'informational', 
-                        message = '', 
-                        resource_id = '', )
+                    {"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}
                     ]
             )
         else:

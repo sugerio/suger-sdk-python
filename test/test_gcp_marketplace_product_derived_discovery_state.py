@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_product_derived_discovery_state import GcpMarketplaceProductDerivedDiscoveryState  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_product_derived_discovery_state import GcpMarketplaceProductDerivedDiscoveryState
 
 class TestGcpMarketplaceProductDerivedDiscoveryState(unittest.TestCase):
     """GcpMarketplaceProductDerivedDiscoveryState unit test stubs"""
@@ -29,12 +28,12 @@ class TestGcpMarketplaceProductDerivedDiscoveryState(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplaceProductDerivedDiscoveryState:
         """Test GcpMarketplaceProductDerivedDiscoveryState
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceProductDerivedDiscoveryState`
         """
-        model = GcpMarketplaceProductDerivedDiscoveryState()  # noqa: E501
+        model = GcpMarketplaceProductDerivedDiscoveryState()
         if include_optional:
             return GcpMarketplaceProductDerivedDiscoveryState(
                 access_state = 'ALLUSERS_ACCESSIBLE',

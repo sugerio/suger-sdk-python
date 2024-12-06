@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.entitlement_term_info import EntitlementTermInfo  # noqa: E501
+from suger_sdk_python.models.entitlement_term_info import EntitlementTermInfo
 
 class TestEntitlementTermInfo(unittest.TestCase):
     """EntitlementTermInfo unit test stubs"""
@@ -29,12 +28,12 @@ class TestEntitlementTermInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EntitlementTermInfo:
         """Test EntitlementTermInfo
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EntitlementTermInfo`
         """
-        model = EntitlementTermInfo()  # noqa: E501
+        model = EntitlementTermInfo()
         if include_optional:
             return EntitlementTermInfo(
                 dimension_quantity_decimal_parts = {

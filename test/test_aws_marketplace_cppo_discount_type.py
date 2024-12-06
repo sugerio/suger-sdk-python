@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.aws_marketplace_cppo_discount_type import AwsMarketplaceCppoDiscountType  # noqa: E501
+from suger_sdk_python.models.aws_marketplace_cppo_discount_type import AwsMarketplaceCppoDiscountType
 
 class TestAwsMarketplaceCppoDiscountType(unittest.TestCase):
     """AwsMarketplaceCppoDiscountType unit test stubs"""

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_plan import AzureMarketplacePlan  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_plan import AzureMarketplacePlan
 
 class TestAzureMarketplacePlan(unittest.TestCase):
     """AzureMarketplacePlan unit test stubs"""
@@ -29,47 +28,32 @@ class TestAzureMarketplacePlan(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePlan:
         """Test AzureMarketplacePlan
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePlan`
         """
-        model = AzureMarketplacePlan()  # noqa: E501
+        model = AzureMarketplacePlan()
         if include_optional:
             return AzureMarketplacePlan(
                 var_schema = '',
                 alias = '',
                 azure_government_certifications = [
-                    openapi_client.models.azure_marketplace_government_certification.AzureMarketplaceGovernmentCertification(
-                        link = '', 
-                        name = '', )
+                    {"link":"link","name":"name"}
                     ],
                 azure_regions = [
                     ''
                     ],
-                deprecation_schedule = openapi_client.models.azure_marketplace_deprecation_schedule.AzureMarketplaceDeprecationSchedule(
-                    __schema = '', 
-                    alternative = openapi_client.models.azure_marketplace_deprecation_schedule_alternative.AzureMarketplaceDeprecationScheduleAlternative(
-                        plan = openapi_client.models.plan.plan(), 
-                        product = openapi_client.models.product.product(), ), 
-                    date = '', 
-                    date_offset = '', 
-                    reason = 'criticalSecurityIssue', ),
+                deprecation_schedule = {"date":"date","reason":"criticalSecurityIssue","$schema":"$schema","alternative":{"product":"{}","plan":"{}"},"dateOffset":"dateOffset"},
                 display_rank = 56,
                 id = '',
-                identity = openapi_client.models.azure_marketplace_identity.AzureMarketplaceIdentity(
-                    external_id = '', ),
+                identity = {"externalId":"externalId"},
                 lifecycle_state = 'notAvailable',
                 product = '',
                 resource_name = '',
                 subtype = 'managedApplication',
                 validations = [
-                    openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                        __schema = '', 
-                        code = 'businessValidationError', 
-                        level = 'informational', 
-                        message = '', 
-                        resource_id = '', )
+                    {"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}
                     ]
             )
         else:

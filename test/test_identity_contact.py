@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.identity_contact import IdentityContact  # noqa: E501
+from suger_sdk_python.models.identity_contact import IdentityContact
 
 class TestIdentityContact(unittest.TestCase):
     """IdentityContact unit test stubs"""
@@ -29,22 +28,18 @@ class TestIdentityContact(unittest.TestCase):
 
     def make_instance(self, include_optional) -> IdentityContact:
         """Test IdentityContact
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `IdentityContact`
         """
-        model = IdentityContact()  # noqa: E501
+        model = IdentityContact()
         if include_optional:
             return IdentityContact(
                 creation_time = '',
                 email_address = '',
                 id = '',
-                info = openapi_client.models.identity_conctact_info.IdentityConctactInfo(
-                    company_location = '', 
-                    company_name = '', 
-                    phone_number = '', 
-                    role = '', ),
+                info = {"phoneNumber":"phoneNumber","role":"role","companyName":"companyName","lastModifiedBy":"lastModifiedBy","companyLocation":"companyLocation"},
                 last_update_time = '',
                 name = '',
                 organization_id = ''

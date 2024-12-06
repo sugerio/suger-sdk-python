@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.notification_event_status import NotificationEventStatus  # noqa: E501
+from suger_sdk_python.models.notification_event_status import NotificationEventStatus
 
 class TestNotificationEventStatus(unittest.TestCase):
     """NotificationEventStatus unit test stubs"""

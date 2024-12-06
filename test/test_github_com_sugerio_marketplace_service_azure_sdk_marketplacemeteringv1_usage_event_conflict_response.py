@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_conflict_response import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponse  # noqa: E501
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_conflict_response import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponse
 
 class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponse(unittest.TestCase):
     """GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponse unit test stubs"""
@@ -29,16 +28,16 @@ class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEv
 
     def make_instance(self, include_optional) -> GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponse:
         """Test GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponse
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponse`
         """
-        model = GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponse()  # noqa: E501
+        model = GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponse()
         if include_optional:
             return GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponse(
-                additional_info = openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/usage_event_conflict_response_additional_info.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.UsageEventConflictResponseAdditionalInfo(
-                    accepted_message = openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/usage_event_ok_response.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.UsageEventOkResponse(
+                additional_info = suger_sdk_python.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/usage_event_conflict_response_additional_info.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.UsageEventConflictResponseAdditionalInfo(
+                    accepted_message = suger_sdk_python.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/usage_event_ok_response.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.UsageEventOkResponse(
                         dimension = '', 
                         effective_start_time = '', 
                         message_time = '', 
@@ -46,7 +45,7 @@ class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEv
                         quantity = 1.337, 
                         resource_id = '', 
                         resource_uri = '', 
-                        status = openapi_client.models.status.status(), 
+                        status = suger_sdk_python.models.status.status(), 
                         usage_event_id = '', ), ),
                 code = '',
                 message = ''

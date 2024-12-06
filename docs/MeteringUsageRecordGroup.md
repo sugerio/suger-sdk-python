@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **buyer_id** | **str** |  | [optional] 
@@ -20,19 +21,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.metering_usage_record_group import MeteringUsageRecordGroup
+from suger_sdk_python.models.metering_usage_record_group import MeteringUsageRecordGroup
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of MeteringUsageRecordGroup from a JSON string
 metering_usage_record_group_instance = MeteringUsageRecordGroup.from_json(json)
 # print the JSON string representation of the object
-print MeteringUsageRecordGroup.to_json()
+print(MeteringUsageRecordGroup.to_json())
 
 # convert the object into a dict
 metering_usage_record_group_dict = metering_usage_record_group_instance.to_dict()
 # create an instance of MeteringUsageRecordGroup from a dict
-metering_usage_record_group_form_dict = metering_usage_record_group.from_dict(metering_usage_record_group_dict)
+metering_usage_record_group_from_dict = MeteringUsageRecordGroup.from_dict(metering_usage_record_group_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

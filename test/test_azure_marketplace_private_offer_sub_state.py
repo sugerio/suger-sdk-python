@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_private_offer_sub_state import AzureMarketplacePrivateOfferSubState  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_private_offer_sub_state import AzureMarketplacePrivateOfferSubState
 
 class TestAzureMarketplacePrivateOfferSubState(unittest.TestCase):
     """AzureMarketplacePrivateOfferSubState unit test stubs"""

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.types_usage_record import TypesUsageRecord  # noqa: E501
+from suger_sdk_python.models.types_usage_record import TypesUsageRecord
 
 class TestTypesUsageRecord(unittest.TestCase):
     """TypesUsageRecord unit test stubs"""
@@ -29,12 +28,12 @@ class TestTypesUsageRecord(unittest.TestCase):
 
     def make_instance(self, include_optional) -> TypesUsageRecord:
         """Test TypesUsageRecord
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TypesUsageRecord`
         """
-        model = TypesUsageRecord()  # noqa: E501
+        model = TypesUsageRecord()
         if include_optional:
             return TypesUsageRecord(
                 customer_identifier = '',
@@ -42,10 +41,10 @@ class TestTypesUsageRecord(unittest.TestCase):
                 quantity = 56,
                 timestamp = '',
                 usage_allocations = [
-                    openapi_client.models.types/usage_allocation.types.UsageAllocation(
+                    suger_sdk_python.models.types/usage_allocation.types.UsageAllocation(
                         allocated_usage_quantity = 56, 
                         tags = [
-                            openapi_client.models.github_com_aws_aws_sdk_go_v2_service_marketplacemetering_types/tag.github_com_aws_aws-sdk-go-v2_service_marketplacemetering_types.Tag(
+                            suger_sdk_python.models.github_com_aws_aws_sdk_go_v2_service_marketplacemetering_types/tag.github_com_aws_aws-sdk-go-v2_service_marketplacemetering_types.Tag(
                                 key = '', 
                                 value = '', )
                             ], )

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.alibaba_marketplace_product import AlibabaMarketplaceProduct  # noqa: E501
+from suger_sdk_python.models.alibaba_marketplace_product import AlibabaMarketplaceProduct
 
 class TestAlibabaMarketplaceProduct(unittest.TestCase):
     """AlibabaMarketplaceProduct unit test stubs"""
@@ -29,12 +28,12 @@ class TestAlibabaMarketplaceProduct(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AlibabaMarketplaceProduct:
         """Test AlibabaMarketplaceProduct
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AlibabaMarketplaceProduct`
         """
-        model = AlibabaMarketplaceProduct()  # noqa: E501
+        model = AlibabaMarketplaceProduct()
         if include_optional:
             return AlibabaMarketplaceProduct(
                 audit_fail_msg = '',
@@ -47,72 +46,11 @@ class TestAlibabaMarketplaceProduct(unittest.TestCase):
                 gmt_modified = 56,
                 name = '',
                 pic_url = '',
-                product_extras = openapi_client.models.alibaba_marketplace_product_extras.AlibabaMarketplaceProductExtras(
-                    product_extra = [
-                        openapi_client.models.alibaba_marketplace_product_extra.AlibabaMarketplaceProductExtra(
-                            key = '', 
-                            label = '', 
-                            order = 56, 
-                            type = '', 
-                            values = openapi_client.models.values.Values(), )
-                        ], ),
-                product_skus = openapi_client.models.alibaba_marketplace_product_skus.AlibabaMarketplaceProductSkus(
-                    product_sku = [
-                        openapi_client.models.alibaba_marketplace_product_sku.AlibabaMarketplaceProductSku(
-                            charge_type = '', 
-                            code = '', 
-                            constraints = '', 
-                            hidden = True, 
-                            modules = openapi_client.models.alibaba_marketplace_product_sku_modules.AlibabaMarketplaceProductSkuModules(
-                                module = [
-                                    openapi_client.models.alibaba_marketplace_product_sku_module.AlibabaMarketplaceProductSkuModule(
-                                        code = '', 
-                                        id = '', 
-                                        name = '', 
-                                        properties = openapi_client.models.alibaba_marketplace_product_sku_module_properties.AlibabaMarketplaceProductSkuModuleProperties(
-                                            property = [
-                                                openapi_client.models.alibaba_marketplace_product_sku_module_property.AlibabaMarketplaceProductSkuModuleProperty(
-                                                    display_unit = '', 
-                                                    key = '', 
-                                                    name = '', 
-                                                    property_values = openapi_client.models.alibaba_marketplace_product_sku_module_property_values.AlibabaMarketplaceProductSkuModulePropertyValues(
-                                                        property_value = [
-                                                            openapi_client.models.alibaba_marketplace_product_sku_module_property_value.AlibabaMarketplaceProductSkuModulePropertyValue(
-                                                                display_name = '', 
-                                                                max = '', 
-                                                                min = '', 
-                                                                remark = '', 
-                                                                step = '', 
-                                                                type = '', 
-                                                                value = '', )
-                                                            ], ), 
-                                                    show_type = '', )
-                                                ], ), )
-                                    ], ), 
-                            name = '', 
-                            order_periods = openapi_client.models.alibaba_marketplace_product_sku_order_periods.AlibabaMarketplaceProductSkuOrderPeriods(
-                                order_period = [
-                                    openapi_client.models.alibaba_marketplace_product_sku_order_period.AlibabaMarketplaceProductSkuOrderPeriod(
-                                        name = '', 
-                                        period_type = '', )
-                                    ], ), )
-                        ], ),
+                product_extras = {"ProductExtra":[{"Order":5,"Type":"Type","Label":"Label","Values":"{}","Key":"Key"},{"Order":5,"Type":"Type","Label":"Label","Values":"{}","Key":"Key"}]},
+                product_skus = {"ProductSku":[{"Constraints":"Constraints","ChargeType":"ChargeType","Modules":{"Module":[{"Id":"Id","Properties":{"Property":[{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"showType":"showType","DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name"},{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"showType":"showType","DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name"}]},"Code":"Code","Name":"Name"},{"Id":"Id","Properties":{"Property":[{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"showType":"showType","DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name"},{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"showType":"showType","DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name"}]},"Code":"Code","Name":"Name"}]},"OrderPeriods":{"OrderPeriod":[{"PeriodType":"PeriodType","Name":"Name"},{"PeriodType":"PeriodType","Name":"Name"}]},"Hidden":true,"Code":"Code","Name":"Name"},{"Constraints":"Constraints","ChargeType":"ChargeType","Modules":{"Module":[{"Id":"Id","Properties":{"Property":[{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"showType":"showType","DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name"},{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"showType":"showType","DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name"}]},"Code":"Code","Name":"Name"},{"Id":"Id","Properties":{"Property":[{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"showType":"showType","DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name"},{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"showType":"showType","DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name"}]},"Code":"Code","Name":"Name"}]},"OrderPeriods":{"OrderPeriod":[{"PeriodType":"PeriodType","Name":"Name"},{"PeriodType":"PeriodType","Name":"Name"}]},"Hidden":true,"Code":"Code","Name":"Name"}]},
                 request_id = '',
                 score = 1.337,
-                shop_info = openapi_client.models.alibaba_marketplace_product_shop_info.AlibabaMarketplaceProductShopInfo(
-                    emails = '', 
-                    id = 56, 
-                    name = '', 
-                    telephones = openapi_client.models.alibaba_marketplace_product_shop_info_telephones.AlibabaMarketplaceProductShopInfoTelephones(
-                        telephone = [
-                            ''
-                            ], ), 
-                    wang_wangs = openapi_client.models.alibaba_marketplace_product_shop_info_wang_wangs.AlibabaMarketplaceProductShopInfoWangWangs(
-                        wang_wang = [
-                            openapi_client.models.alibaba_marketplace_product_shop_info_wang_wang.AlibabaMarketplaceProductShopInfoWangWang(
-                                remark = '', 
-                                user_name = '', )
-                            ], ), ),
+                shop_info = {"WangWangs":{"WangWang":[{"UserName":"UserName","Remark":"Remark"},{"UserName":"UserName","Remark":"Remark"}]},"Telephones":{"Telephone":["Telephone","Telephone"]},"Emails":"Emails","Id":7,"Name":"Name"},
                 short_description = '',
                 status = '',
                 supplier_pk = 56,

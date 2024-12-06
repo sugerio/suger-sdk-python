@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.aws_sns_subscription import AwsSnsSubscription  # noqa: E501
+from suger_sdk_python.models.aws_sns_subscription import AwsSnsSubscription
 
 class TestAwsSnsSubscription(unittest.TestCase):
     """AwsSnsSubscription unit test stubs"""
@@ -29,12 +28,12 @@ class TestAwsSnsSubscription(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AwsSnsSubscription:
         """Test AwsSnsSubscription
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AwsSnsSubscription`
         """
-        model = AwsSnsSubscription()  # noqa: E501
+        model = AwsSnsSubscription()
         if include_optional:
             return AwsSnsSubscription(
                 endpoint = '',

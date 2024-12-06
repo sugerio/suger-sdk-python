@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **create_time** | **datetime** |  | [optional] 
@@ -20,19 +21,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.gcp_marketplace_product import GcpMarketplaceProduct
+from suger_sdk_python.models.gcp_marketplace_product import GcpMarketplaceProduct
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of GcpMarketplaceProduct from a JSON string
 gcp_marketplace_product_instance = GcpMarketplaceProduct.from_json(json)
 # print the JSON string representation of the object
-print GcpMarketplaceProduct.to_json()
+print(GcpMarketplaceProduct.to_json())
 
 # convert the object into a dict
 gcp_marketplace_product_dict = gcp_marketplace_product_instance.to_dict()
 # create an instance of GcpMarketplaceProduct from a dict
-gcp_marketplace_product_form_dict = gcp_marketplace_product.from_dict(gcp_marketplace_product_dict)
+gcp_marketplace_product_from_dict = GcpMarketplaceProduct.from_dict(gcp_marketplace_product_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

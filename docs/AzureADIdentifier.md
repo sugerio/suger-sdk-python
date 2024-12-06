@@ -2,10 +2,10 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **billing_account_id** | **str** | Azure Billing Account ID | [optional] 
-**company_info** | [**CompanyInfo**](CompanyInfo.md) |  | [optional] 
 **customer_id** | **str** |  | [optional] 
 **email_id** | **str** | Email address | [optional] 
 **first_name** | **str** |  | [optional] 
@@ -18,19 +18,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.azure_ad_identifier import AzureADIdentifier
+from suger_sdk_python.models.azure_ad_identifier import AzureADIdentifier
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of AzureADIdentifier from a JSON string
 azure_ad_identifier_instance = AzureADIdentifier.from_json(json)
 # print the JSON string representation of the object
-print AzureADIdentifier.to_json()
+print(AzureADIdentifier.to_json())
 
 # convert the object into a dict
 azure_ad_identifier_dict = azure_ad_identifier_instance.to_dict()
 # create an instance of AzureADIdentifier from a dict
-azure_ad_identifier_form_dict = azure_ad_identifier.from_dict(azure_ad_identifier_dict)
+azure_ad_identifier_from_dict = AzureADIdentifier.from_dict(azure_ad_identifier_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

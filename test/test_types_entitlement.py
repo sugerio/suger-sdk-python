@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.types_entitlement import TypesEntitlement  # noqa: E501
+from suger_sdk_python.models.types_entitlement import TypesEntitlement
 
 class TestTypesEntitlement(unittest.TestCase):
     """TypesEntitlement unit test stubs"""
@@ -29,19 +28,23 @@ class TestTypesEntitlement(unittest.TestCase):
 
     def make_instance(self, include_optional) -> TypesEntitlement:
         """Test TypesEntitlement
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TypesEntitlement`
         """
-        model = TypesEntitlement()  # noqa: E501
+        model = TypesEntitlement()
         if include_optional:
             return TypesEntitlement(
                 customer_identifier = '',
                 dimension = '',
                 expiration_date = '',
                 product_code = '',
-                value = openapi_client.models.value.value()
+                value = suger_sdk_python.models.types/entitlement_value.types.EntitlementValue(
+                    boolean_value = True, 
+                    double_value = 1.337, 
+                    integer_value = 56, 
+                    string_value = '', )
             )
         else:
             return TypesEntitlement(

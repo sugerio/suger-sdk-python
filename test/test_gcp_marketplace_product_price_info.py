@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_product_price_info import GcpMarketplaceProductPriceInfo  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_product_price_info import GcpMarketplaceProductPriceInfo
 
 class TestGcpMarketplaceProductPriceInfo(unittest.TestCase):
     """GcpMarketplaceProductPriceInfo unit test stubs"""
@@ -29,37 +28,21 @@ class TestGcpMarketplaceProductPriceInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplaceProductPriceInfo:
         """Test GcpMarketplaceProductPriceInfo
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceProductPriceInfo`
         """
-        model = GcpMarketplaceProductPriceInfo()  # noqa: E501
+        model = GcpMarketplaceProductPriceInfo()
         if include_optional:
             return GcpMarketplaceProductPriceInfo(
                 description = '',
                 price_model = 'FREE',
                 subscription_plans = [
-                    openapi_client.models.gcp_marketplace_product_subscription_plan.GcpMarketplaceProductSubscriptionPlan(
-                        period = '', 
-                        price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                            currency_code = '', 
-                            nanos = 56, 
-                            units = '', ), )
+                    {"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}
                     ],
                 usage_fees = [
-                    openapi_client.models.gcp_marketplace_product_usage_fee.GcpMarketplaceProductUsageFee(
-                        display_quantity = 56, 
-                        metric_id = '', 
-                        price_tiers = [
-                            openapi_client.models.gcp_price_tier.GcpPriceTier(
-                                from_amount = 1.337, 
-                                price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                    currency_code = '', 
-                                    nanos = 56, 
-                                    units = '', ), 
-                                starting_usage_amount = '', )
-                            ], )
+                    {"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7}
                     ]
             )
         else:

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_product_service_config_billing import GcpMarketplaceProductServiceConfigBilling  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_product_service_config_billing import GcpMarketplaceProductServiceConfigBilling
 
 class TestGcpMarketplaceProductServiceConfigBilling(unittest.TestCase):
     """GcpMarketplaceProductServiceConfigBilling unit test stubs"""
@@ -29,12 +28,12 @@ class TestGcpMarketplaceProductServiceConfigBilling(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplaceProductServiceConfigBilling:
         """Test GcpMarketplaceProductServiceConfigBilling
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceProductServiceConfigBilling`
         """
-        model = GcpMarketplaceProductServiceConfigBilling()  # noqa: E501
+        model = GcpMarketplaceProductServiceConfigBilling()
         if include_optional:
             return GcpMarketplaceProductServiceConfigBilling(
                 metrics = [

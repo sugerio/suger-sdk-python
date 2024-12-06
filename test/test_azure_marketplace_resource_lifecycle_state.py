@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_resource_lifecycle_state import AzureMarketplaceResourceLifecycleState  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_resource_lifecycle_state import AzureMarketplaceResourceLifecycleState
 
 class TestAzureMarketplaceResourceLifecycleState(unittest.TestCase):
     """AzureMarketplaceResourceLifecycleState unit test stubs"""

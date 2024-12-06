@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_private_offer_price_model_fixed import GcpMarketplacePrivateOfferPriceModelFixed  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_private_offer_price_model_fixed import GcpMarketplacePrivateOfferPriceModelFixed
 
 class TestGcpMarketplacePrivateOfferPriceModelFixed(unittest.TestCase):
     """GcpMarketplacePrivateOfferPriceModelFixed unit test stubs"""
@@ -29,20 +28,18 @@ class TestGcpMarketplacePrivateOfferPriceModelFixed(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplacePrivateOfferPriceModelFixed:
         """Test GcpMarketplacePrivateOfferPriceModelFixed
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplacePrivateOfferPriceModelFixed`
         """
-        model = GcpMarketplacePrivateOfferPriceModelFixed()  # noqa: E501
+        model = GcpMarketplacePrivateOfferPriceModelFixed()
         if include_optional:
             return GcpMarketplacePrivateOfferPriceModelFixed(
-                discount = openapi_client.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
-                    discount_percentage = openapi_client.models.discount_percentage.discountPercentage(), 
-                    discounted_price = openapi_client.models.discounted_price.discountedPrice(), ),
-                period = openapi_client.models.gcp_period_duration.GcpPeriodDuration(
-                    count = 56, 
-                    unit = 'MONTHLY_PERIOD', )
+                discount = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
+                    discount_percentage = suger_sdk_python.models.discount_percentage.discountPercentage(), 
+                    discounted_price = suger_sdk_python.models.discounted_price.discountedPrice(), ),
+                period = {"unit":"MONTHLY_PERIOD","count":4}
             )
         else:
             return GcpMarketplacePrivateOfferPriceModelFixed(

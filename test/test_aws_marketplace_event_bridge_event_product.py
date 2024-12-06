@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.aws_marketplace_event_bridge_event_product import AwsMarketplaceEventBridgeEventProduct  # noqa: E501
+from suger_sdk_python.models.aws_marketplace_event_bridge_event_product import AwsMarketplaceEventBridgeEventProduct
 
 class TestAwsMarketplaceEventBridgeEventProduct(unittest.TestCase):
     """AwsMarketplaceEventBridgeEventProduct unit test stubs"""
@@ -29,12 +28,12 @@ class TestAwsMarketplaceEventBridgeEventProduct(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AwsMarketplaceEventBridgeEventProduct:
         """Test AwsMarketplaceEventBridgeEventProduct
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AwsMarketplaceEventBridgeEventProduct`
         """
-        model = AwsMarketplaceEventBridgeEventProduct()  # noqa: E501
+        model = AwsMarketplaceEventBridgeEventProduct()
         if include_optional:
             return AwsMarketplaceEventBridgeEventProduct(
                 arn = '',

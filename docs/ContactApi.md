@@ -1,11 +1,12 @@
-# openapi_client.ContactApi
+# suger_sdk_python.ContactApi
 
-All URIs are relative to *https://api.suger.cloud*
+All URIs are relative to *http://https://api.suger.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_contact_to_buyer**](ContactApi.md#add_contact_to_buyer) | **POST** /org/{orgId}/contact/{contactId}/buyer/{buyerId} | add contact to buyer
 [**add_contact_to_offer**](ContactApi.md#add_contact_to_offer) | **POST** /org/{orgId}/contact/{contactId}/offer/{offerId} | add contact to offer
+[**batch_create_contacts**](ContactApi.md#batch_create_contacts) | **POST** /org/{orgId}/contact/batch | batch create contacts
 [**create_contact**](ContactApi.md#create_contact) | **POST** /org/{orgId}/contact | create contact
 [**get_contact**](ContactApi.md#get_contact) | **GET** /org/{orgId}/contact/{contactId} | get contact
 [**list_contacts_by_organization**](ContactApi.md#list_contacts_by_organization) | **GET** /org/{orgId}/contact | list contacts by organization
@@ -23,18 +24,17 @@ add contact to buyer by the given organization, buyer id and contact id.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -42,16 +42,16 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ContactApi(api_client)
+    api_instance = suger_sdk_python.ContactApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     buyer_id = 'buyer_id_example' # str | Buyer ID
     contact_id = 'contact_id_example' # str | Contact ID
@@ -69,6 +69,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -81,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -89,6 +90,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | empty string if success |  -  |
@@ -106,18 +108,17 @@ add contact to offer by the given organization, offer id and contact id.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -125,16 +126,16 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ContactApi(api_client)
+    api_instance = suger_sdk_python.ContactApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     contact_id = 'contact_id_example' # str | Contact ID
     offer_id = 'offer_id_example' # str | Offer ID
@@ -152,6 +153,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -164,7 +166,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -172,9 +174,93 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | empty string if success |  -  |
+**400** | Bad request error |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **batch_create_contacts**
+> List[List[IdentityContact]] batch_create_contacts(org_id, data)
+
+batch create contacts
+
+Create multiple contacts under the given organization. If an email address already exists, return the existing contact.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+
+```python
+import suger_sdk_python
+from suger_sdk_python.models.identity_contact import IdentityContact
+from suger_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://https://api.suger.cloud
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with suger_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suger_sdk_python.ContactApi(api_client)
+    org_id = 'org_id_example' # str | Organization ID
+    data = [suger_sdk_python.IdentityContact()] # List[IdentityContact] | RequestBody
+
+    try:
+        # batch create contacts
+        api_response = api_instance.batch_create_contacts(org_id, data)
+        print("The response of ContactApi->batch_create_contacts:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ContactApi->batch_create_contacts: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| Organization ID | 
+ **data** | [**List[IdentityContact]**](IdentityContact.md)| RequestBody | 
+
+### Return type
+
+**List[List[IdentityContact]]**
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 **400** | Bad request error |  -  |
 **500** | Internal server error |  -  |
 
@@ -189,19 +275,18 @@ Create a contact under the given organization. If the email address already exis
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.models.identity_contact import IdentityContact
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.models.identity_contact import IdentityContact
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -209,18 +294,18 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ContactApi(api_client)
+    api_instance = suger_sdk_python.ContactApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
-    data = openapi_client.IdentityContact() # IdentityContact | RequestBody
+    data = suger_sdk_python.IdentityContact() # IdentityContact | RequestBody
 
     try:
         # create contact
@@ -235,6 +320,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -246,7 +332,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -254,6 +340,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -271,19 +358,18 @@ Get the Contact by the given contact ID.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.models.identity_contact import IdentityContact
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.models.identity_contact import IdentityContact
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -291,16 +377,16 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ContactApi(api_client)
+    api_instance = suger_sdk_python.ContactApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     contact_id = 'contact_id_example' # str | Contact ID
 
@@ -317,6 +403,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -328,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -336,6 +423,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | the Contact Object |  -  |
@@ -345,7 +433,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_contacts_by_organization**
-> List[IdentityContact] list_contacts_by_organization(org_id)
+> List[IdentityContact] list_contacts_by_organization(org_id, limit=limit, offset=offset)
 
 list contacts by organization
 
@@ -353,19 +441,18 @@ List all contacts under the given organization.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.models.identity_contact import IdentityContact
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.models.identity_contact import IdentityContact
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -373,21 +460,23 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ContactApi(api_client)
+    api_instance = suger_sdk_python.ContactApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
+    limit = 56 # int | List pagination size, default 1000, max value is 1000 (optional)
+    offset = 56 # int | List pagination offset, default 0 (optional)
 
     try:
         # list contacts by organization
-        api_response = api_instance.list_contacts_by_organization(org_id)
+        api_response = api_instance.list_contacts_by_organization(org_id, limit=limit, offset=offset)
         print("The response of ContactApi->list_contacts_by_organization:\n")
         pprint(api_response)
     except Exception as e:
@@ -398,9 +487,12 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
+ **limit** | **int**| List pagination size, default 1000, max value is 1000 | [optional] 
+ **offset** | **int**| List pagination offset, default 0 | [optional] 
 
 ### Return type
 
@@ -408,7 +500,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -416,6 +508,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -433,18 +526,17 @@ remove contact from buyer by the given organization, buyer id and contact id.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -452,16 +544,16 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ContactApi(api_client)
+    api_instance = suger_sdk_python.ContactApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     buyer_id = 'buyer_id_example' # str | Buyer ID
     contact_id = 'contact_id_example' # str | Contact ID
@@ -479,6 +571,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -491,7 +584,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -499,6 +592,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | empty string if success |  -  |
@@ -512,22 +606,21 @@ Name | Type | Description  | Notes
 
 remove contact from offer
 
-remove contact from offer by the given organization, offer id and contact id.
+remove contact from offer by given organization, offer id and contact id.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -535,16 +628,16 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ContactApi(api_client)
+    api_instance = suger_sdk_python.ContactApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     contact_id = 'contact_id_example' # str | Contact ID
     offer_id = 'offer_id_example' # str | Offer ID
@@ -562,6 +655,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -574,7 +668,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -582,6 +676,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | empty string if success |  -  |
@@ -599,19 +694,18 @@ update contact by the given organization and buyer id. The given name and inform
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.models.identity_contact import IdentityContact
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.models.identity_contact import IdentityContact
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -619,19 +713,19 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ContactApi(api_client)
+    api_instance = suger_sdk_python.ContactApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     contact_id = 'contact_id_example' # str | Contact ID
-    data = openapi_client.IdentityContact() # IdentityContact | Request Body
+    data = suger_sdk_python.IdentityContact() # IdentityContact | Request Body
 
     try:
         # update contact
@@ -646,6 +740,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -658,7 +753,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -666,6 +761,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_localized_time_range import AzureLocalizedTimeRange  # noqa: E501
+from suger_sdk_python.models.azure_localized_time_range import AzureLocalizedTimeRange
 
 class TestAzureLocalizedTimeRange(unittest.TestCase):
     """AzureLocalizedTimeRange unit test stubs"""
@@ -29,20 +28,16 @@ class TestAzureLocalizedTimeRange(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureLocalizedTimeRange:
         """Test AzureLocalizedTimeRange
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureLocalizedTimeRange`
         """
-        model = AzureLocalizedTimeRange()  # noqa: E501
+        model = AzureLocalizedTimeRange()
         if include_optional:
             return AzureLocalizedTimeRange(
-                end_at = openapi_client.models.azure_localized_date_time.AzureLocalizedDateTime(
-                    date_time_in_utc = '', 
-                    localize_per_market = True, ),
-                start_at = openapi_client.models.azure_localized_date_time.AzureLocalizedDateTime(
-                    date_time_in_utc = '', 
-                    localize_per_market = True, )
+                end_at = {"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true},
+                start_at = {"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true}
             )
         else:
             return AzureLocalizedTimeRange(

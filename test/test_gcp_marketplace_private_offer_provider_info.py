@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_private_offer_provider_info import GcpMarketplacePrivateOfferProviderInfo  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_private_offer_provider_info import GcpMarketplacePrivateOfferProviderInfo
 
 class TestGcpMarketplacePrivateOfferProviderInfo(unittest.TestCase):
     """GcpMarketplacePrivateOfferProviderInfo unit test stubs"""
@@ -29,12 +28,12 @@ class TestGcpMarketplacePrivateOfferProviderInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplacePrivateOfferProviderInfo:
         """Test GcpMarketplacePrivateOfferProviderInfo
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplacePrivateOfferProviderInfo`
         """
-        model = GcpMarketplacePrivateOfferProviderInfo()  # noqa: E501
+        model = GcpMarketplacePrivateOfferProviderInfo()
         if include_optional:
             return GcpMarketplacePrivateOfferProviderInfo(
                 creator_email_address = '',

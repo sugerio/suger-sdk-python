@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_private_offer_pricing import AzureMarketplacePrivateOfferPricing  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_private_offer_pricing import AzureMarketplacePrivateOfferPricing
 
 class TestAzureMarketplacePrivateOfferPricing(unittest.TestCase):
     """AzureMarketplacePrivateOfferPricing unit test stubs"""
@@ -29,92 +28,29 @@ class TestAzureMarketplacePrivateOfferPricing(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePrivateOfferPricing:
         """Test AzureMarketplacePrivateOfferPricing
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePrivateOfferPricing`
         """
-        model = AzureMarketplacePrivateOfferPricing()  # noqa: E501
+        model = AzureMarketplacePrivateOfferPricing()
         if include_optional:
             return AzureMarketplacePrivateOfferPricing(
+                base_plan = '',
                 discount_percentage = 1.337,
                 discount_type = 'absolute',
                 markup_percentage = 1.337,
-                original_plan = openapi_client.models.azure_marketplace_price_and_availability_private_offer_plan.AzureMarketplacePriceAndAvailabilityPrivateOfferPlan(
-                    __schema = '', 
+                new_plan_details = suger_sdk_python.models.azure_marketplace_private_offer_pricing_new_plan_details.AzureMarketplacePrivateOfferPricingNewPlanDetails(
+                    description = '', 
                     id = '', 
-                    plan = '', 
-                    plan_name = '', 
-                    pricing = openapi_client.models.azure_marketplace_price_and_availability_private_offer_price.AzureMarketplacePriceAndAvailabilityPrivateOfferPrice(
-                        custom_meters = openapi_client.models.azure_marketplace_price_and_availability_private_offer_custom_meters.AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters(
-                            meters = openapi_client.models.meters.meters(), 
-                            price_input_option = 'perMarket', ), 
-                        recurrent_price = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price.AzureMarketplacePriceAndAvailabilityRecurrentPrice(
-                            price_input_option = 'perMarket', 
-                            prices = [
-                                openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_item.AzureMarketplacePriceAndAvailabilityRecurrentPriceItem(
-                                    billing_term = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                                        type = 'day', 
-                                        value = 1.337, ), 
-                                    payment_option = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                                        type = 'day', 
-                                        value = 1.337, ), 
-                                    price_per_payment_in_usd = 1.337, )
-                                ], 
-                            recurrent_price_mode = 'flatRate', 
-                            user_limits = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_user_limit.AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit(
-                                max = 1.337, 
-                                min = 1.337, ), ), ), 
-                    product = '', 
-                    resource_name = '', 
-                    validations = [
-                        openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                            __schema = '', 
-                            code = 'businessValidationError', 
-                            level = 'informational', 
-                            message = '', 
-                            resource_id = '', )
-                        ], ),
+                    name = '', ),
+                original_plan = {"lifecycleState":"notAvailable","product":"product","softwareReservation":{"paymentSchedule":{"type":"day","value":7.386281948385884},"reservationDuration":{"type":"day","value":7.386281948385884},"vmPrices":{"patternProperties":{"key":{"quantity":7.457744773683766,"unitPricePerPaymentPeriodInUsd":1.1730742509559433}}}},"$schema":"$schema","offerPricingType":"{}","visibility":"visible","planName":"planName","resourceName":"resourceName","id":"id","validations":[{"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"},{"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}],"plan":"plan","pricing":{"customMeters":{"priceInputOption":"perMarket","meters":"{}"},"recurrentPrice":{"recurrentPriceMode":"flatRate","userLimits":{"min":6.84685269835264,"max":1.4894159098541704},"priceInputOption":"perMarket","prices":[{"pricePerPaymentInUsd":1.2315135367772556,"billingTerm":{"type":"day","value":7.386281948385884},"paymentOption":{"type":"day","value":7.386281948385884},"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]},{"pricePerPaymentInUsd":1.2315135367772556,"billingTerm":{"type":"day","value":7.386281948385884},"paymentOption":{"type":"day","value":7.386281948385884},"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]}]}}},
                 plan = '',
                 plan_id = '',
                 plan_name = '',
                 plan_type = 'FLAT_RATE',
-                price_details = '',
-                private_offer_plan = openapi_client.models.azure_marketplace_price_and_availability_private_offer_plan.AzureMarketplacePriceAndAvailabilityPrivateOfferPlan(
-                    __schema = '', 
-                    id = '', 
-                    plan = '', 
-                    plan_name = '', 
-                    pricing = openapi_client.models.azure_marketplace_price_and_availability_private_offer_price.AzureMarketplacePriceAndAvailabilityPrivateOfferPrice(
-                        custom_meters = openapi_client.models.azure_marketplace_price_and_availability_private_offer_custom_meters.AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters(
-                            meters = openapi_client.models.meters.meters(), 
-                            price_input_option = 'perMarket', ), 
-                        recurrent_price = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price.AzureMarketplacePriceAndAvailabilityRecurrentPrice(
-                            price_input_option = 'perMarket', 
-                            prices = [
-                                openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_item.AzureMarketplacePriceAndAvailabilityRecurrentPriceItem(
-                                    billing_term = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                                        type = 'day', 
-                                        value = 1.337, ), 
-                                    payment_option = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                                        type = 'day', 
-                                        value = 1.337, ), 
-                                    price_per_payment_in_usd = 1.337, )
-                                ], 
-                            recurrent_price_mode = 'flatRate', 
-                            user_limits = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_user_limit.AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit(
-                                max = 1.337, 
-                                min = 1.337, ), ), ), 
-                    product = '', 
-                    resource_name = '', 
-                    validations = [
-                        openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                            __schema = '', 
-                            code = 'businessValidationError', 
-                            level = 'informational', 
-                            message = '', 
-                            resource_id = '', )
-                        ], ),
+                price_details = suger_sdk_python.models.price_details.priceDetails(),
+                private_offer_plan = {"lifecycleState":"notAvailable","product":"product","softwareReservation":{"paymentSchedule":{"type":"day","value":7.386281948385884},"reservationDuration":{"type":"day","value":7.386281948385884},"vmPrices":{"patternProperties":{"key":{"quantity":7.457744773683766,"unitPricePerPaymentPeriodInUsd":1.1730742509559433}}}},"$schema":"$schema","offerPricingType":"{}","visibility":"visible","planName":"planName","resourceName":"resourceName","id":"id","validations":[{"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"},{"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}],"plan":"plan","pricing":{"customMeters":{"priceInputOption":"perMarket","meters":"{}"},"recurrentPrice":{"recurrentPriceMode":"flatRate","userLimits":{"min":6.84685269835264,"max":1.4894159098541704},"priceInputOption":"perMarket","prices":[{"pricePerPaymentInUsd":1.2315135367772556,"billingTerm":{"type":"day","value":7.386281948385884},"paymentOption":{"type":"day","value":7.386281948385884},"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]},{"pricePerPaymentInUsd":1.2315135367772556,"billingTerm":{"type":"day","value":7.386281948385884},"paymentOption":{"type":"day","value":7.386281948385884},"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]}]}}},
                 product = '',
                 product_name = '',
                 suger_offer_id = ''

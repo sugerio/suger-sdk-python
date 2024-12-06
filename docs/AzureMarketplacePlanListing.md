@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **var_schema** | **str** |  | [optional] 
@@ -20,19 +21,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.azure_marketplace_plan_listing import AzureMarketplacePlanListing
+from suger_sdk_python.models.azure_marketplace_plan_listing import AzureMarketplacePlanListing
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of AzureMarketplacePlanListing from a JSON string
 azure_marketplace_plan_listing_instance = AzureMarketplacePlanListing.from_json(json)
 # print the JSON string representation of the object
-print AzureMarketplacePlanListing.to_json()
+print(AzureMarketplacePlanListing.to_json())
 
 # convert the object into a dict
 azure_marketplace_plan_listing_dict = azure_marketplace_plan_listing_instance.to_dict()
 # create an instance of AzureMarketplacePlanListing from a dict
-azure_marketplace_plan_listing_form_dict = azure_marketplace_plan_listing.from_dict(azure_marketplace_plan_listing_dict)
+azure_marketplace_plan_listing_from_dict = AzureMarketplacePlanListing.from_dict(azure_marketplace_plan_listing_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

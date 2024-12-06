@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_identity import AzureMarketplaceIdentity  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_identity import AzureMarketplaceIdentity
 
 class TestAzureMarketplaceIdentity(unittest.TestCase):
     """AzureMarketplaceIdentity unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplaceIdentity(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplaceIdentity:
         """Test AzureMarketplaceIdentity
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplaceIdentity`
         """
-        model = AzureMarketplaceIdentity()  # noqa: E501
+        model = AzureMarketplaceIdentity()
         if include_optional:
             return AzureMarketplaceIdentity(
                 external_id = ''

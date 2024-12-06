@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_type_value import AzureTypeValue  # noqa: E501
+from suger_sdk_python.models.azure_type_value import AzureTypeValue
 
 class TestAzureTypeValue(unittest.TestCase):
     """AzureTypeValue unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureTypeValue(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureTypeValue:
         """Test AzureTypeValue
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureTypeValue`
         """
-        model = AzureTypeValue()  # noqa: E501
+        model = AzureTypeValue()
         if include_optional:
             return AzureTypeValue(
                 type = '',

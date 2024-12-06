@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_user_limit import AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_price_and_availability_recurrent_price_user_limit import AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit
 
 class TestAzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit(unittest.T
 
     def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit:
         """Test AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit`
         """
-        model = AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit()  # noqa: E501
+        model = AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit()
         if include_optional:
             return AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit(
                 max = 1.337,

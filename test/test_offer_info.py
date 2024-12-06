@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.offer_info import OfferInfo  # noqa: E501
+from suger_sdk_python.models.offer_info import OfferInfo
 
 class TestOfferInfo(unittest.TestCase):
     """OfferInfo unit test stubs"""
@@ -29,17 +28,27 @@ class TestOfferInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> OfferInfo:
         """Test OfferInfo
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `OfferInfo`
         """
-        model = OfferInfo()  # noqa: E501
+        model = OfferInfo()
         if include_optional:
             return OfferInfo(
+                additional_eula_urls = [
+                    ''
+                    ],
+                additional_reseller_eula_urls = [
+                    ''
+                    ],
                 attach_eula_type = '',
                 auto_renew = True,
-                aws_cppo_event_detail = openapi_client.models.aws_marketplace_event_bridge_event_detail.AwsMarketplaceEventBridgeEventDetail(
+                aws_agreement_duration = '',
+                aws_channel_partner = suger_sdk_python.models.aws_channel_partner.AwsChannelPartner(
+                    id = '', 
+                    name = '', ),
+                aws_cppo_event_detail = suger_sdk_python.models.aws_marketplace_event_bridge_event_detail.AwsMarketplaceEventBridgeEventDetail(
                     catalog = '', 
                     event_category = '', 
                     event_id = '', 
@@ -48,163 +57,117 @@ class TestOfferInfo(unittest.TestCase):
                     event_type = '', 
                     event_version = '', 
                     management_event = True, 
-                    manufacturer = openapi_client.models.manufacturer.manufacturer(), 
-                    offer = openapi_client.models.aws_marketplace_event_bridge_event_offer.AwsMarketplaceEventBridgeEventOffer(
+                    manufacturer = suger_sdk_python.models.manufacturer.manufacturer(), 
+                    offer = suger_sdk_python.models.aws_marketplace_event_bridge_event_offer.AwsMarketplaceEventBridgeEventOffer(
                         arn = '', 
                         expiration_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         id = '', 
                         name = '', ), 
-                    product = openapi_client.models.aws_marketplace_event_bridge_event_product.AwsMarketplaceEventBridgeEventProduct(
+                    product = suger_sdk_python.models.aws_marketplace_event_bridge_event_product.AwsMarketplaceEventBridgeEventProduct(
                         arn = '', 
                         id = '', 
                         title = '', ), 
                     request_id = '', 
-                    request_parameters = openapi_client.models.request_parameters.requestParameters(), 
-                    response_elements = openapi_client.models.response_elements.responseElements(), 
-                    seller_of_record = openapi_client.models.seller_of_record.sellerOfRecord(), 
+                    request_parameters = suger_sdk_python.models.request_parameters.requestParameters(), 
+                    response_elements = suger_sdk_python.models.response_elements.responseElements(), 
+                    seller_of_record = suger_sdk_python.models.seller_of_record.sellerOfRecord(), 
                     targeted_buyer_account_ids = [
                         ''
                         ], ),
-                aws_cppo_opportunity = openapi_client.models.aws_marketplace_cppo_opportunity.AwsMarketplaceCppoOpportunity(
-                    buyer_ids = [
-                        ''
-                        ], 
-                    buyer_names = [
-                        ''
-                        ], 
-                    contract_duration_in_days = 56, 
-                    created_by = '', 
+                aws_cppo_opportunity = suger_sdk_python.models.aws_marketplace_cppo_opportunity.AwsMarketplaceCppoOpportunity(
                     created_date = '', 
-                    custom_price_terms = openapi_client.models.aws_marketplace_cppo_price_terms.AwsMarketplaceCppoPriceTerms(
-                        all_consumption_unit_column_names = [
-                            ''
-                            ], 
-                        detailed_view = openapi_client.models.aws_marketplace_cppo_price_term_detailed_view.AwsMarketplaceCppoPriceTermDetailedView(
-                            additional_consumption_unit_column_names = [
-                                ''
-                                ], 
-                            additional_consumption_unit_entries = [
-                                openapi_client.models.aws_marketplace_cppo_price_term_entry.AwsMarketplaceCppoPriceTermEntry(
-                                    consumption_unit_column_names = [
-                                        ''
-                                        ], 
-                                    description = '', 
-                                    display_name = '', 
-                                    is_custom_dimension = True, 
-                                    is_deleted = True, 
-                                    name = '', 
-                                    price_per_consumption_unit = {
-                                        'key' : ''
-                                        }, 
-                                    pricing_dimension = '', )
-                                ], 
-                            consumption_unit_column_names = [
-                                ''
-                                ], 
-                            consumption_unit_entries = [
-                                openapi_client.models.aws_marketplace_cppo_price_term_entry.AwsMarketplaceCppoPriceTermEntry(
-                                    description = '', 
-                                    display_name = '', 
-                                    is_custom_dimension = True, 
-                                    is_deleted = True, 
-                                    name = '', 
-                                    pricing_dimension = '', )
-                                ], ), 
-                        entries = [
-                            
-                            ], ), 
-                    discount = '', 
-                    discount_percent = 1.337, 
-                    discount_type = 'DISCOUNT_PERCENT', 
-                    errors = [
-                        None
+                    description = '', 
+                    dimensions = [
+                        {"Types":["Types","Types"],"Description":"Description","Length":3,"Rate":6.965117697638846,"TimeUnit":"DAY","Unit":"Unit","Key":"Key","Name":"Name"}
                         ], 
-                    expiration_date = '', 
-                    listing_fee_renewal = True, 
-                    manufacturer_id = '', 
-                    manufacturer_name = '', 
-                    offers_count = 56, 
-                    opportunity_discription = '', 
-                    opportunity_duration_type = 'SPECIFIC_DATES', 
-                    opportunity_eula = openapi_client.models.aws_marketplace_cppo_opportunity_eula.AwsMarketplaceCppoOpportunityEula(
-                        access_url = '', 
-                        key = '', 
-                        object_url = '', ), 
-                    opportunity_id = '', 
-                    opportunity_name = '', 
-                    opportunity_rcmp = openapi_client.models.aws_marketplace_cppo_opportunity_eula.AwsMarketplaceCppoOpportunityEula(
-                        access_url = '', 
-                        key = '', 
-                        object_url = '', ), 
-                    partner_id = '', 
-                    partner_name = '', 
-                    payment_terms = openapi_client.models.aws_marketplace_cppo_payment_terms.AwsMarketplaceCppoPaymentTerms(
-                        currency_code = '', 
-                        entitlement = [
-                            openapi_client.models.aws_marketplace_cppo_payment_terms_entitlement.AwsMarketplaceCppoPaymentTermsEntitlement(
-                                name = '', 
-                                quantity = 56, )
-                            ], 
-                        schedule = [
-                            openapi_client.models.aws_marketplace_cppo_payment_schedule.AwsMarketplaceCppoPaymentSchedule(
-                                amount = 1.337, 
-                                charge_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
-                            ], 
-                        schedule_type = '', 
-                        selected_duration = '', ), 
+                    manufacturer_account_id = '', 
+                    manufacturer_legal_name = '', 
+                    name = '', 
+                    offer_details = suger_sdk_python.models.aws_marketplace_cppo_opportunity_offer_details.AwsMarketplaceCppoOpportunityOfferDetails(
+                        offer_created_count = 56, 
+                        offer_extended_status = '', ), 
+                    pre_existing_buyer_agreement = suger_sdk_python.models.aws_marketplace_pre_existing_agreement.AwsMarketplacePreExistingAgreement(
+                        acquisition_channel = suger_sdk_python.models.acquisition_channel.AcquisitionChannel(), 
+                        pricing_model = suger_sdk_python.models.pricing_model.PricingModel(), ), 
                     product_id = '', 
                     product_name = '', 
-                    product_type = '', 
-                    sppo = True, 
-                    status = 'active', 
-                    usage_allowed = 56, ),
-                azure_original_plan = openapi_client.models.azure_marketplace_price_and_availability_private_offer_plan.AzureMarketplacePriceAndAvailabilityPrivateOfferPlan(
-                    __schema = '', 
-                    id = '', 
-                    plan = '', 
-                    plan_name = '', 
-                    pricing = openapi_client.models.azure_marketplace_price_and_availability_private_offer_price.AzureMarketplacePriceAndAvailabilityPrivateOfferPrice(
-                        custom_meters = openapi_client.models.azure_marketplace_price_and_availability_private_offer_custom_meters.AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters(
-                            meters = openapi_client.models.meters.meters(), 
-                            price_input_option = 'perMarket', ), 
-                        recurrent_price = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price.AzureMarketplacePriceAndAvailabilityRecurrentPrice(
-                            price_input_option = 'perMarket', 
-                            prices = [
-                                openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_item.AzureMarketplacePriceAndAvailabilityRecurrentPriceItem(
-                                    billing_term = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                                        type = 'day', 
-                                        value = 1.337, ), 
-                                    payment_option = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                                        type = 'day', 
-                                        value = 1.337, ), 
-                                    price_per_payment_in_usd = 1.337, )
+                    rules = [
+                        suger_sdk_python.models.aws_marketplace_cppo_opportunity_rule.AwsMarketplaceCppoOpportunityRule(
+                            availability_end_date = '', 
+                            id = '', 
+                            negative_targeting = suger_sdk_python.models.negative_targeting.NegativeTargeting(), 
+                            offers_max_quantity = 56, 
+                            positive_targeting = suger_sdk_python.models.positive_targeting.PositiveTargeting(), 
+                            reseller_account_id = '', 
+                            reseller_legal_name = '', 
+                            type = 'AvailabilityRule', 
+                            usage = '', )
+                        ], 
+                    status = 'Active', 
+                    terms = [
+                        suger_sdk_python.models.aws_marketplace_cppo_opportunity_term.AwsMarketplaceCppoOpportunityTerm(
+                            currency_code = '', 
+                            documents = [
+                                suger_sdk_python.models.aws_marketplace_catalog_legal_term_document.AwsMarketplaceCatalogLegalTermDocument(
+                                    url = '', 
+                                    version = '', )
                                 ], 
-                            recurrent_price_mode = 'flatRate', 
-                            user_limits = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_user_limit.AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit(
-                                max = 1.337, 
-                                min = 1.337, ), ), ), 
-                    product = '', 
-                    resource_name = '', 
-                    validations = [
-                        openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                            __schema = '', 
-                            code = 'businessValidationError', 
-                            level = 'informational', 
-                            message = '', 
-                            resource_id = '', )
-                        ], ),
-                azure_private_offer = openapi_client.models.azure_marketplace_private_offer.AzureMarketplacePrivateOffer(
+                            duration = '', 
+                            grants = [
+                                suger_sdk_python.models.aws_marketplace_cppo_opportunity_upfront_price_grant.AwsMarketplaceCppoOpportunityUpfrontPriceGrant(
+                                    dimension_key = '', 
+                                    max_quantity = 56, )
+                                ], 
+                            id = '', 
+                            maximum_agreement_start_date = '', 
+                            positive_targeting = suger_sdk_python.models.aws_marketplace_cppo_opportunity_positive_targeting.AwsMarketplaceCppoOpportunityPositiveTargeting(
+                                buyer_accounts = [
+                                    suger_sdk_python.models.aws_marketplace_buyer_account.AwsMarketplaceBuyerAccount(
+                                        aws_account_id = '', )
+                                    ], 
+                                country_codes = [
+                                    ''
+                                    ], ), 
+                            price = '', 
+                            rate_cards = [
+                                suger_sdk_python.models.aws_marketplace_catalog_pricing_term_rate_card.AwsMarketplaceCatalogPricingTermRateCard(
+                                    constraints = suger_sdk_python.models.constraints.Constraints(), 
+                                    rate_card = [
+                                        suger_sdk_python.models.aws_marketplace_catalog_pricing_term_rate_card_item.AwsMarketplaceCatalogPricingTermRateCardItem(
+                                            description = '', 
+                                            dimension_key = '', 
+                                            display_name = '', 
+                                            price = '', 
+                                            quantity = '', 
+                                            unit = '', )
+                                        ], 
+                                    selector = suger_sdk_python.models.selector.Selector(), )
+                                ], 
+                            schedule = [
+                                suger_sdk_python.models.aws_marketplace_cppo_opportunity_payment_schedule.AwsMarketplaceCppoOpportunityPaymentSchedule(
+                                    charge_amount = '', 
+                                    charge_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                                ], )
+                        ], 
+                    discount_type = suger_sdk_python.models.discount_type.discountType(), 
+                    opportunity_duration_type = 'SPECIFIC_DATES', 
+                    opportunity_id = '', 
+                    partner_id = '', ),
+                aws_markup_percentage = 1.337,
+                aws_resale_authorization_id = '',
+                azure_original_plan = {"lifecycleState":"notAvailable","product":"product","softwareReservation":{"paymentSchedule":{"type":"day","value":7.386281948385884},"reservationDuration":{"type":"day","value":7.386281948385884},"vmPrices":{"patternProperties":{"key":{"quantity":7.457744773683766,"unitPricePerPaymentPeriodInUsd":1.1730742509559433}}}},"$schema":"$schema","offerPricingType":"{}","visibility":"visible","planName":"planName","resourceName":"resourceName","id":"id","validations":[{"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"},{"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}],"plan":"plan","pricing":{"customMeters":{"priceInputOption":"perMarket","meters":"{}"},"recurrentPrice":{"recurrentPriceMode":"flatRate","userLimits":{"min":6.84685269835264,"max":1.4894159098541704},"priceInputOption":"perMarket","prices":[{"pricePerPaymentInUsd":1.2315135367772556,"billingTerm":{"type":"day","value":7.386281948385884},"paymentOption":{"type":"day","value":7.386281948385884},"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]},{"pricePerPaymentInUsd":1.2315135367772556,"billingTerm":{"type":"day","value":7.386281948385884},"paymentOption":{"type":"day","value":7.386281948385884},"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]}]}}},
+                azure_private_offer = suger_sdk_python.models.azure_marketplace_private_offer.AzureMarketplacePrivateOffer(
                     __schema = '', 
                     accept_by = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     acceptance_links = [
-                        openapi_client.models.azure_marketplace_private_offer_acceptance_link.AzureMarketplacePrivateOfferAcceptanceLink(
+                        suger_sdk_python.models.azure_marketplace_private_offer_acceptance_link.AzureMarketplacePrivateOfferAcceptanceLink(
                             beneficiary_id = '', 
                             link = '', )
                         ], 
                     beneficiaries = [
-                        openapi_client.models.azure_marketplace_private_offer_beneficiary.AzureMarketplacePrivateOfferBeneficiary(
+                        suger_sdk_python.models.azure_marketplace_private_offer_beneficiary.AzureMarketplacePrivateOfferBeneficiary(
                             beneficiary_recipients = [
-                                openapi_client.models.azure_marketplace_private_offer_beneficiary_recipient.AzureMarketplacePrivateOfferBeneficiaryRecipient(
+                                suger_sdk_python.models.azure_marketplace_private_offer_beneficiary_recipient.AzureMarketplacePrivateOfferBeneficiaryRecipient(
                                     id = '', 
                                     recipient_type = 'cspCustomer', )
                                 ], 
@@ -221,24 +184,26 @@ class TestOfferInfo(unittest.TestCase):
                         ], 
                     offer_pricing_type = '', 
                     partners = [
-                        openapi_client.models.azure_marketplace_private_offer_partner.AzureMarketplacePrivateOfferPartner(
+                        suger_sdk_python.models.azure_marketplace_private_offer_partner.AzureMarketplacePrivateOfferPartner(
                             id = '', 
                             location = '', 
                             partner_name = '', )
                         ], 
                     prepared_by = '', 
                     pricing = [
-                        openapi_client.models.azure_marketplace_private_offer_pricing.AzureMarketplacePrivateOfferPricing(
+                        suger_sdk_python.models.azure_marketplace_private_offer_pricing.AzureMarketplacePrivateOfferPricing(
+                            base_plan = '', 
                             discount_percentage = 1.337, 
                             discount_type = 'absolute', 
                             markup_percentage = 1.337, 
-                            original_plan = openapi_client.models.original_plan.originalPlan(), 
+                            new_plan_details = suger_sdk_python.models.new_plan_details.newPlanDetails(), 
+                            original_plan = suger_sdk_python.models.original_plan.originalPlan(), 
                             plan = '', 
                             plan_id = '', 
                             plan_name = '', 
                             plan_type = 'FLAT_RATE', 
-                            price_details = '', 
-                            private_offer_plan = openapi_client.models.private_offer_plan.privateOfferPlan(), 
+                            price_details = suger_sdk_python.models.price_details.priceDetails(), 
+                            private_offer_plan = suger_sdk_python.models.private_offer_plan.privateOfferPlan(), 
                             product = '', 
                             product_name = '', 
                             suger_offer_id = '', )
@@ -247,205 +212,45 @@ class TestOfferInfo(unittest.TestCase):
                     resource_name = '', 
                     start = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     state = 'draft', 
-                    sub_state = openapi_client.models.sub_state.subState(), 
+                    sub_state = suger_sdk_python.models.sub_state.subState(), 
                     terms_and_conditions_doc_sas_url = '', 
                     terms_and_conditions_docs = [
-                        openapi_client.models.azure_marketplace_private_offer_terms_doc.AzureMarketplacePrivateOfferTermsDoc(
+                        suger_sdk_python.models.azure_marketplace_private_offer_terms_doc.AzureMarketplacePrivateOfferTermsDoc(
                             customer_facing_document_name = '', 
                             file_name = '', 
                             sas_url = '', )
                         ], 
-                    upgraded_from = openapi_client.models.azure_marketplace_private_offer_promotion_reference.AzureMarketplacePrivateOfferPromotionReference(
+                    upgraded_from = suger_sdk_python.models.azure_marketplace_private_offer_promotion_reference.AzureMarketplacePrivateOfferPromotionReference(
                         id = '', 
                         name = '', ), 
                     validations = [
-                        openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                            __schema = '', 
-                            code = 'businessValidationError', 
-                            level = 'informational', 
-                            message = '', 
-                            resource_id = '', )
+                        {"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}
                         ], 
                     variable_start_date = True, ),
-                azure_product_variant = openapi_client.models.azure_product_variant.AzureProductVariant(
-                    azure_government_certifications = [
-                        openapi_client.models.azure_government_certification.AzureGovernmentCertification(
-                            title = '', 
-                            uri = '', 
-                            validation_results = [
-                                openapi_client.models.azure_validation_result.AzureValidationResult(
-                                    error_message = '', 
-                                    member_names = [
-                                        ''
-                                        ], )
-                                ], )
-                        ], 
-                    cloud_availabilities = [
-                        ''
-                        ], 
-                    conversion_paths = '', 
-                    extended_properties = [
-                        openapi_client.models.azure_type_value.AzureTypeValue(
-                            type = '', 
-                            value = '', )
-                        ], 
-                    external_id = '', 
-                    feature_availabilities = [
-                        openapi_client.models.azure_product_feature_availability.AzureProductFeatureAvailability(
-                            custom_meters = [
-                                openapi_client.models.azure_product_variant_custom_meter.AzureProductVariantCustomMeter(
-                                    display_name = '', 
-                                    id = '', 
-                                    included_base_quantities = [
-                                        openapi_client.models.azure_included_base_quantity.AzureIncludedBaseQuantity(
-                                            is_infinite = True, 
-                                            quantity = 1.337, 
-                                            recurring_unit = 'Monthly', )
-                                        ], 
-                                    is_enabled = True, 
-                                    price_in_usd = 1.337, 
-                                    unique_id = '', 
-                                    unit_of_measure = '', )
-                                ], 
-                            id = '', 
-                            is_hidden = True, 
-                            market_states = [
-                                openapi_client.models.azure_market_state.AzureMarketState(
-                                    market_code = '', 
-                                    state = 'Disabled', )
-                                ], 
-                            markets = [
-                                openapi_client.models.azure_market.AzureMarket(
-                                    friendly_name = '', 
-                                    market_code = '', )
-                                ], 
-                            price_schedules = [
-                                openapi_client.models.azure_product_variant_price_schedule.AzureProductVariantPriceSchedule(
-                                    date_time_range = openapi_client.models.azure_localized_time_range.AzureLocalizedTimeRange(
-                                        end_at = openapi_client.models.azure_localized_date_time.AzureLocalizedDateTime(
-                                            date_time_in_utc = '', 
-                                            localize_per_market = True, ), 
-                                        start_at = openapi_client.models.azure_localized_date_time.AzureLocalizedDateTime(
-                                            date_time_in_utc = '', 
-                                            localize_per_market = True, ), ), 
-                                    friendly_name = '', 
-                                    is_base_schedule = True, 
-                                    market_codes = [
-                                        ''
-                                        ], 
-                                    schedules = [
-                                        openapi_client.models.azure_price_schedule.AzurePriceSchedule(
-                                            price_cadence = openapi_client.models.azure_price_cadence.AzurePriceCadence(
-                                                type = 'Month', 
-                                                value = 56, ), 
-                                            pricing_model = 'Flat', 
-                                            pricing_units = [
-                                                openapi_client.models.azure_pricing_unit.AzurePricingUnit(
-                                                    is_unlimited_unit = True, 
-                                                    lower_unit = 56, 
-                                                    name = 'sharedcore', 
-                                                    unit_type = '', 
-                                                    upper_unit = 56, )
-                                                ], 
-                                            retail_price = openapi_client.models.azure_price.AzurePrice(
-                                                currency_code = '', 
-                                                open_price = 1.337, 
-                                                price_tier_id = '', ), )
-                                        ], )
-                                ], 
-                            properties = [
-                                openapi_client.models.azure_type_value.AzureTypeValue(
-                                    type = '', 
-                                    value = '', )
-                                ], 
-                            resource_type = '', 
-                            subscription_audiences = [
-                                openapi_client.models.azure_audience.AzureAudience(
-                                    description = '', 
-                                    id = '', )
-                                ], 
-                            tenant_audiences = [
-                                openapi_client.models.azure_audience.AzureAudience(
-                                    description = '', 
-                                    id = '', )
-                                ], 
-                            trial = openapi_client.models.azure_product_variant_trial.AzureProductVariantTrial(
-                                duration = 56, 
-                                duration_type = 'Minute', 
-                                type = 'NoTrial', ), 
-                            visibility = 'Public', )
-                        ], 
-                    friendly_name = '', 
-                    id = '', 
-                    lead_gen_id = '', 
-                    reference_variant_id = '', 
-                    resource_type = 'AzureSkuVariant', 
-                    state = 'InActive', ),
+                azure_product_variant = {"conversionPaths":"conversionPaths","leadGenID":"leadGenID","extendedProperties":[{"type":"type","value":"value"},{"type":"type","value":"value"}],"cloudAvailabilities":["cloudAvailabilities","cloudAvailabilities"],"azureGovernmentCertifications":[{"validationResults":[{"errorMessage":"errorMessage","memberNames":["memberNames","memberNames"]},{"errorMessage":"errorMessage","memberNames":["memberNames","memberNames"]}],"title":"title","uri":"uri"},{"validationResults":[{"errorMessage":"errorMessage","memberNames":["memberNames","memberNames"]},{"errorMessage":"errorMessage","memberNames":["memberNames","memberNames"]}],"title":"title","uri":"uri"}],"externalID":"externalID","referenceVariantID":"referenceVariantID","id":"id","state":"InActive","featureAvailabilities":[{"markets":[{"marketCode":"marketCode","friendlyName":"friendlyName"},{"marketCode":"marketCode","friendlyName":"friendlyName"}],"visibility":"Public","priceSchedules":[{"isBaseSchedule":true,"schedules":[{"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}},{"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}}],"dateTimeRange":{"endAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true},"startAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true}},"marketCodes":["marketCodes","marketCodes"],"friendlyName":"friendlyName"},{"isBaseSchedule":true,"schedules":[{"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}},{"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}}],"dateTimeRange":{"endAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true},"startAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true}},"marketCodes":["marketCodes","marketCodes"],"friendlyName":"friendlyName"}],"customMeters":[{"unitOfMeasure":"unitOfMeasure","displayName":"displayName","includedBaseQuantities":[{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"},{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}],"isEnabled":true,"priceInUsd":5.025004791520295,"id":"id","uniqueID":"uniqueID"},{"unitOfMeasure":"unitOfMeasure","displayName":"displayName","includedBaseQuantities":[{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"},{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}],"isEnabled":true,"priceInUsd":5.025004791520295,"id":"id","uniqueID":"uniqueID"}],"marketStates":[{"marketCode":"marketCode","state":"Disabled"},{"marketCode":"marketCode","state":"Disabled"}],"tenantAudiences":[{"description":"description","id":"id"},{"description":"description","id":"id"}],"subscriptionAudiences":[{"description":"description","id":"id"},{"description":"description","id":"id"}],"id":"id","properties":[{"type":"type","value":"value"},{"type":"type","value":"value"}],"trial":{"duration":9,"dateTimeRange":{"endAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true},"startAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true}},"type":"NoTrial","durationType":"Minute"},"isHidden":true,"resourceType":"resourceType"},{"markets":[{"marketCode":"marketCode","friendlyName":"friendlyName"},{"marketCode":"marketCode","friendlyName":"friendlyName"}],"visibility":"Public","priceSchedules":[{"isBaseSchedule":true,"schedules":[{"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}},{"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}}],"dateTimeRange":{"endAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true},"startAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true}},"marketCodes":["marketCodes","marketCodes"],"friendlyName":"friendlyName"},{"isBaseSchedule":true,"schedules":[{"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}},{"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}}],"dateTimeRange":{"endAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true},"startAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true}},"marketCodes":["marketCodes","marketCodes"],"friendlyName":"friendlyName"}],"customMeters":[{"unitOfMeasure":"unitOfMeasure","displayName":"displayName","includedBaseQuantities":[{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"},{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}],"isEnabled":true,"priceInUsd":5.025004791520295,"id":"id","uniqueID":"uniqueID"},{"unitOfMeasure":"unitOfMeasure","displayName":"displayName","includedBaseQuantities":[{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"},{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}],"isEnabled":true,"priceInUsd":5.025004791520295,"id":"id","uniqueID":"uniqueID"}],"marketStates":[{"marketCode":"marketCode","state":"Disabled"},{"marketCode":"marketCode","state":"Disabled"}],"tenantAudiences":[{"description":"description","id":"id"},{"description":"description","id":"id"}],"subscriptionAudiences":[{"description":"description","id":"id"},{"description":"description","id":"id"}],"id":"id","properties":[{"type":"type","value":"value"},{"type":"type","value":"value"}],"trial":{"duration":9,"dateTimeRange":{"endAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true},"startAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true}},"type":"NoTrial","durationType":"Minute"},"isHidden":true,"resourceType":"resourceType"}],"friendlyName":"friendlyName","resourceType":"AzureSkuVariant"},
+                billable_dimensions = [
+                    {"priceModelTiered":"{}","priceModelTieredPercentage":"{}","priceModelMatrix":"{}","minimumCommit":1.4658129805029452,"length":6,"priceModelBulk":"{}","description":"description","discount":"{}","minimumCommitScope":"{}","minimumCommitProrata":true,"billableMetricId":"billableMetricId","priceModelPercentage":"{}","name":"name","priceModelBasic":"{}","category":"{}","priceModelVolume":"{}","timeUnit":"{}"}
+                    ],
+                billing_cycle = 'MONTH_FIRST_DAY',
                 buyer_aws_account_ids = [
                     ''
                     ],
                 buyer_azure_tenants = [
-                    openapi_client.models.azure_audience.AzureAudience(
-                        description = '', 
-                        id = '', )
+                    {"description":"description","id":"id"}
                     ],
                 commit_amount = 1.337,
+                commit_billing_interval_in_months = 56,
                 commits = [
-                    openapi_client.models.commit_dimension.CommitDimension(
-                        category = '', 
-                        description = '', 
-                        is_user_created = True, 
-                        key = '', 
-                        length = 56, 
-                        maximum_users = 1, 
-                        minimum_users = 1, 
-                        name = '', 
-                        quantity = 56, 
-                        rate = 1.337, 
-                        term = '', 
-                        term_end_time = '', 
-                        time_unit = openapi_client.models.time_unit.timeUnit(), 
-                        type = openapi_client.models.type.type(), 
-                        types = [
-                            ''
-                            ], )
+                    {"types":["types","types"],"quantity":3,"length":2,"description":"description","type":"{}","maximumUsers":706140,"rate":2.027123023002322,"isUserCreated":true,"minimumUsers":930144,"name":"name","term":"term","category":"category","termEndTime":"termEndTime","key":"key","timeUnit":"{}"}
                     ],
                 currency = '',
                 dimensions = [
-                    openapi_client.models.metering_dimension.MeteringDimension(
-                        category = '', 
-                        description = '', 
-                        included_base_quantities = [
-                            openapi_client.models.azure_included_base_quantity.AzureIncludedBaseQuantity(
-                                is_infinite = True, 
-                                quantity = 1.337, 
-                                recurring_unit = 'Monthly', )
-                            ], 
-                        key = '', 
-                        name = '', 
-                        plan_id = '', 
-                        plan_name = '', 
-                        price_tiers = [
-                            openapi_client.models.gcp_price_tier.GcpPriceTier(
-                                from_amount = 1.337, 
-                                price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                    currency_code = '', 
-                                    nanos = 56, 
-                                    units = '', ), 
-                                starting_usage_amount = '', )
-                            ], 
-                        rate = 1.337, 
-                        sku_id = '', 
-                        types = [
-                            ''
-                            ], 
-                        usage_count = openapi_client.models.usage_count.usageCount(), 
-                        value_type = openapi_client.models.value_type.valueType(), )
+                    {"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"types":["types","types"],"description":"description","planName":"planName","usageCount":"{}","rate":1.0246457001441578,"includedBaseQuantities":[{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"},{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}],"valueType":"{}","name":"name","planId":"planId","category":"category","key":"key","skuId":"skuId"}
                     ],
                 discount_percentage = 1.337,
                 eula_type = '',
                 eula_url = '',
-                gcp_customer_info = openapi_client.models.gcp_marketplace_private_offer_customer_info.GcpMarketplacePrivateOfferCustomerInfo(
+                gcp_customer_info = suger_sdk_python.models.gcp_marketplace_private_offer_customer_info.GcpMarketplacePrivateOfferCustomerInfo(
                     address = '', 
                     contact = '', 
                     email = '', 
@@ -453,276 +258,153 @@ class TestOfferInfo(unittest.TestCase):
                     unverified_billing_account = '', ),
                 gcp_duration = 56,
                 gcp_metrics = [
-                    openapi_client.models.gcp_marketplace_product_metering_metric.GcpMarketplaceProductMeteringMetric(
-                        description = '', 
-                        display_name = '', 
-                        display_unit = '', 
-                        display_unit_description = '', 
-                        id = '', 
-                        metric_kind = '', 
-                        name = '', 
-                        price_tiers = [
-                            openapi_client.models.gcp_price_tier.GcpPriceTier(
-                                from_amount = 1.337, 
-                                price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                    currency_code = '', 
-                                    nanos = 56, 
-                                    units = '', ), 
-                                starting_usage_amount = '', )
-                            ], 
-                        reporting_unit = '', 
-                        sku_id = '', 
-                        unit = '', 
-                        value_type = openapi_client.models.value_type.valueType(), )
+                    {"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"displayUnitDescription":"displayUnitDescription","unit":"unit","metricKind":"metricKind","displayName":"displayName","valueType":"{}","name":"name","description":"description","displayUnit":"displayUnit","id":"id","reportingUnit":"reportingUnit","skuId":"skuId"}
                     ],
                 gcp_payment_schedule = '',
                 gcp_plans = [
-                    openapi_client.models.gcp_marketplace_product_purchase_option_spec.GcpMarketplaceProductPurchaseOptionSpec(
-                        feature_values = [
-                            openapi_client.models.gcp_marketplace_product_feature_value.GcpMarketplaceProductFeatureValue(
-                                feature_description = '', 
-                                feature_name = '', 
-                                feature_title = '', 
-                                feature_value = '', )
-                            ], 
-                        name = '', 
-                        price_info = openapi_client.models.gcp_marketplace_product_price_info.GcpMarketplaceProductPriceInfo(
-                            description = '', 
-                            price_model = 'FREE', 
-                            subscription_plans = [
-                                openapi_client.models.gcp_marketplace_product_subscription_plan.GcpMarketplaceProductSubscriptionPlan(
-                                    period = '', 
-                                    price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                        currency_code = '', 
-                                        nanos = 56, 
-                                        units = '', ), )
-                                ], 
-                            usage_fees = [
-                                openapi_client.models.gcp_marketplace_product_usage_fee.GcpMarketplaceProductUsageFee(
-                                    display_quantity = 56, 
-                                    metric_id = '', 
-                                    price_tiers = [
-                                        openapi_client.models.gcp_price_tier.GcpPriceTier(
-                                            from_amount = 1.337, 
-                                            starting_usage_amount = '', )
-                                        ], )
-                                ], ), 
-                        purchase_mode = 'PURCHASE_MODE_PRIVATE', 
-                        title = '', )
+                    {"priceInfo":{"usageFees":[{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7},{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7}],"subscriptionPlans":[{"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},{"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}],"description":"description","priceModel":"FREE"},"purchaseMode":"PURCHASE_MODE_PRIVATE","name":"name","title":"title","featureValues":[{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"},{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"}]}
                     ],
-                gcp_private_offer = openapi_client.models.gcp_marketplace_private_offer.GcpMarketplacePrivateOffer(
-                    active_entitlement = openapi_client.models.gcp_marketplace_entitlement.GcpMarketplaceEntitlement(
-                        account = '', 
-                        consumers = [
-                            openapi_client.models.gcp_marketplace_consumer.GcpMarketplaceConsumer(
-                                project = '', )
-                            ], 
-                        create_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        id = '', 
-                        input_properties = [
-                            56
-                            ], 
-                        message_to_user = '', 
-                        name = '', 
-                        new_offer_duration = '', 
-                        new_offer_end_time = '', 
-                        new_offer_start_time = '', 
-                        new_pending_offer = '', 
-                        new_pending_offer_duration = '', 
-                        new_pending_plan = '', 
-                        new_plan = '', 
-                        offer = '', 
-                        offer_duration = '', 
-                        offer_effective_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        offer_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        plan = '', 
-                        product = '', 
-                        product_external_name = '', 
-                        provider = '', 
-                        quote_external_name = '', 
-                        state = openapi_client.models.state.state(), 
-                        subscription_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        usage_reporting_id = '', ), 
+                gcp_private_offer = suger_sdk_python.models.gcp_marketplace_private_offer.GcpMarketplacePrivateOffer(
+                    active_entitlement = {"newPendingOffer":"newPendingOffer","offerEffectiveTime":"2000-01-23T04:56:07.000+00:00","newPlan":"newPlan","offer":"offer","inputProperties":[9,9],"provider":"provider","offerEndTime":"2000-01-23T04:56:07.000+00:00","offerDuration":"offerDuration","consumers":[{"project":"project"},{"project":"project"}],"newOfferEndTime":"newOfferEndTime","subscriptionEndTime":"2000-01-23T04:56:07.000+00:00","id":"id","state":"{}","usageReportingId":"usageReportingId","plan":"plan","messageToUser":"messageToUser","product":"product","updateTime":"2000-01-23T04:56:07.000+00:00","newOfferDuration":"newOfferDuration","quoteExternalName":"quoteExternalName","createTime":"2000-01-23T04:56:07.000+00:00","newPendingPlan":"newPendingPlan","name":"name","newPendingOfferDuration":"newPendingOfferDuration","account":"account","productExternalName":"productExternalName","newOfferStartTime":"newOfferStartTime"}, 
                     agency_enabled = True, 
                     agreement = '', 
                     cancel_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    custom_eula = openapi_client.models.gcp_marketplace_document.GcpMarketplaceDocument(
-                        description = '', 
-                        document_type = '', 
-                        external_google_link = openapi_client.models.external_google_link.externalGoogleLink(), 
-                        name = '', 
-                        unstructured_document = openapi_client.models.gcp_marketplace_unstructured_document.GcpMarketplaceUnstructuredDocument(
-                            content = '', ), 
-                        update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
-                    customer_info = openapi_client.models.gcp_marketplace_private_offer_customer_info.GcpMarketplacePrivateOfferCustomerInfo(
+                    custom_eula = {"documentBody":"documentBody","documentType":"documentType","unstructuredDocument":{"content":"content"},"name":"name","description":"description","updateTime":"2000-01-23T04:56:07.000+00:00","externalGoogleLink":"{}"}, 
+                    customer_info = suger_sdk_python.models.gcp_marketplace_private_offer_customer_info.GcpMarketplacePrivateOfferCustomerInfo(
                         address = '', 
                         contact = '', 
                         email = '', 
                         organization = '', 
                         unverified_billing_account = '', ), 
-                    eula_agreement_document = openapi_client.models.gcp_marketplace_document.GcpMarketplaceDocument(
-                        description = '', 
-                        document_type = '', 
-                        external_google_link = openapi_client.models.external_google_link.externalGoogleLink(), 
-                        name = '', 
-                        update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
-                    existing_offer_data = openapi_client.models.gcp_marketplace_existing_offer_data.GcpMarketplaceExistingOfferData(
-                        entitlement = openapi_client.models.gcp_marketplace_entitlement.GcpMarketplaceEntitlement(
-                            account = '', 
-                            create_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            id = '', 
-                            message_to_user = '', 
-                            name = '', 
-                            new_offer_duration = '', 
-                            new_offer_end_time = '', 
-                            new_offer_start_time = '', 
-                            new_pending_offer = '', 
-                            new_pending_offer_duration = '', 
-                            new_pending_plan = '', 
-                            new_plan = '', 
-                            offer = '', 
-                            offer_duration = '', 
-                            offer_effective_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            offer_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            plan = '', 
-                            product = '', 
-                            product_external_name = '', 
-                            provider = '', 
-                            quote_external_name = '', 
-                            state = openapi_client.models.state.state(), 
-                            subscription_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            usage_reporting_id = '', ), 
+                    eula_agreement_document = {"documentBody":"documentBody","documentType":"documentType","unstructuredDocument":{"content":"content"},"name":"name","description":"description","updateTime":"2000-01-23T04:56:07.000+00:00","externalGoogleLink":"{}"}, 
+                    existing_offer_data = suger_sdk_python.models.gcp_marketplace_existing_offer_data.GcpMarketplaceExistingOfferData(
+                        entitlement = {"newPendingOffer":"newPendingOffer","offerEffectiveTime":"2000-01-23T04:56:07.000+00:00","newPlan":"newPlan","offer":"offer","inputProperties":[9,9],"provider":"provider","offerEndTime":"2000-01-23T04:56:07.000+00:00","offerDuration":"offerDuration","consumers":[{"project":"project"},{"project":"project"}],"newOfferEndTime":"newOfferEndTime","subscriptionEndTime":"2000-01-23T04:56:07.000+00:00","id":"id","state":"{}","usageReportingId":"usageReportingId","plan":"plan","messageToUser":"messageToUser","product":"product","updateTime":"2000-01-23T04:56:07.000+00:00","newOfferDuration":"newOfferDuration","quoteExternalName":"quoteExternalName","createTime":"2000-01-23T04:56:07.000+00:00","newPendingPlan":"newPendingPlan","name":"name","newPendingOfferDuration":"newPendingOfferDuration","account":"account","productExternalName":"productExternalName","newOfferStartTime":"newOfferStartTime"}, 
                         existing_price_model_type = '', 
                         has_entitlement_changed = True, 
-                        private_offer = openapi_client.models.gcp_marketplace_existing_private_offer.GcpMarketplaceExistingPrivateOffer(
+                        private_offer = suger_sdk_python.models.gcp_marketplace_existing_private_offer.GcpMarketplaceExistingPrivateOffer(
                             agreement = '', 
-                            installment_timeline = openapi_client.models.gcp_marketplace_private_offer_installment_timeline.GcpMarketplacePrivateOfferInstallmentTimeline(
+                            installment_timeline = suger_sdk_python.models.gcp_marketplace_private_offer_installment_timeline.GcpMarketplacePrivateOfferInstallmentTimeline(
                                 installments = [
-                                    openapi_client.models.gcp_marketplace_private_offer_installment.GcpMarketplacePrivateOfferInstallment(
-                                        price_model = openapi_client.models.gcp_marketplace_private_offer_price_model.GcpMarketplacePrivateOfferPriceModel(
+                                    suger_sdk_python.models.gcp_marketplace_private_offer_installment.GcpMarketplacePrivateOfferInstallment(
+                                        price_model = suger_sdk_python.models.gcp_marketplace_private_offer_price_model.GcpMarketplacePrivateOfferPriceModel(
                                             base_offer = '', 
-                                            commitment = openapi_client.models.gcp_marketplace_private_offer_price_model_commitment.GcpMarketplacePrivateOfferPriceModelCommitment(
-                                                commitment_amount_per_period = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                                    currency_code = '', 
-                                                    nanos = 56, 
-                                                    units = '', ), 
-                                                discount = openapi_client.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
-                                                    discount_percentage = openapi_client.models.discount_percentage.discountPercentage(), 
-                                                    discounted_price = openapi_client.models.discounted_price.discountedPrice(), ), 
-                                                period = openapi_client.models.gcp_period_duration.GcpPeriodDuration(
-                                                    count = 56, 
-                                                    unit = 'MONTHLY_PERIOD', ), ), 
-                                            fixed_price = openapi_client.models.gcp_marketplace_private_offer_price_model_fixed.GcpMarketplacePrivateOfferPriceModelFixed(), 
-                                            one_time_credit = openapi_client.models.one_time_credit.oneTimeCredit(), 
-                                            overage = openapi_client.models.gcp_marketplace_private_offer_price_model_overage.GcpMarketplacePrivateOfferPriceModelOverage(
+                                            commitment = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_commitment.GcpMarketplacePrivateOfferPriceModelCommitment(
+                                                commitment_amount_per_period = {"nanos":1,"units":"units","currencyCode":"currencyCode"}, 
+                                                discount = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
+                                                    discount_percentage = suger_sdk_python.models.discount_percentage.discountPercentage(), 
+                                                    discounted_price = suger_sdk_python.models.discounted_price.discountedPrice(), ), 
+                                                period = {"unit":"MONTHLY_PERIOD","count":4}, ), 
+                                            fixed_price = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_fixed.GcpMarketplacePrivateOfferPriceModelFixed(), 
+                                            one_time_credit = suger_sdk_python.models.one_time_credit.oneTimeCredit(), 
+                                            overage = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_overage.GcpMarketplacePrivateOfferPriceModelOverage(
                                                 sku_discounts = [
                                                     None
                                                     ], ), 
-                                            payg = openapi_client.models.payg.payg(), 
+                                            payg = suger_sdk_python.models.payg.payg(), 
                                             previous_credit_balance_policy = '', ), 
                                         start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                                     ], ), 
                             name = '', 
-                            offer_term = openapi_client.models.gcp_marketplace_private_offer_term.GcpMarketplacePrivateOfferTerm(
+                            offer_term = suger_sdk_python.models.gcp_marketplace_private_offer_term.GcpMarketplacePrivateOfferTerm(
                                 enable_scheduled_start_times = True, 
                                 end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 start_policy = '', 
                                 start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                term_duration = openapi_client.models.gcp_period_duration.GcpPeriodDuration(
-                                    count = 56, ), ), 
+                                term_duration = {"unit":"MONTHLY_PERIOD","count":4}, ), 
                             payment_schedule = '', 
-                            price_model = openapi_client.models.price_model.priceModel(), 
+                            price_model = suger_sdk_python.models.price_model.priceModel(), 
                             service_level = '', ), 
-                        standard_offer = openapi_client.models.standard_offer.standardOffer(), ), 
+                        standard_offer = suger_sdk_python.models.standard_offer.standardOffer(), ), 
                     expire_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     features = [
-                        openapi_client.models.gcp_marketplace_product_feature_value.GcpMarketplaceProductFeatureValue(
-                            feature_description = '', 
-                            feature_name = '', 
-                            feature_title = '', 
-                            feature_value = '', )
+                        {"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"}
                         ], 
-                    installment_timeline = openapi_client.models.gcp_marketplace_private_offer_installment_timeline.GcpMarketplacePrivateOfferInstallmentTimeline(), 
+                    installment_timeline = suger_sdk_python.models.gcp_marketplace_private_offer_installment_timeline.GcpMarketplacePrivateOfferInstallmentTimeline(), 
                     lifecycle_state = '', 
-                    metric_information = openapi_client.models.gcp_marketplace_private_offer_metric_information.GcpMarketplacePrivateOfferMetricInformation(
+                    metric_information = suger_sdk_python.models.gcp_marketplace_private_offer_metric_information.GcpMarketplacePrivateOfferMetricInformation(
                         metric_details = [
-                            openapi_client.models.gcp_marketplace_private_offer_metric_detail.GcpMarketplacePrivateOfferMetricDetail(
+                            suger_sdk_python.models.gcp_marketplace_private_offer_metric_detail.GcpMarketplacePrivateOfferMetricDetail(
                                 display_name = '', 
                                 parent_commerce_service = '', 
                                 sku_id = '', 
                                 tiers = [
-                                    openapi_client.models.gcp_price_tier.GcpPriceTier(
-                                        from_amount = 1.337, 
-                                        price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                            currency_code = '', 
-                                            nanos = 56, 
-                                            units = '', ), 
-                                        starting_usage_amount = '', )
+                                    {"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}
                                     ], 
                                 unit_description = '', )
                             ], ), 
-                    migration_metadata = openapi_client.models.gcp_marketplace_private_offer_migration_metadata.GcpMarketplacePrivateOfferMigrationMetadata(
+                    migration_metadata = suger_sdk_python.models.gcp_marketplace_private_offer_migration_metadata.GcpMarketplacePrivateOfferMigrationMetadata(
                         inventory_flavor_external_name = '', 
                         product_external_name = '', 
+                        project_number = '', 
                         provider_id = '', ), 
                     name = '', 
                     offer_id = '', 
-                    offer_source = '', 
-                    offer_state = 'OFFER_PUBLISHED', 
-                    offer_term = openapi_client.models.gcp_marketplace_private_offer_term.GcpMarketplacePrivateOfferTerm(
+                    offer_source = 'OFFER', 
+                    offer_state = 'OFFER_ACTIVE', 
+                    offer_term = suger_sdk_python.models.gcp_marketplace_private_offer_term.GcpMarketplacePrivateOfferTerm(
                         enable_scheduled_start_times = True, 
                         end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        start_policy = '', 
                         start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
-                    payment_schedule = openapi_client.models.payment_schedule.paymentSchedule(), 
+                    offer_title = '', 
+                    offer_title_auto_generated = True, 
+                    payment_schedule = suger_sdk_python.models.payment_schedule.paymentSchedule(), 
                     policies = {
                         'key' : ''
                         }, 
-                    price_model = openapi_client.models.price_model.priceModel(), 
+                    price_model = suger_sdk_python.models.price_model.priceModel(), 
                     price_model_type = '', 
                     provider_cancellation_internal_note = '', 
-                    provider_info = openapi_client.models.gcp_marketplace_private_offer_provider_info.GcpMarketplacePrivateOfferProviderInfo(
+                    provider_info = suger_sdk_python.models.gcp_marketplace_private_offer_provider_info.GcpMarketplacePrivateOfferProviderInfo(
                         creator_email_address = '', 
                         sales_contact_email = '', 
                         sales_contact_name = '', ), 
                     provider_internal_note = '', 
                     provider_public_note = '', 
-                    purchase_channel = openapi_client.models.gcp_marketplace_purchase_channel.GcpMarketplacePurchaseChannel(
+                    purchase_channel = suger_sdk_python.models.gcp_marketplace_purchase_channel.GcpMarketplacePurchaseChannel(
                         marketplace = True, 
                         reseller = True, ), 
                     purchase_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    replacement_metadata = openapi_client.models.gcp_marketplace_private_offer_replacement_metadata.GcpMarketplacePrivateOfferReplacementMetadata(
+                    replacement_metadata = suger_sdk_python.models.gcp_marketplace_private_offer_replacement_metadata.GcpMarketplacePrivateOfferReplacementMetadata(
                         coterm_alignment = '', 
                         replaced_offer = '', 
                         replaced_offer_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         replacement_policy = '', ), 
+                    reseller_info = suger_sdk_python.models.reseller_info.resellerInfo(), 
                     service_level = '', 
                     update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     use_legacy_partner_eula = True, 
                     user_labels = [
                         ''
                         ], ),
-                gcp_provider_info = openapi_client.models.gcp_marketplace_private_offer_provider_info.GcpMarketplacePrivateOfferProviderInfo(
+                gcp_provider_info = suger_sdk_python.models.gcp_marketplace_private_offer_provider_info.GcpMarketplacePrivateOfferProviderInfo(
                     creator_email_address = '', 
                     sales_contact_email = '', 
                     sales_contact_name = '', ),
                 gcp_provider_internal_note = '',
                 gcp_provider_public_note = '',
+                gcp_reseller_private_offer_plan = {"offerTemplatePolicies":{"allowScheduledStartDate":true,"allowAutoRenewal":true,"maxRenewalTimes":"maxRenewalTimes","proration":"PRORATION_UNSPECIFIED"},"displayName":"displayName","agreementDocuments":{"isvToCustomerAgreementDocument":{"documentBody":"documentBody","documentType":"documentType","unstructuredDocument":{"content":"content"},"name":"name","description":"description","updateTime":"2000-01-23T04:56:07.000+00:00","externalGoogleLink":"{}"},"isvToResellerAgreementDocument":{"documentBody":"documentBody","documentType":"documentType","unstructuredDocument":{"content":"content"},"name":"name","description":"description","updateTime":"2000-01-23T04:56:07.000+00:00","externalGoogleLink":"{}"}},"features":[{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"},{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"}],"isvInfo":{"contactEmail":"contactEmail","contactName":"contactName","partnerAdvantageAccountLegalName":"partnerAdvantageAccountLegalName","partnerAdvantageId":"partnerAdvantageId"},"paymentSchedule":"","installmentTimelineTemplate":{"installmentTemplates":[{"priceModelTemplate":{"baseOffer":"baseOffer","commitment":{"commitmentAmountPerPeriodTemplate":{"decimalAmountConstraint":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"currencyCode":"currencyCode"},"period":{"unit":"MONTHLY_PERIOD","count":4},"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}},"consumption":"overage","payg":{"period":{"unit":"MONTHLY_PERIOD","count":4},"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},"skuDiscountTemplates":["{}","{}"],"skuRepresentation":{"skuList":{"skus":["skus","skus"]},"skus":"skus","skuGroupList":"{}"}},"subscription":"fixedPrice","fixedPrice":{"period":{"unit":"MONTHLY_PERIOD","count":4},"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}},"overage":{"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},"skuDiscountTemplates":["{}","{}"],"skuRepresentation":{"skuList":{"skus":["skus","skus"]},"skus":"skus","skuGroupList":"{}"}}},"startTime":"2000-01-23T04:56:07.000+00:00"},{"priceModelTemplate":{"baseOffer":"baseOffer","commitment":{"commitmentAmountPerPeriodTemplate":{"decimalAmountConstraint":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"currencyCode":"currencyCode"},"period":{"unit":"MONTHLY_PERIOD","count":4},"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}},"consumption":"overage","payg":{"period":{"unit":"MONTHLY_PERIOD","count":4},"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},"skuDiscountTemplates":["{}","{}"],"skuRepresentation":{"skuList":{"skus":["skus","skus"]},"skus":"skus","skuGroupList":"{}"}},"subscription":"fixedPrice","fixedPrice":{"period":{"unit":"MONTHLY_PERIOD","count":4},"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}},"overage":{"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},"skuDiscountTemplates":["{}","{}"],"skuRepresentation":{"skuList":{"skus":["skus","skus"]},"skus":"skus","skuGroupList":"{}"}}},"startTime":"2000-01-23T04:56:07.000+00:00"}]},"state":{"cancellationReason":"{}","stateType":"","comment":"comment","rejectionReason":"{}"},"stateTransitions":[{"transitionTime":"2000-01-23T04:56:07.000+00:00","newState":{"stateType":null}},{"transitionTime":"2000-01-23T04:56:07.000+00:00","newState":{"stateType":null}}],"reusePolicy":"","margin":{"marginPercentage":{"value":"value"}},"agreement":"agreement","durationConfig":{"startTime":"2000-01-23T04:56:07.000+00:00","endTime":"2000-01-23T04:56:07.000+00:00"},"priceModelTemplate":"{}","startPolicy":"","updateTime":"2000-01-23T04:56:07.000+00:00","productInfo":{"flavorExternalName":"flavorExternalName","providerId":"providerId","serviceLevel":"serviceLevel","serviceName":"serviceName","productExternalName":"productExternalName"},"metaInfo":{"gcpOrganizationId":"gcpOrganizationId","gcpProjectNumber":"gcpProjectNumber"},"resellerInfo":{"billingAccountOrgDisplayName":"billingAccountOrgDisplayName","notesToReseller":"notesToReseller","billingAccountId":"billingAccountId","billingAccountType":"billingAccountType","billingAccountNickname":"billingAccountNickname"},"name":"name","resellOfferTemplate":"resellOfferTemplate","replacementMetadata":"{}","acceptanceDeadlineTime":"2000-01-23T04:56:07.000+00:00","amendmentContext":"{}","offerTermTemplate":{"paymentRecurrence":"paymentRecurrence","termDurationConstraint":{"defaultDuration":{"unit":"MONTHLY_PERIOD","count":4}},"startPolicy":"","startTime":"2000-01-23T04:56:07.000+00:00","endTime":"2000-01-23T04:56:07.000+00:00","enableScheduledStartTimes":true,"termDuration":{"unit":"MONTHLY_PERIOD","count":4}}},
                 gcp_usage_plan_price_model = '',
+                grace_period_in_days = 56,
+                net_terms_in_days = 56,
                 payment_installments = [
-                    openapi_client.models.payment_installment.PaymentInstallment(
-                        amount = 1.337, 
-                        charge_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        charge_on_str = '', 
-                        credit = 1.337, 
-                        discount_percentage = 1.337, 
-                        original_amount = 1.337, )
+                    {"discountPercentage":8.762042012749001,"amount":9.369310271410669,"originalAmount":9.018348186070783,"chargeOn":"2000-01-23T04:56:07.000+00:00","chargeOnStr":"chargeOnStr","credit":6.683562403749608}
                     ],
+                payment_schedule = '',
                 private_offer_url = '',
-                refund_cancelation_policy = '',
+                prorated_billing = True,
+                refund_cancellation_policy = '',
+                reseller_attach_eula_type = '',
+                reseller_eula_type = '',
+                reseller_eula_url = '',
                 seller_notes = '',
+                start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                tax_ids = [
+                    ''
+                    ],
+                trial_config = suger_sdk_python.models.trial_config.TrialConfig(
+                    trial_period = 56, 
+                    trial_period_unit = 'DAY', ),
+                usage_billing_interval_in_months = 56,
                 visibility = 'PRIVATE'
             )
         else:

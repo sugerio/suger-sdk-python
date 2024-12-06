@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.alibaba_marketplace_product_skus import AlibabaMarketplaceProductSkus  # noqa: E501
+from suger_sdk_python.models.alibaba_marketplace_product_skus import AlibabaMarketplaceProductSkus
 
 class TestAlibabaMarketplaceProductSkus(unittest.TestCase):
     """AlibabaMarketplaceProductSkus unit test stubs"""
@@ -29,53 +28,16 @@ class TestAlibabaMarketplaceProductSkus(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AlibabaMarketplaceProductSkus:
         """Test AlibabaMarketplaceProductSkus
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AlibabaMarketplaceProductSkus`
         """
-        model = AlibabaMarketplaceProductSkus()  # noqa: E501
+        model = AlibabaMarketplaceProductSkus()
         if include_optional:
             return AlibabaMarketplaceProductSkus(
                 product_sku = [
-                    openapi_client.models.alibaba_marketplace_product_sku.AlibabaMarketplaceProductSku(
-                        charge_type = '', 
-                        code = '', 
-                        constraints = '', 
-                        hidden = True, 
-                        modules = openapi_client.models.alibaba_marketplace_product_sku_modules.AlibabaMarketplaceProductSkuModules(
-                            module = [
-                                openapi_client.models.alibaba_marketplace_product_sku_module.AlibabaMarketplaceProductSkuModule(
-                                    code = '', 
-                                    id = '', 
-                                    name = '', 
-                                    properties = openapi_client.models.alibaba_marketplace_product_sku_module_properties.AlibabaMarketplaceProductSkuModuleProperties(
-                                        property = [
-                                            openapi_client.models.alibaba_marketplace_product_sku_module_property.AlibabaMarketplaceProductSkuModuleProperty(
-                                                display_unit = '', 
-                                                key = '', 
-                                                name = '', 
-                                                property_values = openapi_client.models.alibaba_marketplace_product_sku_module_property_values.AlibabaMarketplaceProductSkuModulePropertyValues(
-                                                    property_value = [
-                                                        openapi_client.models.alibaba_marketplace_product_sku_module_property_value.AlibabaMarketplaceProductSkuModulePropertyValue(
-                                                            display_name = '', 
-                                                            max = '', 
-                                                            min = '', 
-                                                            remark = '', 
-                                                            step = '', 
-                                                            type = '', 
-                                                            value = '', )
-                                                        ], ), 
-                                                show_type = '', )
-                                            ], ), )
-                                ], ), 
-                        name = '', 
-                        order_periods = openapi_client.models.alibaba_marketplace_product_sku_order_periods.AlibabaMarketplaceProductSkuOrderPeriods(
-                            order_period = [
-                                openapi_client.models.alibaba_marketplace_product_sku_order_period.AlibabaMarketplaceProductSkuOrderPeriod(
-                                    name = '', 
-                                    period_type = '', )
-                                ], ), )
+                    {"Constraints":"Constraints","ChargeType":"ChargeType","Modules":{"Module":[{"Id":"Id","Properties":{"Property":[{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"showType":"showType","DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name"},{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"showType":"showType","DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name"}]},"Code":"Code","Name":"Name"},{"Id":"Id","Properties":{"Property":[{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"showType":"showType","DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name"},{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"showType":"showType","DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name"}]},"Code":"Code","Name":"Name"}]},"OrderPeriods":{"OrderPeriod":[{"PeriodType":"PeriodType","Name":"Name"},{"PeriodType":"PeriodType","Name":"Name"}]},"Hidden":true,"Code":"Code","Name":"Name"}
                     ]
             )
         else:

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_deprecation_schedule_alternative import AzureMarketplaceDeprecationScheduleAlternative  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_deprecation_schedule_alternative import AzureMarketplaceDeprecationScheduleAlternative
 
 class TestAzureMarketplaceDeprecationScheduleAlternative(unittest.TestCase):
     """AzureMarketplaceDeprecationScheduleAlternative unit test stubs"""
@@ -29,16 +28,16 @@ class TestAzureMarketplaceDeprecationScheduleAlternative(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplaceDeprecationScheduleAlternative:
         """Test AzureMarketplaceDeprecationScheduleAlternative
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplaceDeprecationScheduleAlternative`
         """
-        model = AzureMarketplaceDeprecationScheduleAlternative()  # noqa: E501
+        model = AzureMarketplaceDeprecationScheduleAlternative()
         if include_optional:
             return AzureMarketplaceDeprecationScheduleAlternative(
-                plan = openapi_client.models.plan.plan(),
-                product = openapi_client.models.product.product()
+                plan = None,
+                product = None
             )
         else:
             return AzureMarketplaceDeprecationScheduleAlternative(

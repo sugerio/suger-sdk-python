@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_customer_leads import AzureMarketplaceCustomerLeads  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_customer_leads import AzureMarketplaceCustomerLeads
 
 class TestAzureMarketplaceCustomerLeads(unittest.TestCase):
     """AzureMarketplaceCustomerLeads unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplaceCustomerLeads(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplaceCustomerLeads:
         """Test AzureMarketplaceCustomerLeads
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplaceCustomerLeads`
         """
-        model = AzureMarketplaceCustomerLeads()  # noqa: E501
+        model = AzureMarketplaceCustomerLeads()
         if include_optional:
             return AzureMarketplaceCustomerLeads(
                 var_schema = '',
@@ -50,12 +49,7 @@ class TestAzureMarketplaceCustomerLeads(unittest.TestCase):
                 salesforce_lead_configuration = None,
                 table_lead_configuration = None,
                 validations = [
-                    openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                        __schema = '', 
-                        code = 'businessValidationError', 
-                        level = 'informational', 
-                        message = '', 
-                        resource_id = '', )
+                    {"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}
                     ]
             )
         else:

@@ -15,43 +15,36 @@
 
 import unittest
 
-from openapi_client.api.api_api import APIApi  # noqa: E501
+from suger_sdk_python.api.api_api import APIApi
 
 
 class TestAPIApi(unittest.TestCase):
     """APIApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = APIApi()  # noqa: E501
+        self.api = APIApi()
 
     def tearDown(self) -> None:
-        pass
-
-    def test_create_api_client(self) -> None:
-        """Test case for create_api_client
-
-        create api client  # noqa: E501
-        """
         pass
 
     def test_get_api_client(self) -> None:
         """Test case for get_api_client
 
-        get api client  # noqa: E501
+        get api client
         """
         pass
 
     def test_get_api_client_access_token(self) -> None:
         """Test case for get_api_client_access_token
 
-        get api access token  # noqa: E501
+        get api access token
         """
         pass
 
     def test_list_api_clients(self) -> None:
         """Test case for list_api_clients
 
-        list api clients  # noqa: E501
+        list api clients
         """
         pass
 

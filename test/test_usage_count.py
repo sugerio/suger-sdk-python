@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.usage_count import UsageCount  # noqa: E501
+from suger_sdk_python.models.usage_count import UsageCount
 
 class TestUsageCount(unittest.TestCase):
     """UsageCount unit test stubs"""
@@ -29,12 +28,12 @@ class TestUsageCount(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UsageCount:
         """Test UsageCount
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UsageCount`
         """
-        model = UsageCount()  # noqa: E501
+        model = UsageCount()
         if include_optional:
             return UsageCount(
                 credit_count = 1.337,

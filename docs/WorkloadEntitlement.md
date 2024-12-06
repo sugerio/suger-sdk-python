@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **buyer_id** | **str** |  | [optional] 
@@ -28,19 +29,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.workload_entitlement import WorkloadEntitlement
+from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of WorkloadEntitlement from a JSON string
 workload_entitlement_instance = WorkloadEntitlement.from_json(json)
 # print the JSON string representation of the object
-print WorkloadEntitlement.to_json()
+print(WorkloadEntitlement.to_json())
 
 # convert the object into a dict
 workload_entitlement_dict = workload_entitlement_instance.to_dict()
 # create an instance of WorkloadEntitlement from a dict
-workload_entitlement_form_dict = workload_entitlement.from_dict(workload_entitlement_dict)
+workload_entitlement_from_dict = WorkloadEntitlement.from_dict(workload_entitlement_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.client_describe_instance_response_body_modules_module_properties_property import ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty  # noqa: E501
+from suger_sdk_python.models.client_describe_instance_response_body_modules_module_properties_property import ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty
 
 class TestClientDescribeInstanceResponseBodyModulesModulePropertiesProperty(unittest.TestCase):
     """ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty unit test stubs"""
@@ -29,28 +28,18 @@ class TestClientDescribeInstanceResponseBodyModulesModulePropertiesProperty(unit
 
     def make_instance(self, include_optional) -> ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty:
         """Test ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty`
         """
-        model = ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty()  # noqa: E501
+        model = ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty()
         if include_optional:
             return ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty(
                 display_unit = '',
                 key = '',
                 name = '',
-                property_values = openapi_client.models.client/describe_instance_response_body_modules_module_properties_property_property_values.client.DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues(
-                    property_value = [
-                        openapi_client.models.client/describe_instance_response_body_modules_module_properties_property_property_values_property_value.client.DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue(
-                            display_name = '', 
-                            max = '', 
-                            min = '', 
-                            remark = '', 
-                            step = '', 
-                            type = '', 
-                            value = '', )
-                        ], ),
+                property_values = {"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},
                 show_type = ''
             )
         else:

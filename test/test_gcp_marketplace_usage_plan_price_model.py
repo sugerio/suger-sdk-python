@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_usage_plan_price_model import GcpMarketplaceUsagePlanPriceModel  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_usage_plan_price_model import GcpMarketplaceUsagePlanPriceModel
 
 class TestGcpMarketplaceUsagePlanPriceModel(unittest.TestCase):
     """GcpMarketplaceUsagePlanPriceModel unit test stubs"""

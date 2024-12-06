@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_product_variant_price_schedule import AzureProductVariantPriceSchedule  # noqa: E501
+from suger_sdk_python.models.azure_product_variant_price_schedule import AzureProductVariantPriceSchedule
 
 class TestAzureProductVariantPriceSchedule(unittest.TestCase):
     """AzureProductVariantPriceSchedule unit test stubs"""
@@ -29,44 +28,22 @@ class TestAzureProductVariantPriceSchedule(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureProductVariantPriceSchedule:
         """Test AzureProductVariantPriceSchedule
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureProductVariantPriceSchedule`
         """
-        model = AzureProductVariantPriceSchedule()  # noqa: E501
+        model = AzureProductVariantPriceSchedule()
         if include_optional:
             return AzureProductVariantPriceSchedule(
-                date_time_range = openapi_client.models.azure_localized_time_range.AzureLocalizedTimeRange(
-                    end_at = openapi_client.models.azure_localized_date_time.AzureLocalizedDateTime(
-                        date_time_in_utc = '', 
-                        localize_per_market = True, ), 
-                    start_at = openapi_client.models.azure_localized_date_time.AzureLocalizedDateTime(
-                        date_time_in_utc = '', 
-                        localize_per_market = True, ), ),
+                date_time_range = {"endAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true},"startAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true}},
                 friendly_name = '',
                 is_base_schedule = True,
                 market_codes = [
                     ''
                     ],
                 schedules = [
-                    openapi_client.models.azure_price_schedule.AzurePriceSchedule(
-                        price_cadence = openapi_client.models.azure_price_cadence.AzurePriceCadence(
-                            type = 'Month', 
-                            value = 56, ), 
-                        pricing_model = 'Flat', 
-                        pricing_units = [
-                            openapi_client.models.azure_pricing_unit.AzurePricingUnit(
-                                is_unlimited_unit = True, 
-                                lower_unit = 56, 
-                                name = 'sharedcore', 
-                                unit_type = '', 
-                                upper_unit = 56, )
-                            ], 
-                        retail_price = openapi_client.models.azure_price.AzurePrice(
-                            currency_code = '', 
-                            open_price = 1.337, 
-                            price_tier_id = '', ), )
+                    {"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}}
                     ]
             )
         else:

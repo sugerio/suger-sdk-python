@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_private_offer_promotion_reference import AzureMarketplacePrivateOfferPromotionReference  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_private_offer_promotion_reference import AzureMarketplacePrivateOfferPromotionReference
 
 class TestAzureMarketplacePrivateOfferPromotionReference(unittest.TestCase):
     """AzureMarketplacePrivateOfferPromotionReference unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplacePrivateOfferPromotionReference(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePrivateOfferPromotionReference:
         """Test AzureMarketplacePrivateOfferPromotionReference
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePrivateOfferPromotionReference`
         """
-        model = AzureMarketplacePrivateOfferPromotionReference()  # noqa: E501
+        model = AzureMarketplacePrivateOfferPromotionReference()
         if include_optional:
             return AzureMarketplacePrivateOfferPromotionReference(
                 id = '',

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_offer_pricing_type import AzureMarketplaceOfferPricingType  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_offer_pricing_type import AzureMarketplaceOfferPricingType
 
 class TestAzureMarketplaceOfferPricingType(unittest.TestCase):
     """AzureMarketplaceOfferPricingType unit test stubs"""

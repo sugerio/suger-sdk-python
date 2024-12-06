@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_private_offer_partner import AzureMarketplacePrivateOfferPartner  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_private_offer_partner import AzureMarketplacePrivateOfferPartner
 
 class TestAzureMarketplacePrivateOfferPartner(unittest.TestCase):
     """AzureMarketplacePrivateOfferPartner unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplacePrivateOfferPartner(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePrivateOfferPartner:
         """Test AzureMarketplacePrivateOfferPartner
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePrivateOfferPartner`
         """
-        model = AzureMarketplacePrivateOfferPartner()  # noqa: E501
+        model = AzureMarketplacePrivateOfferPartner()
         if include_optional:
             return AzureMarketplacePrivateOfferPartner(
                 id = '',

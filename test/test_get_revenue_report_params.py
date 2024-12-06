@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.get_revenue_report_params import GetRevenueReportParams  # noqa: E501
+from suger_sdk_python.models.get_revenue_report_params import GetRevenueReportParams
 
 class TestGetRevenueReportParams(unittest.TestCase):
     """GetRevenueReportParams unit test stubs"""
@@ -29,12 +28,12 @@ class TestGetRevenueReportParams(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GetRevenueReportParams:
         """Test GetRevenueReportParams
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetRevenueReportParams`
         """
-        model = GetRevenueReportParams()  # noqa: E501
+        model = GetRevenueReportParams()
         if include_optional:
             return GetRevenueReportParams(
                 buyer_id = '',
@@ -42,14 +41,14 @@ class TestGetRevenueReportParams(unittest.TestCase):
                 organization_id = '',
                 partner = 'AWS',
                 product_id = '',
-                report_type = 'InvoicedAmount',
+                report_type = 'GrossAmount',
                 service = 'MARKETPLACE'
             )
         else:
             return GetRevenueReportParams(
                 organization_id = '',
                 partner = 'AWS',
-                report_type = 'InvoicedAmount',
+                report_type = 'GrossAmount',
                 service = 'MARKETPLACE',
         )
         """

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_private_offer_metric_detail import GcpMarketplacePrivateOfferMetricDetail  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_private_offer_metric_detail import GcpMarketplacePrivateOfferMetricDetail
 
 class TestGcpMarketplacePrivateOfferMetricDetail(unittest.TestCase):
     """GcpMarketplacePrivateOfferMetricDetail unit test stubs"""
@@ -29,25 +28,19 @@ class TestGcpMarketplacePrivateOfferMetricDetail(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplacePrivateOfferMetricDetail:
         """Test GcpMarketplacePrivateOfferMetricDetail
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplacePrivateOfferMetricDetail`
         """
-        model = GcpMarketplacePrivateOfferMetricDetail()  # noqa: E501
+        model = GcpMarketplacePrivateOfferMetricDetail()
         if include_optional:
             return GcpMarketplacePrivateOfferMetricDetail(
                 display_name = '',
                 parent_commerce_service = '',
                 sku_id = '',
                 tiers = [
-                    openapi_client.models.gcp_price_tier.GcpPriceTier(
-                        from_amount = 1.337, 
-                        price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                            currency_code = '', 
-                            nanos = 56, 
-                            units = '', ), 
-                        starting_usage_amount = '', )
+                    {"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}
                     ],
                 unit_description = ''
             )

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_product_variant import AzureProductVariant  # noqa: E501
+from suger_sdk_python.models.azure_product_variant import AzureProductVariant
 
 class TestAzureProductVariant(unittest.TestCase):
     """AzureProductVariant unit test stubs"""
@@ -29,120 +28,27 @@ class TestAzureProductVariant(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureProductVariant:
         """Test AzureProductVariant
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureProductVariant`
         """
-        model = AzureProductVariant()  # noqa: E501
+        model = AzureProductVariant()
         if include_optional:
             return AzureProductVariant(
                 azure_government_certifications = [
-                    openapi_client.models.azure_government_certification.AzureGovernmentCertification(
-                        title = '', 
-                        uri = '', 
-                        validation_results = [
-                            openapi_client.models.azure_validation_result.AzureValidationResult(
-                                error_message = '', 
-                                member_names = [
-                                    ''
-                                    ], )
-                            ], )
+                    {"validationResults":[{"errorMessage":"errorMessage","memberNames":["memberNames","memberNames"]},{"errorMessage":"errorMessage","memberNames":["memberNames","memberNames"]}],"title":"title","uri":"uri"}
                     ],
                 cloud_availabilities = [
                     ''
                     ],
                 conversion_paths = '',
                 extended_properties = [
-                    openapi_client.models.azure_type_value.AzureTypeValue(
-                        type = '', 
-                        value = '', )
+                    {"type":"type","value":"value"}
                     ],
                 external_id = '',
                 feature_availabilities = [
-                    openapi_client.models.azure_product_feature_availability.AzureProductFeatureAvailability(
-                        custom_meters = [
-                            openapi_client.models.azure_product_variant_custom_meter.AzureProductVariantCustomMeter(
-                                display_name = '', 
-                                id = '', 
-                                included_base_quantities = [
-                                    openapi_client.models.azure_included_base_quantity.AzureIncludedBaseQuantity(
-                                        is_infinite = True, 
-                                        quantity = 1.337, 
-                                        recurring_unit = 'Monthly', )
-                                    ], 
-                                is_enabled = True, 
-                                price_in_usd = 1.337, 
-                                unique_id = '', 
-                                unit_of_measure = '', )
-                            ], 
-                        id = '', 
-                        is_hidden = True, 
-                        market_states = [
-                            openapi_client.models.azure_market_state.AzureMarketState(
-                                market_code = '', 
-                                state = 'Disabled', )
-                            ], 
-                        markets = [
-                            openapi_client.models.azure_market.AzureMarket(
-                                friendly_name = '', 
-                                market_code = '', )
-                            ], 
-                        price_schedules = [
-                            openapi_client.models.azure_product_variant_price_schedule.AzureProductVariantPriceSchedule(
-                                date_time_range = openapi_client.models.azure_localized_time_range.AzureLocalizedTimeRange(
-                                    end_at = openapi_client.models.azure_localized_date_time.AzureLocalizedDateTime(
-                                        date_time_in_utc = '', 
-                                        localize_per_market = True, ), 
-                                    start_at = openapi_client.models.azure_localized_date_time.AzureLocalizedDateTime(
-                                        date_time_in_utc = '', 
-                                        localize_per_market = True, ), ), 
-                                friendly_name = '', 
-                                is_base_schedule = True, 
-                                market_codes = [
-                                    ''
-                                    ], 
-                                schedules = [
-                                    openapi_client.models.azure_price_schedule.AzurePriceSchedule(
-                                        price_cadence = openapi_client.models.azure_price_cadence.AzurePriceCadence(
-                                            type = 'Month', 
-                                            value = 56, ), 
-                                        pricing_model = 'Flat', 
-                                        pricing_units = [
-                                            openapi_client.models.azure_pricing_unit.AzurePricingUnit(
-                                                is_unlimited_unit = True, 
-                                                lower_unit = 56, 
-                                                name = 'sharedcore', 
-                                                unit_type = '', 
-                                                upper_unit = 56, )
-                                            ], 
-                                        retail_price = openapi_client.models.azure_price.AzurePrice(
-                                            currency_code = '', 
-                                            open_price = 1.337, 
-                                            price_tier_id = '', ), )
-                                    ], )
-                            ], 
-                        properties = [
-                            openapi_client.models.azure_type_value.AzureTypeValue(
-                                type = '', 
-                                value = '', )
-                            ], 
-                        resource_type = '', 
-                        subscription_audiences = [
-                            openapi_client.models.azure_audience.AzureAudience(
-                                description = '', 
-                                id = '', )
-                            ], 
-                        tenant_audiences = [
-                            openapi_client.models.azure_audience.AzureAudience(
-                                description = '', 
-                                id = '', )
-                            ], 
-                        trial = openapi_client.models.azure_product_variant_trial.AzureProductVariantTrial(
-                            duration = 56, 
-                            duration_type = 'Minute', 
-                            type = 'NoTrial', ), 
-                        visibility = 'Public', )
+                    {"markets":[{"marketCode":"marketCode","friendlyName":"friendlyName"},{"marketCode":"marketCode","friendlyName":"friendlyName"}],"visibility":"Public","priceSchedules":[{"isBaseSchedule":true,"schedules":[{"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}},{"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}}],"dateTimeRange":{"endAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true},"startAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true}},"marketCodes":["marketCodes","marketCodes"],"friendlyName":"friendlyName"},{"isBaseSchedule":true,"schedules":[{"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}},{"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}}],"dateTimeRange":{"endAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true},"startAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true}},"marketCodes":["marketCodes","marketCodes"],"friendlyName":"friendlyName"}],"customMeters":[{"unitOfMeasure":"unitOfMeasure","displayName":"displayName","includedBaseQuantities":[{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"},{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}],"isEnabled":true,"priceInUsd":5.025004791520295,"id":"id","uniqueID":"uniqueID"},{"unitOfMeasure":"unitOfMeasure","displayName":"displayName","includedBaseQuantities":[{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"},{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}],"isEnabled":true,"priceInUsd":5.025004791520295,"id":"id","uniqueID":"uniqueID"}],"marketStates":[{"marketCode":"marketCode","state":"Disabled"},{"marketCode":"marketCode","state":"Disabled"}],"tenantAudiences":[{"description":"description","id":"id"},{"description":"description","id":"id"}],"subscriptionAudiences":[{"description":"description","id":"id"},{"description":"description","id":"id"}],"id":"id","properties":[{"type":"type","value":"value"},{"type":"type","value":"value"}],"trial":{"duration":9,"dateTimeRange":{"endAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true},"startAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true}},"type":"NoTrial","durationType":"Minute"},"isHidden":true,"resourceType":"resourceType"}
                     ],
                 friendly_name = '',
                 id = '',

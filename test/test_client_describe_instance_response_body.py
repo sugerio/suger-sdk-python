@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.client_describe_instance_response_body import ClientDescribeInstanceResponseBody  # noqa: E501
+from suger_sdk_python.models.client_describe_instance_response_body import ClientDescribeInstanceResponseBody
 
 class TestClientDescribeInstanceResponseBody(unittest.TestCase):
     """ClientDescribeInstanceResponseBody unit test stubs"""
@@ -29,12 +28,12 @@ class TestClientDescribeInstanceResponseBody(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ClientDescribeInstanceResponseBody:
         """Test ClientDescribeInstanceResponseBody
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ClientDescribeInstanceResponseBody`
         """
-        model = ClientDescribeInstanceResponseBody()  # noqa: E501
+        model = ClientDescribeInstanceResponseBody()
         if include_optional:
             return ClientDescribeInstanceResponseBody(
                 app_json = '',
@@ -48,39 +47,13 @@ class TestClientDescribeInstanceResponseBody(unittest.TestCase):
                 host_json = '',
                 instance_id = 56,
                 is_trial = True,
-                modules = openapi_client.models.client/describe_instance_response_body_modules.client.DescribeInstanceResponseBodyModules(
-                    module = [
-                        openapi_client.models.client/describe_instance_response_body_modules_module.client.DescribeInstanceResponseBodyModulesModule(
-                            code = '', 
-                            id = '', 
-                            name = '', 
-                            properties = openapi_client.models.client/describe_instance_response_body_modules_module_properties.client.DescribeInstanceResponseBodyModulesModuleProperties(
-                                property = [
-                                    openapi_client.models.client/describe_instance_response_body_modules_module_properties_property.client.DescribeInstanceResponseBodyModulesModulePropertiesProperty(
-                                        display_unit = '', 
-                                        key = '', 
-                                        name = '', 
-                                        property_values = openapi_client.models.client/describe_instance_response_body_modules_module_properties_property_property_values.client.DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues(
-                                            property_value = [
-                                                openapi_client.models.client/describe_instance_response_body_modules_module_properties_property_property_values_property_value.client.DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue(
-                                                    display_name = '', 
-                                                    max = '', 
-                                                    min = '', 
-                                                    remark = '', 
-                                                    step = '', 
-                                                    type = '', 
-                                                    value = '', )
-                                                ], ), 
-                                        show_type = '', )
-                                    ], ), )
-                        ], ),
+                modules = {"Module":[{"Id":"Id","Properties":{"Property":[{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"},{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"}]},"Code":"Code","Name":"Name"},{"Id":"Id","Properties":{"Property":[{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"},{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"}]},"Code":"Code","Name":"Name"}]},
                 order_id = 56,
                 product_code = '',
                 product_name = '',
                 product_sku_code = '',
                 product_type = '',
-                relational_data = openapi_client.models.client/describe_instance_response_body_relational_data.client.DescribeInstanceResponseBodyRelationalData(
-                    service_status = '', ),
+                relational_data = {"ServiceStatus":"ServiceStatus"},
                 status = '',
                 supplier_name = ''
             )

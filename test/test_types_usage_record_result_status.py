@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.types_usage_record_result_status import TypesUsageRecordResultStatus  # noqa: E501
+from suger_sdk_python.models.types_usage_record_result_status import TypesUsageRecordResultStatus
 
 class TestTypesUsageRecordResultStatus(unittest.TestCase):
     """TypesUsageRecordResultStatus unit test stubs"""

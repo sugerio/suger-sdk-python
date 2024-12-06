@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_batch_event_ok_message import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage  # noqa: E501
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_batch_event_ok_message import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage
 
 class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage(unittest.TestCase):
     """GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage unit test stubs"""
@@ -29,19 +28,19 @@ class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBa
 
     def make_instance(self, include_optional) -> GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage:
         """Test GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage`
         """
-        model = GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage()  # noqa: E501
+        model = GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage()
         if include_optional:
             return GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage(
                 dimension = '',
                 effective_start_time = '',
-                error = openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/usage_event_conflict_response.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.UsageEventConflictResponse(
-                    additional_info = openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/usage_event_conflict_response_additional_info.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.UsageEventConflictResponseAdditionalInfo(
-                        accepted_message = openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/usage_event_ok_response.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.UsageEventOkResponse(
+                error = suger_sdk_python.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/usage_event_conflict_response.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.UsageEventConflictResponse(
+                    additional_info = suger_sdk_python.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/usage_event_conflict_response_additional_info.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.UsageEventConflictResponseAdditionalInfo(
+                        accepted_message = suger_sdk_python.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/usage_event_ok_response.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.UsageEventOkResponse(
                             dimension = '', 
                             effective_start_time = '', 
                             message_time = '', 
@@ -49,7 +48,7 @@ class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBa
                             quantity = 1.337, 
                             resource_id = '', 
                             resource_uri = '', 
-                            status = openapi_client.models.status.status(), 
+                            status = suger_sdk_python.models.status.status(), 
                             usage_event_id = '', ), ), 
                     code = '', 
                     message = '', ),

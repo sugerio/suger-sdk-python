@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.private_offer_discount_type import PrivateOfferDiscountType  # noqa: E501
+from suger_sdk_python.models.private_offer_discount_type import PrivateOfferDiscountType
 
 class TestPrivateOfferDiscountType(unittest.TestCase):
     """PrivateOfferDiscountType unit test stubs"""

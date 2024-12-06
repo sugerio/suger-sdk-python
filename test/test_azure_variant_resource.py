@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_variant_resource import AzureVariantResource  # noqa: E501
+from suger_sdk_python.models.azure_variant_resource import AzureVariantResource
 
 class TestAzureVariantResource(unittest.TestCase):
     """AzureVariantResource unit test stubs"""
@@ -29,18 +28,16 @@ class TestAzureVariantResource(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureVariantResource:
         """Test AzureVariantResource
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureVariantResource`
         """
-        model = AzureVariantResource()  # noqa: E501
+        model = AzureVariantResource()
         if include_optional:
             return AzureVariantResource(
                 resources = [
-                    openapi_client.models.azure_type_value.AzureTypeValue(
-                        type = '', 
-                        value = '', )
+                    {"type":"type","value":"value"}
                     ],
                 variant_id = ''
             )

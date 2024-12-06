@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **var_schema** | **str** |  | [optional] 
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | [optional] 
 **kind** | **str** |  | [optional] 
 **language_id** | **str** |  | [optional] 
-**lifecycle_state** | [**AzureMarketplaceResourceLifecycleState**](AzureMarketplaceResourceLifecycleState.md) |  | [optional] 
+**lifecycle_state** | [**AzureMarketplaceResourceLifecycleState**](AzureMarketplaceResourceLifecycleState.md) | Default value is \&quot;generallyAvailable\&quot;. | [optional] 
 **privacy_policy_link** | **str** |  | [optional] 
 **product** | **str** | Product resource name, in format of \&quot;product/product-durable-id\&quot; | [optional] 
 **resource_name** | **str** |  | [optional] 
@@ -30,19 +31,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.azure_marketplace_listing import AzureMarketplaceListing
+from suger_sdk_python.models.azure_marketplace_listing import AzureMarketplaceListing
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of AzureMarketplaceListing from a JSON string
 azure_marketplace_listing_instance = AzureMarketplaceListing.from_json(json)
 # print the JSON string representation of the object
-print AzureMarketplaceListing.to_json()
+print(AzureMarketplaceListing.to_json())
 
 # convert the object into a dict
 azure_marketplace_listing_dict = azure_marketplace_listing_instance.to_dict()
 # create an instance of AzureMarketplaceListing from a dict
-azure_marketplace_listing_form_dict = azure_marketplace_listing.from_dict(azure_marketplace_listing_dict)
+azure_marketplace_listing_from_dict = AzureMarketplaceListing.from_dict(azure_marketplace_listing_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

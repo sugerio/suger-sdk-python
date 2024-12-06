@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_custom_meter_price import AzureMarketplacePriceAndAvailabilityCustomMeterPrice  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_price_and_availability_custom_meter_price import AzureMarketplacePriceAndAvailabilityCustomMeterPrice
 
 class TestAzureMarketplacePriceAndAvailabilityCustomMeterPrice(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilityCustomMeterPrice unit test stubs"""
@@ -29,32 +28,16 @@ class TestAzureMarketplacePriceAndAvailabilityCustomMeterPrice(unittest.TestCase
 
     def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilityCustomMeterPrice:
         """Test AzureMarketplacePriceAndAvailabilityCustomMeterPrice
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilityCustomMeterPrice`
         """
-        model = AzureMarketplacePriceAndAvailabilityCustomMeterPrice()  # noqa: E501
+        model = AzureMarketplacePriceAndAvailabilityCustomMeterPrice()
         if include_optional:
             return AzureMarketplacePriceAndAvailabilityCustomMeterPrice(
                 meters = {
-                    'key' : openapi_client.models.azure_marketplace_price_and_availability_custom_meter_price_meter_item.AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItem(
-                        billing_term = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                            type = 'day', 
-                            value = 1.337, ), 
-                        included_quantities = [
-                            openapi_client.models.azure_marketplace_price_and_availability_custom_meter_price_included_quantity_item.AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem(
-                                is_infinite = True, 
-                                quantity = 1.337, )
-                            ], 
-                        payment_option = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                            type = 'day', 
-                            value = 1.337, ), 
-                        price_per_payment_in_usd = 1.337, 
-                        prices = [
-                            openapi_client.models.azure_marketplace_price_and_availability_custom_meter_price_meter_item_price_item.AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem(
-                                price_per_payment_in_usd = 1.337, )
-                            ], )
+                    'key' : {"pricePerPaymentInUsd":6.778324963048013,"includedQuantities":[{"quantity":2.8841621266687802,"isInfinite":true,"billingTerm":{"type":"day","value":7.386281948385884}},{"quantity":2.8841621266687802,"isInfinite":true,"billingTerm":{"type":"day","value":7.386281948385884}}],"billingTerm":{"type":"day","value":7.386281948385884},"paymentOption":{"type":"day","value":7.386281948385884},"prices":[{"pricePerPaymentInUsd":6.878052220127876,"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]},{"pricePerPaymentInUsd":6.878052220127876,"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]}]}
                     },
                 price_input_option = 'perMarket'
             )

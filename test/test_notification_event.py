@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.notification_event import NotificationEvent  # noqa: E501
+from suger_sdk_python.models.notification_event import NotificationEvent
 
 class TestNotificationEvent(unittest.TestCase):
     """NotificationEvent unit test stubs"""
@@ -29,37 +28,51 @@ class TestNotificationEvent(unittest.TestCase):
 
     def make_instance(self, include_optional) -> NotificationEvent:
         """Test NotificationEvent
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `NotificationEvent`
         """
-        model = NotificationEvent()  # noqa: E501
+        model = NotificationEvent()
         if include_optional:
             return NotificationEvent(
-                action = 'ACCEPT',
+                action = '',
                 cc_contact_ids = [
+                    ''
+                    ],
+                channels = [
+                    'EMAIL'
+                    ],
+                contact_emails = [
                     ''
                     ],
                 contact_ids = [
                     ''
                     ],
+                created_by = suger_sdk_python.models.last_modified_by.LastModifiedBy(
+                    email = '', 
+                    entity_id = '', 
+                    entity_type = suger_sdk_python.models.entity_type.entityType(), 
+                    name = '', ),
+                custom_fields = { },
                 entity_id = '',
+                entity_name = '',
                 entity_status = '',
-                entity_type = 'ORGANIZATION',
+                entity_type = '',
                 event_id = '',
                 event_status = '',
+                info = None,
+                is_action_item = True,
                 last_update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 message = '',
                 organization_id = '',
                 partner = '',
+                priority = '',
+                require_audit = True,
                 timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 title = '',
                 track_events = [
-                    openapi_client.models.track_event.TrackEvent(
-                        action = 'OPEN_EMAIL', 
-                        contact_id = '', 
-                        timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    {"contactId":"contactId","action":"OPEN_EMAIL","timestamp":"2000-01-23T04:56:07.000+00:00"}
                     ]
             )
         else:

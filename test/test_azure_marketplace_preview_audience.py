@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_preview_audience import AzureMarketplacePreviewAudience  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_preview_audience import AzureMarketplacePreviewAudience
 
 class TestAzureMarketplacePreviewAudience(unittest.TestCase):
     """AzureMarketplacePreviewAudience unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplacePreviewAudience(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePreviewAudience:
         """Test AzureMarketplacePreviewAudience
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePreviewAudience`
         """
-        model = AzureMarketplacePreviewAudience()  # noqa: E501
+        model = AzureMarketplacePreviewAudience()
         if include_optional:
             return AzureMarketplacePreviewAudience(
                 description = '',

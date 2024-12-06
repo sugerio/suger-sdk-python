@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_product_variant_custom_meter import AzureProductVariantCustomMeter  # noqa: E501
+from suger_sdk_python.models.azure_product_variant_custom_meter import AzureProductVariantCustomMeter
 
 class TestAzureProductVariantCustomMeter(unittest.TestCase):
     """AzureProductVariantCustomMeter unit test stubs"""
@@ -29,21 +28,18 @@ class TestAzureProductVariantCustomMeter(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureProductVariantCustomMeter:
         """Test AzureProductVariantCustomMeter
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureProductVariantCustomMeter`
         """
-        model = AzureProductVariantCustomMeter()  # noqa: E501
+        model = AzureProductVariantCustomMeter()
         if include_optional:
             return AzureProductVariantCustomMeter(
                 display_name = '',
                 id = '',
                 included_base_quantities = [
-                    openapi_client.models.azure_included_base_quantity.AzureIncludedBaseQuantity(
-                        is_infinite = True, 
-                        quantity = 1.337, 
-                        recurring_unit = 'Monthly', )
+                    {"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}
                     ],
                 is_enabled = True,
                 price_in_usd = 1.337,

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_market import AzureMarket  # noqa: E501
+from suger_sdk_python.models.azure_market import AzureMarket
 
 class TestAzureMarket(unittest.TestCase):
     """AzureMarket unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarket(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarket:
         """Test AzureMarket
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarket`
         """
-        model = AzureMarket()  # noqa: E501
+        model = AzureMarket()
         if include_optional:
             return AzureMarket(
                 friendly_name = '',

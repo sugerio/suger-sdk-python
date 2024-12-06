@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_ad_identifier import AzureADIdentifier  # noqa: E501
+from suger_sdk_python.models.azure_ad_identifier import AzureADIdentifier
 
 class TestAzureADIdentifier(unittest.TestCase):
     """AzureADIdentifier unit test stubs"""
@@ -29,24 +28,15 @@ class TestAzureADIdentifier(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureADIdentifier:
         """Test AzureADIdentifier
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureADIdentifier`
         """
-        model = AzureADIdentifier()  # noqa: E501
+        model = AzureADIdentifier()
         if include_optional:
             return AzureADIdentifier(
                 billing_account_id = '',
-                company_info = openapi_client.models.company_info.CompanyInfo(
-                    address_line1 = '', 
-                    address_line2 = '', 
-                    city = '', 
-                    country = '', 
-                    email_domain = '', 
-                    name = '', 
-                    postal_code = '', 
-                    state = '', ),
                 customer_id = '',
                 email_id = '',
                 first_name = '',

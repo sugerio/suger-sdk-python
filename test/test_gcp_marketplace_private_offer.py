@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_private_offer import GcpMarketplacePrivateOffer  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_private_offer import GcpMarketplacePrivateOffer
 
 class TestGcpMarketplacePrivateOffer(unittest.TestCase):
     """GcpMarketplacePrivateOffer unit test stubs"""
@@ -29,266 +28,157 @@ class TestGcpMarketplacePrivateOffer(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplacePrivateOffer:
         """Test GcpMarketplacePrivateOffer
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplacePrivateOffer`
         """
-        model = GcpMarketplacePrivateOffer()  # noqa: E501
+        model = GcpMarketplacePrivateOffer()
         if include_optional:
             return GcpMarketplacePrivateOffer(
-                active_entitlement = openapi_client.models.gcp_marketplace_entitlement.GcpMarketplaceEntitlement(
-                    account = '', 
-                    consumers = [
-                        openapi_client.models.gcp_marketplace_consumer.GcpMarketplaceConsumer(
-                            project = '', )
-                        ], 
-                    create_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    id = '', 
-                    input_properties = [
-                        56
-                        ], 
-                    message_to_user = '', 
-                    name = '', 
-                    new_offer_duration = '', 
-                    new_offer_end_time = '', 
-                    new_offer_start_time = '', 
-                    new_pending_offer = '', 
-                    new_pending_offer_duration = '', 
-                    new_pending_plan = '', 
-                    new_plan = '', 
-                    offer = '', 
-                    offer_duration = '', 
-                    offer_effective_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    offer_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    plan = '', 
-                    product = '', 
-                    product_external_name = '', 
-                    provider = '', 
-                    quote_external_name = '', 
-                    state = openapi_client.models.state.state(), 
-                    subscription_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    usage_reporting_id = '', ),
+                active_entitlement = {"newPendingOffer":"newPendingOffer","offerEffectiveTime":"2000-01-23T04:56:07.000+00:00","newPlan":"newPlan","offer":"offer","inputProperties":[9,9],"provider":"provider","offerEndTime":"2000-01-23T04:56:07.000+00:00","offerDuration":"offerDuration","consumers":[{"project":"project"},{"project":"project"}],"newOfferEndTime":"newOfferEndTime","subscriptionEndTime":"2000-01-23T04:56:07.000+00:00","id":"id","state":"{}","usageReportingId":"usageReportingId","plan":"plan","messageToUser":"messageToUser","product":"product","updateTime":"2000-01-23T04:56:07.000+00:00","newOfferDuration":"newOfferDuration","quoteExternalName":"quoteExternalName","createTime":"2000-01-23T04:56:07.000+00:00","newPendingPlan":"newPendingPlan","name":"name","newPendingOfferDuration":"newPendingOfferDuration","account":"account","productExternalName":"productExternalName","newOfferStartTime":"newOfferStartTime"},
                 agency_enabled = True,
                 agreement = '',
                 cancel_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                custom_eula = openapi_client.models.gcp_marketplace_document.GcpMarketplaceDocument(
-                    description = '', 
-                    document_type = '', 
-                    external_google_link = openapi_client.models.external_google_link.externalGoogleLink(), 
-                    name = '', 
-                    unstructured_document = openapi_client.models.gcp_marketplace_unstructured_document.GcpMarketplaceUnstructuredDocument(
-                        content = '', ), 
-                    update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ),
-                customer_info = openapi_client.models.gcp_marketplace_private_offer_customer_info.GcpMarketplacePrivateOfferCustomerInfo(
+                custom_eula = {"documentBody":"documentBody","documentType":"documentType","unstructuredDocument":{"content":"content"},"name":"name","description":"description","updateTime":"2000-01-23T04:56:07.000+00:00","externalGoogleLink":"{}"},
+                customer_info = suger_sdk_python.models.gcp_marketplace_private_offer_customer_info.GcpMarketplacePrivateOfferCustomerInfo(
                     address = '', 
                     contact = '', 
                     email = '', 
                     organization = '', 
                     unverified_billing_account = '', ),
-                eula_agreement_document = openapi_client.models.gcp_marketplace_document.GcpMarketplaceDocument(
-                    description = '', 
-                    document_type = '', 
-                    external_google_link = openapi_client.models.external_google_link.externalGoogleLink(), 
-                    name = '', 
-                    unstructured_document = openapi_client.models.gcp_marketplace_unstructured_document.GcpMarketplaceUnstructuredDocument(
-                        content = '', ), 
-                    update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ),
-                existing_offer_data = openapi_client.models.gcp_marketplace_existing_offer_data.GcpMarketplaceExistingOfferData(
-                    entitlement = openapi_client.models.gcp_marketplace_entitlement.GcpMarketplaceEntitlement(
-                        account = '', 
-                        consumers = [
-                            openapi_client.models.gcp_marketplace_consumer.GcpMarketplaceConsumer(
-                                project = '', )
-                            ], 
-                        create_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        id = '', 
-                        input_properties = [
-                            56
-                            ], 
-                        message_to_user = '', 
-                        name = '', 
-                        new_offer_duration = '', 
-                        new_offer_end_time = '', 
-                        new_offer_start_time = '', 
-                        new_pending_offer = '', 
-                        new_pending_offer_duration = '', 
-                        new_pending_plan = '', 
-                        new_plan = '', 
-                        offer = '', 
-                        offer_duration = '', 
-                        offer_effective_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        offer_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        plan = '', 
-                        product = '', 
-                        product_external_name = '', 
-                        provider = '', 
-                        quote_external_name = '', 
-                        state = openapi_client.models.state.state(), 
-                        subscription_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        usage_reporting_id = '', ), 
+                eula_agreement_document = {"documentBody":"documentBody","documentType":"documentType","unstructuredDocument":{"content":"content"},"name":"name","description":"description","updateTime":"2000-01-23T04:56:07.000+00:00","externalGoogleLink":"{}"},
+                existing_offer_data = suger_sdk_python.models.gcp_marketplace_existing_offer_data.GcpMarketplaceExistingOfferData(
+                    entitlement = {"newPendingOffer":"newPendingOffer","offerEffectiveTime":"2000-01-23T04:56:07.000+00:00","newPlan":"newPlan","offer":"offer","inputProperties":[9,9],"provider":"provider","offerEndTime":"2000-01-23T04:56:07.000+00:00","offerDuration":"offerDuration","consumers":[{"project":"project"},{"project":"project"}],"newOfferEndTime":"newOfferEndTime","subscriptionEndTime":"2000-01-23T04:56:07.000+00:00","id":"id","state":"{}","usageReportingId":"usageReportingId","plan":"plan","messageToUser":"messageToUser","product":"product","updateTime":"2000-01-23T04:56:07.000+00:00","newOfferDuration":"newOfferDuration","quoteExternalName":"quoteExternalName","createTime":"2000-01-23T04:56:07.000+00:00","newPendingPlan":"newPendingPlan","name":"name","newPendingOfferDuration":"newPendingOfferDuration","account":"account","productExternalName":"productExternalName","newOfferStartTime":"newOfferStartTime"}, 
                     existing_price_model_type = '', 
                     has_entitlement_changed = True, 
-                    private_offer = openapi_client.models.gcp_marketplace_existing_private_offer.GcpMarketplaceExistingPrivateOffer(
+                    private_offer = suger_sdk_python.models.gcp_marketplace_existing_private_offer.GcpMarketplaceExistingPrivateOffer(
                         agreement = '', 
-                        custom_eula = openapi_client.models.gcp_marketplace_document.GcpMarketplaceDocument(
-                            description = '', 
-                            document_type = '', 
-                            external_google_link = openapi_client.models.external_google_link.externalGoogleLink(), 
-                            name = '', 
-                            unstructured_document = openapi_client.models.gcp_marketplace_unstructured_document.GcpMarketplaceUnstructuredDocument(
-                                content = '', ), 
-                            update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
-                        installment_timeline = openapi_client.models.gcp_marketplace_private_offer_installment_timeline.GcpMarketplacePrivateOfferInstallmentTimeline(
+                        custom_eula = {"documentBody":"documentBody","documentType":"documentType","unstructuredDocument":{"content":"content"},"name":"name","description":"description","updateTime":"2000-01-23T04:56:07.000+00:00","externalGoogleLink":"{}"}, 
+                        installment_timeline = suger_sdk_python.models.gcp_marketplace_private_offer_installment_timeline.GcpMarketplacePrivateOfferInstallmentTimeline(
                             installments = [
-                                openapi_client.models.gcp_marketplace_private_offer_installment.GcpMarketplacePrivateOfferInstallment(
-                                    price_model = openapi_client.models.gcp_marketplace_private_offer_price_model.GcpMarketplacePrivateOfferPriceModel(
+                                suger_sdk_python.models.gcp_marketplace_private_offer_installment.GcpMarketplacePrivateOfferInstallment(
+                                    price_model = suger_sdk_python.models.gcp_marketplace_private_offer_price_model.GcpMarketplacePrivateOfferPriceModel(
                                         base_offer = '', 
-                                        commitment = openapi_client.models.gcp_marketplace_private_offer_price_model_commitment.GcpMarketplacePrivateOfferPriceModelCommitment(
-                                            commitment_amount_per_period = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                                currency_code = '', 
-                                                nanos = 56, 
-                                                units = '', ), 
-                                            discount = openapi_client.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
-                                                discount_percentage = openapi_client.models.discount_percentage.discountPercentage(), 
-                                                discounted_price = openapi_client.models.discounted_price.discountedPrice(), ), 
-                                            period = openapi_client.models.gcp_period_duration.GcpPeriodDuration(
-                                                count = 56, 
-                                                unit = 'MONTHLY_PERIOD', ), ), 
-                                        fixed_price = openapi_client.models.gcp_marketplace_private_offer_price_model_fixed.GcpMarketplacePrivateOfferPriceModelFixed(), 
-                                        one_time_credit = openapi_client.models.one_time_credit.oneTimeCredit(), 
-                                        overage = openapi_client.models.gcp_marketplace_private_offer_price_model_overage.GcpMarketplacePrivateOfferPriceModelOverage(
+                                        commitment = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_commitment.GcpMarketplacePrivateOfferPriceModelCommitment(
+                                            commitment_amount_per_period = {"nanos":1,"units":"units","currencyCode":"currencyCode"}, 
+                                            discount = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
+                                                discount_percentage = suger_sdk_python.models.discount_percentage.discountPercentage(), 
+                                                discounted_price = suger_sdk_python.models.discounted_price.discountedPrice(), ), 
+                                            period = {"unit":"MONTHLY_PERIOD","count":4}, ), 
+                                        fixed_price = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_fixed.GcpMarketplacePrivateOfferPriceModelFixed(), 
+                                        one_time_credit = suger_sdk_python.models.one_time_credit.oneTimeCredit(), 
+                                        overage = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_overage.GcpMarketplacePrivateOfferPriceModelOverage(
                                             sku_discounts = [
                                                 None
                                                 ], ), 
-                                        payg = openapi_client.models.payg.payg(), 
+                                        payg = suger_sdk_python.models.payg.payg(), 
                                         previous_credit_balance_policy = '', ), 
                                     start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                                 ], ), 
                         name = '', 
-                        offer_term = openapi_client.models.gcp_marketplace_private_offer_term.GcpMarketplacePrivateOfferTerm(
+                        offer_term = suger_sdk_python.models.gcp_marketplace_private_offer_term.GcpMarketplacePrivateOfferTerm(
                             enable_scheduled_start_times = True, 
                             end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                             start_policy = '', 
                             start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            term_duration = openapi_client.models.gcp_period_duration.GcpPeriodDuration(
-                                count = 56, ), ), 
+                            term_duration = {"unit":"MONTHLY_PERIOD","count":4}, ), 
                         payment_schedule = '', 
-                        price_model = openapi_client.models.price_model.priceModel(), 
+                        price_model = suger_sdk_python.models.price_model.priceModel(), 
                         service_level = '', ), 
-                    standard_offer = openapi_client.models.standard_offer.standardOffer(), ),
+                    standard_offer = suger_sdk_python.models.standard_offer.standardOffer(), ),
                 expire_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 features = [
-                    openapi_client.models.gcp_marketplace_product_feature_value.GcpMarketplaceProductFeatureValue(
-                        feature_description = '', 
-                        feature_name = '', 
-                        feature_title = '', 
-                        feature_value = '', )
+                    {"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"}
                     ],
-                installment_timeline = openapi_client.models.gcp_marketplace_private_offer_installment_timeline.GcpMarketplacePrivateOfferInstallmentTimeline(
+                installment_timeline = suger_sdk_python.models.gcp_marketplace_private_offer_installment_timeline.GcpMarketplacePrivateOfferInstallmentTimeline(
                     installments = [
-                        openapi_client.models.gcp_marketplace_private_offer_installment.GcpMarketplacePrivateOfferInstallment(
-                            price_model = openapi_client.models.gcp_marketplace_private_offer_price_model.GcpMarketplacePrivateOfferPriceModel(
+                        suger_sdk_python.models.gcp_marketplace_private_offer_installment.GcpMarketplacePrivateOfferInstallment(
+                            price_model = suger_sdk_python.models.gcp_marketplace_private_offer_price_model.GcpMarketplacePrivateOfferPriceModel(
                                 base_offer = '', 
-                                commitment = openapi_client.models.gcp_marketplace_private_offer_price_model_commitment.GcpMarketplacePrivateOfferPriceModelCommitment(
-                                    commitment_amount_per_period = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                        currency_code = '', 
-                                        nanos = 56, 
-                                        units = '', ), 
-                                    discount = openapi_client.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
-                                        discount_percentage = openapi_client.models.discount_percentage.discountPercentage(), 
-                                        discounted_price = openapi_client.models.discounted_price.discountedPrice(), ), 
-                                    period = openapi_client.models.gcp_period_duration.GcpPeriodDuration(
-                                        count = 56, 
-                                        unit = 'MONTHLY_PERIOD', ), ), 
-                                fixed_price = openapi_client.models.gcp_marketplace_private_offer_price_model_fixed.GcpMarketplacePrivateOfferPriceModelFixed(), 
-                                one_time_credit = openapi_client.models.one_time_credit.oneTimeCredit(), 
-                                overage = openapi_client.models.gcp_marketplace_private_offer_price_model_overage.GcpMarketplacePrivateOfferPriceModelOverage(
+                                commitment = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_commitment.GcpMarketplacePrivateOfferPriceModelCommitment(
+                                    commitment_amount_per_period = {"nanos":1,"units":"units","currencyCode":"currencyCode"}, 
+                                    discount = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
+                                        discount_percentage = suger_sdk_python.models.discount_percentage.discountPercentage(), 
+                                        discounted_price = suger_sdk_python.models.discounted_price.discountedPrice(), ), 
+                                    period = {"unit":"MONTHLY_PERIOD","count":4}, ), 
+                                fixed_price = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_fixed.GcpMarketplacePrivateOfferPriceModelFixed(), 
+                                one_time_credit = suger_sdk_python.models.one_time_credit.oneTimeCredit(), 
+                                overage = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_overage.GcpMarketplacePrivateOfferPriceModelOverage(
                                     sku_discounts = [
                                         None
                                         ], ), 
-                                payg = openapi_client.models.payg.payg(), 
+                                payg = suger_sdk_python.models.payg.payg(), 
                                 previous_credit_balance_policy = '', ), 
                             start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                         ], ),
                 lifecycle_state = '',
-                metric_information = openapi_client.models.gcp_marketplace_private_offer_metric_information.GcpMarketplacePrivateOfferMetricInformation(
+                metric_information = suger_sdk_python.models.gcp_marketplace_private_offer_metric_information.GcpMarketplacePrivateOfferMetricInformation(
                     metric_details = [
-                        openapi_client.models.gcp_marketplace_private_offer_metric_detail.GcpMarketplacePrivateOfferMetricDetail(
+                        suger_sdk_python.models.gcp_marketplace_private_offer_metric_detail.GcpMarketplacePrivateOfferMetricDetail(
                             display_name = '', 
                             parent_commerce_service = '', 
                             sku_id = '', 
                             tiers = [
-                                openapi_client.models.gcp_price_tier.GcpPriceTier(
-                                    from_amount = 1.337, 
-                                    price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                        currency_code = '', 
-                                        nanos = 56, 
-                                        units = '', ), 
-                                    starting_usage_amount = '', )
+                                {"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}
                                 ], 
                             unit_description = '', )
                         ], ),
-                migration_metadata = openapi_client.models.gcp_marketplace_private_offer_migration_metadata.GcpMarketplacePrivateOfferMigrationMetadata(
+                migration_metadata = suger_sdk_python.models.gcp_marketplace_private_offer_migration_metadata.GcpMarketplacePrivateOfferMigrationMetadata(
                     inventory_flavor_external_name = '', 
                     product_external_name = '', 
+                    project_number = '', 
                     provider_id = '', ),
                 name = '',
                 offer_id = '',
-                offer_source = '',
-                offer_state = 'OFFER_PUBLISHED',
-                offer_term = openapi_client.models.gcp_marketplace_private_offer_term.GcpMarketplacePrivateOfferTerm(
+                offer_source = 'OFFER',
+                offer_state = 'OFFER_ACTIVE',
+                offer_term = suger_sdk_python.models.gcp_marketplace_private_offer_term.GcpMarketplacePrivateOfferTerm(
                     enable_scheduled_start_times = True, 
                     end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     start_policy = '', 
                     start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    term_duration = openapi_client.models.gcp_period_duration.GcpPeriodDuration(
-                        count = 56, 
-                        unit = 'MONTHLY_PERIOD', ), ),
+                    term_duration = {"unit":"MONTHLY_PERIOD","count":4}, ),
+                offer_title = '',
+                offer_title_auto_generated = True,
                 payment_schedule = '',
                 policies = {
                     'key' : ''
                     },
-                price_model = openapi_client.models.gcp_marketplace_private_offer_price_model.GcpMarketplacePrivateOfferPriceModel(
+                price_model = suger_sdk_python.models.gcp_marketplace_private_offer_price_model.GcpMarketplacePrivateOfferPriceModel(
                     base_offer = '', 
-                    commitment = openapi_client.models.gcp_marketplace_private_offer_price_model_commitment.GcpMarketplacePrivateOfferPriceModelCommitment(
-                        commitment_amount_per_period = openapi_client.models.gcp_price_value.GcpPriceValue(
-                            currency_code = '', 
-                            nanos = 56, 
-                            units = '', ), 
-                        discount = openapi_client.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
-                            discount_percentage = openapi_client.models.discount_percentage.discountPercentage(), 
-                            discounted_price = openapi_client.models.discounted_price.discountedPrice(), ), 
-                        period = openapi_client.models.gcp_period_duration.GcpPeriodDuration(
-                            count = 56, 
-                            unit = 'MONTHLY_PERIOD', ), ), 
-                    fixed_price = openapi_client.models.gcp_marketplace_private_offer_price_model_fixed.GcpMarketplacePrivateOfferPriceModelFixed(), 
-                    one_time_credit = openapi_client.models.one_time_credit.oneTimeCredit(), 
-                    overage = openapi_client.models.gcp_marketplace_private_offer_price_model_overage.GcpMarketplacePrivateOfferPriceModelOverage(
+                    commitment = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_commitment.GcpMarketplacePrivateOfferPriceModelCommitment(
+                        commitment_amount_per_period = {"nanos":1,"units":"units","currencyCode":"currencyCode"}, 
+                        discount = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
+                            discount_percentage = suger_sdk_python.models.discount_percentage.discountPercentage(), 
+                            discounted_price = suger_sdk_python.models.discounted_price.discountedPrice(), ), 
+                        period = {"unit":"MONTHLY_PERIOD","count":4}, ), 
+                    fixed_price = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_fixed.GcpMarketplacePrivateOfferPriceModelFixed(), 
+                    one_time_credit = suger_sdk_python.models.one_time_credit.oneTimeCredit(), 
+                    overage = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_overage.GcpMarketplacePrivateOfferPriceModelOverage(
                         sku_discounts = [
                             None
                             ], ), 
-                    payg = openapi_client.models.payg.payg(), 
+                    payg = suger_sdk_python.models.payg.payg(), 
                     previous_credit_balance_policy = '', ),
                 price_model_type = '',
                 provider_cancellation_internal_note = '',
-                provider_info = openapi_client.models.gcp_marketplace_private_offer_provider_info.GcpMarketplacePrivateOfferProviderInfo(
+                provider_info = suger_sdk_python.models.gcp_marketplace_private_offer_provider_info.GcpMarketplacePrivateOfferProviderInfo(
                     creator_email_address = '', 
                     sales_contact_email = '', 
                     sales_contact_name = '', ),
                 provider_internal_note = '',
                 provider_public_note = '',
-                purchase_channel = openapi_client.models.gcp_marketplace_purchase_channel.GcpMarketplacePurchaseChannel(
+                purchase_channel = suger_sdk_python.models.gcp_marketplace_purchase_channel.GcpMarketplacePurchaseChannel(
                     marketplace = True, 
                     reseller = True, ),
                 purchase_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                replacement_metadata = openapi_client.models.gcp_marketplace_private_offer_replacement_metadata.GcpMarketplacePrivateOfferReplacementMetadata(
+                replacement_metadata = suger_sdk_python.models.gcp_marketplace_private_offer_replacement_metadata.GcpMarketplacePrivateOfferReplacementMetadata(
                     coterm_alignment = '', 
                     replaced_offer = '', 
                     replaced_offer_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     replacement_policy = '', ),
+                reseller_info = {"billingAccountOrgDisplayName":"billingAccountOrgDisplayName","notesToReseller":"notesToReseller","billingAccountId":"billingAccountId","billingAccountType":"billingAccountType","billingAccountNickname":"billingAccountNickname"},
                 service_level = '',
                 update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 use_legacy_partner_eula = True,

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.servicecontrol_report_response import ServicecontrolReportResponse  # noqa: E501
+from suger_sdk_python.models.servicecontrol_report_response import ServicecontrolReportResponse
 
 class TestServicecontrolReportResponse(unittest.TestCase):
     """ServicecontrolReportResponse unit test stubs"""
@@ -29,18 +28,18 @@ class TestServicecontrolReportResponse(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ServicecontrolReportResponse:
         """Test ServicecontrolReportResponse
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ServicecontrolReportResponse`
         """
-        model = ServicecontrolReportResponse()  # noqa: E501
+        model = ServicecontrolReportResponse()
         if include_optional:
             return ServicecontrolReportResponse(
                 report_errors = [
-                    openapi_client.models.servicecontrol/report_error.servicecontrol.ReportError(
+                    suger_sdk_python.models.servicecontrol/report_error.servicecontrol.ReportError(
                         operation_id = '', 
-                        status = openapi_client.models.status.status(), )
+                        status = suger_sdk_python.models.status.status(), )
                     ],
                 service_config_id = '',
                 service_rollout_id = ''

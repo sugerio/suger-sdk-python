@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **azure_government_certifications** | [**List[AzureGovernmentCertification]**](AzureGovernmentCertification.md) |  | [optional] 
@@ -20,19 +21,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.azure_product_variant import AzureProductVariant
+from suger_sdk_python.models.azure_product_variant import AzureProductVariant
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of AzureProductVariant from a JSON string
 azure_product_variant_instance = AzureProductVariant.from_json(json)
 # print the JSON string representation of the object
-print AzureProductVariant.to_json()
+print(AzureProductVariant.to_json())
 
 # convert the object into a dict
 azure_product_variant_dict = azure_product_variant_instance.to_dict()
 # create an instance of AzureProductVariant from a dict
-azure_product_variant_form_dict = azure_product_variant.from_dict(azure_product_variant_dict)
+azure_product_variant_from_dict = AzureProductVariant.from_dict(azure_product_variant_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

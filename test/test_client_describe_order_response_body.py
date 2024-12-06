@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.client_describe_order_response_body import ClientDescribeOrderResponseBody  # noqa: E501
+from suger_sdk_python.models.client_describe_order_response_body import ClientDescribeOrderResponseBody
 
 class TestClientDescribeOrderResponseBody(unittest.TestCase):
     """ClientDescribeOrderResponseBody unit test stubs"""
@@ -29,12 +28,12 @@ class TestClientDescribeOrderResponseBody(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ClientDescribeOrderResponseBody:
         """Test ClientDescribeOrderResponseBody
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ClientDescribeOrderResponseBody`
         """
-        model = ClientDescribeOrderResponseBody()  # noqa: E501
+        model = ClientDescribeOrderResponseBody()
         if include_optional:
             return ClientDescribeOrderResponseBody(
                 account_quantity = 56,
@@ -42,10 +41,7 @@ class TestClientDescribeOrderResponseBody(unittest.TestCase):
                 components = { },
                 coupon_price = 1.337,
                 created_on = 56,
-                instance_ids = openapi_client.models.client/describe_order_response_body_instance_ids.client.DescribeOrderResponseBodyInstanceIds(
-                    instance_id = [
-                        ''
-                        ], ),
+                instance_ids = {"InstanceId":["InstanceId","InstanceId"]},
                 order_id = 56,
                 order_status = '',
                 order_type = '',
@@ -60,10 +56,7 @@ class TestClientDescribeOrderResponseBody(unittest.TestCase):
                 quantity = 56,
                 request_id = '',
                 supplier_company_name = '',
-                supplier_telephones = openapi_client.models.client/describe_order_response_body_supplier_telephones.client.DescribeOrderResponseBodySupplierTelephones(
-                    telephone = [
-                        ''
-                        ], ),
+                supplier_telephones = {"Telephone":["Telephone","Telephone"]},
                 total_price = 1.337
             )
         else:

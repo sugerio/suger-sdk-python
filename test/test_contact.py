@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.contact import Contact  # noqa: E501
+from suger_sdk_python.models.contact import Contact
 
 class TestContact(unittest.TestCase):
     """Contact unit test stubs"""
@@ -29,12 +28,12 @@ class TestContact(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Contact:
         """Test Contact
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Contact`
         """
-        model = Contact()  # noqa: E501
+        model = Contact()
         if include_optional:
             return Contact(
                 company = '',

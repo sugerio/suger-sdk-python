@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_identity_api_client import GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient  # noqa: E501
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_rds_db_lib_identity_api_client import GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient
 
 class TestGithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient(unittest.TestCase):
     """GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient unit test stubs"""
@@ -29,18 +28,20 @@ class TestGithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient(unittest.T
 
     def make_instance(self, include_optional) -> GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient:
         """Test GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient`
         """
-        model = GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient()  # noqa: E501
+        model = GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient()
         if include_optional:
             return GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient(
                 api_key_hash = '',
                 creation_time = '',
                 id = '',
-                info = '',
+                info = [
+                    56
+                    ],
                 last_update_time = '',
                 organization_id = '',
                 provider = '',

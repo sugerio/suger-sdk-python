@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **int** | Code: The status code, which should be an enum value of google.rpc.Code. | [optional] 
@@ -11,19 +12,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.servicecontrol_status import ServicecontrolStatus
+from suger_sdk_python.models.servicecontrol_status import ServicecontrolStatus
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of ServicecontrolStatus from a JSON string
 servicecontrol_status_instance = ServicecontrolStatus.from_json(json)
 # print the JSON string representation of the object
-print ServicecontrolStatus.to_json()
+print(ServicecontrolStatus.to_json())
 
 # convert the object into a dict
 servicecontrol_status_dict = servicecontrol_status_instance.to_dict()
 # create an instance of ServicecontrolStatus from a dict
-servicecontrol_status_form_dict = servicecontrol_status.from_dict(servicecontrol_status_dict)
+servicecontrol_status_from_dict = ServicecontrolStatus.from_dict(servicecontrol_status_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

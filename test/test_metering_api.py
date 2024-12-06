@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_client.api.metering_api import MeteringApi  # noqa: E501
+from suger_sdk_python.api.metering_api import MeteringApi
 
 
 class TestMeteringApi(unittest.TestCase):
     """MeteringApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = MeteringApi()  # noqa: E501
+        self.api = MeteringApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,84 +30,91 @@ class TestMeteringApi(unittest.TestCase):
     def test_batch_report_usage_record_groups(self) -> None:
         """Test case for batch_report_usage_record_groups
 
-        batch report usageRecordGroups  # noqa: E501
+        batch report usageRecordGroups
         """
         pass
 
     def test_batch_validate_usage_record_groups(self) -> None:
         """Test case for batch_validate_usage_record_groups
 
-        batch validate usageRecordGroups  # noqa: E501
+        batch validate usageRecordGroups
+        """
+        pass
+
+    def test_create_billable_metric(self) -> None:
+        """Test case for create_billable_metric
+
+        create billable metric
         """
         pass
 
     def test_delete_usage_record_group(self) -> None:
         """Test case for delete_usage_record_group
 
-        delete usageRecordGroup  # noqa: E501
+        delete usageRecordGroup
+        """
+        pass
+
+    def test_get_billable_metric(self) -> None:
+        """Test case for get_billable_metric
+
+        get billable metric
         """
         pass
 
     def test_get_usage_metering_config_info(self) -> None:
         """Test case for get_usage_metering_config_info
 
-        get usage metering config info  # noqa: E501
+        get usage metering config info
         """
         pass
 
-    def test_get_usage_record_group(self) -> None:
-        """Test case for get_usage_record_group
+    def test_list_billable_metrics(self) -> None:
+        """Test case for list_billable_metrics
 
-        get usageRecordGroup  # noqa: E501
-        """
-        pass
-
-    def test_get_usage_record_report(self) -> None:
-        """Test case for get_usage_record_report
-
-        get usageRecordReport  # noqa: E501
+        list billable metrics
         """
         pass
 
     def test_list_usage_record_groups(self) -> None:
         """Test case for list_usage_record_groups
 
-        list usageRecordGroups  # noqa: E501
-        """
-        pass
-
-    def test_list_usage_record_groups_by_entitlement(self) -> None:
-        """Test case for list_usage_record_groups_by_entitlement
-
-        list usageRecordGroups by entitlement  # noqa: E501
-        """
-        pass
-
-    def test_list_usage_record_groups_by_product(self) -> None:
-        """Test case for list_usage_record_groups_by_product
-
-        list usageRecordGroups by product  # noqa: E501
+        list usageRecordGroups
         """
         pass
 
     def test_list_usage_record_reports(self) -> None:
         """Test case for list_usage_record_reports
 
-        list usageRecordReports  # noqa: E501
+        list usageRecordReports
         """
         pass
 
     def test_report_usage_record_group(self) -> None:
         """Test case for report_usage_record_group
 
-        report usageRecordGroup  # noqa: E501
+        report usageRecordGroup
+        """
+        pass
+
+    def test_retry_usage_record_group(self) -> None:
+        """Test case for retry_usage_record_group
+
+        retry usageRecordGroup
+        """
+        pass
+
+    def test_update_billable_metric(self) -> None:
+        """Test case for update_billable_metric
+
+        update billable metric
         """
         pass
 
     def test_update_usage_metering_config_info(self) -> None:
         """Test case for update_usage_metering_config_info
 
-        update usage metering config info  # noqa: E501
+        update usage metering config info
         """
         pass
 

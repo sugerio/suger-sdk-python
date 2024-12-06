@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_product_feature_value import GcpMarketplaceProductFeatureValue  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_product_feature_value import GcpMarketplaceProductFeatureValue
 
 class TestGcpMarketplaceProductFeatureValue(unittest.TestCase):
     """GcpMarketplaceProductFeatureValue unit test stubs"""
@@ -29,12 +28,12 @@ class TestGcpMarketplaceProductFeatureValue(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplaceProductFeatureValue:
         """Test GcpMarketplaceProductFeatureValue
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceProductFeatureValue`
         """
-        model = GcpMarketplaceProductFeatureValue()  # noqa: E501
+        model = GcpMarketplaceProductFeatureValue()
         if include_optional:
             return GcpMarketplaceProductFeatureValue(
                 feature_description = '',

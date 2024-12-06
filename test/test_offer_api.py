@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_client.api.offer_api import OfferApi  # noqa: E501
+from suger_sdk_python.api.offer_api import OfferApi
 
 
 class TestOfferApi(unittest.TestCase):
     """OfferApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = OfferApi()  # noqa: E501
+        self.api = OfferApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,91 +30,84 @@ class TestOfferApi(unittest.TestCase):
     def test_cancel_offer(self) -> None:
         """Test case for cancel_offer
 
-        cancel offer  # noqa: E501
+        cancel offer
         """
         pass
 
     def test_create_offer(self) -> None:
         """Test case for create_offer
 
-        create offer  # noqa: E501
+        create offer
         """
         pass
 
     def test_create_or_update_draft_offer(self) -> None:
         """Test case for create_or_update_draft_offer
 
-        create or update draft offer  # noqa: E501
+        create or update draft offer
         """
         pass
 
     def test_delete_offer(self) -> None:
         """Test case for delete_offer
 
-        delete offer  # noqa: E501
+        delete offer
         """
         pass
 
     def test_extend_private_offer_expiry_date(self) -> None:
         """Test case for extend_private_offer_expiry_date
 
-        extend offer expiry date  # noqa: E501
+        extend offer expiry date
         """
         pass
 
     def test_get_offer(self) -> None:
         """Test case for get_offer
 
-        get offer  # noqa: E501
+        get offer
+        """
+        pass
+
+    def test_get_offer_by_external_id(self) -> None:
+        """Test case for get_offer_by_external_id
+
+        get offer by external ID
         """
         pass
 
     def test_get_offer_eula(self) -> None:
         """Test case for get_offer_eula
 
-        get offer EULA  # noqa: E501
+        get offer EULA
         """
         pass
 
-    def test_list_offers_by_contact(self) -> None:
-        """Test case for list_offers_by_contact
+    def test_get_offer_reseller_eula(self) -> None:
+        """Test case for get_offer_reseller_eula
 
-        list offers by contact  # noqa: E501
+        get offer reseller EULA
         """
         pass
 
-    def test_list_offers_by_organization(self) -> None:
-        """Test case for list_offers_by_organization
+    def test_list_offers(self) -> None:
+        """Test case for list_offers
 
-        list offers by organization  # noqa: E501
-        """
-        pass
-
-    def test_list_offers_by_partner(self) -> None:
-        """Test case for list_offers_by_partner
-
-        list offers by partner  # noqa: E501
-        """
-        pass
-
-    def test_list_offers_by_product(self) -> None:
-        """Test case for list_offers_by_product
-
-        list offers by product  # noqa: E501
+        list offers
         """
         pass
 
     def test_send_offer_notifications(self) -> None:
         """Test case for send_offer_notifications
 
-        notify offer contacts  # noqa: E501
+        notify offer contacts
         """
         pass
 
     def test_update_offer_meta_info(self) -> None:
         """Test case for update_offer_meta_info
 
-        update offer meta info  # noqa: E501
+        update offer meta info
         """
         pass
 

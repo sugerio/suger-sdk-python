@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.client_describe_instance_response_body_relational_data import ClientDescribeInstanceResponseBodyRelationalData  # noqa: E501
+from suger_sdk_python.models.client_describe_instance_response_body_relational_data import ClientDescribeInstanceResponseBodyRelationalData
 
 class TestClientDescribeInstanceResponseBodyRelationalData(unittest.TestCase):
     """ClientDescribeInstanceResponseBodyRelationalData unit test stubs"""
@@ -29,12 +28,12 @@ class TestClientDescribeInstanceResponseBodyRelationalData(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ClientDescribeInstanceResponseBodyRelationalData:
         """Test ClientDescribeInstanceResponseBodyRelationalData
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ClientDescribeInstanceResponseBodyRelationalData`
         """
-        model = ClientDescribeInstanceResponseBodyRelationalData()  # noqa: E501
+        model = ClientDescribeInstanceResponseBodyRelationalData()
         if include_optional:
             return ClientDescribeInstanceResponseBodyRelationalData(
                 service_status = ''

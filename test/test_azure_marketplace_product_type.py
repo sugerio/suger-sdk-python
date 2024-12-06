@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_product_type import AzureMarketplaceProductType  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_product_type import AzureMarketplaceProductType
 
 class TestAzureMarketplaceProductType(unittest.TestCase):
     """AzureMarketplaceProductType unit test stubs"""

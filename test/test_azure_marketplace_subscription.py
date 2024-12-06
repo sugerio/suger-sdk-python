@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_subscription import AzureMarketplaceSubscription  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_subscription import AzureMarketplaceSubscription
 
 class TestAzureMarketplaceSubscription(unittest.TestCase):
     """AzureMarketplaceSubscription unit test stubs"""
@@ -29,37 +28,19 @@ class TestAzureMarketplaceSubscription(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplaceSubscription:
         """Test AzureMarketplaceSubscription
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplaceSubscription`
         """
-        model = AzureMarketplaceSubscription()  # noqa: E501
+        model = AzureMarketplaceSubscription()
         if include_optional:
             return AzureMarketplaceSubscription(
                 allowed_customer_operations = [
                     'Read'
                     ],
                 auto_renew = True,
-                beneficiary = openapi_client.models.azure_ad_identifier.AzureADIdentifier(
-                    billing_account_id = '', 
-                    company_info = openapi_client.models.company_info.CompanyInfo(
-                        address_line1 = '', 
-                        address_line2 = '', 
-                        city = '', 
-                        country = '', 
-                        email_domain = '', 
-                        name = '', 
-                        postal_code = '', 
-                        state = '', ), 
-                    customer_id = '', 
-                    email_id = '', 
-                    first_name = '', 
-                    last_name = '', 
-                    license_type = '', 
-                    object_id = '', 
-                    puid = '', 
-                    tenant_id = '', ),
+                beneficiary = {"firstName":"firstName","lastName":"lastName","licenseType":"licenseType","puid":"puid","customerId":"customerId","tenantId":"tenantId","billingAccountId":"billingAccountId","emailId":"emailId","objectId":"objectId"},
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 fulfillment_id = '',
                 id = '',
@@ -70,36 +51,14 @@ class TestAzureMarketplaceSubscription(unittest.TestCase):
                 offer_id = '',
                 plan_id = '',
                 publisher_id = '',
-                purchaser = openapi_client.models.azure_ad_identifier.AzureADIdentifier(
-                    billing_account_id = '', 
-                    company_info = openapi_client.models.company_info.CompanyInfo(
-                        address_line1 = '', 
-                        address_line2 = '', 
-                        city = '', 
-                        country = '', 
-                        email_domain = '', 
-                        name = '', 
-                        postal_code = '', 
-                        state = '', ), 
-                    customer_id = '', 
-                    email_id = '', 
-                    first_name = '', 
-                    last_name = '', 
-                    license_type = '', 
-                    object_id = '', 
-                    puid = '', 
-                    tenant_id = '', ),
+                purchaser = {"firstName":"firstName","lastName":"lastName","licenseType":"licenseType","puid":"puid","customerId":"customerId","tenantId":"tenantId","billingAccountId":"billingAccountId","emailId":"emailId","objectId":"objectId"},
                 quantity = 56,
                 saas_subscription_status = 'NotStarted',
                 sandbox_type = 'None',
                 session_id = '',
                 session_mode = 'None',
                 store_front = '',
-                term = openapi_client.models.azure_term.AzureTerm(
-                    charge_duration = '', 
-                    end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    term_unit = '', )
+                term = {"endDate":"2000-01-23T04:56:07.000+00:00","chargeDuration":"chargeDuration","startDate":"2000-01-23T04:56:07.000+00:00","termUnit":"termUnit"}
             )
         else:
             return AzureMarketplaceSubscription(

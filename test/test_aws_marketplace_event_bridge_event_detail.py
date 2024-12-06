@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.aws_marketplace_event_bridge_event_detail import AwsMarketplaceEventBridgeEventDetail  # noqa: E501
+from suger_sdk_python.models.aws_marketplace_event_bridge_event_detail import AwsMarketplaceEventBridgeEventDetail
 
 class TestAwsMarketplaceEventBridgeEventDetail(unittest.TestCase):
     """AwsMarketplaceEventBridgeEventDetail unit test stubs"""
@@ -29,12 +28,12 @@ class TestAwsMarketplaceEventBridgeEventDetail(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AwsMarketplaceEventBridgeEventDetail:
         """Test AwsMarketplaceEventBridgeEventDetail
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AwsMarketplaceEventBridgeEventDetail`
         """
-        model = AwsMarketplaceEventBridgeEventDetail()  # noqa: E501
+        model = AwsMarketplaceEventBridgeEventDetail()
         if include_optional:
             return AwsMarketplaceEventBridgeEventDetail(
                 catalog = '',
@@ -45,22 +44,22 @@ class TestAwsMarketplaceEventBridgeEventDetail(unittest.TestCase):
                 event_type = '',
                 event_version = '',
                 management_event = True,
-                manufacturer = openapi_client.models.aws_marketplace_event_bridge_event_account.AwsMarketplaceEventBridgeEventAccount(
+                manufacturer = suger_sdk_python.models.aws_marketplace_event_bridge_event_account.AwsMarketplaceEventBridgeEventAccount(
                     account_id = '', 
                     name = '', ),
-                offer = openapi_client.models.aws_marketplace_event_bridge_event_offer.AwsMarketplaceEventBridgeEventOffer(
+                offer = suger_sdk_python.models.aws_marketplace_event_bridge_event_offer.AwsMarketplaceEventBridgeEventOffer(
                     arn = '', 
                     expiration_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     id = '', 
                     name = '', ),
-                product = openapi_client.models.aws_marketplace_event_bridge_event_product.AwsMarketplaceEventBridgeEventProduct(
+                product = suger_sdk_python.models.aws_marketplace_event_bridge_event_product.AwsMarketplaceEventBridgeEventProduct(
                     arn = '', 
                     id = '', 
                     title = '', ),
                 request_id = '',
                 request_parameters = None,
                 response_elements = None,
-                seller_of_record = openapi_client.models.aws_marketplace_event_bridge_event_account.AwsMarketplaceEventBridgeEventAccount(
+                seller_of_record = suger_sdk_python.models.aws_marketplace_event_bridge_event_account.AwsMarketplaceEventBridgeEventAccount(
                     account_id = '', 
                     name = '', ),
                 targeted_buyer_account_ids = [

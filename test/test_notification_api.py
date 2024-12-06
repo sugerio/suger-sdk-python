@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_client.api.notification_api import NotificationApi  # noqa: E501
+from suger_sdk_python.api.notification_api import NotificationApi
 
 
 class TestNotificationApi(unittest.TestCase):
     """NotificationApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = NotificationApi()  # noqa: E501
+        self.api = NotificationApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,14 +30,28 @@ class TestNotificationApi(unittest.TestCase):
     def test_get_notification_message(self) -> None:
         """Test case for get_notification_message
 
-        Get the notification message  # noqa: E501
+        get notification message
+        """
+        pass
+
+    def test_list_notification_events(self) -> None:
+        """Test case for list_notification_events
+
+        list notification events
+        """
+        pass
+
+    def test_list_notification_events_by_entity(self) -> None:
+        """Test case for list_notification_events_by_entity
+
+        list notification events by entity
         """
         pass
 
     def test_list_notification_messages(self) -> None:
         """Test case for list_notification_messages
 
-        List the notification messages  # noqa: E501
+        list notification messages
         """
         pass
 

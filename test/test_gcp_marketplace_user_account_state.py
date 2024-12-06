@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_user_account_state import GcpMarketplaceUserAccountState  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_user_account_state import GcpMarketplaceUserAccountState
 
 class TestGcpMarketplaceUserAccountState(unittest.TestCase):
     """GcpMarketplaceUserAccountState unit test stubs"""

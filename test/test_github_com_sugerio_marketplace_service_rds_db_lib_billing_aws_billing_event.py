@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_aws_billing_event import GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent  # noqa: E501
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_aws_billing_event import GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent
 
 class TestGithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent(unittest.TestCase):
     """GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent unit test stubs"""
@@ -29,12 +28,12 @@ class TestGithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent(unitt
 
     def make_instance(self, include_optional) -> GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent:
         """Test GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent`
         """
-        model = GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent()  # noqa: E501
+        model = GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent()
         if include_optional:
             return GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent(
                 action = '',
@@ -52,29 +51,19 @@ class TestGithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent(unitt
                 entitlement_id = '',
                 from_account_id = '',
                 id = '',
-                insert_date = openapi_client.models.sql/null_time.sql.NullTime(
-                    time = '', 
-                    valid = True, ),
-                invoice_date = openapi_client.models.sql/null_time.sql.NullTime(
-                    time = '', 
-                    valid = True, ),
+                insert_date = {"valid":true,"time":"time"},
+                invoice_date = {"valid":true,"time":"time"},
                 invoice_id = '',
                 offer_id = '',
                 organization_id = '',
                 parent_billing_event_id = '',
-                payment_due_date = openapi_client.models.sql/null_time.sql.NullTime(
-                    time = '', 
-                    valid = True, ),
+                payment_due_date = {"valid":true,"time":"time"},
                 product_id = '',
                 to_account_id = '',
                 transaction_reference_id = '',
                 transaction_type = '',
-                usage_period_end_date = openapi_client.models.sql/null_time.sql.NullTime(
-                    time = '', 
-                    valid = True, ),
-                usage_period_start_date = openapi_client.models.sql/null_time.sql.NullTime(
-                    time = '', 
-                    valid = True, )
+                usage_period_end_date = {"valid":true,"time":"time"},
+                usage_period_start_date = {"valid":true,"time":"time"}
             )
         else:
             return GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent(

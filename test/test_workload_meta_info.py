@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.workload_meta_info import WorkloadMetaInfo  # noqa: E501
+from suger_sdk_python.models.workload_meta_info import WorkloadMetaInfo
 
 class TestWorkloadMetaInfo(unittest.TestCase):
     """WorkloadMetaInfo unit test stubs"""
@@ -29,62 +28,58 @@ class TestWorkloadMetaInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> WorkloadMetaInfo:
         """Test WorkloadMetaInfo
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `WorkloadMetaInfo`
         """
-        model = WorkloadMetaInfo()  # noqa: E501
+        model = WorkloadMetaInfo()
         if include_optional:
             return WorkloadMetaInfo(
+                ace_apn_crm_unique_identifier = '',
+                aws_saas_product_dimensions = [
+                    {"Types":["Types","Types"],"Description":"Description","Length":3,"Rate":6.965117697638846,"TimeUnit":"DAY","Unit":"Unit","Key":"Key","Name":"Name"}
+                    ],
                 base_agreement_id = '',
                 buyer_ids = [
                     ''
                     ],
                 contacts = [
-                    openapi_client.models.contact.Contact(
-                        company = '', 
-                        email = '', 
-                        name = '', )
+                    {"name":"name","company":"company","email":"email"}
                     ],
+                cppo_in_offer_id = '',
+                cppo_offer_id = '',
+                cppo_out_offer_id = '',
                 custom_meta_info = {
                     'key' : ''
                     },
+                enable_test_usage_metering = True,
+                entitlement_cancellation_schedule = {"note":"note","cancelDate":"cancelDate","creationDate":"creationDate","type":"{}"},
                 error_messages = [
                     ''
                     ],
                 hubspot_deal_id = '',
                 internal_note = '',
                 is_agreement_based_offer = True,
+                is_gross_revenue_full_sync = True,
                 is_renewal_offer = True,
+                is_replacement_offer = True,
+                last_modified_by = suger_sdk_python.models.last_modified_by.LastModifiedBy(
+                    email = '', 
+                    entity_id = '', 
+                    entity_type = suger_sdk_python.models.entity_type.entityType(), 
+                    name = '', ),
                 notifications = [
-                    openapi_client.models.notification_event.NotificationEvent(
-                        action = 'ACCEPT', 
-                        cc_contact_ids = [
-                            ''
-                            ], 
-                        contact_ids = [
-                            ''
-                            ], 
-                        entity_id = '', 
-                        entity_status = '', 
-                        entity_type = 'ORGANIZATION', 
-                        event_id = '', 
-                        event_status = openapi_client.models.event_status.eventStatus(), 
-                        last_update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        message = '', 
-                        organization_id = '', 
-                        partner = openapi_client.models.partner.partner(), 
-                        timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        title = '', 
-                        track_events = [
-                            openapi_client.models.track_event.TrackEvent(
-                                contact_id = '', 
-                                timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
-                            ], )
+                    {"eventID":"eventID","customFields":{"key":""},"entityType":"","contactEmails":["contactEmails","contactEmails"],"entityID":"entityID","message":"message","priority":"{}","title":"title","contactIds":["contactIds","contactIds"],"organizationID":"organizationID","ccContactIds":["ccContactIds","ccContactIds"],"channels":["EMAIL","EMAIL"],"isActionItem":true,"partner":"{}","createdBy":"{}","entityStatus":"entityStatus","entityName":"entityName","eventStatus":"{}","action":"","requireAudit":true,"trackEvents":[{"contactId":"contactId","action":"OPEN_EMAIL","timestamp":"2000-01-23T04:56:07.000+00:00"},{"contactId":"contactId","action":"OPEN_EMAIL","timestamp":"2000-01-23T04:56:07.000+00:00"}],"info":"{}","lastUpdateTime":"2000-01-23T04:56:07.000+00:00","timestamp":"2000-01-23T04:56:07.000+00:00"}
                     ],
+                offer_accept_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 renewal_offer_type = '',
-                salesforce_opportunity_id = ''
+                replaced_offer_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                replaced_offer_resource_name = '',
+                salesforce_entitlement_url = '',
+                salesforce_opportunity_id = '',
+                test_usage_metering_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                update_message = ''
             )
         else:
             return WorkloadMetaInfo(

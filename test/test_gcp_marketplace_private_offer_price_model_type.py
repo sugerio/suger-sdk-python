@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_private_offer_price_model_type import GcpMarketplacePrivateOfferPriceModelType  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_private_offer_price_model_type import GcpMarketplacePrivateOfferPriceModelType
 
 class TestGcpMarketplacePrivateOfferPriceModelType(unittest.TestCase):
     """GcpMarketplacePrivateOfferPriceModelType unit test stubs"""

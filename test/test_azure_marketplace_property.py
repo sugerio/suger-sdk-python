@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_property import AzureMarketplaceProperty  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_property import AzureMarketplaceProperty
 
 class TestAzureMarketplaceProperty(unittest.TestCase):
     """AzureMarketplaceProperty unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplaceProperty(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplaceProperty:
         """Test AzureMarketplaceProperty
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplaceProperty`
         """
-        model = AzureMarketplaceProperty()  # noqa: E501
+        model = AzureMarketplaceProperty()
         if include_optional:
             return AzureMarketplaceProperty(
                 var_schema = '',
@@ -50,14 +49,7 @@ class TestAzureMarketplaceProperty(unittest.TestCase):
                         ]
                     },
                 custom_amendments = [
-                    openapi_client.models.azure_marketplace_custom_amendment.AzureMarketplaceCustomAmendment(
-                        tenants = openapi_client.models.azure_marketplace_custom_amendment_tenant.AzureMarketplaceCustomAmendmentTenant(
-                            manual_entries = [
-                                openapi_client.models.azure_marketplace_custom_amendment_tenant_manual_entry.AzureMarketplaceCustomAmendmentTenantManualEntry(
-                                    description = '', 
-                                    id = '', )
-                                ], ), 
-                        terms = '', )
+                    {"tenants":{"manualEntries":[{"description":"description","id":"id"},{"description":"description","id":"id"}]},"terms":"terms"}
                     ],
                 id = '',
                 industries = {
@@ -74,12 +66,7 @@ class TestAzureMarketplaceProperty(unittest.TestCase):
                 terms_of_use = '',
                 terms_of_use_url = '',
                 validations = [
-                    openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                        __schema = '', 
-                        code = 'businessValidationError', 
-                        level = 'informational', 
-                        message = '', 
-                        resource_id = '', )
+                    {"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}
                     ]
             )
         else:

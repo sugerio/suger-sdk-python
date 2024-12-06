@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_product_variant_trial import AzureProductVariantTrial  # noqa: E501
+from suger_sdk_python.models.azure_product_variant_trial import AzureProductVariantTrial
 
 class TestAzureProductVariantTrial(unittest.TestCase):
     """AzureProductVariantTrial unit test stubs"""
@@ -29,21 +28,15 @@ class TestAzureProductVariantTrial(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureProductVariantTrial:
         """Test AzureProductVariantTrial
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureProductVariantTrial`
         """
-        model = AzureProductVariantTrial()  # noqa: E501
+        model = AzureProductVariantTrial()
         if include_optional:
             return AzureProductVariantTrial(
-                date_time_range = openapi_client.models.azure_localized_time_range.AzureLocalizedTimeRange(
-                    end_at = openapi_client.models.azure_localized_date_time.AzureLocalizedDateTime(
-                        date_time_in_utc = '', 
-                        localize_per_market = True, ), 
-                    start_at = openapi_client.models.azure_localized_date_time.AzureLocalizedDateTime(
-                        date_time_in_utc = '', 
-                        localize_per_market = True, ), ),
+                date_time_range = {"endAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true},"startAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true}},
                 duration = 56,
                 duration_type = 'Minute',
                 type = 'NoTrial'

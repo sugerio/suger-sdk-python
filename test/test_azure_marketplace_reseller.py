@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_reseller import AzureMarketplaceReseller  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_reseller import AzureMarketplaceReseller
 
 class TestAzureMarketplaceReseller(unittest.TestCase):
     """AzureMarketplaceReseller unit test stubs"""
@@ -29,32 +28,24 @@ class TestAzureMarketplaceReseller(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplaceReseller:
         """Test AzureMarketplaceReseller
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplaceReseller`
         """
-        model = AzureMarketplaceReseller()  # noqa: E501
+        model = AzureMarketplaceReseller()
         if include_optional:
             return AzureMarketplaceReseller(
                 var_schema = '',
                 audiences = [
-                    openapi_client.models.azure_marketplace_preview_audience.AzureMarketplacePreviewAudience(
-                        description = '', 
-                        resource_id = '', 
-                        type = 'subscription', )
+                    {"resourceId":"resourceId","description":"description","type":"subscription"}
                     ],
                 id = '',
                 product = '',
                 reseller_channel_state = '',
                 resource_name = '',
                 validations = [
-                    openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                        __schema = '', 
-                        code = 'businessValidationError', 
-                        level = 'informational', 
-                        message = '', 
-                        resource_id = '', )
+                    {"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}
                     ]
             )
         else:

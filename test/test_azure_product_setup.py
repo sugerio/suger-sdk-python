@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_product_setup import AzureProductSetup  # noqa: E501
+from suger_sdk_python.models.azure_product_setup import AzureProductSetup
 
 class TestAzureProductSetup(unittest.TestCase):
     """AzureProductSetup unit test stubs"""
@@ -29,19 +28,17 @@ class TestAzureProductSetup(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureProductSetup:
         """Test AzureProductSetup
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureProductSetup`
         """
-        model = AzureProductSetup()  # noqa: E501
+        model = AzureProductSetup()
         if include_optional:
             return AzureProductSetup(
                 call_to_action = 'free',
                 channel_states = [
-                    openapi_client.models.azure_type_value.AzureTypeValue(
-                        type = '', 
-                        value = '', )
+                    {"type":"type","value":"value"}
                     ],
                 enable_test_drive = True,
                 resource_type = 'AzureProductSetup',

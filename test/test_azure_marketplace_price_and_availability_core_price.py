@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_core_price import AzureMarketplacePriceAndAvailabilityCorePrice  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_price_and_availability_core_price import AzureMarketplacePriceAndAvailabilityCorePrice
 
 class TestAzureMarketplacePriceAndAvailabilityCorePrice(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilityCorePrice unit test stubs"""
@@ -29,25 +28,20 @@ class TestAzureMarketplacePriceAndAvailabilityCorePrice(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilityCorePrice:
         """Test AzureMarketplacePriceAndAvailabilityCorePrice
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilityCorePrice`
         """
-        model = AzureMarketplacePriceAndAvailabilityCorePrice()  # noqa: E501
+        model = AzureMarketplacePriceAndAvailabilityCorePrice()
         if include_optional:
             return AzureMarketplacePriceAndAvailabilityCorePrice(
                 price = 1.337,
                 price_input_option = 'free',
                 price_per_core = 1.337,
-                price_per_core_size = openapi_client.models.price_per_core_size.pricePerCoreSize(),
+                price_per_core_size = None,
                 prices = [
-                    openapi_client.models.azure_marketplace_price.AzureMarketplacePrice(
-                        currency = '', 
-                        markets = [
-                            ''
-                            ], 
-                        price = 1.337, )
+                    {"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}
                     ]
             )
         else:

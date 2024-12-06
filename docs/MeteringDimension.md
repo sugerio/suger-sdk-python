@@ -3,6 +3,7 @@
 The dimension to meter usage in entitlement.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **category** | **str** |  | [optional] 
@@ -16,25 +17,25 @@ Name | Type | Description | Notes
 **rate** | **float** | The unit price of this usage metering dimension. | [optional] 
 **sku_id** | **str** | The SKU ID of the metering dimension. Applicable to GCP Marketplace only. | [optional] 
 **types** | **List[str]** |  | [optional] 
-**usage_count** | [**UsageCount**](UsageCount.md) |  | [optional] 
-**value_type** | [**ValueType**](ValueType.md) |  | [optional] 
+**usage_count** | [**UsageCount**](UsageCount.md) | The current Dimension Usage Count. Available when call GetEntitlement API. | [optional] 
+**value_type** | [**ValueType**](ValueType.md) | The value type of the metering dimension quantity. Applicable to GCP Marketplace only. | [optional] 
 
 ## Example
 
 ```python
-from openapi_client.models.metering_dimension import MeteringDimension
+from suger_sdk_python.models.metering_dimension import MeteringDimension
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of MeteringDimension from a JSON string
 metering_dimension_instance = MeteringDimension.from_json(json)
 # print the JSON string representation of the object
-print MeteringDimension.to_json()
+print(MeteringDimension.to_json())
 
 # convert the object into a dict
 metering_dimension_dict = metering_dimension_instance.to_dict()
 # create an instance of MeteringDimension from a dict
-metering_dimension_form_dict = metering_dimension.from_dict(metering_dimension_dict)
+metering_dimension_from_dict = MeteringDimension.from_dict(metering_dimension_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.aws_marketplace_cppo_opportunity import AwsMarketplaceCppoOpportunity  # noqa: E501
+from suger_sdk_python.models.aws_marketplace_cppo_opportunity import AwsMarketplaceCppoOpportunity
 
 class TestAwsMarketplaceCppoOpportunity(unittest.TestCase):
     """AwsMarketplaceCppoOpportunity unit test stubs"""
@@ -29,106 +28,94 @@ class TestAwsMarketplaceCppoOpportunity(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AwsMarketplaceCppoOpportunity:
         """Test AwsMarketplaceCppoOpportunity
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AwsMarketplaceCppoOpportunity`
         """
-        model = AwsMarketplaceCppoOpportunity()  # noqa: E501
+        model = AwsMarketplaceCppoOpportunity()
         if include_optional:
             return AwsMarketplaceCppoOpportunity(
-                buyer_ids = [
-                    ''
-                    ],
-                buyer_names = [
-                    ''
-                    ],
-                contract_duration_in_days = 56,
-                created_by = '',
                 created_date = '',
-                custom_price_terms = openapi_client.models.aws_marketplace_cppo_price_terms.AwsMarketplaceCppoPriceTerms(
-                    all_consumption_unit_column_names = [
-                        ''
-                        ], 
-                    detailed_view = openapi_client.models.aws_marketplace_cppo_price_term_detailed_view.AwsMarketplaceCppoPriceTermDetailedView(
-                        additional_consumption_unit_column_names = [
-                            ''
-                            ], 
-                        additional_consumption_unit_entries = [
-                            openapi_client.models.aws_marketplace_cppo_price_term_entry.AwsMarketplaceCppoPriceTermEntry(
-                                consumption_unit_column_names = [
-                                    ''
-                                    ], 
-                                description = '', 
-                                display_name = '', 
-                                is_custom_dimension = True, 
-                                is_deleted = True, 
-                                name = '', 
-                                price_per_consumption_unit = {
-                                    'key' : ''
-                                    }, 
-                                pricing_dimension = '', )
-                            ], 
-                        consumption_unit_column_names = [
-                            ''
-                            ], 
-                        consumption_unit_entries = [
-                            openapi_client.models.aws_marketplace_cppo_price_term_entry.AwsMarketplaceCppoPriceTermEntry(
-                                description = '', 
-                                display_name = '', 
-                                is_custom_dimension = True, 
-                                is_deleted = True, 
-                                name = '', 
-                                pricing_dimension = '', )
-                            ], ), 
-                    entries = [
-                        
-                        ], ),
-                discount = '',
-                discount_percent = 1.337,
-                discount_type = 'DISCOUNT_PERCENT',
-                errors = [
-                    None
+                description = '',
+                dimensions = [
+                    {"Types":["Types","Types"],"Description":"Description","Length":3,"Rate":6.965117697638846,"TimeUnit":"DAY","Unit":"Unit","Key":"Key","Name":"Name"}
                     ],
-                expiration_date = '',
-                listing_fee_renewal = True,
-                manufacturer_id = '',
-                manufacturer_name = '',
-                offers_count = 56,
-                opportunity_discription = '',
-                opportunity_duration_type = 'SPECIFIC_DATES',
-                opportunity_eula = openapi_client.models.aws_marketplace_cppo_opportunity_eula.AwsMarketplaceCppoOpportunityEula(
-                    access_url = '', 
-                    key = '', 
-                    object_url = '', ),
-                opportunity_id = '',
-                opportunity_name = '',
-                opportunity_rcmp = openapi_client.models.aws_marketplace_cppo_opportunity_eula.AwsMarketplaceCppoOpportunityEula(
-                    access_url = '', 
-                    key = '', 
-                    object_url = '', ),
-                partner_id = '',
-                partner_name = '',
-                payment_terms = openapi_client.models.aws_marketplace_cppo_payment_terms.AwsMarketplaceCppoPaymentTerms(
-                    currency_code = '', 
-                    entitlement = [
-                        openapi_client.models.aws_marketplace_cppo_payment_terms_entitlement.AwsMarketplaceCppoPaymentTermsEntitlement(
-                            name = '', 
-                            quantity = 56, )
-                        ], 
-                    schedule = [
-                        openapi_client.models.aws_marketplace_cppo_payment_schedule.AwsMarketplaceCppoPaymentSchedule(
-                            amount = 1.337, 
-                            charge_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
-                        ], 
-                    schedule_type = '', 
-                    selected_duration = '', ),
+                manufacturer_account_id = '',
+                manufacturer_legal_name = '',
+                name = '',
+                offer_details = suger_sdk_python.models.aws_marketplace_cppo_opportunity_offer_details.AwsMarketplaceCppoOpportunityOfferDetails(
+                    offer_created_count = 56, 
+                    offer_extended_status = '', ),
+                pre_existing_buyer_agreement = suger_sdk_python.models.aws_marketplace_pre_existing_agreement.AwsMarketplacePreExistingAgreement(
+                    acquisition_channel = suger_sdk_python.models.acquisition_channel.AcquisitionChannel(), 
+                    pricing_model = suger_sdk_python.models.pricing_model.PricingModel(), ),
                 product_id = '',
                 product_name = '',
-                product_type = '',
-                sppo = True,
-                status = 'active',
-                usage_allowed = 56
+                rules = [
+                    suger_sdk_python.models.aws_marketplace_cppo_opportunity_rule.AwsMarketplaceCppoOpportunityRule(
+                        availability_end_date = '', 
+                        id = '', 
+                        negative_targeting = suger_sdk_python.models.negative_targeting.NegativeTargeting(), 
+                        offers_max_quantity = 56, 
+                        positive_targeting = suger_sdk_python.models.positive_targeting.PositiveTargeting(), 
+                        reseller_account_id = '', 
+                        reseller_legal_name = '', 
+                        type = 'AvailabilityRule', 
+                        usage = '', )
+                    ],
+                status = 'Active',
+                terms = [
+                    suger_sdk_python.models.aws_marketplace_cppo_opportunity_term.AwsMarketplaceCppoOpportunityTerm(
+                        currency_code = '', 
+                        documents = [
+                            suger_sdk_python.models.aws_marketplace_catalog_legal_term_document.AwsMarketplaceCatalogLegalTermDocument(
+                                type = 'CustomEula', 
+                                url = '', 
+                                version = '', )
+                            ], 
+                        duration = '', 
+                        grants = [
+                            suger_sdk_python.models.aws_marketplace_cppo_opportunity_upfront_price_grant.AwsMarketplaceCppoOpportunityUpfrontPriceGrant(
+                                dimension_key = '', 
+                                max_quantity = 56, )
+                            ], 
+                        id = '', 
+                        maximum_agreement_start_date = '', 
+                        positive_targeting = suger_sdk_python.models.aws_marketplace_cppo_opportunity_positive_targeting.AwsMarketplaceCppoOpportunityPositiveTargeting(
+                            buyer_accounts = [
+                                suger_sdk_python.models.aws_marketplace_buyer_account.AwsMarketplaceBuyerAccount(
+                                    aws_account_id = '', )
+                                ], 
+                            country_codes = [
+                                ''
+                                ], ), 
+                        price = '', 
+                        rate_cards = [
+                            suger_sdk_python.models.aws_marketplace_catalog_pricing_term_rate_card.AwsMarketplaceCatalogPricingTermRateCard(
+                                constraints = suger_sdk_python.models.constraints.Constraints(), 
+                                rate_card = [
+                                    suger_sdk_python.models.aws_marketplace_catalog_pricing_term_rate_card_item.AwsMarketplaceCatalogPricingTermRateCardItem(
+                                        description = '', 
+                                        dimension_key = '', 
+                                        display_name = '', 
+                                        price = '', 
+                                        quantity = '', 
+                                        unit = '', )
+                                    ], 
+                                selector = suger_sdk_python.models.selector.Selector(), )
+                            ], 
+                        schedule = [
+                            suger_sdk_python.models.aws_marketplace_cppo_opportunity_payment_schedule.AwsMarketplaceCppoOpportunityPaymentSchedule(
+                                charge_amount = '', 
+                                charge_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                            ], 
+                        type = 'BuyerTargetingTerm', )
+                    ],
+                discount_type = 'DISCOUNT_PERCENT',
+                opportunity_duration_type = 'SPECIFIC_DATES',
+                opportunity_id = '',
+                partner_id = ''
             )
         else:
             return AwsMarketplaceCppoOpportunity(

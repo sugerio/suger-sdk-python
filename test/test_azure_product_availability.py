@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_product_availability import AzureProductAvailability  # noqa: E501
+from suger_sdk_python.models.azure_product_availability import AzureProductAvailability
 
 class TestAzureProductAvailability(unittest.TestCase):
     """AzureProductAvailability unit test stubs"""
@@ -29,26 +28,22 @@ class TestAzureProductAvailability(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureProductAvailability:
         """Test AzureProductAvailability
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureProductAvailability`
         """
-        model = AzureProductAvailability()  # noqa: E501
+        model = AzureProductAvailability()
         if include_optional:
             return AzureProductAvailability(
                 email_audiences = [
-                    openapi_client.models.azure_audience.AzureAudience(
-                        description = '', 
-                        id = '', )
+                    {"description":"description","id":"id"}
                     ],
                 enterprise_licensing = '',
                 id = '',
                 resource_type = '',
                 subscription_audiences = [
-                    openapi_client.models.azure_audience.AzureAudience(
-                        description = '', 
-                        id = '', )
+                    {"description":"description","id":"id"}
                     ],
                 visibility = ''
             )

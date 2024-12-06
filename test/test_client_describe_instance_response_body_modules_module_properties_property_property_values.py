@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.client_describe_instance_response_body_modules_module_properties_property_property_values import ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues  # noqa: E501
+from suger_sdk_python.models.client_describe_instance_response_body_modules_module_properties_property_property_values import ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues
 
 class TestClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues(unittest.TestCase):
     """ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues unit test stubs"""
@@ -29,23 +28,16 @@ class TestClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPrope
 
     def make_instance(self, include_optional) -> ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues:
         """Test ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues`
         """
-        model = ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues()  # noqa: E501
+        model = ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues()
         if include_optional:
             return ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues(
                 property_value = [
-                    openapi_client.models.client/describe_instance_response_body_modules_module_properties_property_property_values_property_value.client.DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue(
-                        display_name = '', 
-                        max = '', 
-                        min = '', 
-                        remark = '', 
-                        step = '', 
-                        type = '', 
-                        value = '', )
+                    {"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}
                     ]
             )
         else:

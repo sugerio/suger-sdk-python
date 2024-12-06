@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_government_certification import AzureMarketplaceGovernmentCertification  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_government_certification import AzureMarketplaceGovernmentCertification
 
 class TestAzureMarketplaceGovernmentCertification(unittest.TestCase):
     """AzureMarketplaceGovernmentCertification unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplaceGovernmentCertification(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplaceGovernmentCertification:
         """Test AzureMarketplaceGovernmentCertification
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplaceGovernmentCertification`
         """
-        model = AzureMarketplaceGovernmentCertification()  # noqa: E501
+        model = AzureMarketplaceGovernmentCertification()
         if include_optional:
             return AzureMarketplaceGovernmentCertification(
                 link = '',

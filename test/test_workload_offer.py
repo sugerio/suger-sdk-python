@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.workload_offer import WorkloadOffer  # noqa: E501
+from suger_sdk_python.models.workload_offer import WorkloadOffer
 
 class TestWorkloadOffer(unittest.TestCase):
     """WorkloadOffer unit test stubs"""
@@ -29,14 +28,15 @@ class TestWorkloadOffer(unittest.TestCase):
 
     def make_instance(self, include_optional) -> WorkloadOffer:
         """Test WorkloadOffer
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `WorkloadOffer`
         """
-        model = WorkloadOffer()  # noqa: E501
+        model = WorkloadOffer()
         if include_optional:
             return WorkloadOffer(
+                buyer_id = '',
                 contact_ids = [
                     ''
                     ],
@@ -46,193 +46,17 @@ class TestWorkloadOffer(unittest.TestCase):
                 expire_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 external_id = '',
                 id = '',
-                info = openapi_client.models.offer_info.OfferInfo(
-                    attach_eula_type = openapi_client.models.attach_eula_type.attachEulaType(), 
-                    auto_renew = True, 
-                    aws_cppo_event_detail = openapi_client.models.aws_cppo_event_detail.awsCppoEventDetail(), 
-                    aws_cppo_opportunity = openapi_client.models.aws_cppo_opportunity.awsCppoOpportunity(), 
-                    azure_original_plan = openapi_client.models.azure_original_plan.azureOriginalPlan(), 
-                    azure_private_offer = openapi_client.models.azure_private_offer.azurePrivateOffer(), 
-                    azure_product_variant = openapi_client.models.azure_product_variant.azureProductVariant(), 
-                    buyer_aws_account_ids = [
-                        ''
-                        ], 
-                    buyer_azure_tenants = [
-                        openapi_client.models.azure_audience.AzureAudience(
-                            description = '', 
-                            id = '', )
-                        ], 
-                    commit_amount = 1.337, 
-                    commits = [
-                        openapi_client.models.commit_dimension.CommitDimension(
-                            category = '', 
-                            description = '', 
-                            is_user_created = True, 
-                            key = '', 
-                            length = 56, 
-                            maximum_users = 1, 
-                            minimum_users = 1, 
-                            name = '', 
-                            quantity = 56, 
-                            rate = 1.337, 
-                            term = '', 
-                            term_end_time = '', 
-                            time_unit = openapi_client.models.time_unit.timeUnit(), 
-                            type = openapi_client.models.type.type(), 
-                            types = [
-                                ''
-                                ], )
-                        ], 
-                    currency = '', 
-                    dimensions = [
-                        openapi_client.models.metering_dimension.MeteringDimension(
-                            category = '', 
-                            description = '', 
-                            included_base_quantities = [
-                                openapi_client.models.azure_included_base_quantity.AzureIncludedBaseQuantity(
-                                    is_infinite = True, 
-                                    quantity = 1.337, 
-                                    recurring_unit = 'Monthly', )
-                                ], 
-                            key = '', 
-                            name = '', 
-                            plan_id = '', 
-                            plan_name = '', 
-                            price_tiers = [
-                                openapi_client.models.gcp_price_tier.GcpPriceTier(
-                                    from_amount = 1.337, 
-                                    price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                        currency_code = '', 
-                                        nanos = 56, 
-                                        units = '', ), 
-                                    starting_usage_amount = '', )
-                                ], 
-                            rate = 1.337, 
-                            sku_id = '', 
-                            usage_count = openapi_client.models.usage_count.usageCount(), 
-                            value_type = openapi_client.models.value_type.valueType(), )
-                        ], 
-                    discount_percentage = 1.337, 
-                    eula_type = '', 
-                    eula_url = '', 
-                    gcp_customer_info = openapi_client.models.gcp_customer_info.gcpCustomerInfo(), 
-                    gcp_duration = 56, 
-                    gcp_metrics = [
-                        openapi_client.models.gcp_marketplace_product_metering_metric.GcpMarketplaceProductMeteringMetric(
-                            description = '', 
-                            display_name = '', 
-                            display_unit = '', 
-                            display_unit_description = '', 
-                            id = '', 
-                            metric_kind = '', 
-                            name = '', 
-                            reporting_unit = '', 
-                            sku_id = '', 
-                            unit = '', 
-                            value_type = openapi_client.models.value_type.valueType(), )
-                        ], 
-                    gcp_payment_schedule = openapi_client.models.gcp_payment_schedule.gcpPaymentSchedule(), 
-                    gcp_plans = [
-                        openapi_client.models.gcp_marketplace_product_purchase_option_spec.GcpMarketplaceProductPurchaseOptionSpec(
-                            feature_values = [
-                                openapi_client.models.gcp_marketplace_product_feature_value.GcpMarketplaceProductFeatureValue(
-                                    feature_description = '', 
-                                    feature_name = '', 
-                                    feature_title = '', 
-                                    feature_value = '', )
-                                ], 
-                            name = '', 
-                            price_info = openapi_client.models.gcp_marketplace_product_price_info.GcpMarketplaceProductPriceInfo(
-                                description = '', 
-                                price_model = 'FREE', 
-                                subscription_plans = [
-                                    openapi_client.models.gcp_marketplace_product_subscription_plan.GcpMarketplaceProductSubscriptionPlan(
-                                        period = '', )
-                                    ], 
-                                usage_fees = [
-                                    openapi_client.models.gcp_marketplace_product_usage_fee.GcpMarketplaceProductUsageFee(
-                                        display_quantity = 56, 
-                                        metric_id = '', )
-                                    ], ), 
-                            purchase_mode = 'PURCHASE_MODE_PRIVATE', 
-                            title = '', )
-                        ], 
-                    gcp_private_offer = openapi_client.models.gcp_private_offer.gcpPrivateOffer(), 
-                    gcp_provider_info = openapi_client.models.gcp_provider_info.gcpProviderInfo(), 
-                    gcp_provider_internal_note = '', 
-                    gcp_provider_public_note = '', 
-                    gcp_usage_plan_price_model = openapi_client.models.gcp_usage_plan_price_model.gcpUsagePlanPriceModel(), 
-                    payment_installments = [
-                        openapi_client.models.payment_installment.PaymentInstallment(
-                            amount = 1.337, 
-                            charge_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            charge_on_str = '', 
-                            credit = 1.337, 
-                            discount_percentage = 1.337, 
-                            original_amount = 1.337, )
-                        ], 
-                    private_offer_url = '', 
-                    refund_cancelation_policy = '', 
-                    seller_notes = '', 
-                    visibility = 'PRIVATE', ),
+                info = {"awsResaleAuthorizationId":"awsResaleAuthorizationId","additionalResellerEulaUrls":["additionalResellerEulaUrls","additionalResellerEulaUrls"],"resellerEulaUrl":"resellerEulaUrl","trialConfig":"{}","taxIds":["taxIds","taxIds"],"paymentInstallments":[{"discountPercentage":8.762042012749001,"amount":9.369310271410669,"originalAmount":9.018348186070783,"chargeOn":"2000-01-23T04:56:07.000+00:00","chargeOnStr":"chargeOnStr","credit":6.683562403749608},{"discountPercentage":8.762042012749001,"amount":9.369310271410669,"originalAmount":9.018348186070783,"chargeOn":"2000-01-23T04:56:07.000+00:00","chargeOnStr":"chargeOnStr","credit":6.683562403749608}],"billableDimensions":[{"priceModelTiered":"{}","priceModelTieredPercentage":"{}","priceModelMatrix":"{}","minimumCommit":1.4658129805029452,"length":6,"priceModelBulk":"{}","description":"description","discount":"{}","minimumCommitScope":"{}","minimumCommitProrata":true,"billableMetricId":"billableMetricId","priceModelPercentage":"{}","name":"name","priceModelBasic":"{}","category":"{}","priceModelVolume":"{}","timeUnit":"{}"},{"priceModelTiered":"{}","priceModelTieredPercentage":"{}","priceModelMatrix":"{}","minimumCommit":1.4658129805029452,"length":6,"priceModelBulk":"{}","description":"description","discount":"{}","minimumCommitScope":"{}","minimumCommitProrata":true,"billableMetricId":"billableMetricId","priceModelPercentage":"{}","name":"name","priceModelBasic":"{}","category":"{}","priceModelVolume":"{}","timeUnit":"{}"}],"eulaUrl":"eulaUrl","attachEulaType":"{}","buyerAzureTenants":[{"description":"description","id":"id"},{"description":"description","id":"id"}],"awsAgreementDuration":"awsAgreementDuration","refundCancellationPolicy":"refundCancellationPolicy","paymentSchedule":"{}","azureOriginalPlan":"{}","gcpPrivateOffer":"{}","netTermsInDays":9,"azureProductVariant":"{}","gcpResellerPrivateOfferPlan":{"offerTemplatePolicies":{"allowScheduledStartDate":true,"allowAutoRenewal":true,"maxRenewalTimes":"maxRenewalTimes","proration":"PRORATION_UNSPECIFIED"},"displayName":"displayName","agreementDocuments":{"isvToCustomerAgreementDocument":{"documentBody":"documentBody","documentType":"documentType","unstructuredDocument":{"content":"content"},"name":"name","description":"description","updateTime":"2000-01-23T04:56:07.000+00:00","externalGoogleLink":"{}"},"isvToResellerAgreementDocument":{"documentBody":"documentBody","documentType":"documentType","unstructuredDocument":{"content":"content"},"name":"name","description":"description","updateTime":"2000-01-23T04:56:07.000+00:00","externalGoogleLink":"{}"}},"features":[{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"},{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"}],"isvInfo":{"contactEmail":"contactEmail","contactName":"contactName","partnerAdvantageAccountLegalName":"partnerAdvantageAccountLegalName","partnerAdvantageId":"partnerAdvantageId"},"paymentSchedule":"","installmentTimelineTemplate":{"installmentTemplates":[{"priceModelTemplate":{"baseOffer":"baseOffer","commitment":{"commitmentAmountPerPeriodTemplate":{"decimalAmountConstraint":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"currencyCode":"currencyCode"},"period":{"unit":"MONTHLY_PERIOD","count":4},"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}},"consumption":"overage","payg":{"period":{"unit":"MONTHLY_PERIOD","count":4},"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},"skuDiscountTemplates":["{}","{}"],"skuRepresentation":{"skuList":{"skus":["skus","skus"]},"skus":"skus","skuGroupList":"{}"}},"subscription":"fixedPrice","fixedPrice":{"period":{"unit":"MONTHLY_PERIOD","count":4},"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}},"overage":{"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},"skuDiscountTemplates":["{}","{}"],"skuRepresentation":{"skuList":{"skus":["skus","skus"]},"skus":"skus","skuGroupList":"{}"}}},"startTime":"2000-01-23T04:56:07.000+00:00"},{"priceModelTemplate":{"baseOffer":"baseOffer","commitment":{"commitmentAmountPerPeriodTemplate":{"decimalAmountConstraint":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"currencyCode":"currencyCode"},"period":{"unit":"MONTHLY_PERIOD","count":4},"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}},"consumption":"overage","payg":{"period":{"unit":"MONTHLY_PERIOD","count":4},"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},"skuDiscountTemplates":["{}","{}"],"skuRepresentation":{"skuList":{"skus":["skus","skus"]},"skus":"skus","skuGroupList":"{}"}},"subscription":"fixedPrice","fixedPrice":{"period":{"unit":"MONTHLY_PERIOD","count":4},"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}},"overage":{"discountTemplate":{"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},"skuDiscountTemplates":["{}","{}"],"skuRepresentation":{"skuList":{"skus":["skus","skus"]},"skus":"skus","skuGroupList":"{}"}}},"startTime":"2000-01-23T04:56:07.000+00:00"}]},"state":{"cancellationReason":"{}","stateType":"","comment":"comment","rejectionReason":"{}"},"stateTransitions":[{"transitionTime":"2000-01-23T04:56:07.000+00:00","newState":{"stateType":null}},{"transitionTime":"2000-01-23T04:56:07.000+00:00","newState":{"stateType":null}}],"reusePolicy":"","margin":{"marginPercentage":{"value":"value"}},"agreement":"agreement","durationConfig":{"startTime":"2000-01-23T04:56:07.000+00:00","endTime":"2000-01-23T04:56:07.000+00:00"},"priceModelTemplate":"{}","startPolicy":"","updateTime":"2000-01-23T04:56:07.000+00:00","productInfo":{"flavorExternalName":"flavorExternalName","providerId":"providerId","serviceLevel":"serviceLevel","serviceName":"serviceName","productExternalName":"productExternalName"},"metaInfo":{"gcpOrganizationId":"gcpOrganizationId","gcpProjectNumber":"gcpProjectNumber"},"resellerInfo":{"billingAccountOrgDisplayName":"billingAccountOrgDisplayName","notesToReseller":"notesToReseller","billingAccountId":"billingAccountId","billingAccountType":"billingAccountType","billingAccountNickname":"billingAccountNickname"},"name":"name","resellOfferTemplate":"resellOfferTemplate","replacementMetadata":"{}","acceptanceDeadlineTime":"2000-01-23T04:56:07.000+00:00","amendmentContext":"{}","offerTermTemplate":{"paymentRecurrence":"paymentRecurrence","termDurationConstraint":{"defaultDuration":{"unit":"MONTHLY_PERIOD","count":4}},"startPolicy":"","startTime":"2000-01-23T04:56:07.000+00:00","endTime":"2000-01-23T04:56:07.000+00:00","enableScheduledStartTimes":true,"termDuration":{"unit":"MONTHLY_PERIOD","count":4}}},"visibility":"PRIVATE","eulaType":"","awsMarkupPercentage":0.8008281904610115,"gracePeriodInDays":5,"gcpCustomerInfo":"{}","gcpProviderPublicNote":"gcpProviderPublicNote","gcpDuration":6,"billingCycle":"{}","gcpMetrics":[{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"displayUnitDescription":"displayUnitDescription","unit":"unit","metricKind":"metricKind","displayName":"displayName","valueType":"{}","name":"name","description":"description","displayUnit":"displayUnit","id":"id","reportingUnit":"reportingUnit","skuId":"skuId"},{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"displayUnitDescription":"displayUnitDescription","unit":"unit","metricKind":"metricKind","displayName":"displayName","valueType":"{}","name":"name","description":"description","displayUnit":"displayUnit","id":"id","reportingUnit":"reportingUnit","skuId":"skuId"}],"commits":[{"types":["types","types"],"quantity":3,"length":2,"description":"description","type":"{}","maximumUsers":706140,"rate":2.027123023002322,"isUserCreated":true,"minimumUsers":930144,"name":"name","term":"term","category":"category","termEndTime":"termEndTime","key":"key","timeUnit":"{}"},{"types":["types","types"],"quantity":3,"length":2,"description":"description","type":"{}","maximumUsers":706140,"rate":2.027123023002322,"isUserCreated":true,"minimumUsers":930144,"name":"name","term":"term","category":"category","termEndTime":"termEndTime","key":"key","timeUnit":"{}"}],"proratedBilling":true,"awsChannelPartner":"{}","awsCppoOpportunity":"{}","usageBillingIntervalInMonths":6,"privateOfferUrl":"privateOfferUrl","discountPercentage":1.4894159098541704,"commitBillingIntervalInMonths":5,"gcpProviderInfo":"{}","autoRenew":true,"currency":"currency","startTime":"2000-01-23T04:56:07.000+00:00","azurePrivateOffer":"{}","gcpPaymentSchedule":"{}","gcpProviderInternalNote":"gcpProviderInternalNote","gcpPlans":[{"priceInfo":{"usageFees":[{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7},{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7}],"subscriptionPlans":[{"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},{"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}],"description":"description","priceModel":"FREE"},"purchaseMode":"PURCHASE_MODE_PRIVATE","name":"name","title":"title","featureValues":[{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"},{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"}]},{"priceInfo":{"usageFees":[{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7},{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7}],"subscriptionPlans":[{"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},{"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}],"description":"description","priceModel":"FREE"},"purchaseMode":"PURCHASE_MODE_PRIVATE","name":"name","title":"title","featureValues":[{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"},{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"}]}],"resellerAttachEulaType":"{}","awsCppoEventDetail":"{}","sellerNotes":"sellerNotes","buyerAwsAccountIds":["buyerAwsAccountIds","buyerAwsAccountIds"],"gcpUsagePlanPriceModel":"{}","additionalEulaUrls":["additionalEulaUrls","additionalEulaUrls"],"resellerEulaType":"{}","commitAmount":5.962133916683182,"dimensions":[{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"types":["types","types"],"description":"description","planName":"planName","usageCount":"{}","rate":1.0246457001441578,"includedBaseQuantities":[{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"},{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}],"valueType":"{}","name":"name","planId":"planId","category":"category","key":"key","skuId":"skuId"},{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"types":["types","types"],"description":"description","planName":"planName","usageCount":"{}","rate":1.0246457001441578,"includedBaseQuantities":[{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"},{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}],"valueType":"{}","name":"name","planId":"planId","category":"category","key":"key","skuId":"skuId"}]},
                 last_update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 last_updated_by = '',
-                meta_info = openapi_client.models.workload_meta_info.WorkloadMetaInfo(
-                    base_agreement_id = '', 
-                    buyer_ids = [
-                        ''
-                        ], 
-                    contacts = [
-                        openapi_client.models.contact.Contact(
-                            company = '', 
-                            email = '', 
-                            name = '', )
-                        ], 
-                    custom_meta_info = {
-                        'key' : ''
-                        }, 
-                    error_messages = [
-                        ''
-                        ], 
-                    hubspot_deal_id = '', 
-                    internal_note = '', 
-                    is_agreement_based_offer = True, 
-                    is_renewal_offer = True, 
-                    notifications = [
-                        openapi_client.models.notification_event.NotificationEvent(
-                            action = 'ACCEPT', 
-                            cc_contact_ids = [
-                                ''
-                                ], 
-                            contact_ids = [
-                                ''
-                                ], 
-                            entity_id = '', 
-                            entity_status = '', 
-                            entity_type = 'ORGANIZATION', 
-                            event_id = '', 
-                            event_status = openapi_client.models.event_status.eventStatus(), 
-                            last_update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            message = '', 
-                            organization_id = '', 
-                            partner = openapi_client.models.partner.partner(), 
-                            timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            title = '', 
-                            track_events = [
-                                openapi_client.models.track_event.TrackEvent(
-                                    contact_id = '', 
-                                    timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
-                                ], )
-                        ], 
-                    renewal_offer_type = openapi_client.models.renewal_offer_type.renewalOfferType(), 
-                    salesforce_opportunity_id = '', ),
+                meta_info = {"cppoOfferId":"cppoOfferId","enableTestUsageMetering":true,"replacedOfferResourceName":"replacedOfferResourceName","renewalOfferType":"{}","isAgreementBasedOffer":true,"isRenewalOffer":true,"cppoInOfferId":"cppoInOfferId","aceApnCrmUniqueIdentifier":"aceApnCrmUniqueIdentifier","testUsageMeteringEndTime":"2000-01-23T04:56:07.000+00:00","entitlementCancellationSchedule":"{}","isGrossRevenueFullSync":true,"offerAcceptDate":"2000-01-23T04:56:07.000+00:00","salesforceOpportunityId":"salesforceOpportunityId","hubspotDealId":"hubspotDealId","replacedOfferEndTime":"2000-01-23T04:56:07.000+00:00","lastModifiedBy":"{}","customMetaInfo":{"key":"customMetaInfo"},"isReplacementOffer":true,"buyerIds":["buyerIds","buyerIds"],"cppoOutOfferId":"cppoOutOfferId","errorMessages":["errorMessages","errorMessages"],"baseAgreementId":"baseAgreementId","internalNote":"internalNote","salesforceEntitlementURL":"salesforceEntitlementURL","awsSaasProductDimensions":[{"Types":["Types","Types"],"Description":"Description","Length":3,"Rate":6.965117697638846,"TimeUnit":"DAY","Unit":"Unit","Key":"Key","Name":"Name"},{"Types":["Types","Types"],"Description":"Description","Length":3,"Rate":6.965117697638846,"TimeUnit":"DAY","Unit":"Unit","Key":"Key","Name":"Name"}],"contacts":[{"name":"name","company":"company","email":"email"},{"name":"name","company":"company","email":"email"}],"notifications":[{"eventID":"eventID","customFields":{"key":""},"entityType":"","contactEmails":["contactEmails","contactEmails"],"entityID":"entityID","message":"message","priority":"{}","title":"title","contactIds":["contactIds","contactIds"],"organizationID":"organizationID","ccContactIds":["ccContactIds","ccContactIds"],"channels":["EMAIL","EMAIL"],"isActionItem":true,"partner":"{}","createdBy":"{}","entityStatus":"entityStatus","entityName":"entityName","eventStatus":"{}","action":"","requireAudit":true,"trackEvents":[{"contactId":"contactId","action":"OPEN_EMAIL","timestamp":"2000-01-23T04:56:07.000+00:00"},{"contactId":"contactId","action":"OPEN_EMAIL","timestamp":"2000-01-23T04:56:07.000+00:00"}],"info":"{}","lastUpdateTime":"2000-01-23T04:56:07.000+00:00","timestamp":"2000-01-23T04:56:07.000+00:00"},{"eventID":"eventID","customFields":{"key":""},"entityType":"","contactEmails":["contactEmails","contactEmails"],"entityID":"entityID","message":"message","priority":"{}","title":"title","contactIds":["contactIds","contactIds"],"organizationID":"organizationID","ccContactIds":["ccContactIds","ccContactIds"],"channels":["EMAIL","EMAIL"],"isActionItem":true,"partner":"{}","createdBy":"{}","entityStatus":"entityStatus","entityName":"entityName","eventStatus":"{}","action":"","requireAudit":true,"trackEvents":[{"contactId":"contactId","action":"OPEN_EMAIL","timestamp":"2000-01-23T04:56:07.000+00:00"},{"contactId":"contactId","action":"OPEN_EMAIL","timestamp":"2000-01-23T04:56:07.000+00:00"}],"info":"{}","lastUpdateTime":"2000-01-23T04:56:07.000+00:00","timestamp":"2000-01-23T04:56:07.000+00:00"}],"updateMessage":"updateMessage"},
                 name = '',
-                offer_type = 'DEFAULT',
+                offer_type = 'UNKNOWN',
                 organization_id = '',
                 partner = '',
                 product_id = '',
                 service = 'DEFAULT',
-                status = 'ACCEPTED'
+                status = ''
             )
         else:
             return WorkloadOffer(

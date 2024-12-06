@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_update_entitlement_name_params import GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams  # noqa: E501
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_rds_db_lib_update_entitlement_name_params import GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams
 
 class TestGithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams(unittest.TestCase):
     """GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams unit test stubs"""
@@ -29,12 +28,12 @@ class TestGithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams(
 
     def make_instance(self, include_optional) -> GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams:
         """Test GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams`
         """
-        model = GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams()  # noqa: E501
+        model = GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams()
         if include_optional:
             return GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams(
                 id = '',

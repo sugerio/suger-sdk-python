@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_item import AzureMarketplacePriceAndAvailabilityRecurrentPriceItem  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_price_and_availability_recurrent_price_item import AzureMarketplacePriceAndAvailabilityRecurrentPriceItem
 
 class TestAzureMarketplacePriceAndAvailabilityRecurrentPriceItem(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilityRecurrentPriceItem unit test stubs"""
@@ -29,28 +28,19 @@ class TestAzureMarketplacePriceAndAvailabilityRecurrentPriceItem(unittest.TestCa
 
     def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilityRecurrentPriceItem:
         """Test AzureMarketplacePriceAndAvailabilityRecurrentPriceItem
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilityRecurrentPriceItem`
         """
-        model = AzureMarketplacePriceAndAvailabilityRecurrentPriceItem()  # noqa: E501
+        model = AzureMarketplacePriceAndAvailabilityRecurrentPriceItem()
         if include_optional:
             return AzureMarketplacePriceAndAvailabilityRecurrentPriceItem(
-                billing_term = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                    type = 'day', 
-                    value = 1.337, ),
-                payment_option = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                    type = 'day', 
-                    value = 1.337, ),
+                billing_term = {"type":"day","value":7.386281948385884},
+                payment_option = {"type":"day","value":7.386281948385884},
                 price_per_payment_in_usd = 1.337,
                 prices = [
-                    openapi_client.models.azure_marketplace_price.AzureMarketplacePrice(
-                        currency = '', 
-                        markets = [
-                            ''
-                            ], 
-                        price = 1.337, )
+                    {"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}
                     ]
             )
         else:

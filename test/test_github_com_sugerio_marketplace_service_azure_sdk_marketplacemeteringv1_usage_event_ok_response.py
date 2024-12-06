@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_ok_response import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse  # noqa: E501
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_usage_event_ok_response import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse
 
 class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse(unittest.TestCase):
     """GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse unit test stubs"""
@@ -29,12 +28,12 @@ class TestGithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEv
 
     def make_instance(self, include_optional) -> GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse:
         """Test GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse`
         """
-        model = GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse()  # noqa: E501
+        model = GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse()
         if include_optional:
             return GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse(
                 dimension = '',

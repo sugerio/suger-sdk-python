@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_product import GcpMarketplaceProduct  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_product import GcpMarketplaceProduct
 
 class TestGcpMarketplaceProduct(unittest.TestCase):
     """GcpMarketplaceProduct unit test stubs"""
@@ -29,154 +28,25 @@ class TestGcpMarketplaceProduct(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplaceProduct:
         """Test GcpMarketplaceProduct
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceProduct`
         """
-        model = GcpMarketplaceProduct()  # noqa: E501
+        model = GcpMarketplaceProduct()
         if include_optional:
             return GcpMarketplaceProduct(
                 create_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                derived_discovery_state = openapi_client.models.gcp_marketplace_product_derived_discovery_state.GcpMarketplaceProductDerivedDiscoveryState(
-                    access_state = 'ALLUSERS_ACCESSIBLE', 
-                    search_state = 'ADMIN_OVERRIDE_UNSEARCHABLE', ),
+                derived_discovery_state = {"accessState":"ALLUSERS_ACCESSIBLE","searchState":"ADMIN_OVERRIDE_UNSEARCHABLE"},
                 id = '',
                 last_publish_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                listing_spec = openapi_client.models.gcp_marketplace_product_listing_spec.GcpMarketplaceProductListingSpec(
-                    external_account_spec = openapi_client.models.gcp_marketplace_product_external_account_spec.GcpMarketplaceProductExternalAccountSpec(
-                        login_uri = '', 
-                        signup_uri = '', 
-                        single_sign_on_uri = '', ), 
-                    listing_type = 'BillingIntegratedManagedService', 
-                    marketing_spec = openapi_client.models.gcp_marketplace_product_marketing_spec.GcpMarketplaceProductMarketingSpec(
-                        description = '', 
-                        display_names = [
-                            ''
-                            ], 
-                        documentation_specs = [
-                            openapi_client.models.gcp_marketplace_product_documentation_spec.GcpMarketplaceProductDocumentationSpec(
-                                description = '', 
-                                title = '', 
-                                uri = '', )
-                            ], 
-                        eula_url = '', 
-                        external_license_specs = [
-                            openapi_client.models.gcp_marketplace_product_license_spec.GcpMarketplaceProductLicenseSpec(
-                                description = '', 
-                                uri = '', )
-                            ], 
-                        external_marketing_url = '', 
-                        icon = '', 
-                        search_categories = [
-                            ''
-                            ], 
-                        search_description = '', 
-                        search_keywords = [
-                            ''
-                            ], 
-                        signup_uri = '', 
-                        support_spec = openapi_client.models.gcp_marketplace_product_support_spec.GcpMarketplaceProductSupportSpec(
-                            description = '', 
-                            email = '', 
-                            uri = '', ), 
-                        tag_line = '', 
-                        title = '', ), 
-                    purchase_spec = openapi_client.models.gcp_marketplace_product_purchase_spec.GcpMarketplaceProductPurchaseSpec(
-                        features = [
-                            openapi_client.models.gcp_marketplace_product_feature.GcpMarketplaceProductFeature(
-                                description = '', 
-                                name = '', 
-                                title = '', )
-                            ], 
-                        metrics = [
-                            openapi_client.models.gcp_marketplace_product_metering_metric.GcpMarketplaceProductMeteringMetric(
-                                description = '', 
-                                display_name = '', 
-                                display_unit = '', 
-                                display_unit_description = '', 
-                                id = '', 
-                                metric_kind = '', 
-                                name = '', 
-                                price_tiers = [
-                                    openapi_client.models.gcp_price_tier.GcpPriceTier(
-                                        from_amount = 1.337, 
-                                        price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                            currency_code = '', 
-                                            nanos = 56, 
-                                            units = '', ), 
-                                        starting_usage_amount = '', )
-                                    ], 
-                                reporting_unit = '', 
-                                sku_id = '', 
-                                unit = '', 
-                                value_type = openapi_client.models.value_type.valueType(), )
-                            ], 
-                        purchase_option_specs = [
-                            openapi_client.models.gcp_marketplace_product_purchase_option_spec.GcpMarketplaceProductPurchaseOptionSpec(
-                                feature_values = [
-                                    openapi_client.models.gcp_marketplace_product_feature_value.GcpMarketplaceProductFeatureValue(
-                                        feature_description = '', 
-                                        feature_name = '', 
-                                        feature_title = '', 
-                                        feature_value = '', )
-                                    ], 
-                                name = '', 
-                                price_info = openapi_client.models.gcp_marketplace_product_price_info.GcpMarketplaceProductPriceInfo(
-                                    description = '', 
-                                    price_model = 'FREE', 
-                                    subscription_plans = [
-                                        openapi_client.models.gcp_marketplace_product_subscription_plan.GcpMarketplaceProductSubscriptionPlan(
-                                            period = '', )
-                                        ], 
-                                    usage_fees = [
-                                        openapi_client.models.gcp_marketplace_product_usage_fee.GcpMarketplaceProductUsageFee(
-                                            display_quantity = 56, 
-                                            metric_id = '', )
-                                        ], ), 
-                                purchase_mode = 'PURCHASE_MODE_PRIVATE', 
-                                title = '', )
-                            ], ), 
-                    terms_spec = openapi_client.models.gcp_marketplace_product_terms_spec.GcpMarketplaceProductTermsSpec(
-                        eula_uri = '', 
-                        inline_eula = openapi_client.models.inline_eula.inlineEula(), 
-                        standard_eula = openapi_client.models.standard_eula.standardEula(), ), ),
+                listing_spec = {"marketingSpec":{"signupUri":"signupUri","externalLicenseSpecs":[{"description":"description","uri":"uri"},{"description":"description","uri":"uri"}],"searchKeywords":["searchKeywords","searchKeywords"],"tagLine":"tagLine","displayNames":["displayNames","displayNames"],"externalMarketingUrl":"externalMarketingUrl","icon":"icon","description":"description","searchCategories":["searchCategories","searchCategories"],"searchDescription":"searchDescription","title":"title","supportSpec":{"description":"description","uri":"uri","email":"email"},"eulaUrl":"eulaUrl","documentationSpecs":[{"description":"description","title":"title","uri":"uri"},{"description":"description","title":"title","uri":"uri"}]},"purchaseSpec":{"features":[{"name":"name","description":"description","title":"title"},{"name":"name","description":"description","title":"title"}],"purchaseOptionSpecs":[{"priceInfo":{"usageFees":[{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7},{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7}],"subscriptionPlans":[{"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},{"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}],"description":"description","priceModel":"FREE"},"purchaseMode":"PURCHASE_MODE_PRIVATE","name":"name","title":"title","featureValues":[{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"},{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"}]},{"priceInfo":{"usageFees":[{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7},{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7}],"subscriptionPlans":[{"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},{"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}],"description":"description","priceModel":"FREE"},"purchaseMode":"PURCHASE_MODE_PRIVATE","name":"name","title":"title","featureValues":[{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"},{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"}]}],"metrics":[{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"displayUnitDescription":"displayUnitDescription","unit":"unit","metricKind":"metricKind","displayName":"displayName","valueType":"{}","name":"name","description":"description","displayUnit":"displayUnit","id":"id","reportingUnit":"reportingUnit","skuId":"skuId"},{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"displayUnitDescription":"displayUnitDescription","unit":"unit","metricKind":"metricKind","displayName":"displayName","valueType":"{}","name":"name","description":"description","displayUnit":"displayUnit","id":"id","reportingUnit":"reportingUnit","skuId":"skuId"}]},"listingType":"BillingIntegratedManagedService","termsSpec":{"standardEula":"{}","inlineEula":"{}","eulaUri":"eulaUri"},"externalAccountSpec":{"signupUri":"signupUri","loginUri":"loginUri","singleSignOnUri":"singleSignOnUri"}},
                 marketplace = 'marketplaces/google-cloud',
                 name = '',
                 revision_create_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 revision_id = '',
                 service = '',
-                service_config = openapi_client.models.gcp_marketplace_product_service_config.GcpMarketplaceProductServiceConfig(
-                    billing = openapi_client.models.gcp_marketplace_product_service_config_billing.GcpMarketplaceProductServiceConfigBilling(
-                        metrics = [
-                            ''
-                            ], ), 
-                    metrics = [
-                        openapi_client.models.gcp_marketplace_product_metering_metric.GcpMarketplaceProductMeteringMetric(
-                            description = '', 
-                            display_name = '', 
-                            display_unit = '', 
-                            display_unit_description = '', 
-                            id = '', 
-                            metric_kind = '', 
-                            name = '', 
-                            price_tiers = [
-                                openapi_client.models.gcp_price_tier.GcpPriceTier(
-                                    from_amount = 1.337, 
-                                    price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                        currency_code = '', 
-                                        nanos = 56, 
-                                        units = '', ), 
-                                    starting_usage_amount = '', )
-                                ], 
-                            reporting_unit = '', 
-                            sku_id = '', 
-                            unit = '', 
-                            value_type = openapi_client.models.value_type.valueType(), )
-                        ], 
-                    name = '', 
-                    producer_project_id = '', 
-                    title = '', ),
+                service_config = {"name":"name","producerProjectId":"producerProjectId","metrics":[{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"displayUnitDescription":"displayUnitDescription","unit":"unit","metricKind":"metricKind","displayName":"displayName","valueType":"{}","name":"name","description":"description","displayUnit":"displayUnit","id":"id","reportingUnit":"reportingUnit","skuId":"skuId"},{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"displayUnitDescription":"displayUnitDescription","unit":"unit","metricKind":"metricKind","displayName":"displayName","valueType":"{}","name":"name","description":"description","displayUnit":"displayUnit","id":"id","reportingUnit":"reportingUnit","skuId":"skuId"}],"title":"title","billing":{"metrics":["metrics","metrics"]}},
                 validation_summary = None
             )
         else:

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.metering_usage_record_group_meta_info import MeteringUsageRecordGroupMetaInfo  # noqa: E501
+from suger_sdk_python.models.metering_usage_record_group_meta_info import MeteringUsageRecordGroupMetaInfo
 
 class TestMeteringUsageRecordGroupMetaInfo(unittest.TestCase):
     """MeteringUsageRecordGroupMetaInfo unit test stubs"""
@@ -29,15 +28,25 @@ class TestMeteringUsageRecordGroupMetaInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> MeteringUsageRecordGroupMetaInfo:
         """Test MeteringUsageRecordGroupMetaInfo
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `MeteringUsageRecordGroupMetaInfo`
         """
-        model = MeteringUsageRecordGroupMetaInfo()  # noqa: E501
+        model = MeteringUsageRecordGroupMetaInfo()
         if include_optional:
             return MeteringUsageRecordGroupMetaInfo(
+                skip_validation = True,
+                billable_records = [
+                    {"quantity":0.8008281904610115,"key":"key","properties":{"key":""}}
+                    ],
+                lago_amount = 1.337,
+                lago_subscription_id = '',
+                lago_usage_start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 metronome_daily_cost_amount = 1.337,
+                metronome_invoice_id = '',
+                metronome_monthly_invoice_amount = 1.337,
+                metronome_monthly_invoice_amount_adjusted = 1.337,
                 origin_records = {
                     'key' : 1.337
                     },

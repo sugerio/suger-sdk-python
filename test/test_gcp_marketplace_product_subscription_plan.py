@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_product_subscription_plan import GcpMarketplaceProductSubscriptionPlan  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_product_subscription_plan import GcpMarketplaceProductSubscriptionPlan
 
 class TestGcpMarketplaceProductSubscriptionPlan(unittest.TestCase):
     """GcpMarketplaceProductSubscriptionPlan unit test stubs"""
@@ -29,19 +28,16 @@ class TestGcpMarketplaceProductSubscriptionPlan(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplaceProductSubscriptionPlan:
         """Test GcpMarketplaceProductSubscriptionPlan
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceProductSubscriptionPlan`
         """
-        model = GcpMarketplaceProductSubscriptionPlan()  # noqa: E501
+        model = GcpMarketplaceProductSubscriptionPlan()
         if include_optional:
             return GcpMarketplaceProductSubscriptionPlan(
                 period = '',
-                price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                    currency_code = '', 
-                    nanos = 56, 
-                    units = '', )
+                price = {"nanos":1,"units":"units","currencyCode":"currencyCode"}
             )
         else:
             return GcpMarketplaceProductSubscriptionPlan(

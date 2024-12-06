@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_product_metering_metric import GcpMarketplaceProductMeteringMetric  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_product_metering_metric import GcpMarketplaceProductMeteringMetric
 
 class TestGcpMarketplaceProductMeteringMetric(unittest.TestCase):
     """GcpMarketplaceProductMeteringMetric unit test stubs"""
@@ -29,12 +28,12 @@ class TestGcpMarketplaceProductMeteringMetric(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplaceProductMeteringMetric:
         """Test GcpMarketplaceProductMeteringMetric
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceProductMeteringMetric`
         """
-        model = GcpMarketplaceProductMeteringMetric()  # noqa: E501
+        model = GcpMarketplaceProductMeteringMetric()
         if include_optional:
             return GcpMarketplaceProductMeteringMetric(
                 description = '',
@@ -45,18 +44,12 @@ class TestGcpMarketplaceProductMeteringMetric(unittest.TestCase):
                 metric_kind = '',
                 name = '',
                 price_tiers = [
-                    openapi_client.models.gcp_price_tier.GcpPriceTier(
-                        from_amount = 1.337, 
-                        price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                            currency_code = '', 
-                            nanos = 56, 
-                            units = '', ), 
-                        starting_usage_amount = '', )
+                    {"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}
                     ],
                 reporting_unit = '',
                 sku_id = '',
                 unit = '',
-                value_type = 'VALUE_TYPE_UNSPECIFIED'
+                value_type = ''
             )
         else:
             return GcpMarketplaceProductMeteringMetric(

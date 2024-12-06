@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_private_offer_acceptance_link import AzureMarketplacePrivateOfferAcceptanceLink  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_private_offer_acceptance_link import AzureMarketplacePrivateOfferAcceptanceLink
 
 class TestAzureMarketplacePrivateOfferAcceptanceLink(unittest.TestCase):
     """AzureMarketplacePrivateOfferAcceptanceLink unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplacePrivateOfferAcceptanceLink(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePrivateOfferAcceptanceLink:
         """Test AzureMarketplacePrivateOfferAcceptanceLink
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePrivateOfferAcceptanceLink`
         """
-        model = AzureMarketplacePrivateOfferAcceptanceLink()  # noqa: E501
+        model = AzureMarketplacePrivateOfferAcceptanceLink()
         if include_optional:
             return AzureMarketplacePrivateOfferAcceptanceLink(
                 beneficiary_id = '',

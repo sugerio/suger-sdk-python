@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.usage_metering_config_info import UsageMeteringConfigInfo  # noqa: E501
+from suger_sdk_python.models.usage_metering_config_info import UsageMeteringConfigInfo
 
 class TestUsageMeteringConfigInfo(unittest.TestCase):
     """UsageMeteringConfigInfo unit test stubs"""
@@ -29,25 +28,16 @@ class TestUsageMeteringConfigInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UsageMeteringConfigInfo:
         """Test UsageMeteringConfigInfo
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UsageMeteringConfigInfo`
         """
-        model = UsageMeteringConfigInfo()  # noqa: E501
+        model = UsageMeteringConfigInfo()
         if include_optional:
             return UsageMeteringConfigInfo(
                 partner_usage_metering_configs = [
-                    openapi_client.models.partner_usage_metering_config.PartnerUsageMeteringConfig(
-                        dimension_mapping = {
-                            'key' : openapi_client.models.usage_metering_dimension_mapping_value.UsageMeteringDimensionMappingValue(
-                                convertion_multiplier = 1.337, 
-                                dimension_key = '', )
-                            }, 
-                        enable_commit_with_additional_usage_at_list_price = True, 
-                        enable_commit_with_additional_usage_metering = True, 
-                        enable_dimension_mapping = True, 
-                        partner = openapi_client.models.partner.partner(), )
+                    {"enableCommitWithAdditionalUsageAtListPrice":true,"enableDimensionMapping":true,"dimensionMapping":{"key":{"convertionMultiplier":0.8008281904610115,"dimensionKey":"dimensionKey","mappingMode":"{}"}},"partner":"{}","enableBillableDimension":true,"enableCommitWithAdditionalUsageMetering":true,"dimensionMappingV2":{"key":[{"convertionMultiplier":0.8008281904610115,"dimensionKey":"dimensionKey","mappingMode":"{}"},{"convertionMultiplier":0.8008281904610115,"dimensionKey":"dimensionKey","mappingMode":"{}"}]}}
                     ]
             )
         else:

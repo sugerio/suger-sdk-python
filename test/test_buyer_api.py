@@ -15,50 +15,85 @@
 
 import unittest
 
-from openapi_client.api.buyer_api import BuyerApi  # noqa: E501
+from suger_sdk_python.api.buyer_api import BuyerApi
 
 
 class TestBuyerApi(unittest.TestCase):
     """BuyerApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = BuyerApi()  # noqa: E501
+        self.api = BuyerApi()
 
     def tearDown(self) -> None:
+        pass
+
+    def test_close_credit_wallet(self) -> None:
+        """Test case for close_credit_wallet
+
+        close credit wallet
+        """
+        pass
+
+    def test_create_buyer(self) -> None:
+        """Test case for create_buyer
+
+        create buyer
+        """
+        pass
+
+    def test_create_credit_wallet(self) -> None:
+        """Test case for create_credit_wallet
+
+        create credit wallet
+        """
+        pass
+
+    def test_delete_buyer_wallet(self) -> None:
+        """Test case for delete_buyer_wallet
+
+        delete buyer wallet
+        """
         pass
 
     def test_get_buyer(self) -> None:
         """Test case for get_buyer
 
-        get buyer  # noqa: E501
+        get buyer
         """
         pass
 
-    def test_list_buyers_by_contact(self) -> None:
-        """Test case for list_buyers_by_contact
+    def test_list_buyer_wallets(self) -> None:
+        """Test case for list_buyer_wallets
 
-        list buyers by contact  # noqa: E501
+        list buyer's wallets
         """
         pass
 
-    def test_list_buyers_by_organization(self) -> None:
-        """Test case for list_buyers_by_organization
+    def test_list_buyers(self) -> None:
+        """Test case for list_buyers
 
-        list buyers by organization  # noqa: E501
+        list buyers
         """
         pass
 
-    def test_list_buyers_by_partner(self) -> None:
-        """Test case for list_buyers_by_partner
+    def test_set_buyer_default_wallet(self) -> None:
+        """Test case for set_buyer_default_wallet
 
-        list buyers by partner  # noqa: E501
+        set buyer default wallet
         """
         pass
 
     def test_update_buyer(self) -> None:
         """Test case for update_buyer
 
-        update buyer  # noqa: E501
+        update buyer
+        """
+        pass
+
+    def test_update_credit_wallet(self) -> None:
+        """Test case for update_credit_wallet
+
+        update credit wallet
         """
         pass
 

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.usage_metering_daily_record import UsageMeteringDailyRecord  # noqa: E501
+from suger_sdk_python.models.usage_metering_daily_record import UsageMeteringDailyRecord
 
 class TestUsageMeteringDailyRecord(unittest.TestCase):
     """UsageMeteringDailyRecord unit test stubs"""
@@ -29,16 +28,18 @@ class TestUsageMeteringDailyRecord(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UsageMeteringDailyRecord:
         """Test UsageMeteringDailyRecord
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UsageMeteringDailyRecord`
         """
-        model = UsageMeteringDailyRecord()  # noqa: E501
+        model = UsageMeteringDailyRecord()
         if include_optional:
             return UsageMeteringDailyRecord(
                 amount = 1.337,
                 var_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                entitlement_id = '',
+                group_bys_expression = '',
                 key = '',
                 partner = '',
                 quantity = 1.337

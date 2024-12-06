@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_plan_listing import AzureMarketplacePlanListing  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_plan_listing import AzureMarketplacePlanListing
 
 class TestAzureMarketplacePlanListing(unittest.TestCase):
     """AzureMarketplacePlanListing unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplacePlanListing(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePlanListing:
         """Test AzureMarketplacePlanListing
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePlanListing`
         """
-        model = AzureMarketplacePlanListing()  # noqa: E501
+        model = AzureMarketplacePlanListing()
         if include_optional:
             return AzureMarketplacePlanListing(
                 var_schema = '',
@@ -49,12 +48,7 @@ class TestAzureMarketplacePlanListing(unittest.TestCase):
                 resource_name = '',
                 summary = '',
                 validations = [
-                    openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                        __schema = '', 
-                        code = 'businessValidationError', 
-                        level = 'informational', 
-                        message = '', 
-                        resource_id = '', )
+                    {"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}
                     ]
             )
         else:

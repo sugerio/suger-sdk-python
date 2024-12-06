@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amount** | **float** | The revenue amount for the revenue report | [optional] 
@@ -29,19 +30,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.revenue_record import RevenueRecord
+from suger_sdk_python.models.revenue_record import RevenueRecord
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of RevenueRecord from a JSON string
 revenue_record_instance = RevenueRecord.from_json(json)
 # print the JSON string representation of the object
-print RevenueRecord.to_json()
+print(RevenueRecord.to_json())
 
 # convert the object into a dict
 revenue_record_dict = revenue_record_instance.to_dict()
 # create an instance of RevenueRecord from a dict
-revenue_record_form_dict = revenue_record.from_dict(revenue_record_dict)
+revenue_record_from_dict = RevenueRecord.from_dict(revenue_record_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

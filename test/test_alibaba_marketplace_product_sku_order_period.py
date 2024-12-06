@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.alibaba_marketplace_product_sku_order_period import AlibabaMarketplaceProductSkuOrderPeriod  # noqa: E501
+from suger_sdk_python.models.alibaba_marketplace_product_sku_order_period import AlibabaMarketplaceProductSkuOrderPeriod
 
 class TestAlibabaMarketplaceProductSkuOrderPeriod(unittest.TestCase):
     """AlibabaMarketplaceProductSkuOrderPeriod unit test stubs"""
@@ -29,12 +28,12 @@ class TestAlibabaMarketplaceProductSkuOrderPeriod(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AlibabaMarketplaceProductSkuOrderPeriod:
         """Test AlibabaMarketplaceProductSkuOrderPeriod
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AlibabaMarketplaceProductSkuOrderPeriod`
         """
-        model = AlibabaMarketplaceProductSkuOrderPeriod()  # noqa: E501
+        model = AlibabaMarketplaceProductSkuOrderPeriod()
         if include_optional:
             return AlibabaMarketplaceProductSkuOrderPeriod(
                 name = '',

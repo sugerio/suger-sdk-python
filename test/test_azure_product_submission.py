@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_product_submission import AzureProductSubmission  # noqa: E501
+from suger_sdk_python.models.azure_product_submission import AzureProductSubmission
 
 class TestAzureProductSubmission(unittest.TestCase):
     """AzureProductSubmission unit test stubs"""
@@ -29,43 +28,31 @@ class TestAzureProductSubmission(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureProductSubmission:
         """Test AzureProductSubmission
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureProductSubmission`
         """
-        model = AzureProductSubmission()  # noqa: E501
+        model = AzureProductSubmission()
         if include_optional:
             return AzureProductSubmission(
                 are_resources_ready = True,
                 friendly_name = '',
                 id = '',
-                pending_update_info = openapi_client.models.azure_pending_update_info.AzurePendingUpdateInfo(
-                    status = '', 
-                    update_type = '', ),
+                pending_update_info = {"status":"status","updateType":"updateType"},
                 published_time_in_utc = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 release_number = 56,
                 resource_type = 'Submission',
                 resources = [
-                    openapi_client.models.azure_type_value.AzureTypeValue(
-                        type = '', 
-                        value = '', )
+                    {"type":"type","value":"value"}
                     ],
                 state = 'Inprogress',
                 sub_state = 'InDraft',
                 targets = [
-                    openapi_client.models.azure_type_value.AzureTypeValue(
-                        type = '', 
-                        value = '', )
+                    {"type":"type","value":"value"}
                     ],
                 variant_resources = [
-                    openapi_client.models.azure_variant_resource.AzureVariantResource(
-                        resources = [
-                            openapi_client.models.azure_type_value.AzureTypeValue(
-                                type = '', 
-                                value = '', )
-                            ], 
-                        variant_id = '', )
+                    {"resources":[{"type":"type","value":"value"},{"type":"type","value":"value"}],"variantID":"variantID"}
                     ]
             )
         else:

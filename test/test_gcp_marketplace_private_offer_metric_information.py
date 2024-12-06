@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_private_offer_metric_information import GcpMarketplacePrivateOfferMetricInformation  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_private_offer_metric_information import GcpMarketplacePrivateOfferMetricInformation
 
 class TestGcpMarketplacePrivateOfferMetricInformation(unittest.TestCase):
     """GcpMarketplacePrivateOfferMetricInformation unit test stubs"""
@@ -29,27 +28,21 @@ class TestGcpMarketplacePrivateOfferMetricInformation(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplacePrivateOfferMetricInformation:
         """Test GcpMarketplacePrivateOfferMetricInformation
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplacePrivateOfferMetricInformation`
         """
-        model = GcpMarketplacePrivateOfferMetricInformation()  # noqa: E501
+        model = GcpMarketplacePrivateOfferMetricInformation()
         if include_optional:
             return GcpMarketplacePrivateOfferMetricInformation(
                 metric_details = [
-                    openapi_client.models.gcp_marketplace_private_offer_metric_detail.GcpMarketplacePrivateOfferMetricDetail(
+                    suger_sdk_python.models.gcp_marketplace_private_offer_metric_detail.GcpMarketplacePrivateOfferMetricDetail(
                         display_name = '', 
                         parent_commerce_service = '', 
                         sku_id = '', 
                         tiers = [
-                            openapi_client.models.gcp_price_tier.GcpPriceTier(
-                                from_amount = 1.337, 
-                                price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                    currency_code = '', 
-                                    nanos = 56, 
-                                    units = '', ), 
-                                starting_usage_amount = '', )
+                            {"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}
                             ], 
                         unit_description = '', )
                     ]

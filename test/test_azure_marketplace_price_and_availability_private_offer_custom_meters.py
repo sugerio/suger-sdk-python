@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_private_offer_custom_meters import AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_price_and_availability_private_offer_custom_meters import AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters
 
 class TestAzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters(unittest.
 
     def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters:
         """Test AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters`
         """
-        model = AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters()  # noqa: E501
+        model = AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters()
         if include_optional:
             return AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters(
                 meters = None,

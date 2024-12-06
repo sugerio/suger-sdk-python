@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_government_certification import AzureGovernmentCertification  # noqa: E501
+from suger_sdk_python.models.azure_government_certification import AzureGovernmentCertification
 
 class TestAzureGovernmentCertification(unittest.TestCase):
     """AzureGovernmentCertification unit test stubs"""
@@ -29,22 +28,18 @@ class TestAzureGovernmentCertification(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureGovernmentCertification:
         """Test AzureGovernmentCertification
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureGovernmentCertification`
         """
-        model = AzureGovernmentCertification()  # noqa: E501
+        model = AzureGovernmentCertification()
         if include_optional:
             return AzureGovernmentCertification(
                 title = '',
                 uri = '',
                 validation_results = [
-                    openapi_client.models.azure_validation_result.AzureValidationResult(
-                        error_message = '', 
-                        member_names = [
-                            ''
-                            ], )
+                    {"errorMessage":"errorMessage","memberNames":["memberNames","memberNames"]}
                     ]
             )
         else:

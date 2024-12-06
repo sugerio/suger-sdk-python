@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.list_revenue_records_response import ListRevenueRecordsResponse  # noqa: E501
+from suger_sdk_python.models.list_revenue_records_response import ListRevenueRecordsResponse
 
 class TestListRevenueRecordsResponse(unittest.TestCase):
     """ListRevenueRecordsResponse unit test stubs"""
@@ -29,128 +28,17 @@ class TestListRevenueRecordsResponse(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ListRevenueRecordsResponse:
         """Test ListRevenueRecordsResponse
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ListRevenueRecordsResponse`
         """
-        model = ListRevenueRecordsResponse()  # noqa: E501
+        model = ListRevenueRecordsResponse()
         if include_optional:
             return ListRevenueRecordsResponse(
                 next_offset = 56,
                 revenue_records = [
-                    openapi_client.models.revenue_record.RevenueRecord(
-                        amount = 1.337, 
-                        buyer_id = '', 
-                        collectable_amount = 1.337, 
-                        currency = '', 
-                        date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        disburse_amount = 1.337, 
-                        disburse_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        entitlement_id = '', 
-                        id = '', 
-                        info = openapi_client.models.revenue_record_info.RevenueRecordInfo(
-                            aws_revenue_records = [
-                                openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib/billing_aws_billing_event.github_com_sugerio_marketplace-service_rds-db_lib.BillingAwsBillingEvent(
-                                    action = '', 
-                                    agreement_id = '', 
-                                    amount = 1.337, 
-                                    balance_impacting = 56, 
-                                    bank_trace_id = '', 
-                                    billing_address_id = '', 
-                                    broker_id = '', 
-                                    buyer_id = '', 
-                                    currency = '', 
-                                    data_feed_product_id = '', 
-                                    disbursement_billing_event_id = '', 
-                                    end_user_account_id = '', 
-                                    entitlement_id = '', 
-                                    from_account_id = '', 
-                                    id = '', 
-                                    insert_date = openapi_client.models.sql/null_time.sql.NullTime(
-                                        time = '', 
-                                        valid = True, ), 
-                                    invoice_date = openapi_client.models.sql/null_time.sql.NullTime(
-                                        time = '', 
-                                        valid = True, ), 
-                                    invoice_id = '', 
-                                    offer_id = '', 
-                                    organization_id = '', 
-                                    parent_billing_event_id = '', 
-                                    payment_due_date = , 
-                                    product_id = '', 
-                                    to_account_id = '', 
-                                    transaction_reference_id = '', 
-                                    transaction_type = '', 
-                                    usage_period_end_date = , 
-                                    usage_period_start_date = , )
-                                ], 
-                            azure_revenue_records = [
-                                openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib/billing_azure_cma_revenue.github_com_sugerio_marketplace-service_rds-db_lib.BillingAzureCmaRevenue(
-                                    azure_asset_id = '', 
-                                    azure_billing_account_id = '', 
-                                    azure_customer_id = '', 
-                                    azure_offer_id = '', 
-                                    azure_plan_id = '', 
-                                    billing_model = '', 
-                                    buyer_id = '', 
-                                    earning_usd = 1.337, 
-                                    entitlement_id = '', 
-                                    estimated_payout_month = , 
-                                    offer_id = '', 
-                                    organization_id = '', 
-                                    payment_sent_date = , 
-                                    payout_status = '', 
-                                    product_id = '', 
-                                    purchase_record_id = '', 
-                                    revenue_usd = 1.337, 
-                                    term_end_date = '', 
-                                    term_start_date = '', )
-                                ], 
-                            disbursement_notification_sent = True, 
-                            gcp_revenue_records = [
-                                openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib/billing_gcp_charge_usage.github_com_sugerio_marketplace-service_rds-db_lib.BillingGcpChargeUsage(
-                                    abandoned = 1.337, 
-                                    account_id = '', 
-                                    buyer_id = '', 
-                                    charges = 1.337, 
-                                    currency = '', 
-                                    due_vendor = 1.337, 
-                                    entitlement_id = '', 
-                                    google_entity = '', 
-                                    insight_account_id = '', 
-                                    offer_id = '', 
-                                    ordinal = 56, 
-                                    organization_id = '', 
-                                    payment_schedule = '', 
-                                    payment_type = '', 
-                                    prepay_credits = 1.337, 
-                                    product_id = '', 
-                                    refund_balance_deducted_this_month = 1.337, 
-                                    refund_balance_outstanding = 1.337, 
-                                    refund_reason = '', 
-                                    released = 1.337, 
-                                    report_date = '', 
-                                    resource = '', 
-                                    sku = '', 
-                                    trial_use = 1.337, 
-                                    unit = '', 
-                                    usage = 1.337, 
-                                    used_by = '', 
-                                    withheld = 1.337, )
-                                ], 
-                            resource = '', ), 
-                        invoice_amount = 1.337, 
-                        invoice_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        organization_id = '', 
-                        partner = '', 
-                        payment_due_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        product_id = '', 
-                        refund_disburse_amount = 1.337, 
-                        refund_disburse_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        refund_invoice_amount = 1.337, 
-                        refund_invoice_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        tax_amount = 1.337, )
+                    {"date":"2000-01-23T04:56:07.000+00:00","amount":0.8008281904610115,"productID":"productID","refundDisburseAmount":9.965781217890562,"entitlementID":"entitlementID","invoiceAmount":5.025004791520295,"buyerID":"buyerID","invoiceDate":"2000-01-23T04:56:07.000+00:00","collectableAmount":6.027456183070403,"disburseDate":"2000-01-23T04:56:07.000+00:00","refundInvoiceDate":"2000-01-23T04:56:07.000+00:00","refundDisburseDate":"2000-01-23T04:56:07.000+00:00","organizationID":"organizationID","paymentDueDate":"2000-01-23T04:56:07.000+00:00","refundInvoiceAmount":9.369310271410669,"partner":"partner","currency":"currency","disburseAmount":1.4658129805029452,"id":"id","taxAmount":6.683562403749608,"info":{"awsRevenueRecords":[{"brokerID":"brokerID","usagePeriodStartDate":{"valid":true,"time":"time"},"productID":"productID","insertDate":{"valid":true,"time":"time"},"toAccountID":"toAccountID","usagePeriodEndDate":{"valid":true,"time":"time"},"parentBillingEventID":"parentBillingEventID","disbursementBillingEventID":"disbursementBillingEventID","action":"action","offerID":"offerID","currency":"currency","invoiceID":"invoiceID","id":"id","balanceImpacting":5,"amount":5.962133916683182,"endUserAccountID":"endUserAccountID","dataFeedProductID":"dataFeedProductID","entitlementID":"entitlementID","buyerID":"buyerID","invoiceDate":{"valid":true,"time":"time"},"transactionReferenceID":"transactionReferenceID","organizationID":"organizationID","transactionType":"transactionType","paymentDueDate":{"valid":true,"time":"time"},"fromAccountID":"fromAccountID","agreementID":"agreementID","billingAddressID":"billingAddressID","bankTraceID":"bankTraceID"},{"brokerID":"brokerID","usagePeriodStartDate":{"valid":true,"time":"time"},"productID":"productID","insertDate":{"valid":true,"time":"time"},"toAccountID":"toAccountID","usagePeriodEndDate":{"valid":true,"time":"time"},"parentBillingEventID":"parentBillingEventID","disbursementBillingEventID":"disbursementBillingEventID","action":"action","offerID":"offerID","currency":"currency","invoiceID":"invoiceID","id":"id","balanceImpacting":5,"amount":5.962133916683182,"endUserAccountID":"endUserAccountID","dataFeedProductID":"dataFeedProductID","entitlementID":"entitlementID","buyerID":"buyerID","invoiceDate":{"valid":true,"time":"time"},"transactionReferenceID":"transactionReferenceID","organizationID":"organizationID","transactionType":"transactionType","paymentDueDate":{"valid":true,"time":"time"},"fromAccountID":"fromAccountID","agreementID":"agreementID","billingAddressID":"billingAddressID","bankTraceID":"bankTraceID"}],"disbursementNotificationSent":true,"azureRevenueRecords":[{"purchaseRecordID":"purchaseRecordID","revenueUsd":7.061401241503109,"productID":"productID","termEndDate":"termEndDate","azureBillingAccountID":"azureBillingAccountID","azureCustomerID":"azureCustomerID","billingModel":"billingModel","entitlementID":"entitlementID","payoutStatus":"payoutStatus","buyerID":"buyerID","organizationID":"organizationID","termStartDate":"termStartDate","azureAssetID":"azureAssetID","offerID":"offerID","earningUsd":2.3021358869347655,"azureOfferID":"azureOfferID","azurePlanID":"azurePlanID","estimatedPayoutMonth":{"valid":true,"time":"time"},"paymentSentDate":{"valid":true,"time":"time"}},{"purchaseRecordID":"purchaseRecordID","revenueUsd":7.061401241503109,"productID":"productID","termEndDate":"termEndDate","azureBillingAccountID":"azureBillingAccountID","azureCustomerID":"azureCustomerID","billingModel":"billingModel","entitlementID":"entitlementID","payoutStatus":"payoutStatus","buyerID":"buyerID","organizationID":"organizationID","termStartDate":"termStartDate","azureAssetID":"azureAssetID","offerID":"offerID","earningUsd":2.3021358869347655,"azureOfferID":"azureOfferID","azurePlanID":"azurePlanID","estimatedPayoutMonth":{"valid":true,"time":"time"},"paymentSentDate":{"valid":true,"time":"time"}}],"resource":"resource","idSource":"idSource","creditAmount":9.301444243932576,"gcpRevenueRecords":[{"productID":"productID","usage":1.1730742509559433,"withheld":4.965218492984954,"paymentType":"paymentType","accountID":"accountID","refundBalanceOutstanding":1.4894159098541704,"reportDate":"reportDate","trialUse":7.457744773683766,"paymentSchedule":"paymentSchedule","offerID":"offerID","currency":"currency","prepayCredits":1.2315135367772556,"abandoned":3.616076749251911,"sku":"sku","released":6.84685269835264,"usedBy":"usedBy","insightAccountID":"insightAccountID","dueVendor":4.145608029883936,"resource":"resource","googleEntity":"googleEntity","refundReason":"refundReason","entitlementID":"entitlementID","buyerID":"buyerID","organizationID":"organizationID","charges":2.027123023002322,"unit":"unit","refundBalanceDeductedThisMonth":1.0246457001441578,"ordinal":7},{"productID":"productID","usage":1.1730742509559433,"withheld":4.965218492984954,"paymentType":"paymentType","accountID":"accountID","refundBalanceOutstanding":1.4894159098541704,"reportDate":"reportDate","trialUse":7.457744773683766,"paymentSchedule":"paymentSchedule","offerID":"offerID","currency":"currency","prepayCredits":1.2315135367772556,"abandoned":3.616076749251911,"sku":"sku","released":6.84685269835264,"usedBy":"usedBy","insightAccountID":"insightAccountID","dueVendor":4.145608029883936,"resource":"resource","googleEntity":"googleEntity","refundReason":"refundReason","entitlementID":"entitlementID","buyerID":"buyerID","organizationID":"organizationID","charges":2.027123023002322,"unit":"unit","refundBalanceDeductedThisMonth":1.0246457001441578,"ordinal":7}]}}
                     ]
             )
         else:

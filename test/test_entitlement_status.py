@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.entitlement_status import EntitlementStatus  # noqa: E501
+from suger_sdk_python.models.entitlement_status import EntitlementStatus
 
 class TestEntitlementStatus(unittest.TestCase):
     """EntitlementStatus unit test stubs"""

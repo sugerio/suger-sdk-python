@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.payment_installment import PaymentInstallment  # noqa: E501
+from suger_sdk_python.models.payment_installment import PaymentInstallment
 
 class TestPaymentInstallment(unittest.TestCase):
     """PaymentInstallment unit test stubs"""
@@ -29,12 +28,12 @@ class TestPaymentInstallment(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PaymentInstallment:
         """Test PaymentInstallment
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PaymentInstallment`
         """
-        model = PaymentInstallment()  # noqa: E501
+        model = PaymentInstallment()
         if include_optional:
             return PaymentInstallment(
                 amount = 1.337,

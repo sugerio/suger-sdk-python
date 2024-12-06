@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_localized_date_time import AzureLocalizedDateTime  # noqa: E501
+from suger_sdk_python.models.azure_localized_date_time import AzureLocalizedDateTime
 
 class TestAzureLocalizedDateTime(unittest.TestCase):
     """AzureLocalizedDateTime unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureLocalizedDateTime(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureLocalizedDateTime:
         """Test AzureLocalizedDateTime
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureLocalizedDateTime`
         """
-        model = AzureLocalizedDateTime()  # noqa: E501
+        model = AzureLocalizedDateTime()
         if include_optional:
             return AzureLocalizedDateTime(
                 date_time_in_utc = '',

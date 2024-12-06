@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_user_account import GcpMarketplaceUserAccount  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_user_account import GcpMarketplaceUserAccount
 
 class TestGcpMarketplaceUserAccount(unittest.TestCase):
     """GcpMarketplaceUserAccount unit test stubs"""
@@ -29,31 +28,22 @@ class TestGcpMarketplaceUserAccount(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplaceUserAccount:
         """Test GcpMarketplaceUserAccount
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceUserAccount`
         """
-        model = GcpMarketplaceUserAccount()  # noqa: E501
+        model = GcpMarketplaceUserAccount()
         if include_optional:
             return GcpMarketplaceUserAccount(
                 approvals = [
-                    openapi_client.models.gcp_marketplace_user_account_approval.GcpMarketplaceUserAccountApproval(
+                    suger_sdk_python.models.gcp_marketplace_user_account_approval.GcpMarketplaceUserAccountApproval(
                         name = '', 
                         reason = '', 
                         state = 'STATE_UNSPECIFIED', 
                         update_time = '', )
                     ],
                 billing_account_id = '',
-                company_info = openapi_client.models.company_info.CompanyInfo(
-                    address_line1 = '', 
-                    address_line2 = '', 
-                    city = '', 
-                    country = '', 
-                    email_domain = '', 
-                    name = '', 
-                    postal_code = '', 
-                    state = '', ),
                 create_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 id = '',
                 input_properties = [
@@ -63,7 +53,7 @@ class TestGcpMarketplaceUserAccount(unittest.TestCase):
                 provider = '',
                 state = 'ACCOUNT_STATE_UNSPECIFIED',
                 update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                user_info = openapi_client.models.gcp_user_info.GcpUserInfo(
+                user_info = suger_sdk_python.models.gcp_user_info.GcpUserInfo(
                     roles = [
                         ''
                         ], 

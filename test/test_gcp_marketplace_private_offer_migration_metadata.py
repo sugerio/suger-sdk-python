@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_private_offer_migration_metadata import GcpMarketplacePrivateOfferMigrationMetadata  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_private_offer_migration_metadata import GcpMarketplacePrivateOfferMigrationMetadata
 
 class TestGcpMarketplacePrivateOfferMigrationMetadata(unittest.TestCase):
     """GcpMarketplacePrivateOfferMigrationMetadata unit test stubs"""
@@ -29,16 +28,17 @@ class TestGcpMarketplacePrivateOfferMigrationMetadata(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplacePrivateOfferMigrationMetadata:
         """Test GcpMarketplacePrivateOfferMigrationMetadata
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplacePrivateOfferMigrationMetadata`
         """
-        model = GcpMarketplacePrivateOfferMigrationMetadata()  # noqa: E501
+        model = GcpMarketplacePrivateOfferMigrationMetadata()
         if include_optional:
             return GcpMarketplacePrivateOfferMigrationMetadata(
                 inventory_flavor_external_name = '',
                 product_external_name = '',
+                project_number = '',
                 provider_id = ''
             )
         else:

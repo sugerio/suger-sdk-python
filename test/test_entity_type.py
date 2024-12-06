@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.entity_type import EntityType  # noqa: E501
+from suger_sdk_python.models.entity_type import EntityType
 
 class TestEntityType(unittest.TestCase):
     """EntityType unit test stubs"""

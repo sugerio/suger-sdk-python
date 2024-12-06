@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.track_event_action_type import TrackEventActionType  # noqa: E501
+from suger_sdk_python.models.track_event_action_type import TrackEventActionType
 
 class TestTrackEventActionType(unittest.TestCase):
     """TrackEventActionType unit test stubs"""

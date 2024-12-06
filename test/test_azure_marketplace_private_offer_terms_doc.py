@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_private_offer_terms_doc import AzureMarketplacePrivateOfferTermsDoc  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_private_offer_terms_doc import AzureMarketplacePrivateOfferTermsDoc
 
 class TestAzureMarketplacePrivateOfferTermsDoc(unittest.TestCase):
     """AzureMarketplacePrivateOfferTermsDoc unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplacePrivateOfferTermsDoc(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePrivateOfferTermsDoc:
         """Test AzureMarketplacePrivateOfferTermsDoc
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePrivateOfferTermsDoc`
         """
-        model = AzureMarketplacePrivateOfferTermsDoc()  # noqa: E501
+        model = AzureMarketplacePrivateOfferTermsDoc()
         if include_optional:
             return AzureMarketplacePrivateOfferTermsDoc(
                 customer_facing_document_name = '',

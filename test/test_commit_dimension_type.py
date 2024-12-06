@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.commit_dimension_type import CommitDimensionType  # noqa: E501
+from suger_sdk_python.models.commit_dimension_type import CommitDimensionType
 
 class TestCommitDimensionType(unittest.TestCase):
     """CommitDimensionType unit test stubs"""

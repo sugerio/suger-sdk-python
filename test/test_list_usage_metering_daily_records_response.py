@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.list_usage_metering_daily_records_response import ListUsageMeteringDailyRecordsResponse  # noqa: E501
+from suger_sdk_python.models.list_usage_metering_daily_records_response import ListUsageMeteringDailyRecordsResponse
 
 class TestListUsageMeteringDailyRecordsResponse(unittest.TestCase):
     """ListUsageMeteringDailyRecordsResponse unit test stubs"""
@@ -29,22 +28,17 @@ class TestListUsageMeteringDailyRecordsResponse(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ListUsageMeteringDailyRecordsResponse:
         """Test ListUsageMeteringDailyRecordsResponse
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ListUsageMeteringDailyRecordsResponse`
         """
-        model = ListUsageMeteringDailyRecordsResponse()  # noqa: E501
+        model = ListUsageMeteringDailyRecordsResponse()
         if include_optional:
             return ListUsageMeteringDailyRecordsResponse(
                 next_offset = 56,
                 usage_metering_daily_records = [
-                    openapi_client.models.usage_metering_daily_record.UsageMeteringDailyRecord(
-                        amount = 1.337, 
-                        date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        key = '', 
-                        partner = openapi_client.models.partner.partner(), 
-                        quantity = 1.337, )
+                    {"date":"2000-01-23T04:56:07.000+00:00","amount":6.027456183070403,"quantity":1.4658129805029452,"partner":"{}","entitlementID":"entitlementID","groupBysExpression":"groupBysExpression","key":"key"}
                     ]
             )
         else:

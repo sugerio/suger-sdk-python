@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.revenue_report_type import RevenueReportType  # noqa: E501
+from suger_sdk_python.models.revenue_report_type import RevenueReportType
 
 class TestRevenueReportType(unittest.TestCase):
     """RevenueReportType unit test stubs"""

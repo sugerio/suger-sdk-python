@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **from_amount** | **float** | such as 0 | [optional] 
@@ -11,19 +12,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.gcp_price_tier import GcpPriceTier
+from suger_sdk_python.models.gcp_price_tier import GcpPriceTier
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of GcpPriceTier from a JSON string
 gcp_price_tier_instance = GcpPriceTier.from_json(json)
 # print the JSON string representation of the object
-print GcpPriceTier.to_json()
+print(GcpPriceTier.to_json())
 
 # convert the object into a dict
 gcp_price_tier_dict = gcp_price_tier_instance.to_dict()
 # create an instance of GcpPriceTier from a dict
-gcp_price_tier_form_dict = gcp_price_tier.from_dict(gcp_price_tier_dict)
+gcp_price_tier_from_dict = GcpPriceTier.from_dict(gcp_price_tier_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

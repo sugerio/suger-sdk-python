@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_custom_meter_price_meter_item_price_item import AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_price_and_availability_custom_meter_price_meter_item_price_item import AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem
 
 class TestAzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem unit test stubs"""
@@ -29,22 +28,17 @@ class TestAzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem
 
     def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem:
         """Test AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem`
         """
-        model = AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem()  # noqa: E501
+        model = AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem()
         if include_optional:
             return AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem(
                 price_per_payment_in_usd = 1.337,
                 prices = [
-                    openapi_client.models.azure_marketplace_price.AzureMarketplacePrice(
-                        currency = '', 
-                        markets = [
-                            ''
-                            ], 
-                        price = 1.337, )
+                    {"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}
                     ]
             )
         else:

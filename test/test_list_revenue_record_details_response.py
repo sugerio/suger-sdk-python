@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.list_revenue_record_details_response import ListRevenueRecordDetailsResponse  # noqa: E501
+from suger_sdk_python.models.list_revenue_record_details_response import ListRevenueRecordDetailsResponse
 
 class TestListRevenueRecordDetailsResponse(unittest.TestCase):
     """ListRevenueRecordDetailsResponse unit test stubs"""
@@ -29,20 +28,17 @@ class TestListRevenueRecordDetailsResponse(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ListRevenueRecordDetailsResponse:
         """Test ListRevenueRecordDetailsResponse
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ListRevenueRecordDetailsResponse`
         """
-        model = ListRevenueRecordDetailsResponse()  # noqa: E501
+        model = ListRevenueRecordDetailsResponse()
         if include_optional:
             return ListRevenueRecordDetailsResponse(
                 next_offset = 56,
                 revenue_record_details = [
-                    openapi_client.models.revenue_record_detail.RevenueRecordDetail(
-                        aws_revenue_record_detail = openapi_client.models.aws_revenue_record_detail.awsRevenueRecordDetail(), 
-                        azure_revenue_record_detail = openapi_client.models.azure_revenue_record_detail.azureRevenueRecordDetail(), 
-                        gcp_revenue_record_detail = openapi_client.models.gcp_revenue_record_detail.gcpRevenueRecordDetail(), )
+                    {"awsRevenueRecordDetail":"{}","gcpRevenueRecordDetail":"{}","azureRevenueRecordDetail":"{}"}
                     ]
             )
         else:

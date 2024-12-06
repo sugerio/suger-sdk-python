@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **abandoned** | **float** |  | [optional] 
@@ -36,19 +37,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage import GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage import GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage from a JSON string
 github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage_instance = GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage.from_json(json)
 # print the JSON string representation of the object
-print GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage.to_json()
+print(GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage.to_json())
 
 # convert the object into a dict
 github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage_dict = github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage_instance.to_dict()
 # create an instance of GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage from a dict
-github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage_form_dict = github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage.from_dict(github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage_dict)
+github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage_from_dict = GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage.from_dict(github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

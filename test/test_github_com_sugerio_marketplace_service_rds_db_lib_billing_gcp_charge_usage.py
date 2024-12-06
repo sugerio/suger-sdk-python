@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage import GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage  # noqa: E501
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage import GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage
 
 class TestGithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage(unittest.TestCase):
     """GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage unit test stubs"""
@@ -29,12 +28,12 @@ class TestGithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage(unitte
 
     def make_instance(self, include_optional) -> GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage:
         """Test GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage`
         """
-        model = GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage()  # noqa: E501
+        model = GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage()
         if include_optional:
             return GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage(
                 abandoned = 1.337,

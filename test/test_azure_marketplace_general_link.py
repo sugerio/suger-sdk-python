@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_general_link import AzureMarketplaceGeneralLink  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_general_link import AzureMarketplaceGeneralLink
 
 class TestAzureMarketplaceGeneralLink(unittest.TestCase):
     """AzureMarketplaceGeneralLink unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplaceGeneralLink(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplaceGeneralLink:
         """Test AzureMarketplaceGeneralLink
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplaceGeneralLink`
         """
-        model = AzureMarketplaceGeneralLink()  # noqa: E501
+        model = AzureMarketplaceGeneralLink()
         if include_optional:
             return AzureMarketplaceGeneralLink(
                 display_text = '',

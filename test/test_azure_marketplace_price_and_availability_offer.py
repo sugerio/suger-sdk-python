@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_offer import AzureMarketplacePriceAndAvailabilityOffer  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_price_and_availability_offer import AzureMarketplacePriceAndAvailabilityOffer
 
 class TestAzureMarketplacePriceAndAvailabilityOffer(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilityOffer unit test stubs"""
@@ -29,31 +28,23 @@ class TestAzureMarketplacePriceAndAvailabilityOffer(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilityOffer:
         """Test AzureMarketplacePriceAndAvailabilityOffer
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilityOffer`
         """
-        model = AzureMarketplacePriceAndAvailabilityOffer()  # noqa: E501
+        model = AzureMarketplacePriceAndAvailabilityOffer()
         if include_optional:
             return AzureMarketplacePriceAndAvailabilityOffer(
                 var_schema = '',
                 id = '',
                 preview_audiences = [
-                    openapi_client.models.azure_marketplace_price_and_availability_audience.AzureMarketplacePriceAndAvailabilityAudience(
-                        id = '', 
-                        label = '', 
-                        type = 'none', )
+                    {"id":"id","label":"label","type":"none"}
                     ],
                 product = '',
                 resource_name = '',
                 validations = [
-                    openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                        __schema = '', 
-                        code = 'businessValidationError', 
-                        level = 'informational', 
-                        message = '', 
-                        resource_id = '', )
+                    {"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}
                     ]
             )
         else:

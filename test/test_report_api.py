@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_client.api.report_api import ReportApi  # noqa: E501
+from suger_sdk_python.api.report_api import ReportApi
 
 
 class TestReportApi(unittest.TestCase):
     """ReportApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ReportApi()  # noqa: E501
+        self.api = ReportApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,35 +30,35 @@ class TestReportApi(unittest.TestCase):
     def test_get_revenue_report(self) -> None:
         """Test case for get_revenue_report
 
-        get revenue report  # noqa: E501
+        get revenue report
+        """
+        pass
+
+    def test_list_daily_revenue_records(self) -> None:
+        """Test case for list_daily_revenue_records
+
+        list daily revenue records
         """
         pass
 
     def test_list_revenue_record_details(self) -> None:
         """Test case for list_revenue_record_details
 
-        list revenue record details  # noqa: E501
+        list revenue record details
         """
         pass
 
     def test_list_revenue_records(self) -> None:
         """Test case for list_revenue_records
 
-        list revenue records  # noqa: E501
+        list revenue records
         """
         pass
 
     def test_list_usage_metering_daily_records(self) -> None:
         """Test case for list_usage_metering_daily_records
 
-        list usage metering daily records  # noqa: E501
-        """
-        pass
-
-    def test_list_usage_metering_daily_verifications(self) -> None:
-        """Test case for list_usage_metering_daily_verifications
-
-        list usage metering daily verifications  # noqa: E501
+        list usage metering daily records
         """
         pass
 

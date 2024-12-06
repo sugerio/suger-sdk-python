@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.client_describe_instance_response_body_modules_module_properties import ClientDescribeInstanceResponseBodyModulesModuleProperties  # noqa: E501
+from suger_sdk_python.models.client_describe_instance_response_body_modules_module_properties import ClientDescribeInstanceResponseBodyModulesModuleProperties
 
 class TestClientDescribeInstanceResponseBodyModulesModuleProperties(unittest.TestCase):
     """ClientDescribeInstanceResponseBodyModulesModuleProperties unit test stubs"""
@@ -29,31 +28,16 @@ class TestClientDescribeInstanceResponseBodyModulesModuleProperties(unittest.Tes
 
     def make_instance(self, include_optional) -> ClientDescribeInstanceResponseBodyModulesModuleProperties:
         """Test ClientDescribeInstanceResponseBodyModulesModuleProperties
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ClientDescribeInstanceResponseBodyModulesModuleProperties`
         """
-        model = ClientDescribeInstanceResponseBodyModulesModuleProperties()  # noqa: E501
+        model = ClientDescribeInstanceResponseBodyModulesModuleProperties()
         if include_optional:
             return ClientDescribeInstanceResponseBodyModulesModuleProperties(
                 var_property = [
-                    openapi_client.models.client/describe_instance_response_body_modules_module_properties_property.client.DescribeInstanceResponseBodyModulesModulePropertiesProperty(
-                        display_unit = '', 
-                        key = '', 
-                        name = '', 
-                        property_values = openapi_client.models.client/describe_instance_response_body_modules_module_properties_property_property_values.client.DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues(
-                            property_value = [
-                                openapi_client.models.client/describe_instance_response_body_modules_module_properties_property_property_values_property_value.client.DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue(
-                                    display_name = '', 
-                                    max = '', 
-                                    min = '', 
-                                    remark = '', 
-                                    step = '', 
-                                    type = '', 
-                                    value = '', )
-                                ], ), 
-                        show_type = '', )
+                    {"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"}
                     ]
             )
         else:

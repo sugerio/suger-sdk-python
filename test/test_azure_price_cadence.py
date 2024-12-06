@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_price_cadence import AzurePriceCadence  # noqa: E501
+from suger_sdk_python.models.azure_price_cadence import AzurePriceCadence
 
 class TestAzurePriceCadence(unittest.TestCase):
     """AzurePriceCadence unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzurePriceCadence(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzurePriceCadence:
         """Test AzurePriceCadence
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzurePriceCadence`
         """
-        model = AzurePriceCadence()  # noqa: E501
+        model = AzurePriceCadence()
         if include_optional:
             return AzurePriceCadence(
                 type = 'Month',

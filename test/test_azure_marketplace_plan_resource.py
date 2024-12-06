@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_plan_resource import AzureMarketplacePlanResource  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_plan_resource import AzureMarketplacePlanResource
 
 class TestAzureMarketplacePlanResource(unittest.TestCase):
     """AzureMarketplacePlanResource unit test stubs"""
@@ -29,141 +28,17 @@ class TestAzureMarketplacePlanResource(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePlanResource:
         """Test AzureMarketplacePlanResource
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePlanResource`
         """
-        model = AzureMarketplacePlanResource()  # noqa: E501
+        model = AzureMarketplacePlanResource()
         if include_optional:
             return AzureMarketplacePlanResource(
-                plan = openapi_client.models.azure_marketplace_plan.AzureMarketplacePlan(
-                    __schema = '', 
-                    alias = '', 
-                    azure_government_certifications = [
-                        openapi_client.models.azure_marketplace_government_certification.AzureMarketplaceGovernmentCertification(
-                            link = '', 
-                            name = '', )
-                        ], 
-                    azure_regions = [
-                        ''
-                        ], 
-                    deprecation_schedule = openapi_client.models.azure_marketplace_deprecation_schedule.AzureMarketplaceDeprecationSchedule(
-                        __schema = '', 
-                        alternative = openapi_client.models.azure_marketplace_deprecation_schedule_alternative.AzureMarketplaceDeprecationScheduleAlternative(
-                            plan = openapi_client.models.plan.plan(), 
-                            product = openapi_client.models.product.product(), ), 
-                        date = '', 
-                        date_offset = '', 
-                        reason = 'criticalSecurityIssue', ), 
-                    display_rank = 56, 
-                    id = '', 
-                    identity = openapi_client.models.azure_marketplace_identity.AzureMarketplaceIdentity(
-                        external_id = '', ), 
-                    lifecycle_state = 'notAvailable', 
-                    product = '', 
-                    resource_name = '', 
-                    subtype = 'managedApplication', 
-                    validations = [
-                        openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                            __schema = '', 
-                            code = 'businessValidationError', 
-                            level = 'informational', 
-                            message = '', 
-                            resource_id = '', )
-                        ], ),
-                plan_listing = openapi_client.models.azure_marketplace_plan_listing.AzureMarketplacePlanListing(
-                    __schema = '', 
-                    description = '', 
-                    id = '', 
-                    kind = 'azureVM-plan', 
-                    language_id = '', 
-                    lifecycle_state = 'notAvailable', 
-                    name = '', 
-                    plan = '', 
-                    product = '', 
-                    resource_name = '', 
-                    summary = '', 
-                    validations = [
-                        openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                            __schema = '', 
-                            code = 'businessValidationError', 
-                            level = 'informational', 
-                            message = '', 
-                            resource_id = '', )
-                        ], ),
-                price_and_availability_plan = openapi_client.models.azure_marketplace_price_and_availability_plan.AzureMarketplacePriceAndAvailabilityPlan(
-                    __schema = '', 
-                    audience = 'public', 
-                    billing_tag = '', 
-                    id = '', 
-                    markets = [
-                        ''
-                        ], 
-                    meter_define = '', 
-                    plan = '', 
-                    pricing = openapi_client.models.azure_marketplace_price_and_availability_price.AzureMarketplacePriceAndAvailabilityPrice(
-                        core_pricing = openapi_client.models.azure_marketplace_price_and_availability_core_price.AzureMarketplacePriceAndAvailabilityCorePrice(
-                            price = 1.337, 
-                            price_input_option = 'free', 
-                            price_per_core = 1.337, 
-                            price_per_core_size = openapi_client.models.price_per_core_size.pricePerCoreSize(), 
-                            prices = [
-                                openapi_client.models.azure_marketplace_price.AzureMarketplacePrice(
-                                    currency = '', 
-                                    price = 1.337, )
-                                ], ), 
-                        custom_meters = openapi_client.models.azure_marketplace_price_and_availability_custom_meter_price.AzureMarketplacePriceAndAvailabilityCustomMeterPrice(
-                            meters = {
-                                'key' : openapi_client.models.azure_marketplace_price_and_availability_custom_meter_price_meter_item.AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItem(
-                                    billing_term = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                                        type = 'day', 
-                                        value = 1.337, ), 
-                                    included_quantities = [
-                                        openapi_client.models.azure_marketplace_price_and_availability_custom_meter_price_included_quantity_item.AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem(
-                                            is_infinite = True, 
-                                            quantity = 1.337, )
-                                        ], 
-                                    payment_option = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                                        type = 'day', 
-                                        value = 1.337, ), 
-                                    price_per_payment_in_usd = 1.337, )
-                                }, 
-                            price_input_option = 'perMarket', ), 
-                        license_model = 'byol', 
-                        recurrent_price = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price.AzureMarketplacePriceAndAvailabilityRecurrentPrice(
-                            price_input_option = 'perMarket', 
-                            recurrent_price_mode = 'flatRate', 
-                            user_limits = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_user_limit.AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit(
-                                max = 1.337, 
-                                min = 1.337, ), ), 
-                        system_meter_pricing = openapi_client.models.azure_marketplace_price_and_availability_system_meter_price.AzureMarketplacePriceAndAvailabilitySystemMeterPrice(
-                            price = 1.337, 
-                            price_input_option = 'perCore', ), ), 
-                    private_audiences = [
-                        openapi_client.models.azure_marketplace_price_and_availability_audience.AzureMarketplacePriceAndAvailabilityAudience(
-                            id = '', 
-                            label = '', 
-                            type = 'none', )
-                        ], 
-                    product = '', 
-                    resource_name = '', 
-                    software_reservation = [
-                        openapi_client.models.azure_marketplace_price_and_availability_software_reservation.AzureMarketplacePriceAndAvailabilitySoftwareReservation(
-                            percentage_save = 1.337, 
-                            term = 1.337, 
-                            type = 'month', )
-                        ], 
-                    trial = , 
-                    validations = [
-                        openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                            __schema = '', 
-                            code = 'businessValidationError', 
-                            level = 'informational', 
-                            message = '', 
-                            resource_id = '', )
-                        ], 
-                    visibility = 'visible', )
+                plan = {"deprecationSchedule":{"date":"date","reason":"criticalSecurityIssue","$schema":"$schema","alternative":{"product":"{}","plan":"{}"},"dateOffset":"dateOffset"},"lifecycleState":null,"product":"product","displayRank":3,"$schema":"$schema","azureGovernmentCertifications":[{"link":"link","name":"name"},{"link":"link","name":"name"}],"resourceName":"resourceName","azureRegions":["azureRegions","azureRegions"],"subtype":"managedApplication","identity":{"externalId":"externalId"},"alias":"alias","id":"id","validations":[{"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"},{"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}]},
+                plan_listing = {"summary":"summary","lifecycleState":null,"product":"product","$schema":"$schema","kind":"azureVM-plan","languageId":"languageId","name":"name","description":"description","resourceName":"resourceName","id":"id","validations":[{"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"},{"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}],"plan":"plan"},
+                price_and_availability_plan = {"audience":"public","product":"product","softwareReservation":[{"percentageSave":6.704019297950036,"term":3.353193347011243,"type":"month"},{"percentageSave":6.704019297950036,"term":3.353193347011243,"type":"month"}],"$schema":"$schema","visibility":"visible","meterDefine":"meterDefine","billingTag":"billingTag","resourceName":"resourceName","trial":{"type":"day","value":7.386281948385884},"markets":["markets","markets"],"privateAudiences":[{"id":"id","label":"label","type":"none"},{"id":"id","label":"label","type":"none"}],"id":"id","validations":[{"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"},{"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}],"plan":"plan","pricing":{"customMeters":{"priceInputOption":"perMarket","meters":{"key":{"pricePerPaymentInUsd":6.778324963048013,"includedQuantities":[{"quantity":2.8841621266687802,"isInfinite":true,"billingTerm":{"type":"day","value":7.386281948385884}},{"quantity":2.8841621266687802,"isInfinite":true,"billingTerm":{"type":"day","value":7.386281948385884}}],"billingTerm":{"type":"day","value":7.386281948385884},"paymentOption":{"type":"day","value":7.386281948385884},"prices":[{"pricePerPaymentInUsd":6.878052220127876,"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]},{"pricePerPaymentInUsd":6.878052220127876,"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]}]}}},"licenseModel":"byol","systemMeterPricing":{"price":5.944895607614016,"priceInputOption":"perCore","prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]},"corePricing":{"price":6.965117697638846,"priceInputOption":"free","pricePerCoreSize":"{}","pricePerCore":1.284659006116532,"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]},"recurrentPrice":{"recurrentPriceMode":"flatRate","userLimits":{"min":6.84685269835264,"max":1.4894159098541704},"priceInputOption":"perMarket","prices":[{"pricePerPaymentInUsd":1.2315135367772556,"billingTerm":{"type":"day","value":7.386281948385884},"paymentOption":{"type":"day","value":7.386281948385884},"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]},{"pricePerPaymentInUsd":1.2315135367772556,"billingTerm":{"type":"day","value":7.386281948385884},"paymentOption":{"type":"day","value":7.386281948385884},"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]}]}}}
             )
         else:
             return AzureMarketplacePlanResource(

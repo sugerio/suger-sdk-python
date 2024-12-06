@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.eula_type import EulaType  # noqa: E501
+from suger_sdk_python.models.eula_type import EulaType
 
 class TestEulaType(unittest.TestCase):
     """EulaType unit test stubs"""

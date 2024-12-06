@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_product_marketing_spec import GcpMarketplaceProductMarketingSpec  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_product_marketing_spec import GcpMarketplaceProductMarketingSpec
 
 class TestGcpMarketplaceProductMarketingSpec(unittest.TestCase):
     """GcpMarketplaceProductMarketingSpec unit test stubs"""
@@ -29,12 +28,12 @@ class TestGcpMarketplaceProductMarketingSpec(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplaceProductMarketingSpec:
         """Test GcpMarketplaceProductMarketingSpec
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceProductMarketingSpec`
         """
-        model = GcpMarketplaceProductMarketingSpec()  # noqa: E501
+        model = GcpMarketplaceProductMarketingSpec()
         if include_optional:
             return GcpMarketplaceProductMarketingSpec(
                 description = '',
@@ -42,16 +41,11 @@ class TestGcpMarketplaceProductMarketingSpec(unittest.TestCase):
                     ''
                     ],
                 documentation_specs = [
-                    openapi_client.models.gcp_marketplace_product_documentation_spec.GcpMarketplaceProductDocumentationSpec(
-                        description = '', 
-                        title = '', 
-                        uri = '', )
+                    {"description":"description","title":"title","uri":"uri"}
                     ],
                 eula_url = '',
                 external_license_specs = [
-                    openapi_client.models.gcp_marketplace_product_license_spec.GcpMarketplaceProductLicenseSpec(
-                        description = '', 
-                        uri = '', )
+                    {"description":"description","uri":"uri"}
                     ],
                 external_marketing_url = '',
                 icon = '',
@@ -63,10 +57,7 @@ class TestGcpMarketplaceProductMarketingSpec(unittest.TestCase):
                     ''
                     ],
                 signup_uri = '',
-                support_spec = openapi_client.models.gcp_marketplace_product_support_spec.GcpMarketplaceProductSupportSpec(
-                    description = '', 
-                    email = '', 
-                    uri = '', ),
+                support_spec = {"description":"description","uri":"uri","email":"email"},
                 tag_line = '',
                 title = ''
             )

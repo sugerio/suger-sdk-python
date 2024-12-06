@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.new_usage_record_group import NewUsageRecordGroup  # noqa: E501
+from suger_sdk_python.models.new_usage_record_group import NewUsageRecordGroup
 
 class TestNewUsageRecordGroup(unittest.TestCase):
     """NewUsageRecordGroup unit test stubs"""
@@ -29,22 +28,19 @@ class TestNewUsageRecordGroup(unittest.TestCase):
 
     def make_instance(self, include_optional) -> NewUsageRecordGroup:
         """Test NewUsageRecordGroup
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `NewUsageRecordGroup`
         """
-        model = NewUsageRecordGroup()  # noqa: E501
+        model = NewUsageRecordGroup()
         if include_optional:
             return NewUsageRecordGroup(
+                billable_records = [
+                    {"quantity":0.8008281904610115,"key":"key","properties":{"key":""}}
+                    ],
                 entitlement_id = '',
-                meta_info = openapi_client.models.metering_usage_record_group_meta_info.MeteringUsageRecordGroupMetaInfo(
-                    metronome_daily_cost_amount = 1.337, 
-                    origin_records = {
-                        'key' : 1.337
-                        }, 
-                    source = openapi_client.models.source.source(), 
-                    timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ),
+                meta_info = {"lagoAmount":6.027456183070403,"lagoSubscriptionID":"lagoSubscriptionID","metronomeDailyCostAmount":1.4658129805029452,"SkipValidation":true,"billableRecords":[{"quantity":0.8008281904610115,"key":"key","properties":{"key":""}},{"quantity":0.8008281904610115,"key":"key","properties":{"key":""}}],"metronomeMonthlyInvoiceAmount":5.962133916683182,"metronomeMonthlyInvoiceAmountAdjusted":5.637376656633329,"lagoUsageStartTime":"2000-01-23T04:56:07.000+00:00","originRecords":{"key":2.3021358869347655},"source":"{}","metronomeInvoiceID":"metronomeInvoiceID","timestamp":"2000-01-23T04:56:07.000+00:00"},
                 records = {
                     'key' : 1.337
                     },

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.value_type import ValueType  # noqa: E501
+from suger_sdk_python.models.value_type import ValueType
 
 class TestValueType(unittest.TestCase):
     """ValueType unit test stubs"""

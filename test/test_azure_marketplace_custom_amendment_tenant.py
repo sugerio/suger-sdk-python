@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_custom_amendment_tenant import AzureMarketplaceCustomAmendmentTenant  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_custom_amendment_tenant import AzureMarketplaceCustomAmendmentTenant
 
 class TestAzureMarketplaceCustomAmendmentTenant(unittest.TestCase):
     """AzureMarketplaceCustomAmendmentTenant unit test stubs"""
@@ -29,18 +28,16 @@ class TestAzureMarketplaceCustomAmendmentTenant(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplaceCustomAmendmentTenant:
         """Test AzureMarketplaceCustomAmendmentTenant
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplaceCustomAmendmentTenant`
         """
-        model = AzureMarketplaceCustomAmendmentTenant()  # noqa: E501
+        model = AzureMarketplaceCustomAmendmentTenant()
         if include_optional:
             return AzureMarketplaceCustomAmendmentTenant(
                 manual_entries = [
-                    openapi_client.models.azure_marketplace_custom_amendment_tenant_manual_entry.AzureMarketplaceCustomAmendmentTenantManualEntry(
-                        description = '', 
-                        id = '', )
+                    {"description":"description","id":"id"}
                     ]
             )
         else:

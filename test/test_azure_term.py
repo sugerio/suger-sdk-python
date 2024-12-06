@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_term import AzureTerm  # noqa: E501
+from suger_sdk_python.models.azure_term import AzureTerm
 
 class TestAzureTerm(unittest.TestCase):
     """AzureTerm unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureTerm(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureTerm:
         """Test AzureTerm
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureTerm`
         """
-        model = AzureTerm()  # noqa: E501
+        model = AzureTerm()
         if include_optional:
             return AzureTerm(
                 charge_duration = '',

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.workload_entitlement_term import WorkloadEntitlementTerm  # noqa: E501
+from suger_sdk_python.models.workload_entitlement_term import WorkloadEntitlementTerm
 
 class TestWorkloadEntitlementTerm(unittest.TestCase):
     """WorkloadEntitlementTerm unit test stubs"""
@@ -29,12 +28,12 @@ class TestWorkloadEntitlementTerm(unittest.TestCase):
 
     def make_instance(self, include_optional) -> WorkloadEntitlementTerm:
         """Test WorkloadEntitlementTerm
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `WorkloadEntitlementTerm`
         """
-        model = WorkloadEntitlementTerm()  # noqa: E501
+        model = WorkloadEntitlementTerm()
         if include_optional:
             return WorkloadEntitlementTerm(
                 buyer_id = '',
@@ -42,294 +41,15 @@ class TestWorkloadEntitlementTerm(unittest.TestCase):
                 credit_amount = 1.337,
                 end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 entitlement_id = '',
-                entitlement_info = openapi_client.models.entitlement_info.EntitlementInfo(
-                    alibaba_entitlements = [
-                        openapi_client.models.client/describe_instance_response_body.client.DescribeInstanceResponseBody(
-                            app_json = '', 
-                            auto_renewal = '', 
-                            began_on = 56, 
-                            component_json = '', 
-                            constraints = '', 
-                            created_on = 56, 
-                            end_on = 56, 
-                            extend_json = '', 
-                            host_json = '', 
-                            instance_id = 56, 
-                            is_trial = True, 
-                            modules = openapi_client.models.client/describe_instance_response_body_modules.client.DescribeInstanceResponseBodyModules(
-                                module = [
-                                    openapi_client.models.client/describe_instance_response_body_modules_module.client.DescribeInstanceResponseBodyModulesModule(
-                                        code = '', 
-                                        id = '', 
-                                        name = '', 
-                                        properties = openapi_client.models.client/describe_instance_response_body_modules_module_properties.client.DescribeInstanceResponseBodyModulesModuleProperties(
-                                            property = [
-                                                openapi_client.models.client/describe_instance_response_body_modules_module_properties_property.client.DescribeInstanceResponseBodyModulesModulePropertiesProperty(
-                                                    display_unit = '', 
-                                                    key = '', 
-                                                    name = '', 
-                                                    property_values = openapi_client.models.client/describe_instance_response_body_modules_module_properties_property_property_values.client.DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues(
-                                                        property_value = [
-                                                            openapi_client.models.client/describe_instance_response_body_modules_module_properties_property_property_values_property_value.client.DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue(
-                                                                display_name = '', 
-                                                                max = '', 
-                                                                min = '', 
-                                                                remark = '', 
-                                                                step = '', 
-                                                                type = '', 
-                                                                value = '', )
-                                                            ], ), 
-                                                    show_type = '', )
-                                                ], ), )
-                                    ], ), 
-                            order_id = 56, 
-                            product_code = '', 
-                            product_name = '', 
-                            product_sku_code = '', 
-                            product_type = '', 
-                            relational_data = openapi_client.models.client/describe_instance_response_body_relational_data.client.DescribeInstanceResponseBodyRelationalData(
-                                service_status = '', ), 
-                            status = '', 
-                            supplier_name = '', )
-                        ], 
-                    alibaba_orders = [
-                        openapi_client.models.client/describe_order_response_body.client.DescribeOrderResponseBody(
-                            account_quantity = 56, 
-                            ali_uid = 56, 
-                            components = { }, 
-                            coupon_price = 1.337, 
-                            created_on = 56, 
-                            instance_ids = openapi_client.models.client/describe_order_response_body_instance_ids.client.DescribeOrderResponseBodyInstanceIds(
-                                instance_id = [
-                                    ''
-                                    ], ), 
-                            order_id = 56, 
-                            order_status = '', 
-                            order_type = '', 
-                            original_price = 1.337, 
-                            paid_on = 56, 
-                            pay_status = '', 
-                            payment_price = 1.337, 
-                            period_type = '', 
-                            product_code = '', 
-                            product_name = '', 
-                            product_sku_code = '', 
-                            quantity = 56, 
-                            request_id = '', 
-                            supplier_company_name = '', 
-                            supplier_telephones = openapi_client.models.client/describe_order_response_body_supplier_telephones.client.DescribeOrderResponseBodySupplierTelephones(
-                                telephone = [
-                                    ''
-                                    ], ), 
-                            total_price = 1.337, )
-                        ], 
-                    auto_renew = True, 
-                    aws_entitlements = [
-                        openapi_client.models.types/entitlement.types.Entitlement(
-                            customer_identifier = '', 
-                            dimension = '', 
-                            expiration_date = '', 
-                            product_code = '', 
-                            value = openapi_client.models.value.value(), )
-                        ], 
-                    azure_subscriptions = [
-                        openapi_client.models.azure_marketplace_subscription.AzureMarketplaceSubscription(
-                            allowed_customer_operations = [
-                                'Read'
-                                ], 
-                            auto_renew = True, 
-                            beneficiary = openapi_client.models.azure_ad_identifier.AzureADIdentifier(
-                                billing_account_id = '', 
-                                company_info = openapi_client.models.company_info.CompanyInfo(
-                                    address_line1 = '', 
-                                    address_line2 = '', 
-                                    city = '', 
-                                    country = '', 
-                                    email_domain = '', 
-                                    name = '', 
-                                    postal_code = '', 
-                                    state = '', ), 
-                                customer_id = '', 
-                                email_id = '', 
-                                first_name = '', 
-                                last_name = '', 
-                                license_type = '', 
-                                object_id = '', 
-                                puid = '', 
-                                tenant_id = '', ), 
-                            created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            fulfillment_id = '', 
-                            id = '', 
-                            is_free_trial = True, 
-                            is_test = True, 
-                            last_modified = '', 
-                            name = '', 
-                            offer_id = '', 
-                            plan_id = '', 
-                            publisher_id = '', 
-                            purchaser = openapi_client.models.azure_ad_identifier.AzureADIdentifier(
-                                billing_account_id = '', 
-                                customer_id = '', 
-                                email_id = '', 
-                                first_name = '', 
-                                last_name = '', 
-                                license_type = '', 
-                                object_id = '', 
-                                puid = '', 
-                                tenant_id = '', ), 
-                            quantity = 56, 
-                            saas_subscription_status = 'NotStarted', 
-                            sandbox_type = 'None', 
-                            session_id = '', 
-                            session_mode = 'None', 
-                            store_front = '', 
-                            term = openapi_client.models.azure_term.AzureTerm(
-                                charge_duration = '', 
-                                end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                term_unit = '', ), )
-                        ], 
-                    collectable_amount = 1.337, 
-                    commit_amount = 1.337, 
-                    commits = [
-                        openapi_client.models.commit_dimension.CommitDimension(
-                            category = '', 
-                            description = '', 
-                            is_user_created = True, 
-                            key = '', 
-                            length = 56, 
-                            maximum_users = 1, 
-                            minimum_users = 1, 
-                            name = '', 
-                            quantity = 56, 
-                            rate = 1.337, 
-                            term_end_time = '', 
-                            time_unit = openapi_client.models.time_unit.timeUnit(), 
-                            type = openapi_client.models.type.type(), 
-                            types = [
-                                ''
-                                ], )
-                        ], 
-                    currency = '', 
-                    dimensions = [
-                        openapi_client.models.metering_dimension.MeteringDimension(
-                            category = '', 
-                            description = '', 
-                            included_base_quantities = [
-                                openapi_client.models.azure_included_base_quantity.AzureIncludedBaseQuantity(
-                                    is_infinite = True, 
-                                    quantity = 1.337, 
-                                    recurring_unit = 'Monthly', )
-                                ], 
-                            key = '', 
-                            name = '', 
-                            plan_id = '', 
-                            plan_name = '', 
-                            price_tiers = [
-                                openapi_client.models.gcp_price_tier.GcpPriceTier(
-                                    from_amount = 1.337, 
-                                    price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                        currency_code = '', 
-                                        nanos = 56, 
-                                        units = '', ), 
-                                    starting_usage_amount = '', )
-                                ], 
-                            rate = 1.337, 
-                            sku_id = '', 
-                            usage_count = openapi_client.models.usage_count.usageCount(), 
-                            value_type = openapi_client.models.value_type.valueType(), )
-                        ], 
-                    disbursed_amount = 1.337, 
-                    eula_type = '', 
-                    eula_url = '', 
-                    gcp_entitlements = [
-                        openapi_client.models.gcp_marketplace_entitlement.GcpMarketplaceEntitlement(
-                            account = '', 
-                            consumers = [
-                                openapi_client.models.gcp_marketplace_consumer.GcpMarketplaceConsumer(
-                                    project = '', )
-                                ], 
-                            create_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            id = '', 
-                            input_properties = [
-                                56
-                                ], 
-                            message_to_user = '', 
-                            name = '', 
-                            new_offer_duration = '', 
-                            new_offer_end_time = '', 
-                            new_offer_start_time = '', 
-                            new_pending_offer = '', 
-                            new_pending_offer_duration = '', 
-                            new_pending_plan = '', 
-                            new_plan = '', 
-                            offer = '', 
-                            offer_duration = '', 
-                            offer_effective_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            offer_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            plan = '', 
-                            product = '', 
-                            product_external_name = '', 
-                            provider = '', 
-                            quote_external_name = '', 
-                            state = openapi_client.models.state.state(), 
-                            subscription_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            usage_reporting_id = '', )
-                        ], 
-                    gcp_plans = [
-                        openapi_client.models.gcp_marketplace_product_purchase_option_spec.GcpMarketplaceProductPurchaseOptionSpec(
-                            feature_values = [
-                                openapi_client.models.gcp_marketplace_product_feature_value.GcpMarketplaceProductFeatureValue(
-                                    feature_description = '', 
-                                    feature_name = '', 
-                                    feature_title = '', 
-                                    feature_value = '', )
-                                ], 
-                            name = '', 
-                            price_info = openapi_client.models.gcp_marketplace_product_price_info.GcpMarketplaceProductPriceInfo(
-                                description = '', 
-                                price_model = 'FREE', 
-                                subscription_plans = [
-                                    openapi_client.models.gcp_marketplace_product_subscription_plan.GcpMarketplaceProductSubscriptionPlan(
-                                        period = '', )
-                                    ], 
-                                usage_fees = [
-                                    openapi_client.models.gcp_marketplace_product_usage_fee.GcpMarketplaceProductUsageFee(
-                                        display_quantity = 56, 
-                                        metric_id = '', )
-                                    ], ), 
-                            purchase_mode = 'PURCHASE_MODE_PRIVATE', 
-                            title = '', )
-                        ], 
-                    invoiced_amount = 1.337, 
-                    payment_installments = [
-                        openapi_client.models.payment_installment.PaymentInstallment(
-                            amount = 1.337, 
-                            charge_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            charge_on_str = '', 
-                            credit = 1.337, 
-                            discount_percentage = 1.337, 
-                            original_amount = 1.337, )
-                        ], 
-                    refund_cancelation_policy = '', 
-                    seller_notes = '', ),
+                entitlement_info = {"alibabaOrders":[{"PaidOn":1,"CouponPrice":2.027123023002322,"PeriodType":"PeriodType","OriginalPrice":1.2315135367772556,"PayStatus":"PayStatus","ProductName":"ProductName","RequestId":"RequestId","ProductCode":"ProductCode","SupplierCompanyName":"SupplierCompanyName","Quantity":6,"OrderId":7,"SupplierTelephones":{"Telephone":["Telephone","Telephone"]},"Components":{"key":""},"OrderStatus":"OrderStatus","OrderType":"OrderType","TotalPrice":7.457744773683766,"ProductSkuCode":"ProductSkuCode","CreatedOn":4,"PaymentPrice":1.4894159098541704,"InstanceIds":{"InstanceId":["InstanceId","InstanceId"]},"AccountQuantity":9,"AliUid":3},{"PaidOn":1,"CouponPrice":2.027123023002322,"PeriodType":"PeriodType","OriginalPrice":1.2315135367772556,"PayStatus":"PayStatus","ProductName":"ProductName","RequestId":"RequestId","ProductCode":"ProductCode","SupplierCompanyName":"SupplierCompanyName","Quantity":6,"OrderId":7,"SupplierTelephones":{"Telephone":["Telephone","Telephone"]},"Components":{"key":""},"OrderStatus":"OrderStatus","OrderType":"OrderType","TotalPrice":7.457744773683766,"ProductSkuCode":"ProductSkuCode","CreatedOn":4,"PaymentPrice":1.4894159098541704,"InstanceIds":{"InstanceId":["InstanceId","InstanceId"]},"AccountQuantity":9,"AliUid":3}],"invoicedAmount":9.018348186070783,"addons":[{"amount":0.8008281904610115,"name":"name","description":"description","chargeOn":"2000-01-23T04:56:07.000+00:00","id":"id"},{"amount":0.8008281904610115,"name":"name","description":"description","chargeOn":"2000-01-23T04:56:07.000+00:00","id":"id"}],"trialConfig":"{}","azureSubscriptions":[{"fulfillmentId":"fulfillmentId","quantity":1,"allowedCustomerOperations":["Read","Read"],"created":"2000-01-23T04:56:07.000+00:00","purchaser":{"firstName":"firstName","lastName":"lastName","licenseType":"licenseType","puid":"puid","customerId":"customerId","tenantId":"tenantId","billingAccountId":"billingAccountId","emailId":"emailId","objectId":"objectId"},"isFreeTrial":true,"sessionId":"sessionId","saasSubscriptionStatus":"NotStarted","publisherId":"publisherId","beneficiary":{"firstName":"firstName","lastName":"lastName","licenseType":"licenseType","puid":"puid","customerId":"customerId","tenantId":"tenantId","billingAccountId":"billingAccountId","emailId":"emailId","objectId":"objectId"},"isTest":true,"name":"name","autoRenew":true,"offerId":"offerId","planId":"planId","storeFront":"storeFront","term":{"endDate":"2000-01-23T04:56:07.000+00:00","chargeDuration":"chargeDuration","startDate":"2000-01-23T04:56:07.000+00:00","termUnit":"termUnit"},"id":"id","lastModified":"lastModified","sandboxType":"None","sessionMode":"None"},{"fulfillmentId":"fulfillmentId","quantity":1,"allowedCustomerOperations":["Read","Read"],"created":"2000-01-23T04:56:07.000+00:00","purchaser":{"firstName":"firstName","lastName":"lastName","licenseType":"licenseType","puid":"puid","customerId":"customerId","tenantId":"tenantId","billingAccountId":"billingAccountId","emailId":"emailId","objectId":"objectId"},"isFreeTrial":true,"sessionId":"sessionId","saasSubscriptionStatus":"NotStarted","publisherId":"publisherId","beneficiary":{"firstName":"firstName","lastName":"lastName","licenseType":"licenseType","puid":"puid","customerId":"customerId","tenantId":"tenantId","billingAccountId":"billingAccountId","emailId":"emailId","objectId":"objectId"},"isTest":true,"name":"name","autoRenew":true,"offerId":"offerId","planId":"planId","storeFront":"storeFront","term":{"endDate":"2000-01-23T04:56:07.000+00:00","chargeDuration":"chargeDuration","startDate":"2000-01-23T04:56:07.000+00:00","termUnit":"termUnit"},"id":"id","lastModified":"lastModified","sandboxType":"None","sessionMode":"None"}],"awsEntitlements":[{"productCode":"productCode","customerIdentifier":"customerIdentifier","dimension":"dimension","value":"{}","expirationDate":"expirationDate"},{"productCode":"productCode","customerIdentifier":"customerIdentifier","dimension":"dimension","value":"{}","expirationDate":"expirationDate"}],"gcpEntitlements":[{"newPendingOffer":"newPendingOffer","offerEffectiveTime":"2000-01-23T04:56:07.000+00:00","newPlan":"newPlan","offer":"offer","inputProperties":[9,9],"provider":"provider","offerEndTime":"2000-01-23T04:56:07.000+00:00","offerDuration":"offerDuration","consumers":[{"project":"project"},{"project":"project"}],"newOfferEndTime":"newOfferEndTime","subscriptionEndTime":"2000-01-23T04:56:07.000+00:00","id":"id","state":"{}","usageReportingId":"usageReportingId","plan":"plan","messageToUser":"messageToUser","product":"product","updateTime":"2000-01-23T04:56:07.000+00:00","newOfferDuration":"newOfferDuration","quoteExternalName":"quoteExternalName","createTime":"2000-01-23T04:56:07.000+00:00","newPendingPlan":"newPendingPlan","name":"name","newPendingOfferDuration":"newPendingOfferDuration","account":"account","productExternalName":"productExternalName","newOfferStartTime":"newOfferStartTime"},{"newPendingOffer":"newPendingOffer","offerEffectiveTime":"2000-01-23T04:56:07.000+00:00","newPlan":"newPlan","offer":"offer","inputProperties":[9,9],"provider":"provider","offerEndTime":"2000-01-23T04:56:07.000+00:00","offerDuration":"offerDuration","consumers":[{"project":"project"},{"project":"project"}],"newOfferEndTime":"newOfferEndTime","subscriptionEndTime":"2000-01-23T04:56:07.000+00:00","id":"id","state":"{}","usageReportingId":"usageReportingId","plan":"plan","messageToUser":"messageToUser","product":"product","updateTime":"2000-01-23T04:56:07.000+00:00","newOfferDuration":"newOfferDuration","quoteExternalName":"quoteExternalName","createTime":"2000-01-23T04:56:07.000+00:00","newPendingPlan":"newPendingPlan","name":"name","newPendingOfferDuration":"newPendingOfferDuration","account":"account","productExternalName":"productExternalName","newOfferStartTime":"newOfferStartTime"}],"paymentInstallments":[{"discountPercentage":8.762042012749001,"amount":9.369310271410669,"originalAmount":9.018348186070783,"chargeOn":"2000-01-23T04:56:07.000+00:00","chargeOnStr":"chargeOnStr","credit":6.683562403749608},{"discountPercentage":8.762042012749001,"amount":9.369310271410669,"originalAmount":9.018348186070783,"chargeOn":"2000-01-23T04:56:07.000+00:00","chargeOnStr":"chargeOnStr","credit":6.683562403749608}],"billableDimensions":[{"priceModelTiered":"{}","priceModelTieredPercentage":"{}","priceModelMatrix":"{}","minimumCommit":1.4658129805029452,"length":6,"priceModelBulk":"{}","description":"description","discount":"{}","minimumCommitScope":"{}","minimumCommitProrata":true,"billableMetricId":"billableMetricId","priceModelPercentage":"{}","name":"name","priceModelBasic":"{}","category":"{}","priceModelVolume":"{}","timeUnit":"{}"},{"priceModelTiered":"{}","priceModelTieredPercentage":"{}","priceModelMatrix":"{}","minimumCommit":1.4658129805029452,"length":6,"priceModelBulk":"{}","description":"description","discount":"{}","minimumCommitScope":"{}","minimumCommitProrata":true,"billableMetricId":"billableMetricId","priceModelPercentage":"{}","name":"name","priceModelBasic":"{}","category":"{}","priceModelVolume":"{}","timeUnit":"{}"}],"eulaUrl":"eulaUrl","refundCancellationPolicy":"refundCancellationPolicy","paymentSchedule":"{}","autoRenew":true,"currency":"currency","alibabaEntitlements":[{"Status":"Status","ProductName":"ProductName","EndOn":5,"InstanceId":2,"ProductCode":"ProductCode","Modules":{"Module":[{"Id":"Id","Properties":{"Property":[{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"},{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"}]},"Code":"Code","Name":"Name"},{"Id":"Id","Properties":{"Property":[{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"},{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"}]},"Code":"Code","Name":"Name"}]},"RelationalData":{"ServiceStatus":"ServiceStatus"},"AppJson":"AppJson","ProductType":"ProductType","OrderId":7,"Constraints":"Constraints","AutoRenewal":"AutoRenewal","ExtendJson":"ExtendJson","ComponentJson":"ComponentJson","IsTrial":true,"SupplierName":"SupplierName","ProductSkuCode":"ProductSkuCode","CreatedOn":5,"HostJson":"HostJson","BeganOn":1},{"Status":"Status","ProductName":"ProductName","EndOn":5,"InstanceId":2,"ProductCode":"ProductCode","Modules":{"Module":[{"Id":"Id","Properties":{"Property":[{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"},{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"}]},"Code":"Code","Name":"Name"},{"Id":"Id","Properties":{"Property":[{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"},{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"}]},"Code":"Code","Name":"Name"}]},"RelationalData":{"ServiceStatus":"ServiceStatus"},"AppJson":"AppJson","ProductType":"ProductType","OrderId":7,"Constraints":"Constraints","AutoRenewal":"AutoRenewal","ExtendJson":"ExtendJson","ComponentJson":"ComponentJson","IsTrial":true,"SupplierName":"SupplierName","ProductSkuCode":"ProductSkuCode","CreatedOn":5,"HostJson":"HostJson","BeganOn":1}],"disbursedAmount":9.965781217890562,"netTermsInDays":6,"dimensionsOversized":true,"eulaType":"","gracePeriodInDays":6,"grossAmount":8.762042012749001,"gcpPlans":[{"priceInfo":{"usageFees":[{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7},{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7}],"subscriptionPlans":[{"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},{"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}],"description":"description","priceModel":"FREE"},"purchaseMode":"PURCHASE_MODE_PRIVATE","name":"name","title":"title","featureValues":[{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"},{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"}]},{"priceInfo":{"usageFees":[{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7},{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7}],"subscriptionPlans":[{"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},{"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}],"description":"description","priceModel":"FREE"},"purchaseMode":"PURCHASE_MODE_PRIVATE","name":"name","title":"title","featureValues":[{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"},{"featureValue":"featureValue","featureTitle":"featureTitle","featureName":"featureName","featureDescription":"featureDescription"}]}],"collectableAmount":4.965218492984954,"alertDaysBeforeEnd":6,"sellerNotes":"sellerNotes","awsAgreement":"{}","billingCycle":"{}","commits":[{"types":["types","types"],"quantity":3,"length":2,"description":"description","type":"{}","maximumUsers":706140,"rate":2.027123023002322,"isUserCreated":true,"minimumUsers":930144,"name":"name","term":"term","category":"category","termEndTime":"termEndTime","key":"key","timeUnit":"{}"},{"types":["types","types"],"quantity":3,"length":2,"description":"description","type":"{}","maximumUsers":706140,"rate":2.027123023002322,"isUserCreated":true,"minimumUsers":930144,"name":"name","term":"term","category":"category","termEndTime":"termEndTime","key":"key","timeUnit":"{}"}],"awsChannelPartner":"{}","commitAmount":5.025004791520295,"dimensions":[{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"types":["types","types"],"description":"description","planName":"planName","usageCount":"{}","rate":1.0246457001441578,"includedBaseQuantities":[{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"},{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}],"valueType":"{}","name":"name","planId":"planId","category":"category","key":"key","skuId":"skuId"},{"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"types":["types","types"],"description":"description","planName":"planName","usageCount":"{}","rate":1.0246457001441578,"includedBaseQuantities":[{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"},{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}],"valueType":"{}","name":"name","planId":"planId","category":"category","key":"key","skuId":"skuId"}],"spaUrl":"spaUrl"},
                 external_entitlement_id = '',
                 id = '',
-                info = openapi_client.models.entitlement_term_info.EntitlementTermInfo(
-                    dimension_quantity_decimal_parts = {
-                        'key' : 1.337
-                        }, 
-                    is_commit_divided = True, 
-                    parent_entitlement_term_id = '', 
-                    sub_entitlement_term_ids = [
-                        ''
-                        ], 
-                    type = '', ),
+                info = {"dimensionQuantityDecimalParts":{"key":1.4658129805029452},"parentEntitlementTermId":"parentEntitlementTermId","type":"","subEntitlementTermIds":["subEntitlementTermIds","subEntitlementTermIds"],"isCommitDivided":true},
                 offer_id = '',
                 organization_id = '',
                 partner = '',
                 product_id = '',
+                reported_amount = 1.337,
                 service = 'DEFAULT',
                 start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 used_commit_amount = 1.337,

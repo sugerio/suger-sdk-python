@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.aws_renewal_offer_type import AwsRenewalOfferType  # noqa: E501
+from suger_sdk_python.models.aws_renewal_offer_type import AwsRenewalOfferType
 
 class TestAwsRenewalOfferType(unittest.TestCase):
     """AwsRenewalOfferType unit test stubs"""

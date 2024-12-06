@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_software_reservation import AzureMarketplacePriceAndAvailabilitySoftwareReservation  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_price_and_availability_software_reservation import AzureMarketplacePriceAndAvailabilitySoftwareReservation
 
 class TestAzureMarketplacePriceAndAvailabilitySoftwareReservation(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilitySoftwareReservation unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplacePriceAndAvailabilitySoftwareReservation(unittest.TestC
 
     def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilitySoftwareReservation:
         """Test AzureMarketplacePriceAndAvailabilitySoftwareReservation
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilitySoftwareReservation`
         """
-        model = AzureMarketplacePriceAndAvailabilitySoftwareReservation()  # noqa: E501
+        model = AzureMarketplacePriceAndAvailabilitySoftwareReservation()
         if include_optional:
             return AzureMarketplacePriceAndAvailabilitySoftwareReservation(
                 percentage_save = 1.337,

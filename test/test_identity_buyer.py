@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.identity_buyer import IdentityBuyer  # noqa: E501
+from suger_sdk_python.models.identity_buyer import IdentityBuyer
 
 class TestIdentityBuyer(unittest.TestCase):
     """IdentityBuyer unit test stubs"""
@@ -29,12 +28,12 @@ class TestIdentityBuyer(unittest.TestCase):
 
     def make_instance(self, include_optional) -> IdentityBuyer:
         """Test IdentityBuyer
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `IdentityBuyer`
         """
-        model = IdentityBuyer()  # noqa: E501
+        model = IdentityBuyer()
         if include_optional:
             return IdentityBuyer(
                 contact_ids = [
@@ -44,20 +43,11 @@ class TestIdentityBuyer(unittest.TestCase):
                 description = '',
                 external_id = '',
                 id = '',
-                info = openapi_client.models.buyer_info.BuyerInfo(
-                    aws_buyer = openapi_client.models.aws_buyer.awsBuyer(), 
-                    azure_buyer = openapi_client.models.azure_buyer.azureBuyer(), 
-                    collectable_amount = 1.337, 
-                    customer_id = '', 
-                    disbursed_amount = 1.337, 
-                    gcp_buyer = openapi_client.models.gcp_buyer.gcpBuyer(), 
-                    invoiced_amount = 1.337, 
-                    metronome_customer_id = '', 
-                    orb_customer_id = '', ),
+                info = {"stripeBuyer":"{}","invoicedAmount":5.962133916683182,"companyInfo":{"country":"country","emailDomain":"emailDomain","city":"city","postalCode":"postalCode","name":"name","addressLine1":"addressLine1","addressLine2":"addressLine2","state":"state","validFrom":"validFrom"},"gcpBuyer":"{}","lastModifiedBy":"lastModifiedBy","grossAmount":1.4658129805029452,"collectableAmount":0.8008281904610115,"paymentConfig":"{}","emailAddress":"emailAddress","orbCustomerId":"orbCustomerId","adyenBuyer":"{}","azureBuyer":"{}","customerId":"customerId","lagoCustomerId":"lagoCustomerId","awsBuyer":"{}","fields":{"key":""},"metronomeCustomerId":"metronomeCustomerId","disbursedAmount":6.027456183070403,"spaUrl":"spaUrl"},
                 last_update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 name = '',
                 organization_id = '',
-                partner = 'AWS'
+                partner = ''
             )
         else:
             return IdentityBuyer(

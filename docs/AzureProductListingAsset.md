@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **str** |  | [optional] 
@@ -18,19 +19,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.azure_product_listing_asset import AzureProductListingAsset
+from suger_sdk_python.models.azure_product_listing_asset import AzureProductListingAsset
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of AzureProductListingAsset from a JSON string
 azure_product_listing_asset_instance = AzureProductListingAsset.from_json(json)
 # print the JSON string representation of the object
-print AzureProductListingAsset.to_json()
+print(AzureProductListingAsset.to_json())
 
 # convert the object into a dict
 azure_product_listing_asset_dict = azure_product_listing_asset_instance.to_dict()
 # create an instance of AzureProductListingAsset from a dict
-azure_product_listing_asset_form_dict = azure_product_listing_asset.from_dict(azure_product_listing_asset_dict)
+azure_product_listing_asset_from_dict = AzureProductListingAsset.from_dict(azure_product_listing_asset_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

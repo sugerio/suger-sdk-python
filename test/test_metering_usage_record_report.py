@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.metering_usage_record_report import MeteringUsageRecordReport  # noqa: E501
+from suger_sdk_python.models.metering_usage_record_report import MeteringUsageRecordReport
 
 class TestMeteringUsageRecordReport(unittest.TestCase):
     """MeteringUsageRecordReport unit test stubs"""
@@ -29,12 +28,12 @@ class TestMeteringUsageRecordReport(unittest.TestCase):
 
     def make_instance(self, include_optional) -> MeteringUsageRecordReport:
         """Test MeteringUsageRecordReport
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `MeteringUsageRecordReport`
         """
-        model = MeteringUsageRecordReport()  # noqa: E501
+        model = MeteringUsageRecordReport()
         if include_optional:
             return MeteringUsageRecordReport(
                 buyer_id = '',
@@ -42,53 +41,9 @@ class TestMeteringUsageRecordReport(unittest.TestCase):
                 entitlement_id = '',
                 entitlement_term_id = '',
                 id = '',
-                info = openapi_client.models.metering_usage_record_report_info.MeteringUsageRecordReportInfo(
-                    alibaba_metering_request = openapi_client.models.alibaba_metering_request.alibabaMeteringRequest(), 
-                    alibaba_metering_response = openapi_client.models.alibaba_metering_response.alibabaMeteringResponse(), 
-                    aws_metering_response = openapi_client.models.aws_metering_response.awsMeteringResponse(), 
-                    azure_metering_response = openapi_client.models.azure_metering_response.azureMeteringResponse(), 
-                    commit_amount = 1.337, 
-                    credit_amount = 1.337, 
-                    credit_records = {
-                        'key' : 1.337
-                        }, 
-                    decimal_parts = {
-                        'key' : 1.337
-                        }, 
-                    dimension_categories = {
-                        'key' : ''
-                        }, 
-                    dimension_unit_list_price = {
-                        'key' : 1.337
-                        }, 
-                    dimension_unit_price = {
-                        'key' : 1.337
-                        }, 
-                    end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    gcp_metering_response = openapi_client.models.gcp_metering_response.gcpMeteringResponse(), 
-                    included_records = {
-                        'key' : 1.337
-                        }, 
-                    new_decimal_parts = {
-                        'key' : 1.337
-                        }, 
-                    partner = '', 
-                    records_to_report_before_adjustment_at_list_price = {
-                        'key' : 1.337
-                        }, 
-                    reported_records = {
-                        'key' : 1.337
-                        }, 
-                    start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    usage_record_group_ids = [
-                        ''
-                        ], 
-                    used_commit_amount = 1.337, 
-                    used_commit_amount_increment = 1.337, 
-                    used_credit_amount = 1.337, 
-                    used_credit_amount_increment = 1.337, ),
+                info = {"creditRecords":{"key":2.3021358869347655},"usedCommitAmountIncrement":1.4894159098541704,"gcpMeteringRequest":"{}","alibabaMeteringResponse":"{}","usedCommitAmount":1.0246457001441578,"reportedRecords":{"key":1.2315135367772556},"usedCreditAmount":6.84685269835264,"alibabaMeteringRequest":"{}","dimensionUnitListPrice":{"key":9.301444243932576},"azureMeteringRequest":"{}","aggregatedBillableRecords":[{"amount":6.027456183070403,"quantity":1.4658129805029452,"name":"name","billableMetricInfo":{"groupBys":["groupBys","groupBys"],"propertyUniqueOn":"propertyUniqueOn","filterGroups":[{"filters":[{"valueType":"STRING","name":"name","operation":"IS","value":"{}"},{"valueType":"STRING","name":"name","operation":"IS","value":"{}"}]},{"filters":[{"valueType":"STRING","name":"name","operation":"IS","value":"{}"},{"valueType":"STRING","name":"name","operation":"IS","value":"{}"}]}]},"groupBysExpression":"groupBysExpression","billableMetricAggregationType":"COUNT","key":"key","uniqueCountAggregationResult":"{}"},{"amount":6.027456183070403,"quantity":1.4658129805029452,"name":"name","billableMetricInfo":{"groupBys":["groupBys","groupBys"],"propertyUniqueOn":"propertyUniqueOn","filterGroups":[{"filters":[{"valueType":"STRING","name":"name","operation":"IS","value":"{}"},{"valueType":"STRING","name":"name","operation":"IS","value":"{}"}]},{"filters":[{"valueType":"STRING","name":"name","operation":"IS","value":"{}"},{"valueType":"STRING","name":"name","operation":"IS","value":"{}"}]}]},"groupBysExpression":"groupBysExpression","billableMetricAggregationType":"COUNT","key":"key","uniqueCountAggregationResult":"{}"}],"awsMeteringResponse":"{}","dimensionUnitPrice":{"key":3.616076749251911},"startTime":"2000-01-23T04:56:07.000+00:00","decimalParts":{"key":7.061401241503109},"newDecimalParts":{"key":4.145608029883936},"recordsToReportBeforeAdjustmentAtListPrice":{"key":7.386281948385884},"azureMeteringResponse":"{}","message":"message","dimensionCategories":{"key":"dimensionCategories"},"awsMeteringRequest":"{}","usedCreditAmountIncrement":7.457744773683766,"gcpMeteringResponse":"{}","partner":"partner","includedRecords":{"key":2.027123023002322},"endTime":"2000-01-23T04:56:07.000+00:00","creditAmount":5.637376656633329,"commitAmount":5.962133916683182,"usageRecordGroupIds":["usageRecordGroupIds","usageRecordGroupIds"],"status":""},
                 organization_id = '',
-                partner = 'AWS',
+                partner = '',
                 product_id = ''
             )
         else:

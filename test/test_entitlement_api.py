@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_client.api.entitlement_api import EntitlementApi  # noqa: E501
+from suger_sdk_python.api.entitlement_api import EntitlementApi
 
 
 class TestEntitlementApi(unittest.TestCase):
     """EntitlementApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = EntitlementApi()  # noqa: E501
+        self.api = EntitlementApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,77 +30,112 @@ class TestEntitlementApi(unittest.TestCase):
     def test_add_entitlement_credit(self) -> None:
         """Test case for add_entitlement_credit
 
-        add entitlement credit  # noqa: E501
+        add entitlement credit
+        """
+        pass
+
+    def test_apply_addon_to_entitlement(self) -> None:
+        """Test case for apply_addon_to_entitlement
+
+        apply addon to entitlement
         """
         pass
 
     def test_approve_entitlement(self) -> None:
         """Test case for approve_entitlement
 
-        approve entitlement  # noqa: E501
+        approve entitlement
+        """
+        pass
+
+    def test_cancel_entitlement(self) -> None:
+        """Test case for cancel_entitlement
+
+        cancel entitlement
+        """
+        pass
+
+    def test_create_entitlement(self) -> None:
+        """Test case for create_entitlement
+
+        create entitlement
+        """
+        pass
+
+    def test_delete_entitlement_term(self) -> None:
+        """Test case for delete_entitlement_term
+
+        delete entitlement term
         """
         pass
 
     def test_divide_entitlement_commit(self) -> None:
         """Test case for divide_entitlement_commit
 
-        divide entitlement commit  # noqa: E501
+        divide entitlement commit
         """
         pass
 
     def test_get_entitlement(self) -> None:
         """Test case for get_entitlement
 
-        get entitlement  # noqa: E501
+        get entitlement
+        """
+        pass
+
+    def test_get_entitlement_term(self) -> None:
+        """Test case for get_entitlement_term
+
+        get entitlement term
+        """
+        pass
+
+    def test_list_entitlement_terms(self) -> None:
+        """Test case for list_entitlement_terms
+
+        list entitlement terms
         """
         pass
 
     def test_list_entitlements(self) -> None:
         """Test case for list_entitlements
 
-        list entitlements  # noqa: E501
+        list entitlements
         """
         pass
 
-    def test_list_entitlements_by_buyer(self) -> None:
-        """Test case for list_entitlements_by_buyer
+    def test_schedule_entitlement_cancellation(self) -> None:
+        """Test case for schedule_entitlement_cancellation
 
-        list entitlements by buyer  # noqa: E501
+        schedule entitlement cancellation
         """
         pass
 
-    def test_list_entitlements_by_offer(self) -> None:
-        """Test case for list_entitlements_by_offer
+    def test_unschedule_entitlement_cancellation(self) -> None:
+        """Test case for unschedule_entitlement_cancellation
 
-        list entitlements by offer  # noqa: E501
-        """
-        pass
-
-    def test_list_entitlements_by_partner(self) -> None:
-        """Test case for list_entitlements_by_partner
-
-        list entitlements by partner  # noqa: E501
-        """
-        pass
-
-    def test_list_entitlements_by_product(self) -> None:
-        """Test case for list_entitlements_by_product
-
-        list entitlements by product  # noqa: E501
+        unschedule entitlement cancellation
         """
         pass
 
     def test_update_entitlement_meta_info(self) -> None:
         """Test case for update_entitlement_meta_info
 
-        update entitlement meta info  # noqa: E501
+        update entitlement meta info
         """
         pass
 
     def test_update_entitlement_name(self) -> None:
         """Test case for update_entitlement_name
 
-        update entitlement name  # noqa: E501
+        update entitlement name
+        """
+        pass
+
+    def test_update_entitlement_seat(self) -> None:
+        """Test case for update_entitlement_seat
+
+        update seat for the active AZURE subscription
         """
         pass
 

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.company_info import CompanyInfo  # noqa: E501
+from suger_sdk_python.models.company_info import CompanyInfo
 
 class TestCompanyInfo(unittest.TestCase):
     """CompanyInfo unit test stubs"""
@@ -29,12 +28,12 @@ class TestCompanyInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CompanyInfo:
         """Test CompanyInfo
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CompanyInfo`
         """
-        model = CompanyInfo()  # noqa: E501
+        model = CompanyInfo()
         if include_optional:
             return CompanyInfo(
                 address_line1 = '',
@@ -44,7 +43,8 @@ class TestCompanyInfo(unittest.TestCase):
                 email_domain = '',
                 name = '',
                 postal_code = '',
-                state = ''
+                state = '',
+                valid_from = ''
             )
         else:
             return CompanyInfo(

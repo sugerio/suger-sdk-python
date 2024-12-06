@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.alibaba_marketplace_product_extras import AlibabaMarketplaceProductExtras  # noqa: E501
+from suger_sdk_python.models.alibaba_marketplace_product_extras import AlibabaMarketplaceProductExtras
 
 class TestAlibabaMarketplaceProductExtras(unittest.TestCase):
     """AlibabaMarketplaceProductExtras unit test stubs"""
@@ -29,21 +28,16 @@ class TestAlibabaMarketplaceProductExtras(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AlibabaMarketplaceProductExtras:
         """Test AlibabaMarketplaceProductExtras
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AlibabaMarketplaceProductExtras`
         """
-        model = AlibabaMarketplaceProductExtras()  # noqa: E501
+        model = AlibabaMarketplaceProductExtras()
         if include_optional:
             return AlibabaMarketplaceProductExtras(
                 product_extra = [
-                    openapi_client.models.alibaba_marketplace_product_extra.AlibabaMarketplaceProductExtra(
-                        key = '', 
-                        label = '', 
-                        order = 56, 
-                        type = '', 
-                        values = openapi_client.models.values.Values(), )
+                    {"Order":5,"Type":"Type","Label":"Label","Values":"{}","Key":"Key"}
                     ]
             )
         else:

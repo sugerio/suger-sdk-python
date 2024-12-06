@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.update_buyer_params import UpdateBuyerParams  # noqa: E501
+from suger_sdk_python.models.update_buyer_params import UpdateBuyerParams
 
 class TestUpdateBuyerParams(unittest.TestCase):
     """UpdateBuyerParams unit test stubs"""
@@ -29,19 +28,27 @@ class TestUpdateBuyerParams(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UpdateBuyerParams:
         """Test UpdateBuyerParams
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UpdateBuyerParams`
         """
-        model = UpdateBuyerParams()  # noqa: E501
+        model = UpdateBuyerParams()
         if include_optional:
             return UpdateBuyerParams(
+                company_info = {"country":"country","emailDomain":"emailDomain","city":"city","postalCode":"postalCode","name":"name","addressLine1":"addressLine1","addressLine2":"addressLine2","state":"state","validFrom":"validFrom"},
                 customer_id = '',
                 description = '',
+                lago_customer_id = '',
                 metronome_customer_id = '',
                 name = '',
-                orb_customer_id = ''
+                orb_customer_id = '',
+                payment_config = suger_sdk_python.models.payment_config.PaymentConfig(
+                    allowed_wallet_types = [
+                        'ach_debit'
+                        ], 
+                    currency = '', 
+                    default_wallet_id = '', )
             )
         else:
             return UpdateBuyerParams(

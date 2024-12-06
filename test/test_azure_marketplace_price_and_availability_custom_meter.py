@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_custom_meter import AzureMarketplacePriceAndAvailabilityCustomMeter  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_price_and_availability_custom_meter import AzureMarketplacePriceAndAvailabilityCustomMeter
 
 class TestAzureMarketplacePriceAndAvailabilityCustomMeter(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilityCustomMeter unit test stubs"""
@@ -29,30 +28,23 @@ class TestAzureMarketplacePriceAndAvailabilityCustomMeter(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilityCustomMeter:
         """Test AzureMarketplacePriceAndAvailabilityCustomMeter
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilityCustomMeter`
         """
-        model = AzureMarketplacePriceAndAvailabilityCustomMeter()  # noqa: E501
+        model = AzureMarketplacePriceAndAvailabilityCustomMeter()
         if include_optional:
             return AzureMarketplacePriceAndAvailabilityCustomMeter(
                 var_schema = '',
                 custom_meters = {
-                    'key' : openapi_client.models.azure_marketplace_price_and_availability_custom_meter_item.AzureMarketplacePriceAndAvailabilityCustomMeterItem(
-                        display_name = '', 
-                        unit_of_measure = '', )
+                    'key' : {"unitOfMeasure":"unitOfMeasure","displayName":"displayName","price":3.0937452626664474}
                     },
                 id = '',
                 product = '',
                 resource_name = '',
                 validations = [
-                    openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                        __schema = '', 
-                        code = 'businessValidationError', 
-                        level = 'informational', 
-                        message = '', 
-                        resource_id = '', )
+                    {"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}
                     ]
             )
         else:

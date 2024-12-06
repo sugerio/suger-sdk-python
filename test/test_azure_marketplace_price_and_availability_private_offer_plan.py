@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_private_offer_plan import AzureMarketplacePriceAndAvailabilityPrivateOfferPlan  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_price_and_availability_private_offer_plan import AzureMarketplacePriceAndAvailabilityPrivateOfferPlan
 
 class TestAzureMarketplacePriceAndAvailabilityPrivateOfferPlan(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilityPrivateOfferPlan unit test stubs"""
@@ -29,48 +28,28 @@ class TestAzureMarketplacePriceAndAvailabilityPrivateOfferPlan(unittest.TestCase
 
     def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilityPrivateOfferPlan:
         """Test AzureMarketplacePriceAndAvailabilityPrivateOfferPlan
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilityPrivateOfferPlan`
         """
-        model = AzureMarketplacePriceAndAvailabilityPrivateOfferPlan()  # noqa: E501
+        model = AzureMarketplacePriceAndAvailabilityPrivateOfferPlan()
         if include_optional:
             return AzureMarketplacePriceAndAvailabilityPrivateOfferPlan(
                 var_schema = '',
                 id = '',
+                lifecycle_state = 'notAvailable',
+                offer_pricing_type = '',
                 plan = '',
                 plan_name = '',
-                pricing = openapi_client.models.azure_marketplace_price_and_availability_private_offer_price.AzureMarketplacePriceAndAvailabilityPrivateOfferPrice(
-                    custom_meters = openapi_client.models.azure_marketplace_price_and_availability_private_offer_custom_meters.AzureMarketplacePriceAndAvailabilityPrivateOfferCustomMeters(
-                        meters = openapi_client.models.meters.meters(), 
-                        price_input_option = 'perMarket', ), 
-                    recurrent_price = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price.AzureMarketplacePriceAndAvailabilityRecurrentPrice(
-                        price_input_option = 'perMarket', 
-                        prices = [
-                            openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_item.AzureMarketplacePriceAndAvailabilityRecurrentPriceItem(
-                                billing_term = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                                    type = 'day', 
-                                    value = 1.337, ), 
-                                payment_option = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                                    type = 'day', 
-                                    value = 1.337, ), 
-                                price_per_payment_in_usd = 1.337, )
-                            ], 
-                        recurrent_price_mode = 'flatRate', 
-                        user_limits = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_user_limit.AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit(
-                            max = 1.337, 
-                            min = 1.337, ), ), ),
+                pricing = {"customMeters":{"priceInputOption":"perMarket","meters":"{}"},"recurrentPrice":{"recurrentPriceMode":"flatRate","userLimits":{"min":6.84685269835264,"max":1.4894159098541704},"priceInputOption":"perMarket","prices":[{"pricePerPaymentInUsd":1.2315135367772556,"billingTerm":{"type":"day","value":7.386281948385884},"paymentOption":{"type":"day","value":7.386281948385884},"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]},{"pricePerPaymentInUsd":1.2315135367772556,"billingTerm":{"type":"day","value":7.386281948385884},"paymentOption":{"type":"day","value":7.386281948385884},"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]}]}},
                 product = '',
                 resource_name = '',
+                software_reservation = {"paymentSchedule":{"type":"day","value":7.386281948385884},"reservationDuration":{"type":"day","value":7.386281948385884},"vmPrices":{"patternProperties":{"key":{"quantity":7.457744773683766,"unitPricePerPaymentPeriodInUsd":1.1730742509559433}}}},
                 validations = [
-                    openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                        __schema = '', 
-                        code = 'businessValidationError', 
-                        level = 'informational', 
-                        message = '', 
-                        resource_id = '', )
-                    ]
+                    {"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}
+                    ],
+                visibility = 'visible'
             )
         else:
             return AzureMarketplacePriceAndAvailabilityPrivateOfferPlan(

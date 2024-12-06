@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_period_duration_unit import GcpPeriodDurationUnit  # noqa: E501
+from suger_sdk_python.models.gcp_period_duration_unit import GcpPeriodDurationUnit
 
 class TestGcpPeriodDurationUnit(unittest.TestCase):
     """GcpPeriodDurationUnit unit test stubs"""

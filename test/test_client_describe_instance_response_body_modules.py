@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.client_describe_instance_response_body_modules import ClientDescribeInstanceResponseBodyModules  # noqa: E501
+from suger_sdk_python.models.client_describe_instance_response_body_modules import ClientDescribeInstanceResponseBodyModules
 
 class TestClientDescribeInstanceResponseBodyModules(unittest.TestCase):
     """ClientDescribeInstanceResponseBodyModules unit test stubs"""
@@ -29,38 +28,16 @@ class TestClientDescribeInstanceResponseBodyModules(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ClientDescribeInstanceResponseBodyModules:
         """Test ClientDescribeInstanceResponseBodyModules
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ClientDescribeInstanceResponseBodyModules`
         """
-        model = ClientDescribeInstanceResponseBodyModules()  # noqa: E501
+        model = ClientDescribeInstanceResponseBodyModules()
         if include_optional:
             return ClientDescribeInstanceResponseBodyModules(
                 module = [
-                    openapi_client.models.client/describe_instance_response_body_modules_module.client.DescribeInstanceResponseBodyModulesModule(
-                        code = '', 
-                        id = '', 
-                        name = '', 
-                        properties = openapi_client.models.client/describe_instance_response_body_modules_module_properties.client.DescribeInstanceResponseBodyModulesModuleProperties(
-                            property = [
-                                openapi_client.models.client/describe_instance_response_body_modules_module_properties_property.client.DescribeInstanceResponseBodyModulesModulePropertiesProperty(
-                                    display_unit = '', 
-                                    key = '', 
-                                    name = '', 
-                                    property_values = openapi_client.models.client/describe_instance_response_body_modules_module_properties_property_property_values.client.DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues(
-                                        property_value = [
-                                            openapi_client.models.client/describe_instance_response_body_modules_module_properties_property_property_values_property_value.client.DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue(
-                                                display_name = '', 
-                                                max = '', 
-                                                min = '', 
-                                                remark = '', 
-                                                step = '', 
-                                                type = '', 
-                                                value = '', )
-                                            ], ), 
-                                    show_type = '', )
-                                ], ), )
+                    {"Id":"Id","Properties":{"Property":[{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"},{"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name","ShowType":"ShowType"}]},"Code":"Code","Name":"Name"}
                     ]
             )
         else:

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_product_license_spec import GcpMarketplaceProductLicenseSpec  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_product_license_spec import GcpMarketplaceProductLicenseSpec
 
 class TestGcpMarketplaceProductLicenseSpec(unittest.TestCase):
     """GcpMarketplaceProductLicenseSpec unit test stubs"""
@@ -29,12 +28,12 @@ class TestGcpMarketplaceProductLicenseSpec(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplaceProductLicenseSpec:
         """Test GcpMarketplaceProductLicenseSpec
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceProductLicenseSpec`
         """
-        model = GcpMarketplaceProductLicenseSpec()  # noqa: E501
+        model = GcpMarketplaceProductLicenseSpec()
         if include_optional:
             return GcpMarketplaceProductLicenseSpec(
                 description = '',

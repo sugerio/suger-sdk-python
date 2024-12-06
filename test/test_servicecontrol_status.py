@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.servicecontrol_status import ServicecontrolStatus  # noqa: E501
+from suger_sdk_python.models.servicecontrol_status import ServicecontrolStatus
 
 class TestServicecontrolStatus(unittest.TestCase):
     """ServicecontrolStatus unit test stubs"""
@@ -29,12 +28,12 @@ class TestServicecontrolStatus(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ServicecontrolStatus:
         """Test ServicecontrolStatus
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ServicecontrolStatus`
         """
-        model = ServicecontrolStatus()  # noqa: E501
+        model = ServicecontrolStatus()
         if include_optional:
             return ServicecontrolStatus(
                 code = 56,

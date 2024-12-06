@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.aws_sns_subscription_status import AwsSnsSubscriptionStatus  # noqa: E501
+from suger_sdk_python.models.aws_sns_subscription_status import AwsSnsSubscriptionStatus
 
 class TestAwsSnsSubscriptionStatus(unittest.TestCase):
     """AwsSnsSubscriptionStatus unit test stubs"""

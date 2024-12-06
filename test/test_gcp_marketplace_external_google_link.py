@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_external_google_link import GcpMarketplaceExternalGoogleLink  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_external_google_link import GcpMarketplaceExternalGoogleLink
 
 class TestGcpMarketplaceExternalGoogleLink(unittest.TestCase):
     """GcpMarketplaceExternalGoogleLink unit test stubs"""
@@ -29,12 +28,12 @@ class TestGcpMarketplaceExternalGoogleLink(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplaceExternalGoogleLink:
         """Test GcpMarketplaceExternalGoogleLink
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceExternalGoogleLink`
         """
-        model = GcpMarketplaceExternalGoogleLink()  # noqa: E501
+        model = GcpMarketplaceExternalGoogleLink()
         if include_optional:
             return GcpMarketplaceExternalGoogleLink(
                 uri = ''

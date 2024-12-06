@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_product import AzureMarketplaceProduct  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_product import AzureMarketplaceProduct
 
 class TestAzureMarketplaceProduct(unittest.TestCase):
     """AzureMarketplaceProduct unit test stubs"""
@@ -29,30 +28,24 @@ class TestAzureMarketplaceProduct(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplaceProduct:
         """Test AzureMarketplaceProduct
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplaceProduct`
         """
-        model = AzureMarketplaceProduct()  # noqa: E501
+        model = AzureMarketplaceProduct()
         if include_optional:
             return AzureMarketplaceProduct(
                 var_schema = '',
                 alias = '',
                 id = '',
-                identity = openapi_client.models.azure_marketplace_identity.AzureMarketplaceIdentity(
-                    external_id = '', ),
+                identity = {"externalId":"externalId"},
                 lifecycle_state = 'notAvailable',
                 product_group = '',
                 resource_name = '',
                 type = 'azureApplication',
                 validations = [
-                    openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                        __schema = '', 
-                        code = 'businessValidationError', 
-                        level = 'informational', 
-                        message = '', 
-                        resource_id = '', )
+                    {"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}
                     ]
             )
         else:

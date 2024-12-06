@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_commercial_marketplace_setup import AzureCommercialMarketplaceSetup  # noqa: E501
+from suger_sdk_python.models.azure_commercial_marketplace_setup import AzureCommercialMarketplaceSetup
 
 class TestAzureCommercialMarketplaceSetup(unittest.TestCase):
     """AzureCommercialMarketplaceSetup unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureCommercialMarketplaceSetup(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureCommercialMarketplaceSetup:
         """Test AzureCommercialMarketplaceSetup
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureCommercialMarketplaceSetup`
         """
-        model = AzureCommercialMarketplaceSetup()  # noqa: E501
+        model = AzureCommercialMarketplaceSetup()
         if include_optional:
             return AzureCommercialMarketplaceSetup(
                 var_schema = '',
@@ -47,12 +46,7 @@ class TestAzureCommercialMarketplaceSetup(unittest.TestCase):
                 sell_through_microsoft = True,
                 use_microsoft_license_management_service = True,
                 validations = [
-                    openapi_client.models.azure_marketplace_validation.AzureMarketplaceValidation(
-                        __schema = '', 
-                        code = 'businessValidationError', 
-                        level = 'informational', 
-                        message = '', 
-                        resource_id = '', )
+                    {"resourceId":"resourceId","code":"businessValidationError","$schema":"$schema","level":"informational","message":"message"}
                     ]
             )
         else:

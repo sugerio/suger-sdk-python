@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_azure_cma_revenue import GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue  # noqa: E501
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_azure_cma_revenue import GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue
 
 class TestGithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue(unittest.TestCase):
     """GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue unit test stubs"""
@@ -29,12 +28,12 @@ class TestGithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue(unitt
 
     def make_instance(self, include_optional) -> GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue:
         """Test GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue`
         """
-        model = GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue()  # noqa: E501
+        model = GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue()
         if include_optional:
             return GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue(
                 azure_asset_id = '',
@@ -46,14 +45,10 @@ class TestGithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue(unitt
                 buyer_id = '',
                 earning_usd = 1.337,
                 entitlement_id = '',
-                estimated_payout_month = openapi_client.models.sql/null_time.sql.NullTime(
-                    time = '', 
-                    valid = True, ),
+                estimated_payout_month = {"valid":true,"time":"time"},
                 offer_id = '',
                 organization_id = '',
-                payment_sent_date = openapi_client.models.sql/null_time.sql.NullTime(
-                    time = '', 
-                    valid = True, ),
+                payment_sent_date = {"valid":true,"time":"time"},
                 payout_status = '',
                 product_id = '',
                 purchase_record_id = '',

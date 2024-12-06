@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.alibaba_marketplace_product_shop_info_wang_wang import AlibabaMarketplaceProductShopInfoWangWang  # noqa: E501
+from suger_sdk_python.models.alibaba_marketplace_product_shop_info_wang_wang import AlibabaMarketplaceProductShopInfoWangWang
 
 class TestAlibabaMarketplaceProductShopInfoWangWang(unittest.TestCase):
     """AlibabaMarketplaceProductShopInfoWangWang unit test stubs"""
@@ -29,12 +28,12 @@ class TestAlibabaMarketplaceProductShopInfoWangWang(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AlibabaMarketplaceProductShopInfoWangWang:
         """Test AlibabaMarketplaceProductShopInfoWangWang
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AlibabaMarketplaceProductShopInfoWangWang`
         """
-        model = AlibabaMarketplaceProductShopInfoWangWang()  # noqa: E501
+        model = AlibabaMarketplaceProductShopInfoWangWang()
         if include_optional:
             return AlibabaMarketplaceProductShopInfoWangWang(
                 remark = '',

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.github_com_aws_aws_sdk_go_v2_service_marketplacemetering_types_tag import GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag  # noqa: E501
+from suger_sdk_python.models.github_com_aws_aws_sdk_go_v2_service_marketplacemetering_types_tag import GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag
 
 class TestGithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag(unittest.TestCase):
     """GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag unit test stubs"""
@@ -29,12 +28,12 @@ class TestGithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag(unittest.Test
 
     def make_instance(self, include_optional) -> GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag:
         """Test GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag`
         """
-        model = GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag()  # noqa: E501
+        model = GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag()
         if include_optional:
             return GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag(
                 key = '',

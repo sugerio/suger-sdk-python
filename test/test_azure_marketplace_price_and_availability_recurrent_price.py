@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_recurrent_price import AzureMarketplacePriceAndAvailabilityRecurrentPrice  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_price_and_availability_recurrent_price import AzureMarketplacePriceAndAvailabilityRecurrentPrice
 
 class TestAzureMarketplacePriceAndAvailabilityRecurrentPrice(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilityRecurrentPrice unit test stubs"""
@@ -29,29 +28,20 @@ class TestAzureMarketplacePriceAndAvailabilityRecurrentPrice(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilityRecurrentPrice:
         """Test AzureMarketplacePriceAndAvailabilityRecurrentPrice
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilityRecurrentPrice`
         """
-        model = AzureMarketplacePriceAndAvailabilityRecurrentPrice()  # noqa: E501
+        model = AzureMarketplacePriceAndAvailabilityRecurrentPrice()
         if include_optional:
             return AzureMarketplacePriceAndAvailabilityRecurrentPrice(
                 price_input_option = 'perMarket',
                 prices = [
-                    openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_item.AzureMarketplacePriceAndAvailabilityRecurrentPriceItem(
-                        billing_term = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                            type = 'day', 
-                            value = 1.337, ), 
-                        payment_option = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                            type = 'day', 
-                            value = 1.337, ), 
-                        price_per_payment_in_usd = 1.337, )
+                    {"pricePerPaymentInUsd":1.2315135367772556,"billingTerm":{"type":"day","value":7.386281948385884},"paymentOption":{"type":"day","value":7.386281948385884},"prices":[{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"},{"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}]}
                     ],
                 recurrent_price_mode = 'flatRate',
-                user_limits = openapi_client.models.azure_marketplace_price_and_availability_recurrent_price_user_limit.AzureMarketplacePriceAndAvailabilityRecurrentPriceUserLimit(
-                    max = 1.337, 
-                    min = 1.337, )
+                user_limits = {"min":6.84685269835264,"max":1.4894159098541704}
             )
         else:
             return AzureMarketplacePriceAndAvailabilityRecurrentPrice(

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **custom_meters** | [**List[AzureProductVariantCustomMeter]**](AzureProductVariantCustomMeter.md) |  | [optional] 
@@ -20,19 +21,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.azure_product_feature_availability import AzureProductFeatureAvailability
+from suger_sdk_python.models.azure_product_feature_availability import AzureProductFeatureAvailability
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of AzureProductFeatureAvailability from a JSON string
 azure_product_feature_availability_instance = AzureProductFeatureAvailability.from_json(json)
 # print the JSON string representation of the object
-print AzureProductFeatureAvailability.to_json()
+print(AzureProductFeatureAvailability.to_json())
 
 # convert the object into a dict
 azure_product_feature_availability_dict = azure_product_feature_availability_instance.to_dict()
 # create an instance of AzureProductFeatureAvailability from a dict
-azure_product_feature_availability_form_dict = azure_product_feature_availability.from_dict(azure_product_feature_availability_dict)
+azure_product_feature_availability_from_dict = AzureProductFeatureAvailability.from_dict(azure_product_feature_availability_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

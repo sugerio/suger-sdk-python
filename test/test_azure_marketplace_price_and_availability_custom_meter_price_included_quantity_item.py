@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_custom_meter_price_included_quantity_item import AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_price_and_availability_custom_meter_price_included_quantity_item import AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem
 
 class TestAzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem unit test stubs"""
@@ -29,17 +28,15 @@ class TestAzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityIt
 
     def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem:
         """Test AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem`
         """
-        model = AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem()  # noqa: E501
+        model = AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem()
         if include_optional:
             return AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem(
-                billing_term = openapi_client.models.azure_marketplace_term.AzureMarketplaceTerm(
-                    type = 'day', 
-                    value = 1.337, ),
+                billing_term = {"type":"day","value":7.386281948385884},
                 is_infinite = True,
                 quantity = 1.337
             )

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **var_schema** | **str** |  | [optional] 
@@ -12,7 +13,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | [optional] 
 **kind** | **str** |  | [optional] 
 **language_id** | **str** | Max string length is 10. | [optional] 
-**lifecycle_state** | [**AzureMarketplaceResourceLifecycleState**](AzureMarketplaceResourceLifecycleState.md) |  | [optional] 
+**lifecycle_state** | [**AzureMarketplaceResourceLifecycleState**](AzureMarketplaceResourceLifecycleState.md) | Default value is \&quot;generallyAvailable\&quot;. | [optional] 
 **listing** | **str** |  | [optional] 
 **product** | **str** | Product resource name, in format of \&quot;product/product-durable-id\&quot; | [optional] 
 **resource_name** | **str** |  | [optional] 
@@ -23,19 +24,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.azure_marketplace_listing_asset import AzureMarketplaceListingAsset
+from suger_sdk_python.models.azure_marketplace_listing_asset import AzureMarketplaceListingAsset
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of AzureMarketplaceListingAsset from a JSON string
 azure_marketplace_listing_asset_instance = AzureMarketplaceListingAsset.from_json(json)
 # print the JSON string representation of the object
-print AzureMarketplaceListingAsset.to_json()
+print(AzureMarketplaceListingAsset.to_json())
 
 # convert the object into a dict
 azure_marketplace_listing_asset_dict = azure_marketplace_listing_asset_instance.to_dict()
 # create an instance of AzureMarketplaceListingAsset from a dict
-azure_marketplace_listing_asset_form_dict = azure_marketplace_listing_asset.from_dict(azure_marketplace_listing_asset_dict)
+azure_marketplace_listing_asset_from_dict = AzureMarketplaceListingAsset.from_dict(azure_marketplace_listing_asset_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

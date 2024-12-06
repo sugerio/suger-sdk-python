@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.track_event import TrackEvent  # noqa: E501
+from suger_sdk_python.models.track_event import TrackEvent
 
 class TestTrackEvent(unittest.TestCase):
     """TrackEvent unit test stubs"""
@@ -29,12 +28,12 @@ class TestTrackEvent(unittest.TestCase):
 
     def make_instance(self, include_optional) -> TrackEvent:
         """Test TrackEvent
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TrackEvent`
         """
-        model = TrackEvent()  # noqa: E501
+        model = TrackEvent()
         if include_optional:
             return TrackEvent(
                 action = 'OPEN_EMAIL',

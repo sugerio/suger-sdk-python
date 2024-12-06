@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_product_listing import AzureProductListing  # noqa: E501
+from suger_sdk_python.models.azure_product_listing import AzureProductListing
 
 class TestAzureProductListing(unittest.TestCase):
     """AzureProductListing unit test stubs"""
@@ -29,27 +28,17 @@ class TestAzureProductListing(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureProductListing:
         """Test AzureProductListing
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureProductListing`
         """
-        model = AzureProductListing()  # noqa: E501
+        model = AzureProductListing()
         if include_optional:
             return AzureProductListing(
                 access_information = '',
                 assets = [
-                    openapi_client.models.azure_product_listing_asset.AzureProductListingAsset(
-                        description = '', 
-                        file_name = '', 
-                        file_sas_uri = '', 
-                        friendly_name = '', 
-                        id = '', 
-                        order = 56, 
-                        publisher_defined_sas_uri = '', 
-                        resource_type = 'ListingAsset', 
-                        state = 'PendingUpload', 
-                        type = '', )
+                    {"fileName":"fileName","fileSasUri":"fileSasUri","description":"description","id":"id","state":"PendingUpload","type":"type","publisherDefinedSasUri":"publisherDefinedSasUri","friendlyName":"friendlyName","order":4,"resourceType":"ListingAsset"}
                     ],
                 compatible_products = [
                     ''
@@ -62,19 +51,10 @@ class TestAzureProductListing(unittest.TestCase):
                     ],
                 language_code = '',
                 listing_contacts = [
-                    openapi_client.models.azure_listing_contact.AzureListingContact(
-                        email = '', 
-                        name = '', 
-                        phone = '', 
-                        type = 'CustomerSupport', 
-                        uri = '', )
+                    {"phone":"phone","name":"name","type":"CustomerSupport","uri":"uri","email":"email"}
                     ],
                 listing_uris = [
-                    openapi_client.models.azure_listing_uri.AzureListingUri(
-                        display_text = '', 
-                        subtype = '', 
-                        type = '', 
-                        uri = '', )
+                    {"displayText":"displayText","subtype":"subtype","type":"type","uri":"uri"}
                     ],
                 product_display_name = '',
                 publisher_name = '',

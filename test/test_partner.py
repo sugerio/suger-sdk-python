@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.partner import Partner  # noqa: E501
+from suger_sdk_python.models.partner import Partner
 
 class TestPartner(unittest.TestCase):
     """Partner unit test stubs"""

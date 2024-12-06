@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.metering_dimension import MeteringDimension  # noqa: E501
+from suger_sdk_python.models.metering_dimension import MeteringDimension
 
 class TestMeteringDimension(unittest.TestCase):
     """MeteringDimension unit test stubs"""
@@ -29,45 +28,36 @@ class TestMeteringDimension(unittest.TestCase):
 
     def make_instance(self, include_optional) -> MeteringDimension:
         """Test MeteringDimension
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `MeteringDimension`
         """
-        model = MeteringDimension()  # noqa: E501
+        model = MeteringDimension()
         if include_optional:
             return MeteringDimension(
                 category = '',
                 description = '',
                 included_base_quantities = [
-                    openapi_client.models.azure_included_base_quantity.AzureIncludedBaseQuantity(
-                        is_infinite = True, 
-                        quantity = 1.337, 
-                        recurring_unit = 'Monthly', )
+                    {"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}
                     ],
                 key = '',
                 name = '',
                 plan_id = '',
                 plan_name = '',
                 price_tiers = [
-                    openapi_client.models.gcp_price_tier.GcpPriceTier(
-                        from_amount = 1.337, 
-                        price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                            currency_code = '', 
-                            nanos = 56, 
-                            units = '', ), 
-                        starting_usage_amount = '', )
+                    {"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}
                     ],
                 rate = 1.337,
                 sku_id = '',
                 types = [
                     ''
                     ],
-                usage_count = openapi_client.models.usage_count.UsageCount(
+                usage_count = suger_sdk_python.models.usage_count.UsageCount(
                     credit_count = 1.337, 
                     included_count = 1.337, 
                     reported_count = 1.337, ),
-                value_type = 'VALUE_TYPE_UNSPECIFIED'
+                value_type = ''
             )
         else:
             return MeteringDimension(

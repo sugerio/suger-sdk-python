@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.alibaba_marketplace_product_sku_module_property_value import AlibabaMarketplaceProductSkuModulePropertyValue  # noqa: E501
+from suger_sdk_python.models.alibaba_marketplace_product_sku_module_property_value import AlibabaMarketplaceProductSkuModulePropertyValue
 
 class TestAlibabaMarketplaceProductSkuModulePropertyValue(unittest.TestCase):
     """AlibabaMarketplaceProductSkuModulePropertyValue unit test stubs"""
@@ -29,12 +28,12 @@ class TestAlibabaMarketplaceProductSkuModulePropertyValue(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AlibabaMarketplaceProductSkuModulePropertyValue:
         """Test AlibabaMarketplaceProductSkuModulePropertyValue
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AlibabaMarketplaceProductSkuModulePropertyValue`
         """
-        model = AlibabaMarketplaceProductSkuModulePropertyValue()  # noqa: E501
+        model = AlibabaMarketplaceProductSkuModulePropertyValue()
         if include_optional:
             return AlibabaMarketplaceProductSkuModulePropertyValue(
                 display_name = '',

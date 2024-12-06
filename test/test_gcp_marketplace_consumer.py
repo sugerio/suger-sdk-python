@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_consumer import GcpMarketplaceConsumer  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_consumer import GcpMarketplaceConsumer
 
 class TestGcpMarketplaceConsumer(unittest.TestCase):
     """GcpMarketplaceConsumer unit test stubs"""
@@ -29,12 +28,12 @@ class TestGcpMarketplaceConsumer(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplaceConsumer:
         """Test GcpMarketplaceConsumer
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceConsumer`
         """
-        model = GcpMarketplaceConsumer()  # noqa: E501
+        model = GcpMarketplaceConsumer()
         if include_optional:
             return GcpMarketplaceConsumer(
                 project = ''

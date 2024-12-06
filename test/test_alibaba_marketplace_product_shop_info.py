@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.alibaba_marketplace_product_shop_info import AlibabaMarketplaceProductShopInfo  # noqa: E501
+from suger_sdk_python.models.alibaba_marketplace_product_shop_info import AlibabaMarketplaceProductShopInfo
 
 class TestAlibabaMarketplaceProductShopInfo(unittest.TestCase):
     """AlibabaMarketplaceProductShopInfo unit test stubs"""
@@ -29,27 +28,19 @@ class TestAlibabaMarketplaceProductShopInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AlibabaMarketplaceProductShopInfo:
         """Test AlibabaMarketplaceProductShopInfo
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AlibabaMarketplaceProductShopInfo`
         """
-        model = AlibabaMarketplaceProductShopInfo()  # noqa: E501
+        model = AlibabaMarketplaceProductShopInfo()
         if include_optional:
             return AlibabaMarketplaceProductShopInfo(
                 emails = '',
                 id = 56,
                 name = '',
-                telephones = openapi_client.models.alibaba_marketplace_product_shop_info_telephones.AlibabaMarketplaceProductShopInfoTelephones(
-                    telephone = [
-                        ''
-                        ], ),
-                wang_wangs = openapi_client.models.alibaba_marketplace_product_shop_info_wang_wangs.AlibabaMarketplaceProductShopInfoWangWangs(
-                    wang_wang = [
-                        openapi_client.models.alibaba_marketplace_product_shop_info_wang_wang.AlibabaMarketplaceProductShopInfoWangWang(
-                            remark = '', 
-                            user_name = '', )
-                        ], )
+                telephones = {"Telephone":["Telephone","Telephone"]},
+                wang_wangs = {"WangWang":[{"UserName":"UserName","Remark":"Remark"},{"UserName":"UserName","Remark":"Remark"}]}
             )
         else:
             return AlibabaMarketplaceProductShopInfo(

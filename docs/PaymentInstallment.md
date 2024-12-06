@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amount** | **float** | The amount the buyer has paid for this installment. If there is a discount off the original price, the amount is the discounted price. | [optional] 
@@ -14,19 +15,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.payment_installment import PaymentInstallment
+from suger_sdk_python.models.payment_installment import PaymentInstallment
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of PaymentInstallment from a JSON string
 payment_installment_instance = PaymentInstallment.from_json(json)
 # print the JSON string representation of the object
-print PaymentInstallment.to_json()
+print(PaymentInstallment.to_json())
 
 # convert the object into a dict
 payment_installment_dict = payment_installment_instance.to_dict()
 # create an instance of PaymentInstallment from a dict
-payment_installment_form_dict = payment_installment.from_dict(payment_installment_dict)
+payment_installment_from_dict = PaymentInstallment.from_dict(payment_installment_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

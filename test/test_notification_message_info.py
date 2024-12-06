@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.notification_message_info import NotificationMessageInfo  # noqa: E501
+from suger_sdk_python.models.notification_message_info import NotificationMessageInfo
 
 class TestNotificationMessageInfo(unittest.TestCase):
     """NotificationMessageInfo unit test stubs"""
@@ -29,24 +28,24 @@ class TestNotificationMessageInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> NotificationMessageInfo:
         """Test NotificationMessageInfo
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `NotificationMessageInfo`
         """
-        model = NotificationMessageInfo()  # noqa: E501
+        model = NotificationMessageInfo()
         if include_optional:
             return NotificationMessageInfo(
+                action = '',
                 cc_recipients = [
                     ''
                     ],
-                custom_fields = {
-                    'key' : ''
-                    },
+                custom_fields = { },
                 html_content = '',
                 rcc_recipients = [
                     ''
                     ],
+                standard_fields = { },
                 subject = '',
                 text_content = ''
             )

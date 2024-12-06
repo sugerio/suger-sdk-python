@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_product_terms_spec import GcpMarketplaceProductTermsSpec  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_product_terms_spec import GcpMarketplaceProductTermsSpec
 
 class TestGcpMarketplaceProductTermsSpec(unittest.TestCase):
     """GcpMarketplaceProductTermsSpec unit test stubs"""
@@ -29,17 +28,17 @@ class TestGcpMarketplaceProductTermsSpec(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplaceProductTermsSpec:
         """Test GcpMarketplaceProductTermsSpec
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceProductTermsSpec`
         """
-        model = GcpMarketplaceProductTermsSpec()  # noqa: E501
+        model = GcpMarketplaceProductTermsSpec()
         if include_optional:
             return GcpMarketplaceProductTermsSpec(
                 eula_uri = '',
-                inline_eula = openapi_client.models.inline_eula.inlineEula(),
-                standard_eula = openapi_client.models.standard_eula.standardEula()
+                inline_eula = None,
+                standard_eula = None
             )
         else:
             return GcpMarketplaceProductTermsSpec(

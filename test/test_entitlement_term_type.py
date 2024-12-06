@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.entitlement_term_type import EntitlementTermType  # noqa: E501
+from suger_sdk_python.models.entitlement_term_type import EntitlementTermType
 
 class TestEntitlementTermType(unittest.TestCase):
     """EntitlementTermType unit test stubs"""

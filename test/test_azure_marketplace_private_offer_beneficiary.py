@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_private_offer_beneficiary import AzureMarketplacePrivateOfferBeneficiary  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_private_offer_beneficiary import AzureMarketplacePrivateOfferBeneficiary
 
 class TestAzureMarketplacePrivateOfferBeneficiary(unittest.TestCase):
     """AzureMarketplacePrivateOfferBeneficiary unit test stubs"""
@@ -29,16 +28,16 @@ class TestAzureMarketplacePrivateOfferBeneficiary(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePrivateOfferBeneficiary:
         """Test AzureMarketplacePrivateOfferBeneficiary
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePrivateOfferBeneficiary`
         """
-        model = AzureMarketplacePrivateOfferBeneficiary()  # noqa: E501
+        model = AzureMarketplacePrivateOfferBeneficiary()
         if include_optional:
             return AzureMarketplacePrivateOfferBeneficiary(
                 beneficiary_recipients = [
-                    openapi_client.models.azure_marketplace_private_offer_beneficiary_recipient.AzureMarketplacePrivateOfferBeneficiaryRecipient(
+                    suger_sdk_python.models.azure_marketplace_private_offer_beneficiary_recipient.AzureMarketplacePrivateOfferBeneficiaryRecipient(
                         id = '', 
                         recipient_type = 'cspCustomer', )
                     ],

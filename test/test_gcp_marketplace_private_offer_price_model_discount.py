@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_private_offer_price_model_discount import GcpMarketplacePrivateOfferPriceModelDiscount  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_private_offer_price_model_discount import GcpMarketplacePrivateOfferPriceModelDiscount
 
 class TestGcpMarketplacePrivateOfferPriceModelDiscount(unittest.TestCase):
     """GcpMarketplacePrivateOfferPriceModelDiscount unit test stubs"""
@@ -29,21 +28,16 @@ class TestGcpMarketplacePrivateOfferPriceModelDiscount(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplacePrivateOfferPriceModelDiscount:
         """Test GcpMarketplacePrivateOfferPriceModelDiscount
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplacePrivateOfferPriceModelDiscount`
         """
-        model = GcpMarketplacePrivateOfferPriceModelDiscount()  # noqa: E501
+        model = GcpMarketplacePrivateOfferPriceModelDiscount()
         if include_optional:
             return GcpMarketplacePrivateOfferPriceModelDiscount(
-                discount_percentage = openapi_client.models.gcp_discount_percentage.GcpDiscountPercentage(
-                    nanos = 56, 
-                    units = '', ),
-                discounted_price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                    currency_code = '', 
-                    nanos = 56, 
-                    units = '', )
+                discount_percentage = {"nanos":1,"units":"units"},
+                discounted_price = {"nanos":1,"units":"units","currencyCode":"currencyCode"}
             )
         else:
             return GcpMarketplacePrivateOfferPriceModelDiscount(

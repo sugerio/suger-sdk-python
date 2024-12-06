@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_price import AzureMarketplacePrice  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_price import AzureMarketplacePrice
 
 class TestAzureMarketplacePrice(unittest.TestCase):
     """AzureMarketplacePrice unit test stubs"""
@@ -29,20 +28,19 @@ class TestAzureMarketplacePrice(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplacePrice:
         """Test AzureMarketplacePrice
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePrice`
         """
-        model = AzureMarketplacePrice()  # noqa: E501
+        model = AzureMarketplacePrice()
         if include_optional:
             return AzureMarketplacePrice(
                 currency = '',
                 markets = [
                     ''
                     ],
-                price = 1.337,
-                prices = None
+                price = 1.337
             )
         else:
             return AzureMarketplacePrice(

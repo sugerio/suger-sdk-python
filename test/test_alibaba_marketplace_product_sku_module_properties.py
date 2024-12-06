@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.alibaba_marketplace_product_sku_module_properties import AlibabaMarketplaceProductSkuModuleProperties  # noqa: E501
+from suger_sdk_python.models.alibaba_marketplace_product_sku_module_properties import AlibabaMarketplaceProductSkuModuleProperties
 
 class TestAlibabaMarketplaceProductSkuModuleProperties(unittest.TestCase):
     """AlibabaMarketplaceProductSkuModuleProperties unit test stubs"""
@@ -29,31 +28,16 @@ class TestAlibabaMarketplaceProductSkuModuleProperties(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AlibabaMarketplaceProductSkuModuleProperties:
         """Test AlibabaMarketplaceProductSkuModuleProperties
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AlibabaMarketplaceProductSkuModuleProperties`
         """
-        model = AlibabaMarketplaceProductSkuModuleProperties()  # noqa: E501
+        model = AlibabaMarketplaceProductSkuModuleProperties()
         if include_optional:
             return AlibabaMarketplaceProductSkuModuleProperties(
                 var_property = [
-                    openapi_client.models.alibaba_marketplace_product_sku_module_property.AlibabaMarketplaceProductSkuModuleProperty(
-                        display_unit = '', 
-                        key = '', 
-                        name = '', 
-                        property_values = openapi_client.models.alibaba_marketplace_product_sku_module_property_values.AlibabaMarketplaceProductSkuModulePropertyValues(
-                            property_value = [
-                                openapi_client.models.alibaba_marketplace_product_sku_module_property_value.AlibabaMarketplaceProductSkuModulePropertyValue(
-                                    display_name = '', 
-                                    max = '', 
-                                    min = '', 
-                                    remark = '', 
-                                    step = '', 
-                                    type = '', 
-                                    value = '', )
-                                ], ), 
-                        show_type = '', )
+                    {"PropertyValues":{"PropertyValue":[{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"},{"Type":"Type","Min":"Min","Max":"Max","DisplayName":"DisplayName","Value":"Value","Step":"Step","Remark":"Remark"}]},"showType":"showType","DisplayUnit":"DisplayUnit","Key":"Key","Name":"Name"}
                     ]
             )
         else:

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.servicecontrol_report_error import ServicecontrolReportError  # noqa: E501
+from suger_sdk_python.models.servicecontrol_report_error import ServicecontrolReportError
 
 class TestServicecontrolReportError(unittest.TestCase):
     """ServicecontrolReportError unit test stubs"""
@@ -29,16 +28,16 @@ class TestServicecontrolReportError(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ServicecontrolReportError:
         """Test ServicecontrolReportError
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ServicecontrolReportError`
         """
-        model = ServicecontrolReportError()  # noqa: E501
+        model = ServicecontrolReportError()
         if include_optional:
             return ServicecontrolReportError(
                 operation_id = '',
-                status = openapi_client.models.servicecontrol/status.servicecontrol.Status(
+                status = suger_sdk_python.models.servicecontrol/status.servicecontrol.Status(
                     code = 56, 
                     details = [
                         [

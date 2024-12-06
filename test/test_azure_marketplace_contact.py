@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_contact import AzureMarketplaceContact  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_contact import AzureMarketplaceContact
 
 class TestAzureMarketplaceContact(unittest.TestCase):
     """AzureMarketplaceContact unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureMarketplaceContact(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureMarketplaceContact:
         """Test AzureMarketplaceContact
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplaceContact`
         """
-        model = AzureMarketplaceContact()  # noqa: E501
+        model = AzureMarketplaceContact()
         if include_optional:
             return AzureMarketplaceContact(
                 email = '',

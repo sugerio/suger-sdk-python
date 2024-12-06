@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_private_offer_price_model_payg import GcpMarketplacePrivateOfferPriceModelPayg  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_private_offer_price_model_payg import GcpMarketplacePrivateOfferPriceModelPayg
 
 class TestGcpMarketplacePrivateOfferPriceModelPayg(unittest.TestCase):
     """GcpMarketplacePrivateOfferPriceModelPayg unit test stubs"""
@@ -29,17 +28,17 @@ class TestGcpMarketplacePrivateOfferPriceModelPayg(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplacePrivateOfferPriceModelPayg:
         """Test GcpMarketplacePrivateOfferPriceModelPayg
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplacePrivateOfferPriceModelPayg`
         """
-        model = GcpMarketplacePrivateOfferPriceModelPayg()  # noqa: E501
+        model = GcpMarketplacePrivateOfferPriceModelPayg()
         if include_optional:
             return GcpMarketplacePrivateOfferPriceModelPayg(
-                discount = openapi_client.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
-                    discount_percentage = openapi_client.models.discount_percentage.discountPercentage(), 
-                    discounted_price = openapi_client.models.discounted_price.discountedPrice(), ),
+                discount = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
+                    discount_percentage = suger_sdk_python.models.discount_percentage.discountPercentage(), 
+                    discounted_price = suger_sdk_python.models.discounted_price.discountedPrice(), ),
                 sku_discounts = [
                     None
                     ]

@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_client.api.contact_api import ContactApi  # noqa: E501
+from suger_sdk_python.api.contact_api import ContactApi
 
 
 class TestContactApi(unittest.TestCase):
     """ContactApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ContactApi()  # noqa: E501
+        self.api = ContactApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,56 +30,63 @@ class TestContactApi(unittest.TestCase):
     def test_add_contact_to_buyer(self) -> None:
         """Test case for add_contact_to_buyer
 
-        add contact to buyer  # noqa: E501
+        add contact to buyer
         """
         pass
 
     def test_add_contact_to_offer(self) -> None:
         """Test case for add_contact_to_offer
 
-        add contact to offer  # noqa: E501
+        add contact to offer
+        """
+        pass
+
+    def test_batch_create_contacts(self) -> None:
+        """Test case for batch_create_contacts
+
+        batch create contacts
         """
         pass
 
     def test_create_contact(self) -> None:
         """Test case for create_contact
 
-        create contact  # noqa: E501
+        create contact
         """
         pass
 
     def test_get_contact(self) -> None:
         """Test case for get_contact
 
-        get contact  # noqa: E501
+        get contact
         """
         pass
 
     def test_list_contacts_by_organization(self) -> None:
         """Test case for list_contacts_by_organization
 
-        list contacts by organization  # noqa: E501
+        list contacts by organization
         """
         pass
 
     def test_remove_contact_from_buyer(self) -> None:
         """Test case for remove_contact_from_buyer
 
-        remove contact from buyer  # noqa: E501
+        remove contact from buyer
         """
         pass
 
     def test_remove_contact_from_offer(self) -> None:
         """Test case for remove_contact_from_offer
 
-        remove contact from offer  # noqa: E501
+        remove contact from offer
         """
         pass
 
     def test_update_contact(self) -> None:
         """Test case for update_contact
 
-        update contact  # noqa: E501
+        update contact
         """
         pass
 

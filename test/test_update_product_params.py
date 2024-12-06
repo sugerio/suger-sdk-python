@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.update_product_params import UpdateProductParams  # noqa: E501
+from suger_sdk_python.models.update_product_params import UpdateProductParams
 
 class TestUpdateProductParams(unittest.TestCase):
     """UpdateProductParams unit test stubs"""
@@ -29,12 +28,12 @@ class TestUpdateProductParams(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UpdateProductParams:
         """Test UpdateProductParams
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UpdateProductParams`
         """
-        model = UpdateProductParams()  # noqa: E501
+        model = UpdateProductParams()
         if include_optional:
             return UpdateProductParams(
                 fulfillment_url = '',

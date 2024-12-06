@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_marketplace_price_and_availability_system_meter_price import AzureMarketplacePriceAndAvailabilitySystemMeterPrice  # noqa: E501
+from suger_sdk_python.models.azure_marketplace_price_and_availability_system_meter_price import AzureMarketplacePriceAndAvailabilitySystemMeterPrice
 
 class TestAzureMarketplacePriceAndAvailabilitySystemMeterPrice(unittest.TestCase):
     """AzureMarketplacePriceAndAvailabilitySystemMeterPrice unit test stubs"""
@@ -29,23 +28,18 @@ class TestAzureMarketplacePriceAndAvailabilitySystemMeterPrice(unittest.TestCase
 
     def make_instance(self, include_optional) -> AzureMarketplacePriceAndAvailabilitySystemMeterPrice:
         """Test AzureMarketplacePriceAndAvailabilitySystemMeterPrice
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureMarketplacePriceAndAvailabilitySystemMeterPrice`
         """
-        model = AzureMarketplacePriceAndAvailabilitySystemMeterPrice()  # noqa: E501
+        model = AzureMarketplacePriceAndAvailabilitySystemMeterPrice()
         if include_optional:
             return AzureMarketplacePriceAndAvailabilitySystemMeterPrice(
                 price = 1.337,
                 price_input_option = 'perCore',
                 prices = [
-                    openapi_client.models.azure_marketplace_price.AzureMarketplacePrice(
-                        currency = '', 
-                        markets = [
-                            ''
-                            ], 
-                        price = 1.337, )
+                    {"markets":["markets","markets"],"price":1.0246457001441578,"currency":"currency"}
                     ]
             )
         else:

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_pending_update_info import AzurePendingUpdateInfo  # noqa: E501
+from suger_sdk_python.models.azure_pending_update_info import AzurePendingUpdateInfo
 
 class TestAzurePendingUpdateInfo(unittest.TestCase):
     """AzurePendingUpdateInfo unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzurePendingUpdateInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzurePendingUpdateInfo:
         """Test AzurePendingUpdateInfo
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzurePendingUpdateInfo`
         """
-        model = AzurePendingUpdateInfo()  # noqa: E501
+        model = AzurePendingUpdateInfo()
         if include_optional:
             return AzurePendingUpdateInfo(
                 status = '',

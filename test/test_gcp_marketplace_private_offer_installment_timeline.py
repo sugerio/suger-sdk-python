@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_private_offer_installment_timeline import GcpMarketplacePrivateOfferInstallmentTimeline  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_private_offer_installment_timeline import GcpMarketplacePrivateOfferInstallmentTimeline
 
 class TestGcpMarketplacePrivateOfferInstallmentTimeline(unittest.TestCase):
     """GcpMarketplacePrivateOfferInstallmentTimeline unit test stubs"""
@@ -29,36 +28,31 @@ class TestGcpMarketplacePrivateOfferInstallmentTimeline(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplacePrivateOfferInstallmentTimeline:
         """Test GcpMarketplacePrivateOfferInstallmentTimeline
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplacePrivateOfferInstallmentTimeline`
         """
-        model = GcpMarketplacePrivateOfferInstallmentTimeline()  # noqa: E501
+        model = GcpMarketplacePrivateOfferInstallmentTimeline()
         if include_optional:
             return GcpMarketplacePrivateOfferInstallmentTimeline(
                 installments = [
-                    openapi_client.models.gcp_marketplace_private_offer_installment.GcpMarketplacePrivateOfferInstallment(
-                        price_model = openapi_client.models.gcp_marketplace_private_offer_price_model.GcpMarketplacePrivateOfferPriceModel(
+                    suger_sdk_python.models.gcp_marketplace_private_offer_installment.GcpMarketplacePrivateOfferInstallment(
+                        price_model = suger_sdk_python.models.gcp_marketplace_private_offer_price_model.GcpMarketplacePrivateOfferPriceModel(
                             base_offer = '', 
-                            commitment = openapi_client.models.gcp_marketplace_private_offer_price_model_commitment.GcpMarketplacePrivateOfferPriceModelCommitment(
-                                commitment_amount_per_period = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                    currency_code = '', 
-                                    nanos = 56, 
-                                    units = '', ), 
-                                discount = openapi_client.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
-                                    discount_percentage = openapi_client.models.discount_percentage.discountPercentage(), 
-                                    discounted_price = openapi_client.models.discounted_price.discountedPrice(), ), 
-                                period = openapi_client.models.gcp_period_duration.GcpPeriodDuration(
-                                    count = 56, 
-                                    unit = 'MONTHLY_PERIOD', ), ), 
-                            fixed_price = openapi_client.models.gcp_marketplace_private_offer_price_model_fixed.GcpMarketplacePrivateOfferPriceModelFixed(), 
-                            one_time_credit = openapi_client.models.one_time_credit.oneTimeCredit(), 
-                            overage = openapi_client.models.gcp_marketplace_private_offer_price_model_overage.GcpMarketplacePrivateOfferPriceModelOverage(
+                            commitment = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_commitment.GcpMarketplacePrivateOfferPriceModelCommitment(
+                                commitment_amount_per_period = {"nanos":1,"units":"units","currencyCode":"currencyCode"}, 
+                                discount = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
+                                    discount_percentage = suger_sdk_python.models.discount_percentage.discountPercentage(), 
+                                    discounted_price = suger_sdk_python.models.discounted_price.discountedPrice(), ), 
+                                period = {"unit":"MONTHLY_PERIOD","count":4}, ), 
+                            fixed_price = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_fixed.GcpMarketplacePrivateOfferPriceModelFixed(), 
+                            one_time_credit = suger_sdk_python.models.one_time_credit.oneTimeCredit(), 
+                            overage = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_overage.GcpMarketplacePrivateOfferPriceModelOverage(
                                 sku_discounts = [
                                     None
                                     ], ), 
-                            payg = openapi_client.models.payg.payg(), 
+                            payg = suger_sdk_python.models.payg.payg(), 
                             previous_credit_balance_policy = '', ), 
                         start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]

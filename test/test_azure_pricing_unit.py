@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_pricing_unit import AzurePricingUnit  # noqa: E501
+from suger_sdk_python.models.azure_pricing_unit import AzurePricingUnit
 
 class TestAzurePricingUnit(unittest.TestCase):
     """AzurePricingUnit unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzurePricingUnit(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzurePricingUnit:
         """Test AzurePricingUnit
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzurePricingUnit`
         """
-        model = AzurePricingUnit()  # noqa: E501
+        model = AzurePricingUnit()
         if include_optional:
             return AzurePricingUnit(
                 is_unlimited_unit = True,

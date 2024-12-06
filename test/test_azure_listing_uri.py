@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_listing_uri import AzureListingUri  # noqa: E501
+from suger_sdk_python.models.azure_listing_uri import AzureListingUri
 
 class TestAzureListingUri(unittest.TestCase):
     """AzureListingUri unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureListingUri(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureListingUri:
         """Test AzureListingUri
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureListingUri`
         """
-        model = AzureListingUri()  # noqa: E501
+        model = AzureListingUri()
         if include_optional:
             return AzureListingUri(
                 display_text = '',

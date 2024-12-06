@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.gcp_marketplace_product_service_config import GcpMarketplaceProductServiceConfig  # noqa: E501
+from suger_sdk_python.models.gcp_marketplace_product_service_config import GcpMarketplaceProductServiceConfig
 
 class TestGcpMarketplaceProductServiceConfig(unittest.TestCase):
     """GcpMarketplaceProductServiceConfig unit test stubs"""
@@ -29,40 +28,17 @@ class TestGcpMarketplaceProductServiceConfig(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GcpMarketplaceProductServiceConfig:
         """Test GcpMarketplaceProductServiceConfig
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GcpMarketplaceProductServiceConfig`
         """
-        model = GcpMarketplaceProductServiceConfig()  # noqa: E501
+        model = GcpMarketplaceProductServiceConfig()
         if include_optional:
             return GcpMarketplaceProductServiceConfig(
-                billing = openapi_client.models.gcp_marketplace_product_service_config_billing.GcpMarketplaceProductServiceConfigBilling(
-                    metrics = [
-                        ''
-                        ], ),
+                billing = {"metrics":["metrics","metrics"]},
                 metrics = [
-                    openapi_client.models.gcp_marketplace_product_metering_metric.GcpMarketplaceProductMeteringMetric(
-                        description = '', 
-                        display_name = '', 
-                        display_unit = '', 
-                        display_unit_description = '', 
-                        id = '', 
-                        metric_kind = '', 
-                        name = '', 
-                        price_tiers = [
-                            openapi_client.models.gcp_price_tier.GcpPriceTier(
-                                from_amount = 1.337, 
-                                price = openapi_client.models.gcp_price_value.GcpPriceValue(
-                                    currency_code = '', 
-                                    nanos = 56, 
-                                    units = '', ), 
-                                starting_usage_amount = '', )
-                            ], 
-                        reporting_unit = '', 
-                        sku_id = '', 
-                        unit = '', 
-                        value_type = openapi_client.models.value_type.valueType(), )
+                    {"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"displayUnitDescription":"displayUnitDescription","unit":"unit","metricKind":"metricKind","displayName":"displayName","valueType":"{}","name":"name","description":"description","displayUnit":"displayUnit","id":"id","reportingUnit":"reportingUnit","skuId":"skuId"}
                     ],
                 name = '',
                 producer_project_id = '',

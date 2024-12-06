@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.api_client_access_token import ApiClientAccessToken  # noqa: E501
+from suger_sdk_python.models.api_client_access_token import ApiClientAccessToken
 
 class TestApiClientAccessToken(unittest.TestCase):
     """ApiClientAccessToken unit test stubs"""
@@ -29,12 +28,12 @@ class TestApiClientAccessToken(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ApiClientAccessToken:
         """Test ApiClientAccessToken
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ApiClientAccessToken`
         """
-        model = ApiClientAccessToken()  # noqa: E501
+        model = ApiClientAccessToken()
         if include_optional:
             return ApiClientAccessToken(
                 access_token = '',

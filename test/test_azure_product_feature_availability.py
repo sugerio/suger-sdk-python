@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_product_feature_availability import AzureProductFeatureAvailability  # noqa: E501
+from suger_sdk_python.models.azure_product_feature_availability import AzureProductFeatureAvailability
 
 class TestAzureProductFeatureAvailability(unittest.TestCase):
     """AzureProductFeatureAvailability unit test stubs"""
@@ -29,102 +28,39 @@ class TestAzureProductFeatureAvailability(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureProductFeatureAvailability:
         """Test AzureProductFeatureAvailability
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureProductFeatureAvailability`
         """
-        model = AzureProductFeatureAvailability()  # noqa: E501
+        model = AzureProductFeatureAvailability()
         if include_optional:
             return AzureProductFeatureAvailability(
                 custom_meters = [
-                    openapi_client.models.azure_product_variant_custom_meter.AzureProductVariantCustomMeter(
-                        display_name = '', 
-                        id = '', 
-                        included_base_quantities = [
-                            openapi_client.models.azure_included_base_quantity.AzureIncludedBaseQuantity(
-                                is_infinite = True, 
-                                quantity = 1.337, 
-                                recurring_unit = 'Monthly', )
-                            ], 
-                        is_enabled = True, 
-                        price_in_usd = 1.337, 
-                        unique_id = '', 
-                        unit_of_measure = '', )
+                    {"unitOfMeasure":"unitOfMeasure","displayName":"displayName","includedBaseQuantities":[{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"},{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}],"isEnabled":true,"priceInUsd":5.025004791520295,"id":"id","uniqueID":"uniqueID"}
                     ],
                 id = '',
                 is_hidden = True,
                 market_states = [
-                    openapi_client.models.azure_market_state.AzureMarketState(
-                        market_code = '', 
-                        state = 'Disabled', )
+                    {"marketCode":"marketCode","state":"Disabled"}
                     ],
                 markets = [
-                    openapi_client.models.azure_market.AzureMarket(
-                        friendly_name = '', 
-                        market_code = '', )
+                    {"marketCode":"marketCode","friendlyName":"friendlyName"}
                     ],
                 price_schedules = [
-                    openapi_client.models.azure_product_variant_price_schedule.AzureProductVariantPriceSchedule(
-                        date_time_range = openapi_client.models.azure_localized_time_range.AzureLocalizedTimeRange(
-                            end_at = openapi_client.models.azure_localized_date_time.AzureLocalizedDateTime(
-                                date_time_in_utc = '', 
-                                localize_per_market = True, ), 
-                            start_at = openapi_client.models.azure_localized_date_time.AzureLocalizedDateTime(
-                                date_time_in_utc = '', 
-                                localize_per_market = True, ), ), 
-                        friendly_name = '', 
-                        is_base_schedule = True, 
-                        market_codes = [
-                            ''
-                            ], 
-                        schedules = [
-                            openapi_client.models.azure_price_schedule.AzurePriceSchedule(
-                                price_cadence = openapi_client.models.azure_price_cadence.AzurePriceCadence(
-                                    type = 'Month', 
-                                    value = 56, ), 
-                                pricing_model = 'Flat', 
-                                pricing_units = [
-                                    openapi_client.models.azure_pricing_unit.AzurePricingUnit(
-                                        is_unlimited_unit = True, 
-                                        lower_unit = 56, 
-                                        name = 'sharedcore', 
-                                        unit_type = '', 
-                                        upper_unit = 56, )
-                                    ], 
-                                retail_price = openapi_client.models.azure_price.AzurePrice(
-                                    currency_code = '', 
-                                    open_price = 1.337, 
-                                    price_tier_id = '', ), )
-                            ], )
+                    {"isBaseSchedule":true,"schedules":[{"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}},{"pricingModel":"Flat","pricingUnits":[{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true},{"unitType":"unitType","name":"sharedcore","lowerUnit":9,"upperUnit":6,"isUnlimitedUnit":true}],"priceCadence":{"type":"Month","value":9},"retailPrice":{"openPrice":8.762042012749001,"priceTierID":"priceTierID","currencyCode":"currencyCode"}}],"dateTimeRange":{"endAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true},"startAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true}},"marketCodes":["marketCodes","marketCodes"],"friendlyName":"friendlyName"}
                     ],
                 properties = [
-                    openapi_client.models.azure_type_value.AzureTypeValue(
-                        type = '', 
-                        value = '', )
+                    {"type":"type","value":"value"}
                     ],
                 resource_type = '',
                 subscription_audiences = [
-                    openapi_client.models.azure_audience.AzureAudience(
-                        description = '', 
-                        id = '', )
+                    {"description":"description","id":"id"}
                     ],
                 tenant_audiences = [
-                    openapi_client.models.azure_audience.AzureAudience(
-                        description = '', 
-                        id = '', )
+                    {"description":"description","id":"id"}
                     ],
-                trial = openapi_client.models.azure_product_variant_trial.AzureProductVariantTrial(
-                    date_time_range = openapi_client.models.azure_localized_time_range.AzureLocalizedTimeRange(
-                        end_at = openapi_client.models.azure_localized_date_time.AzureLocalizedDateTime(
-                            date_time_in_utc = '', 
-                            localize_per_market = True, ), 
-                        start_at = openapi_client.models.azure_localized_date_time.AzureLocalizedDateTime(
-                            date_time_in_utc = '', 
-                            localize_per_market = True, ), ), 
-                    duration = 56, 
-                    duration_type = 'Minute', 
-                    type = 'NoTrial', ),
+                trial = {"duration":9,"dateTimeRange":{"endAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true},"startAt":{"dateTimeInUtc":"dateTimeInUtc","localizePerMarket":true}},"type":"NoTrial","durationType":"Minute"},
                 visibility = 'Public'
             )
         else:

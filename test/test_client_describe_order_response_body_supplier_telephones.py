@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.client_describe_order_response_body_supplier_telephones import ClientDescribeOrderResponseBodySupplierTelephones  # noqa: E501
+from suger_sdk_python.models.client_describe_order_response_body_supplier_telephones import ClientDescribeOrderResponseBodySupplierTelephones
 
 class TestClientDescribeOrderResponseBodySupplierTelephones(unittest.TestCase):
     """ClientDescribeOrderResponseBodySupplierTelephones unit test stubs"""
@@ -29,12 +28,12 @@ class TestClientDescribeOrderResponseBodySupplierTelephones(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ClientDescribeOrderResponseBodySupplierTelephones:
         """Test ClientDescribeOrderResponseBodySupplierTelephones
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ClientDescribeOrderResponseBodySupplierTelephones`
         """
-        model = ClientDescribeOrderResponseBodySupplierTelephones()  # noqa: E501
+        model = ClientDescribeOrderResponseBodySupplierTelephones()
         if include_optional:
             return ClientDescribeOrderResponseBodySupplierTelephones(
                 telephone = [

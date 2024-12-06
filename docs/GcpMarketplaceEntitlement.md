@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account** | **str** | The resource name of the account that this entitlement is based on, if any, in format \&quot;\&quot;providers/{provider_id}/accounts/{account_id}\&quot; | [optional] 
@@ -27,7 +28,7 @@ Name | Type | Description | Notes
 **product_external_name** | **str** | The identifier of the product that was procured. | [optional] 
 **provider** | **str** | The ID of the service provider under Cloud Commerce platform that this entitlement was created against. | [optional] 
 **quote_external_name** | **str** | The identifier of the quote that was used to procure, such as the private offer Id. Empty if the order is not purchased using a quote. | [optional] 
-**state** | [**GcpMarketplaceEntitlementState**](GcpMarketplaceEntitlementState.md) |  | [optional] 
+**state** | [**GcpMarketplaceEntitlementState**](GcpMarketplaceEntitlementState.md) | Enums of the Entitlement State. https://cloud.google.com/marketplace/docs/partners/commerce-procurement-api/reference/rest/v1/providers.entitlements#EntitlementState | [optional] 
 **subscription_end_time** | **datetime** | The End time for the subscription corresponding to this entitlement. | [optional] 
 **update_time** | **datetime** | The last update timestamp. It is the endTime for the cancelled entitlement. | [optional] 
 **usage_reporting_id** | **str** | The consumerId to use when reporting usage through the Service Control API. See the consumerId field at Reporting Metrics (https://cloud.google.com/service-control/reporting-metrics) for more details. This field is present only if the product has usage-based billing configured. | [optional] 
@@ -35,19 +36,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.gcp_marketplace_entitlement import GcpMarketplaceEntitlement
+from suger_sdk_python.models.gcp_marketplace_entitlement import GcpMarketplaceEntitlement
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of GcpMarketplaceEntitlement from a JSON string
 gcp_marketplace_entitlement_instance = GcpMarketplaceEntitlement.from_json(json)
 # print the JSON string representation of the object
-print GcpMarketplaceEntitlement.to_json()
+print(GcpMarketplaceEntitlement.to_json())
 
 # convert the object into a dict
 gcp_marketplace_entitlement_dict = gcp_marketplace_entitlement_instance.to_dict()
 # create an instance of GcpMarketplaceEntitlement from a dict
-gcp_marketplace_entitlement_form_dict = gcp_marketplace_entitlement.from_dict(gcp_marketplace_entitlement_dict)
+gcp_marketplace_entitlement_from_dict = GcpMarketplaceEntitlement.from_dict(gcp_marketplace_entitlement_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

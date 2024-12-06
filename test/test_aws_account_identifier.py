@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.aws_account_identifier import AwsAccountIdentifier  # noqa: E501
+from suger_sdk_python.models.aws_account_identifier import AwsAccountIdentifier
 
 class TestAwsAccountIdentifier(unittest.TestCase):
     """AwsAccountIdentifier unit test stubs"""
@@ -29,25 +28,16 @@ class TestAwsAccountIdentifier(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AwsAccountIdentifier:
         """Test AwsAccountIdentifier
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AwsAccountIdentifier`
         """
-        model = AwsAccountIdentifier()  # noqa: E501
+        model = AwsAccountIdentifier()
         if include_optional:
             return AwsAccountIdentifier(
                 aws_account_id = '',
                 aws_customer_id = '',
-                company_info = openapi_client.models.company_info.CompanyInfo(
-                    address_line1 = '', 
-                    address_line2 = '', 
-                    city = '', 
-                    country = '', 
-                    email_domain = '', 
-                    name = '', 
-                    postal_code = '', 
-                    state = '', ),
                 data_feed_account_id = ''
             )
         else:

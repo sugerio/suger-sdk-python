@@ -1,6 +1,6 @@
-# openapi_client.OfferApi
+# suger_sdk_python.OfferApi
 
-All URIs are relative to *https://api.suger.cloud*
+All URIs are relative to *http://https://api.suger.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,11 +10,10 @@ Method | HTTP request | Description
 [**delete_offer**](OfferApi.md#delete_offer) | **DELETE** /org/{orgId}/offer/{offerId} | delete offer
 [**extend_private_offer_expiry_date**](OfferApi.md#extend_private_offer_expiry_date) | **POST** /org/{orgId}/offer/{offerId}/extendExpiryDate | extend offer expiry date
 [**get_offer**](OfferApi.md#get_offer) | **GET** /org/{orgId}/offer/{offerId} | get offer
+[**get_offer_by_external_id**](OfferApi.md#get_offer_by_external_id) | **GET** /org/{orgId}/offerExternalId/{offerExternalId} | get offer by external ID
 [**get_offer_eula**](OfferApi.md#get_offer_eula) | **GET** /org/{orgId}/offer/{offerId}/eula | get offer EULA
-[**list_offers_by_contact**](OfferApi.md#list_offers_by_contact) | **GET** /org/{orgId}/contact/{contactId}/offer | list offers by contact
-[**list_offers_by_organization**](OfferApi.md#list_offers_by_organization) | **GET** /org/{orgId}/offer | list offers by organization
-[**list_offers_by_partner**](OfferApi.md#list_offers_by_partner) | **GET** /org/{orgId}/partner/{partner}/offer | list offers by partner
-[**list_offers_by_product**](OfferApi.md#list_offers_by_product) | **GET** /org/{orgId}/product/{productId}/offer | list offers by product
+[**get_offer_reseller_eula**](OfferApi.md#get_offer_reseller_eula) | **GET** /org/{orgId}/offer/{offerId}/resellerEula | get offer reseller EULA
+[**list_offers**](OfferApi.md#list_offers) | **GET** /org/{orgId}/offer | list offers
 [**send_offer_notifications**](OfferApi.md#send_offer_notifications) | **POST** /org/{orgId}/offer/{offerId}/notifyContacts | notify offer contacts
 [**update_offer_meta_info**](OfferApi.md#update_offer_meta_info) | **PATCH** /org/{orgId}/offer/{offerId}/metaInfo | update offer meta info
 
@@ -24,22 +23,21 @@ Method | HTTP request | Description
 
 cancel offer
 
-Only the offer with status = \"PENDING_ACCEPTANCE\" or \"PENDING_CANCEL\" is allowed to cancel.
+Only the offer with status = \"PENDING_ACCEPTANCE\", \"PENDING_CANCEL\", \"ACTIVE\" or \"USED\" is allowed to cancel.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -47,16 +45,16 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferApi(api_client)
+    api_instance = suger_sdk_python.OfferApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     offer_id = 'offer_id_example' # str | Offer ID
 
@@ -73,6 +71,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -84,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -92,6 +91,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Empty string if cancellation is successful |  -  |
@@ -110,19 +110,18 @@ Create a private offer under the given organization.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.models.workload_offer import WorkloadOffer
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.models.workload_offer import WorkloadOffer
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -130,18 +129,18 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferApi(api_client)
+    api_instance = suger_sdk_python.OfferApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
-    data = openapi_client.WorkloadOffer() # WorkloadOffer | Offer to create
+    data = suger_sdk_python.WorkloadOffer() # WorkloadOffer | Offer to create
 
     try:
         # create offer
@@ -156,6 +155,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -175,6 +175,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -193,19 +194,18 @@ Create a new draft offer or update the existing draft offer. When updating draft
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.models.workload_offer import WorkloadOffer
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.models.workload_offer import WorkloadOffer
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -213,18 +213,18 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferApi(api_client)
+    api_instance = suger_sdk_python.OfferApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
-    data = openapi_client.WorkloadOffer() # WorkloadOffer | the draft offer to create
+    data = suger_sdk_python.WorkloadOffer() # WorkloadOffer | the draft offer to create
 
     try:
         # create or update draft offer
@@ -239,6 +239,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -250,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -258,6 +259,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -272,22 +274,21 @@ Name | Type | Description  | Notes
 
 delete offer
 
-Only the offer with status = \"DRAFT\" or \"CREATE_FAILED\" is allowed to be deleted.
+The offer is soft deleted (marked as DELETED status) in Suger service. Only the offer with status = \"DRAFT\", \"CREATE_FAILED\", \"EXPIRED\" or \"CANCELLED\" is allowed to be deleted.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -295,16 +296,16 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferApi(api_client)
+    api_instance = suger_sdk_python.OfferApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     offer_id = 'offer_id_example' # str | Offer ID
 
@@ -321,6 +322,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -332,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -340,11 +342,12 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Empty string if deletion is successful |  -  |
 **400** | Bad request error |  -  |
-**405** | Method not allowed |  -  |
+**404** | Not found error |  -  |
 **500** | Internal error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -354,22 +357,21 @@ Name | Type | Description  | Notes
 
 extend offer expiry date
 
-Only the offer with status = \"PENDING_ACCEPTANCE\" or \"EXPIRED\" is allowed to extend expiry date.
+Only the offer with status = \"PENDING_ACCEPTANCE\", \"EXPIRED\" or \"ACCEPTED\" is allowed to extend expiry date.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -377,16 +379,16 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferApi(api_client)
+    api_instance = suger_sdk_python.OfferApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     offer_id = 'offer_id_example' # str | Offer ID
     new_expiry_date = 'new_expiry_date_example' # str | new expiry date in YYYY-MM-DD format
@@ -404,6 +406,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -416,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -424,12 +427,12 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Empty string if extension is successful |  -  |
 **400** | Bad request error |  -  |
 **404** | Not found |  -  |
-**405** | Method not allowed |  -  |
 **500** | Internal error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -443,19 +446,18 @@ Get the offer by the given offer ID.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.models.workload_offer import WorkloadOffer
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.models.workload_offer import WorkloadOffer
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -463,16 +465,16 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferApi(api_client)
+    api_instance = suger_sdk_python.OfferApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     offer_id = 'offer_id_example' # str | Offer ID
 
@@ -489,6 +491,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -500,7 +503,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -508,6 +511,92 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | the Offer Object |  -  |
+**400** | Bad request error |  -  |
+**404** | Not found |  -  |
+**405** | Method not allowed |  -  |
+**500** | Internal error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_offer_by_external_id**
+> WorkloadOffer get_offer_by_external_id(org_id, offer_external_id)
+
+get offer by external ID
+
+Get the offer by the given offer external ID.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+
+```python
+import suger_sdk_python
+from suger_sdk_python.models.workload_offer import WorkloadOffer
+from suger_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://https://api.suger.cloud
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with suger_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suger_sdk_python.OfferApi(api_client)
+    org_id = 'org_id_example' # str | Organization ID
+    offer_external_id = 'offer_external_id_example' # str | Offer External ID
+
+    try:
+        # get offer by external ID
+        api_response = api_instance.get_offer_by_external_id(org_id, offer_external_id)
+        print("The response of OfferApi->get_offer_by_external_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling OfferApi->get_offer_by_external_id: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| Organization ID | 
+ **offer_external_id** | **str**| Offer External ID | 
+
+### Return type
+
+[**WorkloadOffer**](WorkloadOffer.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | the Offer Object |  -  |
@@ -527,18 +616,17 @@ Get the EULA file of the given offer ID.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -546,16 +634,16 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferApi(api_client)
+    api_instance = suger_sdk_python.OfferApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     offer_id = 'offer_id_example' # str | Offer ID
 
@@ -572,6 +660,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -583,7 +672,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -591,37 +680,36 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | AWS S3 signed URL with 10 minutes expiry time |  -  |
+**200** | AWS S3 signed URL with 30 minutes expiry time |  -  |
 **400** | Bad request error |  -  |
 **405** | Method not allowed |  -  |
 **500** | Internal error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_offers_by_contact**
-> List[WorkloadOffer] list_offers_by_contact(org_id, contact_id)
+# **get_offer_reseller_eula**
+> str get_offer_reseller_eula(org_id, offer_id)
 
-list offers by contact
+get offer reseller EULA
 
-List all offers under the given organization & contact.
+Get the Reseller EULA file of the given offer ID.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.models.workload_offer import WorkloadOffer
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -629,44 +717,45 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferApi(api_client)
+    api_instance = suger_sdk_python.OfferApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
-    contact_id = 'contact_id_example' # str | Contact ID
+    offer_id = 'offer_id_example' # str | Offer ID
 
     try:
-        # list offers by contact
-        api_response = api_instance.list_offers_by_contact(org_id, contact_id)
-        print("The response of OfferApi->list_offers_by_contact:\n")
+        # get offer reseller EULA
+        api_response = api_instance.get_offer_reseller_eula(org_id, offer_id)
+        print("The response of OfferApi->get_offer_reseller_eula:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OfferApi->list_offers_by_contact: %s\n" % e)
+        print("Exception when calling OfferApi->get_offer_reseller_eula: %s\n" % e)
 ```
 
 
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
- **contact_id** | **str**| Contact ID | 
+ **offer_id** | **str**| Offer ID | 
 
 ### Return type
 
-[**List[WorkloadOffer]**](WorkloadOffer.md)
+**str**
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -674,37 +763,37 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | AWS S3 signed URL with 30 minutes expiry time |  -  |
 **400** | Bad request error |  -  |
 **405** | Method not allowed |  -  |
 **500** | Internal error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_offers_by_organization**
-> List[WorkloadOffer] list_offers_by_organization(org_id)
+# **list_offers**
+> List[WorkloadOffer] list_offers(org_id, status=status, partner=partner, offer_type=offer_type, product_id=product_id, buyer_id=buyer_id, hubspot_deal_id=hubspot_deal_id, contact_id=contact_id, limit=limit, offset=offset)
 
-list offers by organization
+list offers
 
-List all offers under the given organization.
+List offers under the given organization with pagination and optional filter.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.models.workload_offer import WorkloadOffer
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.models.workload_offer import WorkloadOffer
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -712,34 +801,53 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferApi(api_client)
+    api_instance = suger_sdk_python.OfferApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
+    status = 'status_example' # str | filter by offer status (optional)
+    partner = 'partner_example' # str | filter by partner (optional)
+    offer_type = 'offer_type_example' # str | filter by offerType (optional)
+    product_id = 'product_id_example' # str | filter by productId (optional)
+    buyer_id = 'buyer_id_example' # str | filter by buyerId (optional)
+    hubspot_deal_id = 'hubspot_deal_id_example' # str | filter by hubspotDealId (optional)
+    contact_id = 'contact_id_example' # str | filter by contactId (optional)
+    limit = 56 # int | List pagination size, default 1000, max value is 1000 (optional)
+    offset = 56 # int | List pagination offset, default 0 (optional)
 
     try:
-        # list offers by organization
-        api_response = api_instance.list_offers_by_organization(org_id)
-        print("The response of OfferApi->list_offers_by_organization:\n")
+        # list offers
+        api_response = api_instance.list_offers(org_id, status=status, partner=partner, offer_type=offer_type, product_id=product_id, buyer_id=buyer_id, hubspot_deal_id=hubspot_deal_id, contact_id=contact_id, limit=limit, offset=offset)
+        print("The response of OfferApi->list_offers:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OfferApi->list_offers_by_organization: %s\n" % e)
+        print("Exception when calling OfferApi->list_offers: %s\n" % e)
 ```
 
 
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
+ **status** | **str**| filter by offer status | [optional] 
+ **partner** | **str**| filter by partner | [optional] 
+ **offer_type** | **str**| filter by offerType | [optional] 
+ **product_id** | **str**| filter by productId | [optional] 
+ **buyer_id** | **str**| filter by buyerId | [optional] 
+ **hubspot_deal_id** | **str**| filter by hubspotDealId | [optional] 
+ **contact_id** | **str**| filter by contactId | [optional] 
+ **limit** | **int**| List pagination size, default 1000, max value is 1000 | [optional] 
+ **offset** | **int**| List pagination offset, default 0 | [optional] 
 
 ### Return type
 
@@ -747,7 +855,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -755,177 +863,13 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **400** | Bad request error |  -  |
 **405** | Method not allowed |  -  |
 **500** | Internal server error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **list_offers_by_partner**
-> List[WorkloadOffer] list_offers_by_partner(org_id, partner)
-
-list offers by partner
-
-List all offers under the given organization & cloud partner.
-
-### Example
-
-* Api Key Authentication (BearerTokenAuth):
-```python
-import time
-import os
-import openapi_client
-from openapi_client.models.workload_offer import WorkloadOffer
-from openapi_client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.suger.cloud
-# See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = openapi_client.OfferApi(api_client)
-    org_id = 'org_id_example' # str | Organization ID
-    partner = 'partner_example' # str | Cloud Partner
-
-    try:
-        # list offers by partner
-        api_response = api_instance.list_offers_by_partner(org_id, partner)
-        print("The response of OfferApi->list_offers_by_partner:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling OfferApi->list_offers_by_partner: %s\n" % e)
-```
-
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org_id** | **str**| Organization ID | 
- **partner** | **str**| Cloud Partner | 
-
-### Return type
-
-[**List[WorkloadOffer]**](WorkloadOffer.md)
-
-### Authorization
-
-[BearerTokenAuth](../README.md#BearerTokenAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad request error |  -  |
-**405** | Method not allowed |  -  |
-**500** | Internal error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **list_offers_by_product**
-> List[WorkloadOffer] list_offers_by_product(org_id, product_id)
-
-list offers by product
-
-List all offers under the given organization & product.
-
-### Example
-
-* Api Key Authentication (BearerTokenAuth):
-```python
-import time
-import os
-import openapi_client
-from openapi_client.models.workload_offer import WorkloadOffer
-from openapi_client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.suger.cloud
-# See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = openapi_client.OfferApi(api_client)
-    org_id = 'org_id_example' # str | Organization ID
-    product_id = 'product_id_example' # str | Product ID
-
-    try:
-        # list offers by product
-        api_response = api_instance.list_offers_by_product(org_id, product_id)
-        print("The response of OfferApi->list_offers_by_product:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling OfferApi->list_offers_by_product: %s\n" % e)
-```
-
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org_id** | **str**| Organization ID | 
- **product_id** | **str**| Product ID | 
-
-### Return type
-
-[**List[WorkloadOffer]**](WorkloadOffer.md)
-
-### Authorization
-
-[BearerTokenAuth](../README.md#BearerTokenAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad request error description |  -  |
-**500** | internal error description |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -938,19 +882,18 @@ Send offer notifications to the given contact ids. If contactIds is empty, send 
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.models.notification_event import NotificationEvent
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.models.notification_event import NotificationEvent
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -958,16 +901,16 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferApi(api_client)
+    api_instance = suger_sdk_python.OfferApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     offer_id = 'offer_id_example' # str | Offer ID
     contact_ids = ['contact_ids_example'] # List[str] | List of Contact IDs, if emoty or nil, send notifications to all contacts of the offer (optional)
@@ -985,6 +928,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -997,7 +941,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -1005,6 +949,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | NotificationEvent object |  -  |
@@ -1023,19 +968,18 @@ Update the meta info of the given offer.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
+
 ```python
-import time
-import os
-import openapi_client
-from openapi_client.models.workload_meta_info import WorkloadMetaInfo
-from openapi_client.rest import ApiException
+import suger_sdk_python
+from suger_sdk_python.models.workload_meta_info import WorkloadMetaInfo
+from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.suger.cloud
+# Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.suger.cloud"
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1043,19 +987,19 @@ configuration = openapi_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferApi(api_client)
+    api_instance = suger_sdk_python.OfferApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     offer_id = 'offer_id_example' # str | Offer ID
-    data = openapi_client.WorkloadMetaInfo() # WorkloadMetaInfo | Offer meta info to update
+    data = suger_sdk_python.WorkloadMetaInfo() # WorkloadMetaInfo | Offer meta info to update
 
     try:
         # update offer meta info
@@ -1070,6 +1014,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
@@ -1082,7 +1027,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -1090,6 +1035,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

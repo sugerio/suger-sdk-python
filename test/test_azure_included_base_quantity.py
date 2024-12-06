@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.azure_included_base_quantity import AzureIncludedBaseQuantity  # noqa: E501
+from suger_sdk_python.models.azure_included_base_quantity import AzureIncludedBaseQuantity
 
 class TestAzureIncludedBaseQuantity(unittest.TestCase):
     """AzureIncludedBaseQuantity unit test stubs"""
@@ -29,12 +28,12 @@ class TestAzureIncludedBaseQuantity(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AzureIncludedBaseQuantity:
         """Test AzureIncludedBaseQuantity
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AzureIncludedBaseQuantity`
         """
-        model = AzureIncludedBaseQuantity()  # noqa: E501
+        model = AzureIncludedBaseQuantity()
         if include_optional:
             return AzureIncludedBaseQuantity(
                 is_infinite = True,

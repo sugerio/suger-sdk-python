@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.notification_message import NotificationMessage  # noqa: E501
+from suger_sdk_python.models.notification_message import NotificationMessage
 
 class TestNotificationMessage(unittest.TestCase):
     """NotificationMessage unit test stubs"""
@@ -29,32 +28,20 @@ class TestNotificationMessage(unittest.TestCase):
 
     def make_instance(self, include_optional) -> NotificationMessage:
         """Test NotificationMessage
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `NotificationMessage`
         """
-        model = NotificationMessage()  # noqa: E501
+        model = NotificationMessage()
         if include_optional:
             return NotificationMessage(
                 creation_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 id = '',
-                info = openapi_client.models.notification_message_info.NotificationMessageInfo(
-                    cc_recipients = [
-                        ''
-                        ], 
-                    custom_fields = {
-                        'key' : ''
-                        }, 
-                    html_content = '', 
-                    rcc_recipients = [
-                        ''
-                        ], 
-                    subject = '', 
-                    text_content = '', ),
+                info = {"standardFields":{"key":""},"customFields":{"key":""},"subject":"subject","rccRecipients":["rccRecipients","rccRecipients"],"ccRecipients":["ccRecipients","ccRecipients"],"action":"{}","textContent":"textContent","htmlContent":"htmlContent"},
                 organization_id = '',
                 recipient = '',
-                type = 'Email'
+                type = 'EMAIL'
             )
         else:
             return NotificationMessage(

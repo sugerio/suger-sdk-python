@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_client.models.buyer_info import BuyerInfo  # noqa: E501
+from suger_sdk_python.models.buyer_info import BuyerInfo
 
 class TestBuyerInfo(unittest.TestCase):
     """BuyerInfo unit test stubs"""
@@ -29,66 +28,37 @@ class TestBuyerInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> BuyerInfo:
         """Test BuyerInfo
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `BuyerInfo`
         """
-        model = BuyerInfo()  # noqa: E501
+        model = BuyerInfo()
         if include_optional:
             return BuyerInfo(
-                aws_buyer = openapi_client.models.aws_account_identifier.AwsAccountIdentifier(
+                adyen_buyer = suger_sdk_python.models.adyen_buyer.AdyenBuyer(
+                    settings = { }, 
+                    shopper_id = '', ),
+                aws_buyer = suger_sdk_python.models.aws_account_identifier.AwsAccountIdentifier(
                     aws_account_id = '', 
                     aws_customer_id = '', 
-                    company_info = openapi_client.models.company_info.CompanyInfo(
-                        address_line1 = '', 
-                        address_line2 = '', 
-                        city = '', 
-                        country = '', 
-                        email_domain = '', 
-                        name = '', 
-                        postal_code = '', 
-                        state = '', ), 
                     data_feed_account_id = '', ),
-                azure_buyer = openapi_client.models.azure_ad_identifier.AzureADIdentifier(
-                    billing_account_id = '', 
-                    company_info = openapi_client.models.company_info.CompanyInfo(
-                        address_line1 = '', 
-                        address_line2 = '', 
-                        city = '', 
-                        country = '', 
-                        email_domain = '', 
-                        name = '', 
-                        postal_code = '', 
-                        state = '', ), 
-                    customer_id = '', 
-                    email_id = '', 
-                    first_name = '', 
-                    last_name = '', 
-                    license_type = '', 
-                    object_id = '', 
-                    puid = '', 
-                    tenant_id = '', ),
+                azure_buyer = {"firstName":"firstName","lastName":"lastName","licenseType":"licenseType","puid":"puid","customerId":"customerId","tenantId":"tenantId","billingAccountId":"billingAccountId","emailId":"emailId","objectId":"objectId"},
                 collectable_amount = 1.337,
+                company_info = {"country":"country","emailDomain":"emailDomain","city":"city","postalCode":"postalCode","name":"name","addressLine1":"addressLine1","addressLine2":"addressLine2","state":"state","validFrom":"validFrom"},
                 customer_id = '',
                 disbursed_amount = 1.337,
-                gcp_buyer = openapi_client.models.gcp_marketplace_user_account.GcpMarketplaceUserAccount(
+                email_address = '',
+                fields = { },
+                gcp_buyer = suger_sdk_python.models.gcp_marketplace_user_account.GcpMarketplaceUserAccount(
                     approvals = [
-                        openapi_client.models.gcp_marketplace_user_account_approval.GcpMarketplaceUserAccountApproval(
+                        suger_sdk_python.models.gcp_marketplace_user_account_approval.GcpMarketplaceUserAccountApproval(
                             name = '', 
                             reason = '', 
                             state = 'STATE_UNSPECIFIED', 
                             update_time = '', )
                         ], 
                     billing_account_id = '', 
-                    company_info = openapi_client.models.company_info.CompanyInfo(
-                        address_line1 = '', 
-                        address_line2 = '', 
-                        city = '', 
-                        country = '', 
-                        email_domain = '', 
-                        name = '', 
-                        postal_code = '', ), 
                     create_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     id = '', 
                     input_properties = [
@@ -96,16 +66,42 @@ class TestBuyerInfo(unittest.TestCase):
                         ], 
                     name = '', 
                     provider = '', 
-                    state = openapi_client.models.state.state(), 
+                    state = suger_sdk_python.models.state.state(), 
                     update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    user_info = openapi_client.models.gcp_user_info.GcpUserInfo(
+                    user_info = suger_sdk_python.models.gcp_user_info.GcpUserInfo(
                         roles = [
                             ''
                             ], 
                         user_identity = '', ), ),
+                gross_amount = 1.337,
                 invoiced_amount = 1.337,
+                lago_customer_id = '',
+                last_modified_by = '',
                 metronome_customer_id = '',
-                orb_customer_id = ''
+                orb_customer_id = '',
+                payment_config = suger_sdk_python.models.payment_config.PaymentConfig(
+                    allowed_wallet_types = [
+                        'ach_debit'
+                        ], 
+                    currency = '', 
+                    default_wallet_id = '', ),
+                spa_url = '',
+                stripe_buyer = suger_sdk_python.models.stripe_customer.StripeCustomer(
+                    address = suger_sdk_python.models.stripe_customer_address.StripeCustomerAddress(
+                        city = '', 
+                        country = '', 
+                        line1 = '', 
+                        line2 = '', 
+                        postal_code = '', 
+                        state = '', ), 
+                    description = '', 
+                    email = '', 
+                    id = '', 
+                    metadata = {
+                        'key' : ''
+                        }, 
+                    name = '', 
+                    phone = '', )
             )
         else:
             return BuyerInfo(

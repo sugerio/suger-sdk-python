@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **display_quantity** | **int** | such as 1 | [optional] 
@@ -11,19 +12,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.gcp_marketplace_product_usage_fee import GcpMarketplaceProductUsageFee
+from suger_sdk_python.models.gcp_marketplace_product_usage_fee import GcpMarketplaceProductUsageFee
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of GcpMarketplaceProductUsageFee from a JSON string
 gcp_marketplace_product_usage_fee_instance = GcpMarketplaceProductUsageFee.from_json(json)
 # print the JSON string representation of the object
-print GcpMarketplaceProductUsageFee.to_json()
+print(GcpMarketplaceProductUsageFee.to_json())
 
 # convert the object into a dict
 gcp_marketplace_product_usage_fee_dict = gcp_marketplace_product_usage_fee_instance.to_dict()
 # create an instance of GcpMarketplaceProductUsageFee from a dict
-gcp_marketplace_product_usage_fee_form_dict = gcp_marketplace_product_usage_fee.from_dict(gcp_marketplace_product_usage_fee_dict)
+gcp_marketplace_product_usage_fee_from_dict = GcpMarketplaceProductUsageFee.from_dict(gcp_marketplace_product_usage_fee_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
