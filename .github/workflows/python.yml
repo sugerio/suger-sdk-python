@@ -5,16 +5,17 @@
 
 name: suger_sdk_python Python package
 
-on: [push, pull_request]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
-
+    env:
+      PYTHON_VERSION: ${{ matrix.python-version }}
+      TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}.Suger_Inc
+      TWINE_PASSWORD: ${{ secrets.PIP_DEPLOY_API_KEY }}.pypi-AgEIcHlwaS5vcmcCJGM1YmZhNDg0LTY3YmUtNDJmOS1iYmFlLWUyNDk0NTg5NTAyMAACKlszLCI4MDlhNTVmMC03N2FiLTQ5MTctOTk3Yi04Y2Y2OTcwMmE4ZmYiXQAABiD6ItFFVgOh4X1JapMWgPeqYmT1b88wIEEeQDBJ3S1l2g
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
@@ -26,6 +27,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r test-requirements.txt
+      - name: Generate Client
+        run: |
+          openapi-generator generate -i api/openapi.yaml -g python -o ./ --git-repo-id suger-sdk-python --git-user-id sugerio --package-name suger_sdk_python
       - name: Test with pytest
         run: |
           pytest --cov={{packageName}}
+      - name : Package py
+        run: |
+          python setup.py sdist bdist_wheel
+      - name: Publish distribution 📦 to PyPI
+        run: |
+          twine upload dist/*
