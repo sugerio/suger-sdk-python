@@ -1,7 +1,11 @@
 import unittest
 
-import suger_sdk_python
-from suger_sdk_python import OfferApi, ApiException, ProductApi, Configuration, EntitlementApi
+from suger_sdk_python.api.api_api import ApiClient
+from suger_sdk_python.api.offer_api import OfferApi
+from suger_sdk_python.api.product_api import ProductApi
+from suger_sdk_python.exceptions import ApiException
+from suger_sdk_python.configuration import Configuration
+from suger_sdk_python.api.entitlement_api import EntitlementApi
 
 
 class TestSimpleTest(unittest.TestCase):
@@ -12,7 +16,7 @@ class TestSimpleTest(unittest.TestCase):
         )
         test_config.api_key[
             'APIKeyAuth'] = 'Key b277c95e5e92ff7a8e96e74baf6ee2fb080db3e6507977c0067791abc1f52da4220e866e2081117a1721788aa2e9dc6fe009f2a699f17a7bba23973af6954db4'
-        api_client = suger_sdk_python.ApiClient(test_config)
+        api_client = ApiClient(test_config)
         self.api = api_client
 
     def test_get_offer(self) -> None:

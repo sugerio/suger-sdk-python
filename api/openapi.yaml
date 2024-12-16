@@ -8,6 +8,7 @@ info:
     \ offers, entitlements, usage record groups for meterting, etc."
   title: Suger API
   version: "1.0"
+
 servers:
 - url: //https://api.suger.cloud/
 tags:
