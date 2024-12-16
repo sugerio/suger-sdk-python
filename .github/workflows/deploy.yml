@@ -37,17 +37,6 @@ jobs:
           pip install setuptools wheel
           python setup.py sdist bdist_wheel
       - name: Publish distribution 📦 to PyPI
-        run: |
-          pip install twine
-          twine upload dist/*
-          rm -rf dist/
-          rm -rf build/
-          rm -rf suger_sdk_python.egg-info/
-        env:
-          TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
-          TWINE_PASSWORD: ${{ secrets.PIP_DEPLOY_API_KEY }}
-      - name: Publish new sdk code
-        run: |
-          git add .
-          git commit -m "update sdk"
-          git push
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PIP_DEPLOY_API_KEY }}
