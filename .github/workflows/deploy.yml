@@ -37,7 +37,7 @@ jobs:
           sed -i "s/version='.*'/version='v3.128.21'/" ./setup.py
       - name: Test with pytest
         run: |
-          pytest
+          pytest --cov={{packageName}}
       - name: Package py
         run: |
           python setup.py sdist bdist_wheel
