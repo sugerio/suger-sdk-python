@@ -20,6 +20,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
+from suger_sdk_python.models.identity_buyer import IdentityBuyer
 from suger_sdk_python.models.identity_contact import IdentityContact
 
 from suger_sdk_python.api_client import ApiClient, RequestSerialized
@@ -58,7 +59,7 @@ class ContactApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> str:
+    ) -> IdentityBuyer:
         """add contact to buyer
 
         add contact to buyer by the given organization, buyer id and contact id.
@@ -102,7 +103,7 @@ class ContactApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "IdentityBuyer",
             '400': "str",
             '500': "str",
         }
@@ -135,7 +136,7 @@ class ContactApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[str]:
+    ) -> ApiResponse[IdentityBuyer]:
         """add contact to buyer
 
         add contact to buyer by the given organization, buyer id and contact id.
@@ -179,7 +180,7 @@ class ContactApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "IdentityBuyer",
             '400': "str",
             '500': "str",
         }
@@ -256,7 +257,7 @@ class ContactApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "IdentityBuyer",
             '400': "str",
             '500': "str",
         }

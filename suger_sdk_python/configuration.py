@@ -115,7 +115,6 @@ AuthSettings = TypedDict(
     "AuthSettings",
     {
         "APIKeyAuth": APIKeyAuthSetting,
-        "BearerTokenAuth": APIKeyAuthSetting,
     },
     total=False,
 )
@@ -513,15 +512,6 @@ conf = suger_sdk_python.Configuration(
                 'key': 'Authorization',
                 'value': self.get_api_key_with_prefix(
                     'APIKeyAuth',
-                ),
-            }
-        if 'BearerTokenAuth' in self.api_key:
-            auth['BearerTokenAuth'] = {
-                'type': 'api_key',
-                'in': 'header',
-                'key': 'Authorization',
-                'value': self.get_api_key_with_prefix(
-                    'BearerTokenAuth',
                 ),
             }
         return auth

@@ -1,14 +1,13 @@
 import unittest
 
 import suger_sdk_python
-from build.lib.suger_sdk_python.api.entitlement_api import EntitlementApi
-from suger_sdk_python import OfferApi, ApiException, ProductApi
+from suger_sdk_python import OfferApi, ApiException, ProductApi, Configuration, EntitlementApi
 
 
 class TestSimpleTest(unittest.TestCase):
 
     def setUp(self) -> None:
-        test_config = suger_sdk_python.Configuration(
+        test_config = Configuration(
             host="https://api.dev.suger.cloud",
         )
         test_config.api_key[

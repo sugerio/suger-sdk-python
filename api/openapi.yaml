@@ -89,6 +89,8 @@ paths:
       summary: list addons
       tags:
       - Billing
+      x-accepts:
+      - application/json
     post:
       description: Create an addon template
       operationId: CreateAddon
@@ -133,6 +135,9 @@ paths:
       tags:
       - Billing
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/addon/{addonId}:
     delete:
       description: Soft delete an addon template
@@ -178,6 +183,8 @@ paths:
       summary: delete addon
       tags:
       - Billing
+      x-accepts:
+      - application/json
     get:
       description: Get an addon template
       operationId: GetAddon
@@ -222,6 +229,8 @@ paths:
       summary: get addon
       tags:
       - Billing
+      x-accepts:
+      - application/json
     patch:
       description: Update an addon template
       operationId: UpdateAddon
@@ -274,6 +283,9 @@ paths:
       tags:
       - Billing
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/apiClient:
     get:
       description: List all API clients in the given organization.
@@ -313,6 +325,8 @@ paths:
       summary: list api clients
       tags:
       - API
+      x-accepts:
+      - application/json
   /org/{orgId}/apiClient/{apiClientId}:
     get:
       description: Get the API client by ID.
@@ -358,6 +372,8 @@ paths:
       summary: get api client
       tags:
       - API
+      x-accepts:
+      - application/json
   /org/{orgId}/batchCreateUsageRecordGroups:
     post:
       description: Batch report new usage record groups.
@@ -407,6 +423,9 @@ paths:
       tags:
       - Metering
       x-codegen-request-body-name: usageRecordGroups
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/batchValidateUsageRecordGroups:
     post:
       description: Provide a batch of usage record groups and validate each individual
@@ -455,6 +474,9 @@ paths:
       tags:
       - Metering
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/billableMetric:
     get:
       description: list billable metrics for the given organization.
@@ -502,6 +524,8 @@ paths:
       summary: list billable metrics
       tags:
       - Metering
+      x-accepts:
+      - application/json
     post:
       description: Create a new billable metric for the given organization.
       operationId: CreateBillableMetric
@@ -546,6 +570,9 @@ paths:
       tags:
       - Metering
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/billableMetric/{billableMetricId}:
     get:
       description: Get the billable metric for the given organization and billable
@@ -598,6 +625,8 @@ paths:
       summary: get billable metric
       tags:
       - Metering
+      x-accepts:
+      - application/json
     patch:
       description: "Update the name, description and status of the billable metric\
         \ for the given organization."
@@ -657,6 +686,9 @@ paths:
       tags:
       - Metering
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/buyer:
     get:
       description: list buyers by the given organization with pagination and optional
@@ -720,6 +752,8 @@ paths:
       summary: list buyers
       tags:
       - Buyer
+      x-accepts:
+      - application/json
     post:
       description: create a new buyer for Stripe or Adyen under the given organization.
       operationId: CreateBuyer
@@ -764,6 +798,9 @@ paths:
       tags:
       - Buyer
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/buyer/{buyerId}:
     get:
       description: get buyer by the given organization and buyer id.
@@ -815,6 +852,8 @@ paths:
       summary: get buyer
       tags:
       - Buyer
+      x-accepts:
+      - application/json
     patch:
       description: update buyer by the given organization and buyer id.
       operationId: UpdateBuyer
@@ -861,6 +900,9 @@ paths:
       tags:
       - Buyer
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/buyer/{buyerId}/paymentTransaction/{paymentTransactionId}/refund:
     get:
       description: list refunds of the payment transactions.
@@ -916,6 +958,8 @@ paths:
       summary: list refunds.
       tags:
       - Billing
+      x-accepts:
+      - application/json
     post:
       description: "create refund on the payment transaction, support partial refunds\
         \ multiple times."
@@ -958,8 +1002,8 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Empty string if succeed
+                $ref: '#/components/schemas/BillingPaymentTransaction'
+          description: OK
         "400":
           content:
             application/json:
@@ -977,6 +1021,8 @@ paths:
       summary: create refund.
       tags:
       - Billing
+      x-accepts:
+      - application/json
   /org/{orgId}/buyer/{buyerId}/wallet:
     get:
       description: list all wallets of a buyer.
@@ -1024,6 +1070,8 @@ paths:
       summary: list buyer's wallets
       tags:
       - Buyer
+      x-accepts:
+      - application/json
     post:
       description: create a new credit wallet for the buyer.
       operationId: CreateCreditWallet
@@ -1068,6 +1116,8 @@ paths:
       summary: create credit wallet
       tags:
       - Buyer
+      x-accepts:
+      - application/json
   /org/{orgId}/buyer/{buyerId}/wallet/{walletId}:
     delete:
       description: "delete a wallet of the buyer, if it's a payment method, sync to\
@@ -1103,7 +1153,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BillingWallet'
+                type: string
           description: OK
         "400":
           content:
@@ -1122,6 +1172,8 @@ paths:
       summary: delete buyer wallet
       tags:
       - Buyer
+      x-accepts:
+      - application/json
     patch:
       description: update startTime or expireTime of the wallet.
       operationId: UpdateCreditWallet
@@ -1174,6 +1226,8 @@ paths:
       summary: update credit wallet
       tags:
       - Buyer
+      x-accepts:
+      - application/json
   /org/{orgId}/buyer/{buyerId}/wallet/{walletId}/close:
     patch:
       description: "Close the given credit wallet, if it's a payment method, sync\
@@ -1228,6 +1282,8 @@ paths:
       summary: close credit wallet
       tags:
       - Buyer
+      x-accepts:
+      - application/json
   /org/{orgId}/buyer/{buyerId}/wallet/{walletId}/default:
     patch:
       description: set a payment method wallet as buyer's default wallet.
@@ -1281,6 +1337,8 @@ paths:
       summary: set buyer default wallet
       tags:
       - Buyer
+      x-accepts:
+      - application/json
   /org/{orgId}/contact:
     get:
       description: List all contacts under the given organization.
@@ -1336,6 +1394,8 @@ paths:
       summary: list contacts by organization
       tags:
       - Contact
+      x-accepts:
+      - application/json
     post:
       description: "Create a contact under the given organization. If the email address\
         \ already exists, return the existing contact."
@@ -1381,6 +1441,9 @@ paths:
       tags:
       - Contact
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/contact/{contactId}:
     get:
       description: Get the Contact by the given contact ID.
@@ -1426,6 +1489,8 @@ paths:
       summary: get contact
       tags:
       - Contact
+      x-accepts:
+      - application/json
     patch:
       description: update contact by the given organization and buyer id. The given
         name and information should be complete. Please note that this function does
@@ -1480,6 +1545,9 @@ paths:
       tags:
       - Contact
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/contact/{contactId}/buyer/{buyerId}:
     delete:
       description: "remove contact from buyer by the given organization, buyer id\
@@ -1534,6 +1602,8 @@ paths:
       summary: remove contact from buyer
       tags:
       - Contact
+      x-accepts:
+      - application/json
     post:
       description: "add contact to buyer by the given organization, buyer id and contact\
         \ id."
@@ -1568,8 +1638,8 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: empty string if success
+                $ref: '#/components/schemas/IdentityBuyer'
+          description: OK
         "400":
           content:
             application/json:
@@ -1587,6 +1657,8 @@ paths:
       summary: add contact to buyer
       tags:
       - Contact
+      x-accepts:
+      - application/json
   /org/{orgId}/contact/{contactId}/offer/{offerId}:
     delete:
       description: "remove contact from offer by given organization, offer id and\
@@ -1641,6 +1713,8 @@ paths:
       summary: remove contact from offer
       tags:
       - Contact
+      x-accepts:
+      - application/json
     post:
       description: "add contact to offer by the given organization, offer id and contact\
         \ id."
@@ -1694,6 +1768,8 @@ paths:
       summary: add contact to offer
       tags:
       - Contact
+      x-accepts:
+      - application/json
   /org/{orgId}/contact/batch:
     post:
       description: "Create multiple contacts under the given organization. If an email\
@@ -1746,6 +1822,9 @@ paths:
       tags:
       - Contact
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/dailyRevenueRecord:
     get:
       description: "list daily revenue records for the given organization, partner,\
@@ -1839,6 +1918,8 @@ paths:
       summary: list daily revenue records
       tags:
       - Report
+      x-accepts:
+      - application/json
   /org/{orgId}/draftOffer:
     post:
       description: "Create a new draft offer or update the existing draft offer. When\
@@ -1891,6 +1972,9 @@ paths:
       tags:
       - Offer
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/draftProduct:
     post:
       description: "Create a new draft product or update the existing draft product.\
@@ -1937,6 +2021,9 @@ paths:
       tags:
       - Product
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement:
     get:
       description: List entitlements under the given organization with pagination
@@ -2025,6 +2112,8 @@ paths:
       summary: list entitlements
       tags:
       - Entitlement
+      x-accepts:
+      - application/json
     post:
       description: Create an new entitlement for the given buyer & offer. Only applicable
         to non cloud billing partners.
@@ -2070,6 +2159,9 @@ paths:
       tags:
       - Entitlement
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}:
     get:
       description: Get the entitlement by ID.
@@ -2121,6 +2213,8 @@ paths:
       summary: get entitlement
       tags:
       - Entitlement
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/addCredit:
     post:
       description: Add the credit amount to the given Entitlement. The credit amount
@@ -2175,6 +2269,9 @@ paths:
       tags:
       - Entitlement
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/addon:
     post:
       description: Apply one billing addon to the given Entitlement. The entitlement
@@ -2209,8 +2306,8 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: OK
+                $ref: '#/components/schemas/WorkloadEntitlement'
+          description: Entitlement
         "400":
           content:
             application/json:
@@ -2229,6 +2326,9 @@ paths:
       tags:
       - Entitlement
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/approve:
     post:
       description: Approve the given Entitlement. Only applicable to the Azure or
@@ -2282,6 +2382,8 @@ paths:
       summary: approve entitlement
       tags:
       - Entitlement
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/cancel:
     post:
       description: Cancel the active subscription in Azure Marketplace.
@@ -2308,8 +2410,8 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: OK
+                $ref: '#/components/schemas/WorkloadEntitlement'
+          description: the canceled Entitlement
         "400":
           content:
             application/json:
@@ -2333,6 +2435,8 @@ paths:
       summary: cancel entitlement
       tags:
       - Entitlement
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/divideCommit:
     post:
       description: Divide the commit equally from the given entitlement into sub entitlement
@@ -2387,6 +2491,9 @@ paths:
       tags:
       - Entitlement
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/entitlementName:
     patch:
       description: Update the name of the given Entitlement.
@@ -2440,6 +2547,9 @@ paths:
       tags:
       - Entitlement
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/entitlementTerm:
     get:
       description: List all Entitlement Terms of the given Entitlement.
@@ -2487,6 +2597,8 @@ paths:
       summary: list entitlement terms
       tags:
       - Entitlement
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/entitlementTerm/{entitlementTermId}:
     delete:
       description: Delete the entitlement term by the given entitlement ID and entitlement
@@ -2537,10 +2649,12 @@ paths:
                 type: string
           description: Internal server error
       security:
-      - BearerTokenAuth: []
+      - APIKeyAuth: []
       summary: delete entitlement term
       tags:
       - Entitlement
+      x-accepts:
+      - application/json
     get:
       description: Get the entitlement term by ID.
       operationId: GetEntitlementTerm
@@ -2593,6 +2707,8 @@ paths:
       summary: get entitlement term
       tags:
       - Entitlement
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}:
     get:
       description: Get the invoice by ID
@@ -2646,6 +2762,8 @@ paths:
       summary: get invoice
       tags:
       - Billing
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/issue:
     patch:
       description: Issue the invoice immediately. It can be used for manual issue
@@ -2681,8 +2799,8 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Empty string if issue is successful
+                $ref: '#/components/schemas/BillingInvoice'
+          description: the issued Invoice
         "400":
           content:
             application/json:
@@ -2700,6 +2818,8 @@ paths:
       summary: issue invoice
       tags:
       - Billing
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/pay:
     patch:
       description: Initiate the payment for the invoice immediately. It can be used
@@ -2735,8 +2855,8 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Empty string if pay is successful
+                $ref: '#/components/schemas/BillingInvoice'
+          description: OK
         "400":
           content:
             application/json:
@@ -2754,6 +2874,8 @@ paths:
       summary: pay invoice
       tags:
       - Billing
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/void:
     patch:
       description: Void the invoice. It can be used for manual void or cancel the
@@ -2789,8 +2911,8 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Empty string if void is successful
+                $ref: '#/components/schemas/BillingInvoice'
+          description: OK
         "400":
           content:
             application/json:
@@ -2808,6 +2930,8 @@ paths:
       summary: void invoice
       tags:
       - Billing
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/metaInfo:
     patch:
       description: Update the meta info of the given entitlement.
@@ -2861,6 +2985,9 @@ paths:
       tags:
       - Entitlement
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/scheduleCancellation:
     post:
       description: Schedule the cancellation of the given Entitlement.
@@ -2894,7 +3021,7 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/WorkloadEntitlement'
           description: OK
         "400":
           content:
@@ -2914,6 +3041,9 @@ paths:
       tags:
       - Entitlement
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/seat:
     patch:
       description: Update the seat number for the active AZURE subscription.
@@ -2948,8 +3078,8 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: OK
+                $ref: '#/components/schemas/WorkloadEntitlement'
+          description: the original entitlement before the seat update
         "400":
           content:
             application/json:
@@ -2967,6 +3097,8 @@ paths:
       summary: update seat for the active AZURE subscription
       tags:
       - Entitlement
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/unscheduleCancellation:
     post:
       description: Unschedule the cancellation of the given Entitlement.
@@ -2993,7 +3125,7 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/WorkloadEntitlement'
           description: OK
         "400":
           content:
@@ -3012,6 +3144,8 @@ paths:
       summary: unschedule entitlement cancellation
       tags:
       - Entitlement
+      x-accepts:
+      - application/json
   /org/{orgId}/entitlement/{entitlementId}/usageRecordGroup:
     post:
       description: "It is recommended to provide the ID in the request body CreateUsageRecordGroupParams,\
@@ -3067,6 +3201,9 @@ paths:
       tags:
       - Metering
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/invoice:
     get:
       description: List invoices with pagination and filter by status (optional)
@@ -3153,6 +3290,8 @@ paths:
       summary: list invoices
       tags:
       - Billing
+      x-accepts:
+      - application/json
   /org/{orgId}/notificationEvent:
     get:
       description: List the notification events of the given organization with pagination
@@ -3234,6 +3373,8 @@ paths:
       summary: list notification events
       tags:
       - Notification
+      x-accepts:
+      - application/json
   /org/{orgId}/notificationEvent/{entityType}/{entityId}:
     get:
       description: List the notification events of the given organization and entity
@@ -3305,6 +3446,8 @@ paths:
       summary: list notification events by entity
       tags:
       - Notification
+      x-accepts:
+      - application/json
   /org/{orgId}/notificationMessage:
     get:
       description: List the notification messages of the given organization with pagination.
@@ -3358,6 +3501,8 @@ paths:
       summary: list notification messages
       tags:
       - Notification
+      x-accepts:
+      - application/json
   /org/{orgId}/notificationMessage/{notificationMessageId}:
     get:
       description: Get the notification message of the organization & notification
@@ -3404,6 +3549,8 @@ paths:
       summary: get notification message
       tags:
       - Notification
+      x-accepts:
+      - application/json
   /org/{orgId}/offer:
     get:
       description: List offers under the given organization with pagination and optional
@@ -3522,6 +3669,8 @@ paths:
       summary: list offers
       tags:
       - Offer
+      x-accepts:
+      - application/json
     post:
       description: Create a private offer under the given organization.
       operationId: CreateOffer
@@ -3572,6 +3721,9 @@ paths:
       tags:
       - Offer
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/offer/{offerId}:
     delete:
       description: "The offer is soft deleted (marked as DELETED status) in Suger\
@@ -3625,6 +3777,8 @@ paths:
       summary: delete offer
       tags:
       - Offer
+      x-accepts:
+      - application/json
     get:
       description: Get the offer by the given offer ID.
       operationId: GetOffer
@@ -3681,6 +3835,8 @@ paths:
       summary: get offer
       tags:
       - Offer
+      x-accepts:
+      - application/json
   /org/{orgId}/offer/{offerId}/cancel:
     post:
       description: "Only the offer with status = \"PENDING_ACCEPTANCE\", \"PENDING_CANCEL\"\
@@ -3708,8 +3864,8 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Empty string if cancellation is successful
+                $ref: '#/components/schemas/WorkloadOffer'
+          description: OK
         "400":
           content:
             application/json:
@@ -3733,6 +3889,8 @@ paths:
       summary: cancel offer
       tags:
       - Offer
+      x-accepts:
+      - application/json
   /org/{orgId}/offer/{offerId}/eula:
     get:
       description: Get the EULA file of the given offer ID.
@@ -3754,6 +3912,14 @@ paths:
         schema:
           type: string
         style: simple
+      - description: response format in JSON or string
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -3784,6 +3950,8 @@ paths:
       summary: get offer EULA
       tags:
       - Offer
+      x-accepts:
+      - application/json
   /org/{orgId}/offer/{offerId}/extendExpiryDate:
     post:
       description: "Only the offer with status = \"PENDING_ACCEPTANCE\", \"EXPIRED\"\
@@ -3819,8 +3987,8 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Empty string if extension is successful
+                $ref: '#/components/schemas/WorkloadOffer'
+          description: OK
         "400":
           content:
             application/json:
@@ -3844,6 +4012,8 @@ paths:
       summary: extend offer expiry date
       tags:
       - Offer
+      x-accepts:
+      - application/json
   /org/{orgId}/offer/{offerId}/metaInfo:
     patch:
       description: Update the meta info of the given offer.
@@ -3903,6 +4073,9 @@ paths:
       tags:
       - Offer
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/offer/{offerId}/notifyContacts:
     post:
       description: "Send offer notifications to the given contact ids. If contactIds\
@@ -3966,6 +4139,9 @@ paths:
       tags:
       - Offer
       x-codegen-request-body-name: contactIds
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/offer/{offerId}/resellerEula:
     get:
       description: Get the Reseller EULA file of the given offer ID.
@@ -4017,6 +4193,8 @@ paths:
       summary: get offer reseller EULA
       tags:
       - Offer
+      x-accepts:
+      - application/json
   /org/{orgId}/offerExternalId/{offerExternalId}:
     get:
       description: Get the offer by the given offer external ID.
@@ -4074,6 +4252,8 @@ paths:
       summary: get offer by external ID
       tags:
       - Offer
+      x-accepts:
+      - application/json
   /org/{orgId}/partner/{partner}/product:
     get:
       description: list all products under the given organization and cloud partner
@@ -4125,6 +4305,8 @@ paths:
       summary: list products by partner
       tags:
       - Product
+      x-accepts:
+      - application/json
   /org/{orgId}/partner/{partner}/revenueRecord:
     get:
       description: "list the revenue records for the given organization, product,\
@@ -4232,6 +4414,8 @@ paths:
       summary: list revenue records
       tags:
       - Report
+      x-accepts:
+      - application/json
   /org/{orgId}/partner/{partner}/revenueRecordDetail:
     get:
       description: "list the raw revenue record details for the given organization,\
@@ -4339,6 +4523,8 @@ paths:
       summary: list revenue record details
       tags:
       - Report
+      x-accepts:
+      - application/json
   /org/{orgId}/partner/{partner}/usageMeteringDailyRecord:
     get:
       description: "list the daily records of the usage metering from the cloud marketplace\
@@ -4439,6 +4625,8 @@ paths:
       summary: list usage metering daily records
       tags:
       - Report
+      x-accepts:
+      - application/json
   /org/{orgId}/paymentTransaction:
     get:
       description: List payment transactions with pagination and filters
@@ -4542,6 +4730,8 @@ paths:
       summary: list payment transactions
       tags:
       - Billing
+      x-accepts:
+      - application/json
   /org/{orgId}/product:
     get:
       description: list all products under the given organization
@@ -4581,6 +4771,8 @@ paths:
       summary: list products by organization
       tags:
       - Product
+      x-accepts:
+      - application/json
     post:
       description: create a new product in the marketplace
       operationId: CreateProduct
@@ -4625,6 +4817,9 @@ paths:
       tags:
       - Product
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/product/{productId}:
     delete:
       description: The product is soft deleted (marked as DELETED status) in Suger
@@ -4677,6 +4872,8 @@ paths:
       summary: delete product
       tags:
       - Product
+      x-accepts:
+      - application/json
     get:
       description: get product by product id
       operationId: GetProduct
@@ -4727,6 +4924,8 @@ paths:
       summary: get product
       tags:
       - Product
+      x-accepts:
+      - application/json
     patch:
       description: "update product info, no price update is allowed via this API."
       operationId: UpdateProduct
@@ -4779,6 +4978,9 @@ paths:
       tags:
       - Product
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/product/{productId}/dimension:
     get:
       description: list all metering dimensions of the given product
@@ -4832,6 +5034,8 @@ paths:
       summary: list metering dimensions of product
       tags:
       - Product
+      x-accepts:
+      - application/json
   /org/{orgId}/product/{productId}/fulfillmentUrl:
     patch:
       description: update the fulfillment url of the given product
@@ -4876,6 +5080,9 @@ paths:
       tags:
       - Product
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/product/{productId}/metaInfo:
     patch:
       description: Update the meta info of the given product.
@@ -4929,6 +5136,9 @@ paths:
       tags:
       - Product
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/product/{productId}/publish:
     patch:
       description: publish the given product to the public status in the marketplace
@@ -4988,6 +5198,9 @@ paths:
       tags:
       - Product
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/revenueReport:
     post:
       description: "Get the revenue report of the given organization, product, entitlement,\
@@ -5034,6 +5247,9 @@ paths:
       tags:
       - Report
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/support/ticket:
     get:
       description: list support tickets
@@ -5087,6 +5303,8 @@ paths:
       summary: list support tickets
       tags:
       - Support
+      x-accepts:
+      - application/json
     post:
       description: create support ticket
       operationId: CreateSupportTicket
@@ -5131,6 +5349,9 @@ paths:
       tags:
       - Support
       x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/support/ticket/{ticketId}:
     get:
       description: get support ticket
@@ -5176,6 +5397,8 @@ paths:
       summary: get support ticket
       tags:
       - Support
+      x-accepts:
+      - application/json
     patch:
       description: update support ticket
       operationId: UpdateSupportTicket
@@ -5228,6 +5451,9 @@ paths:
       tags:
       - Support
       x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/support/ticket/{ticketId}/attachment:
     post:
       description: create support ticket attachment
@@ -5281,6 +5507,9 @@ paths:
       summary: create support ticket attachment
       tags:
       - Support
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
   /org/{orgId}/support/ticket/{ticketId}/close:
     patch:
       description: close suuport ticket
@@ -5326,6 +5555,8 @@ paths:
       summary: close support ticket
       tags:
       - Support
+      x-accepts:
+      - application/json
   /org/{orgId}/support/ticket/{ticketId}/comment:
     post:
       description: create support ticket comment
@@ -5379,6 +5610,9 @@ paths:
       tags:
       - Support
       x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/support/ticket/{ticketId}/reopen:
     patch:
       description: reopen support ticket
@@ -5424,6 +5658,8 @@ paths:
       summary: reopen support ticket
       tags:
       - Support
+      x-accepts:
+      - application/json
   /org/{orgId}/usageMeteringConfigInfo:
     get:
       description: Get the usage metering config info of the given organization.
@@ -5461,6 +5697,8 @@ paths:
       summary: get usage metering config info
       tags:
       - Metering
+      x-accepts:
+      - application/json
     patch:
       description: Update the usage metering config info of the given organization.
       operationId: UpdateUsageMeteringConfigInfo
@@ -5505,6 +5743,9 @@ paths:
       tags:
       - Metering
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /org/{orgId}/usageRecordGroup:
     get:
       description: "List UsageRecordGroups by the given organization, partner, product,\
@@ -5646,6 +5887,8 @@ paths:
       summary: list usageRecordGroups
       tags:
       - Metering
+      x-accepts:
+      - application/json
   /org/{orgId}/usageRecordGroup/{usageRecordGroupId}:
     delete:
       description: delete the UsageRecordGroup for the given organization and usageRecordGroup
@@ -5698,6 +5941,8 @@ paths:
       summary: delete usageRecordGroup
       tags:
       - Metering
+      x-accepts:
+      - application/json
   /org/{orgId}/usageRecordGroup/{usageRecordGroupId}/retry:
     post:
       description: "Retry the given UsageRecordGroup by setting from status \"REPORT_FAILED\"\
@@ -5751,6 +5996,8 @@ paths:
       summary: retry usageRecordGroup
       tags:
       - Metering
+      x-accepts:
+      - application/json
   /org/{orgId}/usageRecordReport:
     get:
       description: "List usageRecordReports under the given organization, partner,\
@@ -5850,6 +6097,8 @@ paths:
       summary: list usageRecordReports
       tags:
       - Metering
+      x-accepts:
+      - application/json
   /public/apiClient/accessToken:
     post:
       description: Get the Bearer Access Token by giving the Suger API Client ID &
@@ -5885,6 +6134,9 @@ paths:
       tags:
       - API
       x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts:
+      - application/json
 components:
   schemas:
     AddEntitlementCreditParams:
@@ -19521,10 +19773,17 @@ components:
     GcpMarketplaceResellerInfo:
       example:
         billingAccountOrgDisplayName: billingAccountOrgDisplayName
+        resellerPrivateOfferPlanScope: resellerPrivateOfferPlanScope
+        partnerAccountName: partnerAccountName
         notesToReseller: notesToReseller
+        resellerContactName: resellerContactName
+        resellOfferTemplateId: resellOfferTemplateId
         billingAccountId: billingAccountId
         billingAccountType: billingAccountType
         billingAccountNickname: billingAccountNickname
+        resellerContactEmail: resellerContactEmail
+        resellerPrivateOfferPlanId: resellerPrivateOfferPlanId
+        subBillingAccount: subBillingAccount
       properties:
         billingAccountId:
           type: string
@@ -19535,6 +19794,22 @@ components:
         billingAccountType:
           type: string
         notesToReseller:
+          type: string
+        partnerAccountName:
+          description: "In the format of \"\"organizations/{GcpOrganizationID}/partnerAccounts/{partnerAccountID}\""
+          type: string
+        resellOfferTemplateId:
+          type: string
+        resellerContactEmail:
+          type: string
+        resellerContactName:
+          type: string
+        resellerPrivateOfferPlanId:
+          type: string
+        resellerPrivateOfferPlanScope:
+          type: string
+        subBillingAccount:
+          description: In the format of "billingAccounts/..."
           type: string
       type: object
     GcpMarketplaceResellerPrivateOfferPlan:
@@ -19851,10 +20126,17 @@ components:
           gcpProjectNumber: gcpProjectNumber
         resellerInfo:
           billingAccountOrgDisplayName: billingAccountOrgDisplayName
+          resellerPrivateOfferPlanScope: resellerPrivateOfferPlanScope
+          partnerAccountName: partnerAccountName
           notesToReseller: notesToReseller
+          resellerContactName: resellerContactName
+          resellOfferTemplateId: resellOfferTemplateId
           billingAccountId: billingAccountId
           billingAccountType: billingAccountType
           billingAccountNickname: billingAccountNickname
+          resellerContactEmail: resellerContactEmail
+          resellerPrivateOfferPlanId: resellerPrivateOfferPlanId
+          subBillingAccount: subBillingAccount
         name: name
         resellOfferTemplate: resellOfferTemplate
         replacementMetadata: "{}"
@@ -20750,6 +21032,7 @@ components:
       - STATE_TYPE_DRAFT
       - STATE_TYPE_READY_TO_ACCEPT
       - STATE_TYPE_READY_TO_USE
+      - STATE_TYPE_REJECTED
       - STATE_TYPE_USED
       - STATE_TYPE_CANCELED
       - STATE_TYPE_EXPIRED_NEVER_ACCEPTED
@@ -20760,6 +21043,7 @@ components:
       - GcpMarketplaceResellerPrivateOfferPlanStateType_DRAFT
       - GcpMarketplaceResellerPrivateOfferPlanStateType_READY_TO_ACCEPT
       - GcpMarketplaceResellerPrivateOfferPlanStateType_READY_TO_USE
+      - GcpMarketplaceResellerPrivateOfferPlanStateType_REJECTED
       - GcpMarketplaceResellerPrivateOfferPlanStateType_USED
       - GcpMarketplaceResellerPrivateOfferPlanStateType_CANCELED
       - GcpMarketplaceResellerPrivateOfferPlanStateType_EXPIRED_NEVER_ACCEPTED
@@ -23380,6 +23664,7 @@ components:
       - UPDATE
       - ACE_ENGAGEMENT_SCORE_UPDATE
       - ACE_SALES_REP_UPDATE
+      - ACE_CUSTOMER_EMAIL_UPDATE
       - SUBMIT_APPROVAL_REQUEST
       - REVIEW_APPROVAL_REQUEST
       - COMPLETE
@@ -23420,6 +23705,7 @@ components:
       - NotificationEventAction_UPDATE
       - NotificationEventAction_ACE_ENGAGEMENT_SCORE_UPDATE
       - NotificationEventAction_ACE_SALES_REP_UPDATE
+      - NotificationEventAction_ACE_CUSTOMER_EMAIL_UPDATE
       - NotificationEventAction_SUBMIT_APPROVAL_REQUEST
       - NotificationEventAction_REVIEW_APPROVAL_REQUEST
       - NotificationEventAction_COMPLETE
@@ -23908,10 +24194,17 @@ components:
             gcpProjectNumber: gcpProjectNumber
           resellerInfo:
             billingAccountOrgDisplayName: billingAccountOrgDisplayName
+            resellerPrivateOfferPlanScope: resellerPrivateOfferPlanScope
+            partnerAccountName: partnerAccountName
             notesToReseller: notesToReseller
+            resellerContactName: resellerContactName
+            resellOfferTemplateId: resellOfferTemplateId
             billingAccountId: billingAccountId
             billingAccountType: billingAccountType
             billingAccountNickname: billingAccountNickname
+            resellerContactEmail: resellerContactEmail
+            resellerPrivateOfferPlanId: resellerPrivateOfferPlanId
+            subBillingAccount: subBillingAccount
           name: name
           resellOfferTemplate: resellOfferTemplate
           replacementMetadata: "{}"
@@ -24517,6 +24810,8 @@ components:
       - PENDING_CREATE
       - PENDING_UPDATE
       - PREVIEW
+      - READY_TO_USE
+      - REJECTED
       - RESTRICTED
       - TEST
       - UPDATE_FAILED
@@ -24544,6 +24839,8 @@ components:
       - OfferStatus_PENDING_CREATE
       - OfferStatus_PENDING_UPDATE
       - OfferStatus_PREVIEW
+      - OfferStatus_READY_TO_USE
+      - OfferStatus_REJECTED
       - OfferStatus_RESTRICTED
       - OfferStatus_TEST
       - OfferStatus_UPDATE_FAILED
@@ -33096,10 +33393,17 @@ components:
               gcpProjectNumber: gcpProjectNumber
             resellerInfo:
               billingAccountOrgDisplayName: billingAccountOrgDisplayName
+              resellerPrivateOfferPlanScope: resellerPrivateOfferPlanScope
+              partnerAccountName: partnerAccountName
               notesToReseller: notesToReseller
+              resellerContactName: resellerContactName
+              resellOfferTemplateId: resellOfferTemplateId
               billingAccountId: billingAccountId
               billingAccountType: billingAccountType
               billingAccountNickname: billingAccountNickname
+              resellerContactEmail: resellerContactEmail
+              resellerPrivateOfferPlanId: resellerPrivateOfferPlanId
+              subBillingAccount: subBillingAccount
             name: name
             resellOfferTemplate: resellOfferTemplate
             replacementMetadata: "{}"
@@ -38110,10 +38414,5 @@ components:
       in: header
       name: Authorization
       type: apiKey
-    BearerTokenAuth:
-      description: Bearer token for authorization in format of <Bearer *****>. It
-        is from the API GetApiClientAccessToken.
-      in: header
-      name: Authorization
-      type: apiKey
 x-original-swagger-version: "2.0"
+

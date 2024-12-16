@@ -32,7 +32,14 @@ class GcpMarketplaceResellerInfo(BaseModel):
     billing_account_org_display_name: Optional[StrictStr] = Field(default=None, alias="billingAccountOrgDisplayName")
     billing_account_type: Optional[StrictStr] = Field(default=None, alias="billingAccountType")
     notes_to_reseller: Optional[StrictStr] = Field(default=None, alias="notesToReseller")
-    __properties: ClassVar[List[str]] = ["billingAccountId", "billingAccountNickname", "billingAccountOrgDisplayName", "billingAccountType", "notesToReseller"]
+    partner_account_name: Optional[StrictStr] = Field(default=None, description="In the format of \"\"organizations/{GcpOrganizationID}/partnerAccounts/{partnerAccountID}\"", alias="partnerAccountName")
+    resell_offer_template_id: Optional[StrictStr] = Field(default=None, alias="resellOfferTemplateId")
+    reseller_contact_email: Optional[StrictStr] = Field(default=None, alias="resellerContactEmail")
+    reseller_contact_name: Optional[StrictStr] = Field(default=None, alias="resellerContactName")
+    reseller_private_offer_plan_id: Optional[StrictStr] = Field(default=None, alias="resellerPrivateOfferPlanId")
+    reseller_private_offer_plan_scope: Optional[StrictStr] = Field(default=None, alias="resellerPrivateOfferPlanScope")
+    sub_billing_account: Optional[StrictStr] = Field(default=None, description="In the format of \"billingAccounts/...\"", alias="subBillingAccount")
+    __properties: ClassVar[List[str]] = ["billingAccountId", "billingAccountNickname", "billingAccountOrgDisplayName", "billingAccountType", "notesToReseller", "partnerAccountName", "resellOfferTemplateId", "resellerContactEmail", "resellerContactName", "resellerPrivateOfferPlanId", "resellerPrivateOfferPlanScope", "subBillingAccount"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,7 +96,14 @@ class GcpMarketplaceResellerInfo(BaseModel):
             "billingAccountNickname": obj.get("billingAccountNickname"),
             "billingAccountOrgDisplayName": obj.get("billingAccountOrgDisplayName"),
             "billingAccountType": obj.get("billingAccountType"),
-            "notesToReseller": obj.get("notesToReseller")
+            "notesToReseller": obj.get("notesToReseller"),
+            "partnerAccountName": obj.get("partnerAccountName"),
+            "resellOfferTemplateId": obj.get("resellOfferTemplateId"),
+            "resellerContactEmail": obj.get("resellerContactEmail"),
+            "resellerContactName": obj.get("resellerContactName"),
+            "resellerPrivateOfferPlanId": obj.get("resellerPrivateOfferPlanId"),
+            "resellerPrivateOfferPlanScope": obj.get("resellerPrivateOfferPlanScope"),
+            "subBillingAccount": obj.get("subBillingAccount")
         })
         return _obj
 

@@ -59,7 +59,7 @@ from pprint import pprint
 # Defining the host is optional and defaults to http://https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host="https://api.suger.cloud"
+    host = "http://https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -68,7 +68,7 @@ configuration = suger_sdk_python.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: APIKeyAuth
-configuration.api_key['APIKeyAuth'] = "Key " + os.environ["API_KEY"]
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
@@ -78,8 +78,8 @@ configuration.api_key['APIKeyAuth'] = "Key " + os.environ["API_KEY"]
 with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = suger_sdk_python.APIApi(api_client)
-    org_id = 'org_id_example'  # str | Organization ID
-    api_client_id = 'api_client_id_example'  # str | API client ID
+    org_id = 'org_id_example' # str | Organization ID
+    api_client_id = 'api_client_id_example' # str | API client ID
 
     try:
         # get api client
@@ -683,13 +683,6 @@ Class | Method | HTTP request | Description
 Authentication schemes defined for the API:
 <a id="APIKeyAuth"></a>
 ### APIKeyAuth
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
-<a id="BearerTokenAuth"></a>
-### BearerTokenAuth
 
 - **Type**: API key
 - **API key parameter name**: Authorization

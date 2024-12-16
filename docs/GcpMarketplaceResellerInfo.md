@@ -10,6 +10,13 @@ Name | Type | Description | Notes
 **billing_account_org_display_name** | **str** |  | [optional] 
 **billing_account_type** | **str** |  | [optional] 
 **notes_to_reseller** | **str** |  | [optional] 
+**partner_account_name** | **str** | In the format of \&quot;\&quot;organizations/{GcpOrganizationID}/partnerAccounts/{partnerAccountID}\&quot; | [optional] 
+**resell_offer_template_id** | **str** |  | [optional] 
+**reseller_contact_email** | **str** |  | [optional] 
+**reseller_contact_name** | **str** |  | [optional] 
+**reseller_private_offer_plan_id** | **str** |  | [optional] 
+**reseller_private_offer_plan_scope** | **str** |  | [optional] 
+**sub_billing_account** | **str** | In the format of \&quot;billingAccounts/...\&quot; | [optional] 
 
 ## Example
 

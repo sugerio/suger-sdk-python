@@ -59,7 +59,7 @@ class OfferApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> str:
+    ) -> WorkloadOffer:
         """cancel offer
 
         Only the offer with status = \"PENDING_ACCEPTANCE\", \"PENDING_CANCEL\", \"ACTIVE\" or \"USED\" is allowed to cancel.
@@ -100,7 +100,7 @@ class OfferApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadOffer",
             '400': "str",
             '405': "str",
             '500': "str",
@@ -133,7 +133,7 @@ class OfferApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[str]:
+    ) -> ApiResponse[WorkloadOffer]:
         """cancel offer
 
         Only the offer with status = \"PENDING_ACCEPTANCE\", \"PENDING_CANCEL\", \"ACTIVE\" or \"USED\" is allowed to cancel.
@@ -174,7 +174,7 @@ class OfferApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadOffer",
             '400': "str",
             '405': "str",
             '500': "str",
@@ -248,7 +248,7 @@ class OfferApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadOffer",
             '400': "str",
             '405': "str",
             '500': "str",
@@ -1226,7 +1226,7 @@ class OfferApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> str:
+    ) -> WorkloadOffer:
         """extend offer expiry date
 
         Only the offer with status = \"PENDING_ACCEPTANCE\", \"EXPIRED\" or \"ACCEPTED\" is allowed to extend expiry date.
@@ -1270,7 +1270,7 @@ class OfferApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadOffer",
             '400': "str",
             '404': "str",
             '500': "str",
@@ -1304,7 +1304,7 @@ class OfferApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[str]:
+    ) -> ApiResponse[WorkloadOffer]:
         """extend offer expiry date
 
         Only the offer with status = \"PENDING_ACCEPTANCE\", \"EXPIRED\" or \"ACCEPTED\" is allowed to extend expiry date.
@@ -1348,7 +1348,7 @@ class OfferApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadOffer",
             '400': "str",
             '404': "str",
             '500': "str",
@@ -1426,7 +1426,7 @@ class OfferApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadOffer",
             '400': "str",
             '404': "str",
             '500': "str",
@@ -2091,6 +2091,7 @@ class OfferApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         offer_id: Annotated[StrictStr, Field(description="Offer ID")],
+        format: Annotated[Optional[StrictStr], Field(description="response format in JSON or string")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2112,6 +2113,8 @@ class OfferApi:
         :type org_id: str
         :param offer_id: Offer ID (required)
         :type offer_id: str
+        :param format: response format in JSON or string
+        :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2137,6 +2140,7 @@ class OfferApi:
         _param = self._get_offer_eula_serialize(
             org_id=org_id,
             offer_id=offer_id,
+            format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2165,6 +2169,7 @@ class OfferApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         offer_id: Annotated[StrictStr, Field(description="Offer ID")],
+        format: Annotated[Optional[StrictStr], Field(description="response format in JSON or string")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2186,6 +2191,8 @@ class OfferApi:
         :type org_id: str
         :param offer_id: Offer ID (required)
         :type offer_id: str
+        :param format: response format in JSON or string
+        :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2211,6 +2218,7 @@ class OfferApi:
         _param = self._get_offer_eula_serialize(
             org_id=org_id,
             offer_id=offer_id,
+            format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2239,6 +2247,7 @@ class OfferApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         offer_id: Annotated[StrictStr, Field(description="Offer ID")],
+        format: Annotated[Optional[StrictStr], Field(description="response format in JSON or string")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2260,6 +2269,8 @@ class OfferApi:
         :type org_id: str
         :param offer_id: Offer ID (required)
         :type offer_id: str
+        :param format: response format in JSON or string
+        :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2285,6 +2296,7 @@ class OfferApi:
         _param = self._get_offer_eula_serialize(
             org_id=org_id,
             offer_id=offer_id,
+            format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2308,6 +2320,7 @@ class OfferApi:
         self,
         org_id,
         offer_id,
+        format,
         _request_auth,
         _content_type,
         _headers,
@@ -2334,6 +2347,10 @@ class OfferApi:
         if offer_id is not None:
             _path_params['offerId'] = offer_id
         # process the query parameters
+        if format is not None:
+            
+            _query_params.append(('format', format))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

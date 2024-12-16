@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **add_contact_to_buyer**
-> str add_contact_to_buyer(org_id, buyer_id, contact_id)
+> IdentityBuyer add_contact_to_buyer(org_id, buyer_id, contact_id)
 
 add contact to buyer
 
@@ -28,6 +28,7 @@ add contact to buyer by the given organization, buyer id and contact id.
 
 ```python
 import suger_sdk_python
+from suger_sdk_python.models.identity_buyer import IdentityBuyer
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -78,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**IdentityBuyer**](IdentityBuyer.md)
 
 ### Authorization
 
@@ -93,7 +94,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | empty string if success |  -  |
+**200** | OK |  -  |
 **400** | Bad request error |  -  |
 **500** | Internal server error |  -  |
 

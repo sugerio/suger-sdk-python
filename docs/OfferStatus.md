@@ -39,6 +39,10 @@
 
 * `PREVIEW` (value: `'PREVIEW'`)
 
+* `READY_TO_USE` (value: `'READY_TO_USE'`)
+
+* `REJECTED` (value: `'REJECTED'`)
+
 * `RESTRICTED` (value: `'RESTRICTED'`)
 
 * `TEST` (value: `'TEST'`)

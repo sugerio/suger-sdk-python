@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apply_addon_to_entitlement**
-> str apply_addon_to_entitlement(org_id, entitlement_id, data)
+> WorkloadEntitlement apply_addon_to_entitlement(org_id, entitlement_id, data)
 
 apply addon to entitlement
 
@@ -122,6 +122,7 @@ Apply one billing addon to the given Entitlement. The entitlement status must be
 ```python
 import suger_sdk_python
 from suger_sdk_python.models.billing_addon_record import BillingAddonRecord
+from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -172,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**WorkloadEntitlement**](WorkloadEntitlement.md)
 
 ### Authorization
 
@@ -187,7 +188,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Entitlement |  -  |
 **400** | Bad request error |  -  |
 **500** | Internal server error |  -  |
 
@@ -278,7 +279,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cancel_entitlement**
-> str cancel_entitlement(org_id, entitlement_id)
+> WorkloadEntitlement cancel_entitlement(org_id, entitlement_id)
 
 cancel entitlement
 
@@ -290,6 +291,7 @@ Cancel the active subscription in Azure Marketplace.
 
 ```python
 import suger_sdk_python
+from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -338,7 +340,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**WorkloadEntitlement**](WorkloadEntitlement.md)
 
 ### Authorization
 
@@ -353,7 +355,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | the canceled Entitlement |  -  |
 **400** | Bad request error |  -  |
 **404** | Not found |  -  |
 **500** | Internal server error |  -  |
@@ -453,7 +455,7 @@ Delete the entitlement term by the given entitlement ID and entitlement term ID.
 
 ### Example
 
-* Api Key Authentication (BearerTokenAuth):
+* Api Key Authentication (APIKeyAuth):
 
 ```python
 import suger_sdk_python
@@ -471,11 +473,11 @@ configuration = suger_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: BearerTokenAuth
-configuration.api_key['BearerTokenAuth'] = os.environ["API_KEY"]
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['BearerTokenAuth'] = 'Bearer'
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with suger_sdk_python.ApiClient(configuration) as api_client:
@@ -511,7 +513,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerTokenAuth](../README.md#BearerTokenAuth)
+[APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -959,7 +961,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **schedule_entitlement_cancellation**
-> str schedule_entitlement_cancellation(org_id, entitlement_id, data)
+> WorkloadEntitlement schedule_entitlement_cancellation(org_id, entitlement_id, data)
 
 schedule entitlement cancellation
 
@@ -972,6 +974,7 @@ Schedule the cancellation of the given Entitlement.
 ```python
 import suger_sdk_python
 from suger_sdk_python.models.cancellation_schedule import CancellationSchedule
+from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -1022,7 +1025,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**WorkloadEntitlement**](WorkloadEntitlement.md)
 
 ### Authorization
 
@@ -1044,7 +1047,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **unschedule_entitlement_cancellation**
-> str unschedule_entitlement_cancellation(org_id, entitlement_id)
+> WorkloadEntitlement unschedule_entitlement_cancellation(org_id, entitlement_id)
 
 unschedule entitlement cancellation
 
@@ -1056,6 +1059,7 @@ Unschedule the cancellation of the given Entitlement.
 
 ```python
 import suger_sdk_python
+from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -1104,7 +1108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**WorkloadEntitlement**](WorkloadEntitlement.md)
 
 ### Authorization
 
@@ -1297,7 +1301,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_entitlement_seat**
-> str update_entitlement_seat(org_id, entitlement_id, new_seat)
+> WorkloadEntitlement update_entitlement_seat(org_id, entitlement_id, new_seat)
 
 update seat for the active AZURE subscription
 
@@ -1309,6 +1313,7 @@ Update the seat number for the active AZURE subscription.
 
 ```python
 import suger_sdk_python
+from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -1359,7 +1364,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**WorkloadEntitlement**](WorkloadEntitlement.md)
 
 ### Authorization
 
@@ -1374,7 +1379,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | the original entitlement before the seat update |  -  |
 **400** | Bad request error |  -  |
 **500** | Internal server error |  -  |
 

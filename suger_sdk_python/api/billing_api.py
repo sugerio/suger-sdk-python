@@ -357,7 +357,7 @@ class BillingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> str:
+    ) -> BillingPaymentTransaction:
         """create refund.
 
         create refund on the payment transaction, support partial refunds multiple times.
@@ -404,7 +404,7 @@ class BillingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "BillingPaymentTransaction",
             '400': "str",
             '500': "str",
         }
@@ -438,7 +438,7 @@ class BillingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[str]:
+    ) -> ApiResponse[BillingPaymentTransaction]:
         """create refund.
 
         create refund on the payment transaction, support partial refunds multiple times.
@@ -485,7 +485,7 @@ class BillingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "BillingPaymentTransaction",
             '400': "str",
             '500': "str",
         }
@@ -566,7 +566,7 @@ class BillingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "BillingPaymentTransaction",
             '400': "str",
             '500': "str",
         }
@@ -1531,7 +1531,7 @@ class BillingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> str:
+    ) -> BillingInvoice:
         """issue invoice
 
         Issue the invoice immediately. It can be used for manual issue or reissue invoice.
@@ -1575,7 +1575,7 @@ class BillingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "BillingInvoice",
             '400': "str",
             '500': "str",
         }
@@ -1608,7 +1608,7 @@ class BillingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[str]:
+    ) -> ApiResponse[BillingInvoice]:
         """issue invoice
 
         Issue the invoice immediately. It can be used for manual issue or reissue invoice.
@@ -1652,7 +1652,7 @@ class BillingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "BillingInvoice",
             '400': "str",
             '500': "str",
         }
@@ -1729,7 +1729,7 @@ class BillingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "BillingInvoice",
             '400': "str",
             '500': "str",
         }
@@ -3164,7 +3164,7 @@ class BillingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> str:
+    ) -> BillingInvoice:
         """pay invoice
 
         Initiate the payment for the invoice immediately. It can be used for manual payment or retry payment.
@@ -3208,7 +3208,7 @@ class BillingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "BillingInvoice",
             '400': "str",
             '500': "str",
         }
@@ -3241,7 +3241,7 @@ class BillingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[str]:
+    ) -> ApiResponse[BillingInvoice]:
         """pay invoice
 
         Initiate the payment for the invoice immediately. It can be used for manual payment or retry payment.
@@ -3285,7 +3285,7 @@ class BillingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "BillingInvoice",
             '400': "str",
             '500': "str",
         }
@@ -3362,7 +3362,7 @@ class BillingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "BillingInvoice",
             '400': "str",
             '500': "str",
         }
@@ -3771,7 +3771,7 @@ class BillingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> str:
+    ) -> BillingInvoice:
         """void invoice
 
         Void the invoice. It can be used for manual void or cancel the invoice.
@@ -3815,7 +3815,7 @@ class BillingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "BillingInvoice",
             '400': "str",
             '500': "str",
         }
@@ -3848,7 +3848,7 @@ class BillingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[str]:
+    ) -> ApiResponse[BillingInvoice]:
         """void invoice
 
         Void the invoice. It can be used for manual void or cancel the invoice.
@@ -3892,7 +3892,7 @@ class BillingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "BillingInvoice",
             '400': "str",
             '500': "str",
         }
@@ -3969,7 +3969,7 @@ class BillingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "BillingInvoice",
             '400': "str",
             '500': "str",
         }

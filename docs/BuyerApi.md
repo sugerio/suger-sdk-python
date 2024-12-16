@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_buyer_wallet**
-> BillingWallet delete_buyer_wallet(org_id, buyer_id, wallet_id)
+> str delete_buyer_wallet(org_id, buyer_id, wallet_id)
 
 delete buyer wallet
 
@@ -281,7 +281,6 @@ delete a wallet of the buyer, if it's a payment method, sync to payment provider
 
 ```python
 import suger_sdk_python
-from suger_sdk_python.models.billing_wallet import BillingWallet
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -332,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BillingWallet**](BillingWallet.md)
+**str**
 
 ### Authorization
 

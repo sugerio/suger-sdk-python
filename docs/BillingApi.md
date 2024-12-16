@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_refund**
-> str create_refund(org_id, buyer_id, payment_transaction_id, amount)
+> BillingPaymentTransaction create_refund(org_id, buyer_id, payment_transaction_id, amount)
 
 create refund.
 
@@ -116,6 +116,7 @@ create refund on the payment transaction, support partial refunds multiple times
 
 ```python
 import suger_sdk_python
+from suger_sdk_python.models.billing_payment_transaction import BillingPaymentTransaction
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -168,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**BillingPaymentTransaction**](BillingPaymentTransaction.md)
 
 ### Authorization
 
@@ -183,7 +184,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Empty string if succeed |  -  |
+**200** | OK |  -  |
 **400** | Bad request error |  -  |
 **500** | Internal server error |  -  |
 
@@ -440,7 +441,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **issue_invoice**
-> str issue_invoice(org_id, entitlement_id, invoice_id)
+> BillingInvoice issue_invoice(org_id, entitlement_id, invoice_id)
 
 issue invoice
 
@@ -452,6 +453,7 @@ Issue the invoice immediately. It can be used for manual issue or reissue invoic
 
 ```python
 import suger_sdk_python
+from suger_sdk_python.models.billing_invoice import BillingInvoice
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -502,7 +504,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**BillingInvoice**](BillingInvoice.md)
 
 ### Authorization
 
@@ -517,7 +519,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Empty string if issue is successful |  -  |
+**200** | the issued Invoice |  -  |
 **400** | Bad request error |  -  |
 **500** | Internal server error |  -  |
 
@@ -880,7 +882,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pay_invoice**
-> str pay_invoice(org_id, entitlement_id, invoice_id)
+> BillingInvoice pay_invoice(org_id, entitlement_id, invoice_id)
 
 pay invoice
 
@@ -892,6 +894,7 @@ Initiate the payment for the invoice immediately. It can be used for manual paym
 
 ```python
 import suger_sdk_python
+from suger_sdk_python.models.billing_invoice import BillingInvoice
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -942,7 +945,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**BillingInvoice**](BillingInvoice.md)
 
 ### Authorization
 
@@ -957,7 +960,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Empty string if pay is successful |  -  |
+**200** | OK |  -  |
 **400** | Bad request error |  -  |
 **500** | Internal server error |  -  |
 
@@ -1050,7 +1053,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **void_invoice**
-> str void_invoice(org_id, entitlement_id, invoice_id)
+> BillingInvoice void_invoice(org_id, entitlement_id, invoice_id)
 
 void invoice
 
@@ -1062,6 +1065,7 @@ Void the invoice. It can be used for manual void or cancel the invoice.
 
 ```python
 import suger_sdk_python
+from suger_sdk_python.models.billing_invoice import BillingInvoice
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -1112,7 +1116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**BillingInvoice**](BillingInvoice.md)
 
 ### Authorization
 
@@ -1127,7 +1131,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Empty string if void is successful |  -  |
+**200** | OK |  -  |
 **400** | Bad request error |  -  |
 **500** | Internal server error |  -  |
 

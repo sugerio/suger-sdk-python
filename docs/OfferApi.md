@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **cancel_offer**
-> str cancel_offer(org_id, offer_id)
+> WorkloadOffer cancel_offer(org_id, offer_id)
 
 cancel offer
 
@@ -31,6 +31,7 @@ Only the offer with status = \"PENDING_ACCEPTANCE\", \"PENDING_CANCEL\", \"ACTIV
 
 ```python
 import suger_sdk_python
+from suger_sdk_python.models.workload_offer import WorkloadOffer
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -79,7 +80,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**WorkloadOffer**](WorkloadOffer.md)
 
 ### Authorization
 
@@ -94,7 +95,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Empty string if cancellation is successful |  -  |
+**200** | OK |  -  |
 **400** | Bad request error |  -  |
 **405** | Method not allowed |  -  |
 **500** | Internal error |  -  |
@@ -353,7 +354,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **extend_private_offer_expiry_date**
-> str extend_private_offer_expiry_date(org_id, offer_id, new_expiry_date)
+> WorkloadOffer extend_private_offer_expiry_date(org_id, offer_id, new_expiry_date)
 
 extend offer expiry date
 
@@ -365,6 +366,7 @@ Only the offer with status = \"PENDING_ACCEPTANCE\", \"EXPIRED\" or \"ACCEPTED\"
 
 ```python
 import suger_sdk_python
+from suger_sdk_python.models.workload_offer import WorkloadOffer
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -415,7 +417,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**WorkloadOffer**](WorkloadOffer.md)
 
 ### Authorization
 
@@ -430,7 +432,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Empty string if extension is successful |  -  |
+**200** | OK |  -  |
 **400** | Bad request error |  -  |
 **404** | Not found |  -  |
 **500** | Internal error |  -  |
@@ -608,7 +610,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_offer_eula**
-> str get_offer_eula(org_id, offer_id)
+> str get_offer_eula(org_id, offer_id, format=format)
 
 get offer EULA
 
@@ -646,10 +648,11 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     api_instance = suger_sdk_python.OfferApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     offer_id = 'offer_id_example' # str | Offer ID
+    format = 'format_example' # str | response format in JSON or string (optional)
 
     try:
         # get offer EULA
-        api_response = api_instance.get_offer_eula(org_id, offer_id)
+        api_response = api_instance.get_offer_eula(org_id, offer_id, format=format)
         print("The response of OfferApi->get_offer_eula:\n")
         pprint(api_response)
     except Exception as e:
@@ -665,6 +668,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
  **offer_id** | **str**| Offer ID | 
+ **format** | **str**| response format in JSON or string | [optional] 
 
 ### Return type
 

@@ -377,7 +377,7 @@ class EntitlementApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> str:
+    ) -> WorkloadEntitlement:
         """apply addon to entitlement
 
         Apply one billing addon to the given Entitlement. The entitlement status must be ACTIVE.
@@ -421,7 +421,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '500': "str",
         }
@@ -454,7 +454,7 @@ class EntitlementApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[str]:
+    ) -> ApiResponse[WorkloadEntitlement]:
         """apply addon to entitlement
 
         Apply one billing addon to the given Entitlement. The entitlement status must be ACTIVE.
@@ -498,7 +498,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '500': "str",
         }
@@ -575,7 +575,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '500': "str",
         }
@@ -971,7 +971,7 @@ class EntitlementApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> str:
+    ) -> WorkloadEntitlement:
         """cancel entitlement
 
         Cancel the active subscription in Azure Marketplace.
@@ -1012,7 +1012,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '404': "str",
             '500': "str",
@@ -1045,7 +1045,7 @@ class EntitlementApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[str]:
+    ) -> ApiResponse[WorkloadEntitlement]:
         """cancel entitlement
 
         Cancel the active subscription in Azure Marketplace.
@@ -1086,7 +1086,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '404': "str",
             '500': "str",
@@ -1160,7 +1160,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '404': "str",
             '500': "str",
@@ -1810,7 +1810,7 @@ class EntitlementApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'BearerTokenAuth'
+            'APIKeyAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -3392,7 +3392,7 @@ class EntitlementApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> str:
+    ) -> WorkloadEntitlement:
         """schedule entitlement cancellation
 
         Schedule the cancellation of the given Entitlement.
@@ -3436,7 +3436,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '500': "str",
         }
@@ -3469,7 +3469,7 @@ class EntitlementApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[str]:
+    ) -> ApiResponse[WorkloadEntitlement]:
         """schedule entitlement cancellation
 
         Schedule the cancellation of the given Entitlement.
@@ -3513,7 +3513,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '500': "str",
         }
@@ -3590,7 +3590,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '500': "str",
         }
@@ -3701,7 +3701,7 @@ class EntitlementApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> str:
+    ) -> WorkloadEntitlement:
         """unschedule entitlement cancellation
 
         Unschedule the cancellation of the given Entitlement.
@@ -3742,7 +3742,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '500': "str",
         }
@@ -3774,7 +3774,7 @@ class EntitlementApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[str]:
+    ) -> ApiResponse[WorkloadEntitlement]:
         """unschedule entitlement cancellation
 
         Unschedule the cancellation of the given Entitlement.
@@ -3815,7 +3815,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '500': "str",
         }
@@ -3888,7 +3888,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '500': "str",
         }
@@ -4604,7 +4604,7 @@ class EntitlementApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> str:
+    ) -> WorkloadEntitlement:
         """update seat for the active AZURE subscription
 
         Update the seat number for the active AZURE subscription.
@@ -4648,7 +4648,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '500': "str",
         }
@@ -4681,7 +4681,7 @@ class EntitlementApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[str]:
+    ) -> ApiResponse[WorkloadEntitlement]:
         """update seat for the active AZURE subscription
 
         Update the seat number for the active AZURE subscription.
@@ -4725,7 +4725,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '500': "str",
         }
@@ -4802,7 +4802,7 @@ class EntitlementApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "WorkloadEntitlement",
             '400': "str",
             '500': "str",
         }

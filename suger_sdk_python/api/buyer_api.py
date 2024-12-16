@@ -935,7 +935,7 @@ class BuyerApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BillingWallet:
+    ) -> str:
         """delete buyer wallet
 
         delete a wallet of the buyer, if it's a payment method, sync to payment provider too.
@@ -979,7 +979,7 @@ class BuyerApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BillingWallet",
+            '200': "str",
             '400': "str",
             '500': "str",
         }
@@ -1012,7 +1012,7 @@ class BuyerApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BillingWallet]:
+    ) -> ApiResponse[str]:
         """delete buyer wallet
 
         delete a wallet of the buyer, if it's a payment method, sync to payment provider too.
@@ -1056,7 +1056,7 @@ class BuyerApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BillingWallet",
+            '200': "str",
             '400': "str",
             '500': "str",
         }
@@ -1133,7 +1133,7 @@ class BuyerApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BillingWallet",
+            '200': "str",
             '400': "str",
             '500': "str",
         }
