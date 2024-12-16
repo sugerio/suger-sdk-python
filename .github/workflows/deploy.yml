@@ -43,6 +43,9 @@ jobs:
           rm -rf dist/
           rm -rf build/
           rm -rf suger_sdk_python.egg-info/
+        env:
+          TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PIP_DEPLOY_API_KEY }}
       - name: Publish new sdk code
         run: |
           git add .
