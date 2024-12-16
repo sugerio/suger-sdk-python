@@ -29,9 +29,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r test-requirements.txt
-      - name: Generate Client
-        run: |
-          openapi-generator generate -i api/openapi.yaml -g python -o ./ --git-repo-id suger-sdk-python --git-user-id sugerio --package-name suger_sdk_python
       - name: Change setup.py Version
         run: |
           sed -i "s/version='.*'/version='v3.128.21'/" ./setup.py
