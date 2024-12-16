@@ -37,6 +37,7 @@ jobs:
           pytest --cov={{packageName}}
       - name: Package py
         run: |
+          pip install setuptools wheel
           python setup.py sdist bdist_wheel
       - name: Publish distribution 📦 to PyPI
         run: |
