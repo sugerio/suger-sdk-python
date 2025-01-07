@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **organization_id** | **str** |  | [optional] 
 **partner** | [**Partner**](Partner.md) |  | [optional] 
+**partner_id** | **str** |  | [optional] 
 **product_type** | **str** |  | [optional] 
 **service** | [**PartnerService**](PartnerService.md) |  | [optional] 
 **status** | **str** |  | [optional] 

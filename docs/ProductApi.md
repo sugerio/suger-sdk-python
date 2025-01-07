@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**delete_product**](ProductApi.md#delete_product) | **DELETE** /org/{orgId}/product/{productId} | delete product
 [**get_product**](ProductApi.md#get_product) | **GET** /org/{orgId}/product/{productId} | get product
 [**list_product_metering_dimensions**](ProductApi.md#list_product_metering_dimensions) | **GET** /org/{orgId}/product/{productId}/dimension | list metering dimensions of product
-[**list_products_by_organization**](ProductApi.md#list_products_by_organization) | **GET** /org/{orgId}/product | list products by organization
+[**list_products**](ProductApi.md#list_products) | **GET** /org/{orgId}/product | list products
 [**list_products_by_partner**](ProductApi.md#list_products_by_partner) | **GET** /org/{orgId}/partner/{partner}/product | list products by partner
 [**publish_product**](ProductApi.md#publish_product) | **PATCH** /org/{orgId}/product/{productId}/publish | publish product
 [**update_product**](ProductApi.md#update_product) | **PATCH** /org/{orgId}/product/{productId} | update product
@@ -434,10 +434,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_products_by_organization**
-> List[WorkloadProduct] list_products_by_organization(org_id)
+# **list_products**
+> List[WorkloadProduct] list_products(org_id, partner=partner, limit=limit, offset=offset)
 
-list products by organization
+list products
 
 list all products under the given organization
 
@@ -473,14 +473,17 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = suger_sdk_python.ProductApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
+    partner = 'partner_example' # str | filter by partner (optional)
+    limit = 56 # int | List pagination size, default 100, max value is 1000 (optional)
+    offset = 56 # int | List pagination offset, default 0 (optional)
 
     try:
-        # list products by organization
-        api_response = api_instance.list_products_by_organization(org_id)
-        print("The response of ProductApi->list_products_by_organization:\n")
+        # list products
+        api_response = api_instance.list_products(org_id, partner=partner, limit=limit, offset=offset)
+        print("The response of ProductApi->list_products:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ProductApi->list_products_by_organization: %s\n" % e)
+        print("Exception when calling ProductApi->list_products: %s\n" % e)
 ```
 
 
@@ -491,6 +494,9 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
+ **partner** | **str**| filter by partner | [optional] 
+ **limit** | **int**| List pagination size, default 100, max value is 1000 | [optional] 
+ **offset** | **int**| List pagination offset, default 0 | [optional] 
 
 ### Return type
 

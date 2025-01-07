@@ -50,10 +50,11 @@ class WorkloadOffer(BaseModel):
     offer_type: Optional[OfferType] = Field(default=None, alias="offerType")
     organization_id: Optional[StrictStr] = Field(default=None, alias="organizationID")
     partner: Optional[Partner] = None
+    partner_id: Optional[StrictStr] = Field(default=None, alias="partnerID")
     product_id: Optional[StrictStr] = Field(default=None, alias="productID")
     service: Optional[PartnerService] = None
     status: Optional[OfferStatus] = None
-    __properties: ClassVar[List[str]] = ["buyerID", "contactIds", "createdBy", "creationTime", "endTime", "expireTime", "externalID", "id", "info", "lastUpdateTime", "lastUpdatedBy", "metaInfo", "name", "offerType", "organizationID", "partner", "productID", "service", "status"]
+    __properties: ClassVar[List[str]] = ["buyerID", "contactIds", "createdBy", "creationTime", "endTime", "expireTime", "externalID", "id", "info", "lastUpdateTime", "lastUpdatedBy", "metaInfo", "name", "offerType", "organizationID", "partner", "partnerID", "productID", "service", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -128,6 +129,7 @@ class WorkloadOffer(BaseModel):
             "offerType": obj.get("offerType"),
             "organizationID": obj.get("organizationID"),
             "partner": obj.get("partner"),
+            "partnerID": obj.get("partnerID"),
             "productID": obj.get("productID"),
             "service": obj.get("service"),
             "status": obj.get("status")

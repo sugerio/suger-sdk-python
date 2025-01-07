@@ -48,12 +48,13 @@ class WorkloadEntitlement(BaseModel):
     offer_id: Optional[StrictStr] = Field(default=None, alias="offerID")
     organization_id: Optional[StrictStr] = Field(default=None, alias="organizationID")
     partner: Optional[Partner] = None
+    partner_id: Optional[StrictStr] = Field(default=None, alias="partnerID")
     product_id: Optional[StrictStr] = Field(default=None, alias="productID")
     service: Optional[PartnerService] = None
     start_time: Optional[datetime] = Field(default=None, alias="startTime")
     status: Optional[EntitlementStatus] = None
     type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["buyerID", "creationTime", "endTime", "entitlementTermID", "externalBuyerID", "externalID", "externalProductID", "id", "info", "lastUpdateTime", "metaInfo", "name", "offerID", "organizationID", "partner", "productID", "service", "startTime", "status", "type"]
+    __properties: ClassVar[List[str]] = ["buyerID", "creationTime", "endTime", "entitlementTermID", "externalBuyerID", "externalID", "externalProductID", "id", "info", "lastUpdateTime", "metaInfo", "name", "offerID", "organizationID", "partner", "partnerID", "productID", "service", "startTime", "status", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -127,6 +128,7 @@ class WorkloadEntitlement(BaseModel):
             "offerID": obj.get("offerID"),
             "organizationID": obj.get("organizationID"),
             "partner": obj.get("partner"),
+            "partnerID": obj.get("partnerID"),
             "productID": obj.get("productID"),
             "service": obj.get("service"),
             "startTime": obj.get("startTime"),

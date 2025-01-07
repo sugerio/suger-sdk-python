@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **offer_type** | [**OfferType**](OfferType.md) |  | [optional] 
 **organization_id** | **str** |  | [optional] 
 **partner** | [**Partner**](Partner.md) |  | [optional] 
+**partner_id** | **str** |  | [optional] 
 **product_id** | **str** |  | [optional] 
 **service** | [**PartnerService**](PartnerService.md) |  | [optional] 
 **status** | [**OfferStatus**](OfferStatus.md) |  | [optional] 

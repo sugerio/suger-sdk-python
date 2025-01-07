@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictStr, field_validator
-from typing import List
+from pydantic import Field, StrictInt, StrictStr, field_validator
+from typing import List, Optional
 from typing_extensions import Annotated
 from suger_sdk_python.models.metering_dimension import MeteringDimension
 from suger_sdk_python.models.update_product_params import UpdateProductParams
@@ -1489,9 +1489,12 @@ class ProductApi:
 
 
     @validate_call
-    def list_products_by_organization(
+    def list_products(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        partner: Annotated[Optional[StrictStr], Field(description="filter by partner")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 100, max value is 1000")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1505,12 +1508,18 @@ class ProductApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[WorkloadProduct]:
-        """list products by organization
+        """list products
 
         list all products under the given organization
 
         :param org_id: Organization ID (required)
         :type org_id: str
+        :param partner: filter by partner
+        :type partner: str
+        :param limit: List pagination size, default 100, max value is 1000
+        :type limit: int
+        :param offset: List pagination offset, default 0
+        :type offset: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1533,8 +1542,11 @@ class ProductApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_products_by_organization_serialize(
+        _param = self._list_products_serialize(
             org_id=org_id,
+            partner=partner,
+            limit=limit,
+            offset=offset,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1558,9 +1570,12 @@ class ProductApi:
 
 
     @validate_call
-    def list_products_by_organization_with_http_info(
+    def list_products_with_http_info(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        partner: Annotated[Optional[StrictStr], Field(description="filter by partner")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 100, max value is 1000")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1574,12 +1589,18 @@ class ProductApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[WorkloadProduct]]:
-        """list products by organization
+        """list products
 
         list all products under the given organization
 
         :param org_id: Organization ID (required)
         :type org_id: str
+        :param partner: filter by partner
+        :type partner: str
+        :param limit: List pagination size, default 100, max value is 1000
+        :type limit: int
+        :param offset: List pagination offset, default 0
+        :type offset: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1602,8 +1623,11 @@ class ProductApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_products_by_organization_serialize(
+        _param = self._list_products_serialize(
             org_id=org_id,
+            partner=partner,
+            limit=limit,
+            offset=offset,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1627,9 +1651,12 @@ class ProductApi:
 
 
     @validate_call
-    def list_products_by_organization_without_preload_content(
+    def list_products_without_preload_content(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        partner: Annotated[Optional[StrictStr], Field(description="filter by partner")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 100, max value is 1000")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1643,12 +1670,18 @@ class ProductApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """list products by organization
+        """list products
 
         list all products under the given organization
 
         :param org_id: Organization ID (required)
         :type org_id: str
+        :param partner: filter by partner
+        :type partner: str
+        :param limit: List pagination size, default 100, max value is 1000
+        :type limit: int
+        :param offset: List pagination offset, default 0
+        :type offset: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1671,8 +1704,11 @@ class ProductApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_products_by_organization_serialize(
+        _param = self._list_products_serialize(
             org_id=org_id,
+            partner=partner,
+            limit=limit,
+            offset=offset,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1691,9 +1727,12 @@ class ProductApi:
         return response_data.response
 
 
-    def _list_products_by_organization_serialize(
+    def _list_products_serialize(
         self,
         org_id,
+        partner,
+        limit,
+        offset,
         _request_auth,
         _content_type,
         _headers,
@@ -1718,6 +1757,18 @@ class ProductApi:
         if org_id is not None:
             _path_params['orgId'] = org_id
         # process the query parameters
+        if partner is not None:
+            
+            _query_params.append(('partner', partner))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
+        if offset is not None:
+            
+            _query_params.append(('offset', offset))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

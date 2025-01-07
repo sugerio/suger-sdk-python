@@ -40,29 +40,21 @@ paths:
       operationId: ListAddons
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -96,13 +88,11 @@ paths:
       operationId: CreateAddon
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -144,21 +134,17 @@ paths:
       operationId: DeleteAddon
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Addon ID
-        explode: false
         in: path
         name: addonId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -190,21 +176,17 @@ paths:
       operationId: GetAddon
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Addon ID
-        explode: false
         in: path
         name: addonId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -236,21 +218,17 @@ paths:
       operationId: UpdateAddon
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Addon ID
-        explode: false
         in: path
         name: addonId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -292,13 +270,11 @@ paths:
       operationId: ListApiClients
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -333,21 +309,17 @@ paths:
       operationId: GetApiClient
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: API client ID
-        explode: false
         in: path
         name: apiClientId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -380,13 +352,11 @@ paths:
       operationId: BatchReportUsageRecordGroups
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -433,13 +403,11 @@ paths:
       operationId: BatchValidateUsageRecordGroups
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -483,21 +451,16 @@ paths:
       operationId: ListBillableMetrics
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Status of the billable metric
-        explode: true
         in: query
         name: status
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -531,13 +494,11 @@ paths:
       operationId: CreateBillableMetric
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -580,21 +541,17 @@ paths:
       operationId: GetBillableMetric
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Billable Metric ID
-        explode: false
         in: path
         name: billableMetricId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -633,21 +590,17 @@ paths:
       operationId: UpdateBillableMetric
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Billable Metric ID
-        explode: false
         in: path
         name: billableMetricId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -696,45 +649,31 @@ paths:
       operationId: ListBuyers
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: filter by partner
-        explode: true
         in: query
         name: partner
-        required: false
         schema:
           type: string
-        style: form
       - description: filter by contactId
-        explode: true
         in: query
         name: contactId
-        required: false
         schema:
           type: string
-        style: form
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -759,13 +698,11 @@ paths:
       operationId: CreateBuyer
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -807,21 +744,17 @@ paths:
       operationId: GetBuyer
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Buyer ID
-        explode: false
         in: path
         name: buyerId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -859,21 +792,17 @@ paths:
       operationId: UpdateBuyer
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Buyer ID
-        explode: false
         in: path
         name: buyerId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -909,29 +838,23 @@ paths:
       operationId: ListRefundOfPaymentTransaction
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Buyer ID
-        explode: false
         in: path
         name: buyerId
         required: true
         schema:
           type: string
-        style: simple
       - description: Payment transaction ID
-        explode: false
         in: path
         name: paymentTransactionId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -966,37 +889,29 @@ paths:
       operationId: CreateRefund
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Buyer ID
-        explode: false
         in: path
         name: buyerId
         required: true
         schema:
           type: string
-        style: simple
       - description: Payment transaction ID
-        explode: false
         in: path
         name: paymentTransactionId
         required: true
         schema:
           type: string
-        style: simple
       - description: Refund amount
-        explode: true
         in: query
         name: amount
         required: true
         schema:
           type: number
-        style: form
       responses:
         "200":
           content:
@@ -1029,21 +944,17 @@ paths:
       operationId: ListBuyerWallets
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Buyer ID
-        explode: false
         in: path
         name: buyerId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1077,21 +988,17 @@ paths:
       operationId: CreateCreditWallet
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Buyer ID
-        explode: false
         in: path
         name: buyerId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1125,29 +1032,23 @@ paths:
       operationId: DeleteBuyerWallet
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Buyer ID
-        explode: false
         in: path
         name: buyerId
         required: true
         schema:
           type: string
-        style: simple
       - description: Wallet ID
-        explode: false
         in: path
         name: walletId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1179,29 +1080,23 @@ paths:
       operationId: UpdateCreditWallet
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Buyer ID
-        explode: false
         in: path
         name: buyerId
         required: true
         schema:
           type: string
-        style: simple
       - description: Wallet ID
-        explode: false
         in: path
         name: walletId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1235,29 +1130,23 @@ paths:
       operationId: CloseCreditWallet
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Buyer ID
-        explode: false
         in: path
         name: buyerId
         required: true
         schema:
           type: string
-        style: simple
       - description: Wallet ID
-        explode: false
         in: path
         name: walletId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1290,29 +1179,23 @@ paths:
       operationId: SetBuyerDefaultWallet
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Buyer ID
-        explode: false
         in: path
         name: buyerId
         required: true
         schema:
           type: string
-        style: simple
       - description: Wallet ID
-        explode: false
         in: path
         name: walletId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1345,29 +1228,21 @@ paths:
       operationId: ListContactsByOrganization
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -1402,13 +1277,11 @@ paths:
       operationId: CreateContact
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -1450,21 +1323,17 @@ paths:
       operationId: GetContact
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Contact ID
-        explode: false
         in: path
         name: contactId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1498,21 +1367,17 @@ paths:
       operationId: UpdateContact
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Contact ID
-        explode: false
         in: path
         name: contactId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -1555,29 +1420,23 @@ paths:
       operationId: RemoveContactFromBuyer
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Buyer ID
-        explode: false
         in: path
         name: buyerId
         required: true
         schema:
           type: string
-        style: simple
       - description: Contact ID
-        explode: false
         in: path
         name: contactId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1610,29 +1469,23 @@ paths:
       operationId: AddContactToBuyer
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Buyer ID
-        explode: false
         in: path
         name: buyerId
         required: true
         schema:
           type: string
-        style: simple
       - description: Contact ID
-        explode: false
         in: path
         name: contactId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1666,29 +1519,23 @@ paths:
       operationId: RemoveContactFromOffer
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Contact ID
-        explode: false
         in: path
         name: contactId
         required: true
         schema:
           type: string
-        style: simple
       - description: Offer ID
-        explode: false
         in: path
         name: offerId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1721,29 +1568,23 @@ paths:
       operationId: AddContactToOffer
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Contact ID
-        explode: false
         in: path
         name: contactId
         required: true
         schema:
           type: string
-        style: simple
       - description: Offer ID
-        explode: false
         in: path
         name: offerId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1777,13 +1618,11 @@ paths:
       operationId: BatchCreateContacts
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -1832,66 +1671,46 @@ paths:
       operationId: ListDailyRevenueRecords
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Cloud Partner
-        explode: true
         in: query
         name: partner
-        required: false
         schema:
           enum:
           - AWS
           - AZURE
           - GCP
           type: string
-        style: form
       - description: Filter daily revenue records by the given product ID
-        explode: true
         in: query
         name: productId
-        required: false
         schema:
           type: string
-        style: form
       - description: Filter daily revenue records by the given buyer ID
-        explode: true
         in: query
         name: buyerId
-        required: false
         schema:
           type: string
-        style: form
       - description: Filter daily revenue records by the given entitlement ID
-        explode: true
         in: query
         name: entitlementId
-        required: false
         schema:
           type: string
-        style: form
       - description: "start date (UTC) in YYYY-MM-DD format, default is 30 days before\
           \ the endDate"
-        explode: true
         in: query
         name: startDate
-        required: false
         schema:
           type: string
-        style: form
       - description: "end date (UTC) in YYYY-MM-DD format, default is today"
-        explode: true
         in: query
         name: endDate
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -1927,13 +1746,11 @@ paths:
       operationId: CreateOrUpdateDraftOffer
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -1982,13 +1799,11 @@ paths:
       operationId: CreateOrUpdateDraftProduct
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -2031,61 +1846,41 @@ paths:
       operationId: ListEntitlements
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: filter by partner
-        explode: true
         in: query
         name: partner
-        required: false
         schema:
           type: string
-        style: form
       - description: filter by productId
-        explode: true
         in: query
         name: productId
-        required: false
         schema:
           type: string
-        style: form
       - description: filter by offerId
-        explode: true
         in: query
         name: offerId
-        required: false
         schema:
           type: string
-        style: form
       - description: filter by buyerId
-        explode: true
         in: query
         name: buyerId
-        required: false
         schema:
           type: string
-        style: form
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -2120,13 +1915,11 @@ paths:
       operationId: CreateEntitlement
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -2168,21 +1961,17 @@ paths:
       operationId: GetEntitlement
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2222,21 +2011,17 @@ paths:
       operationId: AddEntitlementCredit
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -2279,21 +2064,17 @@ paths:
       operationId: ApplyAddonToEntitlement
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -2337,21 +2118,17 @@ paths:
       operationId: ApproveEntitlement
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2390,21 +2167,17 @@ paths:
       operationId: CancelEntitlement
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2444,21 +2217,17 @@ paths:
       operationId: DivideEntitlementCommit
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -2500,21 +2269,17 @@ paths:
       operationId: UpdateEntitlementName
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -2556,21 +2321,17 @@ paths:
       operationId: ListEntitlementTerms
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2606,29 +2367,23 @@ paths:
       operationId: DeleteEntitlementTerm
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement Term ID
-        explode: false
         in: path
         name: entitlementTermId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2660,29 +2415,23 @@ paths:
       operationId: GetEntitlementTerm
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement Term ID
-        explode: false
         in: path
         name: entitlementTermId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2715,29 +2464,23 @@ paths:
       operationId: GetInvoice
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       - description: Invoice ID
-        explode: false
         in: path
         name: invoiceId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2771,29 +2514,23 @@ paths:
       operationId: IssueInvoice
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       - description: Invoice ID
-        explode: false
         in: path
         name: invoiceId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2827,29 +2564,23 @@ paths:
       operationId: PayInvoice
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       - description: Invoice ID
-        explode: false
         in: path
         name: invoiceId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2883,29 +2614,23 @@ paths:
       operationId: VoidInvoice
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       - description: Invoice ID
-        explode: false
         in: path
         name: invoiceId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2938,21 +2663,17 @@ paths:
       operationId: UpdateEntitlementMetaInfo
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -2994,21 +2715,17 @@ paths:
       operationId: ScheduleEntitlementCancellation
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -3050,29 +2767,23 @@ paths:
       operationId: UpdateEntitlementSeat
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       - description: New seat number
-        explode: true
         in: query
         name: newSeat
         required: true
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -3105,21 +2816,17 @@ paths:
       operationId: UnscheduleEntitlementCancellation
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -3154,21 +2861,17 @@ paths:
       operationId: ReportUsageRecordGroup
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Entitlement ID
-        explode: false
         in: path
         name: entitlementId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -3210,35 +2913,25 @@ paths:
       operationId: ListInvoices
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: "Optional, filter by the entitlement ID"
-        explode: true
         in: query
         name: entitlementId
-        required: false
         schema:
           type: string
-        style: form
       - description: "Optional, filter by the given buyer ID"
-        explode: true
         in: query
         name: buyerId
-        required: false
         schema:
           type: string
-        style: form
       - description: "Optional, filter by invoice status as filter, if not provided,\
           \ all status invoices are returned"
-        explode: true
         in: query
         name: status
-        required: false
         schema:
           enum:
           - DRAFT
@@ -3247,23 +2940,16 @@ paths:
           - DELETED
           - ""
           type: string
-        style: form
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -3299,56 +2985,39 @@ paths:
       operationId: ListNotificationEvents
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: "start date (UTC) in YYYY-MM-DD format, default is 30 days before\
           \ the endDate"
-        explode: true
         in: query
         name: startDate
-        required: false
         schema:
           type: string
-        style: form
       - description: "end date (UTC) in YYYY-MM-DD format, default is today"
-        explode: true
         in: query
         name: endDate
-        required: false
         schema:
           type: string
-        style: form
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       - description: "Filter by priorities, empty means all priorities. Valid values\
           \ are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated\
           \ by comma."
-        explode: true
         in: query
         name: priorities
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -3382,46 +3051,34 @@ paths:
       operationId: ListNotificationEventsByEntity
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: "Entity type, valid values are: PRODUCT, OFFER, ENTITLEMENT,\
           \ INTEGRATION etc."
-        explode: false
         in: path
         name: entityType
         required: true
         schema:
           type: string
-        style: simple
       - description: Entity ID
-        explode: false
         in: path
         name: entityId
         required: true
         schema:
           type: string
-        style: simple
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -3454,29 +3111,21 @@ paths:
       operationId: ListNotificationMessages
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -3510,21 +3159,17 @@ paths:
       operationId: GetNotificationMessage
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Notification Message ID
-        explode: false
         in: path
         name: notificationMessageId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -3558,85 +3203,56 @@ paths:
       operationId: ListOffers
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: filter by offer status
-        explode: true
         in: query
         name: status
-        required: false
         schema:
           type: string
-        style: form
       - description: filter by partner
-        explode: true
         in: query
         name: partner
-        required: false
         schema:
           type: string
-        style: form
       - description: filter by offerType
-        explode: true
         in: query
         name: offerType
-        required: false
         schema:
           type: string
-        style: form
       - description: filter by productId
-        explode: true
         in: query
         name: productId
-        required: false
         schema:
           type: string
-        style: form
       - description: filter by buyerId
-        explode: true
         in: query
         name: buyerId
-        required: false
         schema:
           type: string
-        style: form
       - description: filter by hubspotDealId
-        explode: true
         in: query
         name: hubspotDealId
-        required: false
         schema:
           type: string
-        style: form
       - description: filter by contactId
-        explode: true
         in: query
         name: contactId
-        required: false
         schema:
           type: string
-        style: form
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -3676,13 +3292,11 @@ paths:
       operationId: CreateOffer
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -3732,21 +3346,17 @@ paths:
       operationId: DeleteOffer
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Offer ID
-        explode: false
         in: path
         name: offerId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -3784,21 +3394,17 @@ paths:
       operationId: GetOffer
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Offer ID
-        explode: false
         in: path
         name: offerId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -3844,21 +3450,17 @@ paths:
       operationId: CancelOffer
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Offer ID
-        explode: false
         in: path
         name: offerId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -3897,29 +3499,22 @@ paths:
       operationId: GetOfferEula
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Offer ID
-        explode: false
         in: path
         name: offerId
         required: true
         schema:
           type: string
-        style: simple
       - description: response format in JSON or string
-        explode: true
         in: query
         name: format
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -3959,29 +3554,23 @@ paths:
       operationId: ExtendPrivateOfferExpiryDate
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Offer ID
-        explode: false
         in: path
         name: offerId
         required: true
         schema:
           type: string
-        style: simple
       - description: new expiry date in YYYY-MM-DD format
-        explode: true
         in: query
         name: newExpiryDate
         required: true
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -4020,21 +3609,17 @@ paths:
       operationId: UpdateOfferMetaInfo
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Offer ID
-        explode: false
         in: path
         name: offerId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -4083,21 +3668,17 @@ paths:
       operationId: SendOfferNotifications
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Offer ID
-        explode: false
         in: path
         name: offerId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -4148,21 +3729,17 @@ paths:
       operationId: GetOfferResellerEula
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Offer ID
-        explode: false
         in: path
         name: offerId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -4201,21 +3778,17 @@ paths:
       operationId: GetOfferByExternalId
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Offer External ID
-        explode: false
         in: path
         name: offerExternalId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -4260,15 +3833,12 @@ paths:
       operationId: ListProductsByPartner
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Cloud Partner
-        explode: false
         in: path
         name: partner
         required: true
@@ -4278,7 +3848,6 @@ paths:
           - AZURE
           - GCP
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -4314,15 +3883,12 @@ paths:
       operationId: ListRevenueRecords
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Cloud Partner
-        explode: false
         in: path
         name: partner
         required: true
@@ -4332,64 +3898,42 @@ paths:
           - AZURE
           - GCP
           type: string
-        style: simple
       - description: Filter revenue records by the given product ID
-        explode: true
         in: query
         name: productId
-        required: false
         schema:
           type: string
-        style: form
       - description: Filter revenue records by the given entitlement ID
-        explode: true
         in: query
         name: entitlementId
-        required: false
         schema:
           type: string
-        style: form
       - description: Filter revenue records by the given buyer ID
-        explode: true
         in: query
         name: buyerId
-        required: false
         schema:
           type: string
-        style: form
       - description: "start date (UTC) in YYYY-MM-DD format, default is 30 days before\
           \ the endDate"
-        explode: true
         in: query
         name: startDate
-        required: false
         schema:
           type: string
-        style: form
       - description: "end date (UTC) in YYYY-MM-DD format, default is today"
-        explode: true
         in: query
         name: endDate
-        required: false
         schema:
           type: string
-        style: form
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -4423,15 +3967,12 @@ paths:
       operationId: ListRevenueRecordDetails
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Cloud Partner
-        explode: false
         in: path
         name: partner
         required: true
@@ -4441,64 +3982,42 @@ paths:
           - AZURE
           - GCP
           type: string
-        style: simple
       - description: Filter revenue record details by the given product ID
-        explode: true
         in: query
         name: productId
-        required: false
         schema:
           type: string
-        style: form
       - description: Filter revenue record details by the given buyer ID
-        explode: true
         in: query
         name: buyerId
-        required: false
         schema:
           type: string
-        style: form
       - description: Filter revenue record details by the given entitlement ID
-        explode: true
         in: query
         name: entitlementId
-        required: false
         schema:
           type: string
-        style: form
       - description: "start date (UTC) in YYYY-MM-DD format, default is 30 days before\
           \ the endDate"
-        explode: true
         in: query
         name: startDate
-        required: false
         schema:
           type: string
-        style: form
       - description: "end date (UTC) in YYYY-MM-DD format, default is today"
-        explode: true
         in: query
         name: endDate
-        required: false
         schema:
           type: string
-        style: form
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -4532,15 +4051,12 @@ paths:
       operationId: ListUsageMeteringDailyRecords
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Filter by the Cloud Partner
-        explode: false
         in: path
         name: partner
         required: true
@@ -4550,57 +4066,38 @@ paths:
           - AZURE
           - GCP
           type: string
-        style: simple
       - description: Filter usage metering daily records by the given buyer ID
-        explode: true
         in: query
         name: buyerId
-        required: false
         schema:
           type: string
-        style: form
       - description: Filter usage metering daily records by the given entitlement
           ID
-        explode: true
         in: query
         name: entitlementId
-        required: false
         schema:
           type: string
-        style: form
       - description: "start date (UTC) in YYYY-MM-DD format, default is 30 days before\
           \ the endDate"
-        explode: true
         in: query
         name: startDate
-        required: false
         schema:
           type: string
-        style: form
       - description: "end date (UTC) in YYYY-MM-DD format, default is today"
-        explode: true
         in: query
         name: endDate
-        required: false
         schema:
           type: string
-        style: form
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -4633,42 +4130,29 @@ paths:
       operationId: ListPaymentTransactions
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: "Optional, filter by the given buyer ID"
-        explode: true
         in: query
         name: buyerId
-        required: false
         schema:
           type: string
-        style: form
       - description: "Optional, filter by the given entitlement ID"
-        explode: true
         in: query
         name: entitlementId
-        required: false
         schema:
           type: string
-        style: form
       - description: "Optional, filter by the given invoice ID"
-        explode: true
         in: query
         name: invoiceId
-        required: false
         schema:
           type: string
-        style: form
       - description: "Optional, filter by status"
-        explode: true
         in: query
         name: status
-        required: false
         schema:
           enum:
           - PENDING
@@ -4676,34 +4160,24 @@ paths:
           - SUCCESS
           - FAILED
           type: string
-        style: form
       - description: "Optional, filter by transaction type"
-        explode: true
         in: query
         name: type
-        required: false
         schema:
           enum:
           - CHARGE
           - REFUND
           type: string
-        style: form
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -4735,16 +4209,34 @@ paths:
   /org/{orgId}/product:
     get:
       description: list all products under the given organization
-      operationId: ListProductsByOrganization
+      operationId: ListProducts
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
+      - description: filter by partner
+        in: query
+        name: partner
+        schema:
+          enum:
+          - AWS
+          - AZURE
+          - GCP
+          - STRIPE
+          type: string
+      - description: "List pagination size, default 100, max value is 1000"
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: "List pagination offset, default 0"
+        in: query
+        name: offset
+        schema:
+          type: integer
       responses:
         "200":
           content:
@@ -4768,7 +4260,7 @@ paths:
           description: Internal server error
       security:
       - APIKeyAuth: []
-      summary: list products by organization
+      summary: list products
       tags:
       - Product
       x-accepts:
@@ -4778,13 +4270,11 @@ paths:
       operationId: CreateProduct
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -4827,21 +4317,17 @@ paths:
       operationId: DeleteProduct
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Product ID
-        explode: false
         in: path
         name: productId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -4879,21 +4365,17 @@ paths:
       operationId: GetProduct
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Product ID
-        explode: false
         in: path
         name: productId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -4931,21 +4413,17 @@ paths:
       operationId: UpdateProduct
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Product ID
-        explode: false
         in: path
         name: productId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -4987,21 +4465,17 @@ paths:
       operationId: ListProductMeteringDimensions
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Product ID
-        explode: false
         in: path
         name: productId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -5042,21 +4516,17 @@ paths:
       operationId: UpdateProductFulfillmentUrl
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Product ID
-        explode: false
         in: path
         name: productId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -5089,21 +4559,17 @@ paths:
       operationId: UpdateProductMetaInfo
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Product ID
-        explode: false
         in: path
         name: productId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -5145,21 +4611,17 @@ paths:
       operationId: PublishProduct
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Product ID
-        explode: false
         in: path
         name: productId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -5208,13 +4670,11 @@ paths:
       operationId: GetRevenueReport
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -5256,29 +4716,21 @@ paths:
       operationId: ListSupportTickets
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -5310,13 +4762,11 @@ paths:
       operationId: CreateSupportTicket
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -5358,21 +4808,17 @@ paths:
       operationId: GetSupportTicket
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Ticket ID
-        explode: false
         in: path
         name: ticketId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -5404,21 +4850,17 @@ paths:
       operationId: UpdateSupportTicket
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Ticket ID
-        explode: false
         in: path
         name: ticketId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -5460,21 +4902,17 @@ paths:
       operationId: CreateSupportTicketAttachment
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Ticket ID
-        explode: false
         in: path
         name: ticketId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           multipart/form-data:
@@ -5516,21 +4954,17 @@ paths:
       operationId: CloseSupportTicket
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Ticket ID
-        explode: false
         in: path
         name: ticketId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -5563,21 +4997,17 @@ paths:
       operationId: CreateSupportTicketComment
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Ticket ID
-        explode: false
         in: path
         name: ticketId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -5619,21 +5049,17 @@ paths:
       operationId: ReopenSupportTicket
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Ticket ID
-        explode: false
         in: path
         name: ticketId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -5666,13 +5092,11 @@ paths:
       operationId: GetUsageMeteringConfigInfo
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -5704,13 +5128,11 @@ paths:
       operationId: UpdateUsageMeteringConfigInfo
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -5754,48 +5176,35 @@ paths:
       operationId: ListUsageRecordGroups
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Cloud Partner
-        explode: true
         in: query
         name: partner
-        required: false
         schema:
           enum:
           - AWS
           - AZURE
           - GCP
           type: string
-        style: form
       - description: "filter by buyer ID, default no filter by buyerId if not provided"
-        explode: true
         in: query
         name: buyerId
-        required: false
         schema:
           type: string
-        style: form
       - description: "filter by entitlement ID, default no filter by entitlementId\
           \ if not provided"
-        explode: true
         in: query
         name: entitlementId
-        required: false
         schema:
           type: string
-        style: form
       - description: "The status of the usage record group, default no filter by status\
           \ if not provided"
-        explode: true
         in: query
         name: status
-        required: false
         schema:
           enum:
           - CREATED
@@ -5805,13 +5214,10 @@ paths:
           - REPORT_PENDING
           - REPORT_FAILED
           type: string
-        style: form
       - description: "The source of the usage record group, default no filter by source\
           \ if not provided"
-        explode: true
         in: query
         name: source
-        required: false
         schema:
           enum:
           - ""
@@ -5821,48 +5227,32 @@ paths:
           - ORB
           - LAGO
           type: string
-        style: form
       - description: metaInfo filter
-        explode: true
         in: query
         name: metaInfo
-        required: false
         schema:
           type: string
-        style: form
       - description: "start date (UTC) in YYYY-MM-DD format, default is 30 days before\
           \ the endDate"
-        explode: true
         in: query
         name: startDate
-        required: false
         schema:
           type: string
-        style: form
       - description: "end date (UTC) in YYYY-MM-DD format, default is today"
-        explode: true
         in: query
         name: endDate
-        required: false
         schema:
           type: string
-        style: form
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -5896,21 +5286,17 @@ paths:
       operationId: DeleteUsageRecordGroup
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: UsageRecordGroup ID
-        explode: false
         in: path
         name: usageRecordGroupId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -5951,21 +5337,17 @@ paths:
       operationId: RetryUsageRecordGroup
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: UsageRecordGroup ID
-        explode: false
         in: path
         name: usageRecordGroupId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -6005,74 +5387,51 @@ paths:
       operationId: ListUsageRecordReports
       parameters:
       - description: Organization ID
-        explode: false
         in: path
         name: orgId
         required: true
         schema:
           type: string
-        style: simple
       - description: Cloud Partner
-        explode: true
         in: query
         name: partner
-        required: false
         schema:
           enum:
           - AWS
           - AZURE
           - GCP
           type: string
-        style: form
       - description: buyer ID
-        explode: true
         in: query
         name: buyerId
-        required: false
         schema:
           type: string
-        style: form
       - description: entitlement ID
-        explode: true
         in: query
         name: entitlementId
-        required: false
         schema:
           type: string
-        style: form
       - description: "start date (UTC) in YYYY-MM-DD format, default is 30 days before\
           \ the endDate"
-        explode: true
         in: query
         name: startDate
-        required: false
         schema:
           type: string
-        style: form
       - description: "end date (UTC) in YYYY-MM-DD format, default is today"
-        explode: true
         in: query
         name: endDate
-        required: false
         schema:
           type: string
-        style: form
       - description: "List pagination size, default 1000, max value is 1000"
-        explode: true
         in: query
         name: limit
-        required: false
         schema:
           type: integer
-        style: form
       - description: "List pagination offset, default 0"
-        explode: true
         in: query
         name: offset
-        required: false
         schema:
           type: integer
-        style: form
       responses:
         "200":
           content:
@@ -17487,6 +16846,7 @@ components:
       - USAGE_RECORD_REPORT
       - USER
       - WORKFLOW
+      - WORKFLOW_WEBHOOK
       type: string
       x-enum-varnames:
       - EntityType_UNKNOWN
@@ -17515,6 +16875,7 @@ components:
       - EntityType_USAGE_RECORD_REPORT
       - EntityType_USER
       - EntityType_WORKFLOW
+      - EntityType_WORKFLOW_WEBHOOK
     EulaType:
       enum:
       - ""
@@ -30966,6 +30327,7 @@ components:
         startTime: 2000-01-23T04:56:07.000+00:00
         endTime: 2000-01-23T04:56:07.000+00:00
         id: id
+        partnerID: partnerID
         externalProductID: externalProductID
         info:
           alibabaOrders:
@@ -31751,6 +31113,8 @@ components:
           type: string
         partner:
           $ref: '#/components/schemas/Partner'
+        partnerID:
+          type: string
         productID:
           type: string
         service:
@@ -32747,10 +32111,10 @@ components:
           description: The Suger CPPO_IN offer ID.
           type: string
         cppoOfferId:
-          description: The Suger CPPO offer ID.
+          description: The Suger CPPO offer ID. Reseller to end buyer
           type: string
         cppoOutOfferId:
-          description: The Suger CPPO_OUT offer ID.
+          description: The Suger CPPO_OUT offer ID. ISV to reseller
           type: string
         customMetaInfo:
           additionalProperties:
@@ -33008,6 +32372,7 @@ components:
         name: name
         endTime: 2000-01-23T04:56:07.000+00:00
         id: id
+        partnerID: partnerID
         info:
           awsResaleAuthorizationId: awsResaleAuthorizationId
           additionalResellerEulaUrls:
@@ -33765,6 +33130,8 @@ components:
           type: string
         partner:
           $ref: '#/components/schemas/Partner'
+        partnerID:
+          type: string
         productID:
           type: string
         service:
@@ -33922,6 +33289,7 @@ components:
         service: DEFAULT
         name: name
         id: id
+        partnerID: partnerID
         productType: UNKNOWN
         info:
           eulaType: "{}"
@@ -37140,6 +36508,8 @@ components:
           type: string
         partner:
           $ref: '#/components/schemas/Partner'
+        partnerID:
+          type: string
         productType:
           enum:
           - UNKNOWN

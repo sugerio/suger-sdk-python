@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **offer_id** | **str** |  | [optional] 
 **organization_id** | **str** |  | [optional] 
 **partner** | [**Partner**](Partner.md) |  | [optional] 
+**partner_id** | **str** |  | [optional] 
 **product_id** | **str** |  | [optional] 
 **service** | [**PartnerService**](PartnerService.md) |  | [optional] 
 **start_time** | **datetime** |  | [optional] 

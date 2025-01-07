@@ -182,7 +182,7 @@ Class | Method | HTTP request | Description
 *ProductApi* | [**delete_product**](docs/ProductApi.md#delete_product) | **DELETE** /org/{orgId}/product/{productId} | delete product
 *ProductApi* | [**get_product**](docs/ProductApi.md#get_product) | **GET** /org/{orgId}/product/{productId} | get product
 *ProductApi* | [**list_product_metering_dimensions**](docs/ProductApi.md#list_product_metering_dimensions) | **GET** /org/{orgId}/product/{productId}/dimension | list metering dimensions of product
-*ProductApi* | [**list_products_by_organization**](docs/ProductApi.md#list_products_by_organization) | **GET** /org/{orgId}/product | list products by organization
+*ProductApi* | [**list_products**](docs/ProductApi.md#list_products) | **GET** /org/{orgId}/product | list products
 *ProductApi* | [**list_products_by_partner**](docs/ProductApi.md#list_products_by_partner) | **GET** /org/{orgId}/partner/{partner}/product | list products by partner
 *ProductApi* | [**publish_product**](docs/ProductApi.md#publish_product) | **PATCH** /org/{orgId}/product/{productId}/publish | publish product
 *ProductApi* | [**update_product**](docs/ProductApi.md#update_product) | **PATCH** /org/{orgId}/product/{productId} | update product

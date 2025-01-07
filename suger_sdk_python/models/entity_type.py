@@ -53,6 +53,7 @@ class EntityType(str, Enum):
     USAGE_RECORD_REPORT = 'USAGE_RECORD_REPORT'
     USER = 'USER'
     WORKFLOW = 'WORKFLOW'
+    WORKFLOW_WEBHOOK = 'WORKFLOW_WEBHOOK'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
