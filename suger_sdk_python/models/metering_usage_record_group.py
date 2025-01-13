@@ -38,10 +38,11 @@ class MeteringUsageRecordGroup(BaseModel):
     organization_id: Optional[StrictStr] = Field(default=None, alias="organizationID")
     partner: Optional[StrictStr] = None
     records: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = None
+    reported_time: Optional[datetime] = Field(default=None, description="nullable", alias="reportedTime")
     serial_id: Optional[StrictInt] = Field(default=None, alias="serialID")
     status: Optional[StrictStr] = None
     usage_record_report_id: Optional[StrictStr] = Field(default=None, alias="usageRecordReportID")
-    __properties: ClassVar[List[str]] = ["buyerID", "creationTime", "entitlementID", "id", "lastUpdateTime", "metaInfo", "organizationID", "partner", "records", "serialID", "status", "usageRecordReportID"]
+    __properties: ClassVar[List[str]] = ["buyerID", "creationTime", "entitlementID", "id", "lastUpdateTime", "metaInfo", "organizationID", "partner", "records", "reportedTime", "serialID", "status", "usageRecordReportID"]
 
     @field_validator('partner')
     def partner_validate_enum(cls, value):
@@ -116,6 +117,7 @@ class MeteringUsageRecordGroup(BaseModel):
             "organizationID": obj.get("organizationID"),
             "partner": obj.get("partner"),
             "records": obj.get("records"),
+            "reportedTime": obj.get("reportedTime"),
             "serialID": obj.get("serialID"),
             "status": obj.get("status"),
             "usageRecordReportID": obj.get("usageRecordReportID")

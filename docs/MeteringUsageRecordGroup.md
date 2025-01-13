@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **organization_id** | **str** |  | [optional] 
 **partner** | **str** |  | [optional] 
 **records** | **Dict[str, float]** |  | [optional] 
+**reported_time** | **datetime** | nullable | [optional] 
 **serial_id** | **int** |  | [optional] 
 **status** | **str** |  | [optional] 
 **usage_record_report_id** | **str** |  | [optional] 
