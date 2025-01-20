@@ -1787,6 +1787,7 @@ class BuyerApi:
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         partner: Annotated[Optional[StrictStr], Field(description="filter by partner")] = None,
         contact_id: Annotated[Optional[StrictStr], Field(description="filter by contactId")] = None,
+        aws_account_id: Annotated[Optional[StrictStr], Field(description="filter by awsAccountId")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
@@ -1812,6 +1813,8 @@ class BuyerApi:
         :type partner: str
         :param contact_id: filter by contactId
         :type contact_id: str
+        :param aws_account_id: filter by awsAccountId
+        :type aws_account_id: str
         :param limit: List pagination size, default 1000, max value is 1000
         :type limit: int
         :param offset: List pagination offset, default 0
@@ -1842,6 +1845,7 @@ class BuyerApi:
             org_id=org_id,
             partner=partner,
             contact_id=contact_id,
+            aws_account_id=aws_account_id,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -1871,6 +1875,7 @@ class BuyerApi:
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         partner: Annotated[Optional[StrictStr], Field(description="filter by partner")] = None,
         contact_id: Annotated[Optional[StrictStr], Field(description="filter by contactId")] = None,
+        aws_account_id: Annotated[Optional[StrictStr], Field(description="filter by awsAccountId")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
@@ -1896,6 +1901,8 @@ class BuyerApi:
         :type partner: str
         :param contact_id: filter by contactId
         :type contact_id: str
+        :param aws_account_id: filter by awsAccountId
+        :type aws_account_id: str
         :param limit: List pagination size, default 1000, max value is 1000
         :type limit: int
         :param offset: List pagination offset, default 0
@@ -1926,6 +1933,7 @@ class BuyerApi:
             org_id=org_id,
             partner=partner,
             contact_id=contact_id,
+            aws_account_id=aws_account_id,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -1955,6 +1963,7 @@ class BuyerApi:
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         partner: Annotated[Optional[StrictStr], Field(description="filter by partner")] = None,
         contact_id: Annotated[Optional[StrictStr], Field(description="filter by contactId")] = None,
+        aws_account_id: Annotated[Optional[StrictStr], Field(description="filter by awsAccountId")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
@@ -1980,6 +1989,8 @@ class BuyerApi:
         :type partner: str
         :param contact_id: filter by contactId
         :type contact_id: str
+        :param aws_account_id: filter by awsAccountId
+        :type aws_account_id: str
         :param limit: List pagination size, default 1000, max value is 1000
         :type limit: int
         :param offset: List pagination offset, default 0
@@ -2010,6 +2021,7 @@ class BuyerApi:
             org_id=org_id,
             partner=partner,
             contact_id=contact_id,
+            aws_account_id=aws_account_id,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -2034,6 +2046,7 @@ class BuyerApi:
         org_id,
         partner,
         contact_id,
+        aws_account_id,
         limit,
         offset,
         _request_auth,
@@ -2067,6 +2080,10 @@ class BuyerApi:
         if contact_id is not None:
             
             _query_params.append(('contactId', contact_id))
+            
+        if aws_account_id is not None:
+            
+            _query_params.append(('awsAccountId', aws_account_id))
             
         if limit is not None:
             

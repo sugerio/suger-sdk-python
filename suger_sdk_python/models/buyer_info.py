@@ -53,7 +53,8 @@ class BuyerInfo(BaseModel):
     payment_config: Optional[PaymentConfig] = Field(default=None, description="Payment Config for billing.", alias="paymentConfig")
     spa_url: Optional[StrictStr] = Field(default=None, description="Buyer SPA url, public page visited with jwt.", alias="spaUrl")
     stripe_buyer: Optional[StripeCustomer] = Field(default=None, description="Buyer as Customer on Stripe", alias="stripeBuyer")
-    __properties: ClassVar[List[str]] = ["adyenBuyer", "awsBuyer", "azureBuyer", "collectableAmount", "companyInfo", "customerId", "disbursedAmount", "emailAddress", "fields", "gcpBuyer", "grossAmount", "invoicedAmount", "lagoCustomerId", "lastModifiedBy", "metronomeCustomerId", "orbCustomerId", "paymentConfig", "spaUrl", "stripeBuyer"]
+    stripe_customer_id: Optional[StrictStr] = Field(default=None, description="The stripe customer ID for the buyer if it is connected to a stripe customer.", alias="stripeCustomerId")
+    __properties: ClassVar[List[str]] = ["adyenBuyer", "awsBuyer", "azureBuyer", "collectableAmount", "companyInfo", "customerId", "disbursedAmount", "emailAddress", "fields", "gcpBuyer", "grossAmount", "invoicedAmount", "lagoCustomerId", "lastModifiedBy", "metronomeCustomerId", "orbCustomerId", "paymentConfig", "spaUrl", "stripeBuyer", "stripeCustomerId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -145,7 +146,8 @@ class BuyerInfo(BaseModel):
             "orbCustomerId": obj.get("orbCustomerId"),
             "paymentConfig": PaymentConfig.from_dict(obj["paymentConfig"]) if obj.get("paymentConfig") is not None else None,
             "spaUrl": obj.get("spaUrl"),
-            "stripeBuyer": StripeCustomer.from_dict(obj["stripeBuyer"]) if obj.get("stripeBuyer") is not None else None
+            "stripeBuyer": StripeCustomer.from_dict(obj["stripeBuyer"]) if obj.get("stripeBuyer") is not None else None,
+            "stripeCustomerId": obj.get("stripeCustomerId")
         })
         return _obj
 

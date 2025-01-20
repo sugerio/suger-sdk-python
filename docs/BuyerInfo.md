@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **payment_config** | [**PaymentConfig**](PaymentConfig.md) | Payment Config for billing. | [optional] 
 **spa_url** | **str** | Buyer SPA url, public page visited with jwt. | [optional] 
 **stripe_buyer** | [**StripeCustomer**](StripeCustomer.md) | Buyer as Customer on Stripe | [optional] 
+**stripe_customer_id** | **str** | The stripe customer ID for the buyer if it is connected to a stripe customer. | [optional] 
 
 ## Example
 

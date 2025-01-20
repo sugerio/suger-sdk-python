@@ -44,12 +44,12 @@ class BillingInvoiceInfo(BaseModel):
     adjust_minimum_spend_by_dimensions: Optional[List[InvoiceAdjustMinimumSpendByDimension]] = Field(default=None, description="add or adjust minimum spend for a specific dimension", alias="adjustMinimumSpendByDimensions")
     adjust_overall_discount: Optional[InvoiceAdjustOverallDiscount] = Field(default=None, description="add or adjust overall discount calculate each dimension's discount first, then apply the overall discount", alias="adjustOverallDiscount")
     adjust_overall_minimum_spend: Optional[InvoiceAdjustOverallMinimumSpend] = Field(default=None, description="add or adjust overall minimum spend calculate each dimension's minimum spend first, then apply the overall minimum spend", alias="adjustOverallMinimumSpend")
-    amount: Optional[Union[StrictFloat, StrictInt]] = None
     billable_dimension_details: Optional[List[BillableDimensionPriceModelDetail]] = Field(default=None, alias="billableDimensionDetails")
     commits_revenue_details: Optional[List[CommitRevenueDetail]] = Field(default=None, description="Recurring flat fee for the invoice. There should be only one type fee for each invoice, commits, or usage.", alias="commitsRevenueDetails")
     creation_date: Optional[datetime] = Field(default=None, description="The creation date of the invoice when the status of the invoice may be draft or issued. It may be different from the issue date.", alias="creationDate")
     currency: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
+    due_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Due amount = SubtotalAmount + TaxAmount - AdjustOverallDiscount", alias="dueAmount")
     due_date: Optional[datetime] = Field(default=None, description="DueDate = IssueDate + NetTerm", alias="dueDate")
     grace_period_in_days: Optional[StrictInt] = Field(default=None, description="Grace Period in number of days", alias="gracePeriodInDays")
     issue_date: Optional[datetime] = Field(default=None, description="IssueDate, issue invoice automatically when CreationDate + GracePeriod, or issue invoice manually IssueDate >= CreationDate && IssueDate <= CreationDate + GracePeriod", alias="issueDate")
@@ -58,9 +58,11 @@ class BillingInvoiceInfo(BaseModel):
     payment_installments_detail: Optional[BillingPaymentInstallmentDetail] = Field(default=None, alias="paymentInstallmentsDetail")
     receipt_url: Optional[StrictStr] = Field(default=None, description="Invoice receipt url, it only exists when there are transactions.", alias="receiptUrl")
     spa_url: Optional[StrictStr] = Field(default=None, description="SPA url with JWT.", alias="spaUrl")
+    subtotal_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Subtotal amount calculated from the user usage.", alias="subtotalAmount")
+    tax_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="taxAmount")
     trial_period_in_days: Optional[StrictInt] = Field(default=None, description="Trial period in number of days", alias="trialPeriodInDays")
     usage_daily_revenues: Optional[List[BillableDimensionUsageDailyRevenue]] = Field(default=None, description="Billable dimension fees for the invoice.", alias="usageDailyRevenues")
-    __properties: ClassVar[List[str]] = ["addFixedFees", "addonDetail", "adjustDiscountByDimensions", "adjustMinimumSpendByDimensions", "adjustOverallDiscount", "adjustOverallMinimumSpend", "amount", "billableDimensionDetails", "commitsRevenueDetails", "creationDate", "currency", "description", "dueDate", "gracePeriodInDays", "issueDate", "memo", "netTermsInDays", "paymentInstallmentsDetail", "receiptUrl", "spaUrl", "trialPeriodInDays", "usageDailyRevenues"]
+    __properties: ClassVar[List[str]] = ["addFixedFees", "addonDetail", "adjustDiscountByDimensions", "adjustMinimumSpendByDimensions", "adjustOverallDiscount", "adjustOverallMinimumSpend", "billableDimensionDetails", "commitsRevenueDetails", "creationDate", "currency", "description", "dueAmount", "dueDate", "gracePeriodInDays", "issueDate", "memo", "netTermsInDays", "paymentInstallmentsDetail", "receiptUrl", "spaUrl", "subtotalAmount", "taxAmount", "trialPeriodInDays", "usageDailyRevenues"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -173,12 +175,12 @@ class BillingInvoiceInfo(BaseModel):
             "adjustMinimumSpendByDimensions": [InvoiceAdjustMinimumSpendByDimension.from_dict(_item) for _item in obj["adjustMinimumSpendByDimensions"]] if obj.get("adjustMinimumSpendByDimensions") is not None else None,
             "adjustOverallDiscount": InvoiceAdjustOverallDiscount.from_dict(obj["adjustOverallDiscount"]) if obj.get("adjustOverallDiscount") is not None else None,
             "adjustOverallMinimumSpend": InvoiceAdjustOverallMinimumSpend.from_dict(obj["adjustOverallMinimumSpend"]) if obj.get("adjustOverallMinimumSpend") is not None else None,
-            "amount": obj.get("amount"),
             "billableDimensionDetails": [BillableDimensionPriceModelDetail.from_dict(_item) for _item in obj["billableDimensionDetails"]] if obj.get("billableDimensionDetails") is not None else None,
             "commitsRevenueDetails": [CommitRevenueDetail.from_dict(_item) for _item in obj["commitsRevenueDetails"]] if obj.get("commitsRevenueDetails") is not None else None,
             "creationDate": obj.get("creationDate"),
             "currency": obj.get("currency"),
             "description": obj.get("description"),
+            "dueAmount": obj.get("dueAmount"),
             "dueDate": obj.get("dueDate"),
             "gracePeriodInDays": obj.get("gracePeriodInDays"),
             "issueDate": obj.get("issueDate"),
@@ -187,6 +189,8 @@ class BillingInvoiceInfo(BaseModel):
             "paymentInstallmentsDetail": BillingPaymentInstallmentDetail.from_dict(obj["paymentInstallmentsDetail"]) if obj.get("paymentInstallmentsDetail") is not None else None,
             "receiptUrl": obj.get("receiptUrl"),
             "spaUrl": obj.get("spaUrl"),
+            "subtotalAmount": obj.get("subtotalAmount"),
+            "taxAmount": obj.get("taxAmount"),
             "trialPeriodInDays": obj.get("trialPeriodInDays"),
             "usageDailyRevenues": [BillableDimensionUsageDailyRevenue.from_dict(_item) for _item in obj["usageDailyRevenues"]] if obj.get("usageDailyRevenues") is not None else None
         })

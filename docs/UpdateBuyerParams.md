@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **name** | **str** | The name of the buyer. If not provided, the name will not be updated. | [optional] 
 **orb_customer_id** | **str** | The Orb Customer ID of the buyer. If not provided, the Orb Customer ID will not be updated. | [optional] 
 **payment_config** | [**PaymentConfig**](PaymentConfig.md) | Optional. PaymentConfig of the buyer. The currency can&#39;t be updated. | [optional] 
+**stripe_customer_id** | **str** | The Stripe Customer ID of the buyer. If not provided, the Stripe Customer ID will not be updated. | [optional] 
 
 ## Example
 

@@ -55,6 +55,8 @@
 
 * `WORKFLOW` (value: `'WORKFLOW'`)
 
+* `WORKFLOW_EXECUTION` (value: `'WORKFLOW_EXECUTION'`)
+
 * `WORKFLOW_WEBHOOK` (value: `'WORKFLOW_WEBHOOK'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

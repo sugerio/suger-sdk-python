@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**list_refund_of_payment_transaction**](BillingApi.md#list_refund_of_payment_transaction) | **GET** /org/{orgId}/buyer/{buyerId}/paymentTransaction/{paymentTransactionId}/refund | list refunds.
 [**pay_invoice**](BillingApi.md#pay_invoice) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/pay | pay invoice
 [**update_addon**](BillingApi.md#update_addon) | **PATCH** /org/{orgId}/addon/{addonId} | update addon
+[**update_invoice_info**](BillingApi.md#update_invoice_info) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/info | Update invoice info
 [**void_invoice**](BillingApi.md#void_invoice) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/void | void invoice
 
 
@@ -1049,6 +1050,94 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **400** | Bad request error |  -  |
 **500** | internal error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_invoice_info**
+> BillingInvoiceInfo update_invoice_info(org_id, entitlement_id, invoice_id, data)
+
+Update invoice info
+
+Update a draft invoice. Only DueDate, OverallDiscount, and Memo can be updated.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+
+```python
+import suger_sdk_python
+from suger_sdk_python.models.billing_invoice_info import BillingInvoiceInfo
+from suger_sdk_python.models.update_invoice_info_request import UpdateInvoiceInfoRequest
+from suger_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://https://api.suger.cloud
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with suger_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suger_sdk_python.BillingApi(api_client)
+    org_id = 'org_id_example' # str | Organization ID
+    entitlement_id = 'entitlement_id_example' # str | Entitlement ID
+    invoice_id = 'invoice_id_example' # str | Invoice ID
+    data = suger_sdk_python.UpdateInvoiceInfoRequest() # UpdateInvoiceInfoRequest | Update Invoice Info Request Params
+
+    try:
+        # Update invoice info
+        api_response = api_instance.update_invoice_info(org_id, entitlement_id, invoice_id, data)
+        print("The response of BillingApi->update_invoice_info:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling BillingApi->update_invoice_info: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| Organization ID | 
+ **entitlement_id** | **str**| Entitlement ID | 
+ **invoice_id** | **str**| Invoice ID | 
+ **data** | [**UpdateInvoiceInfoRequest**](UpdateInvoiceInfoRequest.md)| Update Invoice Info Request Params | 
+
+### Return type
+
+[**BillingInvoiceInfo**](BillingInvoiceInfo.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Updated Invoice info |  -  |
+**400** | Bad request error |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -468,6 +468,7 @@ docs/TypesUsageRecordResultStatus.md
 docs/UniqueCountAggregationResult.md
 docs/UpdateBillableMetricParams.md
 docs/UpdateBuyerParams.md
+docs/UpdateInvoiceInfoRequest.md
 docs/UpdateProductParams.md
 docs/UpdateSupportTicketRequest.md
 docs/UsageCount.md
@@ -960,6 +961,7 @@ suger_sdk_python/models/types_usage_record_result_status.py
 suger_sdk_python/models/unique_count_aggregation_result.py
 suger_sdk_python/models/update_billable_metric_params.py
 suger_sdk_python/models/update_buyer_params.py
+suger_sdk_python/models/update_invoice_info_request.py
 suger_sdk_python/models/update_product_params.py
 suger_sdk_python/models/update_support_ticket_request.py
 suger_sdk_python/models/usage_count.py
@@ -979,4 +981,5 @@ suger_sdk_python/py.typed
 suger_sdk_python/rest.py
 test-requirements.txt
 test/__init__.py
+test/test_update_invoice_info_request.py
 tox.ini

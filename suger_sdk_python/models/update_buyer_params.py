@@ -37,7 +37,8 @@ class UpdateBuyerParams(BaseModel):
     name: Optional[StrictStr] = Field(default=None, description="The name of the buyer. If not provided, the name will not be updated.")
     orb_customer_id: Optional[StrictStr] = Field(default=None, description="The Orb Customer ID of the buyer. If not provided, the Orb Customer ID will not be updated.", alias="orbCustomerId")
     payment_config: Optional[PaymentConfig] = Field(default=None, description="Optional. PaymentConfig of the buyer. The currency can't be updated.", alias="paymentConfig")
-    __properties: ClassVar[List[str]] = ["companyInfo", "customerId", "description", "lagoCustomerId", "metronomeCustomerId", "name", "orbCustomerId", "paymentConfig"]
+    stripe_customer_id: Optional[StrictStr] = Field(default=None, description="The Stripe Customer ID of the buyer. If not provided, the Stripe Customer ID will not be updated.", alias="stripeCustomerId")
+    __properties: ClassVar[List[str]] = ["companyInfo", "customerId", "description", "lagoCustomerId", "metronomeCustomerId", "name", "orbCustomerId", "paymentConfig", "stripeCustomerId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -103,7 +104,8 @@ class UpdateBuyerParams(BaseModel):
             "metronomeCustomerId": obj.get("metronomeCustomerId"),
             "name": obj.get("name"),
             "orbCustomerId": obj.get("orbCustomerId"),
-            "paymentConfig": PaymentConfig.from_dict(obj["paymentConfig"]) if obj.get("paymentConfig") is not None else None
+            "paymentConfig": PaymentConfig.from_dict(obj["paymentConfig"]) if obj.get("paymentConfig") is not None else None,
+            "stripeCustomerId": obj.get("stripeCustomerId")
         })
         return _obj
 

@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_buyers**
-> List[IdentityBuyer] list_buyers(org_id, partner=partner, contact_id=contact_id, limit=limit, offset=offset)
+> List[IdentityBuyer] list_buyers(org_id, partner=partner, contact_id=contact_id, aws_account_id=aws_account_id, limit=limit, offset=offset)
 
 list buyers
 
@@ -560,12 +560,13 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     org_id = 'org_id_example' # str | Organization ID
     partner = 'partner_example' # str | filter by partner (optional)
     contact_id = 'contact_id_example' # str | filter by contactId (optional)
+    aws_account_id = 'aws_account_id_example' # str | filter by awsAccountId (optional)
     limit = 56 # int | List pagination size, default 1000, max value is 1000 (optional)
     offset = 56 # int | List pagination offset, default 0 (optional)
 
     try:
         # list buyers
-        api_response = api_instance.list_buyers(org_id, partner=partner, contact_id=contact_id, limit=limit, offset=offset)
+        api_response = api_instance.list_buyers(org_id, partner=partner, contact_id=contact_id, aws_account_id=aws_account_id, limit=limit, offset=offset)
         print("The response of BuyerApi->list_buyers:\n")
         pprint(api_response)
     except Exception as e:
@@ -582,6 +583,7 @@ Name | Type | Description  | Notes
  **org_id** | **str**| Organization ID | 
  **partner** | **str**| filter by partner | [optional] 
  **contact_id** | **str**| filter by contactId | [optional] 
+ **aws_account_id** | **str**| filter by awsAccountId | [optional] 
  **limit** | **int**| List pagination size, default 1000, max value is 1000 | [optional] 
  **offset** | **int**| List pagination offset, default 0 | [optional] 
 

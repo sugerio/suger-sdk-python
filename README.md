@@ -112,6 +112,7 @@ Class | Method | HTTP request | Description
 *BillingApi* | [**list_refund_of_payment_transaction**](docs/BillingApi.md#list_refund_of_payment_transaction) | **GET** /org/{orgId}/buyer/{buyerId}/paymentTransaction/{paymentTransactionId}/refund | list refunds.
 *BillingApi* | [**pay_invoice**](docs/BillingApi.md#pay_invoice) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/pay | pay invoice
 *BillingApi* | [**update_addon**](docs/BillingApi.md#update_addon) | **PATCH** /org/{orgId}/addon/{addonId} | update addon
+*BillingApi* | [**update_invoice_info**](docs/BillingApi.md#update_invoice_info) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/info | Update invoice info
 *BillingApi* | [**void_invoice**](docs/BillingApi.md#void_invoice) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/void | void invoice
 *BuyerApi* | [**close_credit_wallet**](docs/BuyerApi.md#close_credit_wallet) | **PATCH** /org/{orgId}/buyer/{buyerId}/wallet/{walletId}/close | close credit wallet
 *BuyerApi* | [**create_buyer**](docs/BuyerApi.md#create_buyer) | **POST** /org/{orgId}/buyer | create buyer
@@ -659,6 +660,7 @@ Class | Method | HTTP request | Description
  - [UniqueCountAggregationResult](docs/UniqueCountAggregationResult.md)
  - [UpdateBillableMetricParams](docs/UpdateBillableMetricParams.md)
  - [UpdateBuyerParams](docs/UpdateBuyerParams.md)
+ - [UpdateInvoiceInfoRequest](docs/UpdateInvoiceInfoRequest.md)
  - [UpdateProductParams](docs/UpdateProductParams.md)
  - [UpdateSupportTicketRequest](docs/UpdateSupportTicketRequest.md)
  - [UsageCount](docs/UsageCount.md)
