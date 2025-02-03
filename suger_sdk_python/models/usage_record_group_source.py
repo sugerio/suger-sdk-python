@@ -30,9 +30,10 @@ class UsageRecordGroupSource(str, Enum):
     EMPTY = ''
     API = 'API'
     INTERNAL = 'INTERNAL'
+    LAGO = 'LAGO'
     METRONOME = 'METRONOME'
     ORB = 'ORB'
-    LAGO = 'LAGO'
+    STRIPE = 'STRIPE'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

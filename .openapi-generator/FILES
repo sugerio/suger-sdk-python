@@ -981,5 +981,4 @@ suger_sdk_python/py.typed
 suger_sdk_python/rest.py
 test-requirements.txt
 test/__init__.py
-test/test_update_invoice_info_request.py
 tox.ini

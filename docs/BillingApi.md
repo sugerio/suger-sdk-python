@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **issue_invoice**
-> BillingInvoice issue_invoice(org_id, entitlement_id, invoice_id)
+> BillingInvoice issue_invoice(org_id, entitlement_id, invoice_id, contact_ids=contact_ids)
 
 issue invoice
 
@@ -482,10 +482,11 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     org_id = 'org_id_example' # str | Organization ID
     entitlement_id = 'entitlement_id_example' # str | Entitlement ID
     invoice_id = 'invoice_id_example' # str | Invoice ID
+    contact_ids = ['contact_ids_example'] # List[str] | List of Contact IDs (optional)
 
     try:
         # issue invoice
-        api_response = api_instance.issue_invoice(org_id, entitlement_id, invoice_id)
+        api_response = api_instance.issue_invoice(org_id, entitlement_id, invoice_id, contact_ids=contact_ids)
         print("The response of BillingApi->issue_invoice:\n")
         pprint(api_response)
     except Exception as e:
@@ -502,6 +503,7 @@ Name | Type | Description  | Notes
  **org_id** | **str**| Organization ID | 
  **entitlement_id** | **str**| Entitlement ID | 
  **invoice_id** | **str**| Invoice ID | 
+ **contact_ids** | [**List[str]**](str.md)| List of Contact IDs | [optional] 
 
 ### Return type
 
@@ -513,7 +515,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

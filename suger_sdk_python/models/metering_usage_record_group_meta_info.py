@@ -41,8 +41,14 @@ class MeteringUsageRecordGroupMetaInfo(BaseModel):
     metronome_monthly_invoice_amount_adjusted: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The metronome monthly invoice amount (in dollars) of the customer, which is adjusted by the seller. This field is populated only when the invoice amount is decreased by the seller via credit granting.", alias="metronomeMonthlyInvoiceAmountAdjusted")
     origin_records: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(default=None, description="The original records reported by the customer before convertion. If no dimension mapping is applied, this field is the same as the records field.", alias="originRecords")
     source: Optional[UsageRecordGroupSource] = Field(default=None, description="The source of the usage record group. Can be from Suger API or other third party services, such as Metronome.")
+    stripe_invoice_id: Optional[StrictStr] = Field(default=None, alias="stripeInvoiceID")
+    stripe_period_end_time: Optional[datetime] = Field(default=None, description="The stripe period end time of the summary or invoice. UTC time in format \"YYYY-MM-DDTHH:MM:SSZ\".", alias="stripePeriodEndTime")
+    stripe_period_start_time: Optional[datetime] = Field(default=None, description="The stripe period start time of the summary or invoice. UTC time in format \"YYYY-MM-DDTHH:MM:SSZ\".", alias="stripePeriodStartTime")
+    stripe_subscription_item_id: Optional[StrictStr] = Field(default=None, alias="stripeSubscriptionItemID")
+    stripe_usage_record_summary_id: Optional[StrictStr] = Field(default=None, alias="stripeUsageRecordSummaryID")
+    stripe_usage_record_summary_total_usage: Optional[StrictInt] = Field(default=None, alias="stripeUsageRecordSummaryTotalUsage")
     timestamp: Optional[datetime] = Field(default=None, description="The timestamp (UTC)) of when the usage records were generated. Optional, if not provided, the current report timestamp will be used.")
-    __properties: ClassVar[List[str]] = ["SkipValidation", "billableRecords", "lagoAmount", "lagoSubscriptionID", "lagoUsageStartTime", "metronomeDailyCostAmount", "metronomeInvoiceID", "metronomeMonthlyInvoiceAmount", "metronomeMonthlyInvoiceAmountAdjusted", "originRecords", "source", "timestamp"]
+    __properties: ClassVar[List[str]] = ["SkipValidation", "billableRecords", "lagoAmount", "lagoSubscriptionID", "lagoUsageStartTime", "metronomeDailyCostAmount", "metronomeInvoiceID", "metronomeMonthlyInvoiceAmount", "metronomeMonthlyInvoiceAmountAdjusted", "originRecords", "source", "stripeInvoiceID", "stripePeriodEndTime", "stripePeriodStartTime", "stripeSubscriptionItemID", "stripeUsageRecordSummaryID", "stripeUsageRecordSummaryTotalUsage", "timestamp"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -113,6 +119,12 @@ class MeteringUsageRecordGroupMetaInfo(BaseModel):
             "metronomeMonthlyInvoiceAmountAdjusted": obj.get("metronomeMonthlyInvoiceAmountAdjusted"),
             "originRecords": obj.get("originRecords"),
             "source": obj.get("source"),
+            "stripeInvoiceID": obj.get("stripeInvoiceID"),
+            "stripePeriodEndTime": obj.get("stripePeriodEndTime"),
+            "stripePeriodStartTime": obj.get("stripePeriodStartTime"),
+            "stripeSubscriptionItemID": obj.get("stripeSubscriptionItemID"),
+            "stripeUsageRecordSummaryID": obj.get("stripeUsageRecordSummaryID"),
+            "stripeUsageRecordSummaryTotalUsage": obj.get("stripeUsageRecordSummaryTotalUsage"),
             "timestamp": obj.get("timestamp")
         })
         return _obj

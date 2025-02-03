@@ -16,6 +16,12 @@ Name | Type | Description | Notes
 **metronome_monthly_invoice_amount_adjusted** | **float** | The metronome monthly invoice amount (in dollars) of the customer, which is adjusted by the seller. This field is populated only when the invoice amount is decreased by the seller via credit granting. | [optional] 
 **origin_records** | **Dict[str, float]** | The original records reported by the customer before convertion. If no dimension mapping is applied, this field is the same as the records field. | [optional] 
 **source** | [**UsageRecordGroupSource**](UsageRecordGroupSource.md) | The source of the usage record group. Can be from Suger API or other third party services, such as Metronome. | [optional] 
+**stripe_invoice_id** | **str** |  | [optional] 
+**stripe_period_end_time** | **datetime** | The stripe period end time of the summary or invoice. UTC time in format \&quot;YYYY-MM-DDTHH:MM:SSZ\&quot;. | [optional] 
+**stripe_period_start_time** | **datetime** | The stripe period start time of the summary or invoice. UTC time in format \&quot;YYYY-MM-DDTHH:MM:SSZ\&quot;. | [optional] 
+**stripe_subscription_item_id** | **str** |  | [optional] 
+**stripe_usage_record_summary_id** | **str** |  | [optional] 
+**stripe_usage_record_summary_total_usage** | **int** |  | [optional] 
 **timestamp** | **datetime** | The timestamp (UTC)) of when the usage records were generated. Optional, if not provided, the current report timestamp will be used. | [optional] 
 
 ## Example

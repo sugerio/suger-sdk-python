@@ -1521,6 +1521,7 @@ class BillingApi:
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         entitlement_id: Annotated[StrictStr, Field(description="Entitlement ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
+        contact_ids: Annotated[Optional[List[StrictStr]], Field(description="List of Contact IDs")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1544,6 +1545,8 @@ class BillingApi:
         :type entitlement_id: str
         :param invoice_id: Invoice ID (required)
         :type invoice_id: str
+        :param contact_ids: List of Contact IDs
+        :type contact_ids: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1570,6 +1573,7 @@ class BillingApi:
             org_id=org_id,
             entitlement_id=entitlement_id,
             invoice_id=invoice_id,
+            contact_ids=contact_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1598,6 +1602,7 @@ class BillingApi:
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         entitlement_id: Annotated[StrictStr, Field(description="Entitlement ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
+        contact_ids: Annotated[Optional[List[StrictStr]], Field(description="List of Contact IDs")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1621,6 +1626,8 @@ class BillingApi:
         :type entitlement_id: str
         :param invoice_id: Invoice ID (required)
         :type invoice_id: str
+        :param contact_ids: List of Contact IDs
+        :type contact_ids: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1647,6 +1654,7 @@ class BillingApi:
             org_id=org_id,
             entitlement_id=entitlement_id,
             invoice_id=invoice_id,
+            contact_ids=contact_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1675,6 +1683,7 @@ class BillingApi:
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         entitlement_id: Annotated[StrictStr, Field(description="Entitlement ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
+        contact_ids: Annotated[Optional[List[StrictStr]], Field(description="List of Contact IDs")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1698,6 +1707,8 @@ class BillingApi:
         :type entitlement_id: str
         :param invoice_id: Invoice ID (required)
         :type invoice_id: str
+        :param contact_ids: List of Contact IDs
+        :type contact_ids: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1724,6 +1735,7 @@ class BillingApi:
             org_id=org_id,
             entitlement_id=entitlement_id,
             invoice_id=invoice_id,
+            contact_ids=contact_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1747,6 +1759,7 @@ class BillingApi:
         org_id,
         entitlement_id,
         invoice_id,
+        contact_ids,
         _request_auth,
         _content_type,
         _headers,
@@ -1756,6 +1769,7 @@ class BillingApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'contactIds': '',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1778,6 +1792,8 @@ class BillingApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if contact_ids is not None:
+            _body_params = contact_ids
 
 
         # set the HTTP header `Accept`
@@ -1788,6 +1804,19 @@ class BillingApi:
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
