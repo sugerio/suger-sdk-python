@@ -47,7 +47,7 @@ class TestSimpleTest(unittest.TestCase):
 
     def test_get_entitlement(self) -> None:
         org_id = 'w43Vc6UfM'
-        entitlement_id = 'uDSI9ee_S'
+        entitlement_id = 'rFofgFDS_'
         try:
             result = EntitlementApi(self.api).get_entitlement(org_id, entitlement_id)
             print("The response of EntitlementApi:\n")
