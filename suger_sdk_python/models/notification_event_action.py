@@ -64,6 +64,7 @@ class NotificationEventAction(str, Enum):
     SUBMIT_APPROVAL_REQUEST = 'SUBMIT_APPROVAL_REQUEST'
     REVIEW_APPROVAL_REQUEST = 'REVIEW_APPROVAL_REQUEST'
     COMPLETE = 'COMPLETE'
+    FAIL = 'FAIL'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

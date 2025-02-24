@@ -36,6 +36,7 @@ class GcpMarketplaceResellerPrivateOfferPlanStateType(str, Enum):
     STATE_TYPE_CANCELED = 'STATE_TYPE_CANCELED'
     STATE_TYPE_EXPIRED_NEVER_ACCEPTED = 'STATE_TYPE_EXPIRED_NEVER_ACCEPTED'
     STATE_TYPE_EXPIRED_ACCEPTED = 'STATE_TYPE_EXPIRED_ACCEPTED'
+    STATE_TYPE_COMPLETED = 'STATE_TYPE_COMPLETED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

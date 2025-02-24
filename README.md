@@ -105,15 +105,21 @@ Class | Method | HTTP request | Description
 *BillingApi* | [**delete_addon**](docs/BillingApi.md#delete_addon) | **DELETE** /org/{orgId}/addon/{addonId} | delete addon
 *BillingApi* | [**get_addon**](docs/BillingApi.md#get_addon) | **GET** /org/{orgId}/addon/{addonId} | get addon
 *BillingApi* | [**get_invoice**](docs/BillingApi.md#get_invoice) | **GET** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId} | get invoice
+*BillingApi* | [**get_invoice_issued_email_preview**](docs/BillingApi.md#get_invoice_issued_email_preview) | **GET** /org/{orgId}/invoice/{invoiceId}/preview | Get the preview of the invoice issued email
+*BillingApi* | [**get_invoice_v2**](docs/BillingApi.md#get_invoice_v2) | **GET** /org/{orgId}/invoice/{invoiceId} | get invoice
 *BillingApi* | [**issue_invoice**](docs/BillingApi.md#issue_invoice) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/issue | issue invoice
+*BillingApi* | [**issue_invoice_v2**](docs/BillingApi.md#issue_invoice_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/issue | issue invoice
 *BillingApi* | [**list_addons**](docs/BillingApi.md#list_addons) | **GET** /org/{orgId}/addon | list addons
 *BillingApi* | [**list_invoices**](docs/BillingApi.md#list_invoices) | **GET** /org/{orgId}/invoice | list invoices
 *BillingApi* | [**list_payment_transactions**](docs/BillingApi.md#list_payment_transactions) | **GET** /org/{orgId}/paymentTransaction | list payment transactions
 *BillingApi* | [**list_refund_of_payment_transaction**](docs/BillingApi.md#list_refund_of_payment_transaction) | **GET** /org/{orgId}/buyer/{buyerId}/paymentTransaction/{paymentTransactionId}/refund | list refunds.
 *BillingApi* | [**pay_invoice**](docs/BillingApi.md#pay_invoice) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/pay | pay invoice
+*BillingApi* | [**pay_invoice_v2**](docs/BillingApi.md#pay_invoice_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/pay | pay invoice
 *BillingApi* | [**update_addon**](docs/BillingApi.md#update_addon) | **PATCH** /org/{orgId}/addon/{addonId} | update addon
 *BillingApi* | [**update_invoice_info**](docs/BillingApi.md#update_invoice_info) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/info | Update invoice info
+*BillingApi* | [**update_invoice_info_v2**](docs/BillingApi.md#update_invoice_info_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/info | Update invoice info
 *BillingApi* | [**void_invoice**](docs/BillingApi.md#void_invoice) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/void | void invoice
+*BillingApi* | [**void_invoice_v2**](docs/BillingApi.md#void_invoice_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/void | void invoice
 *BuyerApi* | [**close_credit_wallet**](docs/BuyerApi.md#close_credit_wallet) | **PATCH** /org/{orgId}/buyer/{buyerId}/wallet/{walletId}/close | close credit wallet
 *BuyerApi* | [**create_buyer**](docs/BuyerApi.md#create_buyer) | **POST** /org/{orgId}/buyer | create buyer
 *BuyerApi* | [**create_credit_wallet**](docs/BuyerApi.md#create_credit_wallet) | **POST** /org/{orgId}/buyer/{buyerId}/wallet | create credit wallet
@@ -447,6 +453,7 @@ Class | Method | HTTP request | Description
  - [GcpAmountConstraint](docs/GcpAmountConstraint.md)
  - [GcpAmountUnit](docs/GcpAmountUnit.md)
  - [GcpCommitmentAmountPerPeriodTemplate](docs/GcpCommitmentAmountPerPeriodTemplate.md)
+ - [GcpMarketplaceAgreementDocument](docs/GcpMarketplaceAgreementDocument.md)
  - [GcpMarketplaceConsumer](docs/GcpMarketplaceConsumer.md)
  - [GcpMarketplaceDocument](docs/GcpMarketplaceDocument.md)
  - [GcpMarketplaceEntitlement](docs/GcpMarketplaceEntitlement.md)

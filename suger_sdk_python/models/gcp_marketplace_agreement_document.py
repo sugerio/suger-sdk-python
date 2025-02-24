@@ -18,21 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from suger_sdk_python.models.gcp_marketplace_document import GcpMarketplaceDocument
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GcpMarketplacePrivateOfferMigrationMetadata(BaseModel):
+class GcpMarketplaceAgreementDocument(BaseModel):
     """
-    GcpMarketplacePrivateOfferMigrationMetadata
+    GcpMarketplaceAgreementDocument
     """ # noqa: E501
-    inventory_flavor_external_name: Optional[StrictStr] = Field(default=None, description="Plan name maybe with term suffix, such as \"plan-name-P1Y\"", alias="inventoryFlavorExternalName")
-    product_external_name: Optional[StrictStr] = Field(default=None, description="in format of \"product-service-id.endpoints.gcp-project-id.cloud.goog\"", alias="productExternalName")
-    project_id: Optional[StrictStr] = Field(default=None, description="The GCP project ID of the GCP marketplace integration.", alias="projectId")
-    project_number: Optional[StrictStr] = Field(default=None, description="The GCP project number of the provider.", alias="projectNumber")
-    provider_id: Optional[StrictStr] = Field(default=None, description="The GCP provider ID / partner ID of the GCP marketplace integration. In most cases, it is the same as the project ID. But it could be different.", alias="providerId")
-    __properties: ClassVar[List[str]] = ["inventoryFlavorExternalName", "productExternalName", "projectId", "projectNumber", "providerId"]
+    eula_agreement_document: Optional[GcpMarketplaceDocument] = Field(default=None, alias="eulaAgreementDocument")
+    __properties: ClassVar[List[str]] = ["eulaAgreementDocument"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +49,7 @@ class GcpMarketplacePrivateOfferMigrationMetadata(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GcpMarketplacePrivateOfferMigrationMetadata from a JSON string"""
+        """Create an instance of GcpMarketplaceAgreementDocument from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,11 +70,14 @@ class GcpMarketplacePrivateOfferMigrationMetadata(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of eula_agreement_document
+        if self.eula_agreement_document:
+            _dict['eulaAgreementDocument'] = self.eula_agreement_document.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GcpMarketplacePrivateOfferMigrationMetadata from a dict"""
+        """Create an instance of GcpMarketplaceAgreementDocument from a dict"""
         if obj is None:
             return None
 
@@ -85,11 +85,7 @@ class GcpMarketplacePrivateOfferMigrationMetadata(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "inventoryFlavorExternalName": obj.get("inventoryFlavorExternalName"),
-            "productExternalName": obj.get("productExternalName"),
-            "projectId": obj.get("projectId"),
-            "projectNumber": obj.get("projectNumber"),
-            "providerId": obj.get("providerId")
+            "eulaAgreementDocument": GcpMarketplaceDocument.from_dict(obj["eulaAgreementDocument"]) if obj.get("eulaAgreementDocument") is not None else None
         })
         return _obj
 

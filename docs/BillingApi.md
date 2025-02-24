@@ -9,15 +9,21 @@ Method | HTTP request | Description
 [**delete_addon**](BillingApi.md#delete_addon) | **DELETE** /org/{orgId}/addon/{addonId} | delete addon
 [**get_addon**](BillingApi.md#get_addon) | **GET** /org/{orgId}/addon/{addonId} | get addon
 [**get_invoice**](BillingApi.md#get_invoice) | **GET** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId} | get invoice
+[**get_invoice_issued_email_preview**](BillingApi.md#get_invoice_issued_email_preview) | **GET** /org/{orgId}/invoice/{invoiceId}/preview | Get the preview of the invoice issued email
+[**get_invoice_v2**](BillingApi.md#get_invoice_v2) | **GET** /org/{orgId}/invoice/{invoiceId} | get invoice
 [**issue_invoice**](BillingApi.md#issue_invoice) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/issue | issue invoice
+[**issue_invoice_v2**](BillingApi.md#issue_invoice_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/issue | issue invoice
 [**list_addons**](BillingApi.md#list_addons) | **GET** /org/{orgId}/addon | list addons
 [**list_invoices**](BillingApi.md#list_invoices) | **GET** /org/{orgId}/invoice | list invoices
 [**list_payment_transactions**](BillingApi.md#list_payment_transactions) | **GET** /org/{orgId}/paymentTransaction | list payment transactions
 [**list_refund_of_payment_transaction**](BillingApi.md#list_refund_of_payment_transaction) | **GET** /org/{orgId}/buyer/{buyerId}/paymentTransaction/{paymentTransactionId}/refund | list refunds.
 [**pay_invoice**](BillingApi.md#pay_invoice) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/pay | pay invoice
+[**pay_invoice_v2**](BillingApi.md#pay_invoice_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/pay | pay invoice
 [**update_addon**](BillingApi.md#update_addon) | **PATCH** /org/{orgId}/addon/{addonId} | update addon
 [**update_invoice_info**](BillingApi.md#update_invoice_info) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/info | Update invoice info
+[**update_invoice_info_v2**](BillingApi.md#update_invoice_info_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/info | Update invoice info
 [**void_invoice**](BillingApi.md#void_invoice) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/void | void invoice
+[**void_invoice_v2**](BillingApi.md#void_invoice_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/void | void invoice
 
 
 # **create_addon**
@@ -441,6 +447,171 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_invoice_issued_email_preview**
+> str get_invoice_issued_email_preview(org_id, invoice_id)
+
+Get the preview of the invoice issued email
+
+Returns the preview HTML content of the invoice issued email.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+
+```python
+import suger_sdk_python
+from suger_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://https://api.suger.cloud
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with suger_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suger_sdk_python.BillingApi(api_client)
+    org_id = 'org_id_example' # str | Organization ID
+    invoice_id = 'invoice_id_example' # str | Invoice ID
+
+    try:
+        # Get the preview of the invoice issued email
+        api_response = api_instance.get_invoice_issued_email_preview(org_id, invoice_id)
+        print("The response of BillingApi->get_invoice_issued_email_preview:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling BillingApi->get_invoice_issued_email_preview: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| Organization ID | 
+ **invoice_id** | **str**| Invoice ID | 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/html
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | HTML content of the invoice issued email |  -  |
+**400** | Bad request error |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_invoice_v2**
+> BillingInvoice get_invoice_v2(org_id, invoice_id)
+
+get invoice
+
+Get the invoice by ID
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+
+```python
+import suger_sdk_python
+from suger_sdk_python.models.billing_invoice import BillingInvoice
+from suger_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://https://api.suger.cloud
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with suger_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suger_sdk_python.BillingApi(api_client)
+    org_id = 'org_id_example' # str | Organization ID
+    invoice_id = 'invoice_id_example' # str | Invoice ID
+
+    try:
+        # get invoice
+        api_response = api_instance.get_invoice_v2(org_id, invoice_id)
+        print("The response of BillingApi->get_invoice_v2:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling BillingApi->get_invoice_v2: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| Organization ID | 
+ **invoice_id** | **str**| Invoice ID | 
+
+### Return type
+
+[**BillingInvoice**](BillingInvoice.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request error |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **issue_invoice**
 > BillingInvoice issue_invoice(org_id, entitlement_id, invoice_id, contact_ids=contact_ids)
 
@@ -502,6 +673,91 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
  **entitlement_id** | **str**| Entitlement ID | 
+ **invoice_id** | **str**| Invoice ID | 
+ **contact_ids** | [**List[str]**](str.md)| List of Contact IDs | [optional] 
+
+### Return type
+
+[**BillingInvoice**](BillingInvoice.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | the issued Invoice |  -  |
+**400** | Bad request error |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **issue_invoice_v2**
+> BillingInvoice issue_invoice_v2(org_id, invoice_id, contact_ids=contact_ids)
+
+issue invoice
+
+Issue the invoice immediately. It can be used for manual issue or reissue invoice.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+
+```python
+import suger_sdk_python
+from suger_sdk_python.models.billing_invoice import BillingInvoice
+from suger_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://https://api.suger.cloud
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with suger_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suger_sdk_python.BillingApi(api_client)
+    org_id = 'org_id_example' # str | Organization ID
+    invoice_id = 'invoice_id_example' # str | Invoice ID
+    contact_ids = ['contact_ids_example'] # List[str] | List of Contact IDs (optional)
+
+    try:
+        # issue invoice
+        api_response = api_instance.issue_invoice_v2(org_id, invoice_id, contact_ids=contact_ids)
+        print("The response of BillingApi->issue_invoice_v2:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling BillingApi->issue_invoice_v2: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| Organization ID | 
  **invoice_id** | **str**| Invoice ID | 
  **contact_ids** | [**List[str]**](str.md)| List of Contact IDs | [optional] 
 
@@ -969,6 +1225,89 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **pay_invoice_v2**
+> BillingInvoice pay_invoice_v2(org_id, invoice_id)
+
+pay invoice
+
+Initiate the payment for the invoice immediately. It can be used for manual payment or retry payment.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+
+```python
+import suger_sdk_python
+from suger_sdk_python.models.billing_invoice import BillingInvoice
+from suger_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://https://api.suger.cloud
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with suger_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suger_sdk_python.BillingApi(api_client)
+    org_id = 'org_id_example' # str | Organization ID
+    invoice_id = 'invoice_id_example' # str | Invoice ID
+
+    try:
+        # pay invoice
+        api_response = api_instance.pay_invoice_v2(org_id, invoice_id)
+        print("The response of BillingApi->pay_invoice_v2:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling BillingApi->pay_invoice_v2: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| Organization ID | 
+ **invoice_id** | **str**| Invoice ID | 
+
+### Return type
+
+[**BillingInvoice**](BillingInvoice.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request error |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_addon**
 > BillingAddon update_addon(org_id, addon_id, data)
 
@@ -1143,6 +1482,92 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **update_invoice_info_v2**
+> BillingInvoiceInfo update_invoice_info_v2(org_id, invoice_id, data)
+
+Update invoice info
+
+Update a draft invoice. Only DueDate, OverallDiscount, and Memo can be updated.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+
+```python
+import suger_sdk_python
+from suger_sdk_python.models.billing_invoice_info import BillingInvoiceInfo
+from suger_sdk_python.models.update_invoice_info_request import UpdateInvoiceInfoRequest
+from suger_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://https://api.suger.cloud
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with suger_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suger_sdk_python.BillingApi(api_client)
+    org_id = 'org_id_example' # str | Organization ID
+    invoice_id = 'invoice_id_example' # str | Invoice ID
+    data = suger_sdk_python.UpdateInvoiceInfoRequest() # UpdateInvoiceInfoRequest | Update Invoice Info Request Params
+
+    try:
+        # Update invoice info
+        api_response = api_instance.update_invoice_info_v2(org_id, invoice_id, data)
+        print("The response of BillingApi->update_invoice_info_v2:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling BillingApi->update_invoice_info_v2: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| Organization ID | 
+ **invoice_id** | **str**| Invoice ID | 
+ **data** | [**UpdateInvoiceInfoRequest**](UpdateInvoiceInfoRequest.md)| Update Invoice Info Request Params | 
+
+### Return type
+
+[**BillingInvoiceInfo**](BillingInvoiceInfo.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Updated Invoice info |  -  |
+**400** | Bad request error |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **void_invoice**
 > BillingInvoice void_invoice(org_id, entitlement_id, invoice_id)
 
@@ -1203,6 +1628,89 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
  **entitlement_id** | **str**| Entitlement ID | 
+ **invoice_id** | **str**| Invoice ID | 
+
+### Return type
+
+[**BillingInvoice**](BillingInvoice.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request error |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **void_invoice_v2**
+> BillingInvoice void_invoice_v2(org_id, invoice_id)
+
+void invoice
+
+Void the invoice. It can be used for manual void or cancel the invoice.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+
+```python
+import suger_sdk_python
+from suger_sdk_python.models.billing_invoice import BillingInvoice
+from suger_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://https://api.suger.cloud
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with suger_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suger_sdk_python.BillingApi(api_client)
+    org_id = 'org_id_example' # str | Organization ID
+    invoice_id = 'invoice_id_example' # str | Invoice ID
+
+    try:
+        # void invoice
+        api_response = api_instance.void_invoice_v2(org_id, invoice_id)
+        print("The response of BillingApi->void_invoice_v2:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling BillingApi->void_invoice_v2: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| Organization ID | 
  **invoice_id** | **str**| Invoice ID | 
 
 ### Return type

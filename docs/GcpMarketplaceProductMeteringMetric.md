@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **display_name** | **str** |  | [optional] 
 **display_unit** | **str** | such as \&quot;min\&quot; | [optional] 
 **display_unit_description** | **str** | such as \&quot;minute\&quot; | [optional] 
-**id** | **str** | The usage metering metric/dimension key, all in lower case with underscore. It is in format of \&quot;{plan_id}_{usage_dimension_key}\&quot;. For example, \&quot;basic_plan_storage\&quot;. | [optional] 
+**id** | **str** | The usage metering metric/dimension key It is in format of \&quot;{plan_id}_{usage_dimension_key}\&quot;. For example, \&quot;basic_plan_storage\&quot;. | [optional] 
 **metric_kind** | **str** | such as \&quot;DELTA\&quot; | [optional] 
 **name** | **str** | Name: The resource name of the metric descriptor, in format of \&quot;{productServiceName}/{plan_id}_{usage_dimension_key}\&quot; | [optional] 
 **price_tiers** | [**List[GcpPriceTier]**](GcpPriceTier.md) | Price info of this usage metering metric. Only applicable for the default offer (plan) and private offer. | [optional] 

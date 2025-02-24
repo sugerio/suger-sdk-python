@@ -33,7 +33,7 @@ class GcpMarketplaceProductMeteringMetric(BaseModel):
     display_name: Optional[StrictStr] = Field(default=None, alias="displayName")
     display_unit: Optional[StrictStr] = Field(default=None, description="such as \"min\"", alias="displayUnit")
     display_unit_description: Optional[StrictStr] = Field(default=None, description="such as \"minute\"", alias="displayUnitDescription")
-    id: Optional[StrictStr] = Field(default=None, description="The usage metering metric/dimension key, all in lower case with underscore. It is in format of \"{plan_id}_{usage_dimension_key}\". For example, \"basic_plan_storage\".")
+    id: Optional[StrictStr] = Field(default=None, description="The usage metering metric/dimension key It is in format of \"{plan_id}_{usage_dimension_key}\". For example, \"basic_plan_storage\".")
     metric_kind: Optional[StrictStr] = Field(default=None, description="such as \"DELTA\"", alias="metricKind")
     name: Optional[StrictStr] = Field(default=None, description="Name: The resource name of the metric descriptor, in format of \"{productServiceName}/{plan_id}_{usage_dimension_key}\"")
     price_tiers: Optional[List[GcpPriceTier]] = Field(default=None, description="Price info of this usage metering metric. Only applicable for the default offer (plan) and private offer.", alias="priceTiers")

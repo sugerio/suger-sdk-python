@@ -7,8 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **inventory_flavor_external_name** | **str** | Plan name maybe with term suffix, such as \&quot;plan-name-P1Y\&quot; | [optional] 
 **product_external_name** | **str** | in format of \&quot;product-service-id.endpoints.gcp-project-id.cloud.goog\&quot; | [optional] 
+**project_id** | **str** | The GCP project ID of the GCP marketplace integration. | [optional] 
 **project_number** | **str** | The GCP project number of the provider. | [optional] 
-**provider_id** | **str** | The GCP project ID of the provider. | [optional] 
+**provider_id** | **str** | The GCP provider ID / partner ID of the GCP marketplace integration. In most cases, it is the same as the project ID. But it could be different. | [optional] 
 
 ## Example
 

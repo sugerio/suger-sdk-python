@@ -49,6 +49,7 @@ class Partner(str, Enum):
     SNOWFLAKE = 'SNOWFLAKE'
     STRIPE = 'STRIPE'
     ZOHO = 'ZOHO'
+    DATABRICKS = 'DATABRICKS'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

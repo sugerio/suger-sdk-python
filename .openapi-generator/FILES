@@ -249,6 +249,7 @@ docs/EulaType.md
 docs/GcpAmountConstraint.md
 docs/GcpAmountUnit.md
 docs/GcpCommitmentAmountPerPeriodTemplate.md
+docs/GcpMarketplaceAgreementDocument.md
 docs/GcpMarketplaceConsumer.md
 docs/GcpMarketplaceDocument.md
 docs/GcpMarketplaceEntitlement.md
@@ -748,6 +749,7 @@ suger_sdk_python/models/eula_type.py
 suger_sdk_python/models/gcp_amount_constraint.py
 suger_sdk_python/models/gcp_amount_unit.py
 suger_sdk_python/models/gcp_commitment_amount_per_period_template.py
+suger_sdk_python/models/gcp_marketplace_agreement_document.py
 suger_sdk_python/models/gcp_marketplace_consumer.py
 suger_sdk_python/models/gcp_marketplace_document.py
 suger_sdk_python/models/gcp_marketplace_entitlement.py
@@ -981,4 +983,5 @@ suger_sdk_python/py.typed
 suger_sdk_python/rest.py
 test-requirements.txt
 test/__init__.py
+test/test_gcp_marketplace_agreement_document.py
 tox.ini
