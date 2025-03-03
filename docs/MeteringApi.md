@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_usage_record_group**
-> MeteringUsageRecordGroup delete_usage_record_group(org_id, usage_record_group_id)
+> MeteringUsageRecordGroup delete_usage_record_group(org_id, usage_record_group_id, creation_date=creation_date)
 
 delete usageRecordGroup
 
@@ -309,10 +309,11 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     api_instance = suger_sdk_python.MeteringApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     usage_record_group_id = 'usage_record_group_id_example' # str | UsageRecordGroup ID
+    creation_date = 'creation_date_example' # str | UsageRecordGroup's creation date (UTC) in YYYY-MM-DD format (optional)
 
     try:
         # delete usageRecordGroup
-        api_response = api_instance.delete_usage_record_group(org_id, usage_record_group_id)
+        api_response = api_instance.delete_usage_record_group(org_id, usage_record_group_id, creation_date=creation_date)
         print("The response of MeteringApi->delete_usage_record_group:\n")
         pprint(api_response)
     except Exception as e:
@@ -328,6 +329,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
  **usage_record_group_id** | **str**| UsageRecordGroup ID | 
+ **creation_date** | **str**| UsageRecordGroup&#39;s creation date (UTC) in YYYY-MM-DD format | [optional] 
 
 ### Return type
 
@@ -884,7 +886,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retry_usage_record_group**
-> MeteringUsageRecordGroup retry_usage_record_group(org_id, usage_record_group_id)
+> MeteringUsageRecordGroup retry_usage_record_group(org_id, usage_record_group_id, creation_date=creation_date)
 
 retry usageRecordGroup
 
@@ -923,10 +925,11 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     api_instance = suger_sdk_python.MeteringApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     usage_record_group_id = 'usage_record_group_id_example' # str | UsageRecordGroup ID
+    creation_date = 'creation_date_example' # str | UsageRecordGroup's creation date (UTC) in YYYY-MM-DD format (optional)
 
     try:
         # retry usageRecordGroup
-        api_response = api_instance.retry_usage_record_group(org_id, usage_record_group_id)
+        api_response = api_instance.retry_usage_record_group(org_id, usage_record_group_id, creation_date=creation_date)
         print("The response of MeteringApi->retry_usage_record_group:\n")
         pprint(api_response)
     except Exception as e:
@@ -942,6 +945,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
  **usage_record_group_id** | **str**| UsageRecordGroup ID | 
+ **creation_date** | **str**| UsageRecordGroup&#39;s creation date (UTC) in YYYY-MM-DD format | [optional] 
 
 ### Return type
 

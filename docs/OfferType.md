@@ -7,6 +7,8 @@
 
 * `AMI` (value: `'AMI'`)
 
+* `APPLICATION` (value: `'APPLICATION'`)
+
 * `CONTAINER` (value: `'CONTAINER'`)
 
 * `CONTRACT` (value: `'CONTRACT'`)
@@ -18,6 +20,8 @@
 * `CPPO` (value: `'CPPO'`)
 
 * `CUD` (value: `'CUD'`)
+
+* `DATA` (value: `'DATA'`)
 
 * `DEFAULT` (value: `'DEFAULT'`)
 

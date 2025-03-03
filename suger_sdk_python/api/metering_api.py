@@ -939,6 +939,7 @@ class MeteringApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         usage_record_group_id: Annotated[StrictStr, Field(description="UsageRecordGroup ID")],
+        creation_date: Annotated[Optional[StrictStr], Field(description="UsageRecordGroup's creation date (UTC) in YYYY-MM-DD format")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -960,6 +961,8 @@ class MeteringApi:
         :type org_id: str
         :param usage_record_group_id: UsageRecordGroup ID (required)
         :type usage_record_group_id: str
+        :param creation_date: UsageRecordGroup's creation date (UTC) in YYYY-MM-DD format
+        :type creation_date: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -985,6 +988,7 @@ class MeteringApi:
         _param = self._delete_usage_record_group_serialize(
             org_id=org_id,
             usage_record_group_id=usage_record_group_id,
+            creation_date=creation_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1013,6 +1017,7 @@ class MeteringApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         usage_record_group_id: Annotated[StrictStr, Field(description="UsageRecordGroup ID")],
+        creation_date: Annotated[Optional[StrictStr], Field(description="UsageRecordGroup's creation date (UTC) in YYYY-MM-DD format")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1034,6 +1039,8 @@ class MeteringApi:
         :type org_id: str
         :param usage_record_group_id: UsageRecordGroup ID (required)
         :type usage_record_group_id: str
+        :param creation_date: UsageRecordGroup's creation date (UTC) in YYYY-MM-DD format
+        :type creation_date: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1059,6 +1066,7 @@ class MeteringApi:
         _param = self._delete_usage_record_group_serialize(
             org_id=org_id,
             usage_record_group_id=usage_record_group_id,
+            creation_date=creation_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1087,6 +1095,7 @@ class MeteringApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         usage_record_group_id: Annotated[StrictStr, Field(description="UsageRecordGroup ID")],
+        creation_date: Annotated[Optional[StrictStr], Field(description="UsageRecordGroup's creation date (UTC) in YYYY-MM-DD format")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1108,6 +1117,8 @@ class MeteringApi:
         :type org_id: str
         :param usage_record_group_id: UsageRecordGroup ID (required)
         :type usage_record_group_id: str
+        :param creation_date: UsageRecordGroup's creation date (UTC) in YYYY-MM-DD format
+        :type creation_date: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1133,6 +1144,7 @@ class MeteringApi:
         _param = self._delete_usage_record_group_serialize(
             org_id=org_id,
             usage_record_group_id=usage_record_group_id,
+            creation_date=creation_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1156,6 +1168,7 @@ class MeteringApi:
         self,
         org_id,
         usage_record_group_id,
+        creation_date,
         _request_auth,
         _content_type,
         _headers,
@@ -1182,6 +1195,10 @@ class MeteringApi:
         if usage_record_group_id is not None:
             _path_params['usageRecordGroupId'] = usage_record_group_id
         # process the query parameters
+        if creation_date is not None:
+            
+            _query_params.append(('creationDate', creation_date))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -3193,6 +3210,7 @@ class MeteringApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         usage_record_group_id: Annotated[StrictStr, Field(description="UsageRecordGroup ID")],
+        creation_date: Annotated[Optional[StrictStr], Field(description="UsageRecordGroup's creation date (UTC) in YYYY-MM-DD format")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3214,6 +3232,8 @@ class MeteringApi:
         :type org_id: str
         :param usage_record_group_id: UsageRecordGroup ID (required)
         :type usage_record_group_id: str
+        :param creation_date: UsageRecordGroup's creation date (UTC) in YYYY-MM-DD format
+        :type creation_date: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3239,6 +3259,7 @@ class MeteringApi:
         _param = self._retry_usage_record_group_serialize(
             org_id=org_id,
             usage_record_group_id=usage_record_group_id,
+            creation_date=creation_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3267,6 +3288,7 @@ class MeteringApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         usage_record_group_id: Annotated[StrictStr, Field(description="UsageRecordGroup ID")],
+        creation_date: Annotated[Optional[StrictStr], Field(description="UsageRecordGroup's creation date (UTC) in YYYY-MM-DD format")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3288,6 +3310,8 @@ class MeteringApi:
         :type org_id: str
         :param usage_record_group_id: UsageRecordGroup ID (required)
         :type usage_record_group_id: str
+        :param creation_date: UsageRecordGroup's creation date (UTC) in YYYY-MM-DD format
+        :type creation_date: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3313,6 +3337,7 @@ class MeteringApi:
         _param = self._retry_usage_record_group_serialize(
             org_id=org_id,
             usage_record_group_id=usage_record_group_id,
+            creation_date=creation_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3341,6 +3366,7 @@ class MeteringApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         usage_record_group_id: Annotated[StrictStr, Field(description="UsageRecordGroup ID")],
+        creation_date: Annotated[Optional[StrictStr], Field(description="UsageRecordGroup's creation date (UTC) in YYYY-MM-DD format")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3362,6 +3388,8 @@ class MeteringApi:
         :type org_id: str
         :param usage_record_group_id: UsageRecordGroup ID (required)
         :type usage_record_group_id: str
+        :param creation_date: UsageRecordGroup's creation date (UTC) in YYYY-MM-DD format
+        :type creation_date: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3387,6 +3415,7 @@ class MeteringApi:
         _param = self._retry_usage_record_group_serialize(
             org_id=org_id,
             usage_record_group_id=usage_record_group_id,
+            creation_date=creation_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3410,6 +3439,7 @@ class MeteringApi:
         self,
         org_id,
         usage_record_group_id,
+        creation_date,
         _request_auth,
         _content_type,
         _headers,
@@ -3436,6 +3466,10 @@ class MeteringApi:
         if usage_record_group_id is not None:
             _path_params['usageRecordGroupId'] = usage_record_group_id
         # process the query parameters
+        if creation_date is not None:
+            
+            _query_params.append(('creationDate', creation_date))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

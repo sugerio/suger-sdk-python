@@ -27,7 +27,7 @@ from suger_sdk_python.models.azure_marketplace_metering_batch_usage_event import
 from suger_sdk_python.models.client_push_metering_data_request import ClientPushMeteringDataRequest
 from suger_sdk_python.models.client_push_metering_data_response_body import ClientPushMeteringDataResponseBody
 from suger_sdk_python.models.gcp_marketplace_metering_operation import GcpMarketplaceMeteringOperation
-from suger_sdk_python.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1_batch_usage_event_ok_response import GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_third_party_azure_sdk_marketplacemeteringv1_batch_usage_event_ok_response import GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse
 from suger_sdk_python.models.marketplacemetering_batch_meter_usage_output import MarketplacemeteringBatchMeterUsageOutput
 from suger_sdk_python.models.servicecontrol_report_response import ServicecontrolReportResponse
 from suger_sdk_python.models.usage_record_report_status import UsageRecordReportStatus
@@ -44,7 +44,7 @@ class MeteringUsageRecordReportInfo(BaseModel):
     aws_metering_request: Optional[AwsMarketplaceMeteringBatchMeterUsageInput] = Field(default=None, description="The raw request to call AWS metering service.", alias="awsMeteringRequest")
     aws_metering_response: Optional[MarketplacemeteringBatchMeterUsageOutput] = Field(default=None, description="The raw response from AWS metering service.", alias="awsMeteringResponse")
     azure_metering_request: Optional[AzureMarketplaceMeteringBatchUsageEvent] = Field(default=None, description="The raw request to call Azure metering service.", alias="azureMeteringRequest")
-    azure_metering_response: Optional[GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse] = Field(default=None, description="The raw response from Azure metering service.", alias="azureMeteringResponse")
+    azure_metering_response: Optional[GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse] = Field(default=None, description="The raw response from Azure metering service.", alias="azureMeteringResponse")
     commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount of the commit if applicable.", alias="commitAmount")
     credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount of the credit if applicable.", alias="creditAmount")
     credit_records: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(default=None, description="The credit usage records in the map of <DimensionKey, Count> for usage metering API v1.", alias="creditRecords")
@@ -158,7 +158,7 @@ class MeteringUsageRecordReportInfo(BaseModel):
             "awsMeteringRequest": AwsMarketplaceMeteringBatchMeterUsageInput.from_dict(obj["awsMeteringRequest"]) if obj.get("awsMeteringRequest") is not None else None,
             "awsMeteringResponse": MarketplacemeteringBatchMeterUsageOutput.from_dict(obj["awsMeteringResponse"]) if obj.get("awsMeteringResponse") is not None else None,
             "azureMeteringRequest": AzureMarketplaceMeteringBatchUsageEvent.from_dict(obj["azureMeteringRequest"]) if obj.get("azureMeteringRequest") is not None else None,
-            "azureMeteringResponse": GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse.from_dict(obj["azureMeteringResponse"]) if obj.get("azureMeteringResponse") is not None else None,
+            "azureMeteringResponse": GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse.from_dict(obj["azureMeteringResponse"]) if obj.get("azureMeteringResponse") is not None else None,
             "commitAmount": obj.get("commitAmount"),
             "creditAmount": obj.get("creditAmount"),
             "creditRecords": obj.get("creditRecords"),

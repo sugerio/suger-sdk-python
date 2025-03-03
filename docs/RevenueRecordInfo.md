@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aws_revenue_records** | [**List[GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent]**](GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent.md) | For raw revenue records in AWS Marketplace | [optional] 
-**azure_revenue_records** | [**List[GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue]**](GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue.md) | For raw revenue records in Azure Marketplace | [optional] 
+**aws_revenue_records** | [**List[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent]**](GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent.md) | For raw revenue records in AWS Marketplace | [optional] 
+**azure_revenue_records** | [**List[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue]**](GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue.md) | For raw revenue records in Azure Marketplace | [optional] 
 **credit_amount** | **float** | The credit amount used in the revenue record. | [optional] 
 **disbursement_notification_sent** | **bool** | Whether the disbursement notification has been sent to the seller/ISV. | [optional] 
-**gcp_revenue_records** | [**List[GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage]**](GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage.md) | For raw revenue records in GCP Marketplace | [optional] 
+**gcp_revenue_records** | [**List[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingGcpChargeUsage]**](GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingGcpChargeUsage.md) | For raw revenue records in GCP Marketplace | [optional] 
 **id_source** | **str** | Source of the revenue record ID. | [optional] 
 **resource** | **str** | Resource name for the revenue record. Applicable only to GCP Marketplace. | [optional] 
 

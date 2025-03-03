@@ -98,27 +98,21 @@ All URIs are relative to *http://https://api.suger.cloud*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *APIApi* | [**get_api_client**](docs/APIApi.md#get_api_client) | **GET** /org/{orgId}/apiClient/{apiClientId} | get api client
-*APIApi* | [**get_api_client_access_token**](docs/APIApi.md#get_api_client_access_token) | **POST** /public/apiClient/accessToken | get api access token
 *APIApi* | [**list_api_clients**](docs/APIApi.md#list_api_clients) | **GET** /org/{orgId}/apiClient | list api clients
 *BillingApi* | [**create_addon**](docs/BillingApi.md#create_addon) | **POST** /org/{orgId}/addon | create addon
 *BillingApi* | [**create_refund**](docs/BillingApi.md#create_refund) | **POST** /org/{orgId}/buyer/{buyerId}/paymentTransaction/{paymentTransactionId}/refund | create refund.
 *BillingApi* | [**delete_addon**](docs/BillingApi.md#delete_addon) | **DELETE** /org/{orgId}/addon/{addonId} | delete addon
 *BillingApi* | [**get_addon**](docs/BillingApi.md#get_addon) | **GET** /org/{orgId}/addon/{addonId} | get addon
-*BillingApi* | [**get_invoice**](docs/BillingApi.md#get_invoice) | **GET** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId} | get invoice
-*BillingApi* | [**get_invoice_issued_email_preview**](docs/BillingApi.md#get_invoice_issued_email_preview) | **GET** /org/{orgId}/invoice/{invoiceId}/preview | Get the preview of the invoice issued email
 *BillingApi* | [**get_invoice_v2**](docs/BillingApi.md#get_invoice_v2) | **GET** /org/{orgId}/invoice/{invoiceId} | get invoice
-*BillingApi* | [**issue_invoice**](docs/BillingApi.md#issue_invoice) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/issue | issue invoice
 *BillingApi* | [**issue_invoice_v2**](docs/BillingApi.md#issue_invoice_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/issue | issue invoice
 *BillingApi* | [**list_addons**](docs/BillingApi.md#list_addons) | **GET** /org/{orgId}/addon | list addons
 *BillingApi* | [**list_invoices**](docs/BillingApi.md#list_invoices) | **GET** /org/{orgId}/invoice | list invoices
 *BillingApi* | [**list_payment_transactions**](docs/BillingApi.md#list_payment_transactions) | **GET** /org/{orgId}/paymentTransaction | list payment transactions
 *BillingApi* | [**list_refund_of_payment_transaction**](docs/BillingApi.md#list_refund_of_payment_transaction) | **GET** /org/{orgId}/buyer/{buyerId}/paymentTransaction/{paymentTransactionId}/refund | list refunds.
-*BillingApi* | [**pay_invoice**](docs/BillingApi.md#pay_invoice) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/pay | pay invoice
 *BillingApi* | [**pay_invoice_v2**](docs/BillingApi.md#pay_invoice_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/pay | pay invoice
+*BillingApi* | [**preview_invoice_email**](docs/BillingApi.md#preview_invoice_email) | **GET** /org/{orgId}/invoice/{invoiceId}/preview | preview invoice email
 *BillingApi* | [**update_addon**](docs/BillingApi.md#update_addon) | **PATCH** /org/{orgId}/addon/{addonId} | update addon
-*BillingApi* | [**update_invoice_info**](docs/BillingApi.md#update_invoice_info) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/info | Update invoice info
-*BillingApi* | [**update_invoice_info_v2**](docs/BillingApi.md#update_invoice_info_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/info | Update invoice info
-*BillingApi* | [**void_invoice**](docs/BillingApi.md#void_invoice) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/invoice/{invoiceId}/void | void invoice
+*BillingApi* | [**update_invoice_info_v2**](docs/BillingApi.md#update_invoice_info_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/info | update invoice info
 *BillingApi* | [**void_invoice_v2**](docs/BillingApi.md#void_invoice_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/void | void invoice
 *BuyerApi* | [**close_credit_wallet**](docs/BuyerApi.md#close_credit_wallet) | **PATCH** /org/{orgId}/buyer/{buyerId}/wallet/{walletId}/close | close credit wallet
 *BuyerApi* | [**create_buyer**](docs/BuyerApi.md#create_buyer) | **POST** /org/{orgId}/buyer | create buyer
@@ -154,7 +148,7 @@ Class | Method | HTTP request | Description
 *EntitlementApi* | [**unschedule_entitlement_cancellation**](docs/EntitlementApi.md#unschedule_entitlement_cancellation) | **POST** /org/{orgId}/entitlement/{entitlementId}/unscheduleCancellation | unschedule entitlement cancellation
 *EntitlementApi* | [**update_entitlement_meta_info**](docs/EntitlementApi.md#update_entitlement_meta_info) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/metaInfo | update entitlement meta info
 *EntitlementApi* | [**update_entitlement_name**](docs/EntitlementApi.md#update_entitlement_name) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/entitlementName | update entitlement name
-*EntitlementApi* | [**update_entitlement_seat**](docs/EntitlementApi.md#update_entitlement_seat) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/seat | update seat for the active AZURE subscription
+*EntitlementApi* | [**update_entitlement_seat**](docs/EntitlementApi.md#update_entitlement_seat) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/seat | update entitlement seat
 *MeteringApi* | [**batch_report_usage_record_groups**](docs/MeteringApi.md#batch_report_usage_record_groups) | **POST** /org/{orgId}/batchCreateUsageRecordGroups | batch report usageRecordGroups
 *MeteringApi* | [**batch_validate_usage_record_groups**](docs/MeteringApi.md#batch_validate_usage_record_groups) | **POST** /org/{orgId}/batchValidateUsageRecordGroups | batch validate usageRecordGroups
 *MeteringApi* | [**create_billable_metric**](docs/MeteringApi.md#create_billable_metric) | **POST** /org/{orgId}/billableMetric | create billable metric
@@ -233,7 +227,6 @@ Class | Method | HTTP request | Description
  - [AlibabaMarketplaceProductSkuOrderPeriod](docs/AlibabaMarketplaceProductSkuOrderPeriod.md)
  - [AlibabaMarketplaceProductSkuOrderPeriods](docs/AlibabaMarketplaceProductSkuOrderPeriods.md)
  - [AlibabaMarketplaceProductSkus](docs/AlibabaMarketplaceProductSkus.md)
- - [ApiClientAccessToken](docs/ApiClientAccessToken.md)
  - [AuditingEventPriority](docs/AuditingEventPriority.md)
  - [AwsAccountIdentifier](docs/AwsAccountIdentifier.md)
  - [AwsChannelPartner](docs/AwsChannelPartner.md)
@@ -442,6 +435,8 @@ Class | Method | HTTP request | Description
  - [CreateBuyerParams](docs/CreateBuyerParams.md)
  - [CreateEntitlementParams](docs/CreateEntitlementParams.md)
  - [CreateUsageRecordGroupParams](docs/CreateUsageRecordGroupParams.md)
+ - [DatabaseSqlNullBool](docs/DatabaseSqlNullBool.md)
+ - [DatabaseSqlNullString](docs/DatabaseSqlNullString.md)
  - [DatabaseSqlNullTime](docs/DatabaseSqlNullTime.md)
  - [DivideEntitlementCommitParams](docs/DivideEntitlementCommitParams.md)
  - [EntitlementInfo](docs/EntitlementInfo.md)
@@ -546,20 +541,19 @@ Class | Method | HTTP request | Description
  - [GcpPriceTier](docs/GcpPriceTier.md)
  - [GcpPriceValue](docs/GcpPriceValue.md)
  - [GcpUserInfo](docs/GcpUserInfo.md)
- - [GetApiClientAccessTokenParams](docs/GetApiClientAccessTokenParams.md)
  - [GetRevenueReportParams](docs/GetRevenueReportParams.md)
  - [GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag](docs/GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringTypesTag.md)
- - [GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse](docs/GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse.md)
- - [GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage](docs/GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage.md)
- - [GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponse](docs/GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponse.md)
- - [GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponseAdditionalInfo](docs/GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventConflictResponseAdditionalInfo.md)
- - [GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse](docs/GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventOkResponse.md)
- - [GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum](docs/GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1UsageEventStatusEnum.md)
- - [GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent](docs/GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent.md)
- - [GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue](docs/GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue.md)
- - [GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage](docs/GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage.md)
- - [GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient](docs/GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient.md)
- - [GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams](docs/GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams.md)
+ - [GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent](docs/GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent.md)
+ - [GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue](docs/GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue.md)
+ - [GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingGcpChargeUsage](docs/GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingGcpChargeUsage.md)
+ - [GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibIdentityApiClient](docs/GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibIdentityApiClient.md)
+ - [GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibUpdateEntitlementNameParams](docs/GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibUpdateEntitlementNameParams.md)
+ - [GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse](docs/GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse.md)
+ - [GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage](docs/GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1UsageBatchEventOkMessage.md)
+ - [GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1UsageEventConflictResponse](docs/GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1UsageEventConflictResponse.md)
+ - [GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1UsageEventConflictResponseAdditionalInfo](docs/GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1UsageEventConflictResponseAdditionalInfo.md)
+ - [GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1UsageEventOkResponse](docs/GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1UsageEventOkResponse.md)
+ - [GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1UsageEventStatusEnum](docs/GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1UsageEventStatusEnum.md)
  - [IdentityBuyer](docs/IdentityBuyer.md)
  - [IdentityConctactInfo](docs/IdentityConctactInfo.md)
  - [IdentityContact](docs/IdentityContact.md)
@@ -601,6 +595,7 @@ Class | Method | HTTP request | Description
  - [PaymentConfig](docs/PaymentConfig.md)
  - [PaymentInstallment](docs/PaymentInstallment.md)
  - [PaymentScheduleType](docs/PaymentScheduleType.md)
+ - [PkgStructsSnowflakeMarketplaceProduct](docs/PkgStructsSnowflakeMarketplaceProduct.md)
  - [PriceModelBasic](docs/PriceModelBasic.md)
  - [PriceModelBulk](docs/PriceModelBulk.md)
  - [PriceModelCategory](docs/PriceModelCategory.md)

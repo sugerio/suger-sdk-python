@@ -26,7 +26,7 @@ from suger_sdk_python.models.billing_addon_record import BillingAddonRecord
 from suger_sdk_python.models.cancellation_schedule import CancellationSchedule
 from suger_sdk_python.models.create_entitlement_params import CreateEntitlementParams
 from suger_sdk_python.models.divide_entitlement_commit_params import DivideEntitlementCommitParams
-from suger_sdk_python.models.github_com_sugerio_marketplace_service_rds_db_lib_update_entitlement_name_params import GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_legacy_rds_db_lib_update_entitlement_name_params import GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibUpdateEntitlementNameParams
 from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.models.workload_entitlement_term import WorkloadEntitlementTerm
 from suger_sdk_python.models.workload_meta_info import WorkloadMetaInfo
@@ -4281,7 +4281,7 @@ class EntitlementApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         entitlement_id: Annotated[StrictStr, Field(description="Entitlement ID")],
-        data: Annotated[GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams, Field(description="UpdateEntitlementNameParams")],
+        data: Annotated[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibUpdateEntitlementNameParams, Field(description="UpdateEntitlementNameParams")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4304,7 +4304,7 @@ class EntitlementApi:
         :param entitlement_id: Entitlement ID (required)
         :type entitlement_id: str
         :param data: UpdateEntitlementNameParams (required)
-        :type data: GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams
+        :type data: GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibUpdateEntitlementNameParams
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4358,7 +4358,7 @@ class EntitlementApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         entitlement_id: Annotated[StrictStr, Field(description="Entitlement ID")],
-        data: Annotated[GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams, Field(description="UpdateEntitlementNameParams")],
+        data: Annotated[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibUpdateEntitlementNameParams, Field(description="UpdateEntitlementNameParams")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4381,7 +4381,7 @@ class EntitlementApi:
         :param entitlement_id: Entitlement ID (required)
         :type entitlement_id: str
         :param data: UpdateEntitlementNameParams (required)
-        :type data: GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams
+        :type data: GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibUpdateEntitlementNameParams
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4435,7 +4435,7 @@ class EntitlementApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         entitlement_id: Annotated[StrictStr, Field(description="Entitlement ID")],
-        data: Annotated[GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams, Field(description="UpdateEntitlementNameParams")],
+        data: Annotated[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibUpdateEntitlementNameParams, Field(description="UpdateEntitlementNameParams")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4458,7 +4458,7 @@ class EntitlementApi:
         :param entitlement_id: Entitlement ID (required)
         :type entitlement_id: str
         :param data: UpdateEntitlementNameParams (required)
-        :type data: GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams
+        :type data: GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibUpdateEntitlementNameParams
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4605,9 +4605,9 @@ class EntitlementApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> WorkloadEntitlement:
-        """update seat for the active AZURE subscription
+        """update entitlement seat
 
-        Update the seat number for the active AZURE subscription.
+        Update the seat number of the entitlement. Only active AZURE entitlement can be updated.
 
         :param org_id: Organization ID (required)
         :type org_id: str
@@ -4682,9 +4682,9 @@ class EntitlementApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[WorkloadEntitlement]:
-        """update seat for the active AZURE subscription
+        """update entitlement seat
 
-        Update the seat number for the active AZURE subscription.
+        Update the seat number of the entitlement. Only active AZURE entitlement can be updated.
 
         :param org_id: Organization ID (required)
         :type org_id: str
@@ -4759,9 +4759,9 @@ class EntitlementApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """update seat for the active AZURE subscription
+        """update entitlement seat
 
-        Update the seat number for the active AZURE subscription.
+        Update the seat number of the entitlement. Only active AZURE entitlement can be updated.
 
         :param org_id: Organization ID (required)
         :type org_id: str

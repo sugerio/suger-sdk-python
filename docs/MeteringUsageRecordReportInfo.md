@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **aws_metering_request** | [**AwsMarketplaceMeteringBatchMeterUsageInput**](AwsMarketplaceMeteringBatchMeterUsageInput.md) | The raw request to call AWS metering service. | [optional] 
 **aws_metering_response** | [**MarketplacemeteringBatchMeterUsageOutput**](MarketplacemeteringBatchMeterUsageOutput.md) | The raw response from AWS metering service. | [optional] 
 **azure_metering_request** | [**AzureMarketplaceMeteringBatchUsageEvent**](AzureMarketplaceMeteringBatchUsageEvent.md) | The raw request to call Azure metering service. | [optional] 
-**azure_metering_response** | [**GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse**](GithubComSugerioMarketplaceServiceAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse.md) | The raw response from Azure metering service. | [optional] 
+**azure_metering_response** | [**GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse**](GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse.md) | The raw response from Azure metering service. | [optional] 
 **commit_amount** | **float** | The amount of the commit if applicable. | [optional] 
 **credit_amount** | **float** | The amount of the credit if applicable. | [optional] 
 **credit_records** | **Dict[str, float]** | The credit usage records in the map of &lt;DimensionKey, Count&gt; for usage metering API v1. | [optional] 

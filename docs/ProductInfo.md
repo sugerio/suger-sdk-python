@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **gcp_product** | [**GcpMarketplaceProduct**](GcpMarketplaceProduct.md) |  | [optional] 
 **refund_cancellation_policy** | **str** |  | [optional] 
 **seller_notes** | **str** |  | [optional] 
+**snowflake_product** | [**PkgStructsSnowflakeMarketplaceProduct**](PkgStructsSnowflakeMarketplaceProduct.md) |  | [optional] 
 **stripe_product** | [**StripeProduct**](StripeProduct.md) |  | [optional] 
 
 ## Example

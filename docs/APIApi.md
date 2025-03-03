@@ -5,12 +5,11 @@ All URIs are relative to *http://https://api.suger.cloud*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_api_client**](APIApi.md#get_api_client) | **GET** /org/{orgId}/apiClient/{apiClientId} | get api client
-[**get_api_client_access_token**](APIApi.md#get_api_client_access_token) | **POST** /public/apiClient/accessToken | get api access token
 [**list_api_clients**](APIApi.md#list_api_clients) | **GET** /org/{orgId}/apiClient | list api clients
 
 
 # **get_api_client**
-> GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient get_api_client(org_id, api_client_id)
+> GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibIdentityApiClient get_api_client(org_id, api_client_id)
 
 get api client
 
@@ -22,7 +21,7 @@ Get the API client by ID.
 
 ```python
 import suger_sdk_python
-from suger_sdk_python.models.github_com_sugerio_marketplace_service_rds_db_lib_identity_api_client import GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_legacy_rds_db_lib_identity_api_client import GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibIdentityApiClient
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -71,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient**](GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient.md)
+[**GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibIdentityApiClient**](GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibIdentityApiClient.md)
 
 ### Authorization
 
@@ -92,79 +91,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_api_client_access_token**
-> ApiClientAccessToken get_api_client_access_token(data)
-
-get api access token
-
-Get the Bearer Access Token by giving the Suger API Client ID & Client Secret.
-
-### Example
-
-
-```python
-import suger_sdk_python
-from suger_sdk_python.models.api_client_access_token import ApiClientAccessToken
-from suger_sdk_python.models.get_api_client_access_token_params import GetApiClientAccessTokenParams
-from suger_sdk_python.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://https://api.suger.cloud
-# See configuration.py for a list of all supported configuration parameters.
-configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
-)
-
-
-# Enter a context with an instance of the API client
-with suger_sdk_python.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = suger_sdk_python.APIApi(api_client)
-    data = suger_sdk_python.GetApiClientAccessTokenParams() # GetApiClientAccessTokenParams | Suger API Client
-
-    try:
-        # get api access token
-        api_response = api_instance.get_api_client_access_token(data)
-        print("The response of APIApi->get_api_client_access_token:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling APIApi->get_api_client_access_token: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **data** | [**GetApiClientAccessTokenParams**](GetApiClientAccessTokenParams.md)| Suger API Client | 
-
-### Return type
-
-[**ApiClientAccessToken**](ApiClientAccessToken.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad request error |  -  |
-**500** | Internal server error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **list_api_clients**
-> List[GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient] list_api_clients(org_id)
+> List[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibIdentityApiClient] list_api_clients(org_id)
 
 list api clients
 
@@ -176,7 +104,7 @@ List all API clients in the given organization.
 
 ```python
 import suger_sdk_python
-from suger_sdk_python.models.github_com_sugerio_marketplace_service_rds_db_lib_identity_api_client import GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_legacy_rds_db_lib_identity_api_client import GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibIdentityApiClient
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -223,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient]**](GithubComSugerioMarketplaceServiceRdsDbLibIdentityApiClient.md)
+[**List[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibIdentityApiClient]**](GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibIdentityApiClient.md)
 
 ### Authorization
 

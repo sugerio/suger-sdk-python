@@ -29,6 +29,7 @@ from suger_sdk_python.models.commit_dimension import CommitDimension
 from suger_sdk_python.models.eula_type import EulaType
 from suger_sdk_python.models.gcp_marketplace_product import GcpMarketplaceProduct
 from suger_sdk_python.models.metering_dimension import MeteringDimension
+from suger_sdk_python.models.pkg_structs_snowflake_marketplace_product import PkgStructsSnowflakeMarketplaceProduct
 from suger_sdk_python.models.stripe_product import StripeProduct
 from typing import Optional, Set
 from typing_extensions import Self
@@ -54,8 +55,9 @@ class ProductInfo(BaseModel):
     gcp_product: Optional[GcpMarketplaceProduct] = Field(default=None, alias="gcpProduct")
     refund_cancellation_policy: Optional[StrictStr] = Field(default=None, alias="refundCancellationPolicy")
     seller_notes: Optional[StrictStr] = Field(default=None, alias="sellerNotes")
+    snowflake_product: Optional[PkgStructsSnowflakeMarketplaceProduct] = Field(default=None, alias="snowflakeProduct")
     stripe_product: Optional[StripeProduct] = Field(default=None, alias="stripeProduct")
-    __properties: ClassVar[List[str]] = ["alibabaProduct", "attributes", "awsAmiProduct", "awsContainerProduct", "awsProfessionalServicesProduct", "awsSaasProduct", "awsSnsSubscriptions", "azureProduct", "azureProductResource", "commits", "currency", "dimensions", "eulaType", "eulaUrl", "gcpProduct", "refundCancellationPolicy", "sellerNotes", "stripeProduct"]
+    __properties: ClassVar[List[str]] = ["alibabaProduct", "attributes", "awsAmiProduct", "awsContainerProduct", "awsProfessionalServicesProduct", "awsSaasProduct", "awsSnsSubscriptions", "azureProduct", "azureProductResource", "commits", "currency", "dimensions", "eulaType", "eulaUrl", "gcpProduct", "refundCancellationPolicy", "sellerNotes", "snowflakeProduct", "stripeProduct"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -141,6 +143,9 @@ class ProductInfo(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of gcp_product
         if self.gcp_product:
             _dict['gcpProduct'] = self.gcp_product.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of snowflake_product
+        if self.snowflake_product:
+            _dict['snowflakeProduct'] = self.snowflake_product.to_dict()
         # override the default output from pydantic by calling `to_dict()` of stripe_product
         if self.stripe_product:
             _dict['stripeProduct'] = self.stripe_product.to_dict()
@@ -173,6 +178,7 @@ class ProductInfo(BaseModel):
             "gcpProduct": GcpMarketplaceProduct.from_dict(obj["gcpProduct"]) if obj.get("gcpProduct") is not None else None,
             "refundCancellationPolicy": obj.get("refundCancellationPolicy"),
             "sellerNotes": obj.get("sellerNotes"),
+            "snowflakeProduct": PkgStructsSnowflakeMarketplaceProduct.from_dict(obj["snowflakeProduct"]) if obj.get("snowflakeProduct") is not None else None,
             "stripeProduct": StripeProduct.from_dict(obj["stripeProduct"]) if obj.get("stripeProduct") is not None else None
         })
         return _obj

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 [**unschedule_entitlement_cancellation**](EntitlementApi.md#unschedule_entitlement_cancellation) | **POST** /org/{orgId}/entitlement/{entitlementId}/unscheduleCancellation | unschedule entitlement cancellation
 [**update_entitlement_meta_info**](EntitlementApi.md#update_entitlement_meta_info) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/metaInfo | update entitlement meta info
 [**update_entitlement_name**](EntitlementApi.md#update_entitlement_name) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/entitlementName | update entitlement name
-[**update_entitlement_seat**](EntitlementApi.md#update_entitlement_seat) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/seat | update seat for the active AZURE subscription
+[**update_entitlement_seat**](EntitlementApi.md#update_entitlement_seat) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/seat | update entitlement seat
 
 
 # **add_entitlement_credit**
@@ -1227,7 +1227,7 @@ Update the name of the given Entitlement.
 
 ```python
 import suger_sdk_python
-from suger_sdk_python.models.github_com_sugerio_marketplace_service_rds_db_lib_update_entitlement_name_params import GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_legacy_rds_db_lib_update_entitlement_name_params import GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibUpdateEntitlementNameParams
 from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
@@ -1255,7 +1255,7 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     api_instance = suger_sdk_python.EntitlementApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     entitlement_id = 'entitlement_id_example' # str | Entitlement ID
-    data = suger_sdk_python.GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams() # GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams | UpdateEntitlementNameParams
+    data = suger_sdk_python.GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibUpdateEntitlementNameParams() # GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibUpdateEntitlementNameParams | UpdateEntitlementNameParams
 
     try:
         # update entitlement name
@@ -1275,7 +1275,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
  **entitlement_id** | **str**| Entitlement ID | 
- **data** | [**GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams**](GithubComSugerioMarketplaceServiceRdsDbLibUpdateEntitlementNameParams.md)| UpdateEntitlementNameParams | 
+ **data** | [**GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibUpdateEntitlementNameParams**](GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibUpdateEntitlementNameParams.md)| UpdateEntitlementNameParams | 
 
 ### Return type
 
@@ -1303,9 +1303,9 @@ Name | Type | Description  | Notes
 # **update_entitlement_seat**
 > WorkloadEntitlement update_entitlement_seat(org_id, entitlement_id, new_seat)
 
-update seat for the active AZURE subscription
+update entitlement seat
 
-Update the seat number for the active AZURE subscription.
+Update the seat number of the entitlement. Only active AZURE entitlement can be updated.
 
 ### Example
 
@@ -1343,7 +1343,7 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     new_seat = 56 # int | New seat number
 
     try:
-        # update seat for the active AZURE subscription
+        # update entitlement seat
         api_response = api_instance.update_entitlement_seat(org_id, entitlement_id, new_seat)
         print("The response of EntitlementApi->update_entitlement_seat:\n")
         pprint(api_response)

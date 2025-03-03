@@ -20,9 +20,9 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from suger_sdk_python.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_aws_billing_event import GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent
-from suger_sdk_python.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_azure_cma_revenue import GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue
-from suger_sdk_python.models.github_com_sugerio_marketplace_service_rds_db_lib_billing_gcp_charge_usage import GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_legacy_rds_db_lib_billing_aws_billing_event import GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_legacy_rds_db_lib_billing_azure_cma_revenue import GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_legacy_rds_db_lib_billing_gcp_charge_usage import GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingGcpChargeUsage
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,9 +30,9 @@ class RevenueRecordDetail(BaseModel):
     """
     RevenueRecordDetail
     """ # noqa: E501
-    aws_revenue_record_detail: Optional[GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent] = Field(default=None, description="For AWS Marketplace", alias="awsRevenueRecordDetail")
-    azure_revenue_record_detail: Optional[GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue] = Field(default=None, description="For Azure Marketplace", alias="azureRevenueRecordDetail")
-    gcp_revenue_record_detail: Optional[GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage] = Field(default=None, description="For GCP Marketplace", alias="gcpRevenueRecordDetail")
+    aws_revenue_record_detail: Optional[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent] = Field(default=None, description="For AWS Marketplace", alias="awsRevenueRecordDetail")
+    azure_revenue_record_detail: Optional[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue] = Field(default=None, description="For Azure Marketplace", alias="azureRevenueRecordDetail")
+    gcp_revenue_record_detail: Optional[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingGcpChargeUsage] = Field(default=None, description="For GCP Marketplace", alias="gcpRevenueRecordDetail")
     __properties: ClassVar[List[str]] = ["awsRevenueRecordDetail", "azureRevenueRecordDetail", "gcpRevenueRecordDetail"]
 
     model_config = ConfigDict(
@@ -95,9 +95,9 @@ class RevenueRecordDetail(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "awsRevenueRecordDetail": GithubComSugerioMarketplaceServiceRdsDbLibBillingAwsBillingEvent.from_dict(obj["awsRevenueRecordDetail"]) if obj.get("awsRevenueRecordDetail") is not None else None,
-            "azureRevenueRecordDetail": GithubComSugerioMarketplaceServiceRdsDbLibBillingAzureCmaRevenue.from_dict(obj["azureRevenueRecordDetail"]) if obj.get("azureRevenueRecordDetail") is not None else None,
-            "gcpRevenueRecordDetail": GithubComSugerioMarketplaceServiceRdsDbLibBillingGcpChargeUsage.from_dict(obj["gcpRevenueRecordDetail"]) if obj.get("gcpRevenueRecordDetail") is not None else None
+            "awsRevenueRecordDetail": GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent.from_dict(obj["awsRevenueRecordDetail"]) if obj.get("awsRevenueRecordDetail") is not None else None,
+            "azureRevenueRecordDetail": GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue.from_dict(obj["azureRevenueRecordDetail"]) if obj.get("azureRevenueRecordDetail") is not None else None,
+            "gcpRevenueRecordDetail": GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingGcpChargeUsage.from_dict(obj["gcpRevenueRecordDetail"]) if obj.get("gcpRevenueRecordDetail") is not None else None
         })
         return _obj
 
