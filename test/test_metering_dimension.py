@@ -39,14 +39,14 @@ class TestMeteringDimension(unittest.TestCase):
                 category = '',
                 description = '',
                 included_base_quantities = [
-                    {"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}
+                    {"quantity":7.386281948385884,"isInfinite":true,"recurringUnit":"Monthly"}
                     ],
                 key = '',
                 name = '',
                 plan_id = '',
                 plan_name = '',
                 price_tiers = [
-                    {"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}
+                    {"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":1.2315135367772556}
                     ],
                 rate = 1.337,
                 sku_id = '',

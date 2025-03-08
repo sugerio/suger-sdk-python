@@ -55,6 +55,7 @@ class EntitlementInfo(BaseModel):
     azure_subscriptions: Optional[List[AzureMarketplaceSubscription]] = Field(default=None, description="Nullable. Azure Subscriptions from Azure Marketplace.", alias="azureSubscriptions")
     billable_dimensions: Optional[List[BillableDimension]] = Field(default=None, description="The dimensions for billable metric usage-based metering. It's for Suger(Stripe, Ayden) metering.", alias="billableDimensions")
     billing_cycle: Optional[BillingCycle] = Field(default=None, description="Billing Cycle", alias="billingCycle")
+    billing_interval_in_months: Optional[StrictInt] = Field(default=None, description="The billing interval from the offer.", alias="billingIntervalInMonths")
     collectable_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount that the seller can collect. It excludes the marketplace commision fee.", alias="collectableAmount")
     commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount that the buyer has committed to pay. It can be the sum of payment installments if applicable.", alias="commitAmount")
     commits: Optional[List[CommitDimension]] = Field(default=None, description="The dimensions for flatrate commitment (recurring or one-time).")
@@ -69,6 +70,7 @@ class EntitlementInfo(BaseModel):
     grace_period_in_days: Optional[StrictInt] = Field(default=None, description="The grace period for the offer. It is same as the TrialConfig in DirectOfferInfo. But can be overridden at the entitlement level.", alias="gracePeriodInDays")
     gross_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The gross amount that the buyer has committed to pay, including usage metered amount.", alias="grossAmount")
     invoiced_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount that the buyer has got invoiced.", alias="invoicedAmount")
+    is_metering_overage_commit: Optional[StrictBool] = Field(default=None, description="Whether the usage metering will be charged for the amount that exceeds the committed amount from the offer.", alias="isMeteringOverageCommit")
     net_terms_in_days: Optional[StrictInt] = Field(default=None, description="The net terms for the offer. It is same as the TrialConfig in DirectOfferInfo. But can be overridden at the entitlement level.", alias="netTermsInDays")
     payment_installments: Optional[List[PaymentInstallment]] = Field(default=None, description="For flexible payment schedules", alias="paymentInstallments")
     payment_schedule: Optional[PaymentScheduleType] = Field(default=None, description="The payment schedule for the entitlement. PREPAY means the buyer pays before the service is provided. POSTPAY means the buyer pays after the service is provided.", alias="paymentSchedule")
@@ -76,7 +78,7 @@ class EntitlementInfo(BaseModel):
     seller_notes: Optional[StrictStr] = Field(default=None, alias="sellerNotes")
     spa_url: Optional[StrictStr] = Field(default=None, description="The URL with JWT as auth method for the entitlement SPA. It can be shared with the buyer to access the SPA without login.", alias="spaUrl")
     trial_config: Optional[TrialConfig] = Field(default=None, description="The trial configuration for the offer. It is same as the TrialConfig in DirectOfferInfo. But can be overridden at the entitlement level.", alias="trialConfig")
-    __properties: ClassVar[List[str]] = ["addons", "alertDaysBeforeEnd", "alibabaEntitlements", "alibabaOrders", "autoRenew", "awsAgreement", "awsChannelPartner", "awsEntitlements", "azureSubscriptions", "billableDimensions", "billingCycle", "collectableAmount", "commitAmount", "commits", "currency", "dimensions", "dimensionsOversized", "disbursedAmount", "eulaType", "eulaUrl", "gcpEntitlements", "gcpPlans", "gracePeriodInDays", "grossAmount", "invoicedAmount", "netTermsInDays", "paymentInstallments", "paymentSchedule", "refundCancellationPolicy", "sellerNotes", "spaUrl", "trialConfig"]
+    __properties: ClassVar[List[str]] = ["addons", "alertDaysBeforeEnd", "alibabaEntitlements", "alibabaOrders", "autoRenew", "awsAgreement", "awsChannelPartner", "awsEntitlements", "azureSubscriptions", "billableDimensions", "billingCycle", "billingIntervalInMonths", "collectableAmount", "commitAmount", "commits", "currency", "dimensions", "dimensionsOversized", "disbursedAmount", "eulaType", "eulaUrl", "gcpEntitlements", "gcpPlans", "gracePeriodInDays", "grossAmount", "invoicedAmount", "isMeteringOverageCommit", "netTermsInDays", "paymentInstallments", "paymentSchedule", "refundCancellationPolicy", "sellerNotes", "spaUrl", "trialConfig"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -226,6 +228,7 @@ class EntitlementInfo(BaseModel):
             "azureSubscriptions": [AzureMarketplaceSubscription.from_dict(_item) for _item in obj["azureSubscriptions"]] if obj.get("azureSubscriptions") is not None else None,
             "billableDimensions": [BillableDimension.from_dict(_item) for _item in obj["billableDimensions"]] if obj.get("billableDimensions") is not None else None,
             "billingCycle": obj.get("billingCycle"),
+            "billingIntervalInMonths": obj.get("billingIntervalInMonths"),
             "collectableAmount": obj.get("collectableAmount"),
             "commitAmount": obj.get("commitAmount"),
             "commits": [CommitDimension.from_dict(_item) for _item in obj["commits"]] if obj.get("commits") is not None else None,
@@ -240,6 +243,7 @@ class EntitlementInfo(BaseModel):
             "gracePeriodInDays": obj.get("gracePeriodInDays"),
             "grossAmount": obj.get("grossAmount"),
             "invoicedAmount": obj.get("invoicedAmount"),
+            "isMeteringOverageCommit": obj.get("isMeteringOverageCommit"),
             "netTermsInDays": obj.get("netTermsInDays"),
             "paymentInstallments": [PaymentInstallment.from_dict(_item) for _item in obj["paymentInstallments"]] if obj.get("paymentInstallments") is not None else None,
             "paymentSchedule": obj.get("paymentSchedule"),

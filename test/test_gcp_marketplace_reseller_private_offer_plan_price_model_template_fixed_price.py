@@ -36,8 +36,8 @@ class TestGcpMarketplaceResellerPrivateOfferPlanPriceModelTemplateFixedPrice(uni
         model = GcpMarketplaceResellerPrivateOfferPlanPriceModelTemplateFixedPrice()
         if include_optional:
             return GcpMarketplaceResellerPrivateOfferPlanPriceModelTemplateFixedPrice(
-                discount_template = {"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},
-                period = {"unit":"MONTHLY_PERIOD","count":4}
+                discount_template = {"discountPercentage":{"minAmount":{"nanos":4,"units":"units"},"defaultAmount":{"nanos":4,"units":"units"},"maxAmount":{"nanos":4,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},
+                period = {"unit":"MONTHLY_PERIOD","count":5}
             )
         else:
             return GcpMarketplaceResellerPrivateOfferPlanPriceModelTemplateFixedPrice(

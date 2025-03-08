@@ -34,13 +34,6 @@ class TestAPIApi(unittest.TestCase):
         """
         pass
 
-    def test_get_api_client_access_token(self) -> None:
-        """Test case for get_api_client_access_token
-
-        get api access token
-        """
-        pass
-
     def test_list_api_clients(self) -> None:
         """Test case for list_api_clients
 

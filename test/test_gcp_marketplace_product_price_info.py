@@ -42,7 +42,7 @@ class TestGcpMarketplaceProductPriceInfo(unittest.TestCase):
                     {"period":"period","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"}}
                     ],
                 usage_fees = [
-                    {"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}],"metricId":"metricId","displayQuantity":7}
+                    {"priceTiers":[{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":1.2315135367772556},{"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":1.2315135367772556}],"metricId":"metricId","displayQuantity":1}
                     ]
             )
         else:

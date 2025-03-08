@@ -37,7 +37,7 @@ class TestAzureProductFeatureAvailability(unittest.TestCase):
         if include_optional:
             return AzureProductFeatureAvailability(
                 custom_meters = [
-                    {"unitOfMeasure":"unitOfMeasure","displayName":"displayName","includedBaseQuantities":[{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"},{"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}],"isEnabled":true,"priceInUsd":5.025004791520295,"id":"id","uniqueID":"uniqueID"}
+                    {"unitOfMeasure":"unitOfMeasure","displayName":"displayName","includedBaseQuantities":[{"quantity":7.386281948385884,"isInfinite":true,"recurringUnit":"Monthly"},{"quantity":7.386281948385884,"isInfinite":true,"recurringUnit":"Monthly"}],"isEnabled":true,"priceInUsd":5.025004791520295,"id":"id","uniqueID":"uniqueID"}
                     ],
                 id = '',
                 is_hidden = True,

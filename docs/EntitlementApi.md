@@ -19,7 +19,7 @@ Method | HTTP request | Description
 [**unschedule_entitlement_cancellation**](EntitlementApi.md#unschedule_entitlement_cancellation) | **POST** /org/{orgId}/entitlement/{entitlementId}/unscheduleCancellation | unschedule entitlement cancellation
 [**update_entitlement_meta_info**](EntitlementApi.md#update_entitlement_meta_info) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/metaInfo | update entitlement meta info
 [**update_entitlement_name**](EntitlementApi.md#update_entitlement_name) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/entitlementName | update entitlement name
-[**update_entitlement_seat**](EntitlementApi.md#update_entitlement_seat) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/seat | update entitlement seat
+[**update_entitlement_seat**](EntitlementApi.md#update_entitlement_seat) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/seat | update seat for the active AZURE subscription
 
 
 # **add_entitlement_credit**
@@ -868,7 +868,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_entitlements**
-> List[WorkloadEntitlement] list_entitlements(org_id, partner=partner, product_id=product_id, offer_id=offer_id, buyer_id=buyer_id, limit=limit, offset=offset)
+> List[WorkloadEntitlement] list_entitlements(org_id, partner=partner, product_id=product_id, offer_id=offer_id, buyer_id=buyer_id, external_id=external_id, buyer_account_id=buyer_account_id, limit=limit, offset=offset)
 
 list entitlements
 
@@ -910,12 +910,14 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     product_id = 'product_id_example' # str | filter by productId (optional)
     offer_id = 'offer_id_example' # str | filter by offerId (optional)
     buyer_id = 'buyer_id_example' # str | filter by buyerId (optional)
+    external_id = 'external_id_example' # str | filter by externalId (optional)
+    buyer_account_id = 'buyer_account_id_example' # str | filter by buyerAccountId is currently supported only for AWS (optional)
     limit = 56 # int | List pagination size, default 1000, max value is 1000 (optional)
     offset = 56 # int | List pagination offset, default 0 (optional)
 
     try:
         # list entitlements
-        api_response = api_instance.list_entitlements(org_id, partner=partner, product_id=product_id, offer_id=offer_id, buyer_id=buyer_id, limit=limit, offset=offset)
+        api_response = api_instance.list_entitlements(org_id, partner=partner, product_id=product_id, offer_id=offer_id, buyer_id=buyer_id, external_id=external_id, buyer_account_id=buyer_account_id, limit=limit, offset=offset)
         print("The response of EntitlementApi->list_entitlements:\n")
         pprint(api_response)
     except Exception as e:
@@ -934,6 +936,8 @@ Name | Type | Description  | Notes
  **product_id** | **str**| filter by productId | [optional] 
  **offer_id** | **str**| filter by offerId | [optional] 
  **buyer_id** | **str**| filter by buyerId | [optional] 
+ **external_id** | **str**| filter by externalId | [optional] 
+ **buyer_account_id** | **str**| filter by buyerAccountId is currently supported only for AWS | [optional] 
  **limit** | **int**| List pagination size, default 1000, max value is 1000 | [optional] 
  **offset** | **int**| List pagination offset, default 0 | [optional] 
 
@@ -1303,9 +1307,9 @@ Name | Type | Description  | Notes
 # **update_entitlement_seat**
 > WorkloadEntitlement update_entitlement_seat(org_id, entitlement_id, new_seat)
 
-update entitlement seat
+update seat for the active AZURE subscription
 
-Update the seat number of the entitlement. Only active AZURE entitlement can be updated.
+Update the seat number for the active AZURE subscription.
 
 ### Example
 
@@ -1343,7 +1347,7 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     new_seat = 56 # int | New seat number
 
     try:
-        # update entitlement seat
+        # update seat for the active AZURE subscription
         api_response = api_instance.update_entitlement_seat(org_id, entitlement_id, new_seat)
         print("The response of EntitlementApi->update_entitlement_seat:\n")
         pprint(api_response)

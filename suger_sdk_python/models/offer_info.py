@@ -65,10 +65,11 @@ class OfferInfo(BaseModel):
     azure_product_variant: Optional[AzureProductVariant] = Field(default=None, description="For Azure marketplace only.", alias="azureProductVariant")
     billable_dimensions: Optional[List[BillableDimension]] = Field(default=None, description="Usage based metering dimensions based on Billable Metrics, managed by Suger only.", alias="billableDimensions")
     billing_cycle: Optional[BillingCycle] = Field(default=None, description="Billing Cycle for the offer.", alias="billingCycle")
+    billing_interval_in_months: Optional[StrictInt] = Field(default=None, description="Billing interval in months for the offer.", alias="billingIntervalInMonths")
     buyer_aws_account_ids: Optional[List[StrictStr]] = Field(default=None, description="The buyers' AWS Account IDs of this offer.", alias="buyerAwsAccountIds")
     buyer_azure_tenants: Optional[List[AzureAudience]] = Field(default=None, description="The buyers' Azure tenants of this offer.", alias="buyerAzureTenants")
     commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount that the buyer has committed to pay, before discount if applicable. It can be monthly commitment or total commitment. For frontend display or analysis purposes, not used for billing.", alias="commitAmount")
-    commit_billing_interval_in_months: Optional[StrictInt] = Field(default=None, description="Billing interval in months for commitDimensions", alias="commitBillingIntervalInMonths")
+    commit_billing_interval_in_months: Optional[StrictInt] = Field(default=None, description="Deprecated: Use BillingIntervalInMonths instead.", alias="commitBillingIntervalInMonths")
     commits: Optional[List[CommitDimension]] = Field(default=None, description="Recurring flat fee for the offer, managed by cloud marketplaces or Suger.")
     currency: Optional[StrictStr] = Field(default=None, description="The currency code of the offer. ISO 4217 format.")
     dimensions: Optional[List[MeteringDimension]] = Field(default=None, description="Usage based metering dimensions defined on cloud marketplaces, managed by Cloud marketplaces only.")
@@ -87,6 +88,7 @@ class OfferInfo(BaseModel):
     gcp_reseller_private_offer_plan: Optional[GcpMarketplaceResellerPrivateOfferPlan] = Field(default=None, alias="gcpResellerPrivateOfferPlan")
     gcp_usage_plan_price_model: Optional[GcpMarketplaceUsagePlanPriceModel] = Field(default=None, description="Only applicable for GCP Marketplace with Usage plan. Not appliable for Subscription plan.", alias="gcpUsagePlanPriceModel")
     grace_period_in_days: Optional[StrictInt] = Field(default=None, description="The grace period in days for the offer. This is the number of days during which invoices remain in draft status, for reviewing. This filed can be overridden at the entitlement level.", alias="gracePeriodInDays")
+    is_metering_overage_commit: Optional[StrictBool] = Field(default=None, description="Whether the usage metering will only be charged for the amount that exceeds the committed amount. e.g. the buyer has committed $100, and the usage is $120, - if true, the buyer will be charged for the usage at $20, and the commit at $100. - if false, the buyer will be charged for the usage at $120, and the commit at $100.", alias="isMeteringOverageCommit")
     net_terms_in_days: Optional[StrictInt] = Field(default=None, description="The net terms in days for the offer. This is the number of days the buyer has to pay the invoice. This filed can be overridden at the entitlement level.", alias="netTermsInDays")
     payment_installments: Optional[List[PaymentInstallment]] = Field(default=None, description="For flexible payment schedule, managed by cloud marketplaces or Suger.", alias="paymentInstallments")
     payment_schedule: Optional[PaymentScheduleType] = Field(default=None, description="The payment schedule for the offer. PREPAY means the buyer pays before the service is provided. POSTPAY means the buyer pays after the service is provided.", alias="paymentSchedule")
@@ -100,9 +102,9 @@ class OfferInfo(BaseModel):
     start_time: Optional[datetime] = Field(default=None, description="Optional when creating AWS or GCP Marketplace private offer on the contract product. The future start time of the offer if it is not started on the acceptance.", alias="startTime")
     tax_ids: Optional[List[StrictStr]] = Field(default=None, description="Tax ids for the offer, used to calculate the tax amount for the offer. This field can be overridden at the entitlement level.", alias="taxIds")
     trial_config: Optional[TrialConfig] = Field(default=None, description="The offer for Direct. Only applicable for Direct offers. It is used in Stripe, Adyen, and other direct payment providers. The trial configuration for the offer.", alias="trialConfig")
-    usage_billing_interval_in_months: Optional[StrictInt] = Field(default=None, description="Billing interval in months for billableDimensions", alias="usageBillingIntervalInMonths")
+    usage_billing_interval_in_months: Optional[StrictInt] = Field(default=None, description="Deprecated: Use BillingIntervalInMonths instead.", alias="usageBillingIntervalInMonths")
     visibility: Optional[StrictStr] = Field(default=None, description="The default visibility of offer is PRIVATE.")
-    __properties: ClassVar[List[str]] = ["additionalEulaUrls", "additionalResellerEulaUrls", "attachEulaType", "autoRenew", "awsAgreementDuration", "awsChannelPartner", "awsCppoEventDetail", "awsCppoOpportunity", "awsMarkupPercentage", "awsResaleAuthorizationId", "azureOriginalPlan", "azurePrivateOffer", "azureProductVariant", "billableDimensions", "billingCycle", "buyerAwsAccountIds", "buyerAzureTenants", "commitAmount", "commitBillingIntervalInMonths", "commits", "currency", "dimensions", "discountPercentage", "eulaType", "eulaUrl", "gcpCustomerInfo", "gcpDuration", "gcpMetrics", "gcpPaymentSchedule", "gcpPlans", "gcpPrivateOffer", "gcpProviderInfo", "gcpProviderInternalNote", "gcpProviderPublicNote", "gcpResellerPrivateOfferPlan", "gcpUsagePlanPriceModel", "gracePeriodInDays", "netTermsInDays", "paymentInstallments", "paymentSchedule", "privateOfferUrl", "proratedBilling", "refundCancellationPolicy", "resellerAttachEulaType", "resellerEulaType", "resellerEulaUrl", "sellerNotes", "startTime", "taxIds", "trialConfig", "usageBillingIntervalInMonths", "visibility"]
+    __properties: ClassVar[List[str]] = ["additionalEulaUrls", "additionalResellerEulaUrls", "attachEulaType", "autoRenew", "awsAgreementDuration", "awsChannelPartner", "awsCppoEventDetail", "awsCppoOpportunity", "awsMarkupPercentage", "awsResaleAuthorizationId", "azureOriginalPlan", "azurePrivateOffer", "azureProductVariant", "billableDimensions", "billingCycle", "billingIntervalInMonths", "buyerAwsAccountIds", "buyerAzureTenants", "commitAmount", "commitBillingIntervalInMonths", "commits", "currency", "dimensions", "discountPercentage", "eulaType", "eulaUrl", "gcpCustomerInfo", "gcpDuration", "gcpMetrics", "gcpPaymentSchedule", "gcpPlans", "gcpPrivateOffer", "gcpProviderInfo", "gcpProviderInternalNote", "gcpProviderPublicNote", "gcpResellerPrivateOfferPlan", "gcpUsagePlanPriceModel", "gracePeriodInDays", "isMeteringOverageCommit", "netTermsInDays", "paymentInstallments", "paymentSchedule", "privateOfferUrl", "proratedBilling", "refundCancellationPolicy", "resellerAttachEulaType", "resellerEulaType", "resellerEulaUrl", "sellerNotes", "startTime", "taxIds", "trialConfig", "usageBillingIntervalInMonths", "visibility"]
 
     @field_validator('visibility')
     def visibility_validate_enum(cls, value):
@@ -262,6 +264,7 @@ class OfferInfo(BaseModel):
             "azureProductVariant": AzureProductVariant.from_dict(obj["azureProductVariant"]) if obj.get("azureProductVariant") is not None else None,
             "billableDimensions": [BillableDimension.from_dict(_item) for _item in obj["billableDimensions"]] if obj.get("billableDimensions") is not None else None,
             "billingCycle": obj.get("billingCycle"),
+            "billingIntervalInMonths": obj.get("billingIntervalInMonths"),
             "buyerAwsAccountIds": obj.get("buyerAwsAccountIds"),
             "buyerAzureTenants": [AzureAudience.from_dict(_item) for _item in obj["buyerAzureTenants"]] if obj.get("buyerAzureTenants") is not None else None,
             "commitAmount": obj.get("commitAmount"),
@@ -284,6 +287,7 @@ class OfferInfo(BaseModel):
             "gcpResellerPrivateOfferPlan": GcpMarketplaceResellerPrivateOfferPlan.from_dict(obj["gcpResellerPrivateOfferPlan"]) if obj.get("gcpResellerPrivateOfferPlan") is not None else None,
             "gcpUsagePlanPriceModel": obj.get("gcpUsagePlanPriceModel"),
             "gracePeriodInDays": obj.get("gracePeriodInDays"),
+            "isMeteringOverageCommit": obj.get("isMeteringOverageCommit"),
             "netTermsInDays": obj.get("netTermsInDays"),
             "paymentInstallments": [PaymentInstallment.from_dict(_item) for _item in obj["paymentInstallments"]] if obj.get("paymentInstallments") is not None else None,
             "paymentSchedule": obj.get("paymentSchedule"),

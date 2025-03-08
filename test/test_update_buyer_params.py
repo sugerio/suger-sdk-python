@@ -48,7 +48,8 @@ class TestUpdateBuyerParams(unittest.TestCase):
                         'ach_debit'
                         ], 
                     currency = '', 
-                    default_wallet_id = '', )
+                    default_wallet_id = '', ),
+                stripe_customer_id = ''
             )
         else:
             return UpdateBuyerParams(

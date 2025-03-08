@@ -18,21 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ApiClientAccessToken(BaseModel):
+class AwsProductVideo(BaseModel):
     """
-    ApiClientAccessToken
+    AwsProductVideo
     """ # noqa: E501
-    access_token: Optional[StrictStr] = None
-    expires_in: Optional[StrictInt] = Field(default=None, description="The token expires in 1 hour")
-    expires_on: Optional[datetime] = Field(default=None, description="The UTC timestamp when the token expires")
-    token_type: Optional[StrictStr] = 'Bearer'
-    __properties: ClassVar[List[str]] = ["access_token", "expires_in", "expires_on", "token_type"]
+    title: Optional[StrictStr] = Field(default=None, alias="Title")
+    type: Optional[StrictStr] = Field(default=None, alias="Type")
+    url: Optional[StrictStr] = Field(default=None, alias="Url")
+    __properties: ClassVar[List[str]] = ["Title", "Type", "Url"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +50,7 @@ class ApiClientAccessToken(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ApiClientAccessToken from a JSON string"""
+        """Create an instance of AwsProductVideo from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -77,7 +75,7 @@ class ApiClientAccessToken(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ApiClientAccessToken from a dict"""
+        """Create an instance of AwsProductVideo from a dict"""
         if obj is None:
             return None
 
@@ -85,10 +83,9 @@ class ApiClientAccessToken(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "access_token": obj.get("access_token"),
-            "expires_in": obj.get("expires_in"),
-            "expires_on": obj.get("expires_on"),
-            "token_type": obj.get("token_type") if obj.get("token_type") is not None else 'Bearer'
+            "Title": obj.get("Title"),
+            "Type": obj.get("Type"),
+            "Url": obj.get("Url")
         })
         return _obj
 

@@ -36,9 +36,9 @@ class TestGcpAmountConstraint(unittest.TestCase):
         model = GcpAmountConstraint()
         if include_optional:
             return GcpAmountConstraint(
-                default_amount = {"nanos":1,"units":"units"},
-                max_amount = {"nanos":1,"units":"units"},
-                min_amount = {"nanos":1,"units":"units"}
+                default_amount = {"nanos":4,"units":"units"},
+                max_amount = {"nanos":4,"units":"units"},
+                min_amount = {"nanos":4,"units":"units"}
             )
         else:
             return GcpAmountConstraint(

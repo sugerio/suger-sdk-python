@@ -96,15 +96,15 @@ class TestMeteringUsageRecordReportInfo(unittest.TestCase):
                             resource_id = '', 
                             resource_uri = '', )
                         ], ),
-                azure_metering_response = suger_sdk_python.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/batch_usage_event_ok_response.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.BatchUsageEventOkResponse(
+                azure_metering_response = suger_sdk_python.models.github_com_sugerio_marketplace_service_third_party_azure_sdk_marketplacemeteringv1/batch_usage_event_ok_response.github_com_sugerio_marketplace-service_third_party_azure_sdk_marketplacemeteringv1.BatchUsageEventOkResponse(
                     count = 56, 
                     result = [
-                        suger_sdk_python.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/usage_batch_event_ok_message.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.UsageBatchEventOkMessage(
+                        suger_sdk_python.models.github_com_sugerio_marketplace_service_third_party_azure_sdk_marketplacemeteringv1/usage_batch_event_ok_message.github_com_sugerio_marketplace-service_third_party_azure_sdk_marketplacemeteringv1.UsageBatchEventOkMessage(
                             dimension = '', 
                             effective_start_time = '', 
-                            error = suger_sdk_python.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/usage_event_conflict_response.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.UsageEventConflictResponse(
-                                additional_info = suger_sdk_python.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/usage_event_conflict_response_additional_info.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.UsageEventConflictResponseAdditionalInfo(
-                                    accepted_message = suger_sdk_python.models.github_com_sugerio_marketplace_service_azure_sdk_marketplacemeteringv1/usage_event_ok_response.github_com_sugerio_marketplace-service_azure_sdk_marketplacemeteringv1.UsageEventOkResponse(
+                            error = suger_sdk_python.models.github_com_sugerio_marketplace_service_third_party_azure_sdk_marketplacemeteringv1/usage_event_conflict_response.github_com_sugerio_marketplace-service_third_party_azure_sdk_marketplacemeteringv1.UsageEventConflictResponse(
+                                additional_info = suger_sdk_python.models.github_com_sugerio_marketplace_service_third_party_azure_sdk_marketplacemeteringv1/usage_event_conflict_response_additional_info.github_com_sugerio_marketplace-service_third_party_azure_sdk_marketplacemeteringv1.UsageEventConflictResponseAdditionalInfo(
+                                    accepted_message = suger_sdk_python.models.github_com_sugerio_marketplace_service_third_party_azure_sdk_marketplacemeteringv1/usage_event_ok_response.github_com_sugerio_marketplace-service_third_party_azure_sdk_marketplacemeteringv1.UsageEventOkResponse(
                                         dimension = '', 
                                         effective_start_time = '', 
                                         message_time = '', 

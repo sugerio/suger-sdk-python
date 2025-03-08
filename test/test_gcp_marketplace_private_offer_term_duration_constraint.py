@@ -36,7 +36,7 @@ class TestGcpMarketplacePrivateOfferTermDurationConstraint(unittest.TestCase):
         model = GcpMarketplacePrivateOfferTermDurationConstraint()
         if include_optional:
             return GcpMarketplacePrivateOfferTermDurationConstraint(
-                default_duration = {"unit":"MONTHLY_PERIOD","count":4}
+                default_duration = {"unit":"MONTHLY_PERIOD","count":5}
             )
         else:
             return GcpMarketplacePrivateOfferTermDurationConstraint(

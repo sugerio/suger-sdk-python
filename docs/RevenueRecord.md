@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **invoice_amount** | **float** |  | [optional] 
 **invoice_date** | **datetime** |  | [optional] 
 **organization_id** | **str** |  | [optional] 
-**partner** | **str** |  | [optional] 
+**partner** | **str** | The value is from type Partner string | [optional] 
 **payment_due_date** | **datetime** |  | [optional] 
 **product_id** | **str** |  | [optional] 
 **refund_disburse_amount** | **float** |  | [optional] 

@@ -45,14 +45,10 @@ class TestGithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaReve
                 buyer_id = '',
                 earning_usd = 1.337,
                 entitlement_id = '',
-                estimated_payout_month = suger_sdk_python.models.database_sql/null_time.database_sql.NullTime(
-                    time = '', 
-                    valid = True, ),
+                estimated_payout_month = {"valid":true,"time":"time"},
                 offer_id = '',
                 organization_id = '',
-                payment_sent_date = suger_sdk_python.models.database_sql/null_time.database_sql.NullTime(
-                    time = '', 
-                    valid = True, ),
+                payment_sent_date = {"valid":true,"time":"time"},
                 payout_status = '',
                 product_id = '',
                 purchase_record_id = '',

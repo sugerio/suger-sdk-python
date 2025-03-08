@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **next_offset** | **int** |  | [optional] 
-**revenue_records** | [**List[RevenueRecord]**](RevenueRecord.md) |  | [optional] 
+**revenue_records** | [**List[RevenueRecord]**](RevenueRecord.md) | list of revenue records. | [optional] 
 
 ## Example
 

@@ -51,6 +51,12 @@ class TestMeteringUsageRecordGroupMetaInfo(unittest.TestCase):
                     'key' : 1.337
                     },
                 source = '',
+                stripe_invoice_id = '',
+                stripe_period_end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                stripe_period_start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                stripe_subscription_item_id = '',
+                stripe_usage_record_summary_id = '',
+                stripe_usage_record_summary_total_usage = 56,
                 timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:

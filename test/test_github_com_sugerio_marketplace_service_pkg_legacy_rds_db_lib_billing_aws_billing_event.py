@@ -51,29 +51,19 @@ class TestGithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEv
                 entitlement_id = '',
                 from_account_id = '',
                 id = '',
-                insert_date = suger_sdk_python.models.database_sql/null_time.database_sql.NullTime(
-                    time = '', 
-                    valid = True, ),
-                invoice_date = suger_sdk_python.models.database_sql/null_time.database_sql.NullTime(
-                    time = '', 
-                    valid = True, ),
+                insert_date = {"valid":true,"time":"time"},
+                invoice_date = {"valid":true,"time":"time"},
                 invoice_id = '',
                 offer_id = '',
                 organization_id = '',
                 parent_billing_event_id = '',
-                payment_due_date = suger_sdk_python.models.database_sql/null_time.database_sql.NullTime(
-                    time = '', 
-                    valid = True, ),
+                payment_due_date = {"valid":true,"time":"time"},
                 product_id = '',
                 to_account_id = '',
                 transaction_reference_id = '',
                 transaction_type = '',
-                usage_period_end_date = suger_sdk_python.models.database_sql/null_time.database_sql.NullTime(
-                    time = '', 
-                    valid = True, ),
-                usage_period_start_date = suger_sdk_python.models.database_sql/null_time.database_sql.NullTime(
-                    time = '', 
-                    valid = True, )
+                usage_period_end_date = {"valid":true,"time":"time"},
+                usage_period_start_date = {"valid":true,"time":"time"}
             )
         else:
             return GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent(

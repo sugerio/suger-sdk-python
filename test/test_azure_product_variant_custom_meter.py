@@ -39,7 +39,7 @@ class TestAzureProductVariantCustomMeter(unittest.TestCase):
                 display_name = '',
                 id = '',
                 included_base_quantities = [
-                    {"quantity":4.145608029883936,"isInfinite":true,"recurringUnit":"Monthly"}
+                    {"quantity":7.386281948385884,"isInfinite":true,"recurringUnit":"Monthly"}
                     ],
                 is_enabled = True,
                 price_in_usd = 1.337,

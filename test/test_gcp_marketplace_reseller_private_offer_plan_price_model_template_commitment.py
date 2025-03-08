@@ -36,9 +36,9 @@ class TestGcpMarketplaceResellerPrivateOfferPlanPriceModelTemplateCommitment(uni
         model = GcpMarketplaceResellerPrivateOfferPlanPriceModelTemplateCommitment()
         if include_optional:
             return GcpMarketplaceResellerPrivateOfferPlanPriceModelTemplateCommitment(
-                commitment_amount_per_period_template = {"decimalAmountConstraint":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"currencyCode":"currencyCode"},
-                discount_template = {"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},
-                period = {"unit":"MONTHLY_PERIOD","count":4}
+                commitment_amount_per_period_template = {"decimalAmountConstraint":{"minAmount":{"nanos":4,"units":"units"},"defaultAmount":{"nanos":4,"units":"units"},"maxAmount":{"nanos":4,"units":"units"}},"currencyCode":"currencyCode"},
+                discount_template = {"discountPercentage":{"minAmount":{"nanos":4,"units":"units"},"defaultAmount":{"nanos":4,"units":"units"},"maxAmount":{"nanos":4,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},
+                period = {"unit":"MONTHLY_PERIOD","count":5}
             )
         else:
             return GcpMarketplaceResellerPrivateOfferPlanPriceModelTemplateCommitment(

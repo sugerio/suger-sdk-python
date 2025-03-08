@@ -148,7 +148,7 @@ Class | Method | HTTP request | Description
 *EntitlementApi* | [**unschedule_entitlement_cancellation**](docs/EntitlementApi.md#unschedule_entitlement_cancellation) | **POST** /org/{orgId}/entitlement/{entitlementId}/unscheduleCancellation | unschedule entitlement cancellation
 *EntitlementApi* | [**update_entitlement_meta_info**](docs/EntitlementApi.md#update_entitlement_meta_info) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/metaInfo | update entitlement meta info
 *EntitlementApi* | [**update_entitlement_name**](docs/EntitlementApi.md#update_entitlement_name) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/entitlementName | update entitlement name
-*EntitlementApi* | [**update_entitlement_seat**](docs/EntitlementApi.md#update_entitlement_seat) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/seat | update entitlement seat
+*EntitlementApi* | [**update_entitlement_seat**](docs/EntitlementApi.md#update_entitlement_seat) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/seat | update seat for the active AZURE subscription
 *MeteringApi* | [**batch_report_usage_record_groups**](docs/MeteringApi.md#batch_report_usage_record_groups) | **POST** /org/{orgId}/batchCreateUsageRecordGroups | batch report usageRecordGroups
 *MeteringApi* | [**batch_validate_usage_record_groups**](docs/MeteringApi.md#batch_validate_usage_record_groups) | **POST** /org/{orgId}/batchValidateUsageRecordGroups | batch validate usageRecordGroups
 *MeteringApi* | [**create_billable_metric**](docs/MeteringApi.md#create_billable_metric) | **POST** /org/{orgId}/billableMetric | create billable metric
@@ -272,6 +272,7 @@ Class | Method | HTTP request | Description
  - [AwsProductSignatureVerificationKey](docs/AwsProductSignatureVerificationKey.md)
  - [AwsProductSupportInformation](docs/AwsProductSupportInformation.md)
  - [AwsProductVersion](docs/AwsProductVersion.md)
+ - [AwsProductVideo](docs/AwsProductVideo.md)
  - [AwsRenewalOfferType](docs/AwsRenewalOfferType.md)
  - [AwsSnsSubscription](docs/AwsSnsSubscription.md)
  - [AwsSnsSubscriptionStatus](docs/AwsSnsSubscriptionStatus.md)
@@ -595,7 +596,6 @@ Class | Method | HTTP request | Description
  - [PaymentConfig](docs/PaymentConfig.md)
  - [PaymentInstallment](docs/PaymentInstallment.md)
  - [PaymentScheduleType](docs/PaymentScheduleType.md)
- - [PkgStructsSnowflakeMarketplaceProduct](docs/PkgStructsSnowflakeMarketplaceProduct.md)
  - [PriceModelBasic](docs/PriceModelBasic.md)
  - [PriceModelBulk](docs/PriceModelBulk.md)
  - [PriceModelCategory](docs/PriceModelCategory.md)
@@ -619,6 +619,7 @@ Class | Method | HTTP request | Description
  - [ServicecontrolReportError](docs/ServicecontrolReportError.md)
  - [ServicecontrolReportResponse](docs/ServicecontrolReportResponse.md)
  - [ServicecontrolStatus](docs/ServicecontrolStatus.md)
+ - [SnowflakeMarketplaceProduct](docs/SnowflakeMarketplaceProduct.md)
  - [StripeBalanceTransaction](docs/StripeBalanceTransaction.md)
  - [StripeBalanceTransactionFeeDetail](docs/StripeBalanceTransactionFeeDetail.md)
  - [StripeCustomer](docs/StripeCustomer.md)

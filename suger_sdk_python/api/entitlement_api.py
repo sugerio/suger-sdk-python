@@ -3013,6 +3013,8 @@ class EntitlementApi:
         product_id: Annotated[Optional[StrictStr], Field(description="filter by productId")] = None,
         offer_id: Annotated[Optional[StrictStr], Field(description="filter by offerId")] = None,
         buyer_id: Annotated[Optional[StrictStr], Field(description="filter by buyerId")] = None,
+        external_id: Annotated[Optional[StrictStr], Field(description="filter by externalId")] = None,
+        buyer_account_id: Annotated[Optional[StrictStr], Field(description="filter by buyerAccountId is currently supported only for AWS")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
@@ -3042,6 +3044,10 @@ class EntitlementApi:
         :type offer_id: str
         :param buyer_id: filter by buyerId
         :type buyer_id: str
+        :param external_id: filter by externalId
+        :type external_id: str
+        :param buyer_account_id: filter by buyerAccountId is currently supported only for AWS
+        :type buyer_account_id: str
         :param limit: List pagination size, default 1000, max value is 1000
         :type limit: int
         :param offset: List pagination offset, default 0
@@ -3074,6 +3080,8 @@ class EntitlementApi:
             product_id=product_id,
             offer_id=offer_id,
             buyer_id=buyer_id,
+            external_id=external_id,
+            buyer_account_id=buyer_account_id,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -3106,6 +3114,8 @@ class EntitlementApi:
         product_id: Annotated[Optional[StrictStr], Field(description="filter by productId")] = None,
         offer_id: Annotated[Optional[StrictStr], Field(description="filter by offerId")] = None,
         buyer_id: Annotated[Optional[StrictStr], Field(description="filter by buyerId")] = None,
+        external_id: Annotated[Optional[StrictStr], Field(description="filter by externalId")] = None,
+        buyer_account_id: Annotated[Optional[StrictStr], Field(description="filter by buyerAccountId is currently supported only for AWS")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
@@ -3135,6 +3145,10 @@ class EntitlementApi:
         :type offer_id: str
         :param buyer_id: filter by buyerId
         :type buyer_id: str
+        :param external_id: filter by externalId
+        :type external_id: str
+        :param buyer_account_id: filter by buyerAccountId is currently supported only for AWS
+        :type buyer_account_id: str
         :param limit: List pagination size, default 1000, max value is 1000
         :type limit: int
         :param offset: List pagination offset, default 0
@@ -3167,6 +3181,8 @@ class EntitlementApi:
             product_id=product_id,
             offer_id=offer_id,
             buyer_id=buyer_id,
+            external_id=external_id,
+            buyer_account_id=buyer_account_id,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -3199,6 +3215,8 @@ class EntitlementApi:
         product_id: Annotated[Optional[StrictStr], Field(description="filter by productId")] = None,
         offer_id: Annotated[Optional[StrictStr], Field(description="filter by offerId")] = None,
         buyer_id: Annotated[Optional[StrictStr], Field(description="filter by buyerId")] = None,
+        external_id: Annotated[Optional[StrictStr], Field(description="filter by externalId")] = None,
+        buyer_account_id: Annotated[Optional[StrictStr], Field(description="filter by buyerAccountId is currently supported only for AWS")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
@@ -3228,6 +3246,10 @@ class EntitlementApi:
         :type offer_id: str
         :param buyer_id: filter by buyerId
         :type buyer_id: str
+        :param external_id: filter by externalId
+        :type external_id: str
+        :param buyer_account_id: filter by buyerAccountId is currently supported only for AWS
+        :type buyer_account_id: str
         :param limit: List pagination size, default 1000, max value is 1000
         :type limit: int
         :param offset: List pagination offset, default 0
@@ -3260,6 +3282,8 @@ class EntitlementApi:
             product_id=product_id,
             offer_id=offer_id,
             buyer_id=buyer_id,
+            external_id=external_id,
+            buyer_account_id=buyer_account_id,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -3287,6 +3311,8 @@ class EntitlementApi:
         product_id,
         offer_id,
         buyer_id,
+        external_id,
+        buyer_account_id,
         limit,
         offset,
         _request_auth,
@@ -3328,6 +3354,14 @@ class EntitlementApi:
         if buyer_id is not None:
             
             _query_params.append(('buyerId', buyer_id))
+            
+        if external_id is not None:
+            
+            _query_params.append(('externalId', external_id))
+            
+        if buyer_account_id is not None:
+            
+            _query_params.append(('buyerAccountId', buyer_account_id))
             
         if limit is not None:
             
@@ -4605,9 +4639,9 @@ class EntitlementApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> WorkloadEntitlement:
-        """update entitlement seat
+        """update seat for the active AZURE subscription
 
-        Update the seat number of the entitlement. Only active AZURE entitlement can be updated.
+        Update the seat number for the active AZURE subscription.
 
         :param org_id: Organization ID (required)
         :type org_id: str
@@ -4682,9 +4716,9 @@ class EntitlementApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[WorkloadEntitlement]:
-        """update entitlement seat
+        """update seat for the active AZURE subscription
 
-        Update the seat number of the entitlement. Only active AZURE entitlement can be updated.
+        Update the seat number for the active AZURE subscription.
 
         :param org_id: Organization ID (required)
         :type org_id: str
@@ -4759,9 +4793,9 @@ class EntitlementApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """update entitlement seat
+        """update seat for the active AZURE subscription
 
-        Update the seat number of the entitlement. Only active AZURE entitlement can be updated.
+        Update the seat number for the active AZURE subscription.
 
         :param org_id: Organization ID (required)
         :type org_id: str

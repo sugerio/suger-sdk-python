@@ -41,8 +41,8 @@ class TestGcpMarketplacePrivateOfferTermTemplate(unittest.TestCase):
                 payment_recurrence = '',
                 start_policy = '',
                 start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                term_duration = {"unit":"MONTHLY_PERIOD","count":4},
-                term_duration_constraint = {"defaultDuration":{"unit":"MONTHLY_PERIOD","count":4}}
+                term_duration = {"unit":"MONTHLY_PERIOD","count":5},
+                term_duration_constraint = {"defaultDuration":{"unit":"MONTHLY_PERIOD","count":5}}
             )
         else:
             return GcpMarketplacePrivateOfferTermTemplate(

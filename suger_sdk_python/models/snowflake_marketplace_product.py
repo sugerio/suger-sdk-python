@@ -26,9 +26,9 @@ from suger_sdk_python.models.database_sql_null_time import DatabaseSqlNullTime
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PkgStructsSnowflakeMarketplaceProduct(BaseModel):
+class SnowflakeMarketplaceProduct(BaseModel):
     """
-    PkgStructsSnowflakeMarketplaceProduct
+    SnowflakeMarketplaceProduct
     """ # noqa: E501
     comment: Optional[DatabaseSqlNullString] = Field(default=None, alias="Comment")
     created_on: Optional[DatabaseSqlNullTime] = Field(default=None, alias="CreatedOn")
@@ -76,7 +76,7 @@ class PkgStructsSnowflakeMarketplaceProduct(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PkgStructsSnowflakeMarketplaceProduct from a JSON string"""
+        """Create an instance of SnowflakeMarketplaceProduct from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -179,7 +179,7 @@ class PkgStructsSnowflakeMarketplaceProduct(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PkgStructsSnowflakeMarketplaceProduct from a dict"""
+        """Create an instance of SnowflakeMarketplaceProduct from a dict"""
         if obj is None:
             return None
 

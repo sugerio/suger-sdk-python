@@ -37,7 +37,7 @@ class TestGcpPriceModelDiscountTemplate(unittest.TestCase):
         if include_optional:
             return GcpPriceModelDiscountTemplate(
                 discount_economics = '',
-                discount_percentage = {"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},
+                discount_percentage = {"minAmount":{"nanos":4,"units":"units"},"defaultAmount":{"nanos":4,"units":"units"},"maxAmount":{"nanos":4,"units":"units"}},
                 discounted_price = {"nanos":1,"units":"units","currencyCode":"currencyCode"},
                 hide_discount_percentage = True
             )

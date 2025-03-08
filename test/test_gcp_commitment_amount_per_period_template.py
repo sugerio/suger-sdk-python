@@ -37,7 +37,7 @@ class TestGcpCommitmentAmountPerPeriodTemplate(unittest.TestCase):
         if include_optional:
             return GcpCommitmentAmountPerPeriodTemplate(
                 currency_code = '',
-                decimal_amount_constraint = {"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}}
+                decimal_amount_constraint = {"minAmount":{"nanos":4,"units":"units"},"defaultAmount":{"nanos":4,"units":"units"},"maxAmount":{"nanos":4,"units":"units"}}
             )
         else:
             return GcpCommitmentAmountPerPeriodTemplate(

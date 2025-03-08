@@ -1,4 +1,4 @@
-# PkgStructsSnowflakeMarketplaceProduct
+# SnowflakeMarketplaceProduct
 
 
 ## Properties
@@ -35,19 +35,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from suger_sdk_python.models.pkg_structs_snowflake_marketplace_product import PkgStructsSnowflakeMarketplaceProduct
+from suger_sdk_python.models.snowflake_marketplace_product import SnowflakeMarketplaceProduct
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of PkgStructsSnowflakeMarketplaceProduct from a JSON string
-pkg_structs_snowflake_marketplace_product_instance = PkgStructsSnowflakeMarketplaceProduct.from_json(json)
+# create an instance of SnowflakeMarketplaceProduct from a JSON string
+snowflake_marketplace_product_instance = SnowflakeMarketplaceProduct.from_json(json)
 # print the JSON string representation of the object
-print(PkgStructsSnowflakeMarketplaceProduct.to_json())
+print(SnowflakeMarketplaceProduct.to_json())
 
 # convert the object into a dict
-pkg_structs_snowflake_marketplace_product_dict = pkg_structs_snowflake_marketplace_product_instance.to_dict()
-# create an instance of PkgStructsSnowflakeMarketplaceProduct from a dict
-pkg_structs_snowflake_marketplace_product_from_dict = PkgStructsSnowflakeMarketplaceProduct.from_dict(pkg_structs_snowflake_marketplace_product_dict)
+snowflake_marketplace_product_dict = snowflake_marketplace_product_instance.to_dict()
+# create an instance of SnowflakeMarketplaceProduct from a dict
+snowflake_marketplace_product_from_dict = SnowflakeMarketplaceProduct.from_dict(snowflake_marketplace_product_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **additional_resources** | [**List[AwsProductAdditionalResource]**](AwsProductAdditionalResource.md) |  | [optional] 
 **logo_url** | **str** |  | [optional] 
-**video_urls** | **List[str]** | Currently, AWS only support 1 url in the array. | [optional] 
+**videos** | [**List[AwsProductVideo]**](AwsProductVideo.md) |  | [optional] 
 
 ## Example
 

@@ -38,6 +38,7 @@ class TestGcpMarketplacePrivateOfferMigrationMetadata(unittest.TestCase):
             return GcpMarketplacePrivateOfferMigrationMetadata(
                 inventory_flavor_external_name = '',
                 product_external_name = '',
+                project_id = '',
                 project_number = '',
                 provider_id = ''
             )

@@ -40,7 +40,7 @@ class TestGcpMarketplacePrivateOfferPriceModelCommitment(unittest.TestCase):
                 discount = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
                     discount_percentage = suger_sdk_python.models.discount_percentage.discountPercentage(), 
                     discounted_price = suger_sdk_python.models.discounted_price.discountedPrice(), ),
-                period = {"unit":"MONTHLY_PERIOD","count":4}
+                period = {"unit":"MONTHLY_PERIOD","count":5}
             )
         else:
             return GcpMarketplacePrivateOfferPriceModelCommitment(

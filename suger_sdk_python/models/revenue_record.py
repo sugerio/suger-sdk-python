@@ -42,7 +42,7 @@ class RevenueRecord(BaseModel):
     invoice_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="invoiceAmount")
     invoice_date: Optional[datetime] = Field(default=None, alias="invoiceDate")
     organization_id: Optional[StrictStr] = Field(default=None, alias="organizationID")
-    partner: Optional[StrictStr] = None
+    partner: Optional[StrictStr] = Field(default=None, description="The value is from type Partner string")
     payment_due_date: Optional[datetime] = Field(default=None, alias="paymentDueDate")
     product_id: Optional[StrictStr] = Field(default=None, alias="productID")
     refund_disburse_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="refundDisburseAmount")

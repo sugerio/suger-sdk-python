@@ -65,6 +65,7 @@ class NotificationEventAction(str, Enum):
     REVIEW_APPROVAL_REQUEST = 'REVIEW_APPROVAL_REQUEST'
     COMPLETE = 'COMPLETE'
     FAIL = 'FAIL'
+    WEBHOOK = 'WEBHOOK'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

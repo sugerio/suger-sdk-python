@@ -48,7 +48,7 @@ class TestGcpMarketplaceExistingPrivateOffer(unittest.TestCase):
                                     discount = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
                                         discount_percentage = suger_sdk_python.models.discount_percentage.discountPercentage(), 
                                         discounted_price = suger_sdk_python.models.discounted_price.discountedPrice(), ), 
-                                    period = {"unit":"MONTHLY_PERIOD","count":4}, ), 
+                                    period = {"unit":"MONTHLY_PERIOD","count":5}, ), 
                                 fixed_price = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_fixed.GcpMarketplacePrivateOfferPriceModelFixed(), 
                                 one_time_credit = suger_sdk_python.models.one_time_credit.oneTimeCredit(), 
                                 overage = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_overage.GcpMarketplacePrivateOfferPriceModelOverage(
@@ -65,7 +65,7 @@ class TestGcpMarketplaceExistingPrivateOffer(unittest.TestCase):
                     end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     start_policy = '', 
                     start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    term_duration = {"unit":"MONTHLY_PERIOD","count":4}, ),
+                    term_duration = {"unit":"MONTHLY_PERIOD","count":5}, ),
                 payment_schedule = '',
                 price_model = suger_sdk_python.models.gcp_marketplace_private_offer_price_model.GcpMarketplacePrivateOfferPriceModel(
                     base_offer = '', 
@@ -74,7 +74,7 @@ class TestGcpMarketplaceExistingPrivateOffer(unittest.TestCase):
                         discount = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
                             discount_percentage = suger_sdk_python.models.discount_percentage.discountPercentage(), 
                             discounted_price = suger_sdk_python.models.discounted_price.discountedPrice(), ), 
-                        period = {"unit":"MONTHLY_PERIOD","count":4}, ), 
+                        period = {"unit":"MONTHLY_PERIOD","count":5}, ), 
                     fixed_price = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_fixed.GcpMarketplacePrivateOfferPriceModelFixed(), 
                     one_time_credit = suger_sdk_python.models.one_time_credit.oneTimeCredit(), 
                     overage = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_overage.GcpMarketplacePrivateOfferPriceModelOverage(

@@ -41,12 +41,13 @@ class TestMeteringUsageRecordGroup(unittest.TestCase):
                 entitlement_id = '',
                 id = '',
                 last_update_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                meta_info = {"lagoAmount":6.027456183070403,"lagoSubscriptionID":"lagoSubscriptionID","metronomeDailyCostAmount":1.4658129805029452,"SkipValidation":true,"billableRecords":[{"quantity":0.8008281904610115,"key":"key","properties":{"key":""}},{"quantity":0.8008281904610115,"key":"key","properties":{"key":""}}],"metronomeMonthlyInvoiceAmount":5.962133916683182,"metronomeMonthlyInvoiceAmountAdjusted":5.637376656633329,"lagoUsageStartTime":"2000-01-23T04:56:07.000+00:00","originRecords":{"key":2.3021358869347655},"source":"{}","metronomeInvoiceID":"metronomeInvoiceID","timestamp":"2000-01-23T04:56:07.000+00:00"},
+                meta_info = {"lagoAmount":6.027456183070403,"stripePeriodStartTime":"2000-01-23T04:56:07.000+00:00","metronomeDailyCostAmount":1.4658129805029452,"SkipValidation":true,"billableRecords":[{"quantity":0.8008281904610115,"key":"key","properties":{"key":""}},{"quantity":0.8008281904610115,"key":"key","properties":{"key":""}}],"stripeInvoiceID":"stripeInvoiceID","originRecords":{"key":2.3021358869347655},"source":"{}","stripeSubscriptionItemID":"stripeSubscriptionItemID","lagoSubscriptionID":"lagoSubscriptionID","stripePeriodEndTime":"2000-01-23T04:56:07.000+00:00","stripeUsageRecordSummaryID":"stripeUsageRecordSummaryID","metronomeMonthlyInvoiceAmount":5.962133916683182,"metronomeMonthlyInvoiceAmountAdjusted":5.637376656633329,"lagoUsageStartTime":"2000-01-23T04:56:07.000+00:00","metronomeInvoiceID":"metronomeInvoiceID","stripeUsageRecordSummaryTotalUsage":7,"timestamp":"2000-01-23T04:56:07.000+00:00"},
                 organization_id = '',
                 partner = 'AWS',
                 records = {
                     'key' : 1.337
                     },
+                reported_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 serial_id = 56,
                 status = '',
                 usage_record_report_id = ''

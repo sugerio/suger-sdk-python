@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from suger_sdk_python.models.billable_dimension_price_model_detail import BillableDimensionPriceModelDetail
 from suger_sdk_python.models.billable_dimension_usage_daily_revenue import BillableDimensionUsageDailyRevenue
@@ -48,10 +48,13 @@ class BillingInvoiceInfo(BaseModel):
     commits_revenue_details: Optional[List[CommitRevenueDetail]] = Field(default=None, description="Recurring flat fee for the invoice. There should be only one type fee for each invoice, commits, or usage.", alias="commitsRevenueDetails")
     creation_date: Optional[datetime] = Field(default=None, description="The creation date of the invoice when the status of the invoice may be draft or issued. It may be different from the issue date.", alias="creationDate")
     currency: Optional[StrictStr] = None
+    deducted_commit_amount: Optional[StrictInt] = Field(default=None, description="The amount of the committed amount that has been deducted from the usage. It works only when IsMeteringOverageCommit is true.", alias="deductedCommitAmount")
+    deducted_commit_invoice_id: Optional[StrictStr] = Field(default=None, description="The ID of the commit invoice that has been deducted from the usage. It works only when IsMeteringOverageCommit is true.", alias="deductedCommitInvoiceID")
     description: Optional[StrictStr] = None
     due_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Due amount = SubtotalAmount + TaxAmount - AdjustOverallDiscount", alias="dueAmount")
     due_date: Optional[datetime] = Field(default=None, description="DueDate = IssueDate + NetTerm", alias="dueDate")
     grace_period_in_days: Optional[StrictInt] = Field(default=None, description="Grace Period in number of days", alias="gracePeriodInDays")
+    is_metering_overage_commit: Optional[StrictBool] = Field(default=None, description="Whether the usage metering is charged for the amount that exceeds the committed amount from the entitlement.", alias="isMeteringOverageCommit")
     issue_date: Optional[datetime] = Field(default=None, description="IssueDate, issue invoice automatically when CreationDate + GracePeriod, or issue invoice manually IssueDate >= CreationDate && IssueDate <= CreationDate + GracePeriod", alias="issueDate")
     memo: Optional[StrictStr] = None
     net_terms_in_days: Optional[StrictInt] = Field(default=None, description="Net Terms period in number of days", alias="netTermsInDays")
@@ -62,7 +65,7 @@ class BillingInvoiceInfo(BaseModel):
     tax_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="taxAmount")
     trial_period_in_days: Optional[StrictInt] = Field(default=None, description="Trial period in number of days", alias="trialPeriodInDays")
     usage_daily_revenues: Optional[List[BillableDimensionUsageDailyRevenue]] = Field(default=None, description="Billable dimension fees for the invoice.", alias="usageDailyRevenues")
-    __properties: ClassVar[List[str]] = ["addFixedFees", "addonDetail", "adjustDiscountByDimensions", "adjustMinimumSpendByDimensions", "adjustOverallDiscount", "adjustOverallMinimumSpend", "billableDimensionDetails", "commitsRevenueDetails", "creationDate", "currency", "description", "dueAmount", "dueDate", "gracePeriodInDays", "issueDate", "memo", "netTermsInDays", "paymentInstallmentsDetail", "receiptUrl", "spaUrl", "subtotalAmount", "taxAmount", "trialPeriodInDays", "usageDailyRevenues"]
+    __properties: ClassVar[List[str]] = ["addFixedFees", "addonDetail", "adjustDiscountByDimensions", "adjustMinimumSpendByDimensions", "adjustOverallDiscount", "adjustOverallMinimumSpend", "billableDimensionDetails", "commitsRevenueDetails", "creationDate", "currency", "deductedCommitAmount", "deductedCommitInvoiceID", "description", "dueAmount", "dueDate", "gracePeriodInDays", "isMeteringOverageCommit", "issueDate", "memo", "netTermsInDays", "paymentInstallmentsDetail", "receiptUrl", "spaUrl", "subtotalAmount", "taxAmount", "trialPeriodInDays", "usageDailyRevenues"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -179,10 +182,13 @@ class BillingInvoiceInfo(BaseModel):
             "commitsRevenueDetails": [CommitRevenueDetail.from_dict(_item) for _item in obj["commitsRevenueDetails"]] if obj.get("commitsRevenueDetails") is not None else None,
             "creationDate": obj.get("creationDate"),
             "currency": obj.get("currency"),
+            "deductedCommitAmount": obj.get("deductedCommitAmount"),
+            "deductedCommitInvoiceID": obj.get("deductedCommitInvoiceID"),
             "description": obj.get("description"),
             "dueAmount": obj.get("dueAmount"),
             "dueDate": obj.get("dueDate"),
             "gracePeriodInDays": obj.get("gracePeriodInDays"),
+            "isMeteringOverageCommit": obj.get("isMeteringOverageCommit"),
             "issueDate": obj.get("issueDate"),
             "memo": obj.get("memo"),
             "netTermsInDays": obj.get("netTermsInDays"),

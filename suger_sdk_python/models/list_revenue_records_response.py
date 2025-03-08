@@ -29,7 +29,7 @@ class ListRevenueRecordsResponse(BaseModel):
     ListRevenueRecordsResponse
     """ # noqa: E501
     next_offset: Optional[StrictInt] = Field(default=None, alias="nextOffset")
-    revenue_records: Optional[List[RevenueRecord]] = Field(default=None, alias="revenueRecords")
+    revenue_records: Optional[List[RevenueRecord]] = Field(default=None, description="list of revenue records.", alias="revenueRecords")
     __properties: ClassVar[List[str]] = ["nextOffset", "revenueRecords"]
 
     model_config = ConfigDict(

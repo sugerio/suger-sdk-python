@@ -36,7 +36,7 @@ class TestGcpMarketplaceResellerPrivateOfferPlanPriceModelTemplateOverage(unitte
         model = GcpMarketplaceResellerPrivateOfferPlanPriceModelTemplateOverage()
         if include_optional:
             return GcpMarketplaceResellerPrivateOfferPlanPriceModelTemplateOverage(
-                discount_template = {"discountPercentage":{"minAmount":{"nanos":1,"units":"units"},"defaultAmount":{"nanos":1,"units":"units"},"maxAmount":{"nanos":1,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},
+                discount_template = {"discountPercentage":{"minAmount":{"nanos":4,"units":"units"},"defaultAmount":{"nanos":4,"units":"units"},"maxAmount":{"nanos":4,"units":"units"}},"discountEconomics":"discountEconomics","hideDiscountPercentage":true,"discountedPrice":{"nanos":1,"units":"units","currencyCode":"currencyCode"}},
                 sku_discount_templates = [
                     None
                     ],

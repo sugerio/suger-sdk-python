@@ -38,7 +38,7 @@ class TestWorkloadMetaInfo(unittest.TestCase):
             return WorkloadMetaInfo(
                 ace_apn_crm_unique_identifier = '',
                 aws_saas_product_dimensions = [
-                    {"Types":["Types","Types"],"Description":"Description","Length":3,"Rate":6.965117697638846,"TimeUnit":"DAY","Unit":"Unit","Key":"Key","Name":"Name"}
+                    {"Types":["Types","Types"],"Description":"Description","Length":6,"Rate":1.284659006116532,"TimeUnit":"DAY","Unit":"Unit","Key":"Key","Name":"Name"}
                     ],
                 base_agreement_id = '',
                 buyer_ids = [

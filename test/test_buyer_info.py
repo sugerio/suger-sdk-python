@@ -101,7 +101,8 @@ class TestBuyerInfo(unittest.TestCase):
                         'key' : ''
                         }, 
                     name = '', 
-                    phone = '', )
+                    phone = '', ),
+                stripe_customer_id = ''
             )
         else:
             return BuyerInfo(

@@ -40,8 +40,8 @@ class TestAwsProductPromotionalResources(unittest.TestCase):
                     {"Type":"Type","Text":"Text","Url":"Url"}
                     ],
                 logo_url = '',
-                video_urls = [
-                    ''
+                videos = [
+                    {"Type":"Type","Title":"Title","Url":"Url"}
                     ]
             )
         else:

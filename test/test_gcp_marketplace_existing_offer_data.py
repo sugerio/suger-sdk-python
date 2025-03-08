@@ -36,7 +36,7 @@ class TestGcpMarketplaceExistingOfferData(unittest.TestCase):
         model = GcpMarketplaceExistingOfferData()
         if include_optional:
             return GcpMarketplaceExistingOfferData(
-                entitlement = {"newPendingOffer":"newPendingOffer","offerEffectiveTime":"2000-01-23T04:56:07.000+00:00","newPlan":"newPlan","offer":"offer","inputProperties":[9,9],"provider":"provider","offerEndTime":"2000-01-23T04:56:07.000+00:00","offerDuration":"offerDuration","consumers":[{"project":"project"},{"project":"project"}],"newOfferEndTime":"newOfferEndTime","subscriptionEndTime":"2000-01-23T04:56:07.000+00:00","id":"id","state":"{}","usageReportingId":"usageReportingId","plan":"plan","messageToUser":"messageToUser","product":"product","updateTime":"2000-01-23T04:56:07.000+00:00","newOfferDuration":"newOfferDuration","quoteExternalName":"quoteExternalName","createTime":"2000-01-23T04:56:07.000+00:00","newPendingPlan":"newPendingPlan","name":"name","newPendingOfferDuration":"newPendingOfferDuration","account":"account","productExternalName":"productExternalName","newOfferStartTime":"newOfferStartTime"},
+                entitlement = {"newPendingOffer":"newPendingOffer","offerEffectiveTime":"2000-01-23T04:56:07.000+00:00","newPlan":"newPlan","offer":"offer","inputProperties":[6,6],"provider":"provider","offerEndTime":"2000-01-23T04:56:07.000+00:00","offerDuration":"offerDuration","consumers":[{"project":"project"},{"project":"project"}],"newOfferEndTime":"newOfferEndTime","subscriptionEndTime":"2000-01-23T04:56:07.000+00:00","id":"id","state":"{}","usageReportingId":"usageReportingId","plan":"plan","messageToUser":"messageToUser","product":"product","updateTime":"2000-01-23T04:56:07.000+00:00","newOfferDuration":"newOfferDuration","quoteExternalName":"quoteExternalName","createTime":"2000-01-23T04:56:07.000+00:00","newPendingPlan":"newPendingPlan","name":"name","newPendingOfferDuration":"newPendingOfferDuration","account":"account","productExternalName":"productExternalName","newOfferStartTime":"newOfferStartTime"},
                 existing_price_model_type = '',
                 has_entitlement_changed = True,
                 private_offer = suger_sdk_python.models.gcp_marketplace_existing_private_offer.GcpMarketplaceExistingPrivateOffer(
@@ -52,7 +52,7 @@ class TestGcpMarketplaceExistingOfferData(unittest.TestCase):
                                         discount = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_discount.GcpMarketplacePrivateOfferPriceModelDiscount(
                                             discount_percentage = suger_sdk_python.models.discount_percentage.discountPercentage(), 
                                             discounted_price = suger_sdk_python.models.discounted_price.discountedPrice(), ), 
-                                        period = {"unit":"MONTHLY_PERIOD","count":4}, ), 
+                                        period = {"unit":"MONTHLY_PERIOD","count":5}, ), 
                                     fixed_price = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_fixed.GcpMarketplacePrivateOfferPriceModelFixed(), 
                                     one_time_credit = suger_sdk_python.models.one_time_credit.oneTimeCredit(), 
                                     overage = suger_sdk_python.models.gcp_marketplace_private_offer_price_model_overage.GcpMarketplacePrivateOfferPriceModelOverage(
@@ -69,7 +69,7 @@ class TestGcpMarketplaceExistingOfferData(unittest.TestCase):
                         end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         start_policy = '', 
                         start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        term_duration = {"unit":"MONTHLY_PERIOD","count":4}, ), 
+                        term_duration = {"unit":"MONTHLY_PERIOD","count":5}, ), 
                     payment_schedule = '', 
                     price_model = suger_sdk_python.models.price_model.priceModel(), 
                     service_level = '', ),

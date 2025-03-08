@@ -40,7 +40,7 @@ class TestGcpMarketplacePrivateOfferTerm(unittest.TestCase):
                 end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 start_policy = '',
                 start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                term_duration = {"unit":"MONTHLY_PERIOD","count":4}
+                term_duration = {"unit":"MONTHLY_PERIOD","count":5}
             )
         else:
             return GcpMarketplacePrivateOfferTerm(

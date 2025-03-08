@@ -62,10 +62,10 @@ class TestProductApi(unittest.TestCase):
         """
         pass
 
-    def test_list_products_by_organization(self) -> None:
-        """Test case for list_products_by_organization
+    def test_list_products(self) -> None:
+        """Test case for list_products
 
-        list products by organization
+        list products
         """
         pass
 

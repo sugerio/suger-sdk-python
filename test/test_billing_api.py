@@ -55,15 +55,15 @@ class TestBillingApi(unittest.TestCase):
         """
         pass
 
-    def test_get_invoice(self) -> None:
-        """Test case for get_invoice
+    def test_get_invoice_v2(self) -> None:
+        """Test case for get_invoice_v2
 
         get invoice
         """
         pass
 
-    def test_issue_invoice(self) -> None:
-        """Test case for issue_invoice
+    def test_issue_invoice_v2(self) -> None:
+        """Test case for issue_invoice_v2
 
         issue invoice
         """
@@ -97,10 +97,17 @@ class TestBillingApi(unittest.TestCase):
         """
         pass
 
-    def test_pay_invoice(self) -> None:
-        """Test case for pay_invoice
+    def test_pay_invoice_v2(self) -> None:
+        """Test case for pay_invoice_v2
 
         pay invoice
+        """
+        pass
+
+    def test_preview_invoice_email(self) -> None:
+        """Test case for preview_invoice_email
+
+        preview invoice email
         """
         pass
 
@@ -111,8 +118,15 @@ class TestBillingApi(unittest.TestCase):
         """
         pass
 
-    def test_void_invoice(self) -> None:
-        """Test case for void_invoice
+    def test_update_invoice_info_v2(self) -> None:
+        """Test case for update_invoice_info_v2
+
+        update invoice info
+        """
+        pass
+
+    def test_void_invoice_v2(self) -> None:
+        """Test case for void_invoice_v2
 
         void invoice
         """

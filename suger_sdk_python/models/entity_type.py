@@ -55,7 +55,6 @@ class EntityType(str, Enum):
     WORKFLOW = 'WORKFLOW'
     WORKFLOW_EXECUTION = 'WORKFLOW_EXECUTION'
     WORKFLOW_WEBHOOK = 'WORKFLOW_WEBHOOK'
-    CLICKUP_TASK_WEBHOOK = 'CLICKUP_TASK_WEBHOOK'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

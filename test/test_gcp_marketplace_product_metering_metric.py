@@ -44,7 +44,7 @@ class TestGcpMarketplaceProductMeteringMetric(unittest.TestCase):
                 metric_kind = '',
                 name = '',
                 price_tiers = [
-                    {"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":7.386281948385884}
+                    {"startingUsageAmount":"startingUsageAmount","price":{"nanos":1,"units":"units","currencyCode":"currencyCode"},"fromAmount":1.2315135367772556}
                     ],
                 reporting_unit = '',
                 sku_id = '',

@@ -15,10 +15,10 @@
 
 import unittest
 
-from suger_sdk_python.models.api_client_access_token import ApiClientAccessToken
+from suger_sdk_python.models.aws_product_video import AwsProductVideo
 
-class TestApiClientAccessToken(unittest.TestCase):
-    """ApiClientAccessToken unit test stubs"""
+class TestAwsProductVideo(unittest.TestCase):
+    """AwsProductVideo unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,28 +26,27 @@ class TestApiClientAccessToken(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ApiClientAccessToken:
-        """Test ApiClientAccessToken
+    def make_instance(self, include_optional) -> AwsProductVideo:
+        """Test AwsProductVideo
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ApiClientAccessToken`
+        # uncomment below to create an instance of `AwsProductVideo`
         """
-        model = ApiClientAccessToken()
+        model = AwsProductVideo()
         if include_optional:
-            return ApiClientAccessToken(
-                access_token = '',
-                expires_in = 56,
-                expires_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                token_type = 'Bearer'
+            return AwsProductVideo(
+                title = '',
+                type = '',
+                url = ''
             )
         else:
-            return ApiClientAccessToken(
+            return AwsProductVideo(
         )
         """
 
-    def testApiClientAccessToken(self):
-        """Test ApiClientAccessToken"""
+    def testAwsProductVideo(self):
+        """Test AwsProductVideo"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

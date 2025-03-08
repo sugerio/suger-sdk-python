@@ -40,7 +40,14 @@ class TestGcpMarketplaceResellerInfo(unittest.TestCase):
                 billing_account_nickname = '',
                 billing_account_org_display_name = '',
                 billing_account_type = '',
-                notes_to_reseller = ''
+                notes_to_reseller = '',
+                partner_account_name = '',
+                resell_offer_template_id = '',
+                reseller_contact_email = '',
+                reseller_contact_name = '',
+                reseller_private_offer_plan_id = '',
+                reseller_private_offer_plan_scope = '',
+                sub_billing_account = ''
             )
         else:
             return GcpMarketplaceResellerInfo(

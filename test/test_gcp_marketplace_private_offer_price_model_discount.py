@@ -36,7 +36,7 @@ class TestGcpMarketplacePrivateOfferPriceModelDiscount(unittest.TestCase):
         model = GcpMarketplacePrivateOfferPriceModelDiscount()
         if include_optional:
             return GcpMarketplacePrivateOfferPriceModelDiscount(
-                discount_percentage = {"nanos":1,"units":"units"},
+                discount_percentage = {"nanos":4,"units":"units"},
                 discounted_price = {"nanos":1,"units":"units","currencyCode":"currencyCode"}
             )
         else:

@@ -52,27 +52,32 @@ class TestBillingInvoiceInfo(unittest.TestCase):
                 adjust_overall_minimum_spend = suger_sdk_python.models.invoice_adjust_overall_minimum_spend.InvoiceAdjustOverallMinimumSpend(
                     minimum_spend = 1.337, 
                     reason = '', ),
-                amount = 1.337,
                 billable_dimension_details = [
-                    {"discountExpression":"discountExpression","amount":2.3021358869347655,"quantity":9.301444243932576,"minimumCommit":7.061401241503109,"name":"name","discount":"{}","details":[{"feeExpressions":"feeExpressions","descriptions":"descriptions"},{"feeExpressions":"feeExpressions","descriptions":"descriptions"}],"billableMetricKey":"{}","category":"{}","isTrial":true,"minimumCommitScope":"{}"}
+                    {"discountExpression":"discountExpression","amount":5.637376656633329,"quantity":7.061401241503109,"minimumCommit":2.3021358869347655,"name":"name","discount":"{}","details":[{"feeExpressions":"feeExpressions","descriptions":"descriptions"},{"feeExpressions":"feeExpressions","descriptions":"descriptions"}],"billableMetricKey":"{}","category":"{}","isTrial":true,"minimumCommitScope":"{}"}
                     ],
                 commits_revenue_details = [
-                    {"amount":3.616076749251911,"expression":"expression","quantity":2,"rate":4.145608029883936,"name":"name","description":"description","key":"key"}
+                    {"amount":9.301444243932576,"expression":"expression","quantity":3,"rate":2.027123023002322,"name":"name","description":"description","key":"key"}
                     ],
                 creation_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 currency = '',
+                deducted_commit_amount = 56,
+                deducted_commit_invoice_id = '',
                 description = '',
+                due_amount = 1.337,
                 due_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 grace_period_in_days = 56,
+                is_metering_overage_commit = True,
                 issue_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 memo = '',
                 net_terms_in_days = 56,
-                payment_installments_detail = {"amount":1.0246457001441578,"description":"description","chargeOn":"2000-01-23T04:56:07.000+00:00"},
+                payment_installments_detail = {"amount":1.4894159098541704,"description":"description","chargeOn":"2000-01-23T04:56:07.000+00:00"},
                 receipt_url = '',
                 spa_url = '',
+                subtotal_amount = 1.337,
+                tax_amount = 1.337,
                 trial_period_in_days = 56,
                 usage_daily_revenues = [
-                    {"date":"date","uniquePropertyItems":{"key":""},"quantity":6.84685269835264,"billableMetricKey":{"groupBysExpression":"groupBysExpression","id":"id"}}
+                    {"date":"date","uniquePropertyItems":{"key":""},"quantity":4.965218492984954,"billableMetricKey":{"groupBysExpression":"groupBysExpression","id":"id"}}
                     ]
             )
         else:

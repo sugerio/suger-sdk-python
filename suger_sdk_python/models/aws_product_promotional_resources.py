@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from suger_sdk_python.models.aws_product_additional_resource import AwsProductAdditionalResource
+from suger_sdk_python.models.aws_product_video import AwsProductVideo
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,8 +31,8 @@ class AwsProductPromotionalResources(BaseModel):
     """ # noqa: E501
     additional_resources: Optional[List[AwsProductAdditionalResource]] = Field(default=None, alias="AdditionalResources")
     logo_url: Optional[StrictStr] = Field(default=None, alias="LogoUrl")
-    video_urls: Optional[List[StrictStr]] = Field(default=None, description="Currently, AWS only support 1 url in the array.", alias="VideoUrls")
-    __properties: ClassVar[List[str]] = ["AdditionalResources", "LogoUrl", "VideoUrls"]
+    videos: Optional[List[AwsProductVideo]] = Field(default=None, alias="Videos")
+    __properties: ClassVar[List[str]] = ["AdditionalResources", "LogoUrl", "Videos"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -79,6 +80,13 @@ class AwsProductPromotionalResources(BaseModel):
                 if _item_additional_resources:
                     _items.append(_item_additional_resources.to_dict())
             _dict['AdditionalResources'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in videos (list)
+        _items = []
+        if self.videos:
+            for _item_videos in self.videos:
+                if _item_videos:
+                    _items.append(_item_videos.to_dict())
+            _dict['Videos'] = _items
         return _dict
 
     @classmethod
@@ -93,7 +101,7 @@ class AwsProductPromotionalResources(BaseModel):
         _obj = cls.model_validate({
             "AdditionalResources": [AwsProductAdditionalResource.from_dict(_item) for _item in obj["AdditionalResources"]] if obj.get("AdditionalResources") is not None else None,
             "LogoUrl": obj.get("LogoUrl"),
-            "VideoUrls": obj.get("VideoUrls")
+            "Videos": [AwsProductVideo.from_dict(_item) for _item in obj["Videos"]] if obj.get("Videos") is not None else None
         })
         return _obj
 
