@@ -27,22 +27,22 @@ class AzureMarketplaceProductType(str, Enum):
     """
     allowed enum values
     """
-    AZUREAPPLICATION = 'azureApplication'
-    AZURECONTAINER = 'azureContainer'
-    AZUREVIRTUALMACHINE = 'azureVirtualMachine'
-    CONSULTINGSERVICE = 'consultingService'
-    CONTAINERAPP = 'containerApp'
-    COREVIRTUALMACHINE = 'coreVirtualMachine'
-    COSELLONLY = 'cosellOnly'
-    DYNAMICS365BUSINESSCENTRAL = 'dynamics365BusinessCentral'
-    DYNAMICS365FORCUSTOMERENGAGEMENT = 'dynamics365ForCustomerEngagement'
-    DYNAMICS365FOROPERATIONS = 'dynamics365ForOperations'
-    IOTEDGEMODULE = 'iotEdgeModule'
-    MANAGEDSERVICE = 'managedService'
-    POWERBIAPP = 'powerBiApp'
-    POWERBIVISUAL = 'powerBiVisual'
-    SOFTWAREASASERVICE = 'softwareAsAService'
-    XBOX360NONBACKCOMPAT = 'xbox360NonBackcompat'
+    AzureMarketplaceProductType_azureApplication = 'azureApplication'
+    AzureMarketplaceProductType_azureContainer = 'azureContainer'
+    AzureMarketplaceProductType_azureVirtualMachine = 'azureVirtualMachine'
+    AzureMarketplaceProductType_consultingService = 'consultingService'
+    AzureMarketplaceProductType_containerApp = 'containerApp'
+    AzureMarketplaceProductType_coreVirtualMachine = 'coreVirtualMachine'
+    AzureMarketplaceProductType_cosellOnly = 'cosellOnly'
+    AzureMarketplaceProductType_dynamics365BusinessCentral = 'dynamics365BusinessCentral'
+    AzureMarketplaceProductType_dynamics365ForCustomerEngagement = 'dynamics365ForCustomerEngagement'
+    AzureMarketplaceProductType_dynamics365ForOperations = 'dynamics365ForOperations'
+    AzureMarketplaceProductType_iotEdgeModule = 'iotEdgeModule'
+    AzureMarketplaceProductType_managedService = 'managedService'
+    AzureMarketplaceProductType_powerBiApp = 'powerBiApp'
+    AzureMarketplaceProductType_powerBiVisual = 'powerBiVisual'
+    AzureMarketplaceProductType_softwareAsAService = 'softwareAsAService'
+    AzureMarketplaceProductType_xbox360NonBackcompat = 'xbox360NonBackcompat'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

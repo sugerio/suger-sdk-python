@@ -1219,7 +1219,7 @@ class BillingApi:
 
 
     @validate_call
-    def get_invoice_v2(
+    def get_invoice(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -1266,7 +1266,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_invoice_v2_serialize(
+        _param = self._get_invoice_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             _request_auth=_request_auth,
@@ -1292,7 +1292,7 @@ class BillingApi:
 
 
     @validate_call
-    def get_invoice_v2_with_http_info(
+    def get_invoice_with_http_info(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -1339,7 +1339,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_invoice_v2_serialize(
+        _param = self._get_invoice_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             _request_auth=_request_auth,
@@ -1365,7 +1365,7 @@ class BillingApi:
 
 
     @validate_call
-    def get_invoice_v2_without_preload_content(
+    def get_invoice_without_preload_content(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -1412,7 +1412,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_invoice_v2_serialize(
+        _param = self._get_invoice_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             _request_auth=_request_auth,
@@ -1433,7 +1433,7 @@ class BillingApi:
         return response_data.response
 
 
-    def _get_invoice_v2_serialize(
+    def _get_invoice_serialize(
         self,
         org_id,
         invoice_id,
@@ -1501,7 +1501,7 @@ class BillingApi:
 
 
     @validate_call
-    def issue_invoice_v2(
+    def issue_invoice(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -1551,7 +1551,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._issue_invoice_v2_serialize(
+        _param = self._issue_invoice_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             contact_ids=contact_ids,
@@ -1578,7 +1578,7 @@ class BillingApi:
 
 
     @validate_call
-    def issue_invoice_v2_with_http_info(
+    def issue_invoice_with_http_info(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -1628,7 +1628,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._issue_invoice_v2_serialize(
+        _param = self._issue_invoice_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             contact_ids=contact_ids,
@@ -1655,7 +1655,7 @@ class BillingApi:
 
 
     @validate_call
-    def issue_invoice_v2_without_preload_content(
+    def issue_invoice_without_preload_content(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -1705,7 +1705,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._issue_invoice_v2_serialize(
+        _param = self._issue_invoice_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             contact_ids=contact_ids,
@@ -1727,7 +1727,7 @@ class BillingApi:
         return response_data.response
 
 
-    def _issue_invoice_v2_serialize(
+    def _issue_invoice_serialize(
         self,
         org_id,
         invoice_id,
@@ -3148,7 +3148,7 @@ class BillingApi:
 
 
     @validate_call
-    def pay_invoice_v2(
+    def pay_invoice(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -3195,7 +3195,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._pay_invoice_v2_serialize(
+        _param = self._pay_invoice_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             _request_auth=_request_auth,
@@ -3221,7 +3221,7 @@ class BillingApi:
 
 
     @validate_call
-    def pay_invoice_v2_with_http_info(
+    def pay_invoice_with_http_info(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -3268,7 +3268,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._pay_invoice_v2_serialize(
+        _param = self._pay_invoice_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             _request_auth=_request_auth,
@@ -3294,7 +3294,7 @@ class BillingApi:
 
 
     @validate_call
-    def pay_invoice_v2_without_preload_content(
+    def pay_invoice_without_preload_content(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -3341,7 +3341,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._pay_invoice_v2_serialize(
+        _param = self._pay_invoice_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             _request_auth=_request_auth,
@@ -3362,7 +3362,7 @@ class BillingApi:
         return response_data.response
 
 
-    def _pay_invoice_v2_serialize(
+    def _pay_invoice_serialize(
         self,
         org_id,
         invoice_id,
@@ -4022,7 +4022,7 @@ class BillingApi:
 
 
     @validate_call
-    def update_invoice_info_v2(
+    def update_invoice_info(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -4072,7 +4072,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_invoice_info_v2_serialize(
+        _param = self._update_invoice_info_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             data=data,
@@ -4099,7 +4099,7 @@ class BillingApi:
 
 
     @validate_call
-    def update_invoice_info_v2_with_http_info(
+    def update_invoice_info_with_http_info(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -4149,7 +4149,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_invoice_info_v2_serialize(
+        _param = self._update_invoice_info_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             data=data,
@@ -4176,7 +4176,7 @@ class BillingApi:
 
 
     @validate_call
-    def update_invoice_info_v2_without_preload_content(
+    def update_invoice_info_without_preload_content(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -4226,7 +4226,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_invoice_info_v2_serialize(
+        _param = self._update_invoice_info_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             data=data,
@@ -4248,7 +4248,7 @@ class BillingApi:
         return response_data.response
 
 
-    def _update_invoice_info_v2_serialize(
+    def _update_invoice_info_serialize(
         self,
         org_id,
         invoice_id,
@@ -4332,7 +4332,7 @@ class BillingApi:
 
 
     @validate_call
-    def void_invoice_v2(
+    def void_invoice(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -4379,7 +4379,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._void_invoice_v2_serialize(
+        _param = self._void_invoice_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             _request_auth=_request_auth,
@@ -4405,7 +4405,7 @@ class BillingApi:
 
 
     @validate_call
-    def void_invoice_v2_with_http_info(
+    def void_invoice_with_http_info(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -4452,7 +4452,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._void_invoice_v2_serialize(
+        _param = self._void_invoice_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             _request_auth=_request_auth,
@@ -4478,7 +4478,7 @@ class BillingApi:
 
 
     @validate_call
-    def void_invoice_v2_without_preload_content(
+    def void_invoice_without_preload_content(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         invoice_id: Annotated[StrictStr, Field(description="Invoice ID")],
@@ -4525,7 +4525,7 @@ class BillingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._void_invoice_v2_serialize(
+        _param = self._void_invoice_serialize(
             org_id=org_id,
             invoice_id=invoice_id,
             _request_auth=_request_auth,
@@ -4546,7 +4546,7 @@ class BillingApi:
         return response_data.response
 
 
-    def _void_invoice_v2_serialize(
+    def _void_invoice_serialize(
         self,
         org_id,
         invoice_id,

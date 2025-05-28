@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **buyer_id** | **str** | Optional, if available, return the report for the Buyer. | [optional] 
 **entitlement_id** | **str** | Optional, if available, return the report for the Entitlement. | [optional] 
+**group_by** | [**GroupByInterval**](GroupByInterval.md) | default:\&quot;day\&quot; | [optional] 
 **organization_id** | **str** | Required. If the productID &amp; entitlementID are emtpy, return the report for the entire Organization. | 
 **partner** | **str** |  | 
 **product_id** | **str** | Optional, if available, return the report for the Product. | [optional] 

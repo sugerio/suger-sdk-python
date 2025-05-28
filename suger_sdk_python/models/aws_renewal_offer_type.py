@@ -27,9 +27,9 @@ class AwsRenewalOfferType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    EXTERNAL = 'External'
-    AWSMARKETPLACE = 'AwsMarketplace'
+    AwsRenewalOfferType_Unknown = ''
+    AwsRenewalOfferType_External = 'External'
+    AwsRenewalOfferType_AwsMarketplace = 'AwsMarketplace'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

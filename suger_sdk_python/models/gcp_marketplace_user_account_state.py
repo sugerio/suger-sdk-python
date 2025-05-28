@@ -27,8 +27,8 @@ class GcpMarketplaceUserAccountState(str, Enum):
     """
     allowed enum values
     """
-    ACCOUNT_STATE_UNSPECIFIED = 'ACCOUNT_STATE_UNSPECIFIED'
-    ACCOUNT_ACTIVE = 'ACCOUNT_ACTIVE'
+    GcpMarketplaceUserAccountState_UNSPECIFIED = 'ACCOUNT_STATE_UNSPECIFIED'
+    GcpMarketplaceUserAccountState_ACTIVE = 'ACCOUNT_ACTIVE'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

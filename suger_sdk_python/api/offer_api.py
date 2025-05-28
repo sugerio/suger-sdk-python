@@ -20,7 +20,6 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
-from suger_sdk_python.models.notification_event import NotificationEvent
 from suger_sdk_python.models.workload_meta_info import WorkloadMetaInfo
 from suger_sdk_python.models.workload_offer import WorkloadOffer
 
@@ -3114,10 +3113,10 @@ class OfferApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> NotificationEvent:
+    ) -> str:
         """notify offer contacts
 
-        Send offer notifications to the given contact ids. If contactIds is empty, send notifications to all contacts of the offer.
+        Send offer notifications to the given contact ids. If contactIDs is empty, send notifications to all contacts of the offer.
 
         :param org_id: Organization ID (required)
         :type org_id: str
@@ -3158,7 +3157,7 @@ class OfferApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NotificationEvent",
+            '200': "str",
             '400': "str",
             '405': "str",
             '500': "str",
@@ -3192,10 +3191,10 @@ class OfferApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[NotificationEvent]:
+    ) -> ApiResponse[str]:
         """notify offer contacts
 
-        Send offer notifications to the given contact ids. If contactIds is empty, send notifications to all contacts of the offer.
+        Send offer notifications to the given contact ids. If contactIDs is empty, send notifications to all contacts of the offer.
 
         :param org_id: Organization ID (required)
         :type org_id: str
@@ -3236,7 +3235,7 @@ class OfferApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NotificationEvent",
+            '200': "str",
             '400': "str",
             '405': "str",
             '500': "str",
@@ -3273,7 +3272,7 @@ class OfferApi:
     ) -> RESTResponseType:
         """notify offer contacts
 
-        Send offer notifications to the given contact ids. If contactIds is empty, send notifications to all contacts of the offer.
+        Send offer notifications to the given contact ids. If contactIDs is empty, send notifications to all contacts of the offer.
 
         :param org_id: Organization ID (required)
         :type org_id: str
@@ -3314,7 +3313,7 @@ class OfferApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NotificationEvent",
+            '200': "str",
             '400': "str",
             '405': "str",
             '500': "str",
@@ -3340,7 +3339,7 @@ class OfferApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'contactIds': '',
+            'contactIDs': '',
         }
 
         _path_params: Dict[str, str] = {}

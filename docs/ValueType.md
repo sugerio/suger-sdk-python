@@ -3,21 +3,21 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `ValueType_UNKNOWN` (value: `''`)
 
-* `VALUE_TYPE_UNSPECIFIED` (value: `'VALUE_TYPE_UNSPECIFIED'`)
+* `ValueType_UNSPECIFIED` (value: `'VALUE_TYPE_UNSPECIFIED'`)
 
-* `BOOL` (value: `'BOOL'`)
+* `ValueType_BOOL` (value: `'BOOL'`)
 
-* `INT64` (value: `'INT64'`)
+* `ValueType_INT64` (value: `'INT64'`)
 
-* `DOUBLE` (value: `'DOUBLE'`)
+* `ValueType_DOUBLE` (value: `'DOUBLE'`)
 
-* `STRING` (value: `'STRING'`)
+* `ValueType_STRING` (value: `'STRING'`)
 
-* `DISTRIBUTION` (value: `'DISTRIBUTION'`)
+* `ValueType_DISTRIBUTION` (value: `'DISTRIBUTION'`)
 
-* `MONEY` (value: `'MONEY'`)
+* `ValueType_MONEY` (value: `'MONEY'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

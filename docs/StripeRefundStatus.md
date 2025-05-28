@@ -3,15 +3,15 @@
 
 ## Enum
 
-* `PENDING` (value: `'pending'`)
+* `StripeRefundStatus_Pending` (value: `'pending'`)
 
-* `REQUIRES_ACTION` (value: `'requires_action'`)
+* `StripeRefundStatus_RequiresAction` (value: `'requires_action'`)
 
-* `SUCCEEDED` (value: `'succeeded'`)
+* `StripeRefundStatus_Succeeded` (value: `'succeeded'`)
 
-* `FAILED` (value: `'failed'`)
+* `StripeRefundStatus_Failed` (value: `'failed'`)
 
-* `CANCELED` (value: `'canceled'`)
+* `StripeRefundStatus_Canceled` (value: `'canceled'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

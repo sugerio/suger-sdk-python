@@ -27,14 +27,14 @@ class AzureMarketplaceResourceLifecycleState(str, Enum):
     """
     allowed enum values
     """
-    NOTAVAILABLE = 'notAvailable'
-    NEVERUSED = 'neverUsed'
-    TEST = 'test'
-    PREVIEW = 'preview'
-    GENERALLYAVAILABLE = 'generallyAvailable'
-    DEPRECATED = 'deprecated'
-    DECOMMISSIONED = 'decommissioned'
-    DELETED = 'deleted'
+    AzureMarketplaceResourceLifecycleState_NotAvailable = 'notAvailable'
+    AzureMarketplaceResourceLifecycleState_NeverUsed = 'neverUsed'
+    AzureMarketplaceResourceLifecycleState_Test = 'test'
+    AzureMarketplaceResourceLifecycleState_Preview = 'preview'
+    AzureMarketplaceResourceLifecycleState_GenerallyAvailable = 'generallyAvailable'
+    AzureMarketplaceResourceLifecycleState_Deprecated = 'deprecated'
+    AzureMarketplaceResourceLifecycleState_Decommissioned = 'decommissioned'
+    AzureMarketplaceResourceLifecycleState_Deleted = 'deleted'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

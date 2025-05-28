@@ -27,9 +27,9 @@ class TypesUsageRecordResultStatus(str, Enum):
     """
     allowed enum values
     """
-    SUCCESS = 'Success'
-    CUSTOMERNOTSUBSCRIBED = 'CustomerNotSubscribed'
-    DUPLICATERECORD = 'DuplicateRecord'
+    UsageRecordResultStatusSuccess = 'Success'
+    UsageRecordResultStatusCustomerNotSubscribed = 'CustomerNotSubscribed'
+    UsageRecordResultStatusDuplicateRecord = 'DuplicateRecord'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

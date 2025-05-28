@@ -27,7 +27,7 @@ class TrackEventActionType(str, Enum):
     """
     allowed enum values
     """
-    OPEN_EMAIL = 'OPEN_EMAIL'
+    TrackEventActionType_OPEN_EMAIL = 'OPEN_EMAIL'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

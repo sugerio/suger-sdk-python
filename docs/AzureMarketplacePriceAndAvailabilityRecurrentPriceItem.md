@@ -5,7 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**billing_frequency** | [**AzureMarketplaceTerm**](AzureMarketplaceTerm.md) | billingFrequency defines the frequency of the billing for recurring price. | [optional] 
 **billing_term** | [**AzureMarketplaceTerm**](AzureMarketplaceTerm.md) |  | [optional] 
+**contract_duration** | [**AzureMarketplaceTerm**](AzureMarketplaceTerm.md) | contractDuration defines the duration of the contract, should always be “year” with value 1 or 2 or 3 | [optional] 
+**flexible_schedule** | [**AzureMarketplacePriceFlexibleSchedule**](AzureMarketplacePriceFlexibleSchedule.md) | flexibleSchedule defines the payment installments for flexible billing. | [optional] 
 **payment_option** | [**AzureMarketplaceTerm**](AzureMarketplaceTerm.md) |  | [optional] 
 **price_per_payment_in_usd** | **float** |  | [optional] 
 **prices** | [**List[AzureMarketplacePrice]**](AzureMarketplacePrice.md) |  | [optional] 

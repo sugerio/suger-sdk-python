@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **accept_by** | **datetime** | in format YYYY-MM-DD | [optional] 
 **acceptance_links** | [**List[AzureMarketplacePrivateOfferAcceptanceLink]**](AzureMarketplacePrivateOfferAcceptanceLink.md) |  | [optional] 
 **beneficiaries** | [**List[AzureMarketplacePrivateOfferBeneficiary]**](AzureMarketplacePrivateOfferBeneficiary.md) |  | [optional] 
+**customer_contract_renewal** | **bool** | If true, it is a renewal offer for an existing customer. | [optional] 
 **e_tag** | **str** |  | [optional] 
 **end** | **datetime** | in format YYYY-MM-DD | [optional] 
 **id** | **str** | in format of \&quot;private-offer/private-offer-durable-id\&quot; | [optional] 

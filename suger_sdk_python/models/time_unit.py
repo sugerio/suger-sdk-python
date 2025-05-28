@@ -27,9 +27,9 @@ class TimeUnit(str, Enum):
     """
     allowed enum values
     """
-    DAY = 'DAY'
-    MONTH = 'MONTH'
-    YEAR = 'YEAR'
+    TimeUnit_DAY = 'DAY'
+    TimeUnit_MONTH = 'MONTH'
+    TimeUnit_YEAR = 'YEAR'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

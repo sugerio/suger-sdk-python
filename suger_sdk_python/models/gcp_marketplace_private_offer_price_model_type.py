@@ -27,13 +27,13 @@ class GcpMarketplacePrivateOfferPriceModelType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    PRICE_MODEL_TYPE_UNSPECIFIED = 'PRICE_MODEL_TYPE_UNSPECIFIED'
-    CUD = 'CUD'
-    FIXED_FEE = 'FIXED_FEE'
-    FIXED_FEE_WITH_OVERAGE = 'FIXED_FEE_WITH_OVERAGE'
-    PAYG = 'PAYG'
-    PAYG_WITH_CUD = 'PAYG_WITH_CUD'
+    GcpMarketplacePrivateOfferPriceModelType_UNKNOWN = ''
+    GcpMarketplacePrivateOfferPriceModelType_UNSPECIFIED = 'PRICE_MODEL_TYPE_UNSPECIFIED'
+    GcpMarketplacePrivateOfferPriceModelType_CUD = 'CUD'
+    GcpMarketplacePrivateOfferPriceModelType_FIXED_FEE = 'FIXED_FEE'
+    GcpMarketplacePrivateOfferPriceModelType_FIXED_FEE_WITH_OVERAGE = 'FIXED_FEE_WITH_OVERAGE'
+    GcpMarketplacePrivateOfferPriceModelType_PAYG = 'PAYG'
+    GcpMarketplacePrivateOfferPriceModelType_PAYG_WITH_CUD = 'PAYG_WITH_CUD'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

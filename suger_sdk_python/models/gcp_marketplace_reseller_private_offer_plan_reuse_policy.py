@@ -27,9 +27,9 @@ class GcpMarketplaceResellerPrivateOfferPlanReusePolicy(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    REUSE_POLICY_SINGLE_USE = 'REUSE_POLICY_SINGLE_USE'
-    REUSE_POLICY_MULTI_USE = 'REUSE_POLICY_MULTI_USE'
+    GcpMarketplaceResellerPrivateOfferPlanReusePolicy_UNKNOWN = ''
+    GcpMarketplaceResellerPrivateOfferPlanReusePolicy_SINGLE_USE = 'REUSE_POLICY_SINGLE_USE'
+    GcpMarketplaceResellerPrivateOfferPlanReusePolicy_MULTI_USE = 'REUSE_POLICY_MULTI_USE'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

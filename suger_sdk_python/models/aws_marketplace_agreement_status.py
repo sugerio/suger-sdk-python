@@ -27,15 +27,15 @@ class AwsMarketplaceAgreementStatus(str, Enum):
     """
     allowed enum values
     """
-    ACTIVE = 'ACTIVE'
-    ARCHIVED = 'ARCHIVED'
-    CANCELLED = 'CANCELLED'
-    EXPIRED = 'EXPIRED'
-    RENEWED = 'RENEWED'
-    REPLACED = 'REPLACED'
-    ROLLED_BACK = 'ROLLED_BACK'
-    SUPERSEDED = 'SUPERSEDED'
-    TERMINATED = 'TERMINATED'
+    AwsMarketplaceAgreementStatus_ACTIVE = 'ACTIVE'
+    AwsMarketplaceAgreementStatus_ARCHIVED = 'ARCHIVED'
+    AwsMarketplaceAgreementStatus_CANCELLED = 'CANCELLED'
+    AwsMarketplaceAgreementStatus_EXPIRED = 'EXPIRED'
+    AwsMarketplaceAgreementStatus_RENEWED = 'RENEWED'
+    AwsMarketplaceAgreementStatus_REPLACED = 'REPLACED'
+    AwsMarketplaceAgreementStatus_ROLLED_BACK = 'ROLLED_BACK'
+    AwsMarketplaceAgreementStatus_SUPERSEDED = 'SUPERSEDED'
+    AwsMarketplaceAgreementStatus_TERMINATED = 'TERMINATED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

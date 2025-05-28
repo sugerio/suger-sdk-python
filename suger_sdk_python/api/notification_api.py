@@ -332,7 +332,7 @@ class NotificationApi:
         end_date: Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
-        priorities: Annotated[Optional[StrictStr], Field(description="Filter by priorities, empty means all priorities. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.")] = None,
+        priorities: Annotated[Optional[StrictStr], Field(description="Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -360,7 +360,7 @@ class NotificationApi:
         :type limit: int
         :param offset: List pagination offset, default 0
         :type offset: int
-        :param priorities: Filter by priorities, empty means all priorities. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.
+        :param priorities: Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.
         :type priorities: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -421,7 +421,7 @@ class NotificationApi:
         end_date: Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
-        priorities: Annotated[Optional[StrictStr], Field(description="Filter by priorities, empty means all priorities. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.")] = None,
+        priorities: Annotated[Optional[StrictStr], Field(description="Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -449,7 +449,7 @@ class NotificationApi:
         :type limit: int
         :param offset: List pagination offset, default 0
         :type offset: int
-        :param priorities: Filter by priorities, empty means all priorities. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.
+        :param priorities: Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.
         :type priorities: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -510,7 +510,7 @@ class NotificationApi:
         end_date: Annotated[Optional[StrictStr], Field(description="end date (UTC) in YYYY-MM-DD format, default is today")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
-        priorities: Annotated[Optional[StrictStr], Field(description="Filter by priorities, empty means all priorities. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.")] = None,
+        priorities: Annotated[Optional[StrictStr], Field(description="Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -538,7 +538,7 @@ class NotificationApi:
         :type limit: int
         :param offset: List pagination offset, default 0
         :type offset: int
-        :param priorities: Filter by priorities, empty means all priorities. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.
+        :param priorities: Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.
         :type priorities: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

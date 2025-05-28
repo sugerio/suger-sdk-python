@@ -3,15 +3,15 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `AzureMarketplacePrivateOfferType_unknown` (value: `''`)
 
-* `CUSTOMERPROMOTION` (value: `'customerPromotion'`)
+* `AzureMarketplacePrivateOfferType_customerPromotion` (value: `'customerPromotion'`)
 
-* `CSPPROMOTION` (value: `'cspPromotion'`)
+* `AzureMarketplacePrivateOfferType_cspPromotion` (value: `'cspPromotion'`)
 
-* `MULTIPARTYPROMOTIONCHANNELPARTNER` (value: `'multipartyPromotionChannelPartner'`)
+* `AzureMarketplacePrivateOfferType_multipartyPromotionChannelPartner` (value: `'multipartyPromotionChannelPartner'`)
 
-* `MULTIPARTYPROMOTIONORIGINATOR` (value: `'multipartyPromotionOriginator'`)
+* `AzureMarketplacePrivateOfferType_multipartyPromotionOriginator` (value: `'multipartyPromotionOriginator'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

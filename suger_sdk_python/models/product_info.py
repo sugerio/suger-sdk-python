@@ -42,6 +42,7 @@ class ProductInfo(BaseModel):
     attributes: Optional[Dict[str, StrictStr]] = None
     aws_ami_product: Optional[AwsProduct] = Field(default=None, alias="awsAmiProduct")
     aws_container_product: Optional[AwsProduct] = Field(default=None, alias="awsContainerProduct")
+    aws_machine_learning_product: Optional[AwsProduct] = Field(default=None, alias="awsMachineLearningProduct")
     aws_professional_services_product: Optional[AwsProduct] = Field(default=None, alias="awsProfessionalServicesProduct")
     aws_saas_product: Optional[AwsProduct] = Field(default=None, alias="awsSaasProduct")
     aws_sns_subscriptions: Optional[List[AwsSnsSubscription]] = Field(default=None, alias="awsSnsSubscriptions")
@@ -57,7 +58,7 @@ class ProductInfo(BaseModel):
     seller_notes: Optional[StrictStr] = Field(default=None, alias="sellerNotes")
     snowflake_product: Optional[SnowflakeMarketplaceProduct] = Field(default=None, alias="snowflakeProduct")
     stripe_product: Optional[StripeProduct] = Field(default=None, alias="stripeProduct")
-    __properties: ClassVar[List[str]] = ["alibabaProduct", "attributes", "awsAmiProduct", "awsContainerProduct", "awsProfessionalServicesProduct", "awsSaasProduct", "awsSnsSubscriptions", "azureProduct", "azureProductResource", "commits", "currency", "dimensions", "eulaType", "eulaUrl", "gcpProduct", "refundCancellationPolicy", "sellerNotes", "snowflakeProduct", "stripeProduct"]
+    __properties: ClassVar[List[str]] = ["alibabaProduct", "attributes", "awsAmiProduct", "awsContainerProduct", "awsMachineLearningProduct", "awsProfessionalServicesProduct", "awsSaasProduct", "awsSnsSubscriptions", "azureProduct", "azureProductResource", "commits", "currency", "dimensions", "eulaType", "eulaUrl", "gcpProduct", "refundCancellationPolicy", "sellerNotes", "snowflakeProduct", "stripeProduct"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -107,6 +108,9 @@ class ProductInfo(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of aws_container_product
         if self.aws_container_product:
             _dict['awsContainerProduct'] = self.aws_container_product.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of aws_machine_learning_product
+        if self.aws_machine_learning_product:
+            _dict['awsMachineLearningProduct'] = self.aws_machine_learning_product.to_dict()
         # override the default output from pydantic by calling `to_dict()` of aws_professional_services_product
         if self.aws_professional_services_product:
             _dict['awsProfessionalServicesProduct'] = self.aws_professional_services_product.to_dict()
@@ -165,6 +169,7 @@ class ProductInfo(BaseModel):
             "attributes": obj.get("attributes"),
             "awsAmiProduct": AwsProduct.from_dict(obj["awsAmiProduct"]) if obj.get("awsAmiProduct") is not None else None,
             "awsContainerProduct": AwsProduct.from_dict(obj["awsContainerProduct"]) if obj.get("awsContainerProduct") is not None else None,
+            "awsMachineLearningProduct": AwsProduct.from_dict(obj["awsMachineLearningProduct"]) if obj.get("awsMachineLearningProduct") is not None else None,
             "awsProfessionalServicesProduct": AwsProduct.from_dict(obj["awsProfessionalServicesProduct"]) if obj.get("awsProfessionalServicesProduct") is not None else None,
             "awsSaasProduct": AwsProduct.from_dict(obj["awsSaasProduct"]) if obj.get("awsSaasProduct") is not None else None,
             "awsSnsSubscriptions": [AwsSnsSubscription.from_dict(_item) for _item in obj["awsSnsSubscriptions"]] if obj.get("awsSnsSubscriptions") is not None else None,

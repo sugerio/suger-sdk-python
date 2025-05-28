@@ -3,11 +3,11 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `AwsRenewalOfferType_Unknown` (value: `''`)
 
-* `EXTERNAL` (value: `'External'`)
+* `AwsRenewalOfferType_External` (value: `'External'`)
 
-* `AWSMARKETPLACE` (value: `'AwsMarketplace'`)
+* `AwsRenewalOfferType_AwsMarketplace` (value: `'AwsMarketplace'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

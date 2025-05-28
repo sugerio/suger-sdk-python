@@ -27,10 +27,10 @@ class GcpMarketplacePriceModel(str, Enum):
     """
     allowed enum values
     """
-    FREE = 'FREE'
-    SUBSCRIPTION = 'SUBSCRIPTION'
-    USAGE = 'USAGE'
-    SUBSCRIPTION_PLUS_USAGE = 'SUBSCRIPTION_PLUS_USAGE'
+    GcpMarketplacePriceModel_FREE = 'FREE'
+    GcpMarketplacePriceModel_SUBSCRIPTION = 'SUBSCRIPTION'
+    GcpMarketplacePriceModel_USAGE = 'USAGE'
+    GcpMarketplacePriceModel_SUBSCRIPTION_PLUS_USAGE = 'SUBSCRIPTION_PLUS_USAGE'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

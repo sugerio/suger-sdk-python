@@ -27,9 +27,9 @@ class AwsMarketplaceCppoDurationType(str, Enum):
     """
     allowed enum values
     """
-    SPECIFIC_DATES = 'SPECIFIC_DATES'
-    ONE_TIME = 'ONE_TIME'
-    NO_SET_TIME = 'NO_SET_TIME'
+    AwsMarketplaceCppoDurationType_SPECIFIC_DATES = 'SPECIFIC_DATES'
+    AwsMarketplaceCppoDurationType_ONE_TIME = 'ONE_TIME'
+    AwsMarketplaceCppoDurationType_NO_SET_TIME = 'NO_SET_TIME'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

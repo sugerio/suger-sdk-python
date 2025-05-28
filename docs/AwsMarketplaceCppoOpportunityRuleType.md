@@ -3,13 +3,13 @@
 
 ## Enum
 
-* `AVAILABILITYRULE` (value: `'AvailabilityRule'`)
+* `AwsMarketplaceCppoOpportunityRuleType_AvailabilityRule` (value: `'AvailabilityRule'`)
 
-* `PARTNERTARGETINGRULE` (value: `'PartnerTargetingRule'`)
+* `AwsMarketplaceCppoOpportunityRuleType_PartnerTargetingRule` (value: `'PartnerTargetingRule'`)
 
-* `TARGETINGRULE` (value: `'TargetingRule'`)
+* `AwsMarketplaceCppoOpportunityRuleType_TargetingRule` (value: `'TargetingRule'`)
 
-* `TAXCONFIGURATIONRULE` (value: `'TaxConfigurationRule'`)
+* `AwsMarketplaceCppoOpportunityRuleType_TaxConfigurationRule` (value: `'TaxConfigurationRule'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

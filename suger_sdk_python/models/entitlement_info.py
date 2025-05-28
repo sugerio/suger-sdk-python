@@ -35,6 +35,7 @@ from suger_sdk_python.models.gcp_marketplace_product_purchase_option_spec import
 from suger_sdk_python.models.metering_dimension import MeteringDimension
 from suger_sdk_python.models.payment_installment import PaymentInstallment
 from suger_sdk_python.models.payment_schedule_type import PaymentScheduleType
+from suger_sdk_python.models.snowflake_marketplace_offer import SnowflakeMarketplaceOffer
 from suger_sdk_python.models.trial_config import TrialConfig
 from suger_sdk_python.models.types_entitlement import TypesEntitlement
 from typing import Optional, Set
@@ -56,6 +57,7 @@ class EntitlementInfo(BaseModel):
     billable_dimensions: Optional[List[BillableDimension]] = Field(default=None, description="The dimensions for billable metric usage-based metering. It's for Suger(Stripe, Ayden) metering.", alias="billableDimensions")
     billing_cycle: Optional[BillingCycle] = Field(default=None, description="Billing Cycle", alias="billingCycle")
     billing_interval_in_months: Optional[StrictInt] = Field(default=None, description="The billing interval from the offer.", alias="billingIntervalInMonths")
+    buyer_management_url: Optional[StrictStr] = Field(default=None, description="The buyer's management URL in the cloud marketplace. For different cloud marketplaces, the buyer management URL maybe different.", alias="buyerManagementURL")
     collectable_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount that the seller can collect. It excludes the marketplace commision fee.", alias="collectableAmount")
     commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount that the buyer has committed to pay. It can be the sum of payment installments if applicable.", alias="commitAmount")
     commits: Optional[List[CommitDimension]] = Field(default=None, description="The dimensions for flatrate commitment (recurring or one-time).")
@@ -76,9 +78,10 @@ class EntitlementInfo(BaseModel):
     payment_schedule: Optional[PaymentScheduleType] = Field(default=None, description="The payment schedule for the entitlement. PREPAY means the buyer pays before the service is provided. POSTPAY means the buyer pays after the service is provided.", alias="paymentSchedule")
     refund_cancellation_policy: Optional[StrictStr] = Field(default=None, alias="refundCancellationPolicy")
     seller_notes: Optional[StrictStr] = Field(default=None, alias="sellerNotes")
+    snowflake_offer: Optional[SnowflakeMarketplaceOffer] = Field(default=None, description="Snowfalke offer info", alias="snowflakeOffer")
     spa_url: Optional[StrictStr] = Field(default=None, description="The URL with JWT as auth method for the entitlement SPA. It can be shared with the buyer to access the SPA without login.", alias="spaUrl")
     trial_config: Optional[TrialConfig] = Field(default=None, description="The trial configuration for the offer. It is same as the TrialConfig in DirectOfferInfo. But can be overridden at the entitlement level.", alias="trialConfig")
-    __properties: ClassVar[List[str]] = ["addons", "alertDaysBeforeEnd", "alibabaEntitlements", "alibabaOrders", "autoRenew", "awsAgreement", "awsChannelPartner", "awsEntitlements", "azureSubscriptions", "billableDimensions", "billingCycle", "billingIntervalInMonths", "collectableAmount", "commitAmount", "commits", "currency", "dimensions", "dimensionsOversized", "disbursedAmount", "eulaType", "eulaUrl", "gcpEntitlements", "gcpPlans", "gracePeriodInDays", "grossAmount", "invoicedAmount", "isMeteringOverageCommit", "netTermsInDays", "paymentInstallments", "paymentSchedule", "refundCancellationPolicy", "sellerNotes", "spaUrl", "trialConfig"]
+    __properties: ClassVar[List[str]] = ["addons", "alertDaysBeforeEnd", "alibabaEntitlements", "alibabaOrders", "autoRenew", "awsAgreement", "awsChannelPartner", "awsEntitlements", "azureSubscriptions", "billableDimensions", "billingCycle", "billingIntervalInMonths", "buyerManagementURL", "collectableAmount", "commitAmount", "commits", "currency", "dimensions", "dimensionsOversized", "disbursedAmount", "eulaType", "eulaUrl", "gcpEntitlements", "gcpPlans", "gracePeriodInDays", "grossAmount", "invoicedAmount", "isMeteringOverageCommit", "netTermsInDays", "paymentInstallments", "paymentSchedule", "refundCancellationPolicy", "sellerNotes", "snowflakeOffer", "spaUrl", "trialConfig"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -202,6 +205,9 @@ class EntitlementInfo(BaseModel):
                 if _item_payment_installments:
                     _items.append(_item_payment_installments.to_dict())
             _dict['paymentInstallments'] = _items
+        # override the default output from pydantic by calling `to_dict()` of snowflake_offer
+        if self.snowflake_offer:
+            _dict['snowflakeOffer'] = self.snowflake_offer.to_dict()
         # override the default output from pydantic by calling `to_dict()` of trial_config
         if self.trial_config:
             _dict['trialConfig'] = self.trial_config.to_dict()
@@ -229,6 +235,7 @@ class EntitlementInfo(BaseModel):
             "billableDimensions": [BillableDimension.from_dict(_item) for _item in obj["billableDimensions"]] if obj.get("billableDimensions") is not None else None,
             "billingCycle": obj.get("billingCycle"),
             "billingIntervalInMonths": obj.get("billingIntervalInMonths"),
+            "buyerManagementURL": obj.get("buyerManagementURL"),
             "collectableAmount": obj.get("collectableAmount"),
             "commitAmount": obj.get("commitAmount"),
             "commits": [CommitDimension.from_dict(_item) for _item in obj["commits"]] if obj.get("commits") is not None else None,
@@ -249,6 +256,7 @@ class EntitlementInfo(BaseModel):
             "paymentSchedule": obj.get("paymentSchedule"),
             "refundCancellationPolicy": obj.get("refundCancellationPolicy"),
             "sellerNotes": obj.get("sellerNotes"),
+            "snowflakeOffer": SnowflakeMarketplaceOffer.from_dict(obj["snowflakeOffer"]) if obj.get("snowflakeOffer") is not None else None,
             "spaUrl": obj.get("spaUrl"),
             "trialConfig": TrialConfig.from_dict(obj["trialConfig"]) if obj.get("trialConfig") is not None else None
         })

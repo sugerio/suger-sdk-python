@@ -21,6 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from suger_sdk_python.models.group_by_interval import GroupByInterval
 from suger_sdk_python.models.revenue_record import RevenueRecord
 from suger_sdk_python.models.revenue_report_type import RevenueReportType
 from typing import Optional, Set
@@ -32,6 +33,7 @@ class RevenueReport(BaseModel):
     """ # noqa: E501
     buyer_id: Optional[StrictStr] = Field(default=None, alias="buyerID")
     entitlement_id: Optional[StrictStr] = Field(default=None, alias="entitlementID")
+    group_by: Optional[GroupByInterval] = Field(default=None, description="The group by of the revenue report.", alias="groupBy")
     organization_id: Optional[StrictStr] = Field(default=None, alias="organizationID")
     partner: Optional[StrictStr] = None
     product_id: Optional[StrictStr] = Field(default=None, alias="productID")
@@ -39,7 +41,7 @@ class RevenueReport(BaseModel):
     report_type: Optional[RevenueReportType] = Field(default=None, alias="reportType")
     revenue_records: Optional[List[RevenueRecord]] = Field(default=None, alias="revenueRecords")
     service: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["buyerID", "entitlementID", "organizationID", "partner", "productID", "reportDate", "reportType", "revenueRecords", "service"]
+    __properties: ClassVar[List[str]] = ["buyerID", "entitlementID", "groupBy", "organizationID", "partner", "productID", "reportDate", "reportType", "revenueRecords", "service"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -101,6 +103,7 @@ class RevenueReport(BaseModel):
         _obj = cls.model_validate({
             "buyerID": obj.get("buyerID"),
             "entitlementID": obj.get("entitlementID"),
+            "groupBy": obj.get("groupBy"),
             "organizationID": obj.get("organizationID"),
             "partner": obj.get("partner"),
             "productID": obj.get("productID"),

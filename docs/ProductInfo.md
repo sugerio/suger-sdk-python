@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **attributes** | **Dict[str, str]** |  | [optional] 
 **aws_ami_product** | [**AwsProduct**](AwsProduct.md) |  | [optional] 
 **aws_container_product** | [**AwsProduct**](AwsProduct.md) |  | [optional] 
+**aws_machine_learning_product** | [**AwsProduct**](AwsProduct.md) |  | [optional] 
 **aws_professional_services_product** | [**AwsProduct**](AwsProduct.md) |  | [optional] 
 **aws_saas_product** | [**AwsProduct**](AwsProduct.md) |  | [optional] 
 **aws_sns_subscriptions** | [**List[AwsSnsSubscription]**](AwsSnsSubscription.md) |  | [optional] 

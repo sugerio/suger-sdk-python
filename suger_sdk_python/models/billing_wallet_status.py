@@ -27,11 +27,11 @@ class BillingWalletStatus(str, Enum):
     """
     allowed enum values
     """
-    ACTIVE = 'ACTIVE'
-    DELETED = 'DELETED'
-    PENDING_VERIFY = 'PENDING_VERIFY'
-    EXPIRED = 'EXPIRED'
-    CLOSED = 'CLOSED'
+    BillingWalletStatus_ACTIVE = 'ACTIVE'
+    BillingWalletStatus_DELETED = 'DELETED'
+    BillingWalletStatus_PENDING_VERIFY = 'PENDING_VERIFY'
+    BillingWalletStatus_EXPIRED = 'EXPIRED'
+    BillingWalletStatus_CLOSED = 'CLOSED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -27,13 +27,13 @@ class UsageRecordGroupSource(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    API = 'API'
-    INTERNAL = 'INTERNAL'
-    LAGO = 'LAGO'
-    METRONOME = 'METRONOME'
-    ORB = 'ORB'
-    STRIPE = 'STRIPE'
+    UsageRecordGroupSourceUNKNOWN = ''
+    UsageRecordGroupSourceAPI = 'API'
+    UsageRecordGroupSourceINTERNAL = 'INTERNAL'
+    UsageRecordGroupSourceLAGO = 'LAGO'
+    UsageRecordGroupSourceMETRONOME = 'METRONOME'
+    UsageRecordGroupSourceORB = 'ORB'
+    UsageRecordGroupSourceSTRIPE = 'STRIPE'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

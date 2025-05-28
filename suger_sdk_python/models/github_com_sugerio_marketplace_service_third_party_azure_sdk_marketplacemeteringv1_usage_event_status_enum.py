@@ -27,15 +27,15 @@ class GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1U
     """
     allowed enum values
     """
-    ACCEPTED = 'Accepted'
-    EXPIRED = 'Expired'
-    DUPLICATE = 'Duplicate'
-    ERROR = 'Error'
-    RESOURCENOTFOUND = 'ResourceNotFound'
-    RESOURCENOTAUTHORIZED = 'ResourceNotAuthorized'
-    INVALIDDIMENSION = 'InvalidDimension'
-    INVALIDQUANTITY = 'InvalidQuantity'
-    BADARGUMENT = 'BadArgument'
+    UsageEventStatusEnumAccepted = 'Accepted'
+    UsageEventStatusEnumExpired = 'Expired'
+    UsageEventStatusEnumDuplicate = 'Duplicate'
+    UsageEventStatusEnumError = 'Error'
+    UsageEventStatusEnumResourceNotFound = 'ResourceNotFound'
+    UsageEventStatusEnumResourceNotAuthorized = 'ResourceNotAuthorized'
+    UsageEventStatusEnumInvalidDimension = 'InvalidDimension'
+    UsageEventStatusEnumInvalidQuantity = 'InvalidQuantity'
+    UsageEventStatusEnumBadArgument = 'BadArgument'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

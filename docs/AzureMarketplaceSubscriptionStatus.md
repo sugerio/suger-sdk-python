@@ -3,15 +3,15 @@
 
 ## Enum
 
-* `NOTSTARTED` (value: `'NotStarted'`)
+* `AzureMarketplaceSubscriptionStatus_NotStarted` (value: `'NotStarted'`)
 
-* `PENDINGFULFILLMENTSTART` (value: `'PendingFulfillmentStart'`)
+* `AzureMarketplaceSubscriptionStatus_PendingFulfillmentStart` (value: `'PendingFulfillmentStart'`)
 
-* `SUBSCRIBED` (value: `'Subscribed'`)
+* `AzureMarketplaceSubscriptionStatus_Subscribed` (value: `'Subscribed'`)
 
-* `SUSPENDED` (value: `'Suspended'`)
+* `AzureMarketplaceSubscriptionStatus_Suspended` (value: `'Suspended'`)
 
-* `UNSUBSCRIBED` (value: `'Unsubscribed'`)
+* `AzureMarketplaceSubscriptionStatus_Unsubscribed` (value: `'Unsubscribed'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

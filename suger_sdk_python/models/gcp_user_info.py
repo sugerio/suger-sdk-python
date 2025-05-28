@@ -27,9 +27,10 @@ class GcpUserInfo(BaseModel):
     """
     GcpUserInfo
     """ # noqa: E501
+    orders: Optional[List[StrictStr]] = Field(default=None, description="a list of unique order IDs for each entitlement ID that indicates the different offers on the same product. This field is available only if multiple orders of the same product is enabled")
     roles: Optional[List[StrictStr]] = Field(default=None, description="An array of strings representing the user's roles. Right now, it can be either: ** account_admin, which indicates that the user is a Billing Account Administrator of the billing account that purchased the product, or ** project_editor, which indicates that the user is a Project Editor, but not a Billing Administrator, of the project under that billing account.")
     user_identity: Optional[StrictStr] = Field(default=None, description="The user's obfuscated GAIA ID, which can be used to initiate Open ID Connect.")
-    __properties: ClassVar[List[str]] = ["roles", "user_identity"]
+    __properties: ClassVar[List[str]] = ["orders", "roles", "user_identity"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,6 +83,7 @@ class GcpUserInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "orders": obj.get("orders"),
             "roles": obj.get("roles"),
             "user_identity": obj.get("user_identity")
         })

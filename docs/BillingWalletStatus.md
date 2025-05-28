@@ -3,15 +3,15 @@
 
 ## Enum
 
-* `ACTIVE` (value: `'ACTIVE'`)
+* `BillingWalletStatus_ACTIVE` (value: `'ACTIVE'`)
 
-* `DELETED` (value: `'DELETED'`)
+* `BillingWalletStatus_DELETED` (value: `'DELETED'`)
 
-* `PENDING_VERIFY` (value: `'PENDING_VERIFY'`)
+* `BillingWalletStatus_PENDING_VERIFY` (value: `'PENDING_VERIFY'`)
 
-* `EXPIRED` (value: `'EXPIRED'`)
+* `BillingWalletStatus_EXPIRED` (value: `'EXPIRED'`)
 
-* `CLOSED` (value: `'CLOSED'`)
+* `BillingWalletStatus_CLOSED` (value: `'CLOSED'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

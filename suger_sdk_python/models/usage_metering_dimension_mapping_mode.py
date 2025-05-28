@@ -27,9 +27,9 @@ class UsageMeteringDimensionMappingMode(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    QUANTITY = 'QUANTITY'
-    AMOUNT = 'AMOUNT'
+    UsageMeteringDimensionMappingMode_UNKNOWN = ''
+    UsageMeteringDimensionMappingMode_QUANTITY = 'QUANTITY'
+    UsageMeteringDimensionMappingMode_AMOUNT = 'AMOUNT'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

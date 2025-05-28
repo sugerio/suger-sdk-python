@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,6 +32,26 @@ class StripeRefundDestinationDetailsCard(BaseModel):
     reference_type: Optional[StrictStr] = Field(default=None, description="Type of the reference number assigned to the refund.")
     type: Optional[StrictStr] = Field(default=None, description="The type of refund. This can be `refund`, `reversal`, or `pending`.")
     __properties: ClassVar[List[str]] = ["reference", "reference_status", "reference_type", "type"]
+
+    @field_validator('reference_status')
+    def reference_status_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['pending', 'available', 'unavailable']):
+            raise ValueError("must be one of enum values ('pending', 'available', 'unavailable')")
+        return value
+
+    @field_validator('type')
+    def type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['refund', 'reversal', 'pending']):
+            raise ValueError("must be one of enum values ('refund', 'reversal', 'pending')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

@@ -7,10 +7,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aws_revenue_records** | [**List[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent]**](GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent.md) | For raw revenue records in AWS Marketplace | [optional] 
 **azure_revenue_records** | [**List[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue]**](GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue.md) | For raw revenue records in Azure Marketplace | [optional] 
+**bank_trace_id** | **str** | The bank trace ID of the revenue record if applicable | [optional] 
+**billing_model** | **str** | The billing model of the revenue record if applicable The value is one of the following: - SubscriptionBased: The revenue record is from a subscription or recurring commitment. - UsageBased: The revenue record is from a usage-based metering. | [optional] 
+**channel** | [**RevenueChannel**](RevenueChannel.md) | The channel of revenue record. | [optional] 
 **credit_amount** | **float** | The credit amount used in the revenue record. | [optional] 
+**disbursement_billing_event_id** | **str** | The disbursement ID of the revenue record if applicable | [optional] 
 **disbursement_notification_sent** | **bool** | Whether the disbursement notification has been sent to the seller/ISV. | [optional] 
+**earning_id** | **str** | The earning ID of the revenue record if applicable | [optional] 
 **gcp_revenue_records** | [**List[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingGcpChargeUsage]**](GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingGcpChargeUsage.md) | For raw revenue records in GCP Marketplace | [optional] 
 **id_source** | **str** | Source of the revenue record ID. | [optional] 
+**payment_id** | **str** | The payment  ID of the revenue record if applicable | [optional] 
+**reseller_id** | **str** | The reseller ID of the revenue record if applicable | [optional] 
+**reseller_name** | **str** | The reseller name of the revenue record if application | [optional] 
 **resource** | **str** | Resource name for the revenue record. Applicable only to GCP Marketplace. | [optional] 
 
 ## Example

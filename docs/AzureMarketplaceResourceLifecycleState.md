@@ -3,21 +3,21 @@
 
 ## Enum
 
-* `NOTAVAILABLE` (value: `'notAvailable'`)
+* `AzureMarketplaceResourceLifecycleState_NotAvailable` (value: `'notAvailable'`)
 
-* `NEVERUSED` (value: `'neverUsed'`)
+* `AzureMarketplaceResourceLifecycleState_NeverUsed` (value: `'neverUsed'`)
 
-* `TEST` (value: `'test'`)
+* `AzureMarketplaceResourceLifecycleState_Test` (value: `'test'`)
 
-* `PREVIEW` (value: `'preview'`)
+* `AzureMarketplaceResourceLifecycleState_Preview` (value: `'preview'`)
 
-* `GENERALLYAVAILABLE` (value: `'generallyAvailable'`)
+* `AzureMarketplaceResourceLifecycleState_GenerallyAvailable` (value: `'generallyAvailable'`)
 
-* `DEPRECATED` (value: `'deprecated'`)
+* `AzureMarketplaceResourceLifecycleState_Deprecated` (value: `'deprecated'`)
 
-* `DECOMMISSIONED` (value: `'decommissioned'`)
+* `AzureMarketplaceResourceLifecycleState_Decommissioned` (value: `'decommissioned'`)
 
-* `DELETED` (value: `'deleted'`)
+* `AzureMarketplaceResourceLifecycleState_Deleted` (value: `'deleted'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

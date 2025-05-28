@@ -27,9 +27,9 @@ class CancellationScheduleType(str, Enum):
     """
     allowed enum values
     """
-    ENDOFTERM = 'EndOfTerm'
-    IMMEDIATE = 'Immediate'
-    SPECIFICDATE = 'SpecificDate'
+    CancellationScheduleType_EndOfTerm = 'EndOfTerm'
+    CancellationScheduleType_Immediate = 'Immediate'
+    CancellationScheduleType_SpecificDate = 'SpecificDate'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

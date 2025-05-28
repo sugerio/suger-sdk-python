@@ -3,23 +3,23 @@
 
 ## Enum
 
-* `ACCEPTED` (value: `'Accepted'`)
+* `UsageEventStatusEnumAccepted` (value: `'Accepted'`)
 
-* `EXPIRED` (value: `'Expired'`)
+* `UsageEventStatusEnumExpired` (value: `'Expired'`)
 
-* `DUPLICATE` (value: `'Duplicate'`)
+* `UsageEventStatusEnumDuplicate` (value: `'Duplicate'`)
 
-* `ERROR` (value: `'Error'`)
+* `UsageEventStatusEnumError` (value: `'Error'`)
 
-* `RESOURCENOTFOUND` (value: `'ResourceNotFound'`)
+* `UsageEventStatusEnumResourceNotFound` (value: `'ResourceNotFound'`)
 
-* `RESOURCENOTAUTHORIZED` (value: `'ResourceNotAuthorized'`)
+* `UsageEventStatusEnumResourceNotAuthorized` (value: `'ResourceNotAuthorized'`)
 
-* `INVALIDDIMENSION` (value: `'InvalidDimension'`)
+* `UsageEventStatusEnumInvalidDimension` (value: `'InvalidDimension'`)
 
-* `INVALIDQUANTITY` (value: `'InvalidQuantity'`)
+* `UsageEventStatusEnumInvalidQuantity` (value: `'InvalidQuantity'`)
 
-* `BADARGUMENT` (value: `'BadArgument'`)
+* `UsageEventStatusEnumBadArgument` (value: `'BadArgument'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

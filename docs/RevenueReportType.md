@@ -3,13 +3,13 @@
 
 ## Enum
 
-* `GROSSAMOUNT` (value: `'GrossAmount'`)
+* `RevenueReportType_GrossAmount` (value: `'GrossAmount'`)
 
-* `INVOICEDAMOUNT` (value: `'InvoicedAmount'`)
+* `RevenueReportType_InvoicedAmount` (value: `'InvoicedAmount'`)
 
-* `COLLECTABLEAMOUNT` (value: `'CollectableAmount'`)
+* `RevenueReportType_CollectableAmount` (value: `'CollectableAmount'`)
 
-* `DISBURSEDAMOUNT` (value: `'DisbursedAmount'`)
+* `RevenueReportType_DisbursedAmount` (value: `'DisbursedAmount'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

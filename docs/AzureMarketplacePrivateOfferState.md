@@ -3,13 +3,13 @@
 
 ## Enum
 
-* `DRAFT` (value: `'draft'`)
+* `AzureMarketplacePrivateOfferState_draft` (value: `'draft'`)
 
-* `LIVE` (value: `'live'`)
+* `AzureMarketplacePrivateOfferState_live` (value: `'live'`)
 
-* `DELETED` (value: `'deleted'`)
+* `AzureMarketplacePrivateOfferState_deleted` (value: `'deleted'`)
 
-* `WITHDRAWN` (value: `'withdrawn'`)
+* `AzureMarketplacePrivateOfferState_withdrawn` (value: `'withdrawn'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

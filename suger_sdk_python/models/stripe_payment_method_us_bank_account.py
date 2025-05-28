@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,6 +34,26 @@ class StripePaymentMethodUSBankAccount(BaseModel):
     last4: Optional[StrictStr] = Field(default=None, description="Last four digits of the bank account number.")
     routing_number: Optional[StrictStr] = Field(default=None, description="Routing number of the bank account.")
     __properties: ClassVar[List[str]] = ["account_holder_type", "account_type", "bank_name", "fingerprint", "last4", "routing_number"]
+
+    @field_validator('account_holder_type')
+    def account_holder_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['individual', 'company']):
+            raise ValueError("must be one of enum values ('individual', 'company')")
+        return value
+
+    @field_validator('account_type')
+    def account_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['checking', 'savings']):
+            raise ValueError("must be one of enum values ('checking', 'savings')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

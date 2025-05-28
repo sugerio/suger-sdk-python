@@ -3,17 +3,17 @@
 
 ## Enum
 
-* `CUSTOMEULA` (value: `'CustomEula'`)
+* `AwsMarketplaceCatalogLegalTermDocumentType_CustomEula` (value: `'CustomEula'`)
 
-* `CUSTOMDSA` (value: `'CustomDsa'`)
+* `AwsMarketplaceCatalogLegalTermDocumentType_CustomDsa` (value: `'CustomDsa'`)
 
-* `STANDARDEULA` (value: `'StandardEula'`)
+* `AwsMarketplaceCatalogLegalTermDocumentType_StandardEula` (value: `'StandardEula'`)
 
-* `STANDARDDSA` (value: `'StandardDsa'`)
+* `AwsMarketplaceCatalogLegalTermDocumentType_StandardDsa` (value: `'StandardDsa'`)
 
-* `STANDARDRESELLERCONTRACT` (value: `'StandardResellerContract'`)
+* `AwsMarketplaceCatalogLegalTermDocumentType_StandardResellerContract` (value: `'StandardResellerContract'`)
 
-* `CUSTOMRESELLERCONTRACT` (value: `'CustomResellerContract'`)
+* `AwsMarketplaceCatalogLegalTermDocumentType_CustomResellerContract` (value: `'CustomResellerContract'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -3,9 +3,9 @@
 
 ## Enum
 
-* `PERCENTAGE` (value: `'PERCENTAGE'`)
+* `BillingDiscountType_PERCENTAGE` (value: `'PERCENTAGE'`)
 
-* `ABSOLUTE` (value: `'ABSOLUTE'`)
+* `BillingDiscountType_ABSOLUTE` (value: `'ABSOLUTE'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

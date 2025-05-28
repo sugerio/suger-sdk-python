@@ -27,14 +27,14 @@ class ValueType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    VALUE_TYPE_UNSPECIFIED = 'VALUE_TYPE_UNSPECIFIED'
-    BOOL = 'BOOL'
-    INT64 = 'INT64'
-    DOUBLE = 'DOUBLE'
-    STRING = 'STRING'
-    DISTRIBUTION = 'DISTRIBUTION'
-    MONEY = 'MONEY'
+    ValueType_UNKNOWN = ''
+    ValueType_UNSPECIFIED = 'VALUE_TYPE_UNSPECIFIED'
+    ValueType_BOOL = 'BOOL'
+    ValueType_INT64 = 'INT64'
+    ValueType_DOUBLE = 'DOUBLE'
+    ValueType_STRING = 'STRING'
+    ValueType_DISTRIBUTION = 'DISTRIBUTION'
+    ValueType_MONEY = 'MONEY'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

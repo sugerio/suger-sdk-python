@@ -27,8 +27,8 @@ class PrivateOfferDiscountType(str, Enum):
     """
     allowed enum values
     """
-    ABSOLUTE = 'absolute'
-    PERCENTAGE = 'percentage'
+    PrivateOfferDiscountType_absolute = 'absolute'
+    PrivateOfferDiscountType_percentage = 'percentage'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "suger_sdk_python"
-version = "1.0.0"
+version = "v3.128.221"
 description = "Suger API"
 authors = ["Suger Support <support@suger.io>"]
 license = "NoLicense"
@@ -10,9 +10,9 @@ keywords = ["OpenAPI", "OpenAPI-Generator", "Suger API"]
 include = ["suger_sdk_python/py.typed"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 
-urllib3 = ">= 1.25.3 < 3.0.0"
+urllib3 = ">= 2.1.0, < 3.0.0"
 python-dateutil = ">= 2.8.2"
 pydantic = ">= 2"
 typing-extensions = ">= 4.7.1"

@@ -27,8 +27,8 @@ class BillingDiscountType(str, Enum):
     """
     allowed enum values
     """
-    PERCENTAGE = 'PERCENTAGE'
-    ABSOLUTE = 'ABSOLUTE'
+    BillingDiscountType_PERCENTAGE = 'PERCENTAGE'
+    BillingDiscountType_ABSOLUTE = 'ABSOLUTE'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

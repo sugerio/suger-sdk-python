@@ -3,19 +3,19 @@
 
 ## Enum
 
-* `REQUIRES_PAYMENT_METHOD` (value: `'requires_payment_method'`)
+* `StripePaymentIntentStatus_RequiresPaymentMethod` (value: `'requires_payment_method'`)
 
-* `REQUIRES_CONFIRMATION` (value: `'requires_confirmation'`)
+* `StripePaymentIntentStatus_RequiresConfirmation` (value: `'requires_confirmation'`)
 
-* `REQUIRES_ACTION` (value: `'requires_action'`)
+* `StripePaymentIntentStatus_RequiresAction` (value: `'requires_action'`)
 
-* `PROCESSING` (value: `'processing'`)
+* `StripePaymentIntentStatus_Processing` (value: `'processing'`)
 
-* `REQUIRES_CAPTURE` (value: `'requires_capture'`)
+* `StripePaymentIntentStatus_RequiresCapture` (value: `'requires_capture'`)
 
-* `CANCELED` (value: `'canceled'`)
+* `StripePaymentIntentStatus_Canceled` (value: `'canceled'`)
 
-* `SUCCEEDED` (value: `'succeeded'`)
+* `StripePaymentIntentStatus_Succeeded` (value: `'succeeded'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

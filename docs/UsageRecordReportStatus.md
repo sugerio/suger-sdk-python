@@ -3,19 +3,19 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `UsageRecordReportStatus_UNKNOWN` (value: `''`)
 
-* `SUCCESS` (value: `'SUCCESS'`)
+* `UsageRecordReportStatus_SUCCESS` (value: `'SUCCESS'`)
 
-* `FAILED` (value: `'FAILED'`)
+* `UsageRecordReportStatus_FAILED` (value: `'FAILED'`)
 
-* `CREATED` (value: `'CREATED'`)
+* `UsageRecordReportStatus_CREATED` (value: `'CREATED'`)
 
-* `INVOICED` (value: `'INVOICED'`)
+* `UsageRecordReportStatus_INVOICED` (value: `'INVOICED'`)
 
-* `DELETED` (value: `'DELETED'`)
+* `UsageRecordReportStatus_DELETED` (value: `'DELETED'`)
 
-* `CANCELED` (value: `'CANCELED'`)
+* `UsageRecordReportStatus_CANCELED` (value: `'CANCELED'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

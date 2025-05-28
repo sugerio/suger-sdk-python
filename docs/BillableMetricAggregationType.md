@@ -3,15 +3,15 @@
 
 ## Enum
 
-* `COUNT` (value: `'COUNT'`)
+* `BillableMetricAggregationType_COUNT` (value: `'COUNT'`)
 
-* `UNIQUE_COUNT` (value: `'UNIQUE_COUNT'`)
+* `BillableMetricAggregationType_UNIQUE_COUNT` (value: `'UNIQUE_COUNT'`)
 
-* `SUM` (value: `'SUM'`)
+* `BillableMetricAggregationType_SUM` (value: `'SUM'`)
 
-* `MAX` (value: `'MAX'`)
+* `BillableMetricAggregationType_MAX` (value: `'MAX'`)
 
-* `LAST` (value: `'LAST'`)
+* `BillableMetricAggregationType_LAST` (value: `'LAST'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

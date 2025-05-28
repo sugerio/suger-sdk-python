@@ -27,14 +27,14 @@ class NotificationChannel(str, Enum):
     """
     allowed enum values
     """
-    EMAIL = 'EMAIL'
-    SLACK = 'SLACK'
-    SMS = 'SMS'
-    SNS = 'SNS'
-    SALESFORCE = 'SALESFORCE'
-    WEBHOOK = 'WEBHOOK'
-    SUGER_SUPPORT = 'SUGER_SUPPORT'
-    MICROSOFT_TEAMS = 'MICROSOFT_TEAMS'
+    NotificationChannel_EMAIL = 'EMAIL'
+    NotificationChannel_SLACK = 'SLACK'
+    NotificationChannel_SMS = 'SMS'
+    NotificationChannel_SNS = 'SNS'
+    NotificationChannel_SALESFORCE = 'SALESFORCE'
+    NotificationChannel_WEBHOOK = 'WEBHOOK'
+    NotificationChannel_SUGER_SUPPORT = 'SUGER_SUPPORT'
+    NotificationChannel_MICROSOFT_TEAMS = 'MICROSOFT_TEAMS'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -3,51 +3,55 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `Partner_UNKNOWN` (value: `''`)
 
-* `ADYEN` (value: `'ADYEN'`)
+* `Partner_ADYEN` (value: `'ADYEN'`)
 
-* `ALIBABA` (value: `'ALIBABA'`)
+* `Partner_ALIBABA` (value: `'ALIBABA'`)
 
-* `AWS` (value: `'AWS'`)
+* `Partner_AWS` (value: `'AWS'`)
 
-* `AWS_CHINA` (value: `'AWS_CHINA'`)
+* `Partner_AWS_CHINA` (value: `'AWS_CHINA'`)
 
-* `AZURE` (value: `'AZURE'`)
+* `Partner_AZURE` (value: `'AZURE'`)
 
-* `GCP` (value: `'GCP'`)
+* `Partner_CHARGEBEE` (value: `'CHARGEBEE'`)
 
-* `GOOGLE` (value: `'GOOGLE'`)
+* `Partner_DATABRICKS` (value: `'DATABRICKS'`)
 
-* `HUBSPOT` (value: `'HUBSPOT'`)
+* `Partner_DOCUSIGN` (value: `'DOCUSIGN'`)
 
-* `INTUIT` (value: `'INTUIT'`)
+* `Partner_GCP` (value: `'GCP'`)
 
-* `LAGO` (value: `'LAGO'`)
+* `Partner_GOOGLE` (value: `'GOOGLE'`)
 
-* `MARKETO` (value: `'MARKETO'`)
+* `Partner_HUBSPOT` (value: `'HUBSPOT'`)
 
-* `METRONOME` (value: `'METRONOME'`)
+* `Partner_INTUIT` (value: `'INTUIT'`)
 
-* `MICROSOFT` (value: `'MICROSOFT'`)
+* `Partner_LAGO` (value: `'LAGO'`)
 
-* `ORACLE` (value: `'ORACLE'`)
+* `Partner_MARKETO` (value: `'MARKETO'`)
 
-* `ORB` (value: `'ORB'`)
+* `Partner_METRONOME` (value: `'METRONOME'`)
 
-* `REDHAT` (value: `'REDHAT'`)
+* `Partner_MICROSOFT` (value: `'MICROSOFT'`)
 
-* `SALESFORCE` (value: `'SALESFORCE'`)
+* `Partner_ORACLE` (value: `'ORACLE'`)
 
-* `SLACK` (value: `'SLACK'`)
+* `Partner_ORB` (value: `'ORB'`)
 
-* `SNOWFLAKE` (value: `'SNOWFLAKE'`)
+* `Partner_REDHAT` (value: `'REDHAT'`)
 
-* `STRIPE` (value: `'STRIPE'`)
+* `Partner_SALESFORCE` (value: `'SALESFORCE'`)
 
-* `ZOHO` (value: `'ZOHO'`)
+* `Partner_SLACK` (value: `'SLACK'`)
 
-* `DATABRICKS` (value: `'DATABRICKS'`)
+* `Partner_SNOWFLAKE` (value: `'SNOWFLAKE'`)
+
+* `Partner_STRIPE` (value: `'STRIPE'`)
+
+* `Partner_ZOHO` (value: `'ZOHO'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

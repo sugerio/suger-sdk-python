@@ -27,13 +27,13 @@ class UsageRecordReportStatus(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    SUCCESS = 'SUCCESS'
-    FAILED = 'FAILED'
-    CREATED = 'CREATED'
-    INVOICED = 'INVOICED'
-    DELETED = 'DELETED'
-    CANCELED = 'CANCELED'
+    UsageRecordReportStatus_UNKNOWN = ''
+    UsageRecordReportStatus_SUCCESS = 'SUCCESS'
+    UsageRecordReportStatus_FAILED = 'FAILED'
+    UsageRecordReportStatus_CREATED = 'CREATED'
+    UsageRecordReportStatus_INVOICED = 'INVOICED'
+    UsageRecordReportStatus_DELETED = 'DELETED'
+    UsageRecordReportStatus_CANCELED = 'CANCELED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

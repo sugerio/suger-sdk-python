@@ -3,29 +3,29 @@
 
 ## Enum
 
-* `IS` (value: `'IS'`)
+* `BillableMetricFilterOperation_IS` (value: `'IS'`)
 
-* `NOT_IS` (value: `'NOT_IS'`)
+* `BillableMetricFilterOperation_NOT_IS` (value: `'NOT_IS'`)
 
-* `CONTAINS` (value: `'CONTAINS'`)
+* `BillableMetricFilterOperation_CONTAINS` (value: `'CONTAINS'`)
 
-* `NOT_CONTAINS` (value: `'NOT_CONTAINS'`)
+* `BillableMetricFilterOperation_NOT_CONTAINS` (value: `'NOT_CONTAINS'`)
 
-* `GT` (value: `'GT'`)
+* `BillableMetricFilterOperation_GT` (value: `'GT'`)
 
-* `GTE` (value: `'GTE'`)
+* `BillableMetricFilterOperation_GTE` (value: `'GTE'`)
 
-* `LT` (value: `'LT'`)
+* `BillableMetricFilterOperation_LT` (value: `'LT'`)
 
-* `LTE` (value: `'LTE'`)
+* `BillableMetricFilterOperation_LTE` (value: `'LTE'`)
 
-* `EQ` (value: `'EQ'`)
+* `BillableMetricFilterOperation_EQ` (value: `'EQ'`)
 
-* `NOT_EQ` (value: `'NOT_EQ'`)
+* `BillableMetricFilterOperation_NEQ` (value: `'NOT_EQ'`)
 
-* `EXISTS` (value: `'EXISTS'`)
+* `BillableMetricFilterOperation_EXISTS` (value: `'EXISTS'`)
 
-* `NOT_EXISTS` (value: `'NOT_EXISTS'`)
+* `BillableMetricFilterOperation_NOT_EXISTS` (value: `'NOT_EXISTS'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

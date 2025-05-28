@@ -27,11 +27,11 @@ class AzureMarketplacePrivateOfferType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    CUSTOMERPROMOTION = 'customerPromotion'
-    CSPPROMOTION = 'cspPromotion'
-    MULTIPARTYPROMOTIONCHANNELPARTNER = 'multipartyPromotionChannelPartner'
-    MULTIPARTYPROMOTIONORIGINATOR = 'multipartyPromotionOriginator'
+    AzureMarketplacePrivateOfferType_unknown = ''
+    AzureMarketplacePrivateOfferType_customerPromotion = 'customerPromotion'
+    AzureMarketplacePrivateOfferType_cspPromotion = 'cspPromotion'
+    AzureMarketplacePrivateOfferType_multipartyPromotionChannelPartner = 'multipartyPromotionChannelPartner'
+    AzureMarketplacePrivateOfferType_multipartyPromotionOriginator = 'multipartyPromotionOriginator'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

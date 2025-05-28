@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **eula_agreement_document** | [**GcpMarketplaceDocument**](GcpMarketplaceDocument.md) |  | [optional] 
+**sow_agreement_document** | [**GcpMarketplaceDocument**](GcpMarketplaceDocument.md) |  | [optional] 
 
 ## Example
 

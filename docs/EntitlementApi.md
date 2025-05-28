@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**unschedule_entitlement_cancellation**](EntitlementApi.md#unschedule_entitlement_cancellation) | **POST** /org/{orgId}/entitlement/{entitlementId}/unscheduleCancellation | unschedule entitlement cancellation
 [**update_entitlement_meta_info**](EntitlementApi.md#update_entitlement_meta_info) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/metaInfo | update entitlement meta info
 [**update_entitlement_name**](EntitlementApi.md#update_entitlement_name) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/entitlementName | update entitlement name
+[**update_entitlement_price_model**](EntitlementApi.md#update_entitlement_price_model) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/priceModel | update entitlement price model
 [**update_entitlement_seat**](EntitlementApi.md#update_entitlement_seat) | **PATCH** /org/{orgId}/entitlement/{entitlementId}/seat | update seat for the active AZURE subscription
 
 
@@ -199,7 +200,7 @@ Name | Type | Description  | Notes
 
 approve entitlement
 
-Approve the given Entitlement. Only applicable to the Azure or GCP Entitlements with the status of \"PENDING_START\". Return 200 if the entitlement is already active.
+Approve the given Entitlement. Only applicable to the Azure or GCP Entitlements with the status of "PENDING_START". Return 200 if the entitlement is already active.
 
 ### Example
 
@@ -1301,6 +1302,92 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **400** | Bad request error |  -  |
 **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_entitlement_price_model**
+> WorkloadEntitlement update_entitlement_price_model(org_id, entitlement_id, data)
+
+update entitlement price model
+
+Update the price model of the given entitlement, such as recurring commits, billable dimensions. Only applicable to non cloud billing partners.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+
+```python
+import suger_sdk_python
+from suger_sdk_python.models.update_entitlement_price_model_params import UpdateEntitlementPriceModelParams
+from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
+from suger_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://https://api.suger.cloud
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suger_sdk_python.Configuration(
+    host = "http://https://api.suger.cloud"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with suger_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suger_sdk_python.EntitlementApi(api_client)
+    org_id = 'org_id_example' # str | Organization ID
+    entitlement_id = 'entitlement_id_example' # str | Entitlement ID
+    data = suger_sdk_python.UpdateEntitlementPriceModelParams() # UpdateEntitlementPriceModelParams | Entitlement price model update params
+
+    try:
+        # update entitlement price model
+        api_response = api_instance.update_entitlement_price_model(org_id, entitlement_id, data)
+        print("The response of EntitlementApi->update_entitlement_price_model:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling EntitlementApi->update_entitlement_price_model: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| Organization ID | 
+ **entitlement_id** | **str**| Entitlement ID | 
+ **data** | [**UpdateEntitlementPriceModelParams**](UpdateEntitlementPriceModelParams.md)| Entitlement price model update params | 
+
+### Return type
+
+[**WorkloadEntitlement**](WorkloadEntitlement.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request error |  -  |
+**500** | internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -27,9 +27,9 @@ class BillingMinimumCommitScope(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    DIMENSION = 'DIMENSION'
-    DIMENSION_GROUP_BY = 'DIMENSION_GROUP_BY'
+    BillingMinimumCommitScope_UNKNOWN = ''
+    BillingMinimumCommitScope_DIMENSION = 'DIMENSION'
+    BillingMinimumCommitScope_DIMENSION_GROUP_BY = 'DIMENSION_GROUP_BY'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -27,13 +27,13 @@ class PriceModelCategory(str, Enum):
     """
     allowed enum values
     """
-    BASIC = 'basic'
-    TIERED = 'tiered'
-    BULK = 'bulk'
-    VOLUME = 'volume'
-    PERCENTAGE = 'percentage'
-    TIERED_MINUS_PERCENTAGE = 'tiered-percentage'
-    MATRIX = 'matrix'
+    PriceModelCategory_Basic = 'basic'
+    PriceModelCategory_Tiered = 'tiered'
+    PriceModelCategory_Bulk = 'bulk'
+    PriceModelCategory_Volume = 'volume'
+    PriceModelCategory_Percentage = 'percentage'
+    PriceModelCategory_TieredPercentage = 'tiered-percentage'
+    PriceModelCategory_Matrix = 'matrix'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

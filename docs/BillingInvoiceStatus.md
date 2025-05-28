@@ -3,15 +3,15 @@
 
 ## Enum
 
-* `DRAFT` (value: `'DRAFT'`)
+* `BillingInvoiceStatus_DRAFT` (value: `'DRAFT'`)
 
-* `FINALIZED` (value: `'FINALIZED'`)
+* `BillingInvoiceStatus_FINALIZED` (value: `'FINALIZED'`)
 
-* `CANCELED` (value: `'CANCELED'`)
+* `BillingInvoiceStatus_CANCELED` (value: `'CANCELED'`)
 
-* `DELETED` (value: `'DELETED'`)
+* `BillingInvoiceStatus_DELETED` (value: `'DELETED'`)
 
-* `EMPTY` (value: `''`)
+* `BillingInvoiceStatus_UNKNOWN` (value: `''`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

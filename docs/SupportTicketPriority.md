@@ -3,13 +3,13 @@
 
 ## Enum
 
-* `LOW` (value: `'LOW'`)
+* `SupportTicketPriority_LOW` (value: `'LOW'`)
 
-* `NORMAL` (value: `'NORMAL'`)
+* `SupportTicketPriority_NORMAL` (value: `'NORMAL'`)
 
-* `HIGH` (value: `'HIGH'`)
+* `SupportTicketPriority_HIGH` (value: `'HIGH'`)
 
-* `URGENT` (value: `'URGENT'`)
+* `SupportTicketPriority_URGENT` (value: `'URGENT'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

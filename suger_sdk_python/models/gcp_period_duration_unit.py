@@ -27,8 +27,8 @@ class GcpPeriodDurationUnit(str, Enum):
     """
     allowed enum values
     """
-    MONTHLY_PERIOD = 'MONTHLY_PERIOD'
-    YEARLY_PERIOD = 'YEARLY_PERIOD'
+    GcpPeriodDurationUnit_MONTHLY_PERIOD = 'MONTHLY_PERIOD'
+    GcpPeriodDurationUnit_YEARLY_PERIOD = 'YEARLY_PERIOD'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

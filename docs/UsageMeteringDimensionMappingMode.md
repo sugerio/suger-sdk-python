@@ -3,11 +3,11 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `UsageMeteringDimensionMappingMode_UNKNOWN` (value: `''`)
 
-* `QUANTITY` (value: `'QUANTITY'`)
+* `UsageMeteringDimensionMappingMode_QUANTITY` (value: `'QUANTITY'`)
 
-* `AMOUNT` (value: `'AMOUNT'`)
+* `UsageMeteringDimensionMappingMode_AMOUNT` (value: `'AMOUNT'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

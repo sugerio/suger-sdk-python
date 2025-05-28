@@ -27,9 +27,9 @@ class GcpMarketplaceOfferStartPolicy(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    OFFER_START_POLICY_IMMEDIATE = 'OFFER_START_POLICY_IMMEDIATE'
-    OFFER_START_POLICY_SCHEDULED = 'OFFER_START_POLICY_SCHEDULED'
+    GcpMarketplaceOfferStartPolicy_UNKNOWN = ''
+    GcpMarketplaceOfferStartPolicy_IMMEDIATE = 'OFFER_START_POLICY_IMMEDIATE'
+    GcpMarketplaceOfferStartPolicy_SCHEDULED = 'OFFER_START_POLICY_SCHEDULED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

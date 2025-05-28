@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **billable_dimensions** | [**List[BillableDimension]**](BillableDimension.md) | The dimensions for billable metric usage-based metering. It&#39;s for Suger(Stripe, Ayden) metering. | [optional] 
 **billing_cycle** | [**BillingCycle**](BillingCycle.md) | Billing Cycle | [optional] 
 **billing_interval_in_months** | **int** | The billing interval from the offer. | [optional] 
+**buyer_management_url** | **str** | The buyer&#39;s management URL in the cloud marketplace. For different cloud marketplaces, the buyer management URL maybe different. | [optional] 
 **collectable_amount** | **float** | The amount that the seller can collect. It excludes the marketplace commision fee. | [optional] 
 **commit_amount** | **float** | The amount that the buyer has committed to pay. It can be the sum of payment installments if applicable. | [optional] 
 **commits** | [**List[CommitDimension]**](CommitDimension.md) | The dimensions for flatrate commitment (recurring or one-time). | [optional] 
@@ -37,6 +38,7 @@ Name | Type | Description | Notes
 **payment_schedule** | [**PaymentScheduleType**](PaymentScheduleType.md) | The payment schedule for the entitlement. PREPAY means the buyer pays before the service is provided. POSTPAY means the buyer pays after the service is provided. | [optional] 
 **refund_cancellation_policy** | **str** |  | [optional] 
 **seller_notes** | **str** |  | [optional] 
+**snowflake_offer** | [**SnowflakeMarketplaceOffer**](SnowflakeMarketplaceOffer.md) | Snowfalke offer info | [optional] 
 **spa_url** | **str** | The URL with JWT as auth method for the entitlement SPA. It can be shared with the buyer to access the SPA without login. | [optional] 
 **trial_config** | [**TrialConfig**](TrialConfig.md) | The trial configuration for the offer. It is same as the TrialConfig in DirectOfferInfo. But can be overridden at the entitlement level. | [optional] 
 

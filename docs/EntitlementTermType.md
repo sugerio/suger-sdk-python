@@ -3,19 +3,19 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `EntitlementTermTypeUnknown` (value: `''`)
 
-* `AUTORENEW` (value: `'AutoRenew'`)
+* `EntitlementTermTypeAutoRenew` (value: `'AutoRenew'`)
 
-* `MANUALRENEW` (value: `'ManualRenew'`)
+* `EntitlementTermTypeManualRenew` (value: `'ManualRenew'`)
 
-* `PLANCHANGE` (value: `'PlanChange'`)
+* `EntitlementTermTypePlanChange` (value: `'PlanChange'`)
 
-* `QUANTITYCHANGE` (value: `'QuantityChange'`)
+* `EntitlementTermTypeQuantityChange` (value: `'QuantityChange'`)
 
-* `SIGNUP` (value: `'Signup'`)
+* `EntitlementTermTypeSignup` (value: `'Signup'`)
 
-* `DIVIDECOMMIT` (value: `'DivideCommit'`)
+* `EntitlementTermTypeDivideCommit` (value: `'DivideCommit'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

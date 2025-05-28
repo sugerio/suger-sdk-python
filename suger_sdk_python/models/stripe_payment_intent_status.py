@@ -27,13 +27,13 @@ class StripePaymentIntentStatus(str, Enum):
     """
     allowed enum values
     """
-    REQUIRES_PAYMENT_METHOD = 'requires_payment_method'
-    REQUIRES_CONFIRMATION = 'requires_confirmation'
-    REQUIRES_ACTION = 'requires_action'
-    PROCESSING = 'processing'
-    REQUIRES_CAPTURE = 'requires_capture'
-    CANCELED = 'canceled'
-    SUCCEEDED = 'succeeded'
+    StripePaymentIntentStatus_RequiresPaymentMethod = 'requires_payment_method'
+    StripePaymentIntentStatus_RequiresConfirmation = 'requires_confirmation'
+    StripePaymentIntentStatus_RequiresAction = 'requires_action'
+    StripePaymentIntentStatus_Processing = 'processing'
+    StripePaymentIntentStatus_RequiresCapture = 'requires_capture'
+    StripePaymentIntentStatus_Canceled = 'canceled'
+    StripePaymentIntentStatus_Succeeded = 'succeeded'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

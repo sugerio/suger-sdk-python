@@ -27,11 +27,11 @@ class BillingInvoiceStatus(str, Enum):
     """
     allowed enum values
     """
-    DRAFT = 'DRAFT'
-    FINALIZED = 'FINALIZED'
-    CANCELED = 'CANCELED'
-    DELETED = 'DELETED'
-    EMPTY = ''
+    BillingInvoiceStatus_DRAFT = 'DRAFT'
+    BillingInvoiceStatus_FINALIZED = 'FINALIZED'
+    BillingInvoiceStatus_CANCELED = 'CANCELED'
+    BillingInvoiceStatus_DELETED = 'DELETED'
+    BillingInvoiceStatus_UNKNOWN = ''
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

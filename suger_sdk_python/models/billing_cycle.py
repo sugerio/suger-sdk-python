@@ -27,8 +27,8 @@ class BillingCycle(str, Enum):
     """
     allowed enum values
     """
-    MONTH_FIRST_DAY = 'MONTH_FIRST_DAY'
-    ENTITLEMENT_START_DATE = 'ENTITLEMENT_START_DATE'
+    BillingCycle_MonthFirstDay = 'MONTH_FIRST_DAY'
+    BillingCycle_EntitlementStartDate = 'ENTITLEMENT_START_DATE'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

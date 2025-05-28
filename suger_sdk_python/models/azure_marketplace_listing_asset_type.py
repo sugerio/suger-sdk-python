@@ -27,13 +27,13 @@ class AzureMarketplaceListingAssetType(str, Enum):
     """
     allowed enum values
     """
-    AZURELOGOSMALL = 'azureLogoSmall'
-    AZURELOGOMEDIUM = 'azureLogoMedium'
-    AZURELOGOLARGE = 'azureLogoLarge'
-    AZURELOGOWIDE = 'azureLogoWide'
-    AZURELOGOSCREENSHOT = 'azureLogoScreenshot'
-    AZURELOGOHERO = 'azureLogoHero'
-    PDFDOCUMENT = 'pdfDocument'
+    AzureMarketplaceListingAssetType_AzureLogoSmall = 'azureLogoSmall'
+    AzureMarketplaceListingAssetType_AzureLogoMedium = 'azureLogoMedium'
+    AzureMarketplaceListingAssetType_AzureLogoLarge = 'azureLogoLarge'
+    AzureMarketplaceListingAssetType_AzureLogoWide = 'azureLogoWide'
+    AzureMarketplaceListingAssetType_AzureLogoScreenshot = 'azureLogoScreenshot'
+    AzureMarketplaceListingAssetType_AzureLogoHero = 'azureLogoHero'
+    AzureMarketplaceListingAssetType_PdfDocument = 'pdfDocument'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

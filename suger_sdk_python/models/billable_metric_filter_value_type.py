@@ -27,8 +27,8 @@ class BillableMetricFilterValueType(str, Enum):
     """
     allowed enum values
     """
-    STRING = 'STRING'
-    FLOAT = 'FLOAT'
+    BillableMetricFilterValueType_STRING = 'STRING'
+    BillableMetricFilterValueType_FLOAT = 'FLOAT'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

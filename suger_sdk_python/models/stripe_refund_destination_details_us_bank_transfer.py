@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,6 +30,16 @@ class StripeRefundDestinationDetailsUSBankTransfer(BaseModel):
     reference: Optional[StrictStr] = Field(default=None, description="The reference assigned to the refund.")
     reference_status: Optional[StrictStr] = Field(default=None, description="Status of the reference on the refund. This can be `pending`, `available` or `unavailable`.")
     __properties: ClassVar[List[str]] = ["reference", "reference_status"]
+
+    @field_validator('reference_status')
+    def reference_status_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['pending', 'available', 'unavailable']):
+            raise ValueError("must be one of enum values ('pending', 'available', 'unavailable')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
