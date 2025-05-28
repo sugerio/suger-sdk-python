@@ -3,23 +3,23 @@
 
 ## Enum
 
-* `BUYERTARGETINGTERM` (value: `'BuyerTargetingTerm'`)
+* `AwsMarketplaceCppoOpportunityTermType_BuyerTargetingTerm` (value: `'BuyerTargetingTerm'`)
 
-* `UPDATEAVAILABILITY` (value: `'UpdateAvailability'`)
+* `AwsMarketplaceCppoOpportunityTermType_UpdateAvailability` (value: `'UpdateAvailability'`)
 
-* `BUYERVALIDITYTERM` (value: `'BuyerValidityTerm'`)
+* `AwsMarketplaceCppoOpportunityTermType_BuyerValidityTerm` (value: `'BuyerValidityTerm'`)
 
-* `BUYERLEGALTERM` (value: `'BuyerLegalTerm'`)
+* `AwsMarketplaceCppoOpportunityTermType_BuyerLegalTerm` (value: `'BuyerLegalTerm'`)
 
-* `RESALELEGALTERM` (value: `'ResaleLegalTerm'`)
+* `AwsMarketplaceCppoOpportunityTermType_ResaleLegalTerm` (value: `'ResaleLegalTerm'`)
 
-* `RESALEUSAGEBASEDPRICINGTERM` (value: `'ResaleUsageBasedPricingTerm'`)
+* `AwsMarketplaceCppoOpportunityTermType_ResaleUsageBasedPricingTerm` (value: `'ResaleUsageBasedPricingTerm'`)
 
-* `RESALECONFIGURABLEUPFRONTPRICINGTERM` (value: `'ResaleConfigurableUpfrontPricingTerm'`)
+* `AwsMarketplaceCppoOpportunityTermType_ResaleConfigurableUpfrontPricingTerm` (value: `'ResaleConfigurableUpfrontPricingTerm'`)
 
-* `RESALEFIXEDUPFRONTPRICINGTERM` (value: `'ResaleFixedUpfrontPricingTerm'`)
+* `AwsMarketplaceCppoOpportunityTermType_ResaleFixedUpfrontPricingTerm` (value: `'ResaleFixedUpfrontPricingTerm'`)
 
-* `RESALEPAYMENTSCHEDULETERM` (value: `'ResalePaymentScheduleTerm'`)
+* `AwsMarketplaceCppoOpportunityTermType_ResalePaymentScheduleTerm` (value: `'ResalePaymentScheduleTerm'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

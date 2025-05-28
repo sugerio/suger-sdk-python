@@ -27,9 +27,9 @@ class GcpMarketplaceProductAccessState(str, Enum):
     """
     allowed enum values
     """
-    ALLUSERS_ACCESSIBLE = 'ALLUSERS_ACCESSIBLE'
-    NOT_ALLUSERS_ACCESSIBLE = 'NOT_ALLUSERS_ACCESSIBLE'
-    NOT_PUBLISHED = 'NOT_PUBLISHED'
+    GcpMarketplaceProductAccessState_ALLUSERS_ACCESSIBLE = 'ALLUSERS_ACCESSIBLE'
+    GcpMarketplaceProductAccessState_NOT_ALLUSERS_ACCESSIBLE = 'NOT_ALLUSERS_ACCESSIBLE'
+    GcpMarketplaceProductAccessState_NOT_PUBLISHED = 'NOT_PUBLISHED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

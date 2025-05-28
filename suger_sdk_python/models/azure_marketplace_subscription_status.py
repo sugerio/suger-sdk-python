@@ -27,11 +27,11 @@ class AzureMarketplaceSubscriptionStatus(str, Enum):
     """
     allowed enum values
     """
-    NOTSTARTED = 'NotStarted'
-    PENDINGFULFILLMENTSTART = 'PendingFulfillmentStart'
-    SUBSCRIBED = 'Subscribed'
-    SUSPENDED = 'Suspended'
-    UNSUBSCRIBED = 'Unsubscribed'
+    AzureMarketplaceSubscriptionStatus_NotStarted = 'NotStarted'
+    AzureMarketplaceSubscriptionStatus_PendingFulfillmentStart = 'PendingFulfillmentStart'
+    AzureMarketplaceSubscriptionStatus_Subscribed = 'Subscribed'
+    AzureMarketplaceSubscriptionStatus_Suspended = 'Suspended'
+    AzureMarketplaceSubscriptionStatus_Unsubscribed = 'Unsubscribed'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

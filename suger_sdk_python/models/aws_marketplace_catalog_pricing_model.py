@@ -27,11 +27,11 @@ class AwsMarketplaceCatalogPricingModel(str, Enum):
     """
     allowed enum values
     """
-    CONTRACT = 'Contract'
-    USAGE = 'Usage'
-    BYOL = 'Byol'
-    FREE = 'Free'
-    UNKNOWN = 'Unknown'
+    AwsMarketplaceCatalogPricingModel_Contract = 'Contract'
+    AwsMarketplaceCatalogPricingModel_Usage = 'Usage'
+    AwsMarketplaceCatalogPricingModel_Byol = 'Byol'
+    AwsMarketplaceCatalogPricingModel_Free = 'Free'
+    AwsMarketplaceCatalogPricingModel_Unknown = 'Unknown'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

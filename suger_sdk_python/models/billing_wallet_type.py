@@ -27,11 +27,11 @@ class BillingWalletType(str, Enum):
     """
     allowed enum values
     """
-    ACH_DEBIT = 'ach_debit'
-    BACS_DEBIT = 'bacs_debit'
-    CARD = 'card'
-    CREDIT = 'credit'
-    SEPA_DEBIT = 'sepa_debit'
+    BillingWalletType_ACH_DEBIT = 'ach_debit'
+    BillingWalletType_BACS_DEBIT = 'bacs_debit'
+    BillingWalletType_CARD = 'card'
+    BillingWalletType_CREDIT = 'credit'
+    BillingWalletType_SEPA_DEBIT = 'sepa_debit'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

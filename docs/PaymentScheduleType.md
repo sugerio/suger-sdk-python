@@ -3,11 +3,11 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `PaymentScheduleType_UNKNOWN` (value: `''`)
 
-* `PREPAY` (value: `'PREPAY'`)
+* `PaymentScheduleType_PREPAY` (value: `'PREPAY'`)
 
-* `POSTPAY` (value: `'POSTPAY'`)
+* `PaymentScheduleType_POSTPAY` (value: `'POSTPAY'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

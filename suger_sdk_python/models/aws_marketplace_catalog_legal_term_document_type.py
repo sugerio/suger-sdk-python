@@ -27,12 +27,12 @@ class AwsMarketplaceCatalogLegalTermDocumentType(str, Enum):
     """
     allowed enum values
     """
-    CUSTOMEULA = 'CustomEula'
-    CUSTOMDSA = 'CustomDsa'
-    STANDARDEULA = 'StandardEula'
-    STANDARDDSA = 'StandardDsa'
-    STANDARDRESELLERCONTRACT = 'StandardResellerContract'
-    CUSTOMRESELLERCONTRACT = 'CustomResellerContract'
+    AwsMarketplaceCatalogLegalTermDocumentType_CustomEula = 'CustomEula'
+    AwsMarketplaceCatalogLegalTermDocumentType_CustomDsa = 'CustomDsa'
+    AwsMarketplaceCatalogLegalTermDocumentType_StandardEula = 'StandardEula'
+    AwsMarketplaceCatalogLegalTermDocumentType_StandardDsa = 'StandardDsa'
+    AwsMarketplaceCatalogLegalTermDocumentType_StandardResellerContract = 'StandardResellerContract'
+    AwsMarketplaceCatalogLegalTermDocumentType_CustomResellerContract = 'CustomResellerContract'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

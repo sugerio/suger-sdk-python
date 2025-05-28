@@ -43,6 +43,7 @@ class AzureMarketplacePrivateOffer(BaseModel):
     accept_by: Optional[datetime] = Field(default=None, description="in format YYYY-MM-DD", alias="acceptBy")
     acceptance_links: Optional[List[AzureMarketplacePrivateOfferAcceptanceLink]] = Field(default=None, alias="acceptanceLinks")
     beneficiaries: Optional[List[AzureMarketplacePrivateOfferBeneficiary]] = None
+    customer_contract_renewal: Optional[StrictBool] = Field(default=None, description="If true, it is a renewal offer for an existing customer.", alias="customerContractRenewal")
     e_tag: Optional[StrictStr] = Field(default=None, alias="eTag")
     end: Optional[datetime] = Field(default=None, description="in format YYYY-MM-DD")
     id: Optional[StrictStr] = Field(default=None, description="in format of \"private-offer/private-offer-durable-id\"")
@@ -63,7 +64,7 @@ class AzureMarketplacePrivateOffer(BaseModel):
     upgraded_from: Optional[AzureMarketplacePrivateOfferPromotionReference] = Field(default=None, alias="upgradedFrom")
     validations: Optional[List[AzureMarketplaceValidation]] = None
     variable_start_date: Optional[StrictBool] = Field(default=None, alias="variableStartDate")
-    __properties: ClassVar[List[str]] = ["$schema", "acceptBy", "acceptanceLinks", "beneficiaries", "eTag", "end", "id", "lastModified", "name", "notificationContacts", "offerPricingType", "partners", "preparedBy", "pricing", "privateOfferType", "resourceName", "start", "state", "subState", "termsAndConditionsDocSasUrl", "termsAndConditionsDocs", "upgradedFrom", "validations", "variableStartDate"]
+    __properties: ClassVar[List[str]] = ["$schema", "acceptBy", "acceptanceLinks", "beneficiaries", "customerContractRenewal", "eTag", "end", "id", "lastModified", "name", "notificationContacts", "offerPricingType", "partners", "preparedBy", "pricing", "privateOfferType", "resourceName", "start", "state", "subState", "termsAndConditionsDocSasUrl", "termsAndConditionsDocs", "upgradedFrom", "validations", "variableStartDate"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -165,6 +166,7 @@ class AzureMarketplacePrivateOffer(BaseModel):
             "acceptBy": obj.get("acceptBy"),
             "acceptanceLinks": [AzureMarketplacePrivateOfferAcceptanceLink.from_dict(_item) for _item in obj["acceptanceLinks"]] if obj.get("acceptanceLinks") is not None else None,
             "beneficiaries": [AzureMarketplacePrivateOfferBeneficiary.from_dict(_item) for _item in obj["beneficiaries"]] if obj.get("beneficiaries") is not None else None,
+            "customerContractRenewal": obj.get("customerContractRenewal"),
             "eTag": obj.get("eTag"),
             "end": obj.get("end"),
             "id": obj.get("id"),

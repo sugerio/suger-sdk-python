@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from suger_sdk_python.models.azure_marketplace_price import AzureMarketplacePrice
+from suger_sdk_python.models.azure_marketplace_price_flexible_schedule import AzureMarketplacePriceFlexibleSchedule
 from suger_sdk_python.models.azure_marketplace_term import AzureMarketplaceTerm
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,11 +30,14 @@ class AzureMarketplacePriceAndAvailabilityRecurrentPriceItem(BaseModel):
     """
     AzureMarketplacePriceAndAvailabilityRecurrentPriceItem
     """ # noqa: E501
+    billing_frequency: Optional[AzureMarketplaceTerm] = Field(default=None, description="billingFrequency defines the frequency of the billing for recurring price.", alias="billingFrequency")
     billing_term: Optional[AzureMarketplaceTerm] = Field(default=None, alias="billingTerm")
+    contract_duration: Optional[AzureMarketplaceTerm] = Field(default=None, description="contractDuration defines the duration of the contract, should always be “year” with value 1 or 2 or 3", alias="contractDuration")
+    flexible_schedule: Optional[AzureMarketplacePriceFlexibleSchedule] = Field(default=None, description="flexibleSchedule defines the payment installments for flexible billing.", alias="flexibleSchedule")
     payment_option: Optional[AzureMarketplaceTerm] = Field(default=None, alias="paymentOption")
     price_per_payment_in_usd: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="pricePerPaymentInUsd")
     prices: Optional[List[AzureMarketplacePrice]] = None
-    __properties: ClassVar[List[str]] = ["billingTerm", "paymentOption", "pricePerPaymentInUsd", "prices"]
+    __properties: ClassVar[List[str]] = ["billingFrequency", "billingTerm", "contractDuration", "flexibleSchedule", "paymentOption", "pricePerPaymentInUsd", "prices"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,9 +78,18 @@ class AzureMarketplacePriceAndAvailabilityRecurrentPriceItem(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of billing_frequency
+        if self.billing_frequency:
+            _dict['billingFrequency'] = self.billing_frequency.to_dict()
         # override the default output from pydantic by calling `to_dict()` of billing_term
         if self.billing_term:
             _dict['billingTerm'] = self.billing_term.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of contract_duration
+        if self.contract_duration:
+            _dict['contractDuration'] = self.contract_duration.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of flexible_schedule
+        if self.flexible_schedule:
+            _dict['flexibleSchedule'] = self.flexible_schedule.to_dict()
         # override the default output from pydantic by calling `to_dict()` of payment_option
         if self.payment_option:
             _dict['paymentOption'] = self.payment_option.to_dict()
@@ -99,7 +112,10 @@ class AzureMarketplacePriceAndAvailabilityRecurrentPriceItem(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "billingFrequency": AzureMarketplaceTerm.from_dict(obj["billingFrequency"]) if obj.get("billingFrequency") is not None else None,
             "billingTerm": AzureMarketplaceTerm.from_dict(obj["billingTerm"]) if obj.get("billingTerm") is not None else None,
+            "contractDuration": AzureMarketplaceTerm.from_dict(obj["contractDuration"]) if obj.get("contractDuration") is not None else None,
+            "flexibleSchedule": AzureMarketplacePriceFlexibleSchedule.from_dict(obj["flexibleSchedule"]) if obj.get("flexibleSchedule") is not None else None,
             "paymentOption": AzureMarketplaceTerm.from_dict(obj["paymentOption"]) if obj.get("paymentOption") is not None else None,
             "pricePerPaymentInUsd": obj.get("pricePerPaymentInUsd"),
             "prices": [AzureMarketplacePrice.from_dict(_item) for _item in obj["prices"]] if obj.get("prices") is not None else None

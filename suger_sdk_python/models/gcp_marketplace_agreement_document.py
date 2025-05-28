@@ -29,7 +29,8 @@ class GcpMarketplaceAgreementDocument(BaseModel):
     GcpMarketplaceAgreementDocument
     """ # noqa: E501
     eula_agreement_document: Optional[GcpMarketplaceDocument] = Field(default=None, alias="eulaAgreementDocument")
-    __properties: ClassVar[List[str]] = ["eulaAgreementDocument"]
+    sow_agreement_document: Optional[GcpMarketplaceDocument] = Field(default=None, alias="sowAgreementDocument")
+    __properties: ClassVar[List[str]] = ["eulaAgreementDocument", "sowAgreementDocument"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,6 +74,9 @@ class GcpMarketplaceAgreementDocument(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of eula_agreement_document
         if self.eula_agreement_document:
             _dict['eulaAgreementDocument'] = self.eula_agreement_document.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of sow_agreement_document
+        if self.sow_agreement_document:
+            _dict['sowAgreementDocument'] = self.sow_agreement_document.to_dict()
         return _dict
 
     @classmethod
@@ -85,7 +89,8 @@ class GcpMarketplaceAgreementDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "eulaAgreementDocument": GcpMarketplaceDocument.from_dict(obj["eulaAgreementDocument"]) if obj.get("eulaAgreementDocument") is not None else None
+            "eulaAgreementDocument": GcpMarketplaceDocument.from_dict(obj["eulaAgreementDocument"]) if obj.get("eulaAgreementDocument") is not None else None,
+            "sowAgreementDocument": GcpMarketplaceDocument.from_dict(obj["sowAgreementDocument"]) if obj.get("sowAgreementDocument") is not None else None
         })
         return _obj
 

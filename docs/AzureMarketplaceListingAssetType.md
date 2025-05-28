@@ -3,19 +3,19 @@
 
 ## Enum
 
-* `AZURELOGOSMALL` (value: `'azureLogoSmall'`)
+* `AzureMarketplaceListingAssetType_AzureLogoSmall` (value: `'azureLogoSmall'`)
 
-* `AZURELOGOMEDIUM` (value: `'azureLogoMedium'`)
+* `AzureMarketplaceListingAssetType_AzureLogoMedium` (value: `'azureLogoMedium'`)
 
-* `AZURELOGOLARGE` (value: `'azureLogoLarge'`)
+* `AzureMarketplaceListingAssetType_AzureLogoLarge` (value: `'azureLogoLarge'`)
 
-* `AZURELOGOWIDE` (value: `'azureLogoWide'`)
+* `AzureMarketplaceListingAssetType_AzureLogoWide` (value: `'azureLogoWide'`)
 
-* `AZURELOGOSCREENSHOT` (value: `'azureLogoScreenshot'`)
+* `AzureMarketplaceListingAssetType_AzureLogoScreenshot` (value: `'azureLogoScreenshot'`)
 
-* `AZURELOGOHERO` (value: `'azureLogoHero'`)
+* `AzureMarketplaceListingAssetType_AzureLogoHero` (value: `'azureLogoHero'`)
 
-* `PDFDOCUMENT` (value: `'pdfDocument'`)
+* `AzureMarketplaceListingAssetType_PdfDocument` (value: `'pdfDocument'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

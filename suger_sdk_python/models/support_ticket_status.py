@@ -27,13 +27,13 @@ class SupportTicketStatus(str, Enum):
     """
     allowed enum values
     """
-    OPEN = 'OPEN'
-    IN_PROGRESS = 'IN PROGRESS'
-    IN_REVIEW = 'IN REVIEW'
-    BLOCKED = 'BLOCKED'
-    CLOSED = 'CLOSED'
-    ARCHIVED = 'ARCHIVED'
-    DELETED = 'DELETED'
+    SupportTicketStatus_OPEN = 'OPEN'
+    SupportTicketStatus_IN_PROGRESS = 'IN PROGRESS'
+    SupportTicketStatus_IN_REVIEW = 'IN REVIEW'
+    SupportTicketStatus_BLOCKED = 'BLOCKED'
+    SupportTicketStatus_CLOSED = 'CLOSED'
+    SupportTicketStatus_ARCHIVED = 'ARCHIVED'
+    SupportTicketStatus_DELETED = 'DELETED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

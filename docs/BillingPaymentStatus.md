@@ -3,13 +3,13 @@
 
 ## Enum
 
-* `PENDING` (value: `'PENDING'`)
+* `BillingPaymentStatus_PENDING` (value: `'PENDING'`)
 
-* `PROCESSING` (value: `'PROCESSING'`)
+* `BillingPaymentStatus_PROCESSING` (value: `'PROCESSING'`)
 
-* `SUCCESS` (value: `'SUCCESS'`)
+* `BillingPaymentStatus_SUCCESS` (value: `'SUCCESS'`)
 
-* `FAILED` (value: `'FAILED'`)
+* `BillingPaymentStatus_FAILED` (value: `'FAILED'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

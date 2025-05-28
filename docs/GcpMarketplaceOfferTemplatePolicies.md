@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **allow_auto_renewal** | **bool** |  | [optional] 
 **allow_scheduled_start_date** | **bool** |  | [optional] 
 **max_renewal_times** | **str** | such as \&quot;3\&quot; | [optional] 
+**offer_deal_type** | [**GcpMarketplaceOfferDealType**](GcpMarketplaceOfferDealType.md) |  | [optional] 
 **proration** | [**GcpMarketplaceOfferProration**](GcpMarketplaceOfferProration.md) |  | [optional] 
 
 ## Example

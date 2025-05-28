@@ -3,15 +3,15 @@
 
 ## Enum
 
-* `CONTRACT` (value: `'Contract'`)
+* `AwsMarketplaceCatalogPricingModel_Contract` (value: `'Contract'`)
 
-* `USAGE` (value: `'Usage'`)
+* `AwsMarketplaceCatalogPricingModel_Usage` (value: `'Usage'`)
 
-* `BYOL` (value: `'Byol'`)
+* `AwsMarketplaceCatalogPricingModel_Byol` (value: `'Byol'`)
 
-* `FREE` (value: `'Free'`)
+* `AwsMarketplaceCatalogPricingModel_Free` (value: `'Free'`)
 
-* `UNKNOWN` (value: `'Unknown'`)
+* `AwsMarketplaceCatalogPricingModel_Unknown` (value: `'Unknown'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -3,11 +3,11 @@
 
 ## Enum
 
-* `DAY` (value: `'DAY'`)
+* `TimeUnit_DAY` (value: `'DAY'`)
 
-* `MONTH` (value: `'MONTH'`)
+* `TimeUnit_MONTH` (value: `'MONTH'`)
 
-* `YEAR` (value: `'YEAR'`)
+* `TimeUnit_YEAR` (value: `'YEAR'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

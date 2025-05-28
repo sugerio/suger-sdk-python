@@ -27,9 +27,9 @@ class PaymentScheduleType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    PREPAY = 'PREPAY'
-    POSTPAY = 'POSTPAY'
+    PaymentScheduleType_UNKNOWN = ''
+    PaymentScheduleType_PREPAY = 'PREPAY'
+    PaymentScheduleType_POSTPAY = 'POSTPAY'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

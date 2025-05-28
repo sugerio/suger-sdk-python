@@ -3,55 +3,55 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `OfferStatus_UNKNOWN` (value: `''`)
 
-* `INVALID` (value: `'INVALID'`)
+* `OfferStatus_INVALID` (value: `'INVALID'`)
 
-* `ACCEPTED` (value: `'ACCEPTED'`)
+* `OfferStatus_ACCEPTED` (value: `'ACCEPTED'`)
 
-* `ACTIVE` (value: `'ACTIVE'`)
+* `OfferStatus_ACTIVE` (value: `'ACTIVE'`)
 
-* `CANCEL_FAILED` (value: `'CANCEL_FAILED'`)
+* `OfferStatus_CANCEL_FAILED` (value: `'CANCEL_FAILED'`)
 
-* `CANCEL_SUCCESS` (value: `'CANCEL_SUCCESS'`)
+* `OfferStatus_CANCEL_SUCCESS` (value: `'CANCEL_SUCCESS'`)
 
-* `CANCELLED` (value: `'CANCELLED'`)
+* `OfferStatus_CANCELLED` (value: `'CANCELLED'`)
 
-* `CREATE_FAILED` (value: `'CREATE_FAILED'`)
+* `OfferStatus_CREATE_FAILED` (value: `'CREATE_FAILED'`)
 
-* `CREATE_SUCCESS` (value: `'CREATE_SUCCESS'`)
+* `OfferStatus_CREATE_SUCCESS` (value: `'CREATE_SUCCESS'`)
 
-* `DELETED` (value: `'DELETED'`)
+* `OfferStatus_DELETED` (value: `'DELETED'`)
 
-* `DEPRECATED` (value: `'DEPRECATED'`)
+* `OfferStatus_DEPRECATED` (value: `'DEPRECATED'`)
 
-* `DRAFT` (value: `'DRAFT'`)
+* `OfferStatus_DRAFT` (value: `'DRAFT'`)
 
-* `EXPIRED` (value: `'EXPIRED'`)
+* `OfferStatus_EXPIRED` (value: `'EXPIRED'`)
 
-* `PENDING_ACCEPTANCE` (value: `'PENDING_ACCEPTANCE'`)
+* `OfferStatus_PENDING_ACCEPTANCE` (value: `'PENDING_ACCEPTANCE'`)
 
-* `PENDING_CANCEL` (value: `'PENDING_CANCEL'`)
+* `OfferStatus_PENDING_CANCEL` (value: `'PENDING_CANCEL'`)
 
-* `PENDING_CREATE` (value: `'PENDING_CREATE'`)
+* `OfferStatus_PENDING_CREATE` (value: `'PENDING_CREATE'`)
 
-* `PENDING_UPDATE` (value: `'PENDING_UPDATE'`)
+* `OfferStatus_PENDING_UPDATE` (value: `'PENDING_UPDATE'`)
 
-* `PREVIEW` (value: `'PREVIEW'`)
+* `OfferStatus_PREVIEW` (value: `'PREVIEW'`)
 
-* `READY_TO_USE` (value: `'READY_TO_USE'`)
+* `OfferStatus_READY_TO_USE` (value: `'READY_TO_USE'`)
 
-* `REJECTED` (value: `'REJECTED'`)
+* `OfferStatus_REJECTED` (value: `'REJECTED'`)
 
-* `RESTRICTED` (value: `'RESTRICTED'`)
+* `OfferStatus_RESTRICTED` (value: `'RESTRICTED'`)
 
-* `TEST` (value: `'TEST'`)
+* `OfferStatus_TEST` (value: `'TEST'`)
 
-* `UPDATE_FAILED` (value: `'UPDATE_FAILED'`)
+* `OfferStatus_UPDATE_FAILED` (value: `'UPDATE_FAILED'`)
 
-* `UPDATE_SUCCESS` (value: `'UPDATE_SUCCESS'`)
+* `OfferStatus_UPDATE_SUCCESS` (value: `'UPDATE_SUCCESS'`)
 
-* `USED` (value: `'USED'`)
+* `OfferStatus_USED` (value: `'USED'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

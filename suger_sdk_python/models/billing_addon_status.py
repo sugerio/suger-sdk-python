@@ -27,8 +27,8 @@ class BillingAddonStatus(str, Enum):
     """
     allowed enum values
     """
-    ACTIVE = 'ACTIVE'
-    DELETED = 'DELETED'
+    BillingAddonStatus_ACTIVE = 'ACTIVE'
+    BillingAddonStatus_DELETED = 'DELETED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -3,39 +3,39 @@
 
 ## Enum
 
-* `DEFAULT` (value: `'DEFAULT'`)
+* `PartnerService_DEFAULT` (value: `'DEFAULT'`)
 
-* `ACE` (value: `'ACE'`)
+* `PartnerService_ACE` (value: `'ACE'`)
 
-* `BIGQUERY` (value: `'BIGQUERY'`)
+* `PartnerService_BIGQUERY` (value: `'BIGQUERY'`)
 
-* `BILLING` (value: `'BILLING'`)
+* `PartnerService_BILLING` (value: `'BILLING'`)
 
-* `CHATBOT` (value: `'CHATBOT'`)
+* `PartnerService_CHATBOT` (value: `'CHATBOT'`)
 
-* `COSELL` (value: `'COSELL'`)
+* `PartnerService_COSELL` (value: `'COSELL'`)
 
-* `CRM` (value: `'CRM'`)
+* `PartnerService_CRM` (value: `'CRM'`)
 
-* `CPQ` (value: `'CPQ'`)
+* `PartnerService_CPQ` (value: `'CPQ'`)
 
-* `DATABASE` (value: `'DATABASE'`)
+* `PartnerService_DATABASE` (value: `'DATABASE'`)
 
-* `DRIVE` (value: `'DRIVE'`)
+* `PartnerService_DRIVE` (value: `'DRIVE'`)
 
-* `EMAIL` (value: `'EMAIL'`)
+* `PartnerService_EMAIL` (value: `'EMAIL'`)
 
-* `MARKETPLACE` (value: `'MARKETPLACE'`)
+* `PartnerService_MARKETPLACE` (value: `'MARKETPLACE'`)
 
-* `NETSUITE` (value: `'NETSUITE'`)
+* `PartnerService_NETSUITE` (value: `'NETSUITE'`)
 
-* `PAYMENT` (value: `'PAYMENT'`)
+* `PartnerService_PAYMENT` (value: `'PAYMENT'`)
 
-* `QUICKBOOKS` (value: `'QUICKBOOKS'`)
+* `PartnerService_QUICKBOOKS` (value: `'QUICKBOOKS'`)
 
-* `STORAGE` (value: `'STORAGE'`)
+* `PartnerService_STORAGE` (value: `'STORAGE'`)
 
-* `TEAMS` (value: `'TEAMS'`)
+* `PartnerService_TEAMS` (value: `'TEAMS'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

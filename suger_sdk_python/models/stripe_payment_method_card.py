@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -36,6 +36,26 @@ class StripePaymentMethodCard(BaseModel):
     funding: Optional[StrictStr] = Field(default=None, description="Card funding type. Can be `credit`, `debit`, `prepaid`, or `unknown`.")
     last4: Optional[StrictStr] = Field(default=None, description="The last four digits of the card.")
     __properties: ClassVar[List[str]] = ["brand", "country", "display_brand", "exp_month", "exp_year", "fingerprint", "funding", "last4"]
+
+    @field_validator('brand')
+    def brand_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['amex', 'diners', 'discover', 'eftpos_au', 'jcb', 'mastercard', 'unionpay', 'visa', 'unknown']):
+            raise ValueError("must be one of enum values ('amex', 'diners', 'discover', 'eftpos_au', 'jcb', 'mastercard', 'unionpay', 'visa', 'unknown')")
+        return value
+
+    @field_validator('funding')
+    def funding_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['credit', 'debit', 'prepaid', 'unknown']):
+            raise ValueError("must be one of enum values ('credit', 'debit', 'prepaid', 'unknown')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

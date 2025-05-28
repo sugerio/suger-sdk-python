@@ -8,17 +8,17 @@ Method | HTTP request | Description
 [**create_refund**](BillingApi.md#create_refund) | **POST** /org/{orgId}/buyer/{buyerId}/paymentTransaction/{paymentTransactionId}/refund | create refund.
 [**delete_addon**](BillingApi.md#delete_addon) | **DELETE** /org/{orgId}/addon/{addonId} | delete addon
 [**get_addon**](BillingApi.md#get_addon) | **GET** /org/{orgId}/addon/{addonId} | get addon
-[**get_invoice_v2**](BillingApi.md#get_invoice_v2) | **GET** /org/{orgId}/invoice/{invoiceId} | get invoice
-[**issue_invoice_v2**](BillingApi.md#issue_invoice_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/issue | issue invoice
+[**get_invoice**](BillingApi.md#get_invoice) | **GET** /org/{orgId}/invoice/{invoiceId} | get invoice
+[**issue_invoice**](BillingApi.md#issue_invoice) | **PATCH** /org/{orgId}/invoice/{invoiceId}/issue | issue invoice
 [**list_addons**](BillingApi.md#list_addons) | **GET** /org/{orgId}/addon | list addons
 [**list_invoices**](BillingApi.md#list_invoices) | **GET** /org/{orgId}/invoice | list invoices
 [**list_payment_transactions**](BillingApi.md#list_payment_transactions) | **GET** /org/{orgId}/paymentTransaction | list payment transactions
 [**list_refund_of_payment_transaction**](BillingApi.md#list_refund_of_payment_transaction) | **GET** /org/{orgId}/buyer/{buyerId}/paymentTransaction/{paymentTransactionId}/refund | list refunds.
-[**pay_invoice_v2**](BillingApi.md#pay_invoice_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/pay | pay invoice
+[**pay_invoice**](BillingApi.md#pay_invoice) | **PATCH** /org/{orgId}/invoice/{invoiceId}/pay | pay invoice
 [**preview_invoice_email**](BillingApi.md#preview_invoice_email) | **GET** /org/{orgId}/invoice/{invoiceId}/preview | preview invoice email
 [**update_addon**](BillingApi.md#update_addon) | **PATCH** /org/{orgId}/addon/{addonId} | update addon
-[**update_invoice_info_v2**](BillingApi.md#update_invoice_info_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/info | update invoice info
-[**void_invoice_v2**](BillingApi.md#void_invoice_v2) | **PATCH** /org/{orgId}/invoice/{invoiceId}/void | void invoice
+[**update_invoice_info**](BillingApi.md#update_invoice_info) | **PATCH** /org/{orgId}/invoice/{invoiceId}/info | update invoice info
+[**void_invoice**](BillingApi.md#void_invoice) | **PATCH** /org/{orgId}/invoice/{invoiceId}/void | void invoice
 
 
 # **create_addon**
@@ -357,8 +357,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_invoice_v2**
-> BillingInvoice get_invoice_v2(org_id, invoice_id)
+# **get_invoice**
+> BillingInvoice get_invoice(org_id, invoice_id)
 
 get invoice
 
@@ -400,11 +400,11 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
 
     try:
         # get invoice
-        api_response = api_instance.get_invoice_v2(org_id, invoice_id)
-        print("The response of BillingApi->get_invoice_v2:\n")
+        api_response = api_instance.get_invoice(org_id, invoice_id)
+        print("The response of BillingApi->get_invoice:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling BillingApi->get_invoice_v2: %s\n" % e)
+        print("Exception when calling BillingApi->get_invoice: %s\n" % e)
 ```
 
 
@@ -440,8 +440,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **issue_invoice_v2**
-> BillingInvoice issue_invoice_v2(org_id, invoice_id, contact_ids=contact_ids)
+# **issue_invoice**
+> BillingInvoice issue_invoice(org_id, invoice_id, contact_ids=contact_ids)
 
 issue invoice
 
@@ -484,11 +484,11 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
 
     try:
         # issue invoice
-        api_response = api_instance.issue_invoice_v2(org_id, invoice_id, contact_ids=contact_ids)
-        print("The response of BillingApi->issue_invoice_v2:\n")
+        api_response = api_instance.issue_invoice(org_id, invoice_id, contact_ids=contact_ids)
+        print("The response of BillingApi->issue_invoice:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling BillingApi->issue_invoice_v2: %s\n" % e)
+        print("Exception when calling BillingApi->issue_invoice: %s\n" % e)
 ```
 
 
@@ -881,8 +881,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **pay_invoice_v2**
-> BillingInvoice pay_invoice_v2(org_id, invoice_id)
+# **pay_invoice**
+> BillingInvoice pay_invoice(org_id, invoice_id)
 
 pay invoice
 
@@ -924,11 +924,11 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
 
     try:
         # pay invoice
-        api_response = api_instance.pay_invoice_v2(org_id, invoice_id)
-        print("The response of BillingApi->pay_invoice_v2:\n")
+        api_response = api_instance.pay_invoice(org_id, invoice_id)
+        print("The response of BillingApi->pay_invoice:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling BillingApi->pay_invoice_v2: %s\n" % e)
+        print("Exception when calling BillingApi->pay_invoice: %s\n" % e)
 ```
 
 
@@ -1132,8 +1132,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_invoice_info_v2**
-> BillingInvoiceInfo update_invoice_info_v2(org_id, invoice_id, data)
+# **update_invoice_info**
+> BillingInvoiceInfo update_invoice_info(org_id, invoice_id, data)
 
 update invoice info
 
@@ -1177,11 +1177,11 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
 
     try:
         # update invoice info
-        api_response = api_instance.update_invoice_info_v2(org_id, invoice_id, data)
-        print("The response of BillingApi->update_invoice_info_v2:\n")
+        api_response = api_instance.update_invoice_info(org_id, invoice_id, data)
+        print("The response of BillingApi->update_invoice_info:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling BillingApi->update_invoice_info_v2: %s\n" % e)
+        print("Exception when calling BillingApi->update_invoice_info: %s\n" % e)
 ```
 
 
@@ -1218,8 +1218,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **void_invoice_v2**
-> BillingInvoice void_invoice_v2(org_id, invoice_id)
+# **void_invoice**
+> BillingInvoice void_invoice(org_id, invoice_id)
 
 void invoice
 
@@ -1261,11 +1261,11 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
 
     try:
         # void invoice
-        api_response = api_instance.void_invoice_v2(org_id, invoice_id)
-        print("The response of BillingApi->void_invoice_v2:\n")
+        api_response = api_instance.void_invoice(org_id, invoice_id)
+        print("The response of BillingApi->void_invoice:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling BillingApi->void_invoice_v2: %s\n" % e)
+        print("Exception when calling BillingApi->void_invoice: %s\n" % e)
 ```
 
 

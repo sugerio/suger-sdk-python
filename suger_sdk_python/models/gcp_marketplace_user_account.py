@@ -32,16 +32,17 @@ class GcpMarketplaceUserAccount(BaseModel):
     GcpMarketplaceUserAccount
     """ # noqa: E501
     approvals: Optional[List[GcpMarketplaceUserAccountApproval]] = Field(default=None, description="The approvals for this account, that are permitted or have been completed.")
-    billing_account_id: Optional[StrictStr] = Field(default=None, description="The buyer's GCP billing account ID.", alias="billingAccountId")
+    billing_account_id: Optional[StrictStr] = Field(default=None, description="The buyer's GCP billing account ID if it's a company account.", alias="billingAccountId")
     create_time: Optional[datetime] = Field(default=None, description="RFC3339 UTC timestamp", alias="createTime")
     id: Optional[StrictStr] = Field(default=None, description="GCP Marketplace User Account ID.")
     input_properties: Optional[List[StrictInt]] = Field(default=None, alias="inputProperties")
-    name: Optional[StrictStr] = Field(default=None, description="The resource name of the account. Account names have the form providers/{provider_id}/accounts/{account_id}.")
+    name: Optional[StrictStr] = Field(default=None, description="The resource name of the account, in format of providers/{provider_id}/accounts/{account_id}.")
+    parent_billing_account_id: Optional[StrictStr] = Field(default=None, description="The parent account ID of the BillingAccountId if the buyer is from a reseller in GCP Marketplace. It is the GCP billing account ID of the reseller in GCP Marketplace.", alias="parentBillingAccountId")
     provider: Optional[StrictStr] = Field(default=None, description="The identifier of the service provider (SaaS Seller) that this account was created against.")
     state: Optional[GcpMarketplaceUserAccountState] = Field(default=None, description="The state of the account. An account might not be able to make a purchase if the billing account is suspended.")
     update_time: Optional[datetime] = Field(default=None, description="RFC3339 UTC timestamp", alias="updateTime")
     user_info: Optional[GcpUserInfo] = Field(default=None, alias="userInfo")
-    __properties: ClassVar[List[str]] = ["approvals", "billingAccountId", "createTime", "id", "inputProperties", "name", "provider", "state", "updateTime", "userInfo"]
+    __properties: ClassVar[List[str]] = ["approvals", "billingAccountId", "createTime", "id", "inputProperties", "name", "parentBillingAccountId", "provider", "state", "updateTime", "userInfo"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -110,6 +111,7 @@ class GcpMarketplaceUserAccount(BaseModel):
             "id": obj.get("id"),
             "inputProperties": obj.get("inputProperties"),
             "name": obj.get("name"),
+            "parentBillingAccountId": obj.get("parentBillingAccountId"),
             "provider": obj.get("provider"),
             "state": obj.get("state"),
             "updateTime": obj.get("updateTime"),

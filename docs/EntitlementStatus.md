@@ -3,19 +3,19 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `EntitlementStatus_UNKNOWN` (value: `''`)
 
-* `ACTIVE` (value: `'ACTIVE'`)
+* `EntitlementStatus_ACTIVE` (value: `'ACTIVE'`)
 
-* `CANCELLED` (value: `'CANCELLED'`)
+* `EntitlementStatus_CANCELLED` (value: `'CANCELLED'`)
 
-* `DELETED` (value: `'DELETED'`)
+* `EntitlementStatus_DELETED` (value: `'DELETED'`)
 
-* `PENDING_CANCEL` (value: `'PENDING_CANCEL'`)
+* `EntitlementStatus_PENDING_CANCEL` (value: `'PENDING_CANCEL'`)
 
-* `PENDING_START` (value: `'PENDING_START'`)
+* `EntitlementStatus_PENDING_START` (value: `'PENDING_START'`)
 
-* `SUSPENDED` (value: `'SUSPENDED'`)
+* `EntitlementStatus_SUSPENDED` (value: `'SUSPENDED'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

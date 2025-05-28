@@ -27,11 +27,11 @@ class StripeRefundStatus(str, Enum):
     """
     allowed enum values
     """
-    PENDING = 'pending'
-    REQUIRES_ACTION = 'requires_action'
-    SUCCEEDED = 'succeeded'
-    FAILED = 'failed'
-    CANCELED = 'canceled'
+    StripeRefundStatus_Pending = 'pending'
+    StripeRefundStatus_RequiresAction = 'requires_action'
+    StripeRefundStatus_Succeeded = 'succeeded'
+    StripeRefundStatus_Failed = 'failed'
+    StripeRefundStatus_Canceled = 'canceled'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

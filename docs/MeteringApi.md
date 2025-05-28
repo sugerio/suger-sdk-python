@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 delete usageRecordGroup
 
-delete the UsageRecordGroup for the given organization and usageRecordGroup ID. Only usageRecordGroup with status \"CREATED\" or \"INVALID\" can be deleted.
+delete the UsageRecordGroup for the given organization and usageRecordGroup ID. Only usageRecordGroup with status "CREATED" or "INVALID" can be deleted.
 
 ### Example
 
@@ -890,7 +890,7 @@ Name | Type | Description  | Notes
 
 retry usageRecordGroup
 
-Retry the given UsageRecordGroup by setting from status \"REPORT_FAILED\" to \"CREATED\", and it will be ready for the next hourly report. Only usageRecordGroup with status \"REPORT_FAILED\" can be retried.
+Retry the given UsageRecordGroup by setting from status "REPORT_FAILED" to "CREATED", and it will be ready for the next hourly report. Only usageRecordGroup with status "REPORT_FAILED" can be retried.
 
 ### Example
 

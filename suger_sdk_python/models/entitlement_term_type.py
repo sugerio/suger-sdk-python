@@ -27,13 +27,13 @@ class EntitlementTermType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    AUTORENEW = 'AutoRenew'
-    MANUALRENEW = 'ManualRenew'
-    PLANCHANGE = 'PlanChange'
-    QUANTITYCHANGE = 'QuantityChange'
-    SIGNUP = 'Signup'
-    DIVIDECOMMIT = 'DivideCommit'
+    EntitlementTermTypeUnknown = ''
+    EntitlementTermTypeAutoRenew = 'AutoRenew'
+    EntitlementTermTypeManualRenew = 'ManualRenew'
+    EntitlementTermTypePlanChange = 'PlanChange'
+    EntitlementTermTypeQuantityChange = 'QuantityChange'
+    EntitlementTermTypeSignup = 'Signup'
+    EntitlementTermTypeDivideCommit = 'DivideCommit'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

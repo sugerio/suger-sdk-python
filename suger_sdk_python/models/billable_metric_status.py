@@ -27,8 +27,8 @@ class BillableMetricStatus(str, Enum):
     """
     allowed enum values
     """
-    ACTIVE = 'ACTIVE'
-    DELETED = 'DELETED'
+    BillableMetricStatus_ACTIVE = 'ACTIVE'
+    BillableMetricStatus_DELETED = 'DELETED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

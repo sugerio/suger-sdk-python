@@ -27,10 +27,11 @@ class AzureMarketplaceOfferPricingType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    EDITEXISTINGOFFERPRICINGONLY = 'editExistingOfferPricingOnly'
-    SAASNEWCUSTOMIZEDPLANS = 'saasNewCustomizedPlans'
-    VMSOFTWARERESERVATIONS = 'vmSoftwareReservations'
+    AzureMarketplaceOfferPricingType_Unknown = ''
+    AzureMarketplaceOfferPricingType_EditExistingOfferPricingOnly = 'editExistingOfferPricingOnly'
+    AzureMarketplaceOfferPricingType_SaasNewCustomizedPlans = 'saasNewCustomizedPlans'
+    AzureMarketplaceOfferPricingType_VmSoftwareReservations = 'vmSoftwareReservations'
+    AzureMarketplaceOfferPricingType_NewCustomizedPlans = 'newCustomizedPlans'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

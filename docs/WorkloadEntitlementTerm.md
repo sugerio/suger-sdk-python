@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **buyer_id** | **str** |  | [optional] 
 **commit_amount** | **float** |  | [optional] 
+**creation_time** | **str** |  | [optional] 
 **credit_amount** | **float** |  | [optional] 
 **end_time** | **datetime** | nullable | [optional] 
 **entitlement_id** | **str** |  | [optional] 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 **external_entitlement_id** | **str** |  | [optional] 
 **id** | **str** |  | [optional] 
 **info** | [**EntitlementTermInfo**](EntitlementTermInfo.md) |  | [optional] 
+**last_update_time** | **str** |  | [optional] 
 **offer_id** | **str** |  | [optional] 
 **organization_id** | **str** |  | [optional] 
 **partner** | [**Partner**](Partner.md) |  | [optional] 

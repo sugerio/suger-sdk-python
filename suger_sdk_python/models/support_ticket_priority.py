@@ -27,10 +27,10 @@ class SupportTicketPriority(str, Enum):
     """
     allowed enum values
     """
-    LOW = 'LOW'
-    NORMAL = 'NORMAL'
-    HIGH = 'HIGH'
-    URGENT = 'URGENT'
+    SupportTicketPriority_LOW = 'LOW'
+    SupportTicketPriority_NORMAL = 'NORMAL'
+    SupportTicketPriority_HIGH = 'HIGH'
+    SupportTicketPriority_URGENT = 'URGENT'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -27,8 +27,8 @@ class CommitDimensionType(str, Enum):
     """
     allowed enum values
     """
-    FLAT_RATE = 'FLAT_RATE'
-    PER_USER = 'PER_USER'
+    CommitDimensionType_FLAT_RATE = 'FLAT_RATE'
+    CommitDimensionType_PER_USER = 'PER_USER'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -27,15 +27,15 @@ class AwsMarketplaceCppoOpportunityTermType(str, Enum):
     """
     allowed enum values
     """
-    BUYERTARGETINGTERM = 'BuyerTargetingTerm'
-    UPDATEAVAILABILITY = 'UpdateAvailability'
-    BUYERVALIDITYTERM = 'BuyerValidityTerm'
-    BUYERLEGALTERM = 'BuyerLegalTerm'
-    RESALELEGALTERM = 'ResaleLegalTerm'
-    RESALEUSAGEBASEDPRICINGTERM = 'ResaleUsageBasedPricingTerm'
-    RESALECONFIGURABLEUPFRONTPRICINGTERM = 'ResaleConfigurableUpfrontPricingTerm'
-    RESALEFIXEDUPFRONTPRICINGTERM = 'ResaleFixedUpfrontPricingTerm'
-    RESALEPAYMENTSCHEDULETERM = 'ResalePaymentScheduleTerm'
+    AwsMarketplaceCppoOpportunityTermType_BuyerTargetingTerm = 'BuyerTargetingTerm'
+    AwsMarketplaceCppoOpportunityTermType_UpdateAvailability = 'UpdateAvailability'
+    AwsMarketplaceCppoOpportunityTermType_BuyerValidityTerm = 'BuyerValidityTerm'
+    AwsMarketplaceCppoOpportunityTermType_BuyerLegalTerm = 'BuyerLegalTerm'
+    AwsMarketplaceCppoOpportunityTermType_ResaleLegalTerm = 'ResaleLegalTerm'
+    AwsMarketplaceCppoOpportunityTermType_ResaleUsageBasedPricingTerm = 'ResaleUsageBasedPricingTerm'
+    AwsMarketplaceCppoOpportunityTermType_ResaleConfigurableUpfrontPricingTerm = 'ResaleConfigurableUpfrontPricingTerm'
+    AwsMarketplaceCppoOpportunityTermType_ResaleFixedUpfrontPricingTerm = 'ResaleFixedUpfrontPricingTerm'
+    AwsMarketplaceCppoOpportunityTermType_ResalePaymentScheduleTerm = 'ResalePaymentScheduleTerm'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

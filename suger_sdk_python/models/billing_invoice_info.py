@@ -48,7 +48,7 @@ class BillingInvoiceInfo(BaseModel):
     commits_revenue_details: Optional[List[CommitRevenueDetail]] = Field(default=None, description="Recurring flat fee for the invoice. There should be only one type fee for each invoice, commits, or usage.", alias="commitsRevenueDetails")
     creation_date: Optional[datetime] = Field(default=None, description="The creation date of the invoice when the status of the invoice may be draft or issued. It may be different from the issue date.", alias="creationDate")
     currency: Optional[StrictStr] = None
-    deducted_commit_amount: Optional[StrictInt] = Field(default=None, description="The amount of the committed amount that has been deducted from the usage. It works only when IsMeteringOverageCommit is true.", alias="deductedCommitAmount")
+    deducted_commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount of the committed amount that has been deducted from the usage. It works only when IsMeteringOverageCommit is true.", alias="deductedCommitAmount")
     deducted_commit_invoice_id: Optional[StrictStr] = Field(default=None, description="The ID of the commit invoice that has been deducted from the usage. It works only when IsMeteringOverageCommit is true.", alias="deductedCommitInvoiceID")
     description: Optional[StrictStr] = None
     due_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Due amount = SubtotalAmount + TaxAmount - AdjustOverallDiscount", alias="dueAmount")
@@ -59,13 +59,14 @@ class BillingInvoiceInfo(BaseModel):
     memo: Optional[StrictStr] = None
     net_terms_in_days: Optional[StrictInt] = Field(default=None, description="Net Terms period in number of days", alias="netTermsInDays")
     payment_installments_detail: Optional[BillingPaymentInstallmentDetail] = Field(default=None, alias="paymentInstallmentsDetail")
+    period_total_days: Optional[StrictInt] = Field(default=None, description="PeriodTotalDays is the total number of days among the whole periods. e.g. 61 days for a 2-month invoice.", alias="periodTotalDays")
     receipt_url: Optional[StrictStr] = Field(default=None, description="Invoice receipt url, it only exists when there are transactions.", alias="receiptUrl")
     spa_url: Optional[StrictStr] = Field(default=None, description="SPA url with JWT.", alias="spaUrl")
     subtotal_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Subtotal amount calculated from the user usage.", alias="subtotalAmount")
     tax_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="taxAmount")
     trial_period_in_days: Optional[StrictInt] = Field(default=None, description="Trial period in number of days", alias="trialPeriodInDays")
     usage_daily_revenues: Optional[List[BillableDimensionUsageDailyRevenue]] = Field(default=None, description="Billable dimension fees for the invoice.", alias="usageDailyRevenues")
-    __properties: ClassVar[List[str]] = ["addFixedFees", "addonDetail", "adjustDiscountByDimensions", "adjustMinimumSpendByDimensions", "adjustOverallDiscount", "adjustOverallMinimumSpend", "billableDimensionDetails", "commitsRevenueDetails", "creationDate", "currency", "deductedCommitAmount", "deductedCommitInvoiceID", "description", "dueAmount", "dueDate", "gracePeriodInDays", "isMeteringOverageCommit", "issueDate", "memo", "netTermsInDays", "paymentInstallmentsDetail", "receiptUrl", "spaUrl", "subtotalAmount", "taxAmount", "trialPeriodInDays", "usageDailyRevenues"]
+    __properties: ClassVar[List[str]] = ["addFixedFees", "addonDetail", "adjustDiscountByDimensions", "adjustMinimumSpendByDimensions", "adjustOverallDiscount", "adjustOverallMinimumSpend", "billableDimensionDetails", "commitsRevenueDetails", "creationDate", "currency", "deductedCommitAmount", "deductedCommitInvoiceID", "description", "dueAmount", "dueDate", "gracePeriodInDays", "isMeteringOverageCommit", "issueDate", "memo", "netTermsInDays", "paymentInstallmentsDetail", "periodTotalDays", "receiptUrl", "spaUrl", "subtotalAmount", "taxAmount", "trialPeriodInDays", "usageDailyRevenues"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -193,6 +194,7 @@ class BillingInvoiceInfo(BaseModel):
             "memo": obj.get("memo"),
             "netTermsInDays": obj.get("netTermsInDays"),
             "paymentInstallmentsDetail": BillingPaymentInstallmentDetail.from_dict(obj["paymentInstallmentsDetail"]) if obj.get("paymentInstallmentsDetail") is not None else None,
+            "periodTotalDays": obj.get("periodTotalDays"),
             "receiptUrl": obj.get("receiptUrl"),
             "spaUrl": obj.get("spaUrl"),
             "subtotalAmount": obj.get("subtotalAmount"),

@@ -27,9 +27,9 @@ class AwsMarketplaceCppoDiscountType(str, Enum):
     """
     allowed enum values
     """
-    DISCOUNT_PERCENT = 'DISCOUNT_PERCENT'
-    CUSTOM_PRICE = 'CUSTOM_PRICE'
-    CUSTOM_PRICE_WITH_FPS = 'CUSTOM_PRICE_WITH_FPS'
+    AwsMarketplaceCppoDiscountType_DISCOUNT_PERCENT = 'DISCOUNT_PERCENT'
+    AwsMarketplaceCppoDiscountType_CUSTOM_PRICE = 'CUSTOM_PRICE'
+    AwsMarketplaceCppoDiscountType_FLEXIBLE_PAYMENT_SCHEDULE = 'CUSTOM_PRICE_WITH_FPS'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

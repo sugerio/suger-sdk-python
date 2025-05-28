@@ -27,11 +27,11 @@ class BillableMetricAggregationType(str, Enum):
     """
     allowed enum values
     """
-    COUNT = 'COUNT'
-    UNIQUE_COUNT = 'UNIQUE_COUNT'
-    SUM = 'SUM'
-    MAX = 'MAX'
-    LAST = 'LAST'
+    BillableMetricAggregationType_COUNT = 'COUNT'
+    BillableMetricAggregationType_UNIQUE_COUNT = 'UNIQUE_COUNT'
+    BillableMetricAggregationType_SUM = 'SUM'
+    BillableMetricAggregationType_MAX = 'MAX'
+    BillableMetricAggregationType_LAST = 'LAST'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

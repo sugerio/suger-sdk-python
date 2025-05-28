@@ -27,10 +27,10 @@ class AzureMarketplacePrivateOfferState(str, Enum):
     """
     allowed enum values
     """
-    DRAFT = 'draft'
-    LIVE = 'live'
-    DELETED = 'deleted'
-    WITHDRAWN = 'withdrawn'
+    AzureMarketplacePrivateOfferState_draft = 'draft'
+    AzureMarketplacePrivateOfferState_live = 'live'
+    AzureMarketplacePrivateOfferState_deleted = 'deleted'
+    AzureMarketplacePrivateOfferState_withdrawn = 'withdrawn'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

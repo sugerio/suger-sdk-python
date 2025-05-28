@@ -27,13 +27,13 @@ class EntitlementStatus(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    ACTIVE = 'ACTIVE'
-    CANCELLED = 'CANCELLED'
-    DELETED = 'DELETED'
-    PENDING_CANCEL = 'PENDING_CANCEL'
-    PENDING_START = 'PENDING_START'
-    SUSPENDED = 'SUSPENDED'
+    EntitlementStatus_UNKNOWN = ''
+    EntitlementStatus_ACTIVE = 'ACTIVE'
+    EntitlementStatus_CANCELLED = 'CANCELLED'
+    EntitlementStatus_DELETED = 'DELETED'
+    EntitlementStatus_PENDING_CANCEL = 'PENDING_CANCEL'
+    EntitlementStatus_PENDING_START = 'PENDING_START'
+    EntitlementStatus_SUSPENDED = 'SUSPENDED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

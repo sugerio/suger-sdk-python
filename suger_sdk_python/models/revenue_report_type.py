@@ -27,10 +27,10 @@ class RevenueReportType(str, Enum):
     """
     allowed enum values
     """
-    GROSSAMOUNT = 'GrossAmount'
-    INVOICEDAMOUNT = 'InvoicedAmount'
-    COLLECTABLEAMOUNT = 'CollectableAmount'
-    DISBURSEDAMOUNT = 'DisbursedAmount'
+    RevenueReportType_GrossAmount = 'GrossAmount'
+    RevenueReportType_InvoicedAmount = 'InvoicedAmount'
+    RevenueReportType_CollectableAmount = 'CollectableAmount'
+    RevenueReportType_DisbursedAmount = 'DisbursedAmount'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

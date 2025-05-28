@@ -26,6 +26,7 @@ from suger_sdk_python.models.azure_ad_identifier import AzureADIdentifier
 from suger_sdk_python.models.company_info import CompanyInfo
 from suger_sdk_python.models.gcp_marketplace_user_account import GcpMarketplaceUserAccount
 from suger_sdk_python.models.payment_config import PaymentConfig
+from suger_sdk_python.models.snowflake_marketplace_buyer import SnowflakeMarketplaceBuyer
 from suger_sdk_python.models.stripe_customer import StripeCustomer
 from typing import Optional, Set
 from typing_extensions import Self
@@ -51,10 +52,11 @@ class BuyerInfo(BaseModel):
     metronome_customer_id: Optional[StrictStr] = Field(default=None, description="The metronome customer ID for the buyer if it is connected to a metronome customer.", alias="metronomeCustomerId")
     orb_customer_id: Optional[StrictStr] = Field(default=None, description="The orb customer ID for the buyer if it is connected to a orb customer.", alias="orbCustomerId")
     payment_config: Optional[PaymentConfig] = Field(default=None, description="Payment Config for billing.", alias="paymentConfig")
+    snowflake_buyer: Optional[SnowflakeMarketplaceBuyer] = Field(default=None, description="Buyer on Snowflake", alias="snowflakeBuyer")
     spa_url: Optional[StrictStr] = Field(default=None, description="Buyer SPA url, public page visited with jwt.", alias="spaUrl")
     stripe_buyer: Optional[StripeCustomer] = Field(default=None, description="Buyer as Customer on Stripe", alias="stripeBuyer")
     stripe_customer_id: Optional[StrictStr] = Field(default=None, description="The stripe customer ID for the buyer if it is connected to a stripe customer.", alias="stripeCustomerId")
-    __properties: ClassVar[List[str]] = ["adyenBuyer", "awsBuyer", "azureBuyer", "collectableAmount", "companyInfo", "customerId", "disbursedAmount", "emailAddress", "fields", "gcpBuyer", "grossAmount", "invoicedAmount", "lagoCustomerId", "lastModifiedBy", "metronomeCustomerId", "orbCustomerId", "paymentConfig", "spaUrl", "stripeBuyer", "stripeCustomerId"]
+    __properties: ClassVar[List[str]] = ["adyenBuyer", "awsBuyer", "azureBuyer", "collectableAmount", "companyInfo", "customerId", "disbursedAmount", "emailAddress", "fields", "gcpBuyer", "grossAmount", "invoicedAmount", "lagoCustomerId", "lastModifiedBy", "metronomeCustomerId", "orbCustomerId", "paymentConfig", "snowflakeBuyer", "spaUrl", "stripeBuyer", "stripeCustomerId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -113,6 +115,9 @@ class BuyerInfo(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of payment_config
         if self.payment_config:
             _dict['paymentConfig'] = self.payment_config.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of snowflake_buyer
+        if self.snowflake_buyer:
+            _dict['snowflakeBuyer'] = self.snowflake_buyer.to_dict()
         # override the default output from pydantic by calling `to_dict()` of stripe_buyer
         if self.stripe_buyer:
             _dict['stripeBuyer'] = self.stripe_buyer.to_dict()
@@ -145,6 +150,7 @@ class BuyerInfo(BaseModel):
             "metronomeCustomerId": obj.get("metronomeCustomerId"),
             "orbCustomerId": obj.get("orbCustomerId"),
             "paymentConfig": PaymentConfig.from_dict(obj["paymentConfig"]) if obj.get("paymentConfig") is not None else None,
+            "snowflakeBuyer": SnowflakeMarketplaceBuyer.from_dict(obj["snowflakeBuyer"]) if obj.get("snowflakeBuyer") is not None else None,
             "spaUrl": obj.get("spaUrl"),
             "stripeBuyer": StripeCustomer.from_dict(obj["stripeBuyer"]) if obj.get("stripeBuyer") is not None else None,
             "stripeCustomerId": obj.get("stripeCustomerId")

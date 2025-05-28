@@ -34,6 +34,7 @@ class WorkloadEntitlementTerm(BaseModel):
     """ # noqa: E501
     buyer_id: Optional[StrictStr] = Field(default=None, alias="buyerID")
     commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="commitAmount")
+    creation_time: Optional[StrictStr] = Field(default=None, alias="creationTime")
     credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="creditAmount")
     end_time: Optional[datetime] = Field(default=None, description="nullable", alias="endTime")
     entitlement_id: Optional[StrictStr] = Field(default=None, alias="entitlementID")
@@ -41,6 +42,7 @@ class WorkloadEntitlementTerm(BaseModel):
     external_entitlement_id: Optional[StrictStr] = Field(default=None, alias="externalEntitlementID")
     id: Optional[StrictStr] = None
     info: Optional[EntitlementTermInfo] = None
+    last_update_time: Optional[StrictStr] = Field(default=None, alias="lastUpdateTime")
     offer_id: Optional[StrictStr] = Field(default=None, alias="offerID")
     organization_id: Optional[StrictStr] = Field(default=None, alias="organizationID")
     partner: Optional[Partner] = None
@@ -50,7 +52,7 @@ class WorkloadEntitlementTerm(BaseModel):
     start_time: Optional[datetime] = Field(default=None, alias="startTime")
     used_commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usedCommitAmount")
     used_credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usedCreditAmount")
-    __properties: ClassVar[List[str]] = ["buyerID", "commitAmount", "creditAmount", "endTime", "entitlementID", "entitlementInfo", "externalEntitlementID", "id", "info", "offerID", "organizationID", "partner", "productID", "reportedAmount", "service", "startTime", "usedCommitAmount", "usedCreditAmount"]
+    __properties: ClassVar[List[str]] = ["buyerID", "commitAmount", "creationTime", "creditAmount", "endTime", "entitlementID", "entitlementInfo", "externalEntitlementID", "id", "info", "lastUpdateTime", "offerID", "organizationID", "partner", "productID", "reportedAmount", "service", "startTime", "usedCommitAmount", "usedCreditAmount"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -111,6 +113,7 @@ class WorkloadEntitlementTerm(BaseModel):
         _obj = cls.model_validate({
             "buyerID": obj.get("buyerID"),
             "commitAmount": obj.get("commitAmount"),
+            "creationTime": obj.get("creationTime"),
             "creditAmount": obj.get("creditAmount"),
             "endTime": obj.get("endTime"),
             "entitlementID": obj.get("entitlementID"),
@@ -118,6 +121,7 @@ class WorkloadEntitlementTerm(BaseModel):
             "externalEntitlementID": obj.get("externalEntitlementID"),
             "id": obj.get("id"),
             "info": EntitlementTermInfo.from_dict(obj["info"]) if obj.get("info") is not None else None,
+            "lastUpdateTime": obj.get("lastUpdateTime"),
             "offerID": obj.get("offerID"),
             "organizationID": obj.get("organizationID"),
             "partner": obj.get("partner"),

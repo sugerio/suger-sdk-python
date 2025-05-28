@@ -27,11 +27,11 @@ class AwsMarketplaceProductVisibility(str, Enum):
     """
     allowed enum values
     """
-    LIMITED = 'Limited'
-    PUBLIC = 'Public'
-    RESTRICTED = 'Restricted'
-    UNAVAILABLE = 'Unavailable'
-    DRAFT = 'Draft'
+    AwsMarketplaceProductVisibility_Limited = 'Limited'
+    AwsMarketplaceProductVisibility_Public = 'Public'
+    AwsMarketplaceProductVisibility_Restricted = 'Restricted'
+    AwsMarketplaceProductVisibility_Unavailable = 'Unavailable'
+    AwsMarketplaceProductVisibility_Draft = 'Draft'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

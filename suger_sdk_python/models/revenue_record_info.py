@@ -18,11 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_legacy_rds_db_lib_billing_aws_billing_event import GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent
 from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_legacy_rds_db_lib_billing_azure_cma_revenue import GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue
 from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_legacy_rds_db_lib_billing_gcp_charge_usage import GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingGcpChargeUsage
+from suger_sdk_python.models.revenue_channel import RevenueChannel
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,12 +33,30 @@ class RevenueRecordInfo(BaseModel):
     """ # noqa: E501
     aws_revenue_records: Optional[List[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent]] = Field(default=None, description="For raw revenue records in AWS Marketplace", alias="awsRevenueRecords")
     azure_revenue_records: Optional[List[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue]] = Field(default=None, description="For raw revenue records in Azure Marketplace", alias="azureRevenueRecords")
+    bank_trace_id: Optional[StrictStr] = Field(default=None, description="The bank trace ID of the revenue record if applicable", alias="bankTraceId")
+    billing_model: Optional[StrictStr] = Field(default=None, description="The billing model of the revenue record if applicable The value is one of the following: - SubscriptionBased: The revenue record is from a subscription or recurring commitment. - UsageBased: The revenue record is from a usage-based metering.", alias="billingModel")
+    channel: Optional[RevenueChannel] = Field(default=None, description="The channel of revenue record.")
     credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The credit amount used in the revenue record.", alias="creditAmount")
+    disbursement_billing_event_id: Optional[StrictStr] = Field(default=None, description="The disbursement ID of the revenue record if applicable", alias="disbursementBillingEventId")
     disbursement_notification_sent: Optional[StrictBool] = Field(default=None, description="Whether the disbursement notification has been sent to the seller/ISV.", alias="disbursementNotificationSent")
+    earning_id: Optional[StrictStr] = Field(default=None, description="The earning ID of the revenue record if applicable", alias="earningId")
     gcp_revenue_records: Optional[List[GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingGcpChargeUsage]] = Field(default=None, description="For raw revenue records in GCP Marketplace", alias="gcpRevenueRecords")
     id_source: Optional[StrictStr] = Field(default=None, description="Source of the revenue record ID.", alias="idSource")
+    payment_id: Optional[StrictStr] = Field(default=None, description="The payment  ID of the revenue record if applicable", alias="paymentId")
+    reseller_id: Optional[StrictStr] = Field(default=None, description="The reseller ID of the revenue record if applicable", alias="resellerId")
+    reseller_name: Optional[StrictStr] = Field(default=None, description="The reseller name of the revenue record if application", alias="resellerName")
     resource: Optional[StrictStr] = Field(default=None, description="Resource name for the revenue record. Applicable only to GCP Marketplace.")
-    __properties: ClassVar[List[str]] = ["awsRevenueRecords", "azureRevenueRecords", "creditAmount", "disbursementNotificationSent", "gcpRevenueRecords", "idSource", "resource"]
+    __properties: ClassVar[List[str]] = ["awsRevenueRecords", "azureRevenueRecords", "bankTraceId", "billingModel", "channel", "creditAmount", "disbursementBillingEventId", "disbursementNotificationSent", "earningId", "gcpRevenueRecords", "idSource", "paymentId", "resellerId", "resellerName", "resource"]
+
+    @field_validator('billing_model')
+    def billing_model_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['SubscriptionBased', 'UsageBased']):
+            raise ValueError("must be one of enum values ('SubscriptionBased', 'UsageBased')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -113,10 +132,18 @@ class RevenueRecordInfo(BaseModel):
         _obj = cls.model_validate({
             "awsRevenueRecords": [GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent.from_dict(_item) for _item in obj["awsRevenueRecords"]] if obj.get("awsRevenueRecords") is not None else None,
             "azureRevenueRecords": [GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue.from_dict(_item) for _item in obj["azureRevenueRecords"]] if obj.get("azureRevenueRecords") is not None else None,
+            "bankTraceId": obj.get("bankTraceId"),
+            "billingModel": obj.get("billingModel"),
+            "channel": obj.get("channel"),
             "creditAmount": obj.get("creditAmount"),
+            "disbursementBillingEventId": obj.get("disbursementBillingEventId"),
             "disbursementNotificationSent": obj.get("disbursementNotificationSent"),
+            "earningId": obj.get("earningId"),
             "gcpRevenueRecords": [GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingGcpChargeUsage.from_dict(_item) for _item in obj["gcpRevenueRecords"]] if obj.get("gcpRevenueRecords") is not None else None,
             "idSource": obj.get("idSource"),
+            "paymentId": obj.get("paymentId"),
+            "resellerId": obj.get("resellerId"),
+            "resellerName": obj.get("resellerName"),
             "resource": obj.get("resource")
         })
         return _obj

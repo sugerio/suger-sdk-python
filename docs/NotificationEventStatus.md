@@ -3,15 +3,15 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `NotificationEventStatus_UNKNOWN` (value: `''`)
 
-* `SCHEDULED` (value: `'SCHEDULED'`)
+* `NotificationEventStatus_SCHEDULED` (value: `'SCHEDULED'`)
 
-* `PENDING` (value: `'PENDING'`)
+* `NotificationEventStatus_PENDING` (value: `'PENDING'`)
 
-* `DONE` (value: `'DONE'`)
+* `NotificationEventStatus_DONE` (value: `'DONE'`)
 
-* `FAILED` (value: `'FAILED'`)
+* `NotificationEventStatus_FAILED` (value: `'FAILED'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

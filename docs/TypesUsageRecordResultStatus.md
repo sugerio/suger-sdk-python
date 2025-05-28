@@ -3,11 +3,11 @@
 
 ## Enum
 
-* `SUCCESS` (value: `'Success'`)
+* `UsageRecordResultStatusSuccess` (value: `'Success'`)
 
-* `CUSTOMERNOTSUBSCRIBED` (value: `'CustomerNotSubscribed'`)
+* `UsageRecordResultStatusCustomerNotSubscribed` (value: `'CustomerNotSubscribed'`)
 
-* `DUPLICATERECORD` (value: `'DuplicateRecord'`)
+* `UsageRecordResultStatusDuplicateRecord` (value: `'DuplicateRecord'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

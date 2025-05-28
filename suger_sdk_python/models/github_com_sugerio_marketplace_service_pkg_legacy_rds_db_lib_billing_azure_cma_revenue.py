@@ -35,19 +35,33 @@ class GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue(
     azure_plan_id: Optional[StrictStr] = Field(default=None, alias="azurePlanID")
     billing_model: Optional[StrictStr] = Field(default=None, alias="billingModel")
     buyer_id: Optional[StrictStr] = Field(default=None, alias="buyerID")
+    earning_id: Optional[StrictStr] = Field(default=None, alias="earningID")
     earning_usd: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="earningUsd")
     entitlement_id: Optional[StrictStr] = Field(default=None, alias="entitlementID")
     estimated_payout_month: Optional[DatabaseSqlNullTime] = Field(default=None, alias="estimatedPayoutMonth")
+    invoice_date: Optional[DatabaseSqlNullTime] = Field(default=None, alias="invoiceDate")
+    invoice_due_date: Optional[DatabaseSqlNullTime] = Field(default=None, alias="invoiceDueDate")
+    invoice_id: Optional[StrictStr] = Field(default=None, alias="invoiceID")
     offer_id: Optional[StrictStr] = Field(default=None, alias="offerID")
     organization_id: Optional[StrictStr] = Field(default=None, alias="organizationID")
+    payment_id: Optional[StrictStr] = Field(default=None, alias="paymentID")
     payment_sent_date: Optional[DatabaseSqlNullTime] = Field(default=None, alias="paymentSentDate")
+    payment_status: Optional[StrictStr] = Field(default=None, alias="paymentStatus")
     payout_status: Optional[StrictStr] = Field(default=None, alias="payoutStatus")
     product_id: Optional[StrictStr] = Field(default=None, alias="productID")
+    program_name: Optional[StrictStr] = Field(default=None, alias="programName")
     purchase_record_id: Optional[StrictStr] = Field(default=None, alias="purchaseRecordID")
+    reseller_city: Optional[StrictStr] = Field(default=None, alias="resellerCity")
+    reseller_company: Optional[StrictStr] = Field(default=None, alias="resellerCompany")
+    reseller_country: Optional[StrictStr] = Field(default=None, alias="resellerCountry")
+    reseller_email: Optional[StrictStr] = Field(default=None, alias="resellerEmail")
+    reseller_id: Optional[StrictStr] = Field(default=None, alias="resellerID")
+    reseller_state: Optional[StrictStr] = Field(default=None, alias="resellerState")
     revenue_usd: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="revenueUsd")
     term_end_date: Optional[StrictStr] = Field(default=None, alias="termEndDate")
     term_start_date: Optional[StrictStr] = Field(default=None, alias="termStartDate")
-    __properties: ClassVar[List[str]] = ["azureAssetID", "azureBillingAccountID", "azureCustomerID", "azureOfferID", "azurePlanID", "billingModel", "buyerID", "earningUsd", "entitlementID", "estimatedPayoutMonth", "offerID", "organizationID", "paymentSentDate", "payoutStatus", "productID", "purchaseRecordID", "revenueUsd", "termEndDate", "termStartDate"]
+    transaction_date: Optional[DatabaseSqlNullTime] = Field(default=None, alias="transactionDate")
+    __properties: ClassVar[List[str]] = ["azureAssetID", "azureBillingAccountID", "azureCustomerID", "azureOfferID", "azurePlanID", "billingModel", "buyerID", "earningID", "earningUsd", "entitlementID", "estimatedPayoutMonth", "invoiceDate", "invoiceDueDate", "invoiceID", "offerID", "organizationID", "paymentID", "paymentSentDate", "paymentStatus", "payoutStatus", "productID", "programName", "purchaseRecordID", "resellerCity", "resellerCompany", "resellerCountry", "resellerEmail", "resellerID", "resellerState", "revenueUsd", "termEndDate", "termStartDate", "transactionDate"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,9 +105,18 @@ class GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue(
         # override the default output from pydantic by calling `to_dict()` of estimated_payout_month
         if self.estimated_payout_month:
             _dict['estimatedPayoutMonth'] = self.estimated_payout_month.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of invoice_date
+        if self.invoice_date:
+            _dict['invoiceDate'] = self.invoice_date.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of invoice_due_date
+        if self.invoice_due_date:
+            _dict['invoiceDueDate'] = self.invoice_due_date.to_dict()
         # override the default output from pydantic by calling `to_dict()` of payment_sent_date
         if self.payment_sent_date:
             _dict['paymentSentDate'] = self.payment_sent_date.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of transaction_date
+        if self.transaction_date:
+            _dict['transactionDate'] = self.transaction_date.to_dict()
         return _dict
 
     @classmethod
@@ -113,18 +136,32 @@ class GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAzureCmaRevenue(
             "azurePlanID": obj.get("azurePlanID"),
             "billingModel": obj.get("billingModel"),
             "buyerID": obj.get("buyerID"),
+            "earningID": obj.get("earningID"),
             "earningUsd": obj.get("earningUsd"),
             "entitlementID": obj.get("entitlementID"),
             "estimatedPayoutMonth": DatabaseSqlNullTime.from_dict(obj["estimatedPayoutMonth"]) if obj.get("estimatedPayoutMonth") is not None else None,
+            "invoiceDate": DatabaseSqlNullTime.from_dict(obj["invoiceDate"]) if obj.get("invoiceDate") is not None else None,
+            "invoiceDueDate": DatabaseSqlNullTime.from_dict(obj["invoiceDueDate"]) if obj.get("invoiceDueDate") is not None else None,
+            "invoiceID": obj.get("invoiceID"),
             "offerID": obj.get("offerID"),
             "organizationID": obj.get("organizationID"),
+            "paymentID": obj.get("paymentID"),
             "paymentSentDate": DatabaseSqlNullTime.from_dict(obj["paymentSentDate"]) if obj.get("paymentSentDate") is not None else None,
+            "paymentStatus": obj.get("paymentStatus"),
             "payoutStatus": obj.get("payoutStatus"),
             "productID": obj.get("productID"),
+            "programName": obj.get("programName"),
             "purchaseRecordID": obj.get("purchaseRecordID"),
+            "resellerCity": obj.get("resellerCity"),
+            "resellerCompany": obj.get("resellerCompany"),
+            "resellerCountry": obj.get("resellerCountry"),
+            "resellerEmail": obj.get("resellerEmail"),
+            "resellerID": obj.get("resellerID"),
+            "resellerState": obj.get("resellerState"),
             "revenueUsd": obj.get("revenueUsd"),
             "termEndDate": obj.get("termEndDate"),
-            "termStartDate": obj.get("termStartDate")
+            "termStartDate": obj.get("termStartDate"),
+            "transactionDate": DatabaseSqlNullTime.from_dict(obj["transactionDate"]) if obj.get("transactionDate") is not None else None
         })
         return _obj
 

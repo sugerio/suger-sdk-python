@@ -27,11 +27,11 @@ class NotificationEventStatus(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    SCHEDULED = 'SCHEDULED'
-    PENDING = 'PENDING'
-    DONE = 'DONE'
-    FAILED = 'FAILED'
+    NotificationEventStatus_UNKNOWN = ''
+    NotificationEventStatus_SCHEDULED = 'SCHEDULED'
+    NotificationEventStatus_PENDING = 'PENDING'
+    NotificationEventStatus_DONE = 'DONE'
+    NotificationEventStatus_FAILED = 'FAILED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

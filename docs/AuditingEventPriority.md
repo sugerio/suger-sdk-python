@@ -3,15 +3,15 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `AuditingEventPriority_UNKNOWN` (value: `''`)
 
-* `LOW` (value: `'LOW'`)
+* `AuditingEventPriority_LOW` (value: `'LOW'`)
 
-* `MEDIUM` (value: `'MEDIUM'`)
+* `AuditingEventPriority_MEDIUM` (value: `'MEDIUM'`)
 
-* `HIGH` (value: `'HIGH'`)
+* `AuditingEventPriority_HIGH` (value: `'HIGH'`)
 
-* `CRITICAL` (value: `'CRITICAL'`)
+* `AuditingEventPriority_CRITICAL` (value: `'CRITICAL'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -3,19 +3,19 @@
 
 ## Enum
 
-* `BASIC` (value: `'basic'`)
+* `PriceModelCategory_Basic` (value: `'basic'`)
 
-* `TIERED` (value: `'tiered'`)
+* `PriceModelCategory_Tiered` (value: `'tiered'`)
 
-* `BULK` (value: `'bulk'`)
+* `PriceModelCategory_Bulk` (value: `'bulk'`)
 
-* `VOLUME` (value: `'volume'`)
+* `PriceModelCategory_Volume` (value: `'volume'`)
 
-* `PERCENTAGE` (value: `'percentage'`)
+* `PriceModelCategory_Percentage` (value: `'percentage'`)
 
-* `TIERED_MINUS_PERCENTAGE` (value: `'tiered-percentage'`)
+* `PriceModelCategory_TieredPercentage` (value: `'tiered-percentage'`)
 
-* `MATRIX` (value: `'matrix'`)
+* `PriceModelCategory_Matrix` (value: `'matrix'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

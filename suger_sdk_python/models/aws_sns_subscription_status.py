@@ -27,9 +27,9 @@ class AwsSnsSubscriptionStatus(str, Enum):
     """
     allowed enum values
     """
-    UNKNOWN = 'UNKNOWN'
-    CONFIRMED = 'CONFIRMED'
-    PENDING_CONFIRMATION = 'PENDING_CONFIRMATION'
+    AwsSnsSubscriptionStatus_UNKNOWN = 'UNKNOWN'
+    AwsSnsSubscriptionStatus_CONFIRMED = 'CONFIRMED'
+    AwsSnsSubscriptionStatus_PENDING_CONFIRMATION = 'PENDING_CONFIRMATION'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -27,10 +27,10 @@ class BillingPaymentStatus(str, Enum):
     """
     allowed enum values
     """
-    PENDING = 'PENDING'
-    PROCESSING = 'PROCESSING'
-    SUCCESS = 'SUCCESS'
-    FAILED = 'FAILED'
+    BillingPaymentStatus_PENDING = 'PENDING'
+    BillingPaymentStatus_PROCESSING = 'PROCESSING'
+    BillingPaymentStatus_SUCCESS = 'SUCCESS'
+    BillingPaymentStatus_FAILED = 'FAILED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

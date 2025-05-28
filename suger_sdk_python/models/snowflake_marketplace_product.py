@@ -18,11 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from suger_sdk_python.models.database_sql_null_bool import DatabaseSqlNullBool
-from suger_sdk_python.models.database_sql_null_string import DatabaseSqlNullString
-from suger_sdk_python.models.database_sql_null_time import DatabaseSqlNullTime
+from suger_sdk_python.models.snowflake_marketplace_product_default_pricing_plan import SnowflakeMarketplaceProductDefaultPricingPlan
+from suger_sdk_python.models.snowflake_marketplace_product_detailed_target_account import SnowflakeMarketplaceProductDetailedTargetAccount
+from suger_sdk_python.models.snowflake_marketplace_product_metadata import SnowflakeMarketplaceProductMetadata
+from suger_sdk_python.models.snowflake_marketplace_product_pricing_plan import SnowflakeMarketplaceProductPricingPlan
+from suger_sdk_python.models.snowflake_marketplace_trial_details import SnowflakeMarketplaceTrialDetails
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,33 +32,45 @@ class SnowflakeMarketplaceProduct(BaseModel):
     """
     SnowflakeMarketplaceProduct
     """ # noqa: E501
-    comment: Optional[DatabaseSqlNullString] = Field(default=None, alias="Comment")
-    created_on: Optional[DatabaseSqlNullTime] = Field(default=None, alias="CreatedOn")
-    detailed_target_accounts: Optional[DatabaseSqlNullString] = Field(default=None, alias="DetailedTargetAccounts")
-    distribution: Optional[DatabaseSqlNullString] = Field(default=None, alias="Distribution")
-    global_name: Optional[DatabaseSqlNullString] = Field(default=None, alias="GlobalName")
-    is_application: Optional[DatabaseSqlNullBool] = Field(default=None, alias="IsApplication")
-    is_by_request: Optional[DatabaseSqlNullBool] = Field(default=None, alias="IsByRequest")
-    is_limited_trial: Optional[DatabaseSqlNullBool] = Field(default=None, alias="IsLimitedTrial")
-    is_monetized: Optional[DatabaseSqlNullBool] = Field(default=None, alias="IsMonetized")
-    is_mountless_queryable: Optional[DatabaseSqlNullBool] = Field(default=None, alias="IsMountlessQueryable")
-    is_targeted: Optional[DatabaseSqlNullBool] = Field(default=None, alias="IsTargeted")
-    owner: Optional[DatabaseSqlNullString] = Field(default=None, alias="Owner")
-    owner_role_type: Optional[DatabaseSqlNullString] = Field(default=None, alias="OwnerRoleType")
-    profile: Optional[DatabaseSqlNullString] = Field(default=None, alias="Profile")
-    published_on: Optional[DatabaseSqlNullTime] = Field(default=None, alias="PublishedOn")
-    regions: Optional[DatabaseSqlNullString] = Field(default=None, alias="Regions")
-    rejected_on: Optional[DatabaseSqlNullTime] = Field(default=None, alias="RejectedOn")
-    review_state: Optional[DatabaseSqlNullString] = Field(default=None, alias="ReviewState")
-    state: Optional[DatabaseSqlNullString] = Field(default=None, alias="State")
-    subtitle: Optional[DatabaseSqlNullString] = Field(default=None, alias="Subtitle")
-    target_accounts: Optional[DatabaseSqlNullString] = Field(default=None, alias="TargetAccounts")
-    title: Optional[DatabaseSqlNullString] = Field(default=None, alias="Title")
-    uniform_listing_locator: Optional[DatabaseSqlNullString] = Field(default=None, alias="UniformListingLocator")
-    updated_on: Optional[DatabaseSqlNullTime] = Field(default=None, alias="UpdatedOn")
-    name: Optional[DatabaseSqlNullString] = None
-    organization_profile_name: Optional[DatabaseSqlNullString] = Field(default=None, alias="organizationProfileName")
-    __properties: ClassVar[List[str]] = ["Comment", "CreatedOn", "DetailedTargetAccounts", "Distribution", "GlobalName", "IsApplication", "IsByRequest", "IsLimitedTrial", "IsMonetized", "IsMountlessQueryable", "IsTargeted", "Owner", "OwnerRoleType", "Profile", "PublishedOn", "Regions", "RejectedOn", "ReviewState", "State", "Subtitle", "TargetAccounts", "Title", "UniformListingLocator", "UpdatedOn", "name", "organizationProfileName"]
+    additional_regions: Optional[StrictStr] = Field(default=None, alias="additionalRegions")
+    application_package_name: Optional[StrictStr] = Field(default=None, alias="applicationPackageName")
+    attached_share: Optional[StrictStr] = Field(default=None, alias="attachedShare")
+    autofulfillment: Optional[StrictBool] = None
+    comment: Optional[StrictStr] = None
+    created_on: Optional[StrictStr] = Field(default=None, alias="createdOn")
+    customized_contact_info: Optional[StrictStr] = Field(default=None, alias="customizedContactInfo")
+    default_pricing_plan: Optional[SnowflakeMarketplaceProductDefaultPricingPlan] = Field(default=None, alias="defaultPricingPlan")
+    detailed_target_accounts: Optional[List[SnowflakeMarketplaceProductDetailedTargetAccount]] = Field(default=None, alias="detailedTargetAccounts")
+    distribution: Optional[StrictStr] = None
+    evaluation_plan: Optional[StrictStr] = Field(default=None, alias="evaluationPlan")
+    first_published_on: Optional[StrictStr] = Field(default=None, alias="firstPublishedOn")
+    flags: Optional[StrictStr] = None
+    fulfillment_type: Optional[StrictStr] = Field(default=None, alias="fulfillmentType")
+    global_name: Optional[StrictStr] = Field(default=None, alias="globalName")
+    is_mountless_queryable: Optional[StrictBool] = Field(default=None, alias="isMountlessQueryable")
+    last_approved_on: Optional[StrictStr] = Field(default=None, alias="lastApprovedOn")
+    last_published_on: Optional[StrictStr] = Field(default=None, alias="lastPublishedOn")
+    last_submitted_on: Optional[StrictStr] = Field(default=None, alias="lastSubmittedOn")
+    listing_type: Optional[StrictStr] = Field(default=None, alias="listingType")
+    metadata: Optional[SnowflakeMarketplaceProductMetadata] = None
+    name: Optional[StrictStr] = None
+    pricing_plans: Optional[List[SnowflakeMarketplaceProductPricingPlan]] = Field(default=None, alias="pricingPlans")
+    private: Optional[StrictBool] = None
+    profile_name: Optional[StrictStr] = Field(default=None, alias="profileName")
+    publish_on_approval: Optional[StrictBool] = Field(default=None, alias="publishOnApproval")
+    regions: Optional[StrictStr] = None
+    rejected_on: Optional[StrictStr] = Field(default=None, alias="rejectedOn")
+    rejected_reason: Optional[StrictStr] = Field(default=None, alias="rejectedReason")
+    replication_schedule: Optional[StrictStr] = Field(default=None, alias="replicationSchedule")
+    retired_on: Optional[StrictStr] = Field(default=None, alias="retiredOn")
+    scheduled_drop_time: Optional[StrictStr] = Field(default=None, alias="scheduledDropTime")
+    share_type: Optional[StrictStr] = Field(default=None, alias="shareType")
+    state: Optional[StrictStr] = None
+    target_accounts: Optional[StrictStr] = Field(default=None, alias="targetAccounts")
+    trial_details: Optional[SnowflakeMarketplaceTrialDetails] = Field(default=None, alias="trialDetails")
+    unpublished_by_admin_reason: Optional[StrictStr] = Field(default=None, alias="unpublishedByAdminReason")
+    updated_on: Optional[StrictStr] = Field(default=None, alias="updatedOn")
+    __properties: ClassVar[List[str]] = ["additionalRegions", "applicationPackageName", "attachedShare", "autofulfillment", "comment", "createdOn", "customizedContactInfo", "defaultPricingPlan", "detailedTargetAccounts", "distribution", "evaluationPlan", "firstPublishedOn", "flags", "fulfillmentType", "globalName", "isMountlessQueryable", "lastApprovedOn", "lastPublishedOn", "lastSubmittedOn", "listingType", "metadata", "name", "pricingPlans", "private", "profileName", "publishOnApproval", "regions", "rejectedOn", "rejectedReason", "replicationSchedule", "retiredOn", "scheduledDropTime", "shareType", "state", "targetAccounts", "trialDetails", "unpublishedByAdminReason", "updatedOn"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,84 +111,29 @@ class SnowflakeMarketplaceProduct(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of comment
-        if self.comment:
-            _dict['Comment'] = self.comment.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of created_on
-        if self.created_on:
-            _dict['CreatedOn'] = self.created_on.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of detailed_target_accounts
+        # override the default output from pydantic by calling `to_dict()` of default_pricing_plan
+        if self.default_pricing_plan:
+            _dict['defaultPricingPlan'] = self.default_pricing_plan.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in detailed_target_accounts (list)
+        _items = []
         if self.detailed_target_accounts:
-            _dict['DetailedTargetAccounts'] = self.detailed_target_accounts.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of distribution
-        if self.distribution:
-            _dict['Distribution'] = self.distribution.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of global_name
-        if self.global_name:
-            _dict['GlobalName'] = self.global_name.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of is_application
-        if self.is_application:
-            _dict['IsApplication'] = self.is_application.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of is_by_request
-        if self.is_by_request:
-            _dict['IsByRequest'] = self.is_by_request.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of is_limited_trial
-        if self.is_limited_trial:
-            _dict['IsLimitedTrial'] = self.is_limited_trial.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of is_monetized
-        if self.is_monetized:
-            _dict['IsMonetized'] = self.is_monetized.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of is_mountless_queryable
-        if self.is_mountless_queryable:
-            _dict['IsMountlessQueryable'] = self.is_mountless_queryable.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of is_targeted
-        if self.is_targeted:
-            _dict['IsTargeted'] = self.is_targeted.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of owner
-        if self.owner:
-            _dict['Owner'] = self.owner.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of owner_role_type
-        if self.owner_role_type:
-            _dict['OwnerRoleType'] = self.owner_role_type.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of profile
-        if self.profile:
-            _dict['Profile'] = self.profile.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of published_on
-        if self.published_on:
-            _dict['PublishedOn'] = self.published_on.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of regions
-        if self.regions:
-            _dict['Regions'] = self.regions.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of rejected_on
-        if self.rejected_on:
-            _dict['RejectedOn'] = self.rejected_on.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of review_state
-        if self.review_state:
-            _dict['ReviewState'] = self.review_state.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of state
-        if self.state:
-            _dict['State'] = self.state.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of subtitle
-        if self.subtitle:
-            _dict['Subtitle'] = self.subtitle.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of target_accounts
-        if self.target_accounts:
-            _dict['TargetAccounts'] = self.target_accounts.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of title
-        if self.title:
-            _dict['Title'] = self.title.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of uniform_listing_locator
-        if self.uniform_listing_locator:
-            _dict['UniformListingLocator'] = self.uniform_listing_locator.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of updated_on
-        if self.updated_on:
-            _dict['UpdatedOn'] = self.updated_on.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of name
-        if self.name:
-            _dict['name'] = self.name.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of organization_profile_name
-        if self.organization_profile_name:
-            _dict['organizationProfileName'] = self.organization_profile_name.to_dict()
+            for _item_detailed_target_accounts in self.detailed_target_accounts:
+                if _item_detailed_target_accounts:
+                    _items.append(_item_detailed_target_accounts.to_dict())
+            _dict['detailedTargetAccounts'] = _items
+        # override the default output from pydantic by calling `to_dict()` of metadata
+        if self.metadata:
+            _dict['metadata'] = self.metadata.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in pricing_plans (list)
+        _items = []
+        if self.pricing_plans:
+            for _item_pricing_plans in self.pricing_plans:
+                if _item_pricing_plans:
+                    _items.append(_item_pricing_plans.to_dict())
+            _dict['pricingPlans'] = _items
+        # override the default output from pydantic by calling `to_dict()` of trial_details
+        if self.trial_details:
+            _dict['trialDetails'] = self.trial_details.to_dict()
         return _dict
 
     @classmethod
@@ -187,32 +146,44 @@ class SnowflakeMarketplaceProduct(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Comment": DatabaseSqlNullString.from_dict(obj["Comment"]) if obj.get("Comment") is not None else None,
-            "CreatedOn": DatabaseSqlNullTime.from_dict(obj["CreatedOn"]) if obj.get("CreatedOn") is not None else None,
-            "DetailedTargetAccounts": DatabaseSqlNullString.from_dict(obj["DetailedTargetAccounts"]) if obj.get("DetailedTargetAccounts") is not None else None,
-            "Distribution": DatabaseSqlNullString.from_dict(obj["Distribution"]) if obj.get("Distribution") is not None else None,
-            "GlobalName": DatabaseSqlNullString.from_dict(obj["GlobalName"]) if obj.get("GlobalName") is not None else None,
-            "IsApplication": DatabaseSqlNullBool.from_dict(obj["IsApplication"]) if obj.get("IsApplication") is not None else None,
-            "IsByRequest": DatabaseSqlNullBool.from_dict(obj["IsByRequest"]) if obj.get("IsByRequest") is not None else None,
-            "IsLimitedTrial": DatabaseSqlNullBool.from_dict(obj["IsLimitedTrial"]) if obj.get("IsLimitedTrial") is not None else None,
-            "IsMonetized": DatabaseSqlNullBool.from_dict(obj["IsMonetized"]) if obj.get("IsMonetized") is not None else None,
-            "IsMountlessQueryable": DatabaseSqlNullBool.from_dict(obj["IsMountlessQueryable"]) if obj.get("IsMountlessQueryable") is not None else None,
-            "IsTargeted": DatabaseSqlNullBool.from_dict(obj["IsTargeted"]) if obj.get("IsTargeted") is not None else None,
-            "Owner": DatabaseSqlNullString.from_dict(obj["Owner"]) if obj.get("Owner") is not None else None,
-            "OwnerRoleType": DatabaseSqlNullString.from_dict(obj["OwnerRoleType"]) if obj.get("OwnerRoleType") is not None else None,
-            "Profile": DatabaseSqlNullString.from_dict(obj["Profile"]) if obj.get("Profile") is not None else None,
-            "PublishedOn": DatabaseSqlNullTime.from_dict(obj["PublishedOn"]) if obj.get("PublishedOn") is not None else None,
-            "Regions": DatabaseSqlNullString.from_dict(obj["Regions"]) if obj.get("Regions") is not None else None,
-            "RejectedOn": DatabaseSqlNullTime.from_dict(obj["RejectedOn"]) if obj.get("RejectedOn") is not None else None,
-            "ReviewState": DatabaseSqlNullString.from_dict(obj["ReviewState"]) if obj.get("ReviewState") is not None else None,
-            "State": DatabaseSqlNullString.from_dict(obj["State"]) if obj.get("State") is not None else None,
-            "Subtitle": DatabaseSqlNullString.from_dict(obj["Subtitle"]) if obj.get("Subtitle") is not None else None,
-            "TargetAccounts": DatabaseSqlNullString.from_dict(obj["TargetAccounts"]) if obj.get("TargetAccounts") is not None else None,
-            "Title": DatabaseSqlNullString.from_dict(obj["Title"]) if obj.get("Title") is not None else None,
-            "UniformListingLocator": DatabaseSqlNullString.from_dict(obj["UniformListingLocator"]) if obj.get("UniformListingLocator") is not None else None,
-            "UpdatedOn": DatabaseSqlNullTime.from_dict(obj["UpdatedOn"]) if obj.get("UpdatedOn") is not None else None,
-            "name": DatabaseSqlNullString.from_dict(obj["name"]) if obj.get("name") is not None else None,
-            "organizationProfileName": DatabaseSqlNullString.from_dict(obj["organizationProfileName"]) if obj.get("organizationProfileName") is not None else None
+            "additionalRegions": obj.get("additionalRegions"),
+            "applicationPackageName": obj.get("applicationPackageName"),
+            "attachedShare": obj.get("attachedShare"),
+            "autofulfillment": obj.get("autofulfillment"),
+            "comment": obj.get("comment"),
+            "createdOn": obj.get("createdOn"),
+            "customizedContactInfo": obj.get("customizedContactInfo"),
+            "defaultPricingPlan": SnowflakeMarketplaceProductDefaultPricingPlan.from_dict(obj["defaultPricingPlan"]) if obj.get("defaultPricingPlan") is not None else None,
+            "detailedTargetAccounts": [SnowflakeMarketplaceProductDetailedTargetAccount.from_dict(_item) for _item in obj["detailedTargetAccounts"]] if obj.get("detailedTargetAccounts") is not None else None,
+            "distribution": obj.get("distribution"),
+            "evaluationPlan": obj.get("evaluationPlan"),
+            "firstPublishedOn": obj.get("firstPublishedOn"),
+            "flags": obj.get("flags"),
+            "fulfillmentType": obj.get("fulfillmentType"),
+            "globalName": obj.get("globalName"),
+            "isMountlessQueryable": obj.get("isMountlessQueryable"),
+            "lastApprovedOn": obj.get("lastApprovedOn"),
+            "lastPublishedOn": obj.get("lastPublishedOn"),
+            "lastSubmittedOn": obj.get("lastSubmittedOn"),
+            "listingType": obj.get("listingType"),
+            "metadata": SnowflakeMarketplaceProductMetadata.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None,
+            "name": obj.get("name"),
+            "pricingPlans": [SnowflakeMarketplaceProductPricingPlan.from_dict(_item) for _item in obj["pricingPlans"]] if obj.get("pricingPlans") is not None else None,
+            "private": obj.get("private"),
+            "profileName": obj.get("profileName"),
+            "publishOnApproval": obj.get("publishOnApproval"),
+            "regions": obj.get("regions"),
+            "rejectedOn": obj.get("rejectedOn"),
+            "rejectedReason": obj.get("rejectedReason"),
+            "replicationSchedule": obj.get("replicationSchedule"),
+            "retiredOn": obj.get("retiredOn"),
+            "scheduledDropTime": obj.get("scheduledDropTime"),
+            "shareType": obj.get("shareType"),
+            "state": obj.get("state"),
+            "targetAccounts": obj.get("targetAccounts"),
+            "trialDetails": SnowflakeMarketplaceTrialDetails.from_dict(obj["trialDetails"]) if obj.get("trialDetails") is not None else None,
+            "unpublishedByAdminReason": obj.get("unpublishedByAdminReason"),
+            "updatedOn": obj.get("updatedOn")
         })
         return _obj
 

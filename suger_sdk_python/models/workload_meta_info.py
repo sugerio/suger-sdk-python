@@ -45,7 +45,7 @@ class WorkloadMetaInfo(BaseModel):
     custom_meta_info: Optional[Dict[str, StrictStr]] = Field(default=None, description="The custom meta info of the offer can be updated by seller via API or console.", alias="customMetaInfo")
     enable_test_usage_metering: Optional[StrictBool] = Field(default=None, description="If enabled, Suger will test metering the usage for this entitlement hourly.", alias="enableTestUsageMetering")
     entitlement_cancellation_schedule: Optional[CancellationSchedule] = Field(default=None, description="The cancellation schedule for the entitlement. It is nill if no cancellation schedule.", alias="entitlementCancellationSchedule")
-    error_messages: Optional[List[StrictStr]] = Field(default=None, description="The error messages when the offer is invalid or offer related tasks failed. Populated by Suger service.", alias="errorMessages")
+    error_messages: Optional[List[StrictStr]] = Field(default=None, description="The error messages when the offer is invalid or offer related tasks failed. This is the raw error messages from the offer related tasks.", alias="errorMessages")
     hubspot_deal_id: Optional[StrictStr] = Field(default=None, description="Hubsport deal ID of the private offer if available.", alias="hubspotDealId")
     internal_note: Optional[StrictStr] = Field(default=None, description="The Internal note of the private offer. It is only visible to the seller/ISV, not visible to the buyer. Up to 1000 characters.", alias="internalNote")
     is_agreement_based_offer: Optional[StrictBool] = Field(default=None, description="Applicable for AWS Marketplace only, If this offer is agreement based offer.", alias="isAgreementBasedOffer")
@@ -55,6 +55,7 @@ class WorkloadMetaInfo(BaseModel):
     last_modified_by: Optional[LastModifiedBy] = Field(default=None, description="The user who last modified the product/offer/buyer/contact.", alias="lastModifiedBy")
     notifications: Optional[List[NotificationEvent]] = Field(default=None, description="The notifications of the offer if any updates. In most cases, it is to notify contacts/buyers when the offer is pending acceptance.")
     offer_accept_date: Optional[datetime] = Field(default=None, description="The date when the offer is accepted by the buyer. Only available when the private offer has been accepted.", alias="offerAcceptDate")
+    prettified_error_messages: Optional[List[StrictStr]] = Field(default=None, description="The prettified ErrorMessages. Using AI to make it more readable and understandable. The prettified error messages will be used for the offer related UI display.", alias="prettifiedErrorMessages")
     renewal_offer_type: Optional[AwsRenewalOfferType] = Field(default=None, description="Applicable for AWS Marketplace only, required when the IsRenewalOffer is true.", alias="renewalOfferType")
     replaced_offer_end_time: Optional[datetime] = Field(default=None, description="The end time of the replaced offer. Applicable for GCP Marketplace replacement offer only.", alias="replacedOfferEndTime")
     replaced_offer_resource_name: Optional[StrictStr] = Field(default=None, description="The resource name of the GCP Marketplace offer that this offer is replacing. In format of \"projects/{gcpProjectNumber}/services/{productServiceName}/privateOffers/{privateOfferId}\" Applicable for GCP Marketplace replacement offer only.", alias="replacedOfferResourceName")
@@ -62,7 +63,7 @@ class WorkloadMetaInfo(BaseModel):
     salesforce_opportunity_id: Optional[StrictStr] = Field(default=None, description="The Salesforce opportunity ID of the private offer if available.", alias="salesforceOpportunityId")
     test_usage_metering_end_time: Optional[datetime] = Field(default=None, description="The test usage metering end time. It is used for test usage metering only. Required if EnableTestUsageMetering is true.", alias="testUsageMeteringEndTime")
     update_message: Optional[StrictStr] = Field(default=None, description="The message to notify when the offer is updated.", alias="updateMessage")
-    __properties: ClassVar[List[str]] = ["aceApnCrmUniqueIdentifier", "awsSaasProductDimensions", "baseAgreementId", "buyerIds", "contacts", "cppoInOfferId", "cppoOfferId", "cppoOutOfferId", "customMetaInfo", "enableTestUsageMetering", "entitlementCancellationSchedule", "errorMessages", "hubspotDealId", "internalNote", "isAgreementBasedOffer", "isGrossRevenueFullSync", "isRenewalOffer", "isReplacementOffer", "lastModifiedBy", "notifications", "offerAcceptDate", "renewalOfferType", "replacedOfferEndTime", "replacedOfferResourceName", "salesforceEntitlementURL", "salesforceOpportunityId", "testUsageMeteringEndTime", "updateMessage"]
+    __properties: ClassVar[List[str]] = ["aceApnCrmUniqueIdentifier", "awsSaasProductDimensions", "baseAgreementId", "buyerIds", "contacts", "cppoInOfferId", "cppoOfferId", "cppoOutOfferId", "customMetaInfo", "enableTestUsageMetering", "entitlementCancellationSchedule", "errorMessages", "hubspotDealId", "internalNote", "isAgreementBasedOffer", "isGrossRevenueFullSync", "isRenewalOffer", "isReplacementOffer", "lastModifiedBy", "notifications", "offerAcceptDate", "prettifiedErrorMessages", "renewalOfferType", "replacedOfferEndTime", "replacedOfferResourceName", "salesforceEntitlementURL", "salesforceOpportunityId", "testUsageMeteringEndTime", "updateMessage"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -163,6 +164,7 @@ class WorkloadMetaInfo(BaseModel):
             "lastModifiedBy": LastModifiedBy.from_dict(obj["lastModifiedBy"]) if obj.get("lastModifiedBy") is not None else None,
             "notifications": [NotificationEvent.from_dict(_item) for _item in obj["notifications"]] if obj.get("notifications") is not None else None,
             "offerAcceptDate": obj.get("offerAcceptDate"),
+            "prettifiedErrorMessages": obj.get("prettifiedErrorMessages"),
             "renewalOfferType": obj.get("renewalOfferType"),
             "replacedOfferEndTime": obj.get("replacedOfferEndTime"),
             "replacedOfferResourceName": obj.get("replacedOfferResourceName"),

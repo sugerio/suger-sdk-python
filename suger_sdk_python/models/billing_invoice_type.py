@@ -27,10 +27,10 @@ class BillingInvoiceType(str, Enum):
     """
     allowed enum values
     """
-    COMMIT = 'COMMIT'
-    USAGE = 'USAGE'
-    ADDON = 'ADDON'
-    INSTALLMENT = 'INSTALLMENT'
+    BillingInvoiceType_COMMIT = 'COMMIT'
+    BillingInvoiceType_USAGE = 'USAGE'
+    BillingInvoiceType_ADDON = 'ADDON'
+    BillingInvoiceType_INSTALLMENT = 'INSTALLMENT'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -27,13 +27,13 @@ class EulaType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    SCMP = 'SCMP'
-    ECMP = 'ECMP'
-    RCMP = 'RCMP'
-    CUSTOM = 'CUSTOM'
-    ISV = 'ISV'
-    CURRENT = 'CURRENT'
+    EulaType_UNKNOWN = ''
+    EulaType_SCMP = 'SCMP'
+    EulaType_ECMP = 'ECMP'
+    EulaType_RCMP = 'RCMP'
+    EulaType_CUSTOM = 'CUSTOM'
+    EulaType_ISV = 'ISV'
+    EulaType_CURRENT = 'CURRENT'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

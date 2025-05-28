@@ -27,9 +27,9 @@ class AzureMarketplacePrivateOfferSubState(str, Enum):
     """
     allowed enum values
     """
-    PENDINGACCEPTANCE = 'pendingAcceptance'
-    ACCEPTED = 'accepted'
-    PENDINGPARTNERACTION = 'pendingPartnerAction'
+    AzureMarketplacePrivateOfferSubState_pendingAcceptance = 'pendingAcceptance'
+    AzureMarketplacePrivateOfferSubState_accepted = 'accepted'
+    AzureMarketplacePrivateOfferSubState_pendingPartnerAction = 'pendingPartnerAction'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

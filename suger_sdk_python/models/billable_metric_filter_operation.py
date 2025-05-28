@@ -27,18 +27,18 @@ class BillableMetricFilterOperation(str, Enum):
     """
     allowed enum values
     """
-    IS = 'IS'
-    NOT_IS = 'NOT_IS'
-    CONTAINS = 'CONTAINS'
-    NOT_CONTAINS = 'NOT_CONTAINS'
-    GT = 'GT'
-    GTE = 'GTE'
-    LT = 'LT'
-    LTE = 'LTE'
-    EQ = 'EQ'
-    NOT_EQ = 'NOT_EQ'
-    EXISTS = 'EXISTS'
-    NOT_EXISTS = 'NOT_EXISTS'
+    BillableMetricFilterOperation_IS = 'IS'
+    BillableMetricFilterOperation_NOT_IS = 'NOT_IS'
+    BillableMetricFilterOperation_CONTAINS = 'CONTAINS'
+    BillableMetricFilterOperation_NOT_CONTAINS = 'NOT_CONTAINS'
+    BillableMetricFilterOperation_GT = 'GT'
+    BillableMetricFilterOperation_GTE = 'GTE'
+    BillableMetricFilterOperation_LT = 'LT'
+    BillableMetricFilterOperation_LTE = 'LTE'
+    BillableMetricFilterOperation_EQ = 'EQ'
+    BillableMetricFilterOperation_NEQ = 'NOT_EQ'
+    BillableMetricFilterOperation_EXISTS = 'EXISTS'
+    BillableMetricFilterOperation_NOT_EXISTS = 'NOT_EXISTS'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

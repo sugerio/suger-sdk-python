@@ -27,9 +27,9 @@ class GcpMarketplaceOfferProration(str, Enum):
     """
     allowed enum values
     """
-    PRORATION_UNSPECIFIED = 'PRORATION_UNSPECIFIED'
-    NOT_PRORATED_ANNIVERSARY_DATES = 'NOT_PRORATED_ANNIVERSARY_DATES'
-    PRORATED = 'PRORATED'
+    GcpMarketplaceOfferProration_UNSPECIFIED = 'PRORATION_UNSPECIFIED'
+    GcpMarketplaceOfferProration_NO = 'NOT_PRORATED_ANNIVERSARY_DATES'
+    GcpMarketplaceOfferProration_YES = 'PRORATED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

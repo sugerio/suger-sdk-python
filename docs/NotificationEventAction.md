@@ -3,83 +3,91 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `NotificationEventAction_UNKNOWN` (value: `''`)
 
-* `ABNORMAL_ALERT` (value: `'ABNORMAL_ALERT'`)
+* `NotificationEventAction_ABNORMAL_ALERT` (value: `'ABNORMAL_ALERT'`)
 
-* `ACCEPT` (value: `'ACCEPT'`)
+* `NotificationEventAction_ACCEPT` (value: `'ACCEPT'`)
 
-* `ADD` (value: `'ADD'`)
+* `NotificationEventAction_ADD` (value: `'ADD'`)
 
-* `APPROVE` (value: `'APPROVE'`)
+* `NotificationEventAction_APPROVE` (value: `'APPROVE'`)
 
-* `CANCEL` (value: `'CANCEL'`)
+* `NotificationEventAction_CANCEL` (value: `'CANCEL'`)
 
-* `CLOSE` (value: `'CLOSE'`)
+* `NotificationEventAction_CLOSE` (value: `'CLOSE'`)
 
-* `CREATE` (value: `'CREATE'`)
+* `NotificationEventAction_CREATE` (value: `'CREATE'`)
 
-* `DELETE` (value: `'DELETE'`)
+* `NotificationEventAction_DELETE` (value: `'DELETE'`)
 
-* `DISBURSE` (value: `'DISBURSE'`)
+* `NotificationEventAction_ARCHIVE` (value: `'ARCHIVE'`)
 
-* `END_SOON` (value: `'END_SOON'`)
+* `NotificationEventAction_DISBURSE` (value: `'DISBURSE'`)
 
-* `EXPIRE` (value: `'EXPIRE'`)
+* `NotificationEventAction_END_SOON` (value: `'END_SOON'`)
 
-* `EXPIRE_SOON` (value: `'EXPIRE_SOON'`)
+* `NotificationEventAction_EXPIRE` (value: `'EXPIRE'`)
 
-* `MERGE` (value: `'MERGE'`)
+* `NotificationEventAction_EXPIRE_SOON` (value: `'EXPIRE_SOON'`)
 
-* `METER` (value: `'METER'`)
+* `NotificationEventAction_MERGE` (value: `'MERGE'`)
 
-* `NEW_CLIENT_SIGNUP` (value: `'NEW_CLIENT_SIGNUP'`)
+* `NotificationEventAction_METER` (value: `'METER'`)
 
-* `NOTIFY` (value: `'NOTIFY'`)
+* `NotificationEventAction_NEW_CLIENT_SIGNUP` (value: `'NEW_CLIENT_SIGNUP'`)
 
-* `NOTIFY_CONTACTS` (value: `'NOTIFY_CONTACTS'`)
+* `NotificationEventAction_NOTIFY` (value: `'NOTIFY'`)
 
-* `OPEN_EMAIL` (value: `'OPEN_EMAIL'`)
+* `NotificationEventAction_NOTIFY_CONTACTS` (value: `'NOTIFY_CONTACTS'`)
 
-* `PENDING_CANCEL` (value: `'PENDING_CANCEL'`)
+* `NotificationEventAction_OPEN_EMAIL` (value: `'OPEN_EMAIL'`)
 
-* `PENDING_ACCEPTANCE` (value: `'PENDING_ACCEPTANCE'`)
+* `NotificationEventAction_PENDING_CANCEL` (value: `'PENDING_CANCEL'`)
 
-* `REINSTATE` (value: `'REINSTATE'`)
+* `NotificationEventAction_PENDING_ACCEPTANCE` (value: `'PENDING_ACCEPTANCE'`)
 
-* `REJECT` (value: `'REJECT'`)
+* `NotificationEventAction_REINSTATE` (value: `'REINSTATE'`)
 
-* `REOPEN` (value: `'REOPEN'`)
+* `NotificationEventAction_REJECT` (value: `'REJECT'`)
 
-* `CHARGE` (value: `'CHARGE'`)
+* `NotificationEventAction_REOPEN` (value: `'REOPEN'`)
 
-* `REFUND` (value: `'REFUND'`)
+* `NotificationEventAction_CHARGE` (value: `'CHARGE'`)
 
-* `ISSUE` (value: `'ISSUE'`)
+* `NotificationEventAction_REFUND` (value: `'REFUND'`)
 
-* `ROTATE_SECRET` (value: `'ROTATE_SECRET'`)
+* `NotificationEventAction_ISSUE` (value: `'ISSUE'`)
 
-* `SUSPEND` (value: `'SUSPEND'`)
+* `NotificationEventAction_SIGN` (value: `'SIGN'`)
 
-* `TEST` (value: `'TEST'`)
+* `NotificationEventAction_ROTATE_SECRET` (value: `'ROTATE_SECRET'`)
 
-* `UPDATE` (value: `'UPDATE'`)
+* `NotificationEventAction_SUSPEND` (value: `'SUSPEND'`)
 
-* `ACE_ENGAGEMENT_SCORE_UPDATE` (value: `'ACE_ENGAGEMENT_SCORE_UPDATE'`)
+* `NotificationEventAction_TEST` (value: `'TEST'`)
 
-* `ACE_SALES_REP_UPDATE` (value: `'ACE_SALES_REP_UPDATE'`)
+* `NotificationEventAction_UPDATE` (value: `'UPDATE'`)
 
-* `ACE_CUSTOMER_EMAIL_UPDATE` (value: `'ACE_CUSTOMER_EMAIL_UPDATE'`)
+* `NotificationEventAction_ACE_ENGAGEMENT_SCORE_UPDATE` (value: `'ACE_ENGAGEMENT_SCORE_UPDATE'`)
 
-* `SUBMIT_APPROVAL_REQUEST` (value: `'SUBMIT_APPROVAL_REQUEST'`)
+* `NotificationEventAction_ACE_SALES_REP_UPDATE` (value: `'ACE_SALES_REP_UPDATE'`)
 
-* `REVIEW_APPROVAL_REQUEST` (value: `'REVIEW_APPROVAL_REQUEST'`)
+* `NotificationEventAction_ACE_CUSTOMER_EMAIL_UPDATE` (value: `'ACE_CUSTOMER_EMAIL_UPDATE'`)
 
-* `COMPLETE` (value: `'COMPLETE'`)
+* `NotificationEventAction_AZURE_STATUS_UPDATE` (value: `'AZURE_STATUS_UPDATE'`)
 
-* `FAIL` (value: `'FAIL'`)
+* `NotificationEventAction_SUBMIT_APPROVAL_REQUEST` (value: `'SUBMIT_APPROVAL_REQUEST'`)
 
-* `WEBHOOK` (value: `'WEBHOOK'`)
+* `NotificationEventAction_REVIEW_APPROVAL_REQUEST` (value: `'REVIEW_APPROVAL_REQUEST'`)
+
+* `NotificationEventAction_COMPLETE` (value: `'COMPLETE'`)
+
+* `NotificationEventAction_FAIL` (value: `'FAIL'`)
+
+* `NotificationEventAction_WEBHOOK` (value: `'WEBHOOK'`)
+
+* `NotificationEventAction_MARKETPLACE_CONTACT_EMAIL_UPDATE` (value: `'MARKETPLACE_CONTACT_EMAIL_UPDATE'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

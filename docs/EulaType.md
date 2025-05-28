@@ -3,19 +3,19 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `EulaType_UNKNOWN` (value: `''`)
 
-* `SCMP` (value: `'SCMP'`)
+* `EulaType_SCMP` (value: `'SCMP'`)
 
-* `ECMP` (value: `'ECMP'`)
+* `EulaType_ECMP` (value: `'ECMP'`)
 
-* `RCMP` (value: `'RCMP'`)
+* `EulaType_RCMP` (value: `'RCMP'`)
 
-* `CUSTOM` (value: `'CUSTOM'`)
+* `EulaType_CUSTOM` (value: `'CUSTOM'`)
 
-* `ISV` (value: `'ISV'`)
+* `EulaType_ISV` (value: `'ISV'`)
 
-* `CURRENT` (value: `'CURRENT'`)
+* `EulaType_CURRENT` (value: `'CURRENT'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

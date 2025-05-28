@@ -29,7 +29,7 @@ class AwsMarketplaceCppoOpportunityPositiveTargeting(BaseModel):
     AwsMarketplaceCppoOpportunityPositiveTargeting
     """ # noqa: E501
     buyer_accounts: Optional[List[AwsMarketplaceBuyerAccount]] = Field(default=None, description="List of AWS account IDs that are allowed to subscribe to the offer.", alias="BuyerAccounts")
-    country_codes: Optional[List[StrictStr]] = Field(default=None, description="List as option for allowing targeting based on country. If the intention isn’t to target the offer to a country, this field should be omitted. If it’s present, the list must contain at least one country code. Each element in this list should be a valid 2-letter country code, using this format: ISO 3166-1 alpha-2.", alias="CountryCodes")
+    country_codes: Optional[List[StrictStr]] = Field(default=None, description="List as option for allowing targeting based on country. If the intention isn't to target the offer to a country, this field should be omitted. If it's present, the list must contain at least one country code. Each element in this list should be a valid 2-letter country code, using this format: ISO 3166-1 alpha-2.", alias="CountryCodes")
     __properties: ClassVar[List[str]] = ["BuyerAccounts", "CountryCodes"]
 
     model_config = ConfigDict(

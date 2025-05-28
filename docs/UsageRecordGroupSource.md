@@ -3,19 +3,19 @@
 
 ## Enum
 
-* `EMPTY` (value: `''`)
+* `UsageRecordGroupSourceUNKNOWN` (value: `''`)
 
-* `API` (value: `'API'`)
+* `UsageRecordGroupSourceAPI` (value: `'API'`)
 
-* `INTERNAL` (value: `'INTERNAL'`)
+* `UsageRecordGroupSourceINTERNAL` (value: `'INTERNAL'`)
 
-* `LAGO` (value: `'LAGO'`)
+* `UsageRecordGroupSourceLAGO` (value: `'LAGO'`)
 
-* `METRONOME` (value: `'METRONOME'`)
+* `UsageRecordGroupSourceMETRONOME` (value: `'METRONOME'`)
 
-* `ORB` (value: `'ORB'`)
+* `UsageRecordGroupSourceORB` (value: `'ORB'`)
 
-* `STRIPE` (value: `'STRIPE'`)
+* `UsageRecordGroupSourceSTRIPE` (value: `'STRIPE'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from suger_sdk_python.models.gcp_marketplace_offer_deal_type import GcpMarketplaceOfferDealType
 from suger_sdk_python.models.gcp_marketplace_offer_proration import GcpMarketplaceOfferProration
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,8 +32,9 @@ class GcpMarketplaceOfferTemplatePolicies(BaseModel):
     allow_auto_renewal: Optional[StrictBool] = Field(default=None, alias="allowAutoRenewal")
     allow_scheduled_start_date: Optional[StrictBool] = Field(default=None, alias="allowScheduledStartDate")
     max_renewal_times: Optional[StrictStr] = Field(default=None, description="such as \"3\"", alias="maxRenewalTimes")
+    offer_deal_type: Optional[GcpMarketplaceOfferDealType] = Field(default=None, alias="offerDealType")
     proration: Optional[GcpMarketplaceOfferProration] = None
-    __properties: ClassVar[List[str]] = ["allowAutoRenewal", "allowScheduledStartDate", "maxRenewalTimes", "proration"]
+    __properties: ClassVar[List[str]] = ["allowAutoRenewal", "allowScheduledStartDate", "maxRenewalTimes", "offerDealType", "proration"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,6 +90,7 @@ class GcpMarketplaceOfferTemplatePolicies(BaseModel):
             "allowAutoRenewal": obj.get("allowAutoRenewal"),
             "allowScheduledStartDate": obj.get("allowScheduledStartDate"),
             "maxRenewalTimes": obj.get("maxRenewalTimes"),
+            "offerDealType": obj.get("offerDealType"),
             "proration": obj.get("proration")
         })
         return _obj

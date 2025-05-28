@@ -15,7 +15,7 @@ class TestSimpleTest(unittest.TestCase):
             host="https://api.dev.suger.cloud",
         )
         test_config.api_key[
-            'APIKeyAuth'] = 'Key b277c95e5e92ff7a8e96e74baf6ee2fb080db3e6507977c0067791abc1f52da4220e866e2081117a1721788aa2e9dc6fe009f2a699f17a7bba23973af6954db4'
+            'APIKeyAuth'] = 'Key 95d2983ca68bd6f9655b9d026b05e9afbdb6a601a700c18007f9eb3accec7a067b306e8233278dd36f88d028c6007053cfe3fc7a585ed2aef4f3cf14b99482ca'
         api_client = ApiClient(test_config)
         self.api = api_client
 
@@ -47,7 +47,7 @@ class TestSimpleTest(unittest.TestCase):
 
     def test_get_entitlement(self) -> None:
         org_id = 'w43Vc6UfM'
-        entitlement_id = 'rFofgFDS_'
+        entitlement_id = '7DuaETO_S'
         try:
             result = EntitlementApi(self.api).get_entitlement(org_id, entitlement_id)
             print("The response of EntitlementApi:\n")

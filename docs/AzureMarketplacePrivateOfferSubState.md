@@ -3,11 +3,11 @@
 
 ## Enum
 
-* `PENDINGACCEPTANCE` (value: `'pendingAcceptance'`)
+* `AzureMarketplacePrivateOfferSubState_pendingAcceptance` (value: `'pendingAcceptance'`)
 
-* `ACCEPTED` (value: `'accepted'`)
+* `AzureMarketplacePrivateOfferSubState_accepted` (value: `'accepted'`)
 
-* `PENDINGPARTNERACTION` (value: `'pendingPartnerAction'`)
+* `AzureMarketplacePrivateOfferSubState_pendingPartnerAction` (value: `'pendingPartnerAction'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

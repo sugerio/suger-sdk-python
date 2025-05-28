@@ -27,16 +27,16 @@ class GcpMarketplacePrivateOfferState(str, Enum):
     """
     allowed enum values
     """
-    OFFER_ACTIVE = 'OFFER_ACTIVE'
-    OFFER_ACTIVATING = 'OFFER_ACTIVATING'
-    OFFER_SCHEDULED = 'OFFER_SCHEDULED'
-    OFFER_ENTITLEMENT_ACCOUNT_PENDING = 'OFFER_ENTITLEMENT_ACCOUNT_PENDING'
-    OFFER_PUBLISHED = 'OFFER_PUBLISHED'
-    OFFER_LAPSED = 'OFFER_LAPSED'
-    OFFER_EXPIRED = 'OFFER_EXPIRED'
-    OFFER_CANCELLED = 'OFFER_CANCELLED'
-    OFFER_UNAVAILABLE = 'OFFER_UNAVAILABLE'
-    OFFER_DRAFT = 'OFFER_DRAFT'
+    GcpMarketplacePrivateOfferState_OFFER_ACTIVE = 'OFFER_ACTIVE'
+    GcpMarketplacePrivateOfferState_OFFER_ACTIVATING = 'OFFER_ACTIVATING'
+    GcpMarketplacePrivateOfferState_OFFER_SCHEDULED = 'OFFER_SCHEDULED'
+    GcpMarketplacePrivateOfferState_OFFER_ENTITLEMENT_ACCOUNT_PENDING = 'OFFER_ENTITLEMENT_ACCOUNT_PENDING'
+    GcpMarketplacePrivateOfferState_OFFER_PUBLISHED = 'OFFER_PUBLISHED'
+    GcpMarketplacePrivateOfferState_OFFER_LAPSED = 'OFFER_LAPSED'
+    GcpMarketplacePrivateOfferState_OFFER_EXPIRED = 'OFFER_EXPIRED'
+    GcpMarketplacePrivateOfferState_OFFER_CANCELLED = 'OFFER_CANCELLED'
+    GcpMarketplacePrivateOfferState_OFFER_UNAVAILABLE = 'OFFER_UNAVAILABLE'
+    GcpMarketplacePrivateOfferState_OFFER_DRAFT = 'OFFER_DRAFT'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

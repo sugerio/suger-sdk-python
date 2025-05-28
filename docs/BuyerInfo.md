@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **metronome_customer_id** | **str** | The metronome customer ID for the buyer if it is connected to a metronome customer. | [optional] 
 **orb_customer_id** | **str** | The orb customer ID for the buyer if it is connected to a orb customer. | [optional] 
 **payment_config** | [**PaymentConfig**](PaymentConfig.md) | Payment Config for billing. | [optional] 
+**snowflake_buyer** | [**SnowflakeMarketplaceBuyer**](SnowflakeMarketplaceBuyer.md) | Buyer on Snowflake | [optional] 
 **spa_url** | **str** | Buyer SPA url, public page visited with jwt. | [optional] 
 **stripe_buyer** | [**StripeCustomer**](StripeCustomer.md) | Buyer as Customer on Stripe | [optional] 
 **stripe_customer_id** | **str** | The stripe customer ID for the buyer if it is connected to a stripe customer. | [optional] 

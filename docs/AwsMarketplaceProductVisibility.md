@@ -3,15 +3,15 @@
 
 ## Enum
 
-* `LIMITED` (value: `'Limited'`)
+* `AwsMarketplaceProductVisibility_Limited` (value: `'Limited'`)
 
-* `PUBLIC` (value: `'Public'`)
+* `AwsMarketplaceProductVisibility_Public` (value: `'Public'`)
 
-* `RESTRICTED` (value: `'Restricted'`)
+* `AwsMarketplaceProductVisibility_Restricted` (value: `'Restricted'`)
 
-* `UNAVAILABLE` (value: `'Unavailable'`)
+* `AwsMarketplaceProductVisibility_Unavailable` (value: `'Unavailable'`)
 
-* `DRAFT` (value: `'Draft'`)
+* `AwsMarketplaceProductVisibility_Draft` (value: `'Draft'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

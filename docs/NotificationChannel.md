@@ -3,21 +3,21 @@
 
 ## Enum
 
-* `EMAIL` (value: `'EMAIL'`)
+* `NotificationChannel_EMAIL` (value: `'EMAIL'`)
 
-* `SLACK` (value: `'SLACK'`)
+* `NotificationChannel_SLACK` (value: `'SLACK'`)
 
-* `SMS` (value: `'SMS'`)
+* `NotificationChannel_SMS` (value: `'SMS'`)
 
-* `SNS` (value: `'SNS'`)
+* `NotificationChannel_SNS` (value: `'SNS'`)
 
-* `SALESFORCE` (value: `'SALESFORCE'`)
+* `NotificationChannel_SALESFORCE` (value: `'SALESFORCE'`)
 
-* `WEBHOOK` (value: `'WEBHOOK'`)
+* `NotificationChannel_WEBHOOK` (value: `'WEBHOOK'`)
 
-* `SUGER_SUPPORT` (value: `'SUGER_SUPPORT'`)
+* `NotificationChannel_SUGER_SUPPORT` (value: `'SUGER_SUPPORT'`)
 
-* `MICROSOFT_TEAMS` (value: `'MICROSOFT_TEAMS'`)
+* `NotificationChannel_MICROSOFT_TEAMS` (value: `'MICROSOFT_TEAMS'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

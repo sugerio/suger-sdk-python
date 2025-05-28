@@ -3,11 +3,11 @@
 
 ## Enum
 
-* `ENDOFTERM` (value: `'EndOfTerm'`)
+* `CancellationScheduleType_EndOfTerm` (value: `'EndOfTerm'`)
 
-* `IMMEDIATE` (value: `'Immediate'`)
+* `CancellationScheduleType_Immediate` (value: `'Immediate'`)
 
-* `SPECIFICDATE` (value: `'SpecificDate'`)
+* `CancellationScheduleType_SpecificDate` (value: `'SpecificDate'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

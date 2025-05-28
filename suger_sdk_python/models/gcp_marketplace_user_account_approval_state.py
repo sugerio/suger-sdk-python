@@ -27,10 +27,10 @@ class GcpMarketplaceUserAccountApprovalState(str, Enum):
     """
     allowed enum values
     """
-    STATE_UNSPECIFIED = 'STATE_UNSPECIFIED'
-    PENDING = 'PENDING'
-    APPROVED = 'APPROVED'
-    REJECTED = 'REJECTED'
+    GcpMarketplaceUserAccountApprovalState_STATE_UNSPECIFIED = 'STATE_UNSPECIFIED'
+    GcpMarketplaceUserAccountApprovalState_PENDING = 'PENDING'
+    GcpMarketplaceUserAccountApprovalState_APPROVED = 'APPROVED'
+    GcpMarketplaceUserAccountApprovalState_REJECTED = 'REJECTED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

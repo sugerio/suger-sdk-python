@@ -3,47 +3,49 @@
 
 ## Enum
 
-* `UNKNOWN` (value: `'UNKNOWN'`)
+* `OfferType_UNKNOWN` (value: `'UNKNOWN'`)
 
-* `AMI` (value: `'AMI'`)
+* `OfferType_AMI` (value: `'AMI'`)
 
-* `APPLICATION` (value: `'APPLICATION'`)
+* `OfferType_APPLICATION` (value: `'APPLICATION'`)
 
-* `CONTAINER` (value: `'CONTAINER'`)
+* `OfferType_CONTAINER` (value: `'CONTAINER'`)
 
-* `CONTRACT` (value: `'CONTRACT'`)
+* `OfferType_CONTRACT` (value: `'CONTRACT'`)
 
-* `CPPO_OUT` (value: `'CPPO_OUT'`)
+* `OfferType_CPPO_OUT` (value: `'CPPO_OUT'`)
 
-* `CPPO_IN` (value: `'CPPO_IN'`)
+* `OfferType_CPPO_IN` (value: `'CPPO_IN'`)
 
-* `CPPO` (value: `'CPPO'`)
+* `OfferType_CPPO` (value: `'CPPO'`)
 
-* `CUD` (value: `'CUD'`)
+* `OfferType_CUD` (value: `'CUD'`)
 
-* `DATA` (value: `'DATA'`)
+* `OfferType_DATA` (value: `'DATA'`)
 
-* `DEFAULT` (value: `'DEFAULT'`)
+* `OfferType_DEFAULT` (value: `'DEFAULT'`)
 
-* `FIXED_FEE` (value: `'FIXED_FEE'`)
+* `OfferType_FIXED_FEE` (value: `'FIXED_FEE'`)
 
-* `FIXED_FEE_WITH_OVERAGE` (value: `'FIXED_FEE_WITH_OVERAGE'`)
+* `OfferType_FIXED_FEE_WITH_OVERAGE` (value: `'FIXED_FEE_WITH_OVERAGE'`)
 
-* `FLAT_RATE` (value: `'FLAT_RATE'`)
+* `OfferType_FLAT_RATE` (value: `'FLAT_RATE'`)
 
-* `FREE_TRIAL` (value: `'FREE_TRIAL'`)
+* `OfferType_FREE_TRIAL` (value: `'FREE_TRIAL'`)
 
-* `PAYG` (value: `'PAYG'`)
+* `OfferType_PAYG` (value: `'PAYG'`)
 
-* `PAYG_WITH_CUD` (value: `'PAYG_WITH_CUD'`)
+* `OfferType_PAYG_WITH_CUD` (value: `'PAYG_WITH_CUD'`)
 
-* `PER_USER` (value: `'PER_USER'`)
+* `OfferType_PER_USER` (value: `'PER_USER'`)
 
-* `PRIVATE` (value: `'PRIVATE'`)
+* `OfferType_PRIVATE` (value: `'PRIVATE'`)
 
-* `PROFESSIONAL_SERVICES` (value: `'PROFESSIONAL_SERVICES'`)
+* `OfferType_PROFESSIONAL_SERVICES` (value: `'PROFESSIONAL_SERVICES'`)
 
-* `SUBSCRIPTION` (value: `'SUBSCRIPTION'`)
+* `OfferType_SUBSCRIPTION` (value: `'SUBSCRIPTION'`)
+
+* `OfferType_MACHINE_LEARNING` (value: `'MACHINE_LEARNING'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

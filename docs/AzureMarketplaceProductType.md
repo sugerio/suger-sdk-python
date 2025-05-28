@@ -3,37 +3,37 @@
 
 ## Enum
 
-* `AZUREAPPLICATION` (value: `'azureApplication'`)
+* `AzureMarketplaceProductType_azureApplication` (value: `'azureApplication'`)
 
-* `AZURECONTAINER` (value: `'azureContainer'`)
+* `AzureMarketplaceProductType_azureContainer` (value: `'azureContainer'`)
 
-* `AZUREVIRTUALMACHINE` (value: `'azureVirtualMachine'`)
+* `AzureMarketplaceProductType_azureVirtualMachine` (value: `'azureVirtualMachine'`)
 
-* `CONSULTINGSERVICE` (value: `'consultingService'`)
+* `AzureMarketplaceProductType_consultingService` (value: `'consultingService'`)
 
-* `CONTAINERAPP` (value: `'containerApp'`)
+* `AzureMarketplaceProductType_containerApp` (value: `'containerApp'`)
 
-* `COREVIRTUALMACHINE` (value: `'coreVirtualMachine'`)
+* `AzureMarketplaceProductType_coreVirtualMachine` (value: `'coreVirtualMachine'`)
 
-* `COSELLONLY` (value: `'cosellOnly'`)
+* `AzureMarketplaceProductType_cosellOnly` (value: `'cosellOnly'`)
 
-* `DYNAMICS365BUSINESSCENTRAL` (value: `'dynamics365BusinessCentral'`)
+* `AzureMarketplaceProductType_dynamics365BusinessCentral` (value: `'dynamics365BusinessCentral'`)
 
-* `DYNAMICS365FORCUSTOMERENGAGEMENT` (value: `'dynamics365ForCustomerEngagement'`)
+* `AzureMarketplaceProductType_dynamics365ForCustomerEngagement` (value: `'dynamics365ForCustomerEngagement'`)
 
-* `DYNAMICS365FOROPERATIONS` (value: `'dynamics365ForOperations'`)
+* `AzureMarketplaceProductType_dynamics365ForOperations` (value: `'dynamics365ForOperations'`)
 
-* `IOTEDGEMODULE` (value: `'iotEdgeModule'`)
+* `AzureMarketplaceProductType_iotEdgeModule` (value: `'iotEdgeModule'`)
 
-* `MANAGEDSERVICE` (value: `'managedService'`)
+* `AzureMarketplaceProductType_managedService` (value: `'managedService'`)
 
-* `POWERBIAPP` (value: `'powerBiApp'`)
+* `AzureMarketplaceProductType_powerBiApp` (value: `'powerBiApp'`)
 
-* `POWERBIVISUAL` (value: `'powerBiVisual'`)
+* `AzureMarketplaceProductType_powerBiVisual` (value: `'powerBiVisual'`)
 
-* `SOFTWAREASASERVICE` (value: `'softwareAsAService'`)
+* `AzureMarketplaceProductType_softwareAsAService` (value: `'softwareAsAService'`)
 
-* `XBOX360NONBACKCOMPAT` (value: `'xbox360NonBackcompat'`)
+* `AzureMarketplaceProductType_xbox360NonBackcompat` (value: `'xbox360NonBackcompat'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

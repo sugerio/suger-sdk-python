@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**orders** | **List[str]** | a list of unique order IDs for each entitlement ID that indicates the different offers on the same product. This field is available only if multiple orders of the same product is enabled | [optional] 
 **roles** | **List[str]** | An array of strings representing the user&#39;s roles. Right now, it can be either: ** account_admin, which indicates that the user is a Billing Account Administrator of the billing account that purchased the product, or ** project_editor, which indicates that the user is a Project Editor, but not a Billing Administrator, of the project under that billing account. | [optional] 
 **user_identity** | **str** | The user&#39;s obfuscated GAIA ID, which can be used to initiate Open ID Connect. | [optional] 
 

@@ -27,10 +27,10 @@ class AwsMarketplaceCppoOpportunityRuleType(str, Enum):
     """
     allowed enum values
     """
-    AVAILABILITYRULE = 'AvailabilityRule'
-    PARTNERTARGETINGRULE = 'PartnerTargetingRule'
-    TARGETINGRULE = 'TargetingRule'
-    TAXCONFIGURATIONRULE = 'TaxConfigurationRule'
+    AwsMarketplaceCppoOpportunityRuleType_AvailabilityRule = 'AvailabilityRule'
+    AwsMarketplaceCppoOpportunityRuleType_PartnerTargetingRule = 'PartnerTargetingRule'
+    AwsMarketplaceCppoOpportunityRuleType_TargetingRule = 'TargetingRule'
+    AwsMarketplaceCppoOpportunityRuleType_TaxConfigurationRule = 'TaxConfigurationRule'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

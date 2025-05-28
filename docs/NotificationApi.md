@@ -136,7 +136,7 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     end_date = 'end_date_example' # str | end date (UTC) in YYYY-MM-DD format, default is today (optional)
     limit = 56 # int | List pagination size, default 1000, max value is 1000 (optional)
     offset = 56 # int | List pagination offset, default 0 (optional)
-    priorities = 'priorities_example' # str | Filter by priorities, empty means all priorities. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma. (optional)
+    priorities = 'priorities_example' # str | Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma. (optional)
 
     try:
         # list notification events
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
  **end_date** | **str**| end date (UTC) in YYYY-MM-DD format, default is today | [optional] 
  **limit** | **int**| List pagination size, default 1000, max value is 1000 | [optional] 
  **offset** | **int**| List pagination offset, default 0 | [optional] 
- **priorities** | **str**| Filter by priorities, empty means all priorities. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma. | [optional] 
+ **priorities** | **str**| Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma. | [optional] 
 
 ### Return type
 

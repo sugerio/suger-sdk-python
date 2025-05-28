@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 cancel offer
 
-Only the offer with status = \"PENDING_ACCEPTANCE\", \"PENDING_CANCEL\", \"ACTIVE\" or \"USED\" is allowed to cancel.
+Only the offer with status = "PENDING_ACCEPTANCE", "PENDING_CANCEL", "ACTIVE" or "USED" is allowed to cancel.
 
 ### Example
 
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 delete offer
 
-The offer is soft deleted (marked as DELETED status) in Suger service. Only the offer with status = \"DRAFT\", \"CREATE_FAILED\", \"EXPIRED\" or \"CANCELLED\" is allowed to be deleted.
+The offer is soft deleted (marked as DELETED status) in Suger service. Only the offer with status = "DRAFT", "CREATE_FAILED", "EXPIRED" or "CANCELLED" is allowed to be deleted.
 
 ### Example
 
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 
 extend offer expiry date
 
-Only the offer with status = \"PENDING_ACCEPTANCE\", \"EXPIRED\" or \"ACCEPTED\" is allowed to extend expiry date.
+Only the offer with status = "PENDING_ACCEPTANCE", "EXPIRED" or "ACCEPTED" is allowed to extend expiry date.
 
 ### Example
 
@@ -878,11 +878,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **send_offer_notifications**
-> NotificationEvent send_offer_notifications(org_id, offer_id, contact_ids=contact_ids)
+> str send_offer_notifications(org_id, offer_id, contact_ids=contact_ids)
 
 notify offer contacts
 
-Send offer notifications to the given contact ids. If contactIds is empty, send notifications to all contacts of the offer.
+Send offer notifications to the given contact ids. If contactIDs is empty, send notifications to all contacts of the offer.
 
 ### Example
 
@@ -890,7 +890,6 @@ Send offer notifications to the given contact ids. If contactIds is empty, send 
 
 ```python
 import suger_sdk_python
-from suger_sdk_python.models.notification_event import NotificationEvent
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
@@ -941,7 +940,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NotificationEvent**](NotificationEvent.md)
+**str**
 
 ### Authorization
 
@@ -956,7 +955,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | NotificationEvent object |  -  |
+**200** | empty string if success |  -  |
 **400** | Bad request error |  -  |
 **405** | Method not allowed |  -  |
 **500** | Internal error |  -  |

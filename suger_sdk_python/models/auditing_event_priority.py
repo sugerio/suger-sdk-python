@@ -27,11 +27,11 @@ class AuditingEventPriority(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    LOW = 'LOW'
-    MEDIUM = 'MEDIUM'
-    HIGH = 'HIGH'
-    CRITICAL = 'CRITICAL'
+    AuditingEventPriority_UNKNOWN = ''
+    AuditingEventPriority_LOW = 'LOW'
+    AuditingEventPriority_MEDIUM = 'MEDIUM'
+    AuditingEventPriority_HIGH = 'HIGH'
+    AuditingEventPriority_CRITICAL = 'CRITICAL'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

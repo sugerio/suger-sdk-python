@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **buyer_id** | **str** |  | [optional] 
 **entitlement_id** | **str** |  | [optional] 
+**group_by** | [**GroupByInterval**](GroupByInterval.md) | The group by of the revenue report. | [optional] 
 **organization_id** | **str** |  | [optional] 
 **partner** | **str** |  | [optional] 
 **product_id** | **str** |  | [optional] 
