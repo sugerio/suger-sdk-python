@@ -38,6 +38,7 @@ class BuyerInfo(BaseModel):
     adyen_buyer: Optional[AdyenBuyer] = Field(default=None, description="Buyer on Adyen", alias="adyenBuyer")
     aws_buyer: Optional[AwsAccountIdentifier] = Field(default=None, description="Buyer from AWS Marketplace", alias="awsBuyer")
     azure_buyer: Optional[AzureADIdentifier] = Field(default=None, description="Buyer from Azure Marketplace", alias="azureBuyer")
+    chargebee_customer_id: Optional[StrictStr] = Field(default=None, description="ChargebeeCustomerID is the chargebee customer ID for ther buyer if it is connected to a chargebee customer.", alias="chargebeeCustomerID")
     collectable_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount that the seller can collect. It excludes the marketplace commision fee.", alias="collectableAmount")
     company_info: Optional[CompanyInfo] = Field(default=None, alias="companyInfo")
     customer_id: Optional[StrictStr] = Field(default=None, description="customerID of buyer on seller's side", alias="customerId")
@@ -52,11 +53,12 @@ class BuyerInfo(BaseModel):
     metronome_customer_id: Optional[StrictStr] = Field(default=None, description="The metronome customer ID for the buyer if it is connected to a metronome customer.", alias="metronomeCustomerId")
     orb_customer_id: Optional[StrictStr] = Field(default=None, description="The orb customer ID for the buyer if it is connected to a orb customer.", alias="orbCustomerId")
     payment_config: Optional[PaymentConfig] = Field(default=None, description="Payment Config for billing.", alias="paymentConfig")
+    quickbooks_customer_id: Optional[StrictStr] = Field(default=None, description="The quickbooks customer ID for the buyer if it is connected to a quickbooks customer.", alias="quickbooksCustomerId")
     snowflake_buyer: Optional[SnowflakeMarketplaceBuyer] = Field(default=None, description="Buyer on Snowflake", alias="snowflakeBuyer")
     spa_url: Optional[StrictStr] = Field(default=None, description="Buyer SPA url, public page visited with jwt.", alias="spaUrl")
     stripe_buyer: Optional[StripeCustomer] = Field(default=None, description="Buyer as Customer on Stripe", alias="stripeBuyer")
     stripe_customer_id: Optional[StrictStr] = Field(default=None, description="The stripe customer ID for the buyer if it is connected to a stripe customer.", alias="stripeCustomerId")
-    __properties: ClassVar[List[str]] = ["adyenBuyer", "awsBuyer", "azureBuyer", "collectableAmount", "companyInfo", "customerId", "disbursedAmount", "emailAddress", "fields", "gcpBuyer", "grossAmount", "invoicedAmount", "lagoCustomerId", "lastModifiedBy", "metronomeCustomerId", "orbCustomerId", "paymentConfig", "snowflakeBuyer", "spaUrl", "stripeBuyer", "stripeCustomerId"]
+    __properties: ClassVar[List[str]] = ["adyenBuyer", "awsBuyer", "azureBuyer", "chargebeeCustomerID", "collectableAmount", "companyInfo", "customerId", "disbursedAmount", "emailAddress", "fields", "gcpBuyer", "grossAmount", "invoicedAmount", "lagoCustomerId", "lastModifiedBy", "metronomeCustomerId", "orbCustomerId", "paymentConfig", "quickbooksCustomerId", "snowflakeBuyer", "spaUrl", "stripeBuyer", "stripeCustomerId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -136,6 +138,7 @@ class BuyerInfo(BaseModel):
             "adyenBuyer": AdyenBuyer.from_dict(obj["adyenBuyer"]) if obj.get("adyenBuyer") is not None else None,
             "awsBuyer": AwsAccountIdentifier.from_dict(obj["awsBuyer"]) if obj.get("awsBuyer") is not None else None,
             "azureBuyer": AzureADIdentifier.from_dict(obj["azureBuyer"]) if obj.get("azureBuyer") is not None else None,
+            "chargebeeCustomerID": obj.get("chargebeeCustomerID"),
             "collectableAmount": obj.get("collectableAmount"),
             "companyInfo": CompanyInfo.from_dict(obj["companyInfo"]) if obj.get("companyInfo") is not None else None,
             "customerId": obj.get("customerId"),
@@ -150,6 +153,7 @@ class BuyerInfo(BaseModel):
             "metronomeCustomerId": obj.get("metronomeCustomerId"),
             "orbCustomerId": obj.get("orbCustomerId"),
             "paymentConfig": PaymentConfig.from_dict(obj["paymentConfig"]) if obj.get("paymentConfig") is not None else None,
+            "quickbooksCustomerId": obj.get("quickbooksCustomerId"),
             "snowflakeBuyer": SnowflakeMarketplaceBuyer.from_dict(obj["snowflakeBuyer"]) if obj.get("snowflakeBuyer") is not None else None,
             "spaUrl": obj.get("spaUrl"),
             "stripeBuyer": StripeCustomer.from_dict(obj["stripeBuyer"]) if obj.get("stripeBuyer") is not None else None,

@@ -23,6 +23,8 @@
 
 * `GcpMarketplaceResellerPrivateOfferPlanStateType_COMPLETED` (value: `'STATE_TYPE_COMPLETED'`)
 
+* `GcpMarketplaceResellerPrivateOfferPlanStateType_READY_TO_USE_IN_FUTURE` (value: `'STATE_TYPE_READY_TO_USE_IN_FUTURE'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

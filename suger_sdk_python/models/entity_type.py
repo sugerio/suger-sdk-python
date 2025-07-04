@@ -47,6 +47,7 @@ class EntityType(str, Enum):
     EntityType_PRODUCT = 'PRODUCT'
     EntityType_REFERRAL = 'REFERRAL'
     EntityType_REVENUE_RECORD = 'REVENUE_RECORD'
+    EntityType_SERVICE = 'SERVICE'
     EntityType_SUPPORT_TICKET = 'SUPPORT_TICKET'
     EntityType_UNPURCHASED_OFFERS = 'UNPURCHASED_OFFERS'
     EntityType_USAGE_RECORD_GROUP = 'USAGE_RECORD_GROUP'
@@ -55,6 +56,7 @@ class EntityType(str, Enum):
     EntityType_WORKFLOW = 'WORKFLOW'
     EntityType_WORKFLOW_EXECUTION = 'WORKFLOW_EXECUTION'
     EntityType_WORKFLOW_WEBHOOK = 'WORKFLOW_WEBHOOK'
+    EntityType_ORGANIZATION_INFO = 'ORGANIZATION_INFO'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

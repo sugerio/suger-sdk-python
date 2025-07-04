@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**company_id** | **str** |  | [optional] 
 **contact_ids** | **List[str]** |  | [optional] 
 **creation_time** | **datetime** |  | [optional] 
 **description** | **str** |  | [optional] 
@@ -15,6 +16,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **organization_id** | **str** |  | [optional] 
 **partner** | [**Partner**](Partner.md) |  | [optional] 
+**s3_key_logo** | **str** |  | [optional] 
 
 ## Example
 

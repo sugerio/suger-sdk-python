@@ -333,6 +333,7 @@ class NotificationApi:
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         priorities: Annotated[Optional[StrictStr], Field(description="Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.")] = None,
+        message: Annotated[Optional[StrictStr], Field(description="Filter by event message containing the specified string, case-insensitive.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -362,6 +363,8 @@ class NotificationApi:
         :type offset: int
         :param priorities: Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.
         :type priorities: str
+        :param message: Filter by event message containing the specified string, case-insensitive.
+        :type message: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -391,6 +394,7 @@ class NotificationApi:
             limit=limit,
             offset=offset,
             priorities=priorities,
+            message=message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -422,6 +426,7 @@ class NotificationApi:
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         priorities: Annotated[Optional[StrictStr], Field(description="Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.")] = None,
+        message: Annotated[Optional[StrictStr], Field(description="Filter by event message containing the specified string, case-insensitive.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -451,6 +456,8 @@ class NotificationApi:
         :type offset: int
         :param priorities: Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.
         :type priorities: str
+        :param message: Filter by event message containing the specified string, case-insensitive.
+        :type message: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -480,6 +487,7 @@ class NotificationApi:
             limit=limit,
             offset=offset,
             priorities=priorities,
+            message=message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -511,6 +519,7 @@ class NotificationApi:
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         priorities: Annotated[Optional[StrictStr], Field(description="Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.")] = None,
+        message: Annotated[Optional[StrictStr], Field(description="Filter by event message containing the specified string, case-insensitive.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -540,6 +549,8 @@ class NotificationApi:
         :type offset: int
         :param priorities: Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.
         :type priorities: str
+        :param message: Filter by event message containing the specified string, case-insensitive.
+        :type message: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -569,6 +580,7 @@ class NotificationApi:
             limit=limit,
             offset=offset,
             priorities=priorities,
+            message=message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -595,6 +607,7 @@ class NotificationApi:
         limit,
         offset,
         priorities,
+        message,
         _request_auth,
         _content_type,
         _headers,
@@ -638,6 +651,10 @@ class NotificationApi:
         if priorities is not None:
             
             _query_params.append(('priorities', priorities))
+            
+        if message is not None:
+            
+            _query_params.append(('message', message))
             
         # process the header parameters
         # process the form parameters

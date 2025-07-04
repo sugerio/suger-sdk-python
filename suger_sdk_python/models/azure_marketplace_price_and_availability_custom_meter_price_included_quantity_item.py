@@ -29,9 +29,10 @@ class AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem(B
     AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem
     """ # noqa: E501
     billing_term: Optional[AzureMarketplaceTerm] = Field(default=None, alias="billingTerm")
+    contract_duration: Optional[AzureMarketplaceTerm] = Field(default=None, alias="contractDuration")
     is_infinite: Optional[StrictBool] = Field(default=None, alias="isInfinite")
     quantity: Optional[Union[StrictFloat, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["billingTerm", "isInfinite", "quantity"]
+    __properties: ClassVar[List[str]] = ["billingTerm", "contractDuration", "isInfinite", "quantity"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,6 +76,9 @@ class AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem(B
         # override the default output from pydantic by calling `to_dict()` of billing_term
         if self.billing_term:
             _dict['billingTerm'] = self.billing_term.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of contract_duration
+        if self.contract_duration:
+            _dict['contractDuration'] = self.contract_duration.to_dict()
         return _dict
 
     @classmethod
@@ -88,6 +92,7 @@ class AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem(B
 
         _obj = cls.model_validate({
             "billingTerm": AzureMarketplaceTerm.from_dict(obj["billingTerm"]) if obj.get("billingTerm") is not None else None,
+            "contractDuration": AzureMarketplaceTerm.from_dict(obj["contractDuration"]) if obj.get("contractDuration") is not None else None,
             "isInfinite": obj.get("isInfinite"),
             "quantity": obj.get("quantity")
         })

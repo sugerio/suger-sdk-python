@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **organization_id** | **str** |  | [optional] 
 **priority** | [**SupportTicketPriority**](SupportTicketPriority.md) |  | [optional] 
 **status** | [**SupportTicketStatus**](SupportTicketStatus.md) |  | [optional] 
+**task_type** | [**SupportTicketTaskType**](SupportTicketTaskType.md) |  | [optional] 
 **watchers** | **List[str]** |  | [optional] 
 
 ## Example

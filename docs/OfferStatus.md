@@ -53,6 +53,10 @@
 
 * `OfferStatus_USED` (value: `'USED'`)
 
+* `OfferStatus_PENDING_PARTNER_ACTION` (value: `'PENDING_PARTNER_ACTION'`)
+
+* `OfferStatus_VOID` (value: `'VOID'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

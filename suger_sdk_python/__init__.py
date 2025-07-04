@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "v3.128.221"
+__version__ = "3.14.0"
 
 # import apis into sdk package
 from suger_sdk_python.api.api_api import APIApi
@@ -456,6 +456,7 @@ from suger_sdk_python.models.price_model_volume import PriceModelVolume
 from suger_sdk_python.models.price_model_volume_config import PriceModelVolumeConfig
 from suger_sdk_python.models.private_offer_discount_type import PrivateOfferDiscountType
 from suger_sdk_python.models.product_info import ProductInfo
+from suger_sdk_python.models.revenue_billing_model import RevenueBillingModel
 from suger_sdk_python.models.revenue_channel import RevenueChannel
 from suger_sdk_python.models.revenue_record import RevenueRecord
 from suger_sdk_python.models.revenue_record_detail import RevenueRecordDetail
@@ -507,6 +508,7 @@ from suger_sdk_python.models.support_ticket_frame import SupportTicketFrame
 from suger_sdk_python.models.support_ticket_image import SupportTicketImage
 from suger_sdk_python.models.support_ticket_priority import SupportTicketPriority
 from suger_sdk_python.models.support_ticket_status import SupportTicketStatus
+from suger_sdk_python.models.support_ticket_task_type import SupportTicketTaskType
 from suger_sdk_python.models.support_ticket_user import SupportTicketUser
 from suger_sdk_python.models.time_unit import TimeUnit
 from suger_sdk_python.models.track_event import TrackEvent

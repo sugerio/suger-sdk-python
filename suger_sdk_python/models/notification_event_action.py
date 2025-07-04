@@ -37,6 +37,7 @@ class NotificationEventAction(str, Enum):
     NotificationEventAction_CREATE = 'CREATE'
     NotificationEventAction_DELETE = 'DELETE'
     NotificationEventAction_ARCHIVE = 'ARCHIVE'
+    NotificationEventAction_VOID = 'VOID'
     NotificationEventAction_DISBURSE = 'DISBURSE'
     NotificationEventAction_END_SOON = 'END_SOON'
     NotificationEventAction_EXPIRE = 'EXPIRE'
@@ -56,6 +57,7 @@ class NotificationEventAction(str, Enum):
     NotificationEventAction_REFUND = 'REFUND'
     NotificationEventAction_ISSUE = 'ISSUE'
     NotificationEventAction_SIGN = 'SIGN'
+    NotificationEventAction_PENDING_PARTNER_ACTION = 'PENDING_PARTNER_ACTION'
     NotificationEventAction_ROTATE_SECRET = 'ROTATE_SECRET'
     NotificationEventAction_SUSPEND = 'SUSPEND'
     NotificationEventAction_TEST = 'TEST'
@@ -69,7 +71,6 @@ class NotificationEventAction(str, Enum):
     NotificationEventAction_COMPLETE = 'COMPLETE'
     NotificationEventAction_FAIL = 'FAIL'
     NotificationEventAction_WEBHOOK = 'WEBHOOK'
-    NotificationEventAction_MARKETPLACE_CONTACT_EMAIL_UPDATE = 'MARKETPLACE_CONTACT_EMAIL_UPDATE'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -1,6 +1,6 @@
 # suger_sdk_python.NotificationApi
 
-All URIs are relative to *http://https://api.suger.cloud*
+All URIs are relative to *https://api.suger.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,10 +27,10 @@ from suger_sdk_python.models.notification_message import NotificationMessage
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_notification_events**
-> ListNotificationEventsResponse list_notification_events(org_id, start_date=start_date, end_date=end_date, limit=limit, offset=offset, priorities=priorities)
+> ListNotificationEventsResponse list_notification_events(org_id, start_date=start_date, end_date=end_date, limit=limit, offset=offset, priorities=priorities, message=message)
 
 list notification events
 
@@ -110,10 +110,10 @@ from suger_sdk_python.models.list_notification_events_response import ListNotifi
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -137,10 +137,11 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     limit = 56 # int | List pagination size, default 1000, max value is 1000 (optional)
     offset = 56 # int | List pagination offset, default 0 (optional)
     priorities = 'priorities_example' # str | Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma. (optional)
+    message = 'message_example' # str | Filter by event message containing the specified string, case-insensitive. (optional)
 
     try:
         # list notification events
-        api_response = api_instance.list_notification_events(org_id, start_date=start_date, end_date=end_date, limit=limit, offset=offset, priorities=priorities)
+        api_response = api_instance.list_notification_events(org_id, start_date=start_date, end_date=end_date, limit=limit, offset=offset, priorities=priorities, message=message)
         print("The response of NotificationApi->list_notification_events:\n")
         pprint(api_response)
     except Exception as e:
@@ -160,6 +161,7 @@ Name | Type | Description  | Notes
  **limit** | **int**| List pagination size, default 1000, max value is 1000 | [optional] 
  **offset** | **int**| List pagination offset, default 0 | [optional] 
  **priorities** | **str**| Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma. | [optional] 
+ **message** | **str**| Filter by event message containing the specified string, case-insensitive. | [optional] 
 
 ### Return type
 
@@ -201,10 +203,10 @@ from suger_sdk_python.models.list_notification_events_response import ListNotifi
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -290,10 +292,10 @@ from suger_sdk_python.models.list_notification_messages_response import ListNoti
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters

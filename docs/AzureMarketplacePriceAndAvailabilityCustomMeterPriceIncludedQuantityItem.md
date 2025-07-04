@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **billing_term** | [**AzureMarketplaceTerm**](AzureMarketplaceTerm.md) |  | [optional] 
+**contract_duration** | [**AzureMarketplaceTerm**](AzureMarketplaceTerm.md) |  | [optional] 
 **is_infinite** | **bool** |  | [optional] 
 **quantity** | **float** |  | [optional] 
 
