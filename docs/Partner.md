@@ -9,6 +9,8 @@
 
 * `Partner_ALIBABA` (value: `'ALIBABA'`)
 
+* `Partner_ANTHROPIC` (value: `'ANTHROPIC'`)
+
 * `Partner_AWS` (value: `'AWS'`)
 
 * `Partner_AWS_CHINA` (value: `'AWS_CHINA'`)
@@ -36,6 +38,8 @@
 * `Partner_METRONOME` (value: `'METRONOME'`)
 
 * `Partner_MICROSOFT` (value: `'MICROSOFT'`)
+
+* `Partner_OPENAI` (value: `'OPENAI'`)
 
 * `Partner_ORACLE` (value: `'ORACLE'`)
 

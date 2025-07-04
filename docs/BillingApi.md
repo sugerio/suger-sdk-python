@@ -1,6 +1,6 @@
 # suger_sdk_python.BillingApi
 
-All URIs are relative to *http://https://api.suger.cloud*
+All URIs are relative to *https://api.suger.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -39,10 +39,10 @@ from suger_sdk_python.models.create_and_update_addon_params import CreateAndUpda
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -122,10 +122,10 @@ from suger_sdk_python.models.billing_payment_transaction import BillingPaymentTr
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -208,10 +208,10 @@ import suger_sdk_python
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -291,10 +291,10 @@ from suger_sdk_python.models.billing_addon import BillingAddon
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -374,10 +374,10 @@ from suger_sdk_python.models.billing_invoice import BillingInvoice
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -457,10 +457,10 @@ from suger_sdk_python.models.billing_invoice import BillingInvoice
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -542,10 +542,10 @@ from suger_sdk_python.models.billing_addon import BillingAddon
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -627,10 +627,10 @@ from suger_sdk_python.models.billing_invoice import BillingInvoice
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -718,10 +718,10 @@ from suger_sdk_python.models.billing_payment_transaction import BillingPaymentTr
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -813,10 +813,10 @@ from suger_sdk_python.models.billing_payment_transaction import BillingPaymentTr
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -898,10 +898,10 @@ from suger_sdk_python.models.billing_invoice import BillingInvoice
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -980,10 +980,10 @@ import suger_sdk_python
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1064,10 +1064,10 @@ from suger_sdk_python.models.create_and_update_addon_params import CreateAndUpda
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1150,10 +1150,10 @@ from suger_sdk_python.models.update_invoice_info_request import UpdateInvoiceInf
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1235,10 +1235,10 @@ from suger_sdk_python.models.billing_invoice import BillingInvoice
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters

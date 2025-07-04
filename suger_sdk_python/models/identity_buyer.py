@@ -30,6 +30,7 @@ class IdentityBuyer(BaseModel):
     """
     IdentityBuyer
     """ # noqa: E501
+    company_id: Optional[StrictStr] = Field(default=None, alias="companyID")
     contact_ids: Optional[List[StrictStr]] = Field(default=None, alias="contactIds")
     creation_time: Optional[datetime] = Field(default=None, alias="creationTime")
     description: Optional[StrictStr] = None
@@ -40,7 +41,8 @@ class IdentityBuyer(BaseModel):
     name: Optional[StrictStr] = None
     organization_id: Optional[StrictStr] = Field(default=None, alias="organizationID")
     partner: Optional[Partner] = None
-    __properties: ClassVar[List[str]] = ["contactIds", "creationTime", "description", "externalID", "id", "info", "lastUpdateTime", "name", "organizationID", "partner"]
+    s3_key_logo: Optional[StrictStr] = Field(default=None, alias="s3KeyLogo")
+    __properties: ClassVar[List[str]] = ["companyID", "contactIds", "creationTime", "description", "externalID", "id", "info", "lastUpdateTime", "name", "organizationID", "partner", "s3KeyLogo"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,6 +98,7 @@ class IdentityBuyer(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "companyID": obj.get("companyID"),
             "contactIds": obj.get("contactIds"),
             "creationTime": obj.get("creationTime"),
             "description": obj.get("description"),
@@ -105,7 +108,8 @@ class IdentityBuyer(BaseModel):
             "lastUpdateTime": obj.get("lastUpdateTime"),
             "name": obj.get("name"),
             "organizationID": obj.get("organizationID"),
-            "partner": obj.get("partner")
+            "partner": obj.get("partner"),
+            "s3KeyLogo": obj.get("s3KeyLogo")
         })
         return _obj
 

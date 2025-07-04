@@ -52,6 +52,8 @@ class OfferStatus(str, Enum):
     OfferStatus_UPDATE_FAILED = 'UPDATE_FAILED'
     OfferStatus_UPDATE_SUCCESS = 'UPDATE_SUCCESS'
     OfferStatus_USED = 'USED'
+    OfferStatus_PENDING_PARTNER_ACTION = 'PENDING_PARTNER_ACTION'
+    OfferStatus_VOID = 'VOID'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

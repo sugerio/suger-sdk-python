@@ -7,6 +7,8 @@
 
 * `PartnerService_ACE` (value: `'ACE'`)
 
+* `PartnerService_ANTHROPIC` (value: `'ANTHROPIC'`)
+
 * `PartnerService_BIGQUERY` (value: `'BIGQUERY'`)
 
 * `PartnerService_BILLING` (value: `'BILLING'`)
@@ -24,6 +26,8 @@
 * `PartnerService_DRIVE` (value: `'DRIVE'`)
 
 * `PartnerService_EMAIL` (value: `'EMAIL'`)
+
+* `PartnerService_GEMINI` (value: `'GEMINI'`)
 
 * `PartnerService_MARKETPLACE` (value: `'MARKETPLACE'`)
 

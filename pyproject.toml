@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "suger_sdk_python"
-version = "v3.128.221"
+version = "3.14.0"
 description = "Suger API"
 authors = ["Suger Support <support@suger.io>"]
 license = "NoLicense"

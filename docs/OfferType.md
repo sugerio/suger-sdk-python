@@ -43,6 +43,8 @@
 
 * `OfferType_PROFESSIONAL_SERVICES` (value: `'PROFESSIONAL_SERVICES'`)
 
+* `OfferType_SAAS` (value: `'SAAS'`)
+
 * `OfferType_SUBSCRIPTION` (value: `'SUBSCRIPTION'`)
 
 * `OfferType_MACHINE_LEARNING` (value: `'MACHINE_LEARNING'`)

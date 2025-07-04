@@ -1,6 +1,6 @@
 # suger_sdk_python.ReportApi
 
-All URIs are relative to *http://https://api.suger.cloud*
+All URIs are relative to *https://api.suger.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,10 +29,10 @@ from suger_sdk_python.models.revenue_report import RevenueReport
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -112,10 +112,10 @@ from suger_sdk_python.models.revenue_record import RevenueRecord
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -205,10 +205,10 @@ from suger_sdk_python.models.list_revenue_record_details_response import ListRev
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -302,10 +302,10 @@ from suger_sdk_python.models.list_revenue_records_response import ListRevenueRec
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -399,10 +399,10 @@ from suger_sdk_python.models.list_usage_metering_daily_records_response import L
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters

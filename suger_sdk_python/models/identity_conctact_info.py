@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from suger_sdk_python.models.partner import Partner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,9 +31,10 @@ class IdentityConctactInfo(BaseModel):
     company_location: Optional[StrictStr] = Field(default=None, alias="companyLocation")
     company_name: Optional[StrictStr] = Field(default=None, alias="companyName")
     last_modified_by: Optional[StrictStr] = Field(default=None, alias="lastModifiedBy")
+    partner: Optional[Partner] = None
     phone_number: Optional[StrictStr] = Field(default=None, alias="phoneNumber")
     role: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["companyLocation", "companyName", "lastModifiedBy", "phoneNumber", "role"]
+    __properties: ClassVar[List[str]] = ["companyLocation", "companyName", "lastModifiedBy", "partner", "phoneNumber", "role"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,6 +90,7 @@ class IdentityConctactInfo(BaseModel):
             "companyLocation": obj.get("companyLocation"),
             "companyName": obj.get("companyName"),
             "lastModifiedBy": obj.get("lastModifiedBy"),
+            "partner": obj.get("partner"),
             "phoneNumber": obj.get("phoneNumber"),
             "role": obj.get("role")
         })

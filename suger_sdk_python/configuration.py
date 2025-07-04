@@ -210,7 +210,7 @@ conf = suger_sdk_python.Configuration(
     ) -> None:
         """Constructor
         """
-        self._base_path = "http://https://api.suger.cloud" if host is None else host
+        self._base_path = "https://api.suger.cloud" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -532,7 +532,7 @@ conf = suger_sdk_python.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0\n"\
-               "SDK Package Version: v3.128.221".\
+               "SDK Package Version: 3.14.0".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:
@@ -542,7 +542,7 @@ conf = suger_sdk_python.Configuration(
         """
         return [
             {
-                'url': "//https://api.suger.cloud",
+                'url': "https://api.suger.cloud",
                 'description': "No description provided",
             }
         ]

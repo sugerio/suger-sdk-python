@@ -7,8 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ace_apn_crm_unique_identifier** | **str** | The linked ACE ApnCrmUniqueIdentifier of the private offer if available. | [optional] 
 **aws_saas_product_dimensions** | [**List[AwsProductDimension]**](AwsProductDimension.md) | The AWS SaaS product dimensions. Applicable for AWS SaaS products only. This is used to save price info when creating AWS SaaS product. | [optional] 
+**azure_original_offer_id_for_upgrade** | **str** | Original offer ID for Azure Upgrade | [optional] 
 **base_agreement_id** | **str** | Applicable for AWS Marketplace only, when the IsAgreementBasedOffer is true. | [optional] 
 **buyer_ids** | **List[str]** | The Suger buyer IDs of the private offer if available. | [optional] 
+**chargebee_subscription_id** | **str** | The Chargebee subscription ID of the private offer if available. | [optional] 
 **contacts** | [**List[Contact]**](Contact.md) | The contacts of the offer to notify if any updates. | [optional] 
 **cppo_in_offer_id** | **str** | The Suger CPPO_IN offer ID. | [optional] 
 **cppo_offer_id** | **str** | The Suger CPPO offer ID. Reseller to end buyer | [optional] 
@@ -20,6 +22,7 @@ Name | Type | Description | Notes
 **hubspot_deal_id** | **str** | Hubsport deal ID of the private offer if available. | [optional] 
 **internal_note** | **str** | The Internal note of the private offer. It is only visible to the seller/ISV, not visible to the buyer. Up to 1000 characters. | [optional] 
 **is_agreement_based_offer** | **bool** | Applicable for AWS Marketplace only, If this offer is agreement based offer. | [optional] 
+**is_azure_upgrade_offer** | **bool** | If this offer is an Azure upgrade offer. | [optional] 
 **is_gross_revenue_full_sync** | **bool** | Whether the gross revenue is fully synced for the entitlement. | [optional] 
 **is_renewal_offer** | **bool** | Applicable for AWS Marketplace only. If this offer is renewal offer of existing agreement. The existing agreement can be within or outside AWS Marketplace. AWS may audit and verify your offer is a renewal. If AWS is unable to verify your offer, then AWS may revoke the offer and entitlements from your customer. | [optional] 
 **is_replacement_offer** | **bool** | If this offer is a GCP replacement offer. Applicable for GCP Marketplace replacement offer only. | [optional] 

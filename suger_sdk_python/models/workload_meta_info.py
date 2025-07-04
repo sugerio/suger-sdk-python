@@ -36,8 +36,10 @@ class WorkloadMetaInfo(BaseModel):
     """ # noqa: E501
     ace_apn_crm_unique_identifier: Optional[StrictStr] = Field(default=None, description="The linked ACE ApnCrmUniqueIdentifier of the private offer if available.", alias="aceApnCrmUniqueIdentifier")
     aws_saas_product_dimensions: Optional[List[AwsProductDimension]] = Field(default=None, description="The AWS SaaS product dimensions. Applicable for AWS SaaS products only. This is used to save price info when creating AWS SaaS product.", alias="awsSaasProductDimensions")
+    azure_original_offer_id_for_upgrade: Optional[StrictStr] = Field(default=None, description="Original offer ID for Azure Upgrade", alias="azureOriginalOfferIDForUpgrade")
     base_agreement_id: Optional[StrictStr] = Field(default=None, description="Applicable for AWS Marketplace only, when the IsAgreementBasedOffer is true.", alias="baseAgreementId")
     buyer_ids: Optional[List[StrictStr]] = Field(default=None, description="The Suger buyer IDs of the private offer if available.", alias="buyerIds")
+    chargebee_subscription_id: Optional[StrictStr] = Field(default=None, description="The Chargebee subscription ID of the private offer if available.", alias="chargebeeSubscriptionID")
     contacts: Optional[List[Contact]] = Field(default=None, description="The contacts of the offer to notify if any updates.")
     cppo_in_offer_id: Optional[StrictStr] = Field(default=None, description="The Suger CPPO_IN offer ID.", alias="cppoInOfferId")
     cppo_offer_id: Optional[StrictStr] = Field(default=None, description="The Suger CPPO offer ID. Reseller to end buyer", alias="cppoOfferId")
@@ -49,6 +51,7 @@ class WorkloadMetaInfo(BaseModel):
     hubspot_deal_id: Optional[StrictStr] = Field(default=None, description="Hubsport deal ID of the private offer if available.", alias="hubspotDealId")
     internal_note: Optional[StrictStr] = Field(default=None, description="The Internal note of the private offer. It is only visible to the seller/ISV, not visible to the buyer. Up to 1000 characters.", alias="internalNote")
     is_agreement_based_offer: Optional[StrictBool] = Field(default=None, description="Applicable for AWS Marketplace only, If this offer is agreement based offer.", alias="isAgreementBasedOffer")
+    is_azure_upgrade_offer: Optional[StrictBool] = Field(default=None, description="If this offer is an Azure upgrade offer.", alias="isAzureUpgradeOffer")
     is_gross_revenue_full_sync: Optional[StrictBool] = Field(default=None, description="Whether the gross revenue is fully synced for the entitlement.", alias="isGrossRevenueFullSync")
     is_renewal_offer: Optional[StrictBool] = Field(default=None, description="Applicable for AWS Marketplace only. If this offer is renewal offer of existing agreement. The existing agreement can be within or outside AWS Marketplace. AWS may audit and verify your offer is a renewal. If AWS is unable to verify your offer, then AWS may revoke the offer and entitlements from your customer.", alias="isRenewalOffer")
     is_replacement_offer: Optional[StrictBool] = Field(default=None, description="If this offer is a GCP replacement offer. Applicable for GCP Marketplace replacement offer only.", alias="isReplacementOffer")
@@ -63,7 +66,7 @@ class WorkloadMetaInfo(BaseModel):
     salesforce_opportunity_id: Optional[StrictStr] = Field(default=None, description="The Salesforce opportunity ID of the private offer if available.", alias="salesforceOpportunityId")
     test_usage_metering_end_time: Optional[datetime] = Field(default=None, description="The test usage metering end time. It is used for test usage metering only. Required if EnableTestUsageMetering is true.", alias="testUsageMeteringEndTime")
     update_message: Optional[StrictStr] = Field(default=None, description="The message to notify when the offer is updated.", alias="updateMessage")
-    __properties: ClassVar[List[str]] = ["aceApnCrmUniqueIdentifier", "awsSaasProductDimensions", "baseAgreementId", "buyerIds", "contacts", "cppoInOfferId", "cppoOfferId", "cppoOutOfferId", "customMetaInfo", "enableTestUsageMetering", "entitlementCancellationSchedule", "errorMessages", "hubspotDealId", "internalNote", "isAgreementBasedOffer", "isGrossRevenueFullSync", "isRenewalOffer", "isReplacementOffer", "lastModifiedBy", "notifications", "offerAcceptDate", "prettifiedErrorMessages", "renewalOfferType", "replacedOfferEndTime", "replacedOfferResourceName", "salesforceEntitlementURL", "salesforceOpportunityId", "testUsageMeteringEndTime", "updateMessage"]
+    __properties: ClassVar[List[str]] = ["aceApnCrmUniqueIdentifier", "awsSaasProductDimensions", "azureOriginalOfferIDForUpgrade", "baseAgreementId", "buyerIds", "chargebeeSubscriptionID", "contacts", "cppoInOfferId", "cppoOfferId", "cppoOutOfferId", "customMetaInfo", "enableTestUsageMetering", "entitlementCancellationSchedule", "errorMessages", "hubspotDealId", "internalNote", "isAgreementBasedOffer", "isAzureUpgradeOffer", "isGrossRevenueFullSync", "isRenewalOffer", "isReplacementOffer", "lastModifiedBy", "notifications", "offerAcceptDate", "prettifiedErrorMessages", "renewalOfferType", "replacedOfferEndTime", "replacedOfferResourceName", "salesforceEntitlementURL", "salesforceOpportunityId", "testUsageMeteringEndTime", "updateMessage"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -145,8 +148,10 @@ class WorkloadMetaInfo(BaseModel):
         _obj = cls.model_validate({
             "aceApnCrmUniqueIdentifier": obj.get("aceApnCrmUniqueIdentifier"),
             "awsSaasProductDimensions": [AwsProductDimension.from_dict(_item) for _item in obj["awsSaasProductDimensions"]] if obj.get("awsSaasProductDimensions") is not None else None,
+            "azureOriginalOfferIDForUpgrade": obj.get("azureOriginalOfferIDForUpgrade"),
             "baseAgreementId": obj.get("baseAgreementId"),
             "buyerIds": obj.get("buyerIds"),
+            "chargebeeSubscriptionID": obj.get("chargebeeSubscriptionID"),
             "contacts": [Contact.from_dict(_item) for _item in obj["contacts"]] if obj.get("contacts") is not None else None,
             "cppoInOfferId": obj.get("cppoInOfferId"),
             "cppoOfferId": obj.get("cppoOfferId"),
@@ -158,6 +163,7 @@ class WorkloadMetaInfo(BaseModel):
             "hubspotDealId": obj.get("hubspotDealId"),
             "internalNote": obj.get("internalNote"),
             "isAgreementBasedOffer": obj.get("isAgreementBasedOffer"),
+            "isAzureUpgradeOffer": obj.get("isAzureUpgradeOffer"),
             "isGrossRevenueFullSync": obj.get("isGrossRevenueFullSync"),
             "isRenewalOffer": obj.get("isRenewalOffer"),
             "isReplacementOffer": obj.get("isReplacementOffer"),

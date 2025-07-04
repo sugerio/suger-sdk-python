@@ -1,6 +1,6 @@
 # suger_sdk_python.EntitlementApi
 
-All URIs are relative to *http://https://api.suger.cloud*
+All URIs are relative to *https://api.suger.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -41,10 +41,10 @@ from suger_sdk_python.models.add_entitlement_credit_response import AddEntitleme
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -127,10 +127,10 @@ from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -212,10 +212,10 @@ from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -296,10 +296,10 @@ from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -381,10 +381,10 @@ from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -463,10 +463,10 @@ import suger_sdk_python
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -548,10 +548,10 @@ from suger_sdk_python.models.divide_entitlement_commit_params import DivideEntit
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -633,10 +633,10 @@ from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -717,10 +717,10 @@ from suger_sdk_python.models.workload_entitlement_term import WorkloadEntitlemen
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -802,10 +802,10 @@ from suger_sdk_python.models.workload_entitlement_term import WorkloadEntitlemen
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -869,7 +869,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_entitlements**
-> List[WorkloadEntitlement] list_entitlements(org_id, partner=partner, product_id=product_id, offer_id=offer_id, buyer_id=buyer_id, external_id=external_id, buyer_account_id=buyer_account_id, limit=limit, offset=offset)
+> List[WorkloadEntitlement] list_entitlements(org_id, partner=partner, product_id=product_id, offer_id=offer_id, buyer_id=buyer_id, external_id=external_id, buyer_account_id=buyer_account_id, contact_id=contact_id, limit=limit, offset=offset)
 
 list entitlements
 
@@ -885,10 +885,10 @@ from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -913,12 +913,13 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     buyer_id = 'buyer_id_example' # str | filter by buyerId (optional)
     external_id = 'external_id_example' # str | filter by externalId (optional)
     buyer_account_id = 'buyer_account_id_example' # str | filter by buyerAccountId is currently supported only for AWS (optional)
+    contact_id = 'contact_id_example' # str | filter by contactId (optional)
     limit = 56 # int | List pagination size, default 1000, max value is 1000 (optional)
     offset = 56 # int | List pagination offset, default 0 (optional)
 
     try:
         # list entitlements
-        api_response = api_instance.list_entitlements(org_id, partner=partner, product_id=product_id, offer_id=offer_id, buyer_id=buyer_id, external_id=external_id, buyer_account_id=buyer_account_id, limit=limit, offset=offset)
+        api_response = api_instance.list_entitlements(org_id, partner=partner, product_id=product_id, offer_id=offer_id, buyer_id=buyer_id, external_id=external_id, buyer_account_id=buyer_account_id, contact_id=contact_id, limit=limit, offset=offset)
         print("The response of EntitlementApi->list_entitlements:\n")
         pprint(api_response)
     except Exception as e:
@@ -939,6 +940,7 @@ Name | Type | Description  | Notes
  **buyer_id** | **str**| filter by buyerId | [optional] 
  **external_id** | **str**| filter by externalId | [optional] 
  **buyer_account_id** | **str**| filter by buyerAccountId is currently supported only for AWS | [optional] 
+ **contact_id** | **str**| filter by contactId | [optional] 
  **limit** | **int**| List pagination size, default 1000, max value is 1000 | [optional] 
  **offset** | **int**| List pagination offset, default 0 | [optional] 
 
@@ -983,10 +985,10 @@ from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1068,10 +1070,10 @@ from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1151,10 +1153,10 @@ from suger_sdk_python.models.workload_meta_info import WorkloadMetaInfo
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1237,10 +1239,10 @@ from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1323,10 +1325,10 @@ from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1408,10 +1410,10 @@ from suger_sdk_python.models.workload_entitlement import WorkloadEntitlement
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters

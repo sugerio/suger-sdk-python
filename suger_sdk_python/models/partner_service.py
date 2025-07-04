@@ -29,6 +29,7 @@ class PartnerService(str, Enum):
     """
     PartnerService_DEFAULT = 'DEFAULT'
     PartnerService_ACE = 'ACE'
+    PartnerService_ANTHROPIC = 'ANTHROPIC'
     PartnerService_BIGQUERY = 'BIGQUERY'
     PartnerService_BILLING = 'BILLING'
     PartnerService_CHATBOT = 'CHATBOT'
@@ -38,6 +39,7 @@ class PartnerService(str, Enum):
     PartnerService_DATABASE = 'DATABASE'
     PartnerService_DRIVE = 'DRIVE'
     PartnerService_EMAIL = 'EMAIL'
+    PartnerService_GEMINI = 'GEMINI'
     PartnerService_MARKETPLACE = 'MARKETPLACE'
     PartnerService_NETSUITE = 'NETSUITE'
     PartnerService_PAYMENT = 'PAYMENT'

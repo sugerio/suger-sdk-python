@@ -427,6 +427,7 @@ docs/PrivateOfferDiscountType.md
 docs/ProductApi.md
 docs/ProductInfo.md
 docs/ReportApi.md
+docs/RevenueBillingModel.md
 docs/RevenueChannel.md
 docs/RevenueRecord.md
 docs/RevenueRecordDetail.md
@@ -479,6 +480,7 @@ docs/SupportTicketFrame.md
 docs/SupportTicketImage.md
 docs/SupportTicketPriority.md
 docs/SupportTicketStatus.md
+docs/SupportTicketTaskType.md
 docs/SupportTicketUser.md
 docs/TimeUnit.md
 docs/TrackEvent.md
@@ -947,6 +949,7 @@ suger_sdk_python/models/price_model_volume.py
 suger_sdk_python/models/price_model_volume_config.py
 suger_sdk_python/models/private_offer_discount_type.py
 suger_sdk_python/models/product_info.py
+suger_sdk_python/models/revenue_billing_model.py
 suger_sdk_python/models/revenue_channel.py
 suger_sdk_python/models/revenue_record.py
 suger_sdk_python/models/revenue_record_detail.py
@@ -998,6 +1001,7 @@ suger_sdk_python/models/support_ticket_frame.py
 suger_sdk_python/models/support_ticket_image.py
 suger_sdk_python/models/support_ticket_priority.py
 suger_sdk_python/models/support_ticket_status.py
+suger_sdk_python/models/support_ticket_task_type.py
 suger_sdk_python/models/support_ticket_user.py
 suger_sdk_python/models/time_unit.py
 suger_sdk_python/models/track_event.py
@@ -1033,4 +1037,6 @@ suger_sdk_python/py.typed
 suger_sdk_python/rest.py
 test-requirements.txt
 test/__init__.py
+test/test_revenue_billing_model.py
+test/test_support_ticket_task_type.py
 tox.ini

@@ -3016,6 +3016,7 @@ class EntitlementApi:
         buyer_id: Annotated[Optional[StrictStr], Field(description="filter by buyerId")] = None,
         external_id: Annotated[Optional[StrictStr], Field(description="filter by externalId")] = None,
         buyer_account_id: Annotated[Optional[StrictStr], Field(description="filter by buyerAccountId is currently supported only for AWS")] = None,
+        contact_id: Annotated[Optional[StrictStr], Field(description="filter by contactId")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
@@ -3049,6 +3050,8 @@ class EntitlementApi:
         :type external_id: str
         :param buyer_account_id: filter by buyerAccountId is currently supported only for AWS
         :type buyer_account_id: str
+        :param contact_id: filter by contactId
+        :type contact_id: str
         :param limit: List pagination size, default 1000, max value is 1000
         :type limit: int
         :param offset: List pagination offset, default 0
@@ -3083,6 +3086,7 @@ class EntitlementApi:
             buyer_id=buyer_id,
             external_id=external_id,
             buyer_account_id=buyer_account_id,
+            contact_id=contact_id,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -3117,6 +3121,7 @@ class EntitlementApi:
         buyer_id: Annotated[Optional[StrictStr], Field(description="filter by buyerId")] = None,
         external_id: Annotated[Optional[StrictStr], Field(description="filter by externalId")] = None,
         buyer_account_id: Annotated[Optional[StrictStr], Field(description="filter by buyerAccountId is currently supported only for AWS")] = None,
+        contact_id: Annotated[Optional[StrictStr], Field(description="filter by contactId")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
@@ -3150,6 +3155,8 @@ class EntitlementApi:
         :type external_id: str
         :param buyer_account_id: filter by buyerAccountId is currently supported only for AWS
         :type buyer_account_id: str
+        :param contact_id: filter by contactId
+        :type contact_id: str
         :param limit: List pagination size, default 1000, max value is 1000
         :type limit: int
         :param offset: List pagination offset, default 0
@@ -3184,6 +3191,7 @@ class EntitlementApi:
             buyer_id=buyer_id,
             external_id=external_id,
             buyer_account_id=buyer_account_id,
+            contact_id=contact_id,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -3218,6 +3226,7 @@ class EntitlementApi:
         buyer_id: Annotated[Optional[StrictStr], Field(description="filter by buyerId")] = None,
         external_id: Annotated[Optional[StrictStr], Field(description="filter by externalId")] = None,
         buyer_account_id: Annotated[Optional[StrictStr], Field(description="filter by buyerAccountId is currently supported only for AWS")] = None,
+        contact_id: Annotated[Optional[StrictStr], Field(description="filter by contactId")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
@@ -3251,6 +3260,8 @@ class EntitlementApi:
         :type external_id: str
         :param buyer_account_id: filter by buyerAccountId is currently supported only for AWS
         :type buyer_account_id: str
+        :param contact_id: filter by contactId
+        :type contact_id: str
         :param limit: List pagination size, default 1000, max value is 1000
         :type limit: int
         :param offset: List pagination offset, default 0
@@ -3285,6 +3296,7 @@ class EntitlementApi:
             buyer_id=buyer_id,
             external_id=external_id,
             buyer_account_id=buyer_account_id,
+            contact_id=contact_id,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -3314,6 +3326,7 @@ class EntitlementApi:
         buyer_id,
         external_id,
         buyer_account_id,
+        contact_id,
         limit,
         offset,
         _request_auth,
@@ -3363,6 +3376,10 @@ class EntitlementApi:
         if buyer_account_id is not None:
             
             _query_params.append(('buyerAccountId', buyer_account_id))
+            
+        if contact_id is not None:
+            
+            _query_params.append(('contactId', contact_id))
             
         if limit is not None:
             

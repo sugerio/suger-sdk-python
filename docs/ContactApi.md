@@ -1,6 +1,6 @@
 # suger_sdk_python.ContactApi
 
-All URIs are relative to *http://https://api.suger.cloud*
+All URIs are relative to *https://api.suger.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,10 +32,10 @@ from suger_sdk_python.models.identity_buyer import IdentityBuyer
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -116,10 +116,10 @@ import suger_sdk_python
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -201,10 +201,10 @@ from suger_sdk_python.models.identity_contact import IdentityContact
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -284,10 +284,10 @@ from suger_sdk_python.models.identity_contact import IdentityContact
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -367,10 +367,10 @@ from suger_sdk_python.models.identity_contact import IdentityContact
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -450,10 +450,10 @@ from suger_sdk_python.models.identity_contact import IdentityContact
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -534,10 +534,10 @@ import suger_sdk_python
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -618,10 +618,10 @@ import suger_sdk_python
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -691,7 +691,7 @@ Name | Type | Description  | Notes
 
 update contact
 
-update contact by the given organization and buyer id. The given name and information should be complete. Please note that this function does not support partial updates.
+Update the contact for the given organization and contact ID. This endpoint supports partial updates. Only the fields provided in the request body will be updated. To clear a field, provide it with an empty value (e.g., "" for name, or {} for info).
 
 ### Example
 
@@ -703,10 +703,10 @@ from suger_sdk_python.models.identity_contact import IdentityContact
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters

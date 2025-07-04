@@ -23,6 +23,8 @@
 
 * `NotificationEventAction_ARCHIVE` (value: `'ARCHIVE'`)
 
+* `NotificationEventAction_VOID` (value: `'VOID'`)
+
 * `NotificationEventAction_DISBURSE` (value: `'DISBURSE'`)
 
 * `NotificationEventAction_END_SOON` (value: `'END_SOON'`)
@@ -61,6 +63,8 @@
 
 * `NotificationEventAction_SIGN` (value: `'SIGN'`)
 
+* `NotificationEventAction_PENDING_PARTNER_ACTION` (value: `'PENDING_PARTNER_ACTION'`)
+
 * `NotificationEventAction_ROTATE_SECRET` (value: `'ROTATE_SECRET'`)
 
 * `NotificationEventAction_SUSPEND` (value: `'SUSPEND'`)
@@ -86,8 +90,6 @@
 * `NotificationEventAction_FAIL` (value: `'FAIL'`)
 
 * `NotificationEventAction_WEBHOOK` (value: `'WEBHOOK'`)
-
-* `NotificationEventAction_MARKETPLACE_CONTACT_EMAIL_UPDATE` (value: `'MARKETPLACE_CONTACT_EMAIL_UPDATE'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
