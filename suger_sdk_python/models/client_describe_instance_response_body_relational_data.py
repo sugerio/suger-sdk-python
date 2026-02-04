@@ -27,7 +27,7 @@ class ClientDescribeInstanceResponseBodyRelationalData(BaseModel):
     """
     ClientDescribeInstanceResponseBodyRelationalData
     """ # noqa: E501
-    service_status: Optional[StrictStr] = Field(default=None, alias="ServiceStatus")
+    service_status: Optional[StrictStr] = Field(default=None, description="example:  STARTED", alias="ServiceStatus")
     __properties: ClassVar[List[str]] = ["ServiceStatus"]
 
     model_config = ConfigDict(

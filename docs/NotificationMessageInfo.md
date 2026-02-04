@@ -6,10 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | [**NotificationEventAction**](NotificationEventAction.md) | The action of this notification message. | [optional] 
+**bcc_recipients** | **List[str]** |  | [optional] 
 **cc_recipients** | **List[str]** |  | [optional] 
 **custom_fields** | **Dict[str, object]** | All other fields | [optional] 
 **html_content** | **str** | The HTML content of the email. | [optional] 
-**rcc_recipients** | **List[str]** |  | [optional] 
 **standard_fields** | **Dict[str, object]** | The standard fields to render the email content. | [optional] 
 **subject** | **str** |  | [optional] 
 **text_content** | **str** | The text content of the email in case the recipient&#39;s email client does not support HTML. | [optional] 

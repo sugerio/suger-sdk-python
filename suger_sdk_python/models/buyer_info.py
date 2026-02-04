@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from suger_sdk_python.models.adyen_buyer import AdyenBuyer
 from suger_sdk_python.models.aws_account_identifier import AwsAccountIdentifier
 from suger_sdk_python.models.azure_ad_identifier import AzureADIdentifier
+from suger_sdk_python.models.company import Company
 from suger_sdk_python.models.company_info import CompanyInfo
 from suger_sdk_python.models.gcp_marketplace_user_account import GcpMarketplaceUserAccount
 from suger_sdk_python.models.payment_config import PaymentConfig
@@ -38,11 +39,16 @@ class BuyerInfo(BaseModel):
     adyen_buyer: Optional[AdyenBuyer] = Field(default=None, description="Buyer on Adyen", alias="adyenBuyer")
     aws_buyer: Optional[AwsAccountIdentifier] = Field(default=None, description="Buyer from AWS Marketplace", alias="awsBuyer")
     azure_buyer: Optional[AzureADIdentifier] = Field(default=None, description="Buyer from Azure Marketplace", alias="azureBuyer")
+    chargebee_customer_id: Optional[StrictStr] = Field(default=None, description="ChargebeeCustomerID is the chargebee customer ID for ther buyer if it is connected to a chargebee customer.", alias="chargebeeCustomerID")
     collectable_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount that the seller can collect. It excludes the marketplace commision fee.", alias="collectableAmount")
-    company_info: Optional[CompanyInfo] = Field(default=None, alias="companyInfo")
+    company_info: Optional[CompanyInfo] = Field(default=None, description="The buyer's company information synced from the cloud marketplaces.", alias="companyInfo")
+    cppo_in_offer_count: Optional[StrictInt] = Field(default=None, description="The number of CPPO_IN offers related to the buyer.", alias="cppoInOfferCount")
+    cppo_out_offer_count: Optional[StrictInt] = Field(default=None, description="The number of CPPO_OUT offers related to the buyer.", alias="cppoOutOfferCount")
     customer_id: Optional[StrictStr] = Field(default=None, description="customerID of buyer on seller's side", alias="customerId")
     disbursed_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount that has been disbursed to the seller account.", alias="disbursedAmount")
     email_address: Optional[StrictStr] = Field(default=None, description="The email address of the buyer. This was copied from the new client signup form.", alias="emailAddress")
+    enriched_company_info: Optional[Company] = Field(default=None, description="These fields are only used in the buyer detail api response. The enriched company information from 3rd party services.", alias="enrichedCompanyInfo")
+    entitlement_count: Optional[StrictInt] = Field(default=None, description="The number of entitlements related to the buyer.", alias="entitlementCount")
     fields: Optional[Dict[str, Any]] = Field(default=None, description="Fields to store key-value pairs of buyer information.")
     gcp_buyer: Optional[GcpMarketplaceUserAccount] = Field(default=None, description="Buyer from GCP Marketplace", alias="gcpBuyer")
     gross_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The gross amount that the buyer has committed to pay, including usage metered amount.", alias="grossAmount")
@@ -50,13 +56,15 @@ class BuyerInfo(BaseModel):
     lago_customer_id: Optional[StrictStr] = Field(default=None, description="The lgo customer ID for the buyer if it is connected to a lago customer.", alias="lagoCustomerId")
     last_modified_by: Optional[StrictStr] = Field(default=None, description="Last modifier user ID.", alias="lastModifiedBy")
     metronome_customer_id: Optional[StrictStr] = Field(default=None, description="The metronome customer ID for the buyer if it is connected to a metronome customer.", alias="metronomeCustomerId")
+    offer_count: Optional[StrictInt] = Field(default=None, description="The number of offers related to the buyer.", alias="offerCount")
     orb_customer_id: Optional[StrictStr] = Field(default=None, description="The orb customer ID for the buyer if it is connected to a orb customer.", alias="orbCustomerId")
     payment_config: Optional[PaymentConfig] = Field(default=None, description="Payment Config for billing.", alias="paymentConfig")
+    quickbooks_customer_id: Optional[StrictStr] = Field(default=None, description="The quickbooks customer ID for the buyer if it is connected to a quickbooks customer.", alias="quickbooksCustomerId")
     snowflake_buyer: Optional[SnowflakeMarketplaceBuyer] = Field(default=None, description="Buyer on Snowflake", alias="snowflakeBuyer")
     spa_url: Optional[StrictStr] = Field(default=None, description="Buyer SPA url, public page visited with jwt.", alias="spaUrl")
     stripe_buyer: Optional[StripeCustomer] = Field(default=None, description="Buyer as Customer on Stripe", alias="stripeBuyer")
     stripe_customer_id: Optional[StrictStr] = Field(default=None, description="The stripe customer ID for the buyer if it is connected to a stripe customer.", alias="stripeCustomerId")
-    __properties: ClassVar[List[str]] = ["adyenBuyer", "awsBuyer", "azureBuyer", "collectableAmount", "companyInfo", "customerId", "disbursedAmount", "emailAddress", "fields", "gcpBuyer", "grossAmount", "invoicedAmount", "lagoCustomerId", "lastModifiedBy", "metronomeCustomerId", "orbCustomerId", "paymentConfig", "snowflakeBuyer", "spaUrl", "stripeBuyer", "stripeCustomerId"]
+    __properties: ClassVar[List[str]] = ["adyenBuyer", "awsBuyer", "azureBuyer", "chargebeeCustomerID", "collectableAmount", "companyInfo", "cppoInOfferCount", "cppoOutOfferCount", "customerId", "disbursedAmount", "emailAddress", "enrichedCompanyInfo", "entitlementCount", "fields", "gcpBuyer", "grossAmount", "invoicedAmount", "lagoCustomerId", "lastModifiedBy", "metronomeCustomerId", "offerCount", "orbCustomerId", "paymentConfig", "quickbooksCustomerId", "snowflakeBuyer", "spaUrl", "stripeBuyer", "stripeCustomerId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -109,6 +117,9 @@ class BuyerInfo(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of company_info
         if self.company_info:
             _dict['companyInfo'] = self.company_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of enriched_company_info
+        if self.enriched_company_info:
+            _dict['enrichedCompanyInfo'] = self.enriched_company_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of gcp_buyer
         if self.gcp_buyer:
             _dict['gcpBuyer'] = self.gcp_buyer.to_dict()
@@ -136,11 +147,16 @@ class BuyerInfo(BaseModel):
             "adyenBuyer": AdyenBuyer.from_dict(obj["adyenBuyer"]) if obj.get("adyenBuyer") is not None else None,
             "awsBuyer": AwsAccountIdentifier.from_dict(obj["awsBuyer"]) if obj.get("awsBuyer") is not None else None,
             "azureBuyer": AzureADIdentifier.from_dict(obj["azureBuyer"]) if obj.get("azureBuyer") is not None else None,
+            "chargebeeCustomerID": obj.get("chargebeeCustomerID"),
             "collectableAmount": obj.get("collectableAmount"),
             "companyInfo": CompanyInfo.from_dict(obj["companyInfo"]) if obj.get("companyInfo") is not None else None,
+            "cppoInOfferCount": obj.get("cppoInOfferCount"),
+            "cppoOutOfferCount": obj.get("cppoOutOfferCount"),
             "customerId": obj.get("customerId"),
             "disbursedAmount": obj.get("disbursedAmount"),
             "emailAddress": obj.get("emailAddress"),
+            "enrichedCompanyInfo": Company.from_dict(obj["enrichedCompanyInfo"]) if obj.get("enrichedCompanyInfo") is not None else None,
+            "entitlementCount": obj.get("entitlementCount"),
             "fields": obj.get("fields"),
             "gcpBuyer": GcpMarketplaceUserAccount.from_dict(obj["gcpBuyer"]) if obj.get("gcpBuyer") is not None else None,
             "grossAmount": obj.get("grossAmount"),
@@ -148,8 +164,10 @@ class BuyerInfo(BaseModel):
             "lagoCustomerId": obj.get("lagoCustomerId"),
             "lastModifiedBy": obj.get("lastModifiedBy"),
             "metronomeCustomerId": obj.get("metronomeCustomerId"),
+            "offerCount": obj.get("offerCount"),
             "orbCustomerId": obj.get("orbCustomerId"),
             "paymentConfig": PaymentConfig.from_dict(obj["paymentConfig"]) if obj.get("paymentConfig") is not None else None,
+            "quickbooksCustomerId": obj.get("quickbooksCustomerId"),
             "snowflakeBuyer": SnowflakeMarketplaceBuyer.from_dict(obj["snowflakeBuyer"]) if obj.get("snowflakeBuyer") is not None else None,
             "spaUrl": obj.get("spaUrl"),
             "stripeBuyer": StripeCustomer.from_dict(obj["stripeBuyer"]) if obj.get("stripeBuyer") is not None else None,

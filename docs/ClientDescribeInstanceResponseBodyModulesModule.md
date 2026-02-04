@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **str** |  | [optional] 
-**id** | **str** |  | [optional] 
+**code** | **str** | example:  package_config | [optional] 
+**id** | **str** | example:  101*********026 | [optional] 
 **name** | **str** |  | [optional] 
 **properties** | [**ClientDescribeInstanceResponseBodyModulesModuleProperties**](ClientDescribeInstanceResponseBodyModulesModuleProperties.md) |  | [optional] 
 

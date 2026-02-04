@@ -23,6 +23,10 @@
 
 * `GcpMarketplacePrivateOfferState_OFFER_DRAFT` (value: `'OFFER_DRAFT'`)
 
+* `GcpMarketplacePrivateOfferState_PENDING_MARKETPLACE_APPROVAL` (value: `'PENDING_GOOGLE_APPROVAL'`)
+
+* `GcpMarketplacePrivateOfferState_OFFER_APPROVAL_FAILED` (value: `'OFFER_APPROVAL_FAILED'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

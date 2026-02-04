@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**chargebee_customer_id** | **str** | The Chargebee Customer ID of the buyer. If not provided, the Chargebee Customer ID will not be updated. | [optional] 
 **company_info** | [**CompanyInfo**](CompanyInfo.md) | Optional. CompanyInfo of the buyer. | [optional] 
 **customer_id** | **str** | The customer ID to recognize the cloud marketplace buyer in your internal system. This may be used for uploading CSV files for Batch Metering Usage | [optional] 
 **description** | **str** | The description of the buyer. If not provided, the description will not be updated. | [optional] 
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 **name** | **str** | The name of the buyer. If not provided, the name will not be updated. | [optional] 
 **orb_customer_id** | **str** | The Orb Customer ID of the buyer. If not provided, the Orb Customer ID will not be updated. | [optional] 
 **payment_config** | [**PaymentConfig**](PaymentConfig.md) | Optional. PaymentConfig of the buyer. The currency can&#39;t be updated. | [optional] 
+**quickbooks_customer_id** | **str** | The Quickbooks Customer ID of the buyer. If not provided, the Quickbooks Customer ID will not be updated. | [optional] 
 **stripe_customer_id** | **str** | The Stripe Customer ID of the buyer. If not provided, the Stripe Customer ID will not be updated. | [optional] 
 
 ## Example

@@ -42,8 +42,9 @@ class AwsProduct(BaseModel):
     support_information: Optional[AwsProductSupportInformation] = Field(default=None, alias="SupportInformation")
     versions: Optional[List[AwsProductVersion]] = Field(default=None, alias="Versions")
     data_feed_product_id: Optional[StrictStr] = Field(default=None, description="The product Id in AWS Marketplace Data Feed Service.", alias="dataFeedProductId")
+    listing_id: Optional[StrictStr] = Field(default=None, description="The listing ID in AWS Marketplace.", alias="listingId")
     product_id: Optional[StrictStr] = Field(default=None, description="AWS Product ID", alias="productId")
-    __properties: ClassVar[List[str]] = ["Description", "Dimensions", "PromotionalResources", "Repositories", "SignatureVerificationKeys", "SupportInformation", "Versions", "dataFeedProductId", "productId"]
+    __properties: ClassVar[List[str]] = ["Description", "Dimensions", "PromotionalResources", "Repositories", "SignatureVerificationKeys", "SupportInformation", "Versions", "dataFeedProductId", "listingId", "productId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -141,6 +142,7 @@ class AwsProduct(BaseModel):
             "SupportInformation": AwsProductSupportInformation.from_dict(obj["SupportInformation"]) if obj.get("SupportInformation") is not None else None,
             "Versions": [AwsProductVersion.from_dict(_item) for _item in obj["Versions"]] if obj.get("Versions") is not None else None,
             "dataFeedProductId": obj.get("dataFeedProductId"),
+            "listingId": obj.get("listingId"),
             "productId": obj.get("productId")
         })
         return _obj

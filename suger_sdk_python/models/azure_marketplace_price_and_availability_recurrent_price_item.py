@@ -32,10 +32,10 @@ class AzureMarketplacePriceAndAvailabilityRecurrentPriceItem(BaseModel):
     """ # noqa: E501
     billing_frequency: Optional[AzureMarketplaceTerm] = Field(default=None, description="billingFrequency defines the frequency of the billing for recurring price.", alias="billingFrequency")
     billing_term: Optional[AzureMarketplaceTerm] = Field(default=None, alias="billingTerm")
-    contract_duration: Optional[AzureMarketplaceTerm] = Field(default=None, description="contractDuration defines the duration of the contract, should always be “year” with value 1 or 2 or 3", alias="contractDuration")
+    contract_duration: Optional[AzureMarketplaceTerm] = Field(default=None, description="contractDuration defines the duration of the contract, should always be \"year\" with value 1 or 2 or 3", alias="contractDuration")
     flexible_schedule: Optional[AzureMarketplacePriceFlexibleSchedule] = Field(default=None, description="flexibleSchedule defines the payment installments for flexible billing.", alias="flexibleSchedule")
     payment_option: Optional[AzureMarketplaceTerm] = Field(default=None, alias="paymentOption")
-    price_per_payment_in_usd: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="pricePerPaymentInUsd")
+    price_per_payment_in_usd: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Using omitempty", alias="pricePerPaymentInUsd")
     prices: Optional[List[AzureMarketplacePrice]] = None
     __properties: ClassVar[List[str]] = ["billingFrequency", "billingTerm", "contractDuration", "flexibleSchedule", "paymentOption", "pricePerPaymentInUsd", "prices"]
 

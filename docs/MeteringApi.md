@@ -1,9 +1,11 @@
 # suger_sdk_python.MeteringApi
 
-All URIs are relative to *http://https://api.suger.cloud*
+All URIs are relative to *https://api.suger.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**aggregate_usage_record_groups**](MeteringApi.md#aggregate_usage_record_groups) | **GET** /org/{orgId}/usageRecordGroup/aggregate | aggregate usageRecordGroups
+[**aggregate_usage_record_reports**](MeteringApi.md#aggregate_usage_record_reports) | **GET** /org/{orgId}/usageRecordReport/aggregate | aggregate usageRecordReports
 [**batch_report_usage_record_groups**](MeteringApi.md#batch_report_usage_record_groups) | **POST** /org/{orgId}/batchCreateUsageRecordGroups | batch report usageRecordGroups
 [**batch_validate_usage_record_groups**](MeteringApi.md#batch_validate_usage_record_groups) | **POST** /org/{orgId}/batchValidateUsageRecordGroups | batch validate usageRecordGroups
 [**create_billable_metric**](MeteringApi.md#create_billable_metric) | **POST** /org/{orgId}/billableMetric | create billable metric
@@ -18,6 +20,184 @@ Method | HTTP request | Description
 [**update_billable_metric**](MeteringApi.md#update_billable_metric) | **PATCH** /org/{orgId}/billableMetric/{billableMetricId} | update billable metric
 [**update_usage_metering_config_info**](MeteringApi.md#update_usage_metering_config_info) | **PATCH** /org/{orgId}/usageMeteringConfigInfo | update usage metering config info
 
+
+# **aggregate_usage_record_groups**
+> List[UsageRecordAggregated] aggregate_usage_record_groups(org_id, partner, granularity, start_date, end_date)
+
+aggregate usageRecordGroups
+
+Aggregate usageRecordGroups by date and dimension key.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+
+```python
+import suger_sdk_python
+from suger_sdk_python.models.usage_record_aggregated import UsageRecordAggregated
+from suger_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.suger.cloud
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suger_sdk_python.Configuration(
+    host = "https://api.suger.cloud"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with suger_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suger_sdk_python.MeteringApi(api_client)
+    org_id = 'org_id_example' # str | Organization ID
+    partner = 'partner_example' # str | Cloud Partner
+    granularity = 'granularity_example' # str | Granularity
+    start_date = 'start_date_example' # str | Start date (UTC) in YYYY-MM-DD format
+    end_date = 'end_date_example' # str | End date (UTC) in YYYY-MM-DD format
+
+    try:
+        # aggregate usageRecordGroups
+        api_response = api_instance.aggregate_usage_record_groups(org_id, partner, granularity, start_date, end_date)
+        print("The response of MeteringApi->aggregate_usage_record_groups:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MeteringApi->aggregate_usage_record_groups: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| Organization ID | 
+ **partner** | **str**| Cloud Partner | 
+ **granularity** | **str**| Granularity | 
+ **start_date** | **str**| Start date (UTC) in YYYY-MM-DD format | 
+ **end_date** | **str**| End date (UTC) in YYYY-MM-DD format | 
+
+### Return type
+
+[**List[UsageRecordAggregated]**](UsageRecordAggregated.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of aggregated usage records |  -  |
+**400** | Bad request error |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **aggregate_usage_record_reports**
+> List[UsageRecordAggregated] aggregate_usage_record_reports(org_id, partner, granularity, start_date, end_date)
+
+aggregate usageRecordReports
+
+Aggregate usageRecordReports by date and dimension key.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+
+```python
+import suger_sdk_python
+from suger_sdk_python.models.usage_record_aggregated import UsageRecordAggregated
+from suger_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.suger.cloud
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suger_sdk_python.Configuration(
+    host = "https://api.suger.cloud"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with suger_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suger_sdk_python.MeteringApi(api_client)
+    org_id = 'org_id_example' # str | Organization ID
+    partner = 'partner_example' # str | Cloud Partner
+    granularity = 'granularity_example' # str | Granularity
+    start_date = 'start_date_example' # str | Start date (UTC) in YYYY-MM-DD format
+    end_date = 'end_date_example' # str | End date (UTC) in YYYY-MM-DD format
+
+    try:
+        # aggregate usageRecordReports
+        api_response = api_instance.aggregate_usage_record_reports(org_id, partner, granularity, start_date, end_date)
+        print("The response of MeteringApi->aggregate_usage_record_reports:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MeteringApi->aggregate_usage_record_reports: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| Organization ID | 
+ **partner** | **str**| Cloud Partner | 
+ **granularity** | **str**| Granularity | 
+ **start_date** | **str**| Start date (UTC) in YYYY-MM-DD format | 
+ **end_date** | **str**| End date (UTC) in YYYY-MM-DD format | 
+
+### Return type
+
+[**List[UsageRecordAggregated]**](UsageRecordAggregated.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of aggregated usage reports |  -  |
+**400** | Bad request error |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **batch_report_usage_record_groups**
 > List[MeteringUsageRecordGroup] batch_report_usage_record_groups(org_id, usage_record_groups)
@@ -37,10 +217,10 @@ from suger_sdk_python.models.new_usage_record_group import NewUsageRecordGroup
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -120,10 +300,10 @@ from suger_sdk_python.models.new_usage_record_group import NewUsageRecordGroup
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -203,10 +383,10 @@ from suger_sdk_python.models.billable_metric import BillableMetric
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -286,10 +466,10 @@ from suger_sdk_python.models.metering_usage_record_group import MeteringUsageRec
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -372,10 +552,10 @@ from suger_sdk_python.models.billable_metric import BillableMetric
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -456,10 +636,10 @@ from suger_sdk_python.models.usage_metering_config_info import UsageMeteringConf
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -537,10 +717,10 @@ from suger_sdk_python.models.billable_metric import BillableMetric
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -620,10 +800,10 @@ from suger_sdk_python.models.list_usage_record_groups_response import ListUsageR
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -721,10 +901,10 @@ from suger_sdk_python.models.list_usage_record_reports_response import ListUsage
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -817,10 +997,10 @@ from suger_sdk_python.models.metering_usage_record_group import MeteringUsageRec
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -902,10 +1082,10 @@ from suger_sdk_python.models.metering_usage_record_group import MeteringUsageRec
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -989,10 +1169,10 @@ from suger_sdk_python.models.update_billable_metric_params import UpdateBillable
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1075,10 +1255,10 @@ from suger_sdk_python.models.usage_metering_config_info import UsageMeteringConf
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters

@@ -28,11 +28,11 @@ class ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty(BaseMode
     """
     ClientDescribeInstanceResponseBodyModulesModulePropertiesProperty
     """ # noqa: E501
-    display_unit: Optional[StrictStr] = Field(default=None, alias="DisplayUnit")
-    key: Optional[StrictStr] = Field(default=None, alias="Key")
-    name: Optional[StrictStr] = Field(default=None, alias="Name")
+    display_unit: Optional[StrictStr] = Field(default=None, description="example:  12", alias="DisplayUnit")
+    key: Optional[StrictStr] = Field(default=None, description="example:  12", alias="Key")
+    name: Optional[StrictStr] = Field(default=None, description="example:  12", alias="Name")
     property_values: Optional[ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues] = Field(default=None, alias="PropertyValues")
-    show_type: Optional[StrictStr] = Field(default=None, alias="ShowType")
+    show_type: Optional[StrictStr] = Field(default=None, description="example:  12", alias="ShowType")
     __properties: ClassVar[List[str]] = ["DisplayUnit", "Key", "Name", "PropertyValues", "ShowType"]
 
     model_config = ConfigDict(

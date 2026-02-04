@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**constraints** | [**AwsMarketplaceCatalogPricingTermRateCardConstraints**](AwsMarketplaceCatalogPricingTermRateCardConstraints.md) | Defines constraints on how the term can be configured by acceptors. Applicable only to ConfigurableUpfrontPricingTerm. | [optional] 
+**constraints** | [**AwsMarketplacePurchaseConstraints**](AwsMarketplacePurchaseConstraints.md) | Defines constraints on how the term can be configured by acceptors. Applicable only to ConfigurableUpfrontPricingTerm. | [optional] 
 **rate_card** | [**List[AwsMarketplaceCatalogPricingTermRateCardItem]**](AwsMarketplaceCatalogPricingTermRateCardItem.md) |  | [optional] 
 **selector** | [**AwsMarketplaceCatalogPricingTermRateCardSelector**](AwsMarketplaceCatalogPricingTermRateCardSelector.md) | Selector is used to differentiate between the mutually exclusive rate cards in the same pricing term, to be selected by the buyer. Applicable only to ConfigurableUpfrontPricingTerm. | [optional] 
 

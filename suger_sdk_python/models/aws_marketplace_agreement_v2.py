@@ -35,12 +35,13 @@ class AwsMarketplaceAgreementV2(BaseModel):
     buyer_account_id: Optional[StrictStr] = Field(default=None, description="The AWS Account Id of the buyer in AWS Marketplace", alias="buyerAccountId")
     end_time: Optional[datetime] = Field(default=None, alias="endTime")
     offer_id: Optional[StrictStr] = Field(default=None, description="AWS Marketplace Offer Id", alias="offerId")
+    offer_set_id: Optional[StrictStr] = Field(default=None, description="AWS Marketplace OfferSet Id, available for agreements originated from an offer associated with an offerSet.", alias="offerSetId")
     product_id: Optional[StrictStr] = Field(default=None, description="AWS Marketplace Product Id", alias="productId")
     product_type: Optional[StrictStr] = Field(default=None, alias="productType")
     seller_account_id: Optional[StrictStr] = Field(default=None, description="The AWS Account Id of the seller in AWS Marketplace", alias="sellerAccountId")
     start_time: Optional[datetime] = Field(default=None, alias="startTime")
     status: Optional[AwsMarketplaceAgreementStatus] = None
-    __properties: ClassVar[List[str]] = ["acceptanceTime", "agreementId", "agreementType", "buyerAccountId", "endTime", "offerId", "productId", "productType", "sellerAccountId", "startTime", "status"]
+    __properties: ClassVar[List[str]] = ["acceptanceTime", "agreementId", "agreementType", "buyerAccountId", "endTime", "offerId", "offerSetId", "productId", "productType", "sellerAccountId", "startTime", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -99,6 +100,7 @@ class AwsMarketplaceAgreementV2(BaseModel):
             "buyerAccountId": obj.get("buyerAccountId"),
             "endTime": obj.get("endTime"),
             "offerId": obj.get("offerId"),
+            "offerSetId": obj.get("offerSetId"),
             "productId": obj.get("productId"),
             "productType": obj.get("productType"),
             "sellerAccountId": obj.get("sellerAccountId"),

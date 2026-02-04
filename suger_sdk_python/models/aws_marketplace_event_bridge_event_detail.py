@@ -21,8 +21,11 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from suger_sdk_python.models.aws_marketplace_event_bridge_event_account import AwsMarketplaceEventBridgeEventAccount
+from suger_sdk_python.models.aws_marketplace_event_bridge_event_agreement import AwsMarketplaceEventBridgeEventAgreement
+from suger_sdk_python.models.aws_marketplace_event_bridge_event_license import AwsMarketplaceEventBridgeEventLicense
 from suger_sdk_python.models.aws_marketplace_event_bridge_event_offer import AwsMarketplaceEventBridgeEventOffer
 from suger_sdk_python.models.aws_marketplace_event_bridge_event_product import AwsMarketplaceEventBridgeEventProduct
+from suger_sdk_python.models.aws_marketplace_event_bridge_event_resale_authorization import AwsMarketplaceEventBridgeEventResaleAuthorization
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,6 +33,8 @@ class AwsMarketplaceEventBridgeEventDetail(BaseModel):
     """
     AwsMarketplaceEventBridgeEventDetail
     """ # noqa: E501
+    acceptor: Optional[AwsMarketplaceEventBridgeEventAccount] = None
+    agreement: Optional[AwsMarketplaceEventBridgeEventAgreement] = None
     catalog: Optional[StrictStr] = None
     event_category: Optional[StrictStr] = Field(default=None, alias="eventCategory")
     event_id: Optional[StrictStr] = Field(default=None, alias="eventID")
@@ -37,16 +42,19 @@ class AwsMarketplaceEventBridgeEventDetail(BaseModel):
     event_source: Optional[StrictStr] = Field(default=None, alias="eventSource")
     event_type: Optional[StrictStr] = Field(default=None, alias="eventType")
     event_version: Optional[StrictStr] = Field(default=None, alias="eventVersion")
+    license: Optional[AwsMarketplaceEventBridgeEventLicense] = None
     management_event: Optional[StrictBool] = Field(default=None, alias="managementEvent")
     manufacturer: Optional[AwsMarketplaceEventBridgeEventAccount] = Field(default=None, description="The seller/ISV's AWS Account Id.")
     offer: Optional[AwsMarketplaceEventBridgeEventOffer] = None
     product: Optional[AwsMarketplaceEventBridgeEventProduct] = None
+    proposer: Optional[AwsMarketplaceEventBridgeEventAccount] = None
     request_id: Optional[StrictStr] = Field(default=None, alias="requestID")
     request_parameters: Optional[Dict[str, Any]] = Field(default=None, alias="requestParameters")
+    resale_authorization: Optional[AwsMarketplaceEventBridgeEventResaleAuthorization] = Field(default=None, alias="resaleAuthorization")
     response_elements: Optional[Dict[str, Any]] = Field(default=None, alias="responseElements")
     seller_of_record: Optional[AwsMarketplaceEventBridgeEventAccount] = Field(default=None, description="For private offer created by a channel partner, this is the channel partner's AWS Account Id. For private offer created by a seller/ISV, this is the seller/ISV's AWS Account Id.", alias="sellerOfRecord")
     targeted_buyer_account_ids: Optional[List[StrictStr]] = Field(default=None, alias="targetedBuyerAccountIds")
-    __properties: ClassVar[List[str]] = ["catalog", "eventCategory", "eventID", "eventName", "eventSource", "eventType", "eventVersion", "managementEvent", "manufacturer", "offer", "product", "requestID", "requestParameters", "responseElements", "sellerOfRecord", "targetedBuyerAccountIds"]
+    __properties: ClassVar[List[str]] = ["acceptor", "agreement", "catalog", "eventCategory", "eventID", "eventName", "eventSource", "eventType", "eventVersion", "license", "managementEvent", "manufacturer", "offer", "product", "proposer", "requestID", "requestParameters", "resaleAuthorization", "responseElements", "sellerOfRecord", "targetedBuyerAccountIds"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,6 +95,15 @@ class AwsMarketplaceEventBridgeEventDetail(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of acceptor
+        if self.acceptor:
+            _dict['acceptor'] = self.acceptor.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of agreement
+        if self.agreement:
+            _dict['agreement'] = self.agreement.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of license
+        if self.license:
+            _dict['license'] = self.license.to_dict()
         # override the default output from pydantic by calling `to_dict()` of manufacturer
         if self.manufacturer:
             _dict['manufacturer'] = self.manufacturer.to_dict()
@@ -96,6 +113,12 @@ class AwsMarketplaceEventBridgeEventDetail(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of product
         if self.product:
             _dict['product'] = self.product.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of proposer
+        if self.proposer:
+            _dict['proposer'] = self.proposer.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of resale_authorization
+        if self.resale_authorization:
+            _dict['resaleAuthorization'] = self.resale_authorization.to_dict()
         # override the default output from pydantic by calling `to_dict()` of seller_of_record
         if self.seller_of_record:
             _dict['sellerOfRecord'] = self.seller_of_record.to_dict()
@@ -111,6 +134,8 @@ class AwsMarketplaceEventBridgeEventDetail(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "acceptor": AwsMarketplaceEventBridgeEventAccount.from_dict(obj["acceptor"]) if obj.get("acceptor") is not None else None,
+            "agreement": AwsMarketplaceEventBridgeEventAgreement.from_dict(obj["agreement"]) if obj.get("agreement") is not None else None,
             "catalog": obj.get("catalog"),
             "eventCategory": obj.get("eventCategory"),
             "eventID": obj.get("eventID"),
@@ -118,12 +143,15 @@ class AwsMarketplaceEventBridgeEventDetail(BaseModel):
             "eventSource": obj.get("eventSource"),
             "eventType": obj.get("eventType"),
             "eventVersion": obj.get("eventVersion"),
+            "license": AwsMarketplaceEventBridgeEventLicense.from_dict(obj["license"]) if obj.get("license") is not None else None,
             "managementEvent": obj.get("managementEvent"),
             "manufacturer": AwsMarketplaceEventBridgeEventAccount.from_dict(obj["manufacturer"]) if obj.get("manufacturer") is not None else None,
             "offer": AwsMarketplaceEventBridgeEventOffer.from_dict(obj["offer"]) if obj.get("offer") is not None else None,
             "product": AwsMarketplaceEventBridgeEventProduct.from_dict(obj["product"]) if obj.get("product") is not None else None,
+            "proposer": AwsMarketplaceEventBridgeEventAccount.from_dict(obj["proposer"]) if obj.get("proposer") is not None else None,
             "requestID": obj.get("requestID"),
             "requestParameters": obj.get("requestParameters"),
+            "resaleAuthorization": AwsMarketplaceEventBridgeEventResaleAuthorization.from_dict(obj["resaleAuthorization"]) if obj.get("resaleAuthorization") is not None else None,
             "responseElements": obj.get("responseElements"),
             "sellerOfRecord": AwsMarketplaceEventBridgeEventAccount.from_dict(obj["sellerOfRecord"]) if obj.get("sellerOfRecord") is not None else None,
             "targetedBuyerAccountIds": obj.get("targetedBuyerAccountIds")

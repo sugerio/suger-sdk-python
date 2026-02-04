@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **next_offset** | **int** | The next offset to use in the next request to get the next page of notification messages. If this field is null, there are no more notification messages to get. | [optional] 
-**notification_messages** | [**List[NotificationMessage]**](NotificationMessage.md) |  | [optional] 
+**notification_messages** | [**List[GithubComSugerioMarketplaceServicePkgOrmNotificationMessage]**](GithubComSugerioMarketplaceServicePkgOrmNotificationMessage.md) |  | [optional] 
 **total_count** | **int** | The total number of notification messages. Only available when the request is made with the first offset &#x3D; 0. | [optional] 
 
 ## Example

@@ -9,6 +9,8 @@
 
 * `Partner_ALIBABA` (value: `'ALIBABA'`)
 
+* `Partner_ANTHROPIC` (value: `'ANTHROPIC'`)
+
 * `Partner_AWS` (value: `'AWS'`)
 
 * `Partner_AWS_CHINA` (value: `'AWS_CHINA'`)
@@ -37,6 +39,8 @@
 
 * `Partner_MICROSOFT` (value: `'MICROSOFT'`)
 
+* `Partner_OPENAI` (value: `'OPENAI'`)
+
 * `Partner_ORACLE` (value: `'ORACLE'`)
 
 * `Partner_ORB` (value: `'ORB'`)
@@ -52,6 +56,8 @@
 * `Partner_STRIPE` (value: `'STRIPE'`)
 
 * `Partner_ZOHO` (value: `'ZOHO'`)
+
+* `Partner_OAUTH2` (value: `'OAUTH2'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

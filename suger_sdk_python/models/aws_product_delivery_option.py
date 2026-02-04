@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from suger_sdk_python.models.aws_product_delivery_option_api_endpoint import AwsProductDeliveryOptionApiEndpoint
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,15 +29,20 @@ class AwsProductDeliveryOption(BaseModel):
     AwsProductDeliveryOption
     """ # noqa: E501
     ami_alias: Optional[StrictStr] = Field(default=None, description="Exclusive Fields For AWS AMI Product", alias="AmiAlias")
+    api_type: Optional[StrictStr] = Field(default=None, alias="ApiType")
+    compatible_services: Optional[List[StrictStr]] = Field(default=None, alias="CompatibleServices")
+    endpoints: Optional[List[AwsProductDeliveryOptionApiEndpoint]] = Field(default=None, alias="Endpoints")
     fulfillment_url: Optional[StrictStr] = Field(default=None, description="Exclusive Fields For AWS SaaS Product", alias="FulfillmentUrl")
     id: Optional[StrictStr] = Field(default=None, alias="Id")
+    quick_launch_enabled: Optional[StrictBool] = Field(default=None, alias="QuickLaunchEnabled")
     recommendations: Optional[Dict[str, Any]] = Field(default=None, alias="Recommendations")
     short_description: Optional[StrictStr] = Field(default=None, alias="ShortDescription")
     source_id: Optional[StrictStr] = Field(default=None, alias="SourceId")
     title: Optional[StrictStr] = Field(default=None, description="Exclusive Fields For AWS Container Product", alias="Title")
     type: Optional[StrictStr] = Field(default=None, alias="Type")
+    usage_instructions: Optional[StrictStr] = Field(default=None, description="Exclusive Fields For SaaS AI Product", alias="UsageInstructions")
     visibility: Optional[StrictStr] = Field(default=None, alias="Visibility")
-    __properties: ClassVar[List[str]] = ["AmiAlias", "FulfillmentUrl", "Id", "Recommendations", "ShortDescription", "SourceId", "Title", "Type", "Visibility"]
+    __properties: ClassVar[List[str]] = ["AmiAlias", "ApiType", "CompatibleServices", "Endpoints", "FulfillmentUrl", "Id", "QuickLaunchEnabled", "Recommendations", "ShortDescription", "SourceId", "Title", "Type", "UsageInstructions", "Visibility"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -77,6 +83,13 @@ class AwsProductDeliveryOption(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in endpoints (list)
+        _items = []
+        if self.endpoints:
+            for _item_endpoints in self.endpoints:
+                if _item_endpoints:
+                    _items.append(_item_endpoints.to_dict())
+            _dict['Endpoints'] = _items
         return _dict
 
     @classmethod
@@ -90,13 +103,18 @@ class AwsProductDeliveryOption(BaseModel):
 
         _obj = cls.model_validate({
             "AmiAlias": obj.get("AmiAlias"),
+            "ApiType": obj.get("ApiType"),
+            "CompatibleServices": obj.get("CompatibleServices"),
+            "Endpoints": [AwsProductDeliveryOptionApiEndpoint.from_dict(_item) for _item in obj["Endpoints"]] if obj.get("Endpoints") is not None else None,
             "FulfillmentUrl": obj.get("FulfillmentUrl"),
             "Id": obj.get("Id"),
+            "QuickLaunchEnabled": obj.get("QuickLaunchEnabled"),
             "Recommendations": obj.get("Recommendations"),
             "ShortDescription": obj.get("ShortDescription"),
             "SourceId": obj.get("SourceId"),
             "Title": obj.get("Title"),
             "Type": obj.get("Type"),
+            "UsageInstructions": obj.get("UsageInstructions"),
             "Visibility": obj.get("Visibility")
         })
         return _obj

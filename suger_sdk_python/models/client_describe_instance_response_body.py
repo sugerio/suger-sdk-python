@@ -29,27 +29,29 @@ class ClientDescribeInstanceResponseBody(BaseModel):
     """
     ClientDescribeInstanceResponseBody
     """ # noqa: E501
-    app_json: Optional[StrictStr] = Field(default=None, alias="AppJson")
+    active_address: Optional[StrictStr] = Field(default=None, alias="ActiveAddress")
+    app_json: Optional[StrictStr] = Field(default=None, description="example:  {\"frontEndUrl\":\"https://****.aliyundoc.com\",\"password\":\"Sjtv***\",\"adminUrl\":\"https://****.aliyundoc.com\",\"username\":\"aliyun***\"}", alias="AppJson")
     auto_renewal: Optional[StrictStr] = Field(default=None, alias="AutoRenewal")
-    began_on: Optional[StrictInt] = Field(default=None, alias="BeganOn")
-    component_json: Optional[StrictStr] = Field(default=None, alias="ComponentJson")
-    constraints: Optional[StrictStr] = Field(default=None, alias="Constraints")
-    created_on: Optional[StrictInt] = Field(default=None, alias="CreatedOn")
-    end_on: Optional[StrictInt] = Field(default=None, alias="EndOn")
+    began_on: Optional[StrictInt] = Field(default=None, description="example:  1570634021000", alias="BeganOn")
+    component_json: Optional[StrictStr] = Field(default=None, description="example:  {\"package_version\":\"yuncode000111\"}", alias="ComponentJson")
+    constraints: Optional[StrictStr] = Field(default=None, description="example:  {}", alias="Constraints")
+    created_on: Optional[StrictInt] = Field(default=None, description="example:  1570634018000", alias="CreatedOn")
+    end_on: Optional[StrictInt] = Field(default=None, description="example:  1602259200000", alias="EndOn")
     extend_json: Optional[StrictStr] = Field(default=None, alias="ExtendJson")
-    host_json: Optional[StrictStr] = Field(default=None, alias="HostJson")
-    instance_id: Optional[StrictInt] = Field(default=None, alias="InstanceId")
-    is_trial: Optional[StrictBool] = Field(default=None, alias="IsTrial")
+    host_json: Optional[StrictStr] = Field(default=None, description="example:  {\"password\":\"***\",\"ip\":\"118.31.***.41\",\"innerIp\":\"118.31.***.41\",\"region\":\"\",\"username\":\"***\",\"beianInfo\":\"\"}", alias="HostJson")
+    instance_id: Optional[StrictInt] = Field(default=None, description="example:  1551111111", alias="InstanceId")
+    is_trial: Optional[StrictBool] = Field(default=None, description="example:  true", alias="IsTrial")
+    license_code: Optional[StrictStr] = Field(default=None, alias="LicenseCode")
     modules: Optional[ClientDescribeInstanceResponseBodyModules] = Field(default=None, alias="Modules")
-    order_id: Optional[StrictInt] = Field(default=None, alias="OrderId")
-    product_code: Optional[StrictStr] = Field(default=None, alias="ProductCode")
+    order_id: Optional[StrictInt] = Field(default=None, description="example:  204211111111111", alias="OrderId")
+    product_code: Optional[StrictStr] = Field(default=None, description="example:  cmgj00**11", alias="ProductCode")
     product_name: Optional[StrictStr] = Field(default=None, alias="ProductName")
-    product_sku_code: Optional[StrictStr] = Field(default=None, alias="ProductSkuCode")
-    product_type: Optional[StrictStr] = Field(default=None, alias="ProductType")
+    product_sku_code: Optional[StrictStr] = Field(default=None, description="example:  cmgj00**11-prepay", alias="ProductSkuCode")
+    product_type: Optional[StrictStr] = Field(default=None, description="example:  APP", alias="ProductType")
     relational_data: Optional[ClientDescribeInstanceResponseBodyRelationalData] = Field(default=None, alias="RelationalData")
-    status: Optional[StrictStr] = Field(default=None, alias="Status")
+    status: Optional[StrictStr] = Field(default=None, description="example:  OPENED", alias="Status")
     supplier_name: Optional[StrictStr] = Field(default=None, alias="SupplierName")
-    __properties: ClassVar[List[str]] = ["AppJson", "AutoRenewal", "BeganOn", "ComponentJson", "Constraints", "CreatedOn", "EndOn", "ExtendJson", "HostJson", "InstanceId", "IsTrial", "Modules", "OrderId", "ProductCode", "ProductName", "ProductSkuCode", "ProductType", "RelationalData", "Status", "SupplierName"]
+    __properties: ClassVar[List[str]] = ["ActiveAddress", "AppJson", "AutoRenewal", "BeganOn", "ComponentJson", "Constraints", "CreatedOn", "EndOn", "ExtendJson", "HostJson", "InstanceId", "IsTrial", "LicenseCode", "Modules", "OrderId", "ProductCode", "ProductName", "ProductSkuCode", "ProductType", "RelationalData", "Status", "SupplierName"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -108,6 +110,7 @@ class ClientDescribeInstanceResponseBody(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "ActiveAddress": obj.get("ActiveAddress"),
             "AppJson": obj.get("AppJson"),
             "AutoRenewal": obj.get("AutoRenewal"),
             "BeganOn": obj.get("BeganOn"),
@@ -119,6 +122,7 @@ class ClientDescribeInstanceResponseBody(BaseModel):
             "HostJson": obj.get("HostJson"),
             "InstanceId": obj.get("InstanceId"),
             "IsTrial": obj.get("IsTrial"),
+            "LicenseCode": obj.get("LicenseCode"),
             "Modules": ClientDescribeInstanceResponseBodyModules.from_dict(obj["Modules"]) if obj.get("Modules") is not None else None,
             "OrderId": obj.get("OrderId"),
             "ProductCode": obj.get("ProductCode"),

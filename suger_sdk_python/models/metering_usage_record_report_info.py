@@ -24,12 +24,15 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from suger_sdk_python.models.aggregated_metering_usage_record import AggregatedMeteringUsageRecord
 from suger_sdk_python.models.aws_marketplace_metering_batch_meter_usage_input import AwsMarketplaceMeteringBatchMeterUsageInput
 from suger_sdk_python.models.azure_marketplace_metering_batch_usage_event import AzureMarketplaceMeteringBatchUsageEvent
-from suger_sdk_python.models.client_push_metering_data_request import ClientPushMeteringDataRequest
-from suger_sdk_python.models.client_push_metering_data_response_body import ClientPushMeteringDataResponseBody
 from suger_sdk_python.models.gcp_marketplace_metering_operation import GcpMarketplaceMeteringOperation
+from suger_sdk_python.models.github_com_alibabacloud_go_market20151101_v3_client_push_metering_data_request import GithubComAlibabacloudGoMarket20151101V3ClientPushMeteringDataRequest
+from suger_sdk_python.models.github_com_alibabacloud_go_market20151101_v3_client_push_metering_data_response_body import GithubComAlibabacloudGoMarket20151101V3ClientPushMeteringDataResponseBody
+from suger_sdk_python.models.github_com_alibabacloud_go_marketplaceintl20221230_client_push_metering_data_request import GithubComAlibabacloudGoMarketplaceintl20221230ClientPushMeteringDataRequest
+from suger_sdk_python.models.github_com_alibabacloud_go_marketplaceintl20221230_client_push_metering_data_response_body import GithubComAlibabacloudGoMarketplaceintl20221230ClientPushMeteringDataResponseBody
+from suger_sdk_python.models.github_com_aws_aws_sdk_go_v2_service_marketplacemetering_batch_meter_usage_output import GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringBatchMeterUsageOutput
 from suger_sdk_python.models.github_com_sugerio_marketplace_service_third_party_azure_sdk_marketplacemeteringv1_batch_usage_event_ok_response import GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse
-from suger_sdk_python.models.marketplacemetering_batch_meter_usage_output import MarketplacemeteringBatchMeterUsageOutput
 from suger_sdk_python.models.servicecontrol_report_response import ServicecontrolReportResponse
+from suger_sdk_python.models.usage_allocation import UsageAllocation
 from suger_sdk_python.models.usage_record_report_status import UsageRecordReportStatus
 from typing import Optional, Set
 from typing_extensions import Self
@@ -39,10 +42,13 @@ class MeteringUsageRecordReportInfo(BaseModel):
     MeteringUsageRecordReportInfo
     """ # noqa: E501
     aggregated_billable_records: Optional[List[AggregatedMeteringUsageRecord]] = Field(default=None, description="The aggregated billable records from the usage metering API v2.", alias="aggregatedBillableRecords")
-    alibaba_metering_request: Optional[ClientPushMeteringDataRequest] = Field(default=None, description="The raw request to call Alibaba metering service.", alias="alibabaMeteringRequest")
-    alibaba_metering_response: Optional[ClientPushMeteringDataResponseBody] = Field(default=None, description="The raw response from Alibaba metering service.", alias="alibabaMeteringResponse")
+    aggregated_usage_allocations: Optional[Dict[str, List[UsageAllocation]]] = Field(default=None, description="The aggregated usage allocations", alias="aggregatedUsageAllocations")
+    alibaba_international_metering_request: Optional[GithubComAlibabacloudGoMarketplaceintl20221230ClientPushMeteringDataRequest] = Field(default=None, description="The raw request to call Alibaba International metering service.", alias="alibabaInternationalMeteringRequest")
+    alibaba_international_metering_response: Optional[GithubComAlibabacloudGoMarketplaceintl20221230ClientPushMeteringDataResponseBody] = Field(default=None, description="The raw response from Alibaba International metering service.", alias="alibabaInternationalMeteringResponse")
+    alibaba_metering_request: Optional[GithubComAlibabacloudGoMarket20151101V3ClientPushMeteringDataRequest] = Field(default=None, description="The raw request to call Alibaba metering service.", alias="alibabaMeteringRequest")
+    alibaba_metering_response: Optional[GithubComAlibabacloudGoMarket20151101V3ClientPushMeteringDataResponseBody] = Field(default=None, description="The raw response from Alibaba metering service.", alias="alibabaMeteringResponse")
     aws_metering_request: Optional[AwsMarketplaceMeteringBatchMeterUsageInput] = Field(default=None, description="The raw request to call AWS metering service.", alias="awsMeteringRequest")
-    aws_metering_response: Optional[MarketplacemeteringBatchMeterUsageOutput] = Field(default=None, description="The raw response from AWS metering service.", alias="awsMeteringResponse")
+    aws_metering_response: Optional[GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringBatchMeterUsageOutput] = Field(default=None, description="The raw response from AWS metering service.", alias="awsMeteringResponse")
     azure_metering_request: Optional[AzureMarketplaceMeteringBatchUsageEvent] = Field(default=None, description="The raw request to call Azure metering service.", alias="azureMeteringRequest")
     azure_metering_response: Optional[GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse] = Field(default=None, description="The raw response from Azure metering service.", alias="azureMeteringResponse")
     commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount of the commit if applicable.", alias="commitAmount")
@@ -68,7 +74,7 @@ class MeteringUsageRecordReportInfo(BaseModel):
     used_commit_amount_increment: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount of the used commit increment in this usage record report if applicable.", alias="usedCommitAmountIncrement")
     used_credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount of the used credit before this usage record report if applicable.", alias="usedCreditAmount")
     used_credit_amount_increment: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount of the used credit increment in this usage record report if applicable.", alias="usedCreditAmountIncrement")
-    __properties: ClassVar[List[str]] = ["aggregatedBillableRecords", "alibabaMeteringRequest", "alibabaMeteringResponse", "awsMeteringRequest", "awsMeteringResponse", "azureMeteringRequest", "azureMeteringResponse", "commitAmount", "creditAmount", "creditRecords", "decimalParts", "dimensionCategories", "dimensionUnitListPrice", "dimensionUnitPrice", "endTime", "gcpMeteringRequest", "gcpMeteringResponse", "includedRecords", "message", "newDecimalParts", "partner", "recordsToReportBeforeAdjustmentAtListPrice", "reportedRecords", "startTime", "status", "usageRecordGroupIds", "usedCommitAmount", "usedCommitAmountIncrement", "usedCreditAmount", "usedCreditAmountIncrement"]
+    __properties: ClassVar[List[str]] = ["aggregatedBillableRecords", "aggregatedUsageAllocations", "alibabaInternationalMeteringRequest", "alibabaInternationalMeteringResponse", "alibabaMeteringRequest", "alibabaMeteringResponse", "awsMeteringRequest", "awsMeteringResponse", "azureMeteringRequest", "azureMeteringResponse", "commitAmount", "creditAmount", "creditRecords", "decimalParts", "dimensionCategories", "dimensionUnitListPrice", "dimensionUnitPrice", "endTime", "gcpMeteringRequest", "gcpMeteringResponse", "includedRecords", "message", "newDecimalParts", "partner", "recordsToReportBeforeAdjustmentAtListPrice", "reportedRecords", "startTime", "status", "usageRecordGroupIds", "usedCommitAmount", "usedCommitAmountIncrement", "usedCreditAmount", "usedCreditAmountIncrement"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -116,6 +122,21 @@ class MeteringUsageRecordReportInfo(BaseModel):
                 if _item_aggregated_billable_records:
                     _items.append(_item_aggregated_billable_records.to_dict())
             _dict['aggregatedBillableRecords'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each value in aggregated_usage_allocations (dict of array)
+        _field_dict_of_array = {}
+        if self.aggregated_usage_allocations:
+            for _key_aggregated_usage_allocations in self.aggregated_usage_allocations:
+                if self.aggregated_usage_allocations[_key_aggregated_usage_allocations] is not None:
+                    _field_dict_of_array[_key_aggregated_usage_allocations] = [
+                        _item.to_dict() for _item in self.aggregated_usage_allocations[_key_aggregated_usage_allocations]
+                    ]
+            _dict['aggregatedUsageAllocations'] = _field_dict_of_array
+        # override the default output from pydantic by calling `to_dict()` of alibaba_international_metering_request
+        if self.alibaba_international_metering_request:
+            _dict['alibabaInternationalMeteringRequest'] = self.alibaba_international_metering_request.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of alibaba_international_metering_response
+        if self.alibaba_international_metering_response:
+            _dict['alibabaInternationalMeteringResponse'] = self.alibaba_international_metering_response.to_dict()
         # override the default output from pydantic by calling `to_dict()` of alibaba_metering_request
         if self.alibaba_metering_request:
             _dict['alibabaMeteringRequest'] = self.alibaba_metering_request.to_dict()
@@ -153,10 +174,20 @@ class MeteringUsageRecordReportInfo(BaseModel):
 
         _obj = cls.model_validate({
             "aggregatedBillableRecords": [AggregatedMeteringUsageRecord.from_dict(_item) for _item in obj["aggregatedBillableRecords"]] if obj.get("aggregatedBillableRecords") is not None else None,
-            "alibabaMeteringRequest": ClientPushMeteringDataRequest.from_dict(obj["alibabaMeteringRequest"]) if obj.get("alibabaMeteringRequest") is not None else None,
-            "alibabaMeteringResponse": ClientPushMeteringDataResponseBody.from_dict(obj["alibabaMeteringResponse"]) if obj.get("alibabaMeteringResponse") is not None else None,
+            "aggregatedUsageAllocations": dict(
+                (_k,
+                        [UsageAllocation.from_dict(_item) for _item in _v]
+                        if _v is not None
+                        else None
+                )
+                for _k, _v in obj.get("aggregatedUsageAllocations", {}).items()
+            ),
+            "alibabaInternationalMeteringRequest": GithubComAlibabacloudGoMarketplaceintl20221230ClientPushMeteringDataRequest.from_dict(obj["alibabaInternationalMeteringRequest"]) if obj.get("alibabaInternationalMeteringRequest") is not None else None,
+            "alibabaInternationalMeteringResponse": GithubComAlibabacloudGoMarketplaceintl20221230ClientPushMeteringDataResponseBody.from_dict(obj["alibabaInternationalMeteringResponse"]) if obj.get("alibabaInternationalMeteringResponse") is not None else None,
+            "alibabaMeteringRequest": GithubComAlibabacloudGoMarket20151101V3ClientPushMeteringDataRequest.from_dict(obj["alibabaMeteringRequest"]) if obj.get("alibabaMeteringRequest") is not None else None,
+            "alibabaMeteringResponse": GithubComAlibabacloudGoMarket20151101V3ClientPushMeteringDataResponseBody.from_dict(obj["alibabaMeteringResponse"]) if obj.get("alibabaMeteringResponse") is not None else None,
             "awsMeteringRequest": AwsMarketplaceMeteringBatchMeterUsageInput.from_dict(obj["awsMeteringRequest"]) if obj.get("awsMeteringRequest") is not None else None,
-            "awsMeteringResponse": MarketplacemeteringBatchMeterUsageOutput.from_dict(obj["awsMeteringResponse"]) if obj.get("awsMeteringResponse") is not None else None,
+            "awsMeteringResponse": GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringBatchMeterUsageOutput.from_dict(obj["awsMeteringResponse"]) if obj.get("awsMeteringResponse") is not None else None,
             "azureMeteringRequest": AzureMarketplaceMeteringBatchUsageEvent.from_dict(obj["azureMeteringRequest"]) if obj.get("azureMeteringRequest") is not None else None,
             "azureMeteringResponse": GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse.from_dict(obj["azureMeteringResponse"]) if obj.get("azureMeteringResponse") is not None else None,
             "commitAmount": obj.get("commitAmount"),

@@ -23,6 +23,14 @@
 
 * `NotificationEventAction_ARCHIVE` (value: `'ARCHIVE'`)
 
+* `NotificationEventAction_PENDING_CREATE` (value: `'PENDING_CREATE'`)
+
+* `NotificationEventAction_CREATE_FAILED` (value: `'CREATE_FAILED'`)
+
+* `NotificationEventAction_ACTIVE` (value: `'ACTIVE'`)
+
+* `NotificationEventAction_VOID` (value: `'VOID'`)
+
 * `NotificationEventAction_DISBURSE` (value: `'DISBURSE'`)
 
 * `NotificationEventAction_END_SOON` (value: `'END_SOON'`)
@@ -61,6 +69,10 @@
 
 * `NotificationEventAction_SIGN` (value: `'SIGN'`)
 
+* `NotificationEventAction_PENDING_PARTNER_ACTION` (value: `'PENDING_PARTNER_ACTION'`)
+
+* `NotificationEventAction_TERMINATE` (value: `'TERMINATE'`)
+
 * `NotificationEventAction_ROTATE_SECRET` (value: `'ROTATE_SECRET'`)
 
 * `NotificationEventAction_SUSPEND` (value: `'SUSPEND'`)
@@ -69,17 +81,13 @@
 
 * `NotificationEventAction_UPDATE` (value: `'UPDATE'`)
 
-* `NotificationEventAction_ACE_ENGAGEMENT_SCORE_UPDATE` (value: `'ACE_ENGAGEMENT_SCORE_UPDATE'`)
-
-* `NotificationEventAction_ACE_SALES_REP_UPDATE` (value: `'ACE_SALES_REP_UPDATE'`)
-
-* `NotificationEventAction_ACE_CUSTOMER_EMAIL_UPDATE` (value: `'ACE_CUSTOMER_EMAIL_UPDATE'`)
-
-* `NotificationEventAction_AZURE_STATUS_UPDATE` (value: `'AZURE_STATUS_UPDATE'`)
-
 * `NotificationEventAction_SUBMIT_APPROVAL_REQUEST` (value: `'SUBMIT_APPROVAL_REQUEST'`)
 
 * `NotificationEventAction_REVIEW_APPROVAL_REQUEST` (value: `'REVIEW_APPROVAL_REQUEST'`)
+
+* `NotificationEventAction_APPROVE_APPROVAL_REQUEST` (value: `'APPROVE_APPROVAL_REQUEST'`)
+
+* `NotificationEventAction_DECLINE_APPROVAL_REQUEST` (value: `'DECLINE_APPROVAL_REQUEST'`)
 
 * `NotificationEventAction_COMPLETE` (value: `'COMPLETE'`)
 
@@ -87,7 +95,7 @@
 
 * `NotificationEventAction_WEBHOOK` (value: `'WEBHOOK'`)
 
-* `NotificationEventAction_MARKETPLACE_CONTACT_EMAIL_UPDATE` (value: `'MARKETPLACE_CONTACT_EMAIL_UPDATE'`)
+* `NotificationEventAction_INBOUND` (value: `'INBOUND'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -7,10 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **skip_validation** | **bool** | If it is true, the validation of the usage record group is skipped. | [optional] 
 **billable_records** | [**List[MeteringUsageRecord]**](MeteringUsageRecord.md) | for usage metering API v2 | [optional] 
+**erp_invoice_id** | **str** | ERP invoice ID for tracking usage against external ERP service. | [optional] 
 **lago_amount** | **float** | The lago amount (in dollars) of the customer. This field keeps the largest of the monthly amount. So it can only be updated when the invoice month increases. | [optional] 
 **lago_subscription_id** | **str** | The lago subscription ID of the customer. | [optional] 
 **lago_usage_start_time** | **datetime** | The lago usage start time of the customer usage. | [optional] 
 **metronome_daily_cost_amount** | **float** | The metronome daily cost amount (in dollars) of the customer. | [optional] 
+**metronome_invoice_credit_back** | **bool** | Whether the metronome invoice has been credited back. | [optional] 
+**metronome_invoice_credit_back_amount** | **float** | The metronome invoice amount (in dollars) of the customer. | [optional] 
 **metronome_invoice_id** | **str** | The metronome invoice ID of the customer. | [optional] 
 **metronome_monthly_invoice_amount** | **float** | The metronome monthly invoice amount (in dollars) of the customer. This field keeps the largest amount of the invoice month. So it can only be updated when the invoice month increases. | [optional] 
 **metronome_monthly_invoice_amount_adjusted** | **float** | The metronome monthly invoice amount (in dollars) of the customer, which is adjusted by the seller. This field is populated only when the invoice amount is decreased by the seller via credit granting. | [optional] 
@@ -23,6 +26,7 @@ Name | Type | Description | Notes
 **stripe_usage_record_summary_id** | **str** |  | [optional] 
 **stripe_usage_record_summary_total_usage** | **int** |  | [optional] 
 **timestamp** | **datetime** | The timestamp (UTC)) of when the usage records were generated. Optional, if not provided, the current report timestamp will be used. | [optional] 
+**usage_allocations** | **Dict[str, List[UsageAllocation]]** | usage allocation information, dimension key -&gt; UsageAllocation array. Only supported for AWS marketplace usage metering at this moment. | [optional] 
 
 ## Example
 

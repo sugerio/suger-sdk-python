@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**aws_payment_transaction** | [**AwsPaymentTransaction**](AwsPaymentTransaction.md) | The aws payment transaction. | [optional] 
 **invoice_date** | **datetime** | The invoice issue date. | [optional] 
 **refund_exists** | **bool** | Refund flag marks whether the transaction has any refund records. | [optional] 
 **stripe_balance_transaction** | [**StripeBalanceTransaction**](StripeBalanceTransaction.md) | Balance transaction that describes the impact of this charge on your account balance. | [optional] 

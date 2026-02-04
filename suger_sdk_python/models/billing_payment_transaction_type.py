@@ -29,6 +29,7 @@ class BillingPaymentTransactionType(str, Enum):
     """
     BillingPaymentTransactionType_CHARGE = 'CHARGE'
     BillingPaymentTransactionType_REFUND = 'REFUND'
+    BillingPaymentTransactionType_CREDIT_MEMO = 'CREDIT_MEMO'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from suger_sdk_python.models.azure_marketplace_price import AzureMarketplacePrice
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +29,10 @@ class AzureMarketplacePriceInitialCharge(BaseModel):
     AzureMarketplacePriceInitialCharge
     """ # noqa: E501
     note: Optional[StrictStr] = None
-    price_per_payment_in_usd: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="pricePerPaymentInUsd")
-    __properties: ClassVar[List[str]] = ["note", "pricePerPaymentInUsd"]
+    price_per_payment_in_usd: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="For non-VM offers (SaaS, etc.) could be 0 for the amount", alias="pricePerPaymentInUsd")
+    prices: Optional[List[AzureMarketplacePrice]] = None
+    unit_price_per_payment_period_in_usd: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="For VM offers with flexible billing could be 0 for the amount", alias="unitPricePerPaymentPeriodInUsd")
+    __properties: ClassVar[List[str]] = ["note", "pricePerPaymentInUsd", "prices", "unitPricePerPaymentPeriodInUsd"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +73,13 @@ class AzureMarketplacePriceInitialCharge(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in prices (list)
+        _items = []
+        if self.prices:
+            for _item_prices in self.prices:
+                if _item_prices:
+                    _items.append(_item_prices.to_dict())
+            _dict['prices'] = _items
         return _dict
 
     @classmethod
@@ -83,7 +93,9 @@ class AzureMarketplacePriceInitialCharge(BaseModel):
 
         _obj = cls.model_validate({
             "note": obj.get("note"),
-            "pricePerPaymentInUsd": obj.get("pricePerPaymentInUsd")
+            "pricePerPaymentInUsd": obj.get("pricePerPaymentInUsd"),
+            "prices": [AzureMarketplacePrice.from_dict(_item) for _item in obj["prices"]] if obj.get("prices") is not None else None,
+            "unitPricePerPaymentPeriodInUsd": obj.get("unitPricePerPaymentPeriodInUsd")
         })
         return _obj
 

@@ -20,8 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from suger_sdk_python.models.azure_marketplace_price import AzureMarketplacePrice
 from suger_sdk_python.models.azure_marketplace_price_and_availability_custom_meter_price_included_quantity_item import AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem
-from suger_sdk_python.models.azure_marketplace_price_and_availability_custom_meter_price_meter_item_price_item import AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem
 from suger_sdk_python.models.azure_marketplace_term import AzureMarketplaceTerm
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,7 +34,7 @@ class AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItem(BaseModel):
     included_quantities: Optional[List[AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem]] = Field(default=None, alias="includedQuantities")
     payment_option: Optional[AzureMarketplaceTerm] = Field(default=None, alias="paymentOption")
     price_per_payment_in_usd: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="pricePerPaymentInUsd")
-    prices: Optional[List[AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem]] = None
+    prices: Optional[List[AzureMarketplacePrice]] = None
     __properties: ClassVar[List[str]] = ["billingTerm", "includedQuantities", "paymentOption", "pricePerPaymentInUsd", "prices"]
 
     model_config = ConfigDict(
@@ -112,7 +112,7 @@ class AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItem(BaseModel):
             "includedQuantities": [AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem.from_dict(_item) for _item in obj["includedQuantities"]] if obj.get("includedQuantities") is not None else None,
             "paymentOption": AzureMarketplaceTerm.from_dict(obj["paymentOption"]) if obj.get("paymentOption") is not None else None,
             "pricePerPaymentInUsd": obj.get("pricePerPaymentInUsd"),
-            "prices": [AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem.from_dict(_item) for _item in obj["prices"]] if obj.get("prices") is not None else None
+            "prices": [AzureMarketplacePrice.from_dict(_item) for _item in obj["prices"]] if obj.get("prices") is not None else None
         })
         return _obj
 

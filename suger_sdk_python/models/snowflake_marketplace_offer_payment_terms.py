@@ -28,9 +28,10 @@ class SnowflakeMarketplaceOfferPaymentTerms(BaseModel):
     """
     SnowflakeMarketplaceOfferPaymentTerms
     """ # noqa: E501
+    allowed_payment_methods: Optional[List[StrictStr]] = Field(default=None, description="Allowed payment methods. Accepted values are CREDIT_CARD, INSTALLMENT.")
     installment_schedule: Optional[SnowflakeMarketplacePlanInstallmentSchedule] = Field(default=None, description="The installment schedule for the offer.")
     payment_type: Optional[StrictStr] = Field(default=None, description="The pricing plan payment types. Accepted values are INVOICE, CREDIT_CARD, INSTALLMENT.")
-    __properties: ClassVar[List[str]] = ["installment_schedule", "payment_type"]
+    __properties: ClassVar[List[str]] = ["allowed_payment_methods", "installment_schedule", "payment_type"]
 
     @field_validator('payment_type')
     def payment_type_validate_enum(cls, value):
@@ -96,6 +97,7 @@ class SnowflakeMarketplaceOfferPaymentTerms(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "allowed_payment_methods": obj.get("allowed_payment_methods"),
             "installment_schedule": SnowflakeMarketplacePlanInstallmentSchedule.from_dict(obj["installment_schedule"]) if obj.get("installment_schedule") is not None else None,
             "payment_type": obj.get("payment_type")
         })

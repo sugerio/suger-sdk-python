@@ -6,13 +6,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ami_alias** | **str** | Exclusive Fields For AWS AMI Product | [optional] 
+**api_type** | **str** |  | [optional] 
+**compatible_services** | **List[str]** |  | [optional] 
+**endpoints** | [**List[AwsProductDeliveryOptionApiEndpoint]**](AwsProductDeliveryOptionApiEndpoint.md) |  | [optional] 
 **fulfillment_url** | **str** | Exclusive Fields For AWS SaaS Product | [optional] 
 **id** | **str** |  | [optional] 
+**quick_launch_enabled** | **bool** |  | [optional] 
 **recommendations** | **object** |  | [optional] 
 **short_description** | **str** |  | [optional] 
 **source_id** | **str** |  | [optional] 
 **title** | **str** | Exclusive Fields For AWS Container Product | [optional] 
 **type** | **str** |  | [optional] 
+**usage_instructions** | **str** | Exclusive Fields For SaaS AI Product | [optional] 
 **visibility** | **str** |  | [optional] 
 
 ## Example

@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**display_unit** | **str** |  | [optional] 
-**key** | **str** |  | [optional] 
-**name** | **str** |  | [optional] 
+**display_unit** | **str** | example:  12 | [optional] 
+**key** | **str** | example:  12 | [optional] 
+**name** | **str** | example:  12 | [optional] 
 **property_values** | [**ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues**](ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues.md) |  | [optional] 
-**show_type** | **str** |  | [optional] 
+**show_type** | **str** | example:  12 | [optional] 
 
 ## Example
 

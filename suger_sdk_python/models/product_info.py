@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from suger_sdk_python.models.alibaba_marketplace_product import AlibabaMarketplaceProduct
+from suger_sdk_python.models.aws_marketplace_purchase_constraints import AwsMarketplacePurchaseConstraints
 from suger_sdk_python.models.aws_product import AwsProduct
 from suger_sdk_python.models.aws_sns_subscription import AwsSnsSubscription
 from suger_sdk_python.models.azure_marketplace_product_resource import AzureMarketplaceProductResource
@@ -44,11 +45,13 @@ class ProductInfo(BaseModel):
     aws_container_product: Optional[AwsProduct] = Field(default=None, alias="awsContainerProduct")
     aws_machine_learning_product: Optional[AwsProduct] = Field(default=None, alias="awsMachineLearningProduct")
     aws_professional_services_product: Optional[AwsProduct] = Field(default=None, alias="awsProfessionalServicesProduct")
+    aws_purchase_constraints: Optional[AwsMarketplacePurchaseConstraints] = Field(default=None, alias="awsPurchaseConstraints")
     aws_saas_product: Optional[AwsProduct] = Field(default=None, alias="awsSaasProduct")
     aws_sns_subscriptions: Optional[List[AwsSnsSubscription]] = Field(default=None, alias="awsSnsSubscriptions")
     azure_product: Optional[AzureProduct] = Field(default=None, alias="azureProduct")
     azure_product_resource: Optional[AzureMarketplaceProductResource] = Field(default=None, alias="azureProductResource")
     commits: Optional[List[CommitDimension]] = None
+    company_id: Optional[StrictStr] = Field(default=None, alias="companyID")
     currency: Optional[StrictStr] = None
     dimensions: Optional[List[MeteringDimension]] = None
     eula_type: Optional[EulaType] = Field(default=None, description="The public offer's EULA type.", alias="eulaType")
@@ -58,7 +61,7 @@ class ProductInfo(BaseModel):
     seller_notes: Optional[StrictStr] = Field(default=None, alias="sellerNotes")
     snowflake_product: Optional[SnowflakeMarketplaceProduct] = Field(default=None, alias="snowflakeProduct")
     stripe_product: Optional[StripeProduct] = Field(default=None, alias="stripeProduct")
-    __properties: ClassVar[List[str]] = ["alibabaProduct", "attributes", "awsAmiProduct", "awsContainerProduct", "awsMachineLearningProduct", "awsProfessionalServicesProduct", "awsSaasProduct", "awsSnsSubscriptions", "azureProduct", "azureProductResource", "commits", "currency", "dimensions", "eulaType", "eulaUrl", "gcpProduct", "refundCancellationPolicy", "sellerNotes", "snowflakeProduct", "stripeProduct"]
+    __properties: ClassVar[List[str]] = ["alibabaProduct", "attributes", "awsAmiProduct", "awsContainerProduct", "awsMachineLearningProduct", "awsProfessionalServicesProduct", "awsPurchaseConstraints", "awsSaasProduct", "awsSnsSubscriptions", "azureProduct", "azureProductResource", "commits", "companyID", "currency", "dimensions", "eulaType", "eulaUrl", "gcpProduct", "refundCancellationPolicy", "sellerNotes", "snowflakeProduct", "stripeProduct"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -114,6 +117,9 @@ class ProductInfo(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of aws_professional_services_product
         if self.aws_professional_services_product:
             _dict['awsProfessionalServicesProduct'] = self.aws_professional_services_product.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of aws_purchase_constraints
+        if self.aws_purchase_constraints:
+            _dict['awsPurchaseConstraints'] = self.aws_purchase_constraints.to_dict()
         # override the default output from pydantic by calling `to_dict()` of aws_saas_product
         if self.aws_saas_product:
             _dict['awsSaasProduct'] = self.aws_saas_product.to_dict()
@@ -171,11 +177,13 @@ class ProductInfo(BaseModel):
             "awsContainerProduct": AwsProduct.from_dict(obj["awsContainerProduct"]) if obj.get("awsContainerProduct") is not None else None,
             "awsMachineLearningProduct": AwsProduct.from_dict(obj["awsMachineLearningProduct"]) if obj.get("awsMachineLearningProduct") is not None else None,
             "awsProfessionalServicesProduct": AwsProduct.from_dict(obj["awsProfessionalServicesProduct"]) if obj.get("awsProfessionalServicesProduct") is not None else None,
+            "awsPurchaseConstraints": AwsMarketplacePurchaseConstraints.from_dict(obj["awsPurchaseConstraints"]) if obj.get("awsPurchaseConstraints") is not None else None,
             "awsSaasProduct": AwsProduct.from_dict(obj["awsSaasProduct"]) if obj.get("awsSaasProduct") is not None else None,
             "awsSnsSubscriptions": [AwsSnsSubscription.from_dict(_item) for _item in obj["awsSnsSubscriptions"]] if obj.get("awsSnsSubscriptions") is not None else None,
             "azureProduct": AzureProduct.from_dict(obj["azureProduct"]) if obj.get("azureProduct") is not None else None,
             "azureProductResource": AzureMarketplaceProductResource.from_dict(obj["azureProductResource"]) if obj.get("azureProductResource") is not None else None,
             "commits": [CommitDimension.from_dict(_item) for _item in obj["commits"]] if obj.get("commits") is not None else None,
+            "companyID": obj.get("companyID"),
             "currency": obj.get("currency"),
             "dimensions": [MeteringDimension.from_dict(_item) for _item in obj["dimensions"]] if obj.get("dimensions") is not None else None,
             "eulaType": obj.get("eulaType"),

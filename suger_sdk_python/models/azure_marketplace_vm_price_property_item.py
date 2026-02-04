@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from suger_sdk_python.models.azure_marketplace_price_flexible_schedule import AzureMarketplacePriceFlexibleSchedule
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +28,10 @@ class AzureMarketplaceVmPricePropertyItem(BaseModel):
     """
     AzureMarketplaceVmPricePropertyItem
     """ # noqa: E501
+    flexible_schedule: Optional[AzureMarketplacePriceFlexibleSchedule] = Field(default=None, description="For Azure schema 2025-05-01 flexible billing", alias="flexibleSchedule")
     quantity: Optional[Union[StrictFloat, StrictInt]] = None
-    unit_price_per_payment_period_in_usd: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="unitPricePerPaymentPeriodInUsd")
-    __properties: ClassVar[List[str]] = ["quantity", "unitPricePerPaymentPeriodInUsd"]
+    unit_price_per_payment_period_in_usd: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="For VM offer, could be 0", alias="unitPricePerPaymentPeriodInUsd")
+    __properties: ClassVar[List[str]] = ["flexibleSchedule", "quantity", "unitPricePerPaymentPeriodInUsd"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +72,9 @@ class AzureMarketplaceVmPricePropertyItem(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of flexible_schedule
+        if self.flexible_schedule:
+            _dict['flexibleSchedule'] = self.flexible_schedule.to_dict()
         return _dict
 
     @classmethod
@@ -82,6 +87,7 @@ class AzureMarketplaceVmPricePropertyItem(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "flexibleSchedule": AzureMarketplacePriceFlexibleSchedule.from_dict(obj["flexibleSchedule"]) if obj.get("flexibleSchedule") is not None else None,
             "quantity": obj.get("quantity"),
             "unitPricePerPaymentPeriodInUsd": obj.get("unitPricePerPaymentPeriodInUsd")
         })

@@ -43,6 +43,8 @@
 
 * `EntityType_REVENUE_RECORD` (value: `'REVENUE_RECORD'`)
 
+* `EntityType_SERVICE` (value: `'SERVICE'`)
+
 * `EntityType_SUPPORT_TICKET` (value: `'SUPPORT_TICKET'`)
 
 * `EntityType_UNPURCHASED_OFFERS` (value: `'UNPURCHASED_OFFERS'`)
@@ -58,6 +60,8 @@
 * `EntityType_WORKFLOW_EXECUTION` (value: `'WORKFLOW_EXECUTION'`)
 
 * `EntityType_WORKFLOW_WEBHOOK` (value: `'WORKFLOW_WEBHOOK'`)
+
+* `EntityType_ORGANIZATION_INFO` (value: `'ORGANIZATION_INFO'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

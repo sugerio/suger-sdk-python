@@ -28,9 +28,10 @@ class AwsMarketplaceEventBridgeEventProduct(BaseModel):
     AwsMarketplaceEventBridgeEventProduct
     """ # noqa: E501
     arn: Optional[StrictStr] = None
+    code: Optional[StrictStr] = None
     id: Optional[StrictStr] = None
     title: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["arn", "id", "title"]
+    __properties: ClassVar[List[str]] = ["arn", "code", "id", "title"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,6 +85,7 @@ class AwsMarketplaceEventBridgeEventProduct(BaseModel):
 
         _obj = cls.model_validate({
             "arn": obj.get("arn"),
+            "code": obj.get("code"),
             "id": obj.get("id"),
             "title": obj.get("title")
         })

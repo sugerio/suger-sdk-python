@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **payment_schedule** | [**AzureMarketplaceTerm**](AzureMarketplaceTerm.md) |  | [optional] 
 **reservation_duration** | [**AzureMarketplaceTerm**](AzureMarketplaceTerm.md) |  | [optional] 
-**vm_prices** | [**AzureMarketplaceVmPrice**](AzureMarketplaceVmPrice.md) |  | [optional] 
+**vm_prices** | [**Dict[str, AzureMarketplaceVmPricePropertyItem]**](AzureMarketplaceVmPricePropertyItem.md) |  | [optional] 
 
 ## Example
 

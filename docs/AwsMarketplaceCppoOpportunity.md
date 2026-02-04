@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **status** | **str** |  | [optional] 
 **terms** | [**List[AwsMarketplaceCppoOpportunityTerm]**](AwsMarketplaceCppoOpportunityTerm.md) |  | [optional] 
 **discount_type** | [**AwsMarketplaceCppoDiscountType**](AwsMarketplaceCppoDiscountType.md) | The following fields are not from aws catalog API, only used for cppo_out offer create. They shouldn&#39;t be read in other places because they will absent when fetch opportunity from aws catalog API. | [optional] 
+**maximum_agreement_start_date** | **str** | Use this field to modify and control the product agreement duration. | [optional] 
 **opportunity_duration_type** | [**AwsMarketplaceCppoDurationType**](AwsMarketplaceCppoDurationType.md) |  | [optional] 
 **opportunity_id** | **str** |  | [optional] 
 **partner_id** | **str** |  | [optional] 

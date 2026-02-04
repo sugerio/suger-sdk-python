@@ -24,6 +24,7 @@ from suger_sdk_python.models.support_ticket_attachment import SupportTicketAttac
 from suger_sdk_python.models.support_ticket_comment import SupportTicketComment
 from suger_sdk_python.models.support_ticket_priority import SupportTicketPriority
 from suger_sdk_python.models.support_ticket_status import SupportTicketStatus
+from suger_sdk_python.models.support_ticket_task_type import SupportTicketTaskType
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -43,8 +44,9 @@ class SupportTicket(BaseModel):
     organization_id: Optional[StrictStr] = Field(default=None, alias="organizationId")
     priority: Optional[SupportTicketPriority] = None
     status: Optional[SupportTicketStatus] = None
+    task_type: Optional[SupportTicketTaskType] = Field(default=None, alias="taskType")
     watchers: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["attachments", "closeTime", "comments", "creationTime", "creator", "description", "dueTime", "id", "name", "organizationId", "priority", "status", "watchers"]
+    __properties: ClassVar[List[str]] = ["attachments", "closeTime", "comments", "creationTime", "creator", "description", "dueTime", "id", "name", "organizationId", "priority", "status", "taskType", "watchers"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -123,6 +125,7 @@ class SupportTicket(BaseModel):
             "organizationId": obj.get("organizationId"),
             "priority": obj.get("priority"),
             "status": obj.get("status"),
+            "taskType": obj.get("taskType"),
             "watchers": obj.get("watchers")
         })
         return _obj

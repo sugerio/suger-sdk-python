@@ -31,6 +31,7 @@ class CreateBuyerParams(BaseModel):
     CreateBuyerParams
     """ # noqa: E501
     adyen_customer_id: Optional[StrictStr] = Field(default=None, description="Adyen customerId of this buyer. If not provided but Partner is ADYEN, will create a new customer on Adyen.", alias="adyenCustomerId")
+    chargebee_customer_id: Optional[StrictStr] = Field(default=None, description="The Chargebee Customer ID of the buyer. If not provided, the Chargebee Customer ID will not be updated.", alias="chargebeeCustomerID")
     company_info: Optional[CompanyInfo] = Field(default=None, description="Optional. CompanyInfo of the buyer.", alias="companyInfo")
     customer_id: Optional[StrictStr] = Field(default=None, description="The customer ID to recognize the cloud marketplace buyer in your internal system.", alias="customerId")
     description: Optional[StrictStr] = Field(default=None, description="The description of the buyer.")
@@ -40,8 +41,9 @@ class CreateBuyerParams(BaseModel):
     orb_customer_id: Optional[StrictStr] = Field(default=None, description="Optional. The Orb Customer ID of the buyer.", alias="orbCustomerId")
     partner: Optional[Partner] = Field(default=None, description="The channel partner where this buyer is billed. Only STRIPE & ADYEN are supported at the moment.")
     payment_config: Optional[PaymentConfig] = Field(default=None, description="Payment config for billing.", alias="paymentConfig")
+    quickbooks_customer_id: Optional[StrictStr] = Field(default=None, description="The Quickbooks Customer ID of the buyer. If not provided, the Quickbooks Customer ID will not be updated.", alias="quickbooksCustomerId")
     stripe_customer_id: Optional[StrictStr] = Field(default=None, description="Stripe customerId of this buyer. If not provided but Partner is STRIPE, will create a new customer on stripe.", alias="stripeCustomerId")
-    __properties: ClassVar[List[str]] = ["adyenCustomerId", "companyInfo", "customerId", "description", "lagoCustomerId", "metronomeCustomerId", "name", "orbCustomerId", "partner", "paymentConfig", "stripeCustomerId"]
+    __properties: ClassVar[List[str]] = ["adyenCustomerId", "chargebeeCustomerID", "companyInfo", "customerId", "description", "lagoCustomerId", "metronomeCustomerId", "name", "orbCustomerId", "partner", "paymentConfig", "quickbooksCustomerId", "stripeCustomerId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -101,6 +103,7 @@ class CreateBuyerParams(BaseModel):
 
         _obj = cls.model_validate({
             "adyenCustomerId": obj.get("adyenCustomerId"),
+            "chargebeeCustomerID": obj.get("chargebeeCustomerID"),
             "companyInfo": CompanyInfo.from_dict(obj["companyInfo"]) if obj.get("companyInfo") is not None else None,
             "customerId": obj.get("customerId"),
             "description": obj.get("description"),
@@ -110,6 +113,7 @@ class CreateBuyerParams(BaseModel):
             "orbCustomerId": obj.get("orbCustomerId"),
             "partner": obj.get("partner"),
             "paymentConfig": PaymentConfig.from_dict(obj["paymentConfig"]) if obj.get("paymentConfig") is not None else None,
+            "quickbooksCustomerId": obj.get("quickbooksCustomerId"),
             "stripeCustomerId": obj.get("stripeCustomerId")
         })
         return _obj

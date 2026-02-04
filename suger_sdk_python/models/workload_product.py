@@ -46,9 +46,10 @@ class WorkloadProduct(BaseModel):
     partner: Optional[Partner] = None
     partner_id: Optional[StrictStr] = Field(default=None, alias="partnerID")
     product_type: Optional[StrictStr] = Field(default=None, alias="productType")
+    seller_id: Optional[StrictStr] = Field(default=None, alias="sellerID")
     service: Optional[PartnerService] = None
     status: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["createdBy", "creationTime", "externalID", "fulfillmentUrl", "id", "info", "lastUpdateTime", "lastUpdatedBy", "metaInfo", "name", "organizationID", "partner", "partnerID", "productType", "service", "status"]
+    __properties: ClassVar[List[str]] = ["createdBy", "creationTime", "externalID", "fulfillmentUrl", "id", "info", "lastUpdateTime", "lastUpdatedBy", "metaInfo", "name", "organizationID", "partner", "partnerID", "productType", "sellerID", "service", "status"]
 
     @field_validator('product_type')
     def product_type_validate_enum(cls, value):
@@ -131,6 +132,7 @@ class WorkloadProduct(BaseModel):
             "partner": obj.get("partner"),
             "partnerID": obj.get("partnerID"),
             "productType": obj.get("productType"),
+            "sellerID": obj.get("sellerID"),
             "service": obj.get("service"),
             "status": obj.get("status")
         })

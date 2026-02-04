@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **support_information** | [**AwsProductSupportInformation**](AwsProductSupportInformation.md) |  | [optional] 
 **versions** | [**List[AwsProductVersion]**](AwsProductVersion.md) |  | [optional] 
 **data_feed_product_id** | **str** | The product Id in AWS Marketplace Data Feed Service. | [optional] 
+**listing_id** | **str** | The listing ID in AWS Marketplace. | [optional] 
 **product_id** | **str** | AWS Product ID | [optional] 
 
 ## Example

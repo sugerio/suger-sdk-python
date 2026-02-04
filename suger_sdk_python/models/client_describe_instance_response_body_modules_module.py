@@ -28,8 +28,8 @@ class ClientDescribeInstanceResponseBodyModulesModule(BaseModel):
     """
     ClientDescribeInstanceResponseBodyModulesModule
     """ # noqa: E501
-    code: Optional[StrictStr] = Field(default=None, alias="Code")
-    id: Optional[StrictStr] = Field(default=None, alias="Id")
+    code: Optional[StrictStr] = Field(default=None, description="example:  package_config", alias="Code")
+    id: Optional[StrictStr] = Field(default=None, description="example:  101*********026", alias="Id")
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     properties: Optional[ClientDescribeInstanceResponseBodyModulesModuleProperties] = Field(default=None, alias="Properties")
     __properties: ClassVar[List[str]] = ["Code", "Id", "Name", "Properties"]

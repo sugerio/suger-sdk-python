@@ -23,6 +23,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, Stric
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from suger_sdk_python.models.metering_usage_record import MeteringUsageRecord
 from suger_sdk_python.models.metering_usage_record_group_meta_info import MeteringUsageRecordGroupMetaInfo
+from suger_sdk_python.models.usage_allocation import UsageAllocation
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -37,7 +38,8 @@ class CreateUsageRecordGroupParams(BaseModel):
     organization_id: StrictStr = Field(alias="organizationID")
     records: Dict[str, Union[StrictFloat, StrictInt]] = Field(description="for usage metering API v1, don't use it together with the billableRecords v2.")
     timestamp: Optional[datetime] = Field(default=None, description="The timestamp of when the usage records were generated. Optional, if not provided, the current report timestamp will be used. This is not the timestamp of when the usage records were reported to Suger.")
-    __properties: ClassVar[List[str]] = ["billableRecords", "entitlementID", "id", "metaInfo", "organizationID", "records", "timestamp"]
+    usage_allocations: Optional[Dict[str, List[UsageAllocation]]] = Field(default=None, description="usage allocation information, dimension key -> usageAllocation array. Only supported for AWS marketplace usage metering at this moment.", alias="usageAllocations")
+    __properties: ClassVar[List[str]] = ["billableRecords", "entitlementID", "id", "metaInfo", "organizationID", "records", "timestamp", "usageAllocations"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,6 +90,15 @@ class CreateUsageRecordGroupParams(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of meta_info
         if self.meta_info:
             _dict['metaInfo'] = self.meta_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each value in usage_allocations (dict of array)
+        _field_dict_of_array = {}
+        if self.usage_allocations:
+            for _key_usage_allocations in self.usage_allocations:
+                if self.usage_allocations[_key_usage_allocations] is not None:
+                    _field_dict_of_array[_key_usage_allocations] = [
+                        _item.to_dict() for _item in self.usage_allocations[_key_usage_allocations]
+                    ]
+            _dict['usageAllocations'] = _field_dict_of_array
         return _dict
 
     @classmethod
@@ -106,7 +117,15 @@ class CreateUsageRecordGroupParams(BaseModel):
             "metaInfo": MeteringUsageRecordGroupMetaInfo.from_dict(obj["metaInfo"]) if obj.get("metaInfo") is not None else None,
             "organizationID": obj.get("organizationID"),
             "records": obj.get("records"),
-            "timestamp": obj.get("timestamp")
+            "timestamp": obj.get("timestamp"),
+            "usageAllocations": dict(
+                (_k,
+                        [UsageAllocation.from_dict(_item) for _item in _v]
+                        if _v is not None
+                        else None
+                )
+                for _k, _v in obj.get("usageAllocations", {}).items()
+            )
         })
         return _obj
 

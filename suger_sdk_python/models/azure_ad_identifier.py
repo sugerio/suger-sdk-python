@@ -35,8 +35,9 @@ class AzureADIdentifier(BaseModel):
     license_type: Optional[StrictStr] = Field(default=None, description="Azure License Type", alias="licenseType")
     object_id: Optional[StrictStr] = Field(default=None, alias="objectId")
     puid: Optional[StrictStr] = Field(default=None, description="ID of the user, used as External ID of suger IdentityBuyer.")
-    tenant_id: Optional[StrictStr] = Field(default=None, alias="tenantId")
-    __properties: ClassVar[List[str]] = ["billingAccountId", "customerId", "emailId", "firstName", "lastName", "licenseType", "objectId", "puid", "tenantId"]
+    seller_id: Optional[StrictStr] = Field(default=None, description="Azure MPO seller ID", alias="sellerId")
+    tenant_id: Optional[StrictStr] = Field(default=None, description="The Azure Active Directory Tenant ID of the buyer or the reseller partner ID (the same as TenantId).", alias="tenantId")
+    __properties: ClassVar[List[str]] = ["billingAccountId", "customerId", "emailId", "firstName", "lastName", "licenseType", "objectId", "puid", "sellerId", "tenantId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,6 +98,7 @@ class AzureADIdentifier(BaseModel):
             "licenseType": obj.get("licenseType"),
             "objectId": obj.get("objectId"),
             "puid": obj.get("puid"),
+            "sellerId": obj.get("sellerId"),
             "tenantId": obj.get("tenantId")
         })
         return _obj

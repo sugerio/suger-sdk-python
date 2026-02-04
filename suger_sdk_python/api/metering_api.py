@@ -28,6 +28,7 @@ from suger_sdk_python.models.metering_usage_record_group import MeteringUsageRec
 from suger_sdk_python.models.new_usage_record_group import NewUsageRecordGroup
 from suger_sdk_python.models.update_billable_metric_params import UpdateBillableMetricParams
 from suger_sdk_python.models.usage_metering_config_info import UsageMeteringConfigInfo
+from suger_sdk_python.models.usage_record_aggregated import UsageRecordAggregated
 
 from suger_sdk_python.api_client import ApiClient, RequestSerialized
 from suger_sdk_python.api_response import ApiResponse
@@ -45,6 +46,676 @@ class MeteringApi:
         if api_client is None:
             api_client = ApiClient.get_default()
         self.api_client = api_client
+
+
+    @validate_call
+    def aggregate_usage_record_groups(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        partner: Annotated[StrictStr, Field(description="Cloud Partner")],
+        granularity: Annotated[StrictStr, Field(description="Granularity")],
+        start_date: Annotated[StrictStr, Field(description="Start date (UTC) in YYYY-MM-DD format")],
+        end_date: Annotated[StrictStr, Field(description="End date (UTC) in YYYY-MM-DD format")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[UsageRecordAggregated]:
+        """aggregate usageRecordGroups
+
+        Aggregate usageRecordGroups by date and dimension key.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param partner: Cloud Partner (required)
+        :type partner: str
+        :param granularity: Granularity (required)
+        :type granularity: str
+        :param start_date: Start date (UTC) in YYYY-MM-DD format (required)
+        :type start_date: str
+        :param end_date: End date (UTC) in YYYY-MM-DD format (required)
+        :type end_date: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._aggregate_usage_record_groups_serialize(
+            org_id=org_id,
+            partner=partner,
+            granularity=granularity,
+            start_date=start_date,
+            end_date=end_date,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[UsageRecordAggregated]",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def aggregate_usage_record_groups_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        partner: Annotated[StrictStr, Field(description="Cloud Partner")],
+        granularity: Annotated[StrictStr, Field(description="Granularity")],
+        start_date: Annotated[StrictStr, Field(description="Start date (UTC) in YYYY-MM-DD format")],
+        end_date: Annotated[StrictStr, Field(description="End date (UTC) in YYYY-MM-DD format")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[UsageRecordAggregated]]:
+        """aggregate usageRecordGroups
+
+        Aggregate usageRecordGroups by date and dimension key.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param partner: Cloud Partner (required)
+        :type partner: str
+        :param granularity: Granularity (required)
+        :type granularity: str
+        :param start_date: Start date (UTC) in YYYY-MM-DD format (required)
+        :type start_date: str
+        :param end_date: End date (UTC) in YYYY-MM-DD format (required)
+        :type end_date: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._aggregate_usage_record_groups_serialize(
+            org_id=org_id,
+            partner=partner,
+            granularity=granularity,
+            start_date=start_date,
+            end_date=end_date,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[UsageRecordAggregated]",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def aggregate_usage_record_groups_without_preload_content(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        partner: Annotated[StrictStr, Field(description="Cloud Partner")],
+        granularity: Annotated[StrictStr, Field(description="Granularity")],
+        start_date: Annotated[StrictStr, Field(description="Start date (UTC) in YYYY-MM-DD format")],
+        end_date: Annotated[StrictStr, Field(description="End date (UTC) in YYYY-MM-DD format")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """aggregate usageRecordGroups
+
+        Aggregate usageRecordGroups by date and dimension key.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param partner: Cloud Partner (required)
+        :type partner: str
+        :param granularity: Granularity (required)
+        :type granularity: str
+        :param start_date: Start date (UTC) in YYYY-MM-DD format (required)
+        :type start_date: str
+        :param end_date: End date (UTC) in YYYY-MM-DD format (required)
+        :type end_date: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._aggregate_usage_record_groups_serialize(
+            org_id=org_id,
+            partner=partner,
+            granularity=granularity,
+            start_date=start_date,
+            end_date=end_date,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[UsageRecordAggregated]",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _aggregate_usage_record_groups_serialize(
+        self,
+        org_id,
+        partner,
+        granularity,
+        start_date,
+        end_date,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if org_id is not None:
+            _path_params['orgId'] = org_id
+        # process the query parameters
+        if partner is not None:
+            
+            _query_params.append(('partner', partner))
+            
+        if granularity is not None:
+            
+            _query_params.append(('granularity', granularity))
+            
+        if start_date is not None:
+            
+            _query_params.append(('startDate', start_date))
+            
+        if end_date is not None:
+            
+            _query_params.append(('endDate', end_date))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/org/{orgId}/usageRecordGroup/aggregate',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def aggregate_usage_record_reports(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        partner: Annotated[StrictStr, Field(description="Cloud Partner")],
+        granularity: Annotated[StrictStr, Field(description="Granularity")],
+        start_date: Annotated[StrictStr, Field(description="Start date (UTC) in YYYY-MM-DD format")],
+        end_date: Annotated[StrictStr, Field(description="End date (UTC) in YYYY-MM-DD format")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[UsageRecordAggregated]:
+        """aggregate usageRecordReports
+
+        Aggregate usageRecordReports by date and dimension key.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param partner: Cloud Partner (required)
+        :type partner: str
+        :param granularity: Granularity (required)
+        :type granularity: str
+        :param start_date: Start date (UTC) in YYYY-MM-DD format (required)
+        :type start_date: str
+        :param end_date: End date (UTC) in YYYY-MM-DD format (required)
+        :type end_date: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._aggregate_usage_record_reports_serialize(
+            org_id=org_id,
+            partner=partner,
+            granularity=granularity,
+            start_date=start_date,
+            end_date=end_date,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[UsageRecordAggregated]",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def aggregate_usage_record_reports_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        partner: Annotated[StrictStr, Field(description="Cloud Partner")],
+        granularity: Annotated[StrictStr, Field(description="Granularity")],
+        start_date: Annotated[StrictStr, Field(description="Start date (UTC) in YYYY-MM-DD format")],
+        end_date: Annotated[StrictStr, Field(description="End date (UTC) in YYYY-MM-DD format")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[UsageRecordAggregated]]:
+        """aggregate usageRecordReports
+
+        Aggregate usageRecordReports by date and dimension key.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param partner: Cloud Partner (required)
+        :type partner: str
+        :param granularity: Granularity (required)
+        :type granularity: str
+        :param start_date: Start date (UTC) in YYYY-MM-DD format (required)
+        :type start_date: str
+        :param end_date: End date (UTC) in YYYY-MM-DD format (required)
+        :type end_date: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._aggregate_usage_record_reports_serialize(
+            org_id=org_id,
+            partner=partner,
+            granularity=granularity,
+            start_date=start_date,
+            end_date=end_date,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[UsageRecordAggregated]",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def aggregate_usage_record_reports_without_preload_content(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        partner: Annotated[StrictStr, Field(description="Cloud Partner")],
+        granularity: Annotated[StrictStr, Field(description="Granularity")],
+        start_date: Annotated[StrictStr, Field(description="Start date (UTC) in YYYY-MM-DD format")],
+        end_date: Annotated[StrictStr, Field(description="End date (UTC) in YYYY-MM-DD format")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """aggregate usageRecordReports
+
+        Aggregate usageRecordReports by date and dimension key.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param partner: Cloud Partner (required)
+        :type partner: str
+        :param granularity: Granularity (required)
+        :type granularity: str
+        :param start_date: Start date (UTC) in YYYY-MM-DD format (required)
+        :type start_date: str
+        :param end_date: End date (UTC) in YYYY-MM-DD format (required)
+        :type end_date: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._aggregate_usage_record_reports_serialize(
+            org_id=org_id,
+            partner=partner,
+            granularity=granularity,
+            start_date=start_date,
+            end_date=end_date,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[UsageRecordAggregated]",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _aggregate_usage_record_reports_serialize(
+        self,
+        org_id,
+        partner,
+        granularity,
+        start_date,
+        end_date,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if org_id is not None:
+            _path_params['orgId'] = org_id
+        # process the query parameters
+        if partner is not None:
+            
+            _query_params.append(('partner', partner))
+            
+        if granularity is not None:
+            
+            _query_params.append(('granularity', granularity))
+            
+        if start_date is not None:
+            
+            _query_params.append(('startDate', start_date))
+            
+        if end_date is not None:
+            
+            _query_params.append(('endDate', end_date))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/org/{orgId}/usageRecordReport/aggregate',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
 
 
     @validate_call

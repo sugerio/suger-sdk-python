@@ -29,6 +29,7 @@ class UpdateBuyerParams(BaseModel):
     """
     UpdateBuyerParams
     """ # noqa: E501
+    chargebee_customer_id: Optional[StrictStr] = Field(default=None, description="The Chargebee Customer ID of the buyer. If not provided, the Chargebee Customer ID will not be updated.", alias="chargebeeCustomerID")
     company_info: Optional[CompanyInfo] = Field(default=None, description="Optional. CompanyInfo of the buyer.", alias="companyInfo")
     customer_id: Optional[StrictStr] = Field(default=None, description="The customer ID to recognize the cloud marketplace buyer in your internal system. This may be used for uploading CSV files for Batch Metering Usage", alias="customerId")
     description: Optional[StrictStr] = Field(default=None, description="The description of the buyer. If not provided, the description will not be updated.")
@@ -37,8 +38,9 @@ class UpdateBuyerParams(BaseModel):
     name: Optional[StrictStr] = Field(default=None, description="The name of the buyer. If not provided, the name will not be updated.")
     orb_customer_id: Optional[StrictStr] = Field(default=None, description="The Orb Customer ID of the buyer. If not provided, the Orb Customer ID will not be updated.", alias="orbCustomerId")
     payment_config: Optional[PaymentConfig] = Field(default=None, description="Optional. PaymentConfig of the buyer. The currency can't be updated.", alias="paymentConfig")
+    quickbooks_customer_id: Optional[StrictStr] = Field(default=None, description="The Quickbooks Customer ID of the buyer. If not provided, the Quickbooks Customer ID will not be updated.", alias="quickbooksCustomerId")
     stripe_customer_id: Optional[StrictStr] = Field(default=None, description="The Stripe Customer ID of the buyer. If not provided, the Stripe Customer ID will not be updated.", alias="stripeCustomerId")
-    __properties: ClassVar[List[str]] = ["companyInfo", "customerId", "description", "lagoCustomerId", "metronomeCustomerId", "name", "orbCustomerId", "paymentConfig", "stripeCustomerId"]
+    __properties: ClassVar[List[str]] = ["chargebeeCustomerID", "companyInfo", "customerId", "description", "lagoCustomerId", "metronomeCustomerId", "name", "orbCustomerId", "paymentConfig", "quickbooksCustomerId", "stripeCustomerId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,6 +99,7 @@ class UpdateBuyerParams(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "chargebeeCustomerID": obj.get("chargebeeCustomerID"),
             "companyInfo": CompanyInfo.from_dict(obj["companyInfo"]) if obj.get("companyInfo") is not None else None,
             "customerId": obj.get("customerId"),
             "description": obj.get("description"),
@@ -105,6 +108,7 @@ class UpdateBuyerParams(BaseModel):
             "name": obj.get("name"),
             "orbCustomerId": obj.get("orbCustomerId"),
             "paymentConfig": PaymentConfig.from_dict(obj["paymentConfig"]) if obj.get("paymentConfig") is not None else None,
+            "quickbooksCustomerId": obj.get("quickbooksCustomerId"),
             "stripeCustomerId": obj.get("stripeCustomerId")
         })
         return _obj

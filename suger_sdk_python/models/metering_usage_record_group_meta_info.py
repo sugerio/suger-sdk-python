@@ -22,6 +22,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from suger_sdk_python.models.metering_usage_record import MeteringUsageRecord
+from suger_sdk_python.models.usage_allocation import UsageAllocation
 from suger_sdk_python.models.usage_record_group_source import UsageRecordGroupSource
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,10 +33,13 @@ class MeteringUsageRecordGroupMetaInfo(BaseModel):
     """ # noqa: E501
     skip_validation: Optional[StrictBool] = Field(default=None, description="If it is true, the validation of the usage record group is skipped.", alias="SkipValidation")
     billable_records: Optional[List[MeteringUsageRecord]] = Field(default=None, description="for usage metering API v2", alias="billableRecords")
+    erp_invoice_id: Optional[StrictStr] = Field(default=None, description="ERP invoice ID for tracking usage against external ERP service.", alias="erpInvoiceID")
     lago_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The lago amount (in dollars) of the customer. This field keeps the largest of the monthly amount. So it can only be updated when the invoice month increases.", alias="lagoAmount")
     lago_subscription_id: Optional[StrictStr] = Field(default=None, description="The lago subscription ID of the customer.", alias="lagoSubscriptionID")
     lago_usage_start_time: Optional[datetime] = Field(default=None, description="The lago usage start time of the customer usage.", alias="lagoUsageStartTime")
     metronome_daily_cost_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The metronome daily cost amount (in dollars) of the customer.", alias="metronomeDailyCostAmount")
+    metronome_invoice_credit_back: Optional[StrictBool] = Field(default=None, description="Whether the metronome invoice has been credited back.", alias="metronomeInvoiceCreditBack")
+    metronome_invoice_credit_back_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The metronome invoice amount (in dollars) of the customer.", alias="metronomeInvoiceCreditBackAmount")
     metronome_invoice_id: Optional[StrictStr] = Field(default=None, description="The metronome invoice ID of the customer.", alias="metronomeInvoiceID")
     metronome_monthly_invoice_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The metronome monthly invoice amount (in dollars) of the customer. This field keeps the largest amount of the invoice month. So it can only be updated when the invoice month increases.", alias="metronomeMonthlyInvoiceAmount")
     metronome_monthly_invoice_amount_adjusted: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The metronome monthly invoice amount (in dollars) of the customer, which is adjusted by the seller. This field is populated only when the invoice amount is decreased by the seller via credit granting.", alias="metronomeMonthlyInvoiceAmountAdjusted")
@@ -48,7 +52,8 @@ class MeteringUsageRecordGroupMetaInfo(BaseModel):
     stripe_usage_record_summary_id: Optional[StrictStr] = Field(default=None, alias="stripeUsageRecordSummaryID")
     stripe_usage_record_summary_total_usage: Optional[StrictInt] = Field(default=None, alias="stripeUsageRecordSummaryTotalUsage")
     timestamp: Optional[datetime] = Field(default=None, description="The timestamp (UTC)) of when the usage records were generated. Optional, if not provided, the current report timestamp will be used.")
-    __properties: ClassVar[List[str]] = ["SkipValidation", "billableRecords", "lagoAmount", "lagoSubscriptionID", "lagoUsageStartTime", "metronomeDailyCostAmount", "metronomeInvoiceID", "metronomeMonthlyInvoiceAmount", "metronomeMonthlyInvoiceAmountAdjusted", "originRecords", "source", "stripeInvoiceID", "stripePeriodEndTime", "stripePeriodStartTime", "stripeSubscriptionItemID", "stripeUsageRecordSummaryID", "stripeUsageRecordSummaryTotalUsage", "timestamp"]
+    usage_allocations: Optional[Dict[str, List[UsageAllocation]]] = Field(default=None, description="usage allocation information, dimension key -> UsageAllocation array. Only supported for AWS marketplace usage metering at this moment.", alias="usageAllocations")
+    __properties: ClassVar[List[str]] = ["SkipValidation", "billableRecords", "erpInvoiceID", "lagoAmount", "lagoSubscriptionID", "lagoUsageStartTime", "metronomeDailyCostAmount", "metronomeInvoiceCreditBack", "metronomeInvoiceCreditBackAmount", "metronomeInvoiceID", "metronomeMonthlyInvoiceAmount", "metronomeMonthlyInvoiceAmountAdjusted", "originRecords", "source", "stripeInvoiceID", "stripePeriodEndTime", "stripePeriodStartTime", "stripeSubscriptionItemID", "stripeUsageRecordSummaryID", "stripeUsageRecordSummaryTotalUsage", "timestamp", "usageAllocations"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,6 +101,15 @@ class MeteringUsageRecordGroupMetaInfo(BaseModel):
                 if _item_billable_records:
                     _items.append(_item_billable_records.to_dict())
             _dict['billableRecords'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each value in usage_allocations (dict of array)
+        _field_dict_of_array = {}
+        if self.usage_allocations:
+            for _key_usage_allocations in self.usage_allocations:
+                if self.usage_allocations[_key_usage_allocations] is not None:
+                    _field_dict_of_array[_key_usage_allocations] = [
+                        _item.to_dict() for _item in self.usage_allocations[_key_usage_allocations]
+                    ]
+            _dict['usageAllocations'] = _field_dict_of_array
         return _dict
 
     @classmethod
@@ -110,10 +124,13 @@ class MeteringUsageRecordGroupMetaInfo(BaseModel):
         _obj = cls.model_validate({
             "SkipValidation": obj.get("SkipValidation"),
             "billableRecords": [MeteringUsageRecord.from_dict(_item) for _item in obj["billableRecords"]] if obj.get("billableRecords") is not None else None,
+            "erpInvoiceID": obj.get("erpInvoiceID"),
             "lagoAmount": obj.get("lagoAmount"),
             "lagoSubscriptionID": obj.get("lagoSubscriptionID"),
             "lagoUsageStartTime": obj.get("lagoUsageStartTime"),
             "metronomeDailyCostAmount": obj.get("metronomeDailyCostAmount"),
+            "metronomeInvoiceCreditBack": obj.get("metronomeInvoiceCreditBack"),
+            "metronomeInvoiceCreditBackAmount": obj.get("metronomeInvoiceCreditBackAmount"),
             "metronomeInvoiceID": obj.get("metronomeInvoiceID"),
             "metronomeMonthlyInvoiceAmount": obj.get("metronomeMonthlyInvoiceAmount"),
             "metronomeMonthlyInvoiceAmountAdjusted": obj.get("metronomeMonthlyInvoiceAmountAdjusted"),
@@ -125,7 +142,15 @@ class MeteringUsageRecordGroupMetaInfo(BaseModel):
             "stripeSubscriptionItemID": obj.get("stripeSubscriptionItemID"),
             "stripeUsageRecordSummaryID": obj.get("stripeUsageRecordSummaryID"),
             "stripeUsageRecordSummaryTotalUsage": obj.get("stripeUsageRecordSummaryTotalUsage"),
-            "timestamp": obj.get("timestamp")
+            "timestamp": obj.get("timestamp"),
+            "usageAllocations": dict(
+                (_k,
+                        [UsageAllocation.from_dict(_item) for _item in _v]
+                        if _v is not None
+                        else None
+                )
+                for _k, _v in obj.get("usageAllocations", {}).items()
+            )
         })
         return _obj
 

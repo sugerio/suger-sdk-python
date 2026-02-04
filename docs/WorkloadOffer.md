@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **product_id** | **str** |  | [optional] 
 **service** | [**PartnerService**](PartnerService.md) |  | [optional] 
 **status** | [**OfferStatus**](OfferStatus.md) |  | [optional] 
+**sub_status** | [**GithubComSugerioMarketplaceServicePkgStructsOfferSubStatus**](GithubComSugerioMarketplaceServicePkgStructsOfferSubStatus.md) |  | [optional] 
 
 ## Example
 

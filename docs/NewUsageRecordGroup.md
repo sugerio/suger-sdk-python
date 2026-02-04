@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **meta_info** | [**MeteringUsageRecordGroupMetaInfo**](MeteringUsageRecordGroupMetaInfo.md) | read-only, don&#39;t set it when validating or reporting the usage record group. | [optional] 
 **records** | **Dict[str, float]** | for usage metering API v1, don&#39;t use it together with the billableRecords v2. | 
 **timestamp** | **datetime** | The timestamp of when the usage records were generated. Optional, if not provided, the current report timestamp will be used. This is not the timestamp of when the usage records were reported to Suger. | [optional] 
+**usage_allocations** | **Dict[str, List[UsageAllocation]]** | usage allocation information, dimension key -&gt; usageAllocation array. Only supported for AWS marketplace usage metering at this moment. | [optional] 
 
 ## Example
 

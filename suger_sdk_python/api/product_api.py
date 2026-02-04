@@ -17,9 +17,10 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictInt, StrictStr, field_validator
+from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_crud_list_base_response_github_com_sugerio_marketplace_service_pkg_orm_product import GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmProduct
 from suger_sdk_python.models.metering_dimension import MeteringDimension
 from suger_sdk_python.models.update_product_params import UpdateProductParams
 from suger_sdk_python.models.workload_meta_info import WorkloadMetaInfo
@@ -1492,9 +1493,14 @@ class ProductApi:
     def list_products(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
-        partner: Annotated[Optional[StrictStr], Field(description="filter by partner")] = None,
+        partner: Annotated[Optional[StrictStr], Field(description="Filter by partner")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 100, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
+        view: Annotated[Optional[StrictStr], Field(description="Response format: 'lite' or 'full' (default: full). 'lite' excludes info/metaInfo fields.")] = None,
+        for_create_offer: Annotated[Optional[StrictBool], Field(description="Enable product filtering for create offer purpose")] = None,
+        salesforce_opportunity_id: Annotated[Optional[StrictStr], Field(description="Salesforce Opportunity ID for product filtering (used with forCreateOffer=true)")] = None,
+        salesforce_quote_id: Annotated[Optional[StrictStr], Field(description="Salesforce Quote ID for product filtering (used with forCreateOffer=true)")] = None,
+        hubspot_deal_id: Annotated[Optional[StrictStr], Field(description="HubSpot Deal ID for product filtering (used with forCreateOffer=true)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1514,12 +1520,22 @@ class ProductApi:
 
         :param org_id: Organization ID (required)
         :type org_id: str
-        :param partner: filter by partner
+        :param partner: Filter by partner
         :type partner: str
         :param limit: List pagination size, default 100, max value is 1000
         :type limit: int
         :param offset: List pagination offset, default 0
         :type offset: int
+        :param view: Response format: 'lite' or 'full' (default: full). 'lite' excludes info/metaInfo fields.
+        :type view: str
+        :param for_create_offer: Enable product filtering for create offer purpose
+        :type for_create_offer: bool
+        :param salesforce_opportunity_id: Salesforce Opportunity ID for product filtering (used with forCreateOffer=true)
+        :type salesforce_opportunity_id: str
+        :param salesforce_quote_id: Salesforce Quote ID for product filtering (used with forCreateOffer=true)
+        :type salesforce_quote_id: str
+        :param hubspot_deal_id: HubSpot Deal ID for product filtering (used with forCreateOffer=true)
+        :type hubspot_deal_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1547,6 +1563,11 @@ class ProductApi:
             partner=partner,
             limit=limit,
             offset=offset,
+            view=view,
+            for_create_offer=for_create_offer,
+            salesforce_opportunity_id=salesforce_opportunity_id,
+            salesforce_quote_id=salesforce_quote_id,
+            hubspot_deal_id=hubspot_deal_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1573,9 +1594,14 @@ class ProductApi:
     def list_products_with_http_info(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
-        partner: Annotated[Optional[StrictStr], Field(description="filter by partner")] = None,
+        partner: Annotated[Optional[StrictStr], Field(description="Filter by partner")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 100, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
+        view: Annotated[Optional[StrictStr], Field(description="Response format: 'lite' or 'full' (default: full). 'lite' excludes info/metaInfo fields.")] = None,
+        for_create_offer: Annotated[Optional[StrictBool], Field(description="Enable product filtering for create offer purpose")] = None,
+        salesforce_opportunity_id: Annotated[Optional[StrictStr], Field(description="Salesforce Opportunity ID for product filtering (used with forCreateOffer=true)")] = None,
+        salesforce_quote_id: Annotated[Optional[StrictStr], Field(description="Salesforce Quote ID for product filtering (used with forCreateOffer=true)")] = None,
+        hubspot_deal_id: Annotated[Optional[StrictStr], Field(description="HubSpot Deal ID for product filtering (used with forCreateOffer=true)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1595,12 +1621,22 @@ class ProductApi:
 
         :param org_id: Organization ID (required)
         :type org_id: str
-        :param partner: filter by partner
+        :param partner: Filter by partner
         :type partner: str
         :param limit: List pagination size, default 100, max value is 1000
         :type limit: int
         :param offset: List pagination offset, default 0
         :type offset: int
+        :param view: Response format: 'lite' or 'full' (default: full). 'lite' excludes info/metaInfo fields.
+        :type view: str
+        :param for_create_offer: Enable product filtering for create offer purpose
+        :type for_create_offer: bool
+        :param salesforce_opportunity_id: Salesforce Opportunity ID for product filtering (used with forCreateOffer=true)
+        :type salesforce_opportunity_id: str
+        :param salesforce_quote_id: Salesforce Quote ID for product filtering (used with forCreateOffer=true)
+        :type salesforce_quote_id: str
+        :param hubspot_deal_id: HubSpot Deal ID for product filtering (used with forCreateOffer=true)
+        :type hubspot_deal_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1628,6 +1664,11 @@ class ProductApi:
             partner=partner,
             limit=limit,
             offset=offset,
+            view=view,
+            for_create_offer=for_create_offer,
+            salesforce_opportunity_id=salesforce_opportunity_id,
+            salesforce_quote_id=salesforce_quote_id,
+            hubspot_deal_id=hubspot_deal_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1654,9 +1695,14 @@ class ProductApi:
     def list_products_without_preload_content(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
-        partner: Annotated[Optional[StrictStr], Field(description="filter by partner")] = None,
+        partner: Annotated[Optional[StrictStr], Field(description="Filter by partner")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 100, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
+        view: Annotated[Optional[StrictStr], Field(description="Response format: 'lite' or 'full' (default: full). 'lite' excludes info/metaInfo fields.")] = None,
+        for_create_offer: Annotated[Optional[StrictBool], Field(description="Enable product filtering for create offer purpose")] = None,
+        salesforce_opportunity_id: Annotated[Optional[StrictStr], Field(description="Salesforce Opportunity ID for product filtering (used with forCreateOffer=true)")] = None,
+        salesforce_quote_id: Annotated[Optional[StrictStr], Field(description="Salesforce Quote ID for product filtering (used with forCreateOffer=true)")] = None,
+        hubspot_deal_id: Annotated[Optional[StrictStr], Field(description="HubSpot Deal ID for product filtering (used with forCreateOffer=true)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1676,12 +1722,22 @@ class ProductApi:
 
         :param org_id: Organization ID (required)
         :type org_id: str
-        :param partner: filter by partner
+        :param partner: Filter by partner
         :type partner: str
         :param limit: List pagination size, default 100, max value is 1000
         :type limit: int
         :param offset: List pagination offset, default 0
         :type offset: int
+        :param view: Response format: 'lite' or 'full' (default: full). 'lite' excludes info/metaInfo fields.
+        :type view: str
+        :param for_create_offer: Enable product filtering for create offer purpose
+        :type for_create_offer: bool
+        :param salesforce_opportunity_id: Salesforce Opportunity ID for product filtering (used with forCreateOffer=true)
+        :type salesforce_opportunity_id: str
+        :param salesforce_quote_id: Salesforce Quote ID for product filtering (used with forCreateOffer=true)
+        :type salesforce_quote_id: str
+        :param hubspot_deal_id: HubSpot Deal ID for product filtering (used with forCreateOffer=true)
+        :type hubspot_deal_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1709,6 +1765,11 @@ class ProductApi:
             partner=partner,
             limit=limit,
             offset=offset,
+            view=view,
+            for_create_offer=for_create_offer,
+            salesforce_opportunity_id=salesforce_opportunity_id,
+            salesforce_quote_id=salesforce_quote_id,
+            hubspot_deal_id=hubspot_deal_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1733,6 +1794,11 @@ class ProductApi:
         partner,
         limit,
         offset,
+        view,
+        for_create_offer,
+        salesforce_opportunity_id,
+        salesforce_quote_id,
+        hubspot_deal_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1768,6 +1834,26 @@ class ProductApi:
         if offset is not None:
             
             _query_params.append(('offset', offset))
+            
+        if view is not None:
+            
+            _query_params.append(('view', view))
+            
+        if for_create_offer is not None:
+            
+            _query_params.append(('forCreateOffer', for_create_offer))
+            
+        if salesforce_opportunity_id is not None:
+            
+            _query_params.append(('salesforceOpportunityId', salesforce_opportunity_id))
+            
+        if salesforce_quote_id is not None:
+            
+            _query_params.append(('salesforceQuoteId', salesforce_quote_id))
+            
+        if hubspot_deal_id is not None:
+            
+            _query_params.append(('hubspotDealId', hubspot_deal_id))
             
         # process the header parameters
         # process the form parameters
@@ -2386,6 +2472,358 @@ class ProductApi:
         return self.api_client.param_serialize(
             method='PATCH',
             resource_path='/org/{orgId}/product/{productId}/publish',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def query_products(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of items per page (default 100, max 200)")] = None,
+        page_number: Annotated[Optional[StrictInt], Field(description="Page number (default 1)")] = None,
+        fields: Annotated[Optional[StrictStr], Field(description="Comma-separated fields to return (e.g., 'id,name,status'). Dot notation supported.")] = None,
+        q: Annotated[Optional[StrictStr], Field(description="LISP-style filter expression (e.g., '(= partner \\")] = None,
+        s: Annotated[Optional[StrictStr], Field(description="Sort fields: 'field:asc,field2:desc' or '-field,field2' format")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmProduct:
+        """query products
+
+        Query products with advanced filtering, sorting, and pagination using CRUD query language. Supports complex filters, sorting by multiple fields, and pagination.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param page_size: Number of items per page (default 100, max 200)
+        :type page_size: int
+        :param page_number: Page number (default 1)
+        :type page_number: int
+        :param fields: Comma-separated fields to return (e.g., 'id,name,status'). Dot notation supported.
+        :type fields: str
+        :param q: LISP-style filter expression (e.g., '(= partner \\
+        :type q: str
+        :param s: Sort fields: 'field:asc,field2:desc' or '-field,field2' format
+        :type s: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._query_products_serialize(
+            org_id=org_id,
+            page_size=page_size,
+            page_number=page_number,
+            fields=fields,
+            q=q,
+            s=s,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmProduct",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def query_products_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of items per page (default 100, max 200)")] = None,
+        page_number: Annotated[Optional[StrictInt], Field(description="Page number (default 1)")] = None,
+        fields: Annotated[Optional[StrictStr], Field(description="Comma-separated fields to return (e.g., 'id,name,status'). Dot notation supported.")] = None,
+        q: Annotated[Optional[StrictStr], Field(description="LISP-style filter expression (e.g., '(= partner \\")] = None,
+        s: Annotated[Optional[StrictStr], Field(description="Sort fields: 'field:asc,field2:desc' or '-field,field2' format")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmProduct]:
+        """query products
+
+        Query products with advanced filtering, sorting, and pagination using CRUD query language. Supports complex filters, sorting by multiple fields, and pagination.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param page_size: Number of items per page (default 100, max 200)
+        :type page_size: int
+        :param page_number: Page number (default 1)
+        :type page_number: int
+        :param fields: Comma-separated fields to return (e.g., 'id,name,status'). Dot notation supported.
+        :type fields: str
+        :param q: LISP-style filter expression (e.g., '(= partner \\
+        :type q: str
+        :param s: Sort fields: 'field:asc,field2:desc' or '-field,field2' format
+        :type s: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._query_products_serialize(
+            org_id=org_id,
+            page_size=page_size,
+            page_number=page_number,
+            fields=fields,
+            q=q,
+            s=s,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmProduct",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def query_products_without_preload_content(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of items per page (default 100, max 200)")] = None,
+        page_number: Annotated[Optional[StrictInt], Field(description="Page number (default 1)")] = None,
+        fields: Annotated[Optional[StrictStr], Field(description="Comma-separated fields to return (e.g., 'id,name,status'). Dot notation supported.")] = None,
+        q: Annotated[Optional[StrictStr], Field(description="LISP-style filter expression (e.g., '(= partner \\")] = None,
+        s: Annotated[Optional[StrictStr], Field(description="Sort fields: 'field:asc,field2:desc' or '-field,field2' format")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """query products
+
+        Query products with advanced filtering, sorting, and pagination using CRUD query language. Supports complex filters, sorting by multiple fields, and pagination.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param page_size: Number of items per page (default 100, max 200)
+        :type page_size: int
+        :param page_number: Page number (default 1)
+        :type page_number: int
+        :param fields: Comma-separated fields to return (e.g., 'id,name,status'). Dot notation supported.
+        :type fields: str
+        :param q: LISP-style filter expression (e.g., '(= partner \\
+        :type q: str
+        :param s: Sort fields: 'field:asc,field2:desc' or '-field,field2' format
+        :type s: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._query_products_serialize(
+            org_id=org_id,
+            page_size=page_size,
+            page_number=page_number,
+            fields=fields,
+            q=q,
+            s=s,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmProduct",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _query_products_serialize(
+        self,
+        org_id,
+        page_size,
+        page_number,
+        fields,
+        q,
+        s,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if org_id is not None:
+            _path_params['orgId'] = org_id
+        # process the query parameters
+        if page_size is not None:
+            
+            _query_params.append(('page_size', page_size))
+            
+        if page_number is not None:
+            
+            _query_params.append(('page_number', page_number))
+            
+        if fields is not None:
+            
+            _query_params.append(('fields', fields))
+            
+        if q is not None:
+            
+            _query_params.append(('q', q))
+            
+        if s is not None:
+            
+            _query_params.append(('s', s))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/org/{orgId}/product/query',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

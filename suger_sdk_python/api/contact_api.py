@@ -20,8 +20,10 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_crud_list_base_response_github_com_sugerio_marketplace_service_pkg_orm_identity_contact import GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmIdentityContact
 from suger_sdk_python.models.identity_buyer import IdentityBuyer
 from suger_sdk_python.models.identity_contact import IdentityContact
+from suger_sdk_python.models.service_marketplace_service_api_update_contact_tags_request import ServiceMarketplaceServiceApiUpdateContactTagsRequest
 
 from suger_sdk_python.api_client import ApiClient, RequestSerialized
 from suger_sdk_python.api_response import ApiResponse
@@ -1509,11 +1511,14 @@ class ContactApi:
 
 
     @validate_call
-    def list_contacts_by_organization(
+    def list_contacts(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
-        limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
+        contact_ids: Annotated[Optional[StrictStr], Field(description="Comma-separated list of contact IDs to fetch specific contacts, up to 100 IDs")] = None,
+        email_domain: Annotated[Optional[StrictStr], Field(description="Email domain to filter contacts")] = None,
+        keyword: Annotated[Optional[StrictStr], Field(description="the keyword string to search contacts by name or email (uses ORM for better performance)")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000 (ignored when contactIds is provided)")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0 (ignored when contactIds is provided)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1527,15 +1532,21 @@ class ContactApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[IdentityContact]:
-        """list contacts by organization
+        """list contacts
 
-        List all contacts under the given organization.
+        List all contacts under the given organization. If contactIds parameter is provided, return only those specific contacts.
 
         :param org_id: Organization ID (required)
         :type org_id: str
-        :param limit: List pagination size, default 1000, max value is 1000
+        :param contact_ids: Comma-separated list of contact IDs to fetch specific contacts, up to 100 IDs
+        :type contact_ids: str
+        :param email_domain: Email domain to filter contacts
+        :type email_domain: str
+        :param keyword: the keyword string to search contacts by name or email (uses ORM for better performance)
+        :type keyword: str
+        :param limit: List pagination size, default 1000, max value is 1000 (ignored when contactIds is provided)
         :type limit: int
-        :param offset: List pagination offset, default 0
+        :param offset: List pagination offset, default 0 (ignored when contactIds is provided)
         :type offset: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1559,8 +1570,11 @@ class ContactApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_contacts_by_organization_serialize(
+        _param = self._list_contacts_serialize(
             org_id=org_id,
+            contact_ids=contact_ids,
+            email_domain=email_domain,
+            keyword=keyword,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -1586,11 +1600,14 @@ class ContactApi:
 
 
     @validate_call
-    def list_contacts_by_organization_with_http_info(
+    def list_contacts_with_http_info(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
-        limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
+        contact_ids: Annotated[Optional[StrictStr], Field(description="Comma-separated list of contact IDs to fetch specific contacts, up to 100 IDs")] = None,
+        email_domain: Annotated[Optional[StrictStr], Field(description="Email domain to filter contacts")] = None,
+        keyword: Annotated[Optional[StrictStr], Field(description="the keyword string to search contacts by name or email (uses ORM for better performance)")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000 (ignored when contactIds is provided)")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0 (ignored when contactIds is provided)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1604,15 +1621,21 @@ class ContactApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[IdentityContact]]:
-        """list contacts by organization
+        """list contacts
 
-        List all contacts under the given organization.
+        List all contacts under the given organization. If contactIds parameter is provided, return only those specific contacts.
 
         :param org_id: Organization ID (required)
         :type org_id: str
-        :param limit: List pagination size, default 1000, max value is 1000
+        :param contact_ids: Comma-separated list of contact IDs to fetch specific contacts, up to 100 IDs
+        :type contact_ids: str
+        :param email_domain: Email domain to filter contacts
+        :type email_domain: str
+        :param keyword: the keyword string to search contacts by name or email (uses ORM for better performance)
+        :type keyword: str
+        :param limit: List pagination size, default 1000, max value is 1000 (ignored when contactIds is provided)
         :type limit: int
-        :param offset: List pagination offset, default 0
+        :param offset: List pagination offset, default 0 (ignored when contactIds is provided)
         :type offset: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1636,8 +1659,11 @@ class ContactApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_contacts_by_organization_serialize(
+        _param = self._list_contacts_serialize(
             org_id=org_id,
+            contact_ids=contact_ids,
+            email_domain=email_domain,
+            keyword=keyword,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -1663,11 +1689,14 @@ class ContactApi:
 
 
     @validate_call
-    def list_contacts_by_organization_without_preload_content(
+    def list_contacts_without_preload_content(
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
-        limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
+        contact_ids: Annotated[Optional[StrictStr], Field(description="Comma-separated list of contact IDs to fetch specific contacts, up to 100 IDs")] = None,
+        email_domain: Annotated[Optional[StrictStr], Field(description="Email domain to filter contacts")] = None,
+        keyword: Annotated[Optional[StrictStr], Field(description="the keyword string to search contacts by name or email (uses ORM for better performance)")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000 (ignored when contactIds is provided)")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0 (ignored when contactIds is provided)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1681,15 +1710,21 @@ class ContactApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """list contacts by organization
+        """list contacts
 
-        List all contacts under the given organization.
+        List all contacts under the given organization. If contactIds parameter is provided, return only those specific contacts.
 
         :param org_id: Organization ID (required)
         :type org_id: str
-        :param limit: List pagination size, default 1000, max value is 1000
+        :param contact_ids: Comma-separated list of contact IDs to fetch specific contacts, up to 100 IDs
+        :type contact_ids: str
+        :param email_domain: Email domain to filter contacts
+        :type email_domain: str
+        :param keyword: the keyword string to search contacts by name or email (uses ORM for better performance)
+        :type keyword: str
+        :param limit: List pagination size, default 1000, max value is 1000 (ignored when contactIds is provided)
         :type limit: int
-        :param offset: List pagination offset, default 0
+        :param offset: List pagination offset, default 0 (ignored when contactIds is provided)
         :type offset: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1713,8 +1748,11 @@ class ContactApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_contacts_by_organization_serialize(
+        _param = self._list_contacts_serialize(
             org_id=org_id,
+            contact_ids=contact_ids,
+            email_domain=email_domain,
+            keyword=keyword,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -1735,9 +1773,12 @@ class ContactApi:
         return response_data.response
 
 
-    def _list_contacts_by_organization_serialize(
+    def _list_contacts_serialize(
         self,
         org_id,
+        contact_ids,
+        email_domain,
+        keyword,
         limit,
         offset,
         _request_auth,
@@ -1764,6 +1805,18 @@ class ContactApi:
         if org_id is not None:
             _path_params['orgId'] = org_id
         # process the query parameters
+        if contact_ids is not None:
+            
+            _query_params.append(('contactIds', contact_ids))
+            
+        if email_domain is not None:
+            
+            _query_params.append(('emailDomain', email_domain))
+            
+        if keyword is not None:
+            
+            _query_params.append(('keyword', keyword))
+            
         if limit is not None:
             
             _query_params.append(('limit', limit))
@@ -1794,6 +1847,341 @@ class ContactApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/org/{orgId}/contact',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def query_contacts(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of items per page (default 20, max 1000)")] = None,
+        page_number: Annotated[Optional[StrictInt], Field(description="Page number (default 1)")] = None,
+        q: Annotated[Optional[StrictStr], Field(description="LISP-style filter expression (e.g., '(= name \\")] = None,
+        s: Annotated[Optional[StrictStr], Field(description="Sort fields: 'field:asc,field2:desc' or '-field,field2' format (e.g., 'creation_time:desc,name:asc' or '-creation_time,name')")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmIdentityContact:
+        """query contacts
+
+        Query contacts with advanced filtering, sorting, and pagination using CRUD query language. Supports complex filters, sorting by multiple fields, and pagination.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param page_size: Number of items per page (default 20, max 1000)
+        :type page_size: int
+        :param page_number: Page number (default 1)
+        :type page_number: int
+        :param q: LISP-style filter expression (e.g., '(= name \\
+        :type q: str
+        :param s: Sort fields: 'field:asc,field2:desc' or '-field,field2' format (e.g., 'creation_time:desc,name:asc' or '-creation_time,name')
+        :type s: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._query_contacts_serialize(
+            org_id=org_id,
+            page_size=page_size,
+            page_number=page_number,
+            q=q,
+            s=s,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmIdentityContact",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def query_contacts_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of items per page (default 20, max 1000)")] = None,
+        page_number: Annotated[Optional[StrictInt], Field(description="Page number (default 1)")] = None,
+        q: Annotated[Optional[StrictStr], Field(description="LISP-style filter expression (e.g., '(= name \\")] = None,
+        s: Annotated[Optional[StrictStr], Field(description="Sort fields: 'field:asc,field2:desc' or '-field,field2' format (e.g., 'creation_time:desc,name:asc' or '-creation_time,name')")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmIdentityContact]:
+        """query contacts
+
+        Query contacts with advanced filtering, sorting, and pagination using CRUD query language. Supports complex filters, sorting by multiple fields, and pagination.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param page_size: Number of items per page (default 20, max 1000)
+        :type page_size: int
+        :param page_number: Page number (default 1)
+        :type page_number: int
+        :param q: LISP-style filter expression (e.g., '(= name \\
+        :type q: str
+        :param s: Sort fields: 'field:asc,field2:desc' or '-field,field2' format (e.g., 'creation_time:desc,name:asc' or '-creation_time,name')
+        :type s: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._query_contacts_serialize(
+            org_id=org_id,
+            page_size=page_size,
+            page_number=page_number,
+            q=q,
+            s=s,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmIdentityContact",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def query_contacts_without_preload_content(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of items per page (default 20, max 1000)")] = None,
+        page_number: Annotated[Optional[StrictInt], Field(description="Page number (default 1)")] = None,
+        q: Annotated[Optional[StrictStr], Field(description="LISP-style filter expression (e.g., '(= name \\")] = None,
+        s: Annotated[Optional[StrictStr], Field(description="Sort fields: 'field:asc,field2:desc' or '-field,field2' format (e.g., 'creation_time:desc,name:asc' or '-creation_time,name')")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """query contacts
+
+        Query contacts with advanced filtering, sorting, and pagination using CRUD query language. Supports complex filters, sorting by multiple fields, and pagination.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param page_size: Number of items per page (default 20, max 1000)
+        :type page_size: int
+        :param page_number: Page number (default 1)
+        :type page_number: int
+        :param q: LISP-style filter expression (e.g., '(= name \\
+        :type q: str
+        :param s: Sort fields: 'field:asc,field2:desc' or '-field,field2' format (e.g., 'creation_time:desc,name:asc' or '-creation_time,name')
+        :type s: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._query_contacts_serialize(
+            org_id=org_id,
+            page_size=page_size,
+            page_number=page_number,
+            q=q,
+            s=s,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmIdentityContact",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _query_contacts_serialize(
+        self,
+        org_id,
+        page_size,
+        page_number,
+        q,
+        s,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if org_id is not None:
+            _path_params['orgId'] = org_id
+        # process the query parameters
+        if page_size is not None:
+            
+            _query_params.append(('page_size', page_size))
+            
+        if page_number is not None:
+            
+            _query_params.append(('page_number', page_number))
+            
+        if q is not None:
+            
+            _query_params.append(('q', q))
+            
+        if s is not None:
+            
+            _query_params.append(('s', s))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/org/{orgId}/contact/query',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2424,7 +2812,7 @@ class ContactApi:
     ) -> IdentityContact:
         """update contact
 
-        update contact by the given organization and buyer id. The given name and information should be complete. Please note that this function does not support partial updates.
+        Update the contact for the given organization and contact ID. This endpoint supports partial updates. Only the fields provided in the request body will be updated. To clear a field, provide it with an empty value.
 
         :param org_id: Organization ID (required)
         :type org_id: str
@@ -2501,7 +2889,7 @@ class ContactApi:
     ) -> ApiResponse[IdentityContact]:
         """update contact
 
-        update contact by the given organization and buyer id. The given name and information should be complete. Please note that this function does not support partial updates.
+        Update the contact for the given organization and contact ID. This endpoint supports partial updates. Only the fields provided in the request body will be updated. To clear a field, provide it with an empty value.
 
         :param org_id: Organization ID (required)
         :type org_id: str
@@ -2578,7 +2966,7 @@ class ContactApi:
     ) -> RESTResponseType:
         """update contact
 
-        update contact by the given organization and buyer id. The given name and information should be complete. Please note that this function does not support partial updates.
+        Update the contact for the given organization and contact ID. This endpoint supports partial updates. Only the fields provided in the request body will be updated. To clear a field, provide it with an empty value.
 
         :param org_id: Organization ID (required)
         :type org_id: str
@@ -2698,6 +3086,316 @@ class ContactApi:
         return self.api_client.param_serialize(
             method='PATCH',
             resource_path='/org/{orgId}/contact/{contactId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def update_contact_tags(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        contact_id: Annotated[StrictStr, Field(description="Contact ID")],
+        data: Annotated[ServiceMarketplaceServiceApiUpdateContactTagsRequest, Field(description="Request Body")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[str]:
+        """update contact tags
+
+        Update the tags for a contact. Tags must be alphabetic strings, max 10 characters each, max 5 tags total.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param contact_id: Contact ID (required)
+        :type contact_id: str
+        :param data: Request Body (required)
+        :type data: ServiceMarketplaceServiceApiUpdateContactTagsRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_contact_tags_serialize(
+            org_id=org_id,
+            contact_id=contact_id,
+            data=data,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[str]",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def update_contact_tags_with_http_info(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        contact_id: Annotated[StrictStr, Field(description="Contact ID")],
+        data: Annotated[ServiceMarketplaceServiceApiUpdateContactTagsRequest, Field(description="Request Body")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[str]]:
+        """update contact tags
+
+        Update the tags for a contact. Tags must be alphabetic strings, max 10 characters each, max 5 tags total.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param contact_id: Contact ID (required)
+        :type contact_id: str
+        :param data: Request Body (required)
+        :type data: ServiceMarketplaceServiceApiUpdateContactTagsRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_contact_tags_serialize(
+            org_id=org_id,
+            contact_id=contact_id,
+            data=data,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[str]",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def update_contact_tags_without_preload_content(
+        self,
+        org_id: Annotated[StrictStr, Field(description="Organization ID")],
+        contact_id: Annotated[StrictStr, Field(description="Contact ID")],
+        data: Annotated[ServiceMarketplaceServiceApiUpdateContactTagsRequest, Field(description="Request Body")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """update contact tags
+
+        Update the tags for a contact. Tags must be alphabetic strings, max 10 characters each, max 5 tags total.
+
+        :param org_id: Organization ID (required)
+        :type org_id: str
+        :param contact_id: Contact ID (required)
+        :type contact_id: str
+        :param data: Request Body (required)
+        :type data: ServiceMarketplaceServiceApiUpdateContactTagsRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_contact_tags_serialize(
+            org_id=org_id,
+            contact_id=contact_id,
+            data=data,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[str]",
+            '400': "str",
+            '500': "str",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _update_contact_tags_serialize(
+        self,
+        org_id,
+        contact_id,
+        data,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if org_id is not None:
+            _path_params['orgId'] = org_id
+        if contact_id is not None:
+            _path_params['contactId'] = contact_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if data is not None:
+            _body_params = data
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PATCH',
+            resource_path='/org/{orgId}/contact/{contactId}/tag',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

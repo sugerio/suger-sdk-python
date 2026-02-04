@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **arn** | **str** |  | [optional] 
+**code** | **str** |  | [optional] 
 **id** | **str** |  | [optional] 
 **title** | **str** |  | [optional] 
 

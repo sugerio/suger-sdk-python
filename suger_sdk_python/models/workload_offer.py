@@ -21,6 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_structs_offer_sub_status import GithubComSugerioMarketplaceServicePkgStructsOfferSubStatus
 from suger_sdk_python.models.offer_info import OfferInfo
 from suger_sdk_python.models.offer_status import OfferStatus
 from suger_sdk_python.models.offer_type import OfferType
@@ -54,7 +55,8 @@ class WorkloadOffer(BaseModel):
     product_id: Optional[StrictStr] = Field(default=None, alias="productID")
     service: Optional[PartnerService] = None
     status: Optional[OfferStatus] = None
-    __properties: ClassVar[List[str]] = ["buyerID", "contactIds", "createdBy", "creationTime", "endTime", "expireTime", "externalID", "id", "info", "lastUpdateTime", "lastUpdatedBy", "metaInfo", "name", "offerType", "organizationID", "partner", "partnerID", "productID", "service", "status"]
+    sub_status: Optional[GithubComSugerioMarketplaceServicePkgStructsOfferSubStatus] = Field(default=None, alias="subStatus")
+    __properties: ClassVar[List[str]] = ["buyerID", "contactIds", "createdBy", "creationTime", "endTime", "expireTime", "externalID", "id", "info", "lastUpdateTime", "lastUpdatedBy", "metaInfo", "name", "offerType", "organizationID", "partner", "partnerID", "productID", "service", "status", "subStatus"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -132,7 +134,8 @@ class WorkloadOffer(BaseModel):
             "partnerID": obj.get("partnerID"),
             "productID": obj.get("productID"),
             "service": obj.get("service"),
-            "status": obj.get("status")
+            "status": obj.get("status"),
+            "subStatus": obj.get("subStatus")
         })
         return _obj
 
