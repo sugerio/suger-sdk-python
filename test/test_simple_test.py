@@ -9,19 +9,19 @@ from suger_sdk_python.api.entitlement_api import EntitlementApi
 
 
 class TestSimpleTest(unittest.TestCase):
-
     def setUp(self) -> None:
         test_config = Configuration(
             host="https://api.dev.suger.cloud",
         )
-        test_config.api_key[
-            'APIKeyAuth'] = 'Key 95d2983ca68bd6f9655b9d026b05e9afbdb6a601a700c18007f9eb3accec7a067b306e8233278dd36f88d028c6007053cfe3fc7a585ed2aef4f3cf14b99482ca'
+        test_config.api_key["APIKeyAuth"] = (
+            "Key f6c0d90a9b8c24896546f881f221b99a837614764f190d3a96878a48a23a7c874510d87d4e27ff0777a48af052cc8cf074369c5ac4f43d0fffb97767d43af7df"
+        )
         api_client = ApiClient(test_config)
         self.api = api_client
 
     def test_get_offer(self) -> None:
-        org_id = 'w43Vc6UfM'
-        offer_id = '1Edc6L49p'
+        org_id = "w43Vc6UfM"
+        offer_id = "1Edc6L49p"
         try:
             result = OfferApi(self.api).get_offer(org_id, offer_id)
             print("The response of OfferApi:\n")
@@ -33,8 +33,8 @@ class TestSimpleTest(unittest.TestCase):
             assert False
 
     def test_get_product(self) -> None:
-        org_id = 'w43Vc6UfM'
-        product_id = 'uD4BR9VfM'
+        org_id = "w43Vc6UfM"
+        product_id = "FILJ3VP9p"
         try:
             result = ProductApi(self.api).get_product(org_id, product_id)
             print("The response of ProductApi:\n")
@@ -46,8 +46,8 @@ class TestSimpleTest(unittest.TestCase):
             assert False
 
     def test_get_entitlement(self) -> None:
-        org_id = 'w43Vc6UfM'
-        entitlement_id = '7DuaETO_S'
+        org_id = "w43Vc6UfM"
+        entitlement_id = "7DuaETO_S"
         try:
             result = EntitlementApi(self.api).get_entitlement(org_id, entitlement_id)
             print("The response of EntitlementApi:\n")
@@ -59,5 +59,5 @@ class TestSimpleTest(unittest.TestCase):
             assert False
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
