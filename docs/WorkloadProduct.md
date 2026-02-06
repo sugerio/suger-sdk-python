@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **partner** | [**Partner**](Partner.md) |  | [optional] 
 **partner_id** | **str** |  | [optional] 
 **product_type** | **str** |  | [optional] 
+**seller_id** | **str** |  | [optional] 
 **service** | [**PartnerService**](PartnerService.md) |  | [optional] 
 **status** | **str** |  | [optional] 
 

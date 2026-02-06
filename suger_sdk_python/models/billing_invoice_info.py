@@ -21,6 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from suger_sdk_python.models.aws_invoice import AwsInvoice
 from suger_sdk_python.models.billable_dimension_price_model_detail import BillableDimensionPriceModelDetail
 from suger_sdk_python.models.billable_dimension_usage_daily_revenue import BillableDimensionUsageDailyRevenue
 from suger_sdk_python.models.billing_addon_record import BillingAddonRecord
@@ -44,29 +45,32 @@ class BillingInvoiceInfo(BaseModel):
     adjust_minimum_spend_by_dimensions: Optional[List[InvoiceAdjustMinimumSpendByDimension]] = Field(default=None, description="add or adjust minimum spend for a specific dimension", alias="adjustMinimumSpendByDimensions")
     adjust_overall_discount: Optional[InvoiceAdjustOverallDiscount] = Field(default=None, description="add or adjust overall discount calculate each dimension's discount first, then apply the overall discount", alias="adjustOverallDiscount")
     adjust_overall_minimum_spend: Optional[InvoiceAdjustOverallMinimumSpend] = Field(default=None, description="add or adjust overall minimum spend calculate each dimension's minimum spend first, then apply the overall minimum spend", alias="adjustOverallMinimumSpend")
+    aws_invoice: Optional[AwsInvoice] = Field(default=None, alias="awsInvoice")
     billable_dimension_details: Optional[List[BillableDimensionPriceModelDetail]] = Field(default=None, alias="billableDimensionDetails")
     commits_revenue_details: Optional[List[CommitRevenueDetail]] = Field(default=None, description="Recurring flat fee for the invoice. There should be only one type fee for each invoice, commits, or usage.", alias="commitsRevenueDetails")
     creation_date: Optional[datetime] = Field(default=None, description="The creation date of the invoice when the status of the invoice may be draft or issued. It may be different from the issue date.", alias="creationDate")
-    currency: Optional[StrictStr] = None
+    currency: Optional[StrictStr] = Field(default=None, description="Deprecated: Use BillingInvoice.Currency instead.")
     deducted_commit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount of the committed amount that has been deducted from the usage. It works only when IsMeteringOverageCommit is true.", alias="deductedCommitAmount")
     deducted_commit_invoice_id: Optional[StrictStr] = Field(default=None, description="The ID of the commit invoice that has been deducted from the usage. It works only when IsMeteringOverageCommit is true.", alias="deductedCommitInvoiceID")
     description: Optional[StrictStr] = None
-    due_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Due amount = SubtotalAmount + TaxAmount - AdjustOverallDiscount", alias="dueAmount")
-    due_date: Optional[datetime] = Field(default=None, description="DueDate = IssueDate + NetTerm", alias="dueDate")
+    due_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Due amount = SubtotalAmount + TaxAmount - AdjustOverallDiscount Deprecated: Use BillingInvoice.DueAmount instead.", alias="dueAmount")
+    due_date: Optional[datetime] = Field(default=None, description="DueDate = IssueDate + NetTerm Deprecated: Use BillingInvoice.DueDate instead.", alias="dueDate")
     grace_period_in_days: Optional[StrictInt] = Field(default=None, description="Grace Period in number of days", alias="gracePeriodInDays")
-    is_metering_overage_commit: Optional[StrictBool] = Field(default=None, description="Whether the usage metering is charged for the amount that exceeds the committed amount from the entitlement.", alias="isMeteringOverageCommit")
-    issue_date: Optional[datetime] = Field(default=None, description="IssueDate, issue invoice automatically when CreationDate + GracePeriod, or issue invoice manually IssueDate >= CreationDate && IssueDate <= CreationDate + GracePeriod", alias="issueDate")
+    is_metering_overage_commit: Optional[StrictBool] = Field(default=None, description="Custom fields for Suger managed Stripe invoice. Whether the usage metering is charged for the amount that exceeds the committed amount from the entitlement.", alias="isMeteringOverageCommit")
+    issue_date: Optional[datetime] = Field(default=None, description="IssueDate, issue invoice automatically when CreationDate + GracePeriod, or issue invoice manually IssueDate >= CreationDate && IssueDate <= CreationDate + GracePeriod Deprecated: Use BillingInvoice.IssueDate instead.", alias="issueDate")
     memo: Optional[StrictStr] = None
     net_terms_in_days: Optional[StrictInt] = Field(default=None, description="Net Terms period in number of days", alias="netTermsInDays")
     payment_installments_detail: Optional[BillingPaymentInstallmentDetail] = Field(default=None, alias="paymentInstallmentsDetail")
+    pdf_url: Optional[StrictStr] = Field(default=None, description="The PDF URL of the invoice, provided as AWS S3 presigned URL. Output only.", alias="pdfURL")
     period_total_days: Optional[StrictInt] = Field(default=None, description="PeriodTotalDays is the total number of days among the whole periods. e.g. 61 days for a 2-month invoice.", alias="periodTotalDays")
     receipt_url: Optional[StrictStr] = Field(default=None, description="Invoice receipt url, it only exists when there are transactions.", alias="receiptUrl")
+    related_entitlement_ids: Optional[List[StrictStr]] = Field(default=None, description="The IDs of the entitlements related to the invoice. Aws invoice may be related to multiple entitlements.", alias="relatedEntitlementIDs")
     spa_url: Optional[StrictStr] = Field(default=None, description="SPA url with JWT.", alias="spaUrl")
-    subtotal_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Subtotal amount calculated from the user usage.", alias="subtotalAmount")
+    subtotal_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Fields designed for stripe invoice. Subtotal amount calculated from the user usage. Deprecated: Use BillingInvoice.TotalAmount instead.", alias="subtotalAmount")
     tax_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="taxAmount")
     trial_period_in_days: Optional[StrictInt] = Field(default=None, description="Trial period in number of days", alias="trialPeriodInDays")
     usage_daily_revenues: Optional[List[BillableDimensionUsageDailyRevenue]] = Field(default=None, description="Billable dimension fees for the invoice.", alias="usageDailyRevenues")
-    __properties: ClassVar[List[str]] = ["addFixedFees", "addonDetail", "adjustDiscountByDimensions", "adjustMinimumSpendByDimensions", "adjustOverallDiscount", "adjustOverallMinimumSpend", "billableDimensionDetails", "commitsRevenueDetails", "creationDate", "currency", "deductedCommitAmount", "deductedCommitInvoiceID", "description", "dueAmount", "dueDate", "gracePeriodInDays", "isMeteringOverageCommit", "issueDate", "memo", "netTermsInDays", "paymentInstallmentsDetail", "periodTotalDays", "receiptUrl", "spaUrl", "subtotalAmount", "taxAmount", "trialPeriodInDays", "usageDailyRevenues"]
+    __properties: ClassVar[List[str]] = ["addFixedFees", "addonDetail", "adjustDiscountByDimensions", "adjustMinimumSpendByDimensions", "adjustOverallDiscount", "adjustOverallMinimumSpend", "awsInvoice", "billableDimensionDetails", "commitsRevenueDetails", "creationDate", "currency", "deductedCommitAmount", "deductedCommitInvoiceID", "description", "dueAmount", "dueDate", "gracePeriodInDays", "isMeteringOverageCommit", "issueDate", "memo", "netTermsInDays", "paymentInstallmentsDetail", "pdfURL", "periodTotalDays", "receiptUrl", "relatedEntitlementIDs", "spaUrl", "subtotalAmount", "taxAmount", "trialPeriodInDays", "usageDailyRevenues"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -137,6 +141,9 @@ class BillingInvoiceInfo(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of adjust_overall_minimum_spend
         if self.adjust_overall_minimum_spend:
             _dict['adjustOverallMinimumSpend'] = self.adjust_overall_minimum_spend.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of aws_invoice
+        if self.aws_invoice:
+            _dict['awsInvoice'] = self.aws_invoice.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in billable_dimension_details (list)
         _items = []
         if self.billable_dimension_details:
@@ -179,6 +186,7 @@ class BillingInvoiceInfo(BaseModel):
             "adjustMinimumSpendByDimensions": [InvoiceAdjustMinimumSpendByDimension.from_dict(_item) for _item in obj["adjustMinimumSpendByDimensions"]] if obj.get("adjustMinimumSpendByDimensions") is not None else None,
             "adjustOverallDiscount": InvoiceAdjustOverallDiscount.from_dict(obj["adjustOverallDiscount"]) if obj.get("adjustOverallDiscount") is not None else None,
             "adjustOverallMinimumSpend": InvoiceAdjustOverallMinimumSpend.from_dict(obj["adjustOverallMinimumSpend"]) if obj.get("adjustOverallMinimumSpend") is not None else None,
+            "awsInvoice": AwsInvoice.from_dict(obj["awsInvoice"]) if obj.get("awsInvoice") is not None else None,
             "billableDimensionDetails": [BillableDimensionPriceModelDetail.from_dict(_item) for _item in obj["billableDimensionDetails"]] if obj.get("billableDimensionDetails") is not None else None,
             "commitsRevenueDetails": [CommitRevenueDetail.from_dict(_item) for _item in obj["commitsRevenueDetails"]] if obj.get("commitsRevenueDetails") is not None else None,
             "creationDate": obj.get("creationDate"),
@@ -194,8 +202,10 @@ class BillingInvoiceInfo(BaseModel):
             "memo": obj.get("memo"),
             "netTermsInDays": obj.get("netTermsInDays"),
             "paymentInstallmentsDetail": BillingPaymentInstallmentDetail.from_dict(obj["paymentInstallmentsDetail"]) if obj.get("paymentInstallmentsDetail") is not None else None,
+            "pdfURL": obj.get("pdfURL"),
             "periodTotalDays": obj.get("periodTotalDays"),
             "receiptUrl": obj.get("receiptUrl"),
+            "relatedEntitlementIDs": obj.get("relatedEntitlementIDs"),
             "spaUrl": obj.get("spaUrl"),
             "subtotalAmount": obj.get("subtotalAmount"),
             "taxAmount": obj.get("taxAmount"),

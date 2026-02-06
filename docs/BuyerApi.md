@@ -1,6 +1,6 @@
 # suger_sdk_python.BuyerApi
 
-All URIs are relative to *http://https://api.suger.cloud*
+All URIs are relative to *https://api.suger.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_buyer**](BuyerApi.md#get_buyer) | **GET** /org/{orgId}/buyer/{buyerId} | get buyer
 [**list_buyer_wallets**](BuyerApi.md#list_buyer_wallets) | **GET** /org/{orgId}/buyer/{buyerId}/wallet | list buyer&#39;s wallets
 [**list_buyers**](BuyerApi.md#list_buyers) | **GET** /org/{orgId}/buyer | list buyers
+[**query_buyers**](BuyerApi.md#query_buyers) | **GET** /org/{orgId}/buyer/query | query buyers
 [**set_buyer_default_wallet**](BuyerApi.md#set_buyer_default_wallet) | **PATCH** /org/{orgId}/buyer/{buyerId}/wallet/{walletId}/default | set buyer default wallet
 [**update_buyer**](BuyerApi.md#update_buyer) | **PATCH** /org/{orgId}/buyer/{buyerId} | update buyer
 [**update_credit_wallet**](BuyerApi.md#update_credit_wallet) | **PATCH** /org/{orgId}/buyer/{buyerId}/wallet/{walletId} | update credit wallet
@@ -33,10 +34,10 @@ from suger_sdk_python.models.billing_wallet import BillingWallet
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -119,10 +120,10 @@ from suger_sdk_python.models.identity_buyer import IdentityBuyer
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -202,10 +203,10 @@ from suger_sdk_python.models.billing_wallet import BillingWallet
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -284,10 +285,10 @@ import suger_sdk_python
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -369,10 +370,10 @@ from suger_sdk_python.models.identity_buyer import IdentityBuyer
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -453,10 +454,10 @@ from suger_sdk_python.models.billing_wallet import BillingWallet
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -520,7 +521,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_buyers**
-> List[IdentityBuyer] list_buyers(org_id, partner=partner, contact_id=contact_id, aws_account_id=aws_account_id, limit=limit, offset=offset)
+> List[IdentityBuyer] list_buyers(org_id, partner=partner, email_domain=email_domain, aws_account_id=aws_account_id, limit=limit, offset=offset)
 
 list buyers
 
@@ -536,10 +537,10 @@ from suger_sdk_python.models.identity_buyer import IdentityBuyer
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -559,14 +560,14 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     api_instance = suger_sdk_python.BuyerApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
     partner = 'partner_example' # str | filter by partner (optional)
-    contact_id = 'contact_id_example' # str | filter by contactId (optional)
+    email_domain = 'email_domain_example' # str | filter by email domain (optional)
     aws_account_id = 'aws_account_id_example' # str | filter by awsAccountId (optional)
     limit = 56 # int | List pagination size, default 1000, max value is 1000 (optional)
     offset = 56 # int | List pagination offset, default 0 (optional)
 
     try:
         # list buyers
-        api_response = api_instance.list_buyers(org_id, partner=partner, contact_id=contact_id, aws_account_id=aws_account_id, limit=limit, offset=offset)
+        api_response = api_instance.list_buyers(org_id, partner=partner, email_domain=email_domain, aws_account_id=aws_account_id, limit=limit, offset=offset)
         print("The response of BuyerApi->list_buyers:\n")
         pprint(api_response)
     except Exception as e:
@@ -582,7 +583,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
  **partner** | **str**| filter by partner | [optional] 
- **contact_id** | **str**| filter by contactId | [optional] 
+ **email_domain** | **str**| filter by email domain | [optional] 
  **aws_account_id** | **str**| filter by awsAccountId | [optional] 
  **limit** | **int**| List pagination size, default 1000, max value is 1000 | [optional] 
  **offset** | **int**| List pagination offset, default 0 | [optional] 
@@ -609,6 +610,95 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **query_buyers**
+> GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmIdentityBuyer query_buyers(org_id, page_size=page_size, page_number=page_number, q=q, s=s)
+
+query buyers
+
+Query buyers with advanced filtering, sorting, and pagination using CRUD query language. Supports complex filters, sorting by multiple fields, and pagination.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+
+```python
+import suger_sdk_python
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_crud_list_base_response_github_com_sugerio_marketplace_service_pkg_orm_identity_buyer import GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmIdentityBuyer
+from suger_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.suger.cloud
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suger_sdk_python.Configuration(
+    host = "https://api.suger.cloud"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with suger_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suger_sdk_python.BuyerApi(api_client)
+    org_id = 'org_id_example' # str | Organization ID
+    page_size = 56 # int | Number of items per page (default 20, max 1000) (optional)
+    page_number = 56 # int | Page number (default 1) (optional)
+    q = 'q_example' # str | LISP-style filter expression (e.g., '(= partner \\ (optional)
+    s = 's_example' # str | Sort fields: 'field:asc,field2:desc' or '-field,field2' format (e.g., 'creation_time:desc,name:asc' or '-creation_time,name') (optional)
+
+    try:
+        # query buyers
+        api_response = api_instance.query_buyers(org_id, page_size=page_size, page_number=page_number, q=q, s=s)
+        print("The response of BuyerApi->query_buyers:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling BuyerApi->query_buyers: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| Organization ID | 
+ **page_size** | **int**| Number of items per page (default 20, max 1000) | [optional] 
+ **page_number** | **int**| Page number (default 1) | [optional] 
+ **q** | **str**| LISP-style filter expression (e.g., &#39;(&#x3D; partner \\ | [optional] 
+ **s** | **str**| Sort fields: &#39;field:asc,field2:desc&#39; or &#39;-field,field2&#39; format (e.g., &#39;creation_time:desc,name:asc&#39; or &#39;-creation_time,name&#39;) | [optional] 
+
+### Return type
+
+[**GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmIdentityBuyer**](GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmIdentityBuyer.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Paginated list of buyers |  -  |
+**400** | Bad request error |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **set_buyer_default_wallet**
 > IdentityBuyer set_buyer_default_wallet(org_id, buyer_id, wallet_id)
 
@@ -626,10 +716,10 @@ from suger_sdk_python.models.identity_buyer import IdentityBuyer
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -712,10 +802,10 @@ from suger_sdk_python.models.update_buyer_params import UpdateBuyerParams
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -796,10 +886,10 @@ from suger_sdk_python.models.billing_wallet import BillingWallet
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters

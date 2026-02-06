@@ -29,14 +29,14 @@ class NotificationMessageInfo(BaseModel):
     NotificationMessageInfo
     """ # noqa: E501
     action: Optional[NotificationEventAction] = Field(default=None, description="The action of this notification message.")
+    bcc_recipients: Optional[List[StrictStr]] = Field(default=None, alias="bccRecipients")
     cc_recipients: Optional[List[StrictStr]] = Field(default=None, alias="ccRecipients")
     custom_fields: Optional[Dict[str, Any]] = Field(default=None, description="All other fields", alias="customFields")
     html_content: Optional[StrictStr] = Field(default=None, description="The HTML content of the email.", alias="htmlContent")
-    rcc_recipients: Optional[List[StrictStr]] = Field(default=None, alias="rccRecipients")
     standard_fields: Optional[Dict[str, Any]] = Field(default=None, description="The standard fields to render the email content.", alias="standardFields")
     subject: Optional[StrictStr] = None
     text_content: Optional[StrictStr] = Field(default=None, description="The text content of the email in case the recipient's email client does not support HTML.", alias="textContent")
-    __properties: ClassVar[List[str]] = ["action", "ccRecipients", "customFields", "htmlContent", "rccRecipients", "standardFields", "subject", "textContent"]
+    __properties: ClassVar[List[str]] = ["action", "bccRecipients", "ccRecipients", "customFields", "htmlContent", "standardFields", "subject", "textContent"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -90,10 +90,10 @@ class NotificationMessageInfo(BaseModel):
 
         _obj = cls.model_validate({
             "action": obj.get("action"),
+            "bccRecipients": obj.get("bccRecipients"),
             "ccRecipients": obj.get("ccRecipients"),
             "customFields": obj.get("customFields"),
             "htmlContent": obj.get("htmlContent"),
-            "rccRecipients": obj.get("rccRecipients"),
             "standardFields": obj.get("standardFields"),
             "subject": obj.get("subject"),
             "textContent": obj.get("textContent")

@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**display_name** | **str** |  | [optional] 
-**max** | **str** |  | [optional] 
-**min** | **str** |  | [optional] 
-**remark** | **str** |  | [optional] 
-**step** | **str** |  | [optional] 
-**type** | **str** |  | [optional] 
-**value** | **str** |  | [optional] 
+**display_name** | **str** | example:  12 | [optional] 
+**max** | **str** | example:  12 | [optional] 
+**min** | **str** | example:  12 | [optional] 
+**remark** | **str** | example:  12 | [optional] 
+**step** | **str** | example:  12 | [optional] 
+**type** | **str** | example:  12 | [optional] 
+**value** | **str** | example:  12 | [optional] 
 
 ## Example
 

@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from suger_sdk_python.models.snowflake_marketplace_offer_payment_terms import SnowflakeMarketplaceOfferPaymentTerms
+from suger_sdk_python.models.snowflake_marketplace_offer_pricing_plan_details import SnowflakeMarketplaceOfferPricingPlanDetails
 from suger_sdk_python.models.snowflake_marketplace_offer_terms_of_service import SnowflakeMarketplaceOfferTermsOfService
 from typing import Optional, Set
 from typing_extensions import Self
@@ -45,13 +46,16 @@ class SnowflakeMarketplaceOffer(BaseModel):
     is_default: Optional[StrictBool] = None
     name: Optional[StrictStr] = None
     payment_terms: Optional[SnowflakeMarketplaceOfferPaymentTerms] = None
+    pricing_plan_details: Optional[SnowflakeMarketplaceOfferPricingPlanDetails] = Field(default=None, description="The overrides for the one time offer. It doesn't have pricing plan name")
     pricing_plan_name: Optional[StrictStr] = None
+    sales_motion: Optional[StrictStr] = None
     state: Optional[StrictStr] = None
     state_updated_on: Optional[StrictStr] = None
     target_consumer: Optional[StrictStr] = None
     terms_of_service: Optional[SnowflakeMarketplaceOfferTermsOfService] = Field(default=None, description="terms of service: {\"type\":\"DEFAULT\"}")
     updated_on: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["access_end_time", "access_start_date_preference", "access_start_time", "additional_information", "comment", "contract_duration_months", "contract_type", "contract_value", "discount", "display_name", "expiration_time", "invoice_start_date_preference", "invoice_start_time", "is_default", "name", "payment_terms", "pricing_plan_name", "state", "state_updated_on", "target_consumer", "terms_of_service", "updated_on"]
+    version: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["access_end_time", "access_start_date_preference", "access_start_time", "additional_information", "comment", "contract_duration_months", "contract_type", "contract_value", "discount", "display_name", "expiration_time", "invoice_start_date_preference", "invoice_start_time", "is_default", "name", "payment_terms", "pricing_plan_details", "pricing_plan_name", "sales_motion", "state", "state_updated_on", "target_consumer", "terms_of_service", "updated_on", "version"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -95,6 +99,9 @@ class SnowflakeMarketplaceOffer(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of payment_terms
         if self.payment_terms:
             _dict['payment_terms'] = self.payment_terms.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of pricing_plan_details
+        if self.pricing_plan_details:
+            _dict['pricing_plan_details'] = self.pricing_plan_details.to_dict()
         # override the default output from pydantic by calling `to_dict()` of terms_of_service
         if self.terms_of_service:
             _dict['terms_of_service'] = self.terms_of_service.to_dict()
@@ -126,12 +133,15 @@ class SnowflakeMarketplaceOffer(BaseModel):
             "is_default": obj.get("is_default"),
             "name": obj.get("name"),
             "payment_terms": SnowflakeMarketplaceOfferPaymentTerms.from_dict(obj["payment_terms"]) if obj.get("payment_terms") is not None else None,
+            "pricing_plan_details": SnowflakeMarketplaceOfferPricingPlanDetails.from_dict(obj["pricing_plan_details"]) if obj.get("pricing_plan_details") is not None else None,
             "pricing_plan_name": obj.get("pricing_plan_name"),
+            "sales_motion": obj.get("sales_motion"),
             "state": obj.get("state"),
             "state_updated_on": obj.get("state_updated_on"),
             "target_consumer": obj.get("target_consumer"),
             "terms_of_service": SnowflakeMarketplaceOfferTermsOfService.from_dict(obj["terms_of_service"]) if obj.get("terms_of_service") is not None else None,
-            "updated_on": obj.get("updated_on")
+            "updated_on": obj.get("updated_on"),
+            "version": obj.get("version")
         })
         return _obj
 

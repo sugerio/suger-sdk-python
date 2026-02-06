@@ -11,6 +11,8 @@
 
 * `PartnerService_BILLING` (value: `'BILLING'`)
 
+* `PartnerService_CALENDAR` (value: `'CALENDAR'`)
+
 * `PartnerService_CHATBOT` (value: `'CHATBOT'`)
 
 * `PartnerService_COSELL` (value: `'COSELL'`)
@@ -24,6 +26,8 @@
 * `PartnerService_DRIVE` (value: `'DRIVE'`)
 
 * `PartnerService_EMAIL` (value: `'EMAIL'`)
+
+* `PartnerService_GEMINI` (value: `'GEMINI'`)
 
 * `PartnerService_MARKETPLACE` (value: `'MARKETPLACE'`)
 

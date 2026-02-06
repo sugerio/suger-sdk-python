@@ -30,6 +30,7 @@ class AwsMarketplaceAgreementStatus(str, Enum):
     AwsMarketplaceAgreementStatus_ACTIVE = 'ACTIVE'
     AwsMarketplaceAgreementStatus_ARCHIVED = 'ARCHIVED'
     AwsMarketplaceAgreementStatus_CANCELLED = 'CANCELLED'
+    AwsMarketplaceAgreementStatus_CANCELED = 'CANCELED'
     AwsMarketplaceAgreementStatus_EXPIRED = 'EXPIRED'
     AwsMarketplaceAgreementStatus_RENEWED = 'RENEWED'
     AwsMarketplaceAgreementStatus_REPLACED = 'REPLACED'

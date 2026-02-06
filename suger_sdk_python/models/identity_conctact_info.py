@@ -20,6 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from suger_sdk_python.models.company_contact import CompanyContact
+from suger_sdk_python.models.partner import Partner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,10 +31,12 @@ class IdentityConctactInfo(BaseModel):
     """ # noqa: E501
     company_location: Optional[StrictStr] = Field(default=None, alias="companyLocation")
     company_name: Optional[StrictStr] = Field(default=None, alias="companyName")
+    enriched_contact_info: Optional[CompanyContact] = Field(default=None, description="Enriched contact information from enrichment service", alias="enrichedContactInfo")
     last_modified_by: Optional[StrictStr] = Field(default=None, alias="lastModifiedBy")
+    partner: Optional[Partner] = None
     phone_number: Optional[StrictStr] = Field(default=None, alias="phoneNumber")
     role: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["companyLocation", "companyName", "lastModifiedBy", "phoneNumber", "role"]
+    __properties: ClassVar[List[str]] = ["companyLocation", "companyName", "enrichedContactInfo", "lastModifiedBy", "partner", "phoneNumber", "role"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,6 +77,9 @@ class IdentityConctactInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of enriched_contact_info
+        if self.enriched_contact_info:
+            _dict['enrichedContactInfo'] = self.enriched_contact_info.to_dict()
         return _dict
 
     @classmethod
@@ -87,7 +94,9 @@ class IdentityConctactInfo(BaseModel):
         _obj = cls.model_validate({
             "companyLocation": obj.get("companyLocation"),
             "companyName": obj.get("companyName"),
+            "enrichedContactInfo": CompanyContact.from_dict(obj["enrichedContactInfo"]) if obj.get("enrichedContactInfo") is not None else None,
             "lastModifiedBy": obj.get("lastModifiedBy"),
+            "partner": obj.get("partner"),
             "phoneNumber": obj.get("phoneNumber"),
             "role": obj.get("role")
         })

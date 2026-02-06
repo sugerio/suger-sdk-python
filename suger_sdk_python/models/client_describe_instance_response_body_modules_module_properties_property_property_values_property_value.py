@@ -27,13 +27,13 @@ class ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyV
     """
     ClientDescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue
     """ # noqa: E501
-    display_name: Optional[StrictStr] = Field(default=None, alias="DisplayName")
-    max: Optional[StrictStr] = Field(default=None, alias="Max")
-    min: Optional[StrictStr] = Field(default=None, alias="Min")
-    remark: Optional[StrictStr] = Field(default=None, alias="Remark")
-    step: Optional[StrictStr] = Field(default=None, alias="Step")
-    type: Optional[StrictStr] = Field(default=None, alias="Type")
-    value: Optional[StrictStr] = Field(default=None, alias="Value")
+    display_name: Optional[StrictStr] = Field(default=None, description="example:  12", alias="DisplayName")
+    max: Optional[StrictStr] = Field(default=None, description="example:  12", alias="Max")
+    min: Optional[StrictStr] = Field(default=None, description="example:  12", alias="Min")
+    remark: Optional[StrictStr] = Field(default=None, description="example:  12", alias="Remark")
+    step: Optional[StrictStr] = Field(default=None, description="example:  12", alias="Step")
+    type: Optional[StrictStr] = Field(default=None, description="example:  12", alias="Type")
+    value: Optional[StrictStr] = Field(default=None, description="example:  12", alias="Value")
     __properties: ClassVar[List[str]] = ["DisplayName", "Max", "Min", "Remark", "Step", "Type", "Value"]
 
     model_config = ConfigDict(

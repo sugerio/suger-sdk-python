@@ -26,6 +26,7 @@ from suger_sdk_python.models.aws_marketplace_cppo_opportunity import AwsMarketpl
 from suger_sdk_python.models.aws_marketplace_event_bridge_event_detail import AwsMarketplaceEventBridgeEventDetail
 from suger_sdk_python.models.azure_audience import AzureAudience
 from suger_sdk_python.models.azure_marketplace_price_and_availability_private_offer_plan import AzureMarketplacePriceAndAvailabilityPrivateOfferPlan
+from suger_sdk_python.models.azure_marketplace_price_and_availability_software_reservation import AzureMarketplacePriceAndAvailabilitySoftwareReservation
 from suger_sdk_python.models.azure_marketplace_private_offer import AzureMarketplacePrivateOffer
 from suger_sdk_python.models.azure_product_variant import AzureProductVariant
 from suger_sdk_python.models.billable_dimension import BillableDimension
@@ -37,6 +38,7 @@ from suger_sdk_python.models.gcp_marketplace_offer_deal_type import GcpMarketpla
 from suger_sdk_python.models.gcp_marketplace_private_offer import GcpMarketplacePrivateOffer
 from suger_sdk_python.models.gcp_marketplace_private_offer_customer_info import GcpMarketplacePrivateOfferCustomerInfo
 from suger_sdk_python.models.gcp_marketplace_private_offer_provider_info import GcpMarketplacePrivateOfferProviderInfo
+from suger_sdk_python.models.gcp_marketplace_product_feature_value import GcpMarketplaceProductFeatureValue
 from suger_sdk_python.models.gcp_marketplace_product_metering_metric import GcpMarketplaceProductMeteringMetric
 from suger_sdk_python.models.gcp_marketplace_product_purchase_option_spec import GcpMarketplaceProductPurchaseOptionSpec
 from suger_sdk_python.models.gcp_marketplace_reseller_private_offer_plan import GcpMarketplaceResellerPrivateOfferPlan
@@ -63,8 +65,10 @@ class OfferInfo(BaseModel):
     aws_cppo_opportunity: Optional[AwsMarketplaceCppoOpportunity] = Field(default=None, description="AWS CPPO Opportunity, only applicable for AWS Marketplace CPPO_OUT or CPPO_IN offers.", alias="awsCppoOpportunity")
     aws_machine_learning_contract_duration: Optional[StrictInt] = Field(default=None, description="For AWS machine learning contract private offer only. The contract duration of the offer in months.", alias="awsMachineLearningContractDuration")
     aws_markup_percentage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="AWS private reseller offer using markup percentage. 10.0 represent 10% partner margin.", alias="awsMarkupPercentage")
+    aws_offer_set_id: Optional[StrictStr] = Field(default=None, description="For AWS Offer Set feature. If this offer is linked to an offer set, save the OfferSet ID in this field. An offer set is a collection of offers that can be shared with a customer.", alias="awsOfferSetId")
     aws_resale_authorization_id: Optional[StrictStr] = Field(default=None, description="AWS ResaleAuthorizationId(CPPO_IN offer id) for CPPO offers of the reseller.", alias="awsResaleAuthorizationId")
     azure_original_plan: Optional[AzureMarketplacePriceAndAvailabilityPrivateOfferPlan] = Field(default=None, description="The origin pricing of Azure plan. Only applicable for Azure Marketplace plans.", alias="azureOriginalPlan")
+    azure_plan_software_reservations: Optional[List[AzureMarketplacePriceAndAvailabilitySoftwareReservation]] = Field(default=None, description="All software reservation billing term options from the Azure plan (e.g., monthly, 1-year, 3-year with different discounts). Only applicable for Azure Marketplace VM offers with software reservations.", alias="azurePlanSoftwareReservations")
     azure_private_offer: Optional[AzureMarketplacePrivateOffer] = Field(default=None, description="The private offer for Azure Marketplace. Only applicable for Azure Marketplace private offers.", alias="azurePrivateOffer")
     azure_product_variant: Optional[AzureProductVariant] = Field(default=None, description="For Azure marketplace only.", alias="azureProductVariant")
     billable_dimensions: Optional[List[BillableDimension]] = Field(default=None, description="Usage based metering dimensions based on Billable Metrics, managed by Suger only.", alias="billableDimensions")
@@ -84,6 +88,7 @@ class OfferInfo(BaseModel):
     eula_url: Optional[StrictStr] = Field(default=None, alias="eulaUrl")
     gcp_customer_info: Optional[GcpMarketplacePrivateOfferCustomerInfo] = Field(default=None, description="Only required when creating GCP Marketplace private offer.", alias="gcpCustomerInfo")
     gcp_duration: Optional[StrictInt] = Field(default=None, description="The duration of the offer in months. Only required when creating GCP Marketplace private offer.", alias="gcpDuration")
+    gcp_features: Optional[List[GcpMarketplaceProductFeatureValue]] = Field(default=None, description="Optional when creating GCP Marketplace private offer. Custom feature values to set for the private offer. Each feature name must exist in the product's feature list. The feature list is available at product.Info.GcpProduct.ListingSpec.PurchaseSpec.Features.", alias="gcpFeatures")
     gcp_metrics: Optional[List[GcpMarketplaceProductMeteringMetric]] = Field(default=None, description="Only applicable for GCP Marketplace Offers (the default or private offer)", alias="gcpMetrics")
     gcp_offer_deal_type: Optional[GcpMarketplaceOfferDealType] = Field(default=None, description="Optional when creating GCP Marketplace private offer and replacement offer.", alias="gcpOfferDealType")
     gcp_payment_schedule: Optional[PaymentScheduleType] = Field(default=None, description="Only required when creating GCP Marketplace private offer, to specify the payment schedule for the private offer. TODO: It will be deprecated in the future and replaced by PaymentSchedule.", alias="gcpPaymentSchedule")
@@ -114,7 +119,7 @@ class OfferInfo(BaseModel):
     trial_config: Optional[TrialConfig] = Field(default=None, description="The offer for Direct. Only applicable for Direct offers. It is used in Stripe, Adyen, and other direct payment providers. The trial configuration for the offer.", alias="trialConfig")
     usage_billing_interval_in_months: Optional[StrictInt] = Field(default=None, description="Deprecated: Use BillingIntervalInMonths instead.", alias="usageBillingIntervalInMonths")
     visibility: Optional[StrictStr] = Field(default=None, description="The default visibility of offer is PRIVATE.")
-    __properties: ClassVar[List[str]] = ["additionalEulaUrls", "additionalResellerEulaUrls", "attachEulaType", "autoRenew", "awsAgreementDuration", "awsChannelPartner", "awsCppoEventDetail", "awsCppoOpportunity", "awsMachineLearningContractDuration", "awsMarkupPercentage", "awsResaleAuthorizationId", "azureOriginalPlan", "azurePrivateOffer", "azureProductVariant", "billableDimensions", "billingCycle", "billingIntervalInMonths", "buyerAwsAccountIds", "buyerAzureTenants", "commitAmount", "commitBillingIntervalInMonths", "commits", "currency", "dimensions", "discountPercentage", "docusignEnvelopeIds", "eulaMergeOrder", "eulaType", "eulaUrl", "gcpCustomerInfo", "gcpDuration", "gcpMetrics", "gcpOfferDealType", "gcpPaymentSchedule", "gcpPlans", "gcpPrivateOffer", "gcpProviderInfo", "gcpProviderInternalNote", "gcpProviderPublicNote", "gcpResellerPrivateOfferPlan", "gcpSowAgreementDocument", "gcpUsagePlanPriceModel", "gracePeriodInDays", "isMeteringOverageCommit", "netTermsInDays", "paymentInstallments", "paymentSchedule", "pdfURL", "privateOfferUrl", "proratedBilling", "refundCancellationPolicy", "resellerAttachEulaType", "resellerEulaType", "resellerEulaUrl", "sellerNotes", "snowflakeOffer", "startTime", "taxIds", "trialConfig", "usageBillingIntervalInMonths", "visibility"]
+    __properties: ClassVar[List[str]] = ["additionalEulaUrls", "additionalResellerEulaUrls", "attachEulaType", "autoRenew", "awsAgreementDuration", "awsChannelPartner", "awsCppoEventDetail", "awsCppoOpportunity", "awsMachineLearningContractDuration", "awsMarkupPercentage", "awsOfferSetId", "awsResaleAuthorizationId", "azureOriginalPlan", "azurePlanSoftwareReservations", "azurePrivateOffer", "azureProductVariant", "billableDimensions", "billingCycle", "billingIntervalInMonths", "buyerAwsAccountIds", "buyerAzureTenants", "commitAmount", "commitBillingIntervalInMonths", "commits", "currency", "dimensions", "discountPercentage", "docusignEnvelopeIds", "eulaMergeOrder", "eulaType", "eulaUrl", "gcpCustomerInfo", "gcpDuration", "gcpFeatures", "gcpMetrics", "gcpOfferDealType", "gcpPaymentSchedule", "gcpPlans", "gcpPrivateOffer", "gcpProviderInfo", "gcpProviderInternalNote", "gcpProviderPublicNote", "gcpResellerPrivateOfferPlan", "gcpSowAgreementDocument", "gcpUsagePlanPriceModel", "gracePeriodInDays", "isMeteringOverageCommit", "netTermsInDays", "paymentInstallments", "paymentSchedule", "pdfURL", "privateOfferUrl", "proratedBilling", "refundCancellationPolicy", "resellerAttachEulaType", "resellerEulaType", "resellerEulaUrl", "sellerNotes", "snowflakeOffer", "startTime", "taxIds", "trialConfig", "usageBillingIntervalInMonths", "visibility"]
 
     @field_validator('visibility')
     def visibility_validate_enum(cls, value):
@@ -177,6 +182,13 @@ class OfferInfo(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of azure_original_plan
         if self.azure_original_plan:
             _dict['azureOriginalPlan'] = self.azure_original_plan.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in azure_plan_software_reservations (list)
+        _items = []
+        if self.azure_plan_software_reservations:
+            for _item_azure_plan_software_reservations in self.azure_plan_software_reservations:
+                if _item_azure_plan_software_reservations:
+                    _items.append(_item_azure_plan_software_reservations.to_dict())
+            _dict['azurePlanSoftwareReservations'] = _items
         # override the default output from pydantic by calling `to_dict()` of azure_private_offer
         if self.azure_private_offer:
             _dict['azurePrivateOffer'] = self.azure_private_offer.to_dict()
@@ -214,6 +226,13 @@ class OfferInfo(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of gcp_customer_info
         if self.gcp_customer_info:
             _dict['gcpCustomerInfo'] = self.gcp_customer_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in gcp_features (list)
+        _items = []
+        if self.gcp_features:
+            for _item_gcp_features in self.gcp_features:
+                if _item_gcp_features:
+                    _items.append(_item_gcp_features.to_dict())
+            _dict['gcpFeatures'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in gcp_metrics (list)
         _items = []
         if self.gcp_metrics:
@@ -275,8 +294,10 @@ class OfferInfo(BaseModel):
             "awsCppoOpportunity": AwsMarketplaceCppoOpportunity.from_dict(obj["awsCppoOpportunity"]) if obj.get("awsCppoOpportunity") is not None else None,
             "awsMachineLearningContractDuration": obj.get("awsMachineLearningContractDuration"),
             "awsMarkupPercentage": obj.get("awsMarkupPercentage"),
+            "awsOfferSetId": obj.get("awsOfferSetId"),
             "awsResaleAuthorizationId": obj.get("awsResaleAuthorizationId"),
             "azureOriginalPlan": AzureMarketplacePriceAndAvailabilityPrivateOfferPlan.from_dict(obj["azureOriginalPlan"]) if obj.get("azureOriginalPlan") is not None else None,
+            "azurePlanSoftwareReservations": [AzureMarketplacePriceAndAvailabilitySoftwareReservation.from_dict(_item) for _item in obj["azurePlanSoftwareReservations"]] if obj.get("azurePlanSoftwareReservations") is not None else None,
             "azurePrivateOffer": AzureMarketplacePrivateOffer.from_dict(obj["azurePrivateOffer"]) if obj.get("azurePrivateOffer") is not None else None,
             "azureProductVariant": AzureProductVariant.from_dict(obj["azureProductVariant"]) if obj.get("azureProductVariant") is not None else None,
             "billableDimensions": [BillableDimension.from_dict(_item) for _item in obj["billableDimensions"]] if obj.get("billableDimensions") is not None else None,
@@ -296,6 +317,7 @@ class OfferInfo(BaseModel):
             "eulaUrl": obj.get("eulaUrl"),
             "gcpCustomerInfo": GcpMarketplacePrivateOfferCustomerInfo.from_dict(obj["gcpCustomerInfo"]) if obj.get("gcpCustomerInfo") is not None else None,
             "gcpDuration": obj.get("gcpDuration"),
+            "gcpFeatures": [GcpMarketplaceProductFeatureValue.from_dict(_item) for _item in obj["gcpFeatures"]] if obj.get("gcpFeatures") is not None else None,
             "gcpMetrics": [GcpMarketplaceProductMeteringMetric.from_dict(_item) for _item in obj["gcpMetrics"]] if obj.get("gcpMetrics") is not None else None,
             "gcpOfferDealType": obj.get("gcpOfferDealType"),
             "gcpPaymentSchedule": obj.get("gcpPaymentSchedule"),

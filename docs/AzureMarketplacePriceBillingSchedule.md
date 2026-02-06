@@ -7,7 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **charge_date** | **str** | In format of YYYY-MM-DD. | [optional] 
 **note** | **str** |  | [optional] 
-**price_per_payment_in_usd** | **float** |  | [optional] 
+**price_per_payment_in_usd** | **float** | For non-VM offers (SaaS, etc.) | [optional] 
+**prices** | [**List[AzureMarketplacePrice]**](AzureMarketplacePrice.md) |  | [optional] 
+**unit_price_per_payment_period_in_usd** | **float** | For VM offers with flexible billing could be 0 for the amount | [optional] 
 
 ## Example
 

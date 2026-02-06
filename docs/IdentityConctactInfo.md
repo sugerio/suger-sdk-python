@@ -7,7 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **company_location** | **str** |  | [optional] 
 **company_name** | **str** |  | [optional] 
+**enriched_contact_info** | [**CompanyContact**](CompanyContact.md) | Enriched contact information from enrichment service | [optional] 
 **last_modified_by** | **str** |  | [optional] 
+**partner** | [**Partner**](Partner.md) |  | [optional] 
 **phone_number** | **str** |  | [optional] 
 **role** | **str** |  | [optional] 
 

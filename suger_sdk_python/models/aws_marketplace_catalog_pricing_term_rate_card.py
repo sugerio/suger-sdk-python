@@ -20,9 +20,9 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from suger_sdk_python.models.aws_marketplace_catalog_pricing_term_rate_card_constraints import AwsMarketplaceCatalogPricingTermRateCardConstraints
 from suger_sdk_python.models.aws_marketplace_catalog_pricing_term_rate_card_item import AwsMarketplaceCatalogPricingTermRateCardItem
 from suger_sdk_python.models.aws_marketplace_catalog_pricing_term_rate_card_selector import AwsMarketplaceCatalogPricingTermRateCardSelector
+from suger_sdk_python.models.aws_marketplace_purchase_constraints import AwsMarketplacePurchaseConstraints
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +30,7 @@ class AwsMarketplaceCatalogPricingTermRateCard(BaseModel):
     """
     AwsMarketplaceCatalogPricingTermRateCard
     """ # noqa: E501
-    constraints: Optional[AwsMarketplaceCatalogPricingTermRateCardConstraints] = Field(default=None, description="Defines constraints on how the term can be configured by acceptors. Applicable only to ConfigurableUpfrontPricingTerm.", alias="Constraints")
+    constraints: Optional[AwsMarketplacePurchaseConstraints] = Field(default=None, description="Defines constraints on how the term can be configured by acceptors. Applicable only to ConfigurableUpfrontPricingTerm.", alias="Constraints")
     rate_card: Optional[List[AwsMarketplaceCatalogPricingTermRateCardItem]] = Field(default=None, alias="RateCard")
     selector: Optional[AwsMarketplaceCatalogPricingTermRateCardSelector] = Field(default=None, description="Selector is used to differentiate between the mutually exclusive rate cards in the same pricing term, to be selected by the buyer. Applicable only to ConfigurableUpfrontPricingTerm.", alias="Selector")
     __properties: ClassVar[List[str]] = ["Constraints", "RateCard", "Selector"]
@@ -99,7 +99,7 @@ class AwsMarketplaceCatalogPricingTermRateCard(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Constraints": AwsMarketplaceCatalogPricingTermRateCardConstraints.from_dict(obj["Constraints"]) if obj.get("Constraints") is not None else None,
+            "Constraints": AwsMarketplacePurchaseConstraints.from_dict(obj["Constraints"]) if obj.get("Constraints") is not None else None,
             "RateCard": [AwsMarketplaceCatalogPricingTermRateCardItem.from_dict(_item) for _item in obj["RateCard"]] if obj.get("RateCard") is not None else None,
             "Selector": AwsMarketplaceCatalogPricingTermRateCardSelector.from_dict(obj["Selector"]) if obj.get("Selector") is not None else None
         })

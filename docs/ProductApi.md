@@ -1,6 +1,6 @@
 # suger_sdk_python.ProductApi
 
-All URIs are relative to *http://https://api.suger.cloud*
+All URIs are relative to *https://api.suger.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**list_products**](ProductApi.md#list_products) | **GET** /org/{orgId}/product | list products
 [**list_products_by_partner**](ProductApi.md#list_products_by_partner) | **GET** /org/{orgId}/partner/{partner}/product | list products by partner
 [**publish_product**](ProductApi.md#publish_product) | **PATCH** /org/{orgId}/product/{productId}/publish | publish product
+[**query_products**](ProductApi.md#query_products) | **GET** /org/{orgId}/product/query | query products
 [**update_product**](ProductApi.md#update_product) | **PATCH** /org/{orgId}/product/{productId} | update product
 [**update_product_fulfillment_url**](ProductApi.md#update_product_fulfillment_url) | **PATCH** /org/{orgId}/product/{productId}/fulfillmentUrl | update product fulfillment url
 [**update_product_meta_info**](ProductApi.md#update_product_meta_info) | **PATCH** /org/{orgId}/product/{productId}/metaInfo | update product meta info
@@ -34,10 +35,10 @@ from suger_sdk_python.models.workload_product import WorkloadProduct
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -117,10 +118,10 @@ from suger_sdk_python.models.workload_product import WorkloadProduct
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -199,10 +200,10 @@ import suger_sdk_python
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -283,10 +284,10 @@ from suger_sdk_python.models.workload_product import WorkloadProduct
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -367,10 +368,10 @@ from suger_sdk_python.models.metering_dimension import MeteringDimension
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -435,7 +436,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_products**
-> List[WorkloadProduct] list_products(org_id, partner=partner, limit=limit, offset=offset)
+> List[WorkloadProduct] list_products(org_id, partner=partner, limit=limit, offset=offset, view=view, for_create_offer=for_create_offer, salesforce_opportunity_id=salesforce_opportunity_id, salesforce_quote_id=salesforce_quote_id, hubspot_deal_id=hubspot_deal_id)
 
 list products
 
@@ -451,10 +452,10 @@ from suger_sdk_python.models.workload_product import WorkloadProduct
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -473,13 +474,18 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = suger_sdk_python.ProductApi(api_client)
     org_id = 'org_id_example' # str | Organization ID
-    partner = 'partner_example' # str | filter by partner (optional)
+    partner = 'partner_example' # str | Filter by partner (optional)
     limit = 56 # int | List pagination size, default 100, max value is 1000 (optional)
     offset = 56 # int | List pagination offset, default 0 (optional)
+    view = 'view_example' # str | Response format: 'lite' or 'full' (default: full). 'lite' excludes info/metaInfo fields. (optional)
+    for_create_offer = True # bool | Enable product filtering for create offer purpose (optional)
+    salesforce_opportunity_id = 'salesforce_opportunity_id_example' # str | Salesforce Opportunity ID for product filtering (used with forCreateOffer=true) (optional)
+    salesforce_quote_id = 'salesforce_quote_id_example' # str | Salesforce Quote ID for product filtering (used with forCreateOffer=true) (optional)
+    hubspot_deal_id = 'hubspot_deal_id_example' # str | HubSpot Deal ID for product filtering (used with forCreateOffer=true) (optional)
 
     try:
         # list products
-        api_response = api_instance.list_products(org_id, partner=partner, limit=limit, offset=offset)
+        api_response = api_instance.list_products(org_id, partner=partner, limit=limit, offset=offset, view=view, for_create_offer=for_create_offer, salesforce_opportunity_id=salesforce_opportunity_id, salesforce_quote_id=salesforce_quote_id, hubspot_deal_id=hubspot_deal_id)
         print("The response of ProductApi->list_products:\n")
         pprint(api_response)
     except Exception as e:
@@ -494,9 +500,14 @@ with suger_sdk_python.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| Organization ID | 
- **partner** | **str**| filter by partner | [optional] 
+ **partner** | **str**| Filter by partner | [optional] 
  **limit** | **int**| List pagination size, default 100, max value is 1000 | [optional] 
  **offset** | **int**| List pagination offset, default 0 | [optional] 
+ **view** | **str**| Response format: &#39;lite&#39; or &#39;full&#39; (default: full). &#39;lite&#39; excludes info/metaInfo fields. | [optional] 
+ **for_create_offer** | **bool**| Enable product filtering for create offer purpose | [optional] 
+ **salesforce_opportunity_id** | **str**| Salesforce Opportunity ID for product filtering (used with forCreateOffer&#x3D;true) | [optional] 
+ **salesforce_quote_id** | **str**| Salesforce Quote ID for product filtering (used with forCreateOffer&#x3D;true) | [optional] 
+ **hubspot_deal_id** | **str**| HubSpot Deal ID for product filtering (used with forCreateOffer&#x3D;true) | [optional] 
 
 ### Return type
 
@@ -538,10 +549,10 @@ from suger_sdk_python.models.workload_product import WorkloadProduct
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -621,10 +632,10 @@ from suger_sdk_python.models.workload_product import WorkloadProduct
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -690,6 +701,97 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **query_products**
+> GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmProduct query_products(org_id, page_size=page_size, page_number=page_number, fields=fields, q=q, s=s)
+
+query products
+
+Query products with advanced filtering, sorting, and pagination using CRUD query language. Supports complex filters, sorting by multiple fields, and pagination.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+
+```python
+import suger_sdk_python
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_crud_list_base_response_github_com_sugerio_marketplace_service_pkg_orm_product import GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmProduct
+from suger_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.suger.cloud
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suger_sdk_python.Configuration(
+    host = "https://api.suger.cloud"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyAuth
+configuration.api_key['APIKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with suger_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suger_sdk_python.ProductApi(api_client)
+    org_id = 'org_id_example' # str | Organization ID
+    page_size = 56 # int | Number of items per page (default 100, max 200) (optional)
+    page_number = 56 # int | Page number (default 1) (optional)
+    fields = 'fields_example' # str | Comma-separated fields to return (e.g., 'id,name,status'). Dot notation supported. (optional)
+    q = 'q_example' # str | LISP-style filter expression (e.g., '(= partner \\ (optional)
+    s = 's_example' # str | Sort fields: 'field:asc,field2:desc' or '-field,field2' format (optional)
+
+    try:
+        # query products
+        api_response = api_instance.query_products(org_id, page_size=page_size, page_number=page_number, fields=fields, q=q, s=s)
+        print("The response of ProductApi->query_products:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ProductApi->query_products: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| Organization ID | 
+ **page_size** | **int**| Number of items per page (default 100, max 200) | [optional] 
+ **page_number** | **int**| Page number (default 1) | [optional] 
+ **fields** | **str**| Comma-separated fields to return (e.g., &#39;id,name,status&#39;). Dot notation supported. | [optional] 
+ **q** | **str**| LISP-style filter expression (e.g., &#39;(&#x3D; partner \\ | [optional] 
+ **s** | **str**| Sort fields: &#39;field:asc,field2:desc&#39; or &#39;-field,field2&#39; format | [optional] 
+
+### Return type
+
+[**GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmProduct**](GithubComSugerioMarketplaceServicePkgCrudListBaseResponseGithubComSugerioMarketplaceServicePkgOrmProduct.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request error |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_product**
 > WorkloadProduct update_product(org_id, product_id, data)
 
@@ -707,10 +809,10 @@ from suger_sdk_python.models.workload_product import WorkloadProduct
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -793,10 +895,10 @@ from suger_sdk_python.models.workload_product import WorkloadProduct
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -877,10 +979,10 @@ from suger_sdk_python.models.workload_meta_info import WorkloadMetaInfo
 from suger_sdk_python.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://https://api.suger.cloud
+# Defining the host is optional and defaults to https://api.suger.cloud
 # See configuration.py for a list of all supported configuration parameters.
 configuration = suger_sdk_python.Configuration(
-    host = "http://https://api.suger.cloud"
+    host = "https://api.suger.cloud"
 )
 
 # The client must configure the authentication and authorization parameters

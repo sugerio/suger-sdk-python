@@ -32,12 +32,12 @@ from suger_sdk_python.models.commit_dimension import CommitDimension
 from suger_sdk_python.models.eula_type import EulaType
 from suger_sdk_python.models.gcp_marketplace_entitlement import GcpMarketplaceEntitlement
 from suger_sdk_python.models.gcp_marketplace_product_purchase_option_spec import GcpMarketplaceProductPurchaseOptionSpec
+from suger_sdk_python.models.github_com_aws_aws_sdk_go_v2_service_marketplaceentitlementservice_types_entitlement import GithubComAwsAwsSdkGoV2ServiceMarketplaceentitlementserviceTypesEntitlement
 from suger_sdk_python.models.metering_dimension import MeteringDimension
 from suger_sdk_python.models.payment_installment import PaymentInstallment
 from suger_sdk_python.models.payment_schedule_type import PaymentScheduleType
 from suger_sdk_python.models.snowflake_marketplace_offer import SnowflakeMarketplaceOffer
 from suger_sdk_python.models.trial_config import TrialConfig
-from suger_sdk_python.models.types_entitlement import TypesEntitlement
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -52,7 +52,9 @@ class EntitlementInfo(BaseModel):
     auto_renew: Optional[StrictBool] = Field(default=None, description="Is this Entitlement Auto Renew enabled.", alias="autoRenew")
     aws_agreement: Optional[AwsMarketplaceAgreementV2] = Field(default=None, description="Nullable. AWS agreement from AWS Marketplace.", alias="awsAgreement")
     aws_channel_partner: Optional[AwsChannelPartner] = Field(default=None, description="The AWS channel partner (reseller), only applicable if this entitlement is based on AWS CPPO offer.", alias="awsChannelPartner")
-    aws_entitlements: Optional[List[TypesEntitlement]] = Field(default=None, description="Nullable. AWS Entitlements from AWS Marketplace.", alias="awsEntitlements")
+    aws_entitlements: Optional[List[GithubComAwsAwsSdkGoV2ServiceMarketplaceentitlementserviceTypesEntitlement]] = Field(default=None, description="Nullable. AWS Entitlements from AWS Marketplace.", alias="awsEntitlements")
+    aws_license_arn: Optional[StrictStr] = Field(default=None, description="AwsLicenseArn for AWS concurrent agreement support", alias="awsLicenseArn")
+    aws_offer_set_id: Optional[StrictStr] = Field(default=None, description="AwsOfferSetID is the AWS Marketplace OfferSet Id, available for agreements originated from an offer associated with an offerSet.", alias="awsOfferSetId")
     azure_subscriptions: Optional[List[AzureMarketplaceSubscription]] = Field(default=None, description="Nullable. Azure Subscriptions from Azure Marketplace.", alias="azureSubscriptions")
     billable_dimensions: Optional[List[BillableDimension]] = Field(default=None, description="The dimensions for billable metric usage-based metering. It's for Suger(Stripe, Ayden) metering.", alias="billableDimensions")
     billing_cycle: Optional[BillingCycle] = Field(default=None, description="Billing Cycle", alias="billingCycle")
@@ -67,6 +69,7 @@ class EntitlementInfo(BaseModel):
     disbursed_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount that has been disbursed to the seller account.", alias="disbursedAmount")
     eula_type: Optional[EulaType] = Field(default=None, alias="eulaType")
     eula_url: Optional[StrictStr] = Field(default=None, alias="eulaUrl")
+    fallback_from_offer: Optional[StrictBool] = Field(default=None, description="A flag indicates that the current entitlement info is from offer (private or default/public), not awsAgreementTerms from AWS Marketplace.", alias="fallbackFromOffer")
     gcp_entitlements: Optional[List[GcpMarketplaceEntitlement]] = Field(default=None, description="Nullable. GCP Entitlements from GCP Marketplace.", alias="gcpEntitlements")
     gcp_plans: Optional[List[GcpMarketplaceProductPurchaseOptionSpec]] = Field(default=None, description="Only applicable for GCP Marketplace Entitlements.", alias="gcpPlans")
     grace_period_in_days: Optional[StrictInt] = Field(default=None, description="The grace period for the offer. It is same as the TrialConfig in DirectOfferInfo. But can be overridden at the entitlement level.", alias="gracePeriodInDays")
@@ -81,7 +84,7 @@ class EntitlementInfo(BaseModel):
     snowflake_offer: Optional[SnowflakeMarketplaceOffer] = Field(default=None, description="Snowfalke offer info", alias="snowflakeOffer")
     spa_url: Optional[StrictStr] = Field(default=None, description="The URL with JWT as auth method for the entitlement SPA. It can be shared with the buyer to access the SPA without login.", alias="spaUrl")
     trial_config: Optional[TrialConfig] = Field(default=None, description="The trial configuration for the offer. It is same as the TrialConfig in DirectOfferInfo. But can be overridden at the entitlement level.", alias="trialConfig")
-    __properties: ClassVar[List[str]] = ["addons", "alertDaysBeforeEnd", "alibabaEntitlements", "alibabaOrders", "autoRenew", "awsAgreement", "awsChannelPartner", "awsEntitlements", "azureSubscriptions", "billableDimensions", "billingCycle", "billingIntervalInMonths", "buyerManagementURL", "collectableAmount", "commitAmount", "commits", "currency", "dimensions", "dimensionsOversized", "disbursedAmount", "eulaType", "eulaUrl", "gcpEntitlements", "gcpPlans", "gracePeriodInDays", "grossAmount", "invoicedAmount", "isMeteringOverageCommit", "netTermsInDays", "paymentInstallments", "paymentSchedule", "refundCancellationPolicy", "sellerNotes", "snowflakeOffer", "spaUrl", "trialConfig"]
+    __properties: ClassVar[List[str]] = ["addons", "alertDaysBeforeEnd", "alibabaEntitlements", "alibabaOrders", "autoRenew", "awsAgreement", "awsChannelPartner", "awsEntitlements", "awsLicenseArn", "awsOfferSetId", "azureSubscriptions", "billableDimensions", "billingCycle", "billingIntervalInMonths", "buyerManagementURL", "collectableAmount", "commitAmount", "commits", "currency", "dimensions", "dimensionsOversized", "disbursedAmount", "eulaType", "eulaUrl", "fallbackFromOffer", "gcpEntitlements", "gcpPlans", "gracePeriodInDays", "grossAmount", "invoicedAmount", "isMeteringOverageCommit", "netTermsInDays", "paymentInstallments", "paymentSchedule", "refundCancellationPolicy", "sellerNotes", "snowflakeOffer", "spaUrl", "trialConfig"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -230,7 +233,9 @@ class EntitlementInfo(BaseModel):
             "autoRenew": obj.get("autoRenew"),
             "awsAgreement": AwsMarketplaceAgreementV2.from_dict(obj["awsAgreement"]) if obj.get("awsAgreement") is not None else None,
             "awsChannelPartner": AwsChannelPartner.from_dict(obj["awsChannelPartner"]) if obj.get("awsChannelPartner") is not None else None,
-            "awsEntitlements": [TypesEntitlement.from_dict(_item) for _item in obj["awsEntitlements"]] if obj.get("awsEntitlements") is not None else None,
+            "awsEntitlements": [GithubComAwsAwsSdkGoV2ServiceMarketplaceentitlementserviceTypesEntitlement.from_dict(_item) for _item in obj["awsEntitlements"]] if obj.get("awsEntitlements") is not None else None,
+            "awsLicenseArn": obj.get("awsLicenseArn"),
+            "awsOfferSetId": obj.get("awsOfferSetId"),
             "azureSubscriptions": [AzureMarketplaceSubscription.from_dict(_item) for _item in obj["azureSubscriptions"]] if obj.get("azureSubscriptions") is not None else None,
             "billableDimensions": [BillableDimension.from_dict(_item) for _item in obj["billableDimensions"]] if obj.get("billableDimensions") is not None else None,
             "billingCycle": obj.get("billingCycle"),
@@ -245,6 +250,7 @@ class EntitlementInfo(BaseModel):
             "disbursedAmount": obj.get("disbursedAmount"),
             "eulaType": obj.get("eulaType"),
             "eulaUrl": obj.get("eulaUrl"),
+            "fallbackFromOffer": obj.get("fallbackFromOffer"),
             "gcpEntitlements": [GcpMarketplaceEntitlement.from_dict(_item) for _item in obj["gcpEntitlements"]] if obj.get("gcpEntitlements") is not None else None,
             "gcpPlans": [GcpMarketplaceProductPurchaseOptionSpec.from_dict(_item) for _item in obj["gcpPlans"]] if obj.get("gcpPlans") is not None else None,
             "gracePeriodInDays": obj.get("gracePeriodInDays"),

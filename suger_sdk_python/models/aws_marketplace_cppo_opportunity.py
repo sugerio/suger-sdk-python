@@ -48,10 +48,11 @@ class AwsMarketplaceCppoOpportunity(BaseModel):
     status: Optional[StrictStr] = Field(default=None, alias="Status")
     terms: Optional[List[AwsMarketplaceCppoOpportunityTerm]] = Field(default=None, alias="Terms")
     discount_type: Optional[AwsMarketplaceCppoDiscountType] = Field(default=None, description="The following fields are not from aws catalog API, only used for cppo_out offer create. They shouldn't be read in other places because they will absent when fetch opportunity from aws catalog API.", alias="discountType")
+    maximum_agreement_start_date: Optional[StrictStr] = Field(default=None, description="Use this field to modify and control the product agreement duration.", alias="maximumAgreementStartDate")
     opportunity_duration_type: Optional[AwsMarketplaceCppoDurationType] = Field(default=None, alias="opportunityDurationType")
     opportunity_id: Optional[StrictStr] = Field(default=None, alias="opportunityId")
     partner_id: Optional[StrictStr] = Field(default=None, alias="partnerId")
-    __properties: ClassVar[List[str]] = ["CreatedDate", "Description", "Dimensions", "ManufacturerAccountId", "ManufacturerLegalName", "Name", "OfferDetails", "PreExistingBuyerAgreement", "ProductId", "ProductName", "Rules", "Status", "Terms", "discountType", "opportunityDurationType", "opportunityId", "partnerId"]
+    __properties: ClassVar[List[str]] = ["CreatedDate", "Description", "Dimensions", "ManufacturerAccountId", "ManufacturerLegalName", "Name", "OfferDetails", "PreExistingBuyerAgreement", "ProductId", "ProductName", "Rules", "Status", "Terms", "discountType", "maximumAgreementStartDate", "opportunityDurationType", "opportunityId", "partnerId"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -155,6 +156,7 @@ class AwsMarketplaceCppoOpportunity(BaseModel):
             "Status": obj.get("Status"),
             "Terms": [AwsMarketplaceCppoOpportunityTerm.from_dict(_item) for _item in obj["Terms"]] if obj.get("Terms") is not None else None,
             "discountType": obj.get("discountType"),
+            "maximumAgreementStartDate": obj.get("maximumAgreementStartDate"),
             "opportunityDurationType": obj.get("opportunityDurationType"),
             "opportunityId": obj.get("opportunityId"),
             "partnerId": obj.get("partnerId")

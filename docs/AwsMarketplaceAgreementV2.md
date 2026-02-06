@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **buyer_account_id** | **str** | The AWS Account Id of the buyer in AWS Marketplace | [optional] 
 **end_time** | **datetime** |  | [optional] 
 **offer_id** | **str** | AWS Marketplace Offer Id | [optional] 
+**offer_set_id** | **str** | AWS Marketplace OfferSet Id, available for agreements originated from an offer associated with an offerSet. | [optional] 
 **product_id** | **str** | AWS Marketplace Product Id | [optional] 
 **product_type** | **str** |  | [optional] 
 **seller_account_id** | **str** | The AWS Account Id of the seller in AWS Marketplace | [optional] 

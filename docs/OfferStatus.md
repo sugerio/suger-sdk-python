@@ -31,6 +31,10 @@
 
 * `OfferStatus_PENDING_ACCEPTANCE` (value: `'PENDING_ACCEPTANCE'`)
 
+* `OfferStatus_ACCEPT_PENDING` (value: `'ACCEPT_PENDING'`)
+
+* `OfferStatus_ACCEPT_FAILED` (value: `'ACCEPT_FAILED'`)
+
 * `OfferStatus_PENDING_CANCEL` (value: `'PENDING_CANCEL'`)
 
 * `OfferStatus_PENDING_CREATE` (value: `'PENDING_CREATE'`)
@@ -52,6 +56,12 @@
 * `OfferStatus_UPDATE_SUCCESS` (value: `'UPDATE_SUCCESS'`)
 
 * `OfferStatus_USED` (value: `'USED'`)
+
+* `OfferStatus_PENDING_PARTNER_ACTION` (value: `'PENDING_PARTNER_ACTION'`)
+
+* `OfferStatus_VOID` (value: `'VOID'`)
+
+* `OfferStatus_PENDING_MARKETPLACE_APPROVAL` (value: `'PENDING_MARKETPLACE_APPROVAL'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

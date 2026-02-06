@@ -26,6 +26,7 @@ from suger_sdk_python.models.billing_invoice_info import BillingInvoiceInfo
 from suger_sdk_python.models.billing_invoice_status import BillingInvoiceStatus
 from suger_sdk_python.models.billing_invoice_type import BillingInvoiceType
 from suger_sdk_python.models.billing_payment_status import BillingPaymentStatus
+from suger_sdk_python.models.partner import Partner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -37,16 +38,18 @@ class BillingInvoice(BaseModel):
     creation_time: Optional[datetime] = Field(default=None, alias="creationTime")
     end_date: Optional[datetime] = Field(default=None, alias="endDate")
     entitlement_id: Optional[Annotated[str, Field(strict=True, max_length=36)]] = Field(default=None, alias="entitlementID")
-    id: Optional[Annotated[str, Field(strict=True, max_length=36)]] = None
+    external_id: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(default=None, alias="externalID")
+    id: Optional[Annotated[str, Field(strict=True, max_length=50)]] = None
     info: Optional[BillingInvoiceInfo] = None
     invoice_url: Optional[StrictStr] = Field(default=None, description="The invoice file URL, provided as AWS S3 presigned URL with expiration time. Output only.", alias="invoiceURL")
     last_update_time: Optional[datetime] = Field(default=None, alias="lastUpdateTime")
     organization_id: Optional[StrictStr] = Field(default=None, alias="organizationID")
+    partner: Optional[Partner] = None
     payment_status: Optional[BillingPaymentStatus] = Field(default=None, alias="paymentStatus")
     start_date: Optional[datetime] = Field(default=None, alias="startDate")
     status: Optional[BillingInvoiceStatus] = None
     type: Optional[BillingInvoiceType] = None
-    __properties: ClassVar[List[str]] = ["buyerID", "creationTime", "endDate", "entitlementID", "id", "info", "invoiceURL", "lastUpdateTime", "organizationID", "paymentStatus", "startDate", "status", "type"]
+    __properties: ClassVar[List[str]] = ["buyerID", "creationTime", "endDate", "entitlementID", "externalID", "id", "info", "invoiceURL", "lastUpdateTime", "organizationID", "partner", "paymentStatus", "startDate", "status", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -106,11 +109,13 @@ class BillingInvoice(BaseModel):
             "creationTime": obj.get("creationTime"),
             "endDate": obj.get("endDate"),
             "entitlementID": obj.get("entitlementID"),
+            "externalID": obj.get("externalID"),
             "id": obj.get("id"),
             "info": BillingInvoiceInfo.from_dict(obj["info"]) if obj.get("info") is not None else None,
             "invoiceURL": obj.get("invoiceURL"),
             "lastUpdateTime": obj.get("lastUpdateTime"),
             "organizationID": obj.get("organizationID"),
+            "partner": obj.get("partner"),
             "paymentStatus": obj.get("paymentStatus"),
             "startDate": obj.get("startDate"),
             "status": obj.get("status"),

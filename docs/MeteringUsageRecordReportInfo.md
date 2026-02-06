@@ -6,10 +6,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aggregated_billable_records** | [**List[AggregatedMeteringUsageRecord]**](AggregatedMeteringUsageRecord.md) | The aggregated billable records from the usage metering API v2. | [optional] 
-**alibaba_metering_request** | [**ClientPushMeteringDataRequest**](ClientPushMeteringDataRequest.md) | The raw request to call Alibaba metering service. | [optional] 
-**alibaba_metering_response** | [**ClientPushMeteringDataResponseBody**](ClientPushMeteringDataResponseBody.md) | The raw response from Alibaba metering service. | [optional] 
+**aggregated_usage_allocations** | **Dict[str, List[UsageAllocation]]** | The aggregated usage allocations | [optional] 
+**alibaba_international_metering_request** | [**GithubComAlibabacloudGoMarketplaceintl20221230ClientPushMeteringDataRequest**](GithubComAlibabacloudGoMarketplaceintl20221230ClientPushMeteringDataRequest.md) | The raw request to call Alibaba International metering service. | [optional] 
+**alibaba_international_metering_response** | [**GithubComAlibabacloudGoMarketplaceintl20221230ClientPushMeteringDataResponseBody**](GithubComAlibabacloudGoMarketplaceintl20221230ClientPushMeteringDataResponseBody.md) | The raw response from Alibaba International metering service. | [optional] 
+**alibaba_metering_request** | [**GithubComAlibabacloudGoMarket20151101V3ClientPushMeteringDataRequest**](GithubComAlibabacloudGoMarket20151101V3ClientPushMeteringDataRequest.md) | The raw request to call Alibaba metering service. | [optional] 
+**alibaba_metering_response** | [**GithubComAlibabacloudGoMarket20151101V3ClientPushMeteringDataResponseBody**](GithubComAlibabacloudGoMarket20151101V3ClientPushMeteringDataResponseBody.md) | The raw response from Alibaba metering service. | [optional] 
 **aws_metering_request** | [**AwsMarketplaceMeteringBatchMeterUsageInput**](AwsMarketplaceMeteringBatchMeterUsageInput.md) | The raw request to call AWS metering service. | [optional] 
-**aws_metering_response** | [**MarketplacemeteringBatchMeterUsageOutput**](MarketplacemeteringBatchMeterUsageOutput.md) | The raw response from AWS metering service. | [optional] 
+**aws_metering_response** | [**GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringBatchMeterUsageOutput**](GithubComAwsAwsSdkGoV2ServiceMarketplacemeteringBatchMeterUsageOutput.md) | The raw response from AWS metering service. | [optional] 
 **azure_metering_request** | [**AzureMarketplaceMeteringBatchUsageEvent**](AzureMarketplaceMeteringBatchUsageEvent.md) | The raw request to call Azure metering service. | [optional] 
 **azure_metering_response** | [**GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse**](GithubComSugerioMarketplaceServiceThirdPartyAzureSdkMarketplacemeteringv1BatchUsageEventOkResponse.md) | The raw response from Azure metering service. | [optional] 
 **commit_amount** | **float** | The amount of the commit if applicable. | [optional] 

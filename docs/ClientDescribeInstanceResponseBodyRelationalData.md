@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**service_status** | **str** |  | [optional] 
+**service_status** | **str** | example:  STARTED | [optional] 
 
 ## Example
 

@@ -29,8 +29,9 @@ class AzureMarketplacePrice(BaseModel):
     """ # noqa: E501
     currency: Optional[StrictStr] = Field(default=None, description="ISO 4217 currency code")
     markets: Optional[List[StrictStr]] = Field(default=None, description="PriceAndAvailability audience definition")
-    price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Prices   interface{} `json:\"prices,omitempty\"`")
-    __properties: ClassVar[List[str]] = ["currency", "markets", "price"]
+    price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="default 0, for other pricing models")
+    prices: Optional[Dict[str, Any]] = Field(default=None, description="For perMarketAndCoreSize pricing model")
+    __properties: ClassVar[List[str]] = ["currency", "markets", "price", "prices"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,7 +86,8 @@ class AzureMarketplacePrice(BaseModel):
         _obj = cls.model_validate({
             "currency": obj.get("currency"),
             "markets": obj.get("markets"),
-            "price": obj.get("price")
+            "price": obj.get("price"),
+            "prices": obj.get("prices")
         })
         return _obj
 

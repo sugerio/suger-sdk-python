@@ -24,6 +24,7 @@ from suger_sdk_python.models.snowflake_marketplace_product_default_pricing_plan 
 from suger_sdk_python.models.snowflake_marketplace_product_detailed_target_account import SnowflakeMarketplaceProductDetailedTargetAccount
 from suger_sdk_python.models.snowflake_marketplace_product_metadata import SnowflakeMarketplaceProductMetadata
 from suger_sdk_python.models.snowflake_marketplace_product_pricing_plan import SnowflakeMarketplaceProductPricingPlan
+from suger_sdk_python.models.snowflake_marketplace_product_type import SnowflakeMarketplaceProductType
 from suger_sdk_python.models.snowflake_marketplace_trial_details import SnowflakeMarketplaceTrialDetails
 from typing import Optional, Set
 from typing_extensions import Self
@@ -53,9 +54,11 @@ class SnowflakeMarketplaceProduct(BaseModel):
     last_submitted_on: Optional[StrictStr] = Field(default=None, alias="lastSubmittedOn")
     listing_type: Optional[StrictStr] = Field(default=None, alias="listingType")
     metadata: Optional[SnowflakeMarketplaceProductMetadata] = None
+    monetization_version: Optional[StrictStr] = Field(default=None, alias="monetizationVersion")
     name: Optional[StrictStr] = None
     pricing_plans: Optional[List[SnowflakeMarketplaceProductPricingPlan]] = Field(default=None, alias="pricingPlans")
     private: Optional[StrictBool] = None
+    product_types: Optional[List[SnowflakeMarketplaceProductType]] = Field(default=None, alias="productTypes")
     profile_name: Optional[StrictStr] = Field(default=None, alias="profileName")
     publish_on_approval: Optional[StrictBool] = Field(default=None, alias="publishOnApproval")
     regions: Optional[StrictStr] = None
@@ -70,7 +73,7 @@ class SnowflakeMarketplaceProduct(BaseModel):
     trial_details: Optional[SnowflakeMarketplaceTrialDetails] = Field(default=None, alias="trialDetails")
     unpublished_by_admin_reason: Optional[StrictStr] = Field(default=None, alias="unpublishedByAdminReason")
     updated_on: Optional[StrictStr] = Field(default=None, alias="updatedOn")
-    __properties: ClassVar[List[str]] = ["additionalRegions", "applicationPackageName", "attachedShare", "autofulfillment", "comment", "createdOn", "customizedContactInfo", "defaultPricingPlan", "detailedTargetAccounts", "distribution", "evaluationPlan", "firstPublishedOn", "flags", "fulfillmentType", "globalName", "isMountlessQueryable", "lastApprovedOn", "lastPublishedOn", "lastSubmittedOn", "listingType", "metadata", "name", "pricingPlans", "private", "profileName", "publishOnApproval", "regions", "rejectedOn", "rejectedReason", "replicationSchedule", "retiredOn", "scheduledDropTime", "shareType", "state", "targetAccounts", "trialDetails", "unpublishedByAdminReason", "updatedOn"]
+    __properties: ClassVar[List[str]] = ["additionalRegions", "applicationPackageName", "attachedShare", "autofulfillment", "comment", "createdOn", "customizedContactInfo", "defaultPricingPlan", "detailedTargetAccounts", "distribution", "evaluationPlan", "firstPublishedOn", "flags", "fulfillmentType", "globalName", "isMountlessQueryable", "lastApprovedOn", "lastPublishedOn", "lastSubmittedOn", "listingType", "metadata", "monetizationVersion", "name", "pricingPlans", "private", "productTypes", "profileName", "publishOnApproval", "regions", "rejectedOn", "rejectedReason", "replicationSchedule", "retiredOn", "scheduledDropTime", "shareType", "state", "targetAccounts", "trialDetails", "unpublishedByAdminReason", "updatedOn"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -131,6 +134,13 @@ class SnowflakeMarketplaceProduct(BaseModel):
                 if _item_pricing_plans:
                     _items.append(_item_pricing_plans.to_dict())
             _dict['pricingPlans'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in product_types (list)
+        _items = []
+        if self.product_types:
+            for _item_product_types in self.product_types:
+                if _item_product_types:
+                    _items.append(_item_product_types.to_dict())
+            _dict['productTypes'] = _items
         # override the default output from pydantic by calling `to_dict()` of trial_details
         if self.trial_details:
             _dict['trialDetails'] = self.trial_details.to_dict()
@@ -167,9 +177,11 @@ class SnowflakeMarketplaceProduct(BaseModel):
             "lastSubmittedOn": obj.get("lastSubmittedOn"),
             "listingType": obj.get("listingType"),
             "metadata": SnowflakeMarketplaceProductMetadata.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None,
+            "monetizationVersion": obj.get("monetizationVersion"),
             "name": obj.get("name"),
             "pricingPlans": [SnowflakeMarketplaceProductPricingPlan.from_dict(_item) for _item in obj["pricingPlans"]] if obj.get("pricingPlans") is not None else None,
             "private": obj.get("private"),
+            "productTypes": [SnowflakeMarketplaceProductType.from_dict(_item) for _item in obj["productTypes"]] if obj.get("productTypes") is not None else None,
             "profileName": obj.get("profileName"),
             "publishOnApproval": obj.get("publishOnApproval"),
             "regions": obj.get("regions"),

@@ -20,9 +20,9 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_orm_notification_message import GithubComSugerioMarketplaceServicePkgOrmNotificationMessage
 from suger_sdk_python.models.list_notification_events_response import ListNotificationEventsResponse
 from suger_sdk_python.models.list_notification_messages_response import ListNotificationMessagesResponse
-from suger_sdk_python.models.notification_message import NotificationMessage
 
 from suger_sdk_python.api_client import ApiClient, RequestSerialized
 from suger_sdk_python.api_response import ApiResponse
@@ -59,7 +59,7 @@ class NotificationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> NotificationMessage:
+    ) -> GithubComSugerioMarketplaceServicePkgOrmNotificationMessage:
         """get notification message
 
         Get the notification message of the organization & notification message ID.
@@ -100,7 +100,7 @@ class NotificationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NotificationMessage",
+            '200': "GithubComSugerioMarketplaceServicePkgOrmNotificationMessage",
             '400': "str",
             '500': "str",
         }
@@ -132,7 +132,7 @@ class NotificationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[NotificationMessage]:
+    ) -> ApiResponse[GithubComSugerioMarketplaceServicePkgOrmNotificationMessage]:
         """get notification message
 
         Get the notification message of the organization & notification message ID.
@@ -173,7 +173,7 @@ class NotificationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NotificationMessage",
+            '200': "GithubComSugerioMarketplaceServicePkgOrmNotificationMessage",
             '400': "str",
             '500': "str",
         }
@@ -246,7 +246,7 @@ class NotificationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NotificationMessage",
+            '200': "GithubComSugerioMarketplaceServicePkgOrmNotificationMessage",
             '400': "str",
             '500': "str",
         }
@@ -333,6 +333,7 @@ class NotificationApi:
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         priorities: Annotated[Optional[StrictStr], Field(description="Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.")] = None,
+        message: Annotated[Optional[StrictStr], Field(description="Filter by event message containing the specified string, case-insensitive.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -362,6 +363,8 @@ class NotificationApi:
         :type offset: int
         :param priorities: Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.
         :type priorities: str
+        :param message: Filter by event message containing the specified string, case-insensitive.
+        :type message: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -391,6 +394,7 @@ class NotificationApi:
             limit=limit,
             offset=offset,
             priorities=priorities,
+            message=message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -422,6 +426,7 @@ class NotificationApi:
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         priorities: Annotated[Optional[StrictStr], Field(description="Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.")] = None,
+        message: Annotated[Optional[StrictStr], Field(description="Filter by event message containing the specified string, case-insensitive.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -451,6 +456,8 @@ class NotificationApi:
         :type offset: int
         :param priorities: Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.
         :type priorities: str
+        :param message: Filter by event message containing the specified string, case-insensitive.
+        :type message: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -480,6 +487,7 @@ class NotificationApi:
             limit=limit,
             offset=offset,
             priorities=priorities,
+            message=message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -511,6 +519,7 @@ class NotificationApi:
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         priorities: Annotated[Optional[StrictStr], Field(description="Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.")] = None,
+        message: Annotated[Optional[StrictStr], Field(description="Filter by event message containing the specified string, case-insensitive.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -540,6 +549,8 @@ class NotificationApi:
         :type offset: int
         :param priorities: Filter by priorities, empty means HIGH and CRITICAL only. Valid values are: LOW, MEDIUM, HIGH, CRITICAL. Multiple values are supported, separated by comma.
         :type priorities: str
+        :param message: Filter by event message containing the specified string, case-insensitive.
+        :type message: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -569,6 +580,7 @@ class NotificationApi:
             limit=limit,
             offset=offset,
             priorities=priorities,
+            message=message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -595,6 +607,7 @@ class NotificationApi:
         limit,
         offset,
         priorities,
+        message,
         _request_auth,
         _content_type,
         _headers,
@@ -638,6 +651,10 @@ class NotificationApi:
         if priorities is not None:
             
             _query_params.append(('priorities', priorities))
+            
+        if message is not None:
+            
+            _query_params.append(('message', message))
             
         # process the header parameters
         # process the form parameters
@@ -1012,6 +1029,7 @@ class NotificationApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
+        keyword: Annotated[Optional[StrictStr], Field(description="Keyword to search in subject/content")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
             None,
@@ -1028,12 +1046,14 @@ class NotificationApi:
     ) -> ListNotificationMessagesResponse:
         """list notification messages
 
-        List the notification messages of the given organization with pagination.
+        List or search the notification messages of the given organization with pagination.
 
         :param org_id: Organization ID (required)
         :type org_id: str
         :param limit: List pagination size, default 1000, max value is 1000
         :type limit: int
+        :param keyword: Keyword to search in subject/content
+        :type keyword: str
         :param offset: List pagination offset, default 0
         :type offset: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1061,6 +1081,7 @@ class NotificationApi:
         _param = self._list_notification_messages_serialize(
             org_id=org_id,
             limit=limit,
+            keyword=keyword,
             offset=offset,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1089,6 +1110,7 @@ class NotificationApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
+        keyword: Annotated[Optional[StrictStr], Field(description="Keyword to search in subject/content")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
             None,
@@ -1105,12 +1127,14 @@ class NotificationApi:
     ) -> ApiResponse[ListNotificationMessagesResponse]:
         """list notification messages
 
-        List the notification messages of the given organization with pagination.
+        List or search the notification messages of the given organization with pagination.
 
         :param org_id: Organization ID (required)
         :type org_id: str
         :param limit: List pagination size, default 1000, max value is 1000
         :type limit: int
+        :param keyword: Keyword to search in subject/content
+        :type keyword: str
         :param offset: List pagination offset, default 0
         :type offset: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1138,6 +1162,7 @@ class NotificationApi:
         _param = self._list_notification_messages_serialize(
             org_id=org_id,
             limit=limit,
+            keyword=keyword,
             offset=offset,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1166,6 +1191,7 @@ class NotificationApi:
         self,
         org_id: Annotated[StrictStr, Field(description="Organization ID")],
         limit: Annotated[Optional[StrictInt], Field(description="List pagination size, default 1000, max value is 1000")] = None,
+        keyword: Annotated[Optional[StrictStr], Field(description="Keyword to search in subject/content")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="List pagination offset, default 0")] = None,
         _request_timeout: Union[
             None,
@@ -1182,12 +1208,14 @@ class NotificationApi:
     ) -> RESTResponseType:
         """list notification messages
 
-        List the notification messages of the given organization with pagination.
+        List or search the notification messages of the given organization with pagination.
 
         :param org_id: Organization ID (required)
         :type org_id: str
         :param limit: List pagination size, default 1000, max value is 1000
         :type limit: int
+        :param keyword: Keyword to search in subject/content
+        :type keyword: str
         :param offset: List pagination offset, default 0
         :type offset: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1215,6 +1243,7 @@ class NotificationApi:
         _param = self._list_notification_messages_serialize(
             org_id=org_id,
             limit=limit,
+            keyword=keyword,
             offset=offset,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1238,6 +1267,7 @@ class NotificationApi:
         self,
         org_id,
         limit,
+        keyword,
         offset,
         _request_auth,
         _content_type,
@@ -1266,6 +1296,10 @@ class NotificationApi:
         if limit is not None:
             
             _query_params.append(('limit', limit))
+            
+        if keyword is not None:
+            
+            _query_params.append(('keyword', keyword))
             
         if offset is not None:
             

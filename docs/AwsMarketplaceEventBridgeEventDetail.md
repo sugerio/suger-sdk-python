@@ -5,6 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**acceptor** | [**AwsMarketplaceEventBridgeEventAccount**](AwsMarketplaceEventBridgeEventAccount.md) |  | [optional] 
+**agreement** | [**AwsMarketplaceEventBridgeEventAgreement**](AwsMarketplaceEventBridgeEventAgreement.md) |  | [optional] 
 **catalog** | **str** |  | [optional] 
 **event_category** | **str** |  | [optional] 
 **event_id** | **str** |  | [optional] 
@@ -12,12 +14,15 @@ Name | Type | Description | Notes
 **event_source** | **str** |  | [optional] 
 **event_type** | **str** |  | [optional] 
 **event_version** | **str** |  | [optional] 
+**license** | [**AwsMarketplaceEventBridgeEventLicense**](AwsMarketplaceEventBridgeEventLicense.md) |  | [optional] 
 **management_event** | **bool** |  | [optional] 
 **manufacturer** | [**AwsMarketplaceEventBridgeEventAccount**](AwsMarketplaceEventBridgeEventAccount.md) | The seller/ISV&#39;s AWS Account Id. | [optional] 
 **offer** | [**AwsMarketplaceEventBridgeEventOffer**](AwsMarketplaceEventBridgeEventOffer.md) |  | [optional] 
 **product** | [**AwsMarketplaceEventBridgeEventProduct**](AwsMarketplaceEventBridgeEventProduct.md) |  | [optional] 
+**proposer** | [**AwsMarketplaceEventBridgeEventAccount**](AwsMarketplaceEventBridgeEventAccount.md) |  | [optional] 
 **request_id** | **str** |  | [optional] 
 **request_parameters** | **object** |  | [optional] 
+**resale_authorization** | [**AwsMarketplaceEventBridgeEventResaleAuthorization**](AwsMarketplaceEventBridgeEventResaleAuthorization.md) |  | [optional] 
 **response_elements** | **object** |  | [optional] 
 **seller_of_record** | [**AwsMarketplaceEventBridgeEventAccount**](AwsMarketplaceEventBridgeEventAccount.md) | For private offer created by a channel partner, this is the channel partner&#39;s AWS Account Id. For private offer created by a seller/ISV, this is the seller/ISV&#39;s AWS Account Id. | [optional] 
 **targeted_buyer_account_ids** | **List[str]** |  | [optional] 

@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from suger_sdk_python.models.azure_marketplace_term import AzureMarketplaceTerm
-from suger_sdk_python.models.azure_marketplace_vm_price import AzureMarketplaceVmPrice
+from suger_sdk_python.models.azure_marketplace_vm_price_property_item import AzureMarketplaceVmPricePropertyItem
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +31,7 @@ class AzureMarketplacePriceAndAvailabilityPrivateOfferPlanSoftwareReservation(Ba
     """ # noqa: E501
     payment_schedule: Optional[AzureMarketplaceTerm] = Field(default=None, alias="paymentSchedule")
     reservation_duration: Optional[AzureMarketplaceTerm] = Field(default=None, alias="reservationDuration")
-    vm_prices: Optional[AzureMarketplaceVmPrice] = Field(default=None, alias="vmPrices")
+    vm_prices: Optional[Dict[str, AzureMarketplaceVmPricePropertyItem]] = Field(default=None, alias="vmPrices")
     __properties: ClassVar[List[str]] = ["paymentSchedule", "reservationDuration", "vmPrices"]
 
     model_config = ConfigDict(
@@ -79,9 +79,13 @@ class AzureMarketplacePriceAndAvailabilityPrivateOfferPlanSoftwareReservation(Ba
         # override the default output from pydantic by calling `to_dict()` of reservation_duration
         if self.reservation_duration:
             _dict['reservationDuration'] = self.reservation_duration.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of vm_prices
+        # override the default output from pydantic by calling `to_dict()` of each value in vm_prices (dict)
+        _field_dict = {}
         if self.vm_prices:
-            _dict['vmPrices'] = self.vm_prices.to_dict()
+            for _key_vm_prices in self.vm_prices:
+                if self.vm_prices[_key_vm_prices]:
+                    _field_dict[_key_vm_prices] = self.vm_prices[_key_vm_prices].to_dict()
+            _dict['vmPrices'] = _field_dict
         return _dict
 
     @classmethod
@@ -96,7 +100,12 @@ class AzureMarketplacePriceAndAvailabilityPrivateOfferPlanSoftwareReservation(Ba
         _obj = cls.model_validate({
             "paymentSchedule": AzureMarketplaceTerm.from_dict(obj["paymentSchedule"]) if obj.get("paymentSchedule") is not None else None,
             "reservationDuration": AzureMarketplaceTerm.from_dict(obj["reservationDuration"]) if obj.get("reservationDuration") is not None else None,
-            "vmPrices": AzureMarketplaceVmPrice.from_dict(obj["vmPrices"]) if obj.get("vmPrices") is not None else None
+            "vmPrices": dict(
+                (_k, AzureMarketplaceVmPricePropertyItem.from_dict(_v))
+                for _k, _v in obj["vmPrices"].items()
+            )
+            if obj.get("vmPrices") is not None
+            else None
         })
         return _obj
 

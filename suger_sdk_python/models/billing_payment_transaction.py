@@ -38,6 +38,7 @@ class BillingPaymentTransaction(BaseModel):
     creation_time: Optional[datetime] = Field(default=None, alias="creationTime")
     currency: Optional[StrictStr] = None
     entitlement_id: Optional[StrictStr] = Field(default=None, alias="entitlementID")
+    external_id: Optional[StrictStr] = Field(default=None, alias="externalID")
     id: Optional[StrictStr] = None
     info: Optional[BillingPaymentTransactionInfo] = None
     invoice_id: Optional[StrictStr] = Field(default=None, alias="invoiceID")
@@ -45,11 +46,13 @@ class BillingPaymentTransaction(BaseModel):
     organization_id: Optional[StrictStr] = Field(default=None, alias="organizationID")
     parent_id: Optional[StrictStr] = Field(default=None, alias="parentID")
     partner: Optional[Partner] = None
+    payment_method_description: Optional[StrictStr] = Field(default=None, alias="paymentMethodDescription")
+    payment_method_type: Optional[StrictStr] = Field(default=None, alias="paymentMethodType")
     status: Optional[BillingPaymentStatus] = None
     type: Optional[BillingPaymentTransactionType] = None
     wallet_id: Optional[StrictStr] = Field(default=None, alias="walletID")
     wallet_type: Optional[BillingWalletType] = Field(default=None, alias="walletType")
-    __properties: ClassVar[List[str]] = ["amount", "buyerID", "creationTime", "currency", "entitlementID", "id", "info", "invoiceID", "lastUpdateTime", "organizationID", "parentID", "partner", "status", "type", "walletID", "walletType"]
+    __properties: ClassVar[List[str]] = ["amount", "buyerID", "creationTime", "currency", "entitlementID", "externalID", "id", "info", "invoiceID", "lastUpdateTime", "organizationID", "parentID", "partner", "paymentMethodDescription", "paymentMethodType", "status", "type", "walletID", "walletType"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -110,6 +113,7 @@ class BillingPaymentTransaction(BaseModel):
             "creationTime": obj.get("creationTime"),
             "currency": obj.get("currency"),
             "entitlementID": obj.get("entitlementID"),
+            "externalID": obj.get("externalID"),
             "id": obj.get("id"),
             "info": BillingPaymentTransactionInfo.from_dict(obj["info"]) if obj.get("info") is not None else None,
             "invoiceID": obj.get("invoiceID"),
@@ -117,6 +121,8 @@ class BillingPaymentTransaction(BaseModel):
             "organizationID": obj.get("organizationID"),
             "parentID": obj.get("parentID"),
             "partner": obj.get("partner"),
+            "paymentMethodDescription": obj.get("paymentMethodDescription"),
+            "paymentMethodType": obj.get("paymentMethodType"),
             "status": obj.get("status"),
             "type": obj.get("type"),
             "walletID": obj.get("walletID"),

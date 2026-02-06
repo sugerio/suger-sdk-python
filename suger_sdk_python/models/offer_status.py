@@ -41,6 +41,8 @@ class OfferStatus(str, Enum):
     OfferStatus_DRAFT = 'DRAFT'
     OfferStatus_EXPIRED = 'EXPIRED'
     OfferStatus_PENDING_ACCEPTANCE = 'PENDING_ACCEPTANCE'
+    OfferStatus_ACCEPT_PENDING = 'ACCEPT_PENDING'
+    OfferStatus_ACCEPT_FAILED = 'ACCEPT_FAILED'
     OfferStatus_PENDING_CANCEL = 'PENDING_CANCEL'
     OfferStatus_PENDING_CREATE = 'PENDING_CREATE'
     OfferStatus_PENDING_UPDATE = 'PENDING_UPDATE'
@@ -52,6 +54,9 @@ class OfferStatus(str, Enum):
     OfferStatus_UPDATE_FAILED = 'UPDATE_FAILED'
     OfferStatus_UPDATE_SUCCESS = 'UPDATE_SUCCESS'
     OfferStatus_USED = 'USED'
+    OfferStatus_PENDING_PARTNER_ACTION = 'PENDING_PARTNER_ACTION'
+    OfferStatus_VOID = 'VOID'
+    OfferStatus_PENDING_MARKETPLACE_APPROVAL = 'PENDING_MARKETPLACE_APPROVAL'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

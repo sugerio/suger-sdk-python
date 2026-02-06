@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **adyen_customer_id** | **str** | Adyen customerId of this buyer. If not provided but Partner is ADYEN, will create a new customer on Adyen. | [optional] 
+**chargebee_customer_id** | **str** | The Chargebee Customer ID of the buyer. If not provided, the Chargebee Customer ID will not be updated. | [optional] 
 **company_info** | [**CompanyInfo**](CompanyInfo.md) | Optional. CompanyInfo of the buyer. | [optional] 
 **customer_id** | **str** | The customer ID to recognize the cloud marketplace buyer in your internal system. | [optional] 
 **description** | **str** | The description of the buyer. | [optional] 
@@ -15,6 +16,7 @@ Name | Type | Description | Notes
 **orb_customer_id** | **str** | Optional. The Orb Customer ID of the buyer. | [optional] 
 **partner** | [**Partner**](Partner.md) | The channel partner where this buyer is billed. Only STRIPE &amp; ADYEN are supported at the moment. | [optional] 
 **payment_config** | [**PaymentConfig**](PaymentConfig.md) | Payment config for billing. | [optional] 
+**quickbooks_customer_id** | **str** | The Quickbooks Customer ID of the buyer. If not provided, the Quickbooks Customer ID will not be updated. | [optional] 
 **stripe_customer_id** | **str** | Stripe customerId of this buyer. If not provided but Partner is STRIPE, will create a new customer on stripe. | [optional] 
 
 ## Example

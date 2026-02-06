@@ -21,12 +21,15 @@ Name | Type | Description | Notes
 **is_default** | **bool** |  | [optional] 
 **name** | **str** |  | [optional] 
 **payment_terms** | [**SnowflakeMarketplaceOfferPaymentTerms**](SnowflakeMarketplaceOfferPaymentTerms.md) |  | [optional] 
+**pricing_plan_details** | [**SnowflakeMarketplaceOfferPricingPlanDetails**](SnowflakeMarketplaceOfferPricingPlanDetails.md) | The overrides for the one time offer. It doesn&#39;t have pricing plan name | [optional] 
 **pricing_plan_name** | **str** |  | [optional] 
+**sales_motion** | **str** |  | [optional] 
 **state** | **str** |  | [optional] 
 **state_updated_on** | **str** |  | [optional] 
 **target_consumer** | **str** |  | [optional] 
 **terms_of_service** | [**SnowflakeMarketplaceOfferTermsOfService**](SnowflakeMarketplaceOfferTermsOfService.md) | terms of service: {\&quot;type\&quot;:\&quot;DEFAULT\&quot;} | [optional] 
 **updated_on** | **str** |  | [optional] 
+**version** | **str** |  | [optional] 
 
 ## Example
 

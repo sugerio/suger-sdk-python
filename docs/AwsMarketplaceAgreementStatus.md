@@ -9,6 +9,8 @@
 
 * `AwsMarketplaceAgreementStatus_CANCELLED` (value: `'CANCELLED'`)
 
+* `AwsMarketplaceAgreementStatus_CANCELED` (value: `'CANCELED'`)
+
 * `AwsMarketplaceAgreementStatus_EXPIRED` (value: `'EXPIRED'`)
 
 * `AwsMarketplaceAgreementStatus_RENEWED` (value: `'RENEWED'`)

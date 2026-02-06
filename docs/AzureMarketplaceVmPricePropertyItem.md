@@ -5,8 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**flexible_schedule** | [**AzureMarketplacePriceFlexibleSchedule**](AzureMarketplacePriceFlexibleSchedule.md) | For Azure schema 2025-05-01 flexible billing | [optional] 
 **quantity** | **float** |  | [optional] 
-**unit_price_per_payment_period_in_usd** | **float** |  | [optional] 
+**unit_price_per_payment_period_in_usd** | **float** | For VM offer, could be 0 | [optional] 
 
 ## Example
 

@@ -7,7 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency** | **str** | ISO 4217 currency code | [optional] 
 **markets** | **List[str]** | PriceAndAvailability audience definition | [optional] 
-**price** | **float** | Prices   interface{} &#x60;json:\&quot;prices,omitempty\&quot;&#x60; | [optional] 
+**price** | **float** | default 0, for other pricing models | [optional] 
+**prices** | **Dict[str, object]** | For perMarketAndCoreSize pricing model | [optional] 
 
 ## Example
 

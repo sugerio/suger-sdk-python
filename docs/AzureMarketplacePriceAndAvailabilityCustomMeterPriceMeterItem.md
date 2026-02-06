@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **included_quantities** | [**List[AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem]**](AzureMarketplacePriceAndAvailabilityCustomMeterPriceIncludedQuantityItem.md) |  | [optional] 
 **payment_option** | [**AzureMarketplaceTerm**](AzureMarketplaceTerm.md) |  | [optional] 
 **price_per_payment_in_usd** | **float** |  | [optional] 
-**prices** | [**List[AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem]**](AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItemPriceItem.md) |  | [optional] 
+**prices** | [**List[AzureMarketplacePrice]**](AzureMarketplacePrice.md) |  | [optional] 
 
 ## Example
 

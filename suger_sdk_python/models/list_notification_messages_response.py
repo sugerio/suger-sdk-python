@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from suger_sdk_python.models.notification_message import NotificationMessage
+from suger_sdk_python.models.github_com_sugerio_marketplace_service_pkg_orm_notification_message import GithubComSugerioMarketplaceServicePkgOrmNotificationMessage
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class ListNotificationMessagesResponse(BaseModel):
     ListNotificationMessagesResponse
     """ # noqa: E501
     next_offset: Optional[StrictInt] = Field(default=None, description="The next offset to use in the next request to get the next page of notification messages. If this field is null, there are no more notification messages to get.", alias="nextOffset")
-    notification_messages: Optional[List[NotificationMessage]] = Field(default=None, alias="notificationMessages")
+    notification_messages: Optional[List[GithubComSugerioMarketplaceServicePkgOrmNotificationMessage]] = Field(default=None, alias="notificationMessages")
     total_count: Optional[StrictInt] = Field(default=None, description="The total number of notification messages. Only available when the request is made with the first offset = 0.", alias="totalCount")
     __properties: ClassVar[List[str]] = ["nextOffset", "notificationMessages", "totalCount"]
 
@@ -92,7 +92,7 @@ class ListNotificationMessagesResponse(BaseModel):
 
         _obj = cls.model_validate({
             "nextOffset": obj.get("nextOffset"),
-            "notificationMessages": [NotificationMessage.from_dict(_item) for _item in obj["notificationMessages"]] if obj.get("notificationMessages") is not None else None,
+            "notificationMessages": [GithubComSugerioMarketplaceServicePkgOrmNotificationMessage.from_dict(_item) for _item in obj["notificationMessages"]] if obj.get("notificationMessages") is not None else None,
             "totalCount": obj.get("totalCount")
         })
         return _obj

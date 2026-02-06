@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**allowed_payment_methods** | **List[str]** | Allowed payment methods. Accepted values are CREDIT_CARD, INSTALLMENT. | [optional] 
 **installment_schedule** | [**SnowflakeMarketplacePlanInstallmentSchedule**](SnowflakeMarketplacePlanInstallmentSchedule.md) | The installment schedule for the offer. | [optional] 
 **payment_type** | **str** | The pricing plan payment types. Accepted values are INVOICE, CREDIT_CARD, INSTALLMENT. | [optional] 
 

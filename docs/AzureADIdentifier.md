@@ -13,7 +13,8 @@ Name | Type | Description | Notes
 **license_type** | **str** | Azure License Type | [optional] 
 **object_id** | **str** |  | [optional] 
 **puid** | **str** | ID of the user, used as External ID of suger IdentityBuyer. | [optional] 
-**tenant_id** | **str** |  | [optional] 
+**seller_id** | **str** | Azure MPO seller ID | [optional] 
+**tenant_id** | **str** | The Azure Active Directory Tenant ID of the buyer or the reseller partner ID (the same as TenantId). | [optional] 
 
 ## Example
 

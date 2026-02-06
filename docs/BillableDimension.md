@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **discount** | [**BillingDiscount**](BillingDiscount.md) | Discount for the dimension. | [optional] 
 **length** | **int** | The term length for the commit amount. Applicable to Direct only. | [optional] 
 **minimum_commit** | **float** | The minimum commit amount. Applicable to Direct only. Ignored if the value is 0 or less. | [optional] 
-**minimum_commit_prorata** | **bool** | If the minimum commit is appled with pro-rata. Applicable to Direct only. If true, the minimum commit amount will be prorated based on the usage period (starting time and ending time). | [optional] 
+**minimum_commit_prorata** | **bool** | MinimumCommitProrata enables pro-rated minimum commit billing. Applicable to Direct only. If true, the minimum commit amount will be prorated based on the entitlement period. For example, if an entitlement is only active for 10 days of a monthly billing period, only 10/30 of the minimum commit amount will be charged. | [optional] 
 **minimum_commit_scope** | [**BillingMinimumCommitScope**](BillingMinimumCommitScope.md) | The minimum commit scope. The default value is \&quot;DIMENSION\&quot; if not set. | [optional] 
 **name** | **str** | Display name of the dimension. This is used in the UI to display the dimension. | [optional] 
 **price_model_basic** | [**PriceModelBasic**](PriceModelBasic.md) | The configuration for the Basic pricing model. Applicable to Direct only. | [optional] 

@@ -31,6 +31,7 @@ class BillingInvoiceType(str, Enum):
     BillingInvoiceType_USAGE = 'USAGE'
     BillingInvoiceType_ADDON = 'ADDON'
     BillingInvoiceType_INSTALLMENT = 'INSTALLMENT'
+    BillingInvoiceType_UNKNOWN = 'UNKNOWN'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

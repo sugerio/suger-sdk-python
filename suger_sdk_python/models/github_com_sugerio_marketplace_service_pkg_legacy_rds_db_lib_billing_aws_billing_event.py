@@ -36,6 +36,7 @@ class GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent(
     billing_address_id: Optional[StrictStr] = Field(default=None, alias="billingAddressID")
     broker_id: Optional[StrictStr] = Field(default=None, alias="brokerID")
     buyer_id: Optional[StrictStr] = Field(default=None, alias="buyerID")
+    buyer_transaction_reference_id: Optional[StrictStr] = Field(default=None, alias="buyerTransactionReferenceID")
     currency: Optional[StrictStr] = None
     data_feed_product_id: Optional[StrictStr] = Field(default=None, alias="dataFeedProductID")
     disbursement_billing_event_id: Optional[StrictStr] = Field(default=None, alias="disbursementBillingEventID")
@@ -51,12 +52,13 @@ class GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent(
     parent_billing_event_id: Optional[StrictStr] = Field(default=None, alias="parentBillingEventID")
     payment_due_date: Optional[DatabaseSqlNullTime] = Field(default=None, alias="paymentDueDate")
     product_id: Optional[StrictStr] = Field(default=None, alias="productID")
+    refunded_buyer_transaction_reference_id: Optional[StrictStr] = Field(default=None, alias="refundedBuyerTransactionReferenceID")
     to_account_id: Optional[StrictStr] = Field(default=None, alias="toAccountID")
     transaction_reference_id: Optional[StrictStr] = Field(default=None, alias="transactionReferenceID")
     transaction_type: Optional[StrictStr] = Field(default=None, alias="transactionType")
     usage_period_end_date: Optional[DatabaseSqlNullTime] = Field(default=None, alias="usagePeriodEndDate")
     usage_period_start_date: Optional[DatabaseSqlNullTime] = Field(default=None, alias="usagePeriodStartDate")
-    __properties: ClassVar[List[str]] = ["action", "agreementID", "amount", "balanceImpacting", "bankTraceID", "billingAddressID", "brokerID", "buyerID", "currency", "dataFeedProductID", "disbursementBillingEventID", "endUserAccountID", "entitlementID", "fromAccountID", "id", "insertDate", "invoiceDate", "invoiceID", "offerID", "organizationID", "parentBillingEventID", "paymentDueDate", "productID", "toAccountID", "transactionReferenceID", "transactionType", "usagePeriodEndDate", "usagePeriodStartDate"]
+    __properties: ClassVar[List[str]] = ["action", "agreementID", "amount", "balanceImpacting", "bankTraceID", "billingAddressID", "brokerID", "buyerID", "buyerTransactionReferenceID", "currency", "dataFeedProductID", "disbursementBillingEventID", "endUserAccountID", "entitlementID", "fromAccountID", "id", "insertDate", "invoiceDate", "invoiceID", "offerID", "organizationID", "parentBillingEventID", "paymentDueDate", "productID", "refundedBuyerTransactionReferenceID", "toAccountID", "transactionReferenceID", "transactionType", "usagePeriodEndDate", "usagePeriodStartDate"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -132,6 +134,7 @@ class GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent(
             "billingAddressID": obj.get("billingAddressID"),
             "brokerID": obj.get("brokerID"),
             "buyerID": obj.get("buyerID"),
+            "buyerTransactionReferenceID": obj.get("buyerTransactionReferenceID"),
             "currency": obj.get("currency"),
             "dataFeedProductID": obj.get("dataFeedProductID"),
             "disbursementBillingEventID": obj.get("disbursementBillingEventID"),
@@ -147,6 +150,7 @@ class GithubComSugerioMarketplaceServicePkgLegacyRdsDbLibBillingAwsBillingEvent(
             "parentBillingEventID": obj.get("parentBillingEventID"),
             "paymentDueDate": DatabaseSqlNullTime.from_dict(obj["paymentDueDate"]) if obj.get("paymentDueDate") is not None else None,
             "productID": obj.get("productID"),
+            "refundedBuyerTransactionReferenceID": obj.get("refundedBuyerTransactionReferenceID"),
             "toAccountID": obj.get("toAccountID"),
             "transactionReferenceID": obj.get("transactionReferenceID"),
             "transactionType": obj.get("transactionType"),

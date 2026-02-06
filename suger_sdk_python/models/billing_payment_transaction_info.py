@@ -21,6 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
+from suger_sdk_python.models.aws_payment_transaction import AwsPaymentTransaction
 from suger_sdk_python.models.stripe_balance_transaction import StripeBalanceTransaction
 from suger_sdk_python.models.stripe_dispute import StripeDispute
 from suger_sdk_python.models.stripe_error import StripeError
@@ -33,6 +34,7 @@ class BillingPaymentTransactionInfo(BaseModel):
     """
     BillingPaymentTransactionInfo
     """ # noqa: E501
+    aws_payment_transaction: Optional[AwsPaymentTransaction] = Field(default=None, description="The aws payment transaction.", alias="awsPaymentTransaction")
     invoice_date: Optional[datetime] = Field(default=None, description="The invoice issue date.", alias="invoiceDate")
     refund_exists: Optional[StrictBool] = Field(default=None, description="Refund flag marks whether the transaction has any refund records.", alias="refundExists")
     stripe_balance_transaction: Optional[StripeBalanceTransaction] = Field(default=None, description="Balance transaction that describes the impact of this charge on your account balance.", alias="stripeBalanceTransaction")
@@ -40,7 +42,7 @@ class BillingPaymentTransactionInfo(BaseModel):
     stripe_error: Optional[StripeError] = Field(default=None, description="Error of stripe API call", alias="stripeError")
     stripe_payment_intent: Optional[StripePaymentIntent] = Field(default=None, description="Stripe payment intent result, got by PaymentIntent API", alias="stripePaymentIntent")
     stripe_refund: Optional[StripeRefund] = Field(default=None, description="Stripe refund result, got by Refund API", alias="stripeRefund")
-    __properties: ClassVar[List[str]] = ["invoiceDate", "refundExists", "stripeBalanceTransaction", "stripeDisputes", "stripeError", "stripePaymentIntent", "stripeRefund"]
+    __properties: ClassVar[List[str]] = ["awsPaymentTransaction", "invoiceDate", "refundExists", "stripeBalanceTransaction", "stripeDisputes", "stripeError", "stripePaymentIntent", "stripeRefund"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +83,9 @@ class BillingPaymentTransactionInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of aws_payment_transaction
+        if self.aws_payment_transaction:
+            _dict['awsPaymentTransaction'] = self.aws_payment_transaction.to_dict()
         # override the default output from pydantic by calling `to_dict()` of stripe_balance_transaction
         if self.stripe_balance_transaction:
             _dict['stripeBalanceTransaction'] = self.stripe_balance_transaction.to_dict()
@@ -112,6 +117,7 @@ class BillingPaymentTransactionInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "awsPaymentTransaction": AwsPaymentTransaction.from_dict(obj["awsPaymentTransaction"]) if obj.get("awsPaymentTransaction") is not None else None,
             "invoiceDate": obj.get("invoiceDate"),
             "refundExists": obj.get("refundExists"),
             "stripeBalanceTransaction": StripeBalanceTransaction.from_dict(obj["stripeBalanceTransaction"]) if obj.get("stripeBalanceTransaction") is not None else None,
